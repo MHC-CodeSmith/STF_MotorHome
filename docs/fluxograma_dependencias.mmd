@@ -1,0 +1,178 @@
+flowchart TD
+  BASE["Requisitos e parâmetros globais"]
+  subgraph P1["P1: Estrutura, freios, massa e custos"]
+    I01["01 • Nome e conceito do veículo"]
+    I02["02 • Pneus e rodas"]
+    I03["03 • Sistema de freios"]
+    I14["14 • Suspensão e direção"]
+    I15["15 • Chassi"]
+    I18["18 • Massa total com passageiros"]
+    I24["24 • Custo total dos materiais"]
+    I33["33 • Freio: campo térmico multidimensional"]
+  end
+  subgraph P2["P2: Bateria, elétrica e fios"]
+    I06["06 • Bateria"]
+    I07["07 • Fiação elétrica"]
+    I09["09 • Controladores de carga e inversores"]
+    I23["23 • Capacidade das baterias (kWh)"]
+    I30["30 • Temperatura de cabos multidimensional"]
+  end
+  subgraph P3["P3: Carroceria, CAD e CFD"]
+    I16["16 • Carenagem, portas, vidros"]
+    I17["17 • CAD 3D e vistas cotadas"]
+    I19["19 • Coeficiente de arrasto e CFD"]
+  end
+  subgraph P4["P4: Motor, transmissão e dinâmica"]
+    I04["04 • Motor elétrico"]
+    I05["05 • Transmissão"]
+    I20["20 • Resistência de rolamento"]
+    I21["21 • Forças resistivas versus velocidade"]
+    I22["22 • Potência resistiva e tração"]
+    I28["28 • Velocidade máxima e 0–100 km/h"]
+  end
+  subgraph P5["P5: Solar, autonomia e viagem"]
+    I08["08 • Painel fotovoltaico"]
+    I25["25 • Autonomia usando somente solar"]
+    I26["26 • Consumo (km/kWh)"]
+    I27["27 • Autonomia diária com SOC final 30%"]
+    I29["29 • Otimização viagem 7000 km"]
+  end
+  subgraph P6["P6: Interior, conforto e cabine"]
+    I11["11 • HVAC e ventilação interna"]
+    I13["13 • Materiais e equipamentos internos"]
+    I31["31 • Cabine fechada ao meio-dia"]
+    I32["32 • Potência térmica de A/C"]
+  end
+  subgraph P7["P7: Bateria térmica e arrefecimento"]
+    I10["10 • Resfriamento de componentes elétricos"]
+    I12["12 • Sistema de lubrificação"]
+    I34["34 • Temperatura da bateria em carga"]
+    I35["35 • Bomba, radiador e vazão"]
+  end
+  BASE --> I01
+  I15 --> I02
+  I02 --> I03
+  I15 --> I03
+  I15 --> I04
+  I04 --> I05
+  I02 --> I05
+  I04 --> I06
+  I04 --> I07
+  I06 --> I07
+  I09 --> I07
+  I17 --> I08
+  I06 --> I09
+  I08 --> I09
+  I04 --> I10
+  I06 --> I10
+  I09 --> I10
+  I13 --> I11
+  I16 --> I11
+  I17 --> I11
+  I04 --> I12
+  I05 --> I12
+  I15 --> I13
+  I16 --> I13
+  I15 --> I14
+  I02 --> I14
+  I01 --> I15
+  I15 --> I16
+  I15 --> I17
+  I16 --> I17
+  I13 --> I17
+  I02 --> I18
+  I03 --> I18
+  I04 --> I18
+  I05 --> I18
+  I06 --> I18
+  I08 --> I18
+  I09 --> I18
+  I11 --> I18
+  I12 --> I18
+  I13 --> I18
+  I14 --> I18
+  I15 --> I18
+  I16 --> I18
+  I17 --> I18
+  I17 --> I19
+  I02 --> I20
+  I18 --> I20
+  I18 --> I21
+  I19 --> I21
+  I20 --> I21
+  I04 --> I22
+  I05 --> I22
+  I21 --> I22
+  I06 --> I23
+  I08 --> I23
+  I13 --> I23
+  I22 --> I23
+  I02 --> I24
+  I03 --> I24
+  I04 --> I24
+  I05 --> I24
+  I06 --> I24
+  I07 --> I24
+  I08 --> I24
+  I09 --> I24
+  I10 --> I24
+  I11 --> I24
+  I12 --> I24
+  I13 --> I24
+  I14 --> I24
+  I15 --> I24
+  I16 --> I24
+  I18 --> I24
+  I08 --> I25
+  I09 --> I25
+  I22 --> I25
+  I23 --> I25
+  I26 --> I25
+  I21 --> I26
+  I22 --> I26
+  I23 --> I26
+  I13 --> I26
+  I23 --> I27
+  I25 --> I27
+  I26 --> I27
+  I04 --> I28
+  I05 --> I28
+  I18 --> I28
+  I19 --> I28
+  I20 --> I28
+  I22 --> I28
+  I25 --> I29
+  I26 --> I29
+  I27 --> I29
+  I23 --> I29
+  I04 --> I30
+  I07 --> I30
+  I11 --> I31
+  I13 --> I31
+  I16 --> I31
+  I17 --> I31
+  I08 --> I31
+  I11 --> I32
+  I13 --> I32
+  I16 --> I32
+  I17 --> I32
+  I31 --> I32
+  I03 --> I33
+  I18 --> I33
+  I28 --> I33
+  I06 --> I34
+  I07 --> I34
+  I09 --> I34
+  I10 --> I34
+  I23 --> I34
+  I04 --> I35
+  I05 --> I35
+  I10 --> I35
+  I12 --> I35
+  style P1 fill:#fce5cd,stroke:#334155,color:#111827
+  style P2 fill:#d9ead3,stroke:#334155,color:#111827
+  style P3 fill:#cfe2f3,stroke:#334155,color:#111827
+  style P4 fill:#fff2cc,stroke:#334155,color:#111827
+  style P5 fill:#eadcf8,stroke:#334155,color:#111827
+  style P6 fill:#f4cccc,stroke:#334155,color:#111827
+  style P7 fill:#d0e0e3,stroke:#334155,color:#111827

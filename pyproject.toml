@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=65"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "motorhome-solar-estudo"
+version = "0.0.1"
+description = "Projeto acadêmico de motorhome elétrico solar: base colaborativa"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+solar = ["pvlib", "pandas", "numpy", "matplotlib", "PyYAML"]
+scientific = ["numpy", "scipy", "matplotlib", "pandas", "PyYAML"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

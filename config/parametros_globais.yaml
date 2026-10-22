@@ -1,0 +1,60 @@
+# Fonte única de parâmetros APROVADOS. Campos null estão pendentes; NÃO completar com valores fictícios.
+revision: "0.0.0-scaffold"
+project:
+  year: 2026
+  vehicle_name: null
+  vehicle_reference: null
+  passenger_count_min: 2
+  vehicle_baseline_approved: false
+scenario:
+  city: "São Carlos, SP, Brasil"
+  date_month: 6
+  date_day: 21
+  simulation_year_assumption: 2026  # convenção computacional, citar a escolha; enunciado informa dia/mês
+  sky: "clear_sky"
+  latitude_deg: null                 # pesquisar e citar ponto representativo
+  longitude_deg: null
+  altitude_m: null
+  timezone: "America/Sao_Paulo"
+  ambient_temperature_C: 25
+  relative_humidity_percent: 50
+  wind_speed_m_per_s: 0
+speed_cases:
+  urban_km_per_h: 40
+  road_km_per_h: 80
+battery:
+  nominal_capacity_kWh: null
+  usable_capacity_kWh: null
+  nominal_voltage_V: null
+  minimum_soc_fraction_daily: 0.30
+  initial_soc_fraction: null         # precisa ser explicitado no item 27
+vehicle:
+  curb_mass_kg: null
+  passengers_mass_kg: null
+  water_and_cargo_mass_kg: null
+  total_mass_kg: null
+  frontal_area_m2: null
+  drag_coefficient: null
+  rolling_resistance_coefficient: null
+  tire_effective_radius_m: null
+motor:
+  maximum_power_kW: null
+  efficiency_map_path: null
+solar:
+  panel_area_m2: null
+  panel_module_efficiency: null
+  tilt_deg: null
+  azimuth_deg: null
+  inverter_efficiency: null
+special_cases:
+  air_conditioning_outdoor_temperature_C: 33
+  air_conditioning_indoor_temperature_C: 25
+  braking_initial_speed_m_per_s: 30
+  braking_final_speed_m_per_s: 10
+  braking_duration_s: 5
+  braking_initial_temperature_C: 25
+  battery_charger_powers_kW: [20, 80]
+trip:
+  total_distance_km: 7000
+  maximum_driving_hours_per_day: 8
+  external_charging_allowed: false

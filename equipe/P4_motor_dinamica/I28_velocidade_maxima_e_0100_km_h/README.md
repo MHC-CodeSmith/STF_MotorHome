@@ -1,0 +1,21 @@
+# Item 28 — Velocidade máxima e 0–100 km/h
+
+**Responsável:** P4 — Motor, transmissão e dinâmica  
+**Enunciado / tarefa:** Calcular vmax e tempo 0–100 no plano, sem vento; se não atingir 100, declarar.  
+**Depende de:** I04 (P4), I05 (P4), I18 (P1), I19 (P3), I20 (P4), I22 (P4)  
+**Status:** Não iniciado (estrutura criada automaticamente).
+
+## Entrega mínima
+- `teoria.md`: fenômeno físico, equações, hipóteses e faixa de validade.
+- `fontes.md`: referências completas, URL, página/tabela, fabricante e data de acesso.
+- `dados/`: entradas com unidades e proveniência; dados desconhecidos continuam como pendentes.
+- `codigo/`: notebooks ou scripts com comando exato para executar.
+- `resultados/`: tabelas, figuras e logs gerados pelo código. Não inserir resultados fictícios.
+- `validacao.md`: testes, revisão humana, limitações, e links para PRs.
+- `externos/`: registro dos arquivos de terceiros incorporados legalmente.
+
+## Interface
+Entradas oficiais em `config/parametros_globais.yaml`; cada atualização relevante requer registro em `docs/decisoes.md` e deve avisar itens dependentes.
+
+## Aceite
+O item só vira **aprovado** quando tiver resultados reproduzíveis, referências e uma revisão por outro integrante.
