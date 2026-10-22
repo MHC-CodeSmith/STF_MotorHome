@@ -19,3 +19,6 @@ Entradas oficiais em `config/parametros_globais.yaml`; cada atualização releva
 
 ## Aceite
 O item só vira **aprovado** quando tiver resultados reproduzíveis, referências e uma revisão por outro integrante.
+
+## Alerta de auditoria — 22/10/2026
+A aresta I28→I33 foi preservada para revisão P1/P4: a frenagem prescrita no enunciado p. 2 (30→10 m/s em 5 s) permite iniciar o método sem esperar o resultado 0–100. Possível sobre-restrição de integração, não requisito adicional do docente.

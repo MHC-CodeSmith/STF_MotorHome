@@ -1,0 +1,1040 @@
+{
+  "escopo": "aquisição para cache externo somente; nenhuma execução/incorporação de terceiros no Git",
+  "validacao": "nível sintático/contêiner não implica solver, engenharia, licença ou watertight",
+  "fontes": [
+    {
+      "indice": 1,
+      "titulo": "Brad Mitchell Delica L400 CAD",
+      "pagina": {
+        "url": "https://www.bradmitchellphoto.com/mitsubishi-delica-l400-campervan-conversion#delica-campervan-cad-models",
+        "data_utc": "2026-10-22T14:04:51.271102+00:00",
+        "url_final": "https://www.bradmitchellphoto.com/mitsubishi-delica-l400-campervan-conversion#delica-campervan-cad-models",
+        "http": 200,
+        "erro": "",
+        "status": "pagina_verificada",
+        "tamanho_bytes": null,
+        "sha256": "",
+        "caminho_cache": "",
+        "extensao": "",
+        "nivel_validacao": "",
+        "validacao": {}
+      },
+      "arquivo": null
+    },
+    {
+      "indice": 2,
+      "titulo": "Brad Mitchell Delica CAD ZIP",
+      "pagina": {
+        "url": "https://www.bradmitchellphoto.com/s/Delica-Conversion-CAD.zip",
+        "data_utc": "2026-10-22T14:04:51.271764+00:00",
+        "url_final": "https://static1.squarespace.com/static/67a92e4acae22e2e88845e6b/t/67ad0d256c7039244a0e3c73/1739394380106/Delica-Conversion-CAD.zip",
+        "http": 200,
+        "erro": "",
+        "status": "pagina_verificada",
+        "tamanho_bytes": null,
+        "sha256": "",
+        "caminho_cache": "",
+        "extensao": "",
+        "nivel_validacao": "",
+        "validacao": {}
+      },
+      "arquivo": {
+        "url": "https://www.bradmitchellphoto.com/s/Delica-Conversion-CAD.zip",
+        "data_utc": "2026-10-22T14:04:55.596483+00:00",
+        "url_final": "https://static1.squarespace.com/static/67a92e4acae22e2e88845e6b/t/67ad0d256c7039244a0e3c73/1739394380106/Delica-Conversion-CAD.zip",
+        "http": 200,
+        "erro": "",
+        "status": "arquivo_baixado_validado",
+        "tamanho_bytes": 6730210,
+        "sha256": "68308a931435f16ef8833d4e22c9d62ad9fc4d14bdb5847ce6133c5442709bc9",
+        "caminho_cache": "/home/mhc/motorhome_referencias/downloads/Delica-Conversion-CAD.zip",
+        "extensao": ".zip",
+        "nivel_validacao": "container_zip_crc",
+        "validacao": {
+          "nivel": "container_zip_crc",
+          "membros": [
+            "_Delica_Assembly.FCStd",
+            "_Delica_Assembly.iges",
+            "_Delica_Assembly.step",
+            "_Delica_Assembly.stl",
+            "delica-space-gear-papercraft-4x4ward.pdf"
+          ]
+        }
+      }
+    },
+    {
+      "indice": 3,
+      "titulo": "Fiat Ducato L3H2 Camper Van MODEL2",
+      "pagina": {
+        "url": "https://3dwarehouse.sketchup.com/model/f5416eef-8f09-44de-82bf-0e1f92074275/L3H2-FIAT-DUCATO-CAMPER-VAN-MODEL2",
+        "data_utc": "2026-10-22T14:04:51.272175+00:00",
+        "url_final": "https://3dwarehouse.sketchup.com/model/f5416eef-8f09-44de-82bf-0e1f92074275/L3H2-FIAT-DUCATO-CAMPER-VAN-MODEL2",
+        "http": 200,
+        "erro": "",
+        "status": "pagina_verificada",
+        "tamanho_bytes": null,
+        "sha256": "",
+        "caminho_cache": "",
+        "extensao": "",
+        "nivel_validacao": "",
+        "validacao": {}
+      },
+      "arquivo": null
+    },
+    {
+      "indice": 4,
+      "titulo": "Fiat E-Ducato L2H1",
+      "pagina": {
+        "url": "https://3dwarehouse.sketchup.com/model/cf4cc175-b7fe-4058-9f2c-3880a144f188/Van-60-Fiat-E-Ducato-l2h1",
+        "data_utc": "2026-10-22T14:04:51.272588+00:00",
+        "url_final": "https://3dwarehouse.sketchup.com/model/cf4cc175-b7fe-4058-9f2c-3880a144f188/Van-60-Fiat-E-Ducato-l2h1",
+        "http": 200,
+        "erro": "",
+        "status": "pagina_verificada",
+        "tamanho_bytes": null,
+        "sha256": "",
+        "caminho_cache": "",
+        "extensao": "",
+        "nivel_validacao": "",
+        "validacao": {}
+      },
+      "arquivo": null
+    },
+    {
+      "indice": 5,
+      "titulo": "Solar vehicle chassis MELVING22",
+      "pagina": {
+        "url": "https://github.com/MELVING22/solar-vehicle-chassis-design",
+        "data_utc": "2026-10-22T14:04:52.095852+00:00",
+        "url_final": "https://github.com/MELVING22/solar-vehicle-chassis-design",
+        "http": 200,
+        "erro": "",
+        "status": "pagina_verificada",
+        "tamanho_bytes": null,
+        "sha256": "",
+        "caminho_cache": "",
+        "extensao": "",
+        "nivel_validacao": "",
+        "validacao": {}
+      },
+      "arquivo": {
+        "url": "https://raw.githubusercontent.com/MELVING22/solar-vehicle-chassis-design/309e3730446699126d39af01e55a88a858083d8c/Chassis%20.IGS",
+        "data_utc": "2026-10-22T14:04:59.674893+00:00",
+        "url_final": "https://raw.githubusercontent.com/MELVING22/solar-vehicle-chassis-design/309e3730446699126d39af01e55a88a858083d8c/Chassis%20.IGS",
+        "http": 200,
+        "erro": "",
+        "status": "arquivo_baixado_validado",
+        "tamanho_bytes": 11274098,
+        "sha256": "940050f6f31f70c0e48ce7fb0efe93803b1eb36e37e258d9bd02fa189180093d",
+        "caminho_cache": "/home/mhc/motorhome_referencias/downloads/05_Chassis .IGS",
+        "extensao": ".igs",
+        "nivel_validacao": "assinatura_iges",
+        "validacao": {
+          "nivel": "assinatura_iges",
+          "abertura_nativa": false,
+          "watertight": null
+        }
+      },
+      "commit": "309e3730446699126d39af01e55a88a858083d8c",
+      "repositorio": "MELVING22/solar-vehicle-chassis-design",
+      "license_paths": []
+    },
+    {
+      "indice": 6,
+      "titulo": "Stella Vita — Solar Team Eindhoven",
+      "pagina": {
+        "url": "https://solarteameindhoven.nl/stella-family",
+        "data_utc": "2026-10-22T14:04:52.096094+00:00",
+        "url_final": "https://solarteameindhoven.nl/stella-family",
+        "http": 200,
+        "erro": "",
+        "status": "pagina_verificada",
+        "tamanho_bytes": null,
+        "sha256": "",
+        "caminho_cache": "",
+        "extensao": "",
+        "nivel_validacao": "",
+        "validacao": {}
+      },
+      "arquivo": null
+    },
+    {
+      "indice": 7,
+      "titulo": "pvlib-python",
+      "pagina": {
+        "url": "https://github.com/pvlib/pvlib-python",
+        "data_utc": "2026-10-22T14:04:53.939843+00:00",
+        "url_final": "https://github.com/pvlib/pvlib-python",
+        "http": 200,
+        "erro": "",
+        "status": "pagina_verificada",
+        "tamanho_bytes": null,
+        "sha256": "",
+        "caminho_cache": "",
+        "extensao": "",
+        "nivel_validacao": "",
+        "validacao": {}
+      },
+      "arquivo": {
+        "url": "https://raw.githubusercontent.com/pvlib/pvlib-python/0c6ab770d2537b06b3c82067c33f4a2dbb87e9fa/pvlib/clearsky.py",
+        "data_utc": "2026-10-22T14:04:58.266602+00:00",
+        "url_final": "https://raw.githubusercontent.com/pvlib/pvlib-python/0c6ab770d2537b06b3c82067c33f4a2dbb87e9fa/pvlib/clearsky.py",
+        "http": 200,
+        "erro": "",
+        "status": "arquivo_baixado_validado",
+        "tamanho_bytes": 38327,
+        "sha256": "18d42cd85781695f27b7d03f2176139192a1774b6b4652cd264b8beefeeda468",
+        "caminho_cache": "/home/mhc/motorhome_referencias/downloads/07_clearsky.py",
+        "extensao": ".py",
+        "nivel_validacao": "sintaxe_python_sem_execucao",
+        "validacao": {
+          "nivel": "sintaxe_python_sem_execucao"
+        }
+      },
+      "commit": "0c6ab770d2537b06b3c82067c33f4a2dbb87e9fa",
+      "repositorio": "pvlib/pvlib-python",
+      "license_paths": [
+        "LICENSE"
+      ],
+      "licencas": [
+        {
+          "url": "https://raw.githubusercontent.com/pvlib/pvlib-python/0c6ab770d2537b06b3c82067c33f4a2dbb87e9fa/LICENSE",
+          "data_utc": "2026-10-22T14:04:58.560733+00:00",
+          "url_final": "https://raw.githubusercontent.com/pvlib/pvlib-python/0c6ab770d2537b06b3c82067c33f4a2dbb87e9fa/LICENSE",
+          "http": 200,
+          "erro": "",
+          "status": "arquivo_baixado_validado",
+          "tamanho_bytes": 1622,
+          "sha256": "a02e12ddaada3cf0d5dbdd8affdd577c2eec640758a95842a304f7513b8c0be4",
+          "caminho_cache": "/home/mhc/motorhome_referencias/downloads/07_LICENSE",
+          "extensao": "",
+          "nivel_validacao": "texto_utf8_nao_html_sem_execucao",
+          "validacao": {
+            "nivel": "texto_utf8_nao_html_sem_execucao"
+          }
+        }
+      ]
+    },
+    {
+      "indice": 8,
+      "titulo": "Electric Vehicle Simscape",
+      "pagina": {
+        "url": "https://github.com/simscape/Electric-Vehicle-Simscape",
+        "data_utc": "2026-10-22T14:04:55.582788+00:00",
+        "url_final": "https://github.com/simscape/Electric-Vehicle-Simscape",
+        "http": 200,
+        "erro": "",
+        "status": "pagina_verificada",
+        "tamanho_bytes": null,
+        "sha256": "",
+        "caminho_cache": "",
+        "extensao": "",
+        "nivel_validacao": "",
+        "validacao": {}
+      },
+      "arquivo": {
+        "url": "https://raw.githubusercontent.com/simscape/Electric-Vehicle-Simscape/64e4b7eb1a6fb02298c3e961984ec3c879cfc8e3/Components/BatteryHV/Model/BatteryLumpedThermalParams.m",
+        "data_utc": "2026-10-22T14:07:53.490102+00:00",
+        "url_final": "https://raw.githubusercontent.com/simscape/Electric-Vehicle-Simscape/64e4b7eb1a6fb02298c3e961984ec3c879cfc8e3/Components/BatteryHV/Model/BatteryLumpedThermalParams.m",
+        "http": 200,
+        "erro": "",
+        "status": "arquivo_baixado_validado",
+        "tamanho_bytes": 1361,
+        "sha256": "ccee8b47947c0050cc569b9569200ee465b15040e6f74de1337785f111390015",
+        "caminho_cache": "/home/mhc/motorhome_referencias/downloads/08_BatteryLumpedThermalParams.m",
+        "extensao": ".m",
+        "nivel_validacao": "texto_utf8_nao_html_sem_execucao",
+        "validacao": {
+          "nivel": "texto_utf8_nao_html_sem_execucao"
+        }
+      },
+      "commit": "64e4b7eb1a6fb02298c3e961984ec3c879cfc8e3",
+      "repositorio": "simscape/Electric-Vehicle-Simscape",
+      "license_paths": [
+        "license.txt"
+      ],
+      "licencas": [
+        {
+          "url": "https://raw.githubusercontent.com/simscape/Electric-Vehicle-Simscape/64e4b7eb1a6fb02298c3e961984ec3c879cfc8e3/license.txt",
+          "data_utc": "2026-10-22T14:04:59.468342+00:00",
+          "url_final": "https://raw.githubusercontent.com/simscape/Electric-Vehicle-Simscape/64e4b7eb1a6fb02298c3e961984ec3c879cfc8e3/license.txt",
+          "http": 200,
+          "erro": "",
+          "status": "arquivo_baixado_validado",
+          "tamanho_bytes": 1490,
+          "sha256": "5e7216aba6a7036fa46ed517ba13840c9ff2614d250536e52f8f51e66b945e43",
+          "caminho_cache": "/home/mhc/motorhome_referencias/downloads/08_license.txt",
+          "extensao": ".txt",
+          "nivel_validacao": "texto_utf8_nao_html_sem_execucao",
+          "validacao": {
+            "nivel": "texto_utf8_nao_html_sem_execucao"
+          }
+        }
+      ],
+      "tentativa_arquivo_anterior": {
+        "url": "https://raw.githubusercontent.com/simscape/Electric-Vehicle-Simscape/64e4b7eb1a6fb02298c3e961984ec3c879cfc8e3/APP/API/UI/descTextHTML.m",
+        "data_utc": "2026-10-22T14:04:59.180290+00:00",
+        "url_final": "https://raw.githubusercontent.com/simscape/Electric-Vehicle-Simscape/64e4b7eb1a6fb02298c3e961984ec3c879cfc8e3/APP/API/UI/descTextHTML.m",
+        "http": 200,
+        "erro": "",
+        "status": "arquivo_baixado_validado",
+        "tamanho_bytes": 516,
+        "sha256": "1c848e86efe23c11788ee6366867749f50a4ca19eae98e9d12dcffd37cfcb283",
+        "caminho_cache": "/home/mhc/motorhome_referencias/downloads/08_descTextHTML.m",
+        "extensao": ".m",
+        "nivel_validacao": "texto_utf8_nao_html_sem_execucao",
+        "validacao": {
+          "nivel": "texto_utf8_nao_html_sem_execucao"
+        },
+        "nota": "Validador inicial rejeitava literal HTML dentro do código MATLAB; corrigido para reconhecer HTML apenas no início do documento. Arquivo revalidado sem execução."
+      }
+    },
+    {
+      "indice": 9,
+      "titulo": "EV_sim",
+      "pagina": {
+        "url": "https://github.com/m0in92/EV_sim",
+        "data_utc": "2026-10-22T14:04:56.389390+00:00",
+        "url_final": "https://github.com/m0in92/EV_sim",
+        "http": 200,
+        "erro": "",
+        "status": "pagina_verificada",
+        "tamanho_bytes": null,
+        "sha256": "",
+        "caminho_cache": "",
+        "extensao": "",
+        "nivel_validacao": "",
+        "validacao": {}
+      },
+      "arquivo": {
+        "url": "https://raw.githubusercontent.com/m0in92/EV_sim/f016ab4448604b1c5a6fb444e5b6a8142590cca4/EV_sim/model.py",
+        "data_utc": "2026-10-22T14:04:59.675158+00:00",
+        "url_final": "https://raw.githubusercontent.com/m0in92/EV_sim/f016ab4448604b1c5a6fb444e5b6a8142590cca4/EV_sim/model.py",
+        "http": 200,
+        "erro": "",
+        "status": "arquivo_baixado_validado",
+        "tamanho_bytes": 12185,
+        "sha256": "a3af7264cc33e9cd7f3ada41ff35bdd67b4b991274006fecabd02413d5ad0dbc",
+        "caminho_cache": "/home/mhc/motorhome_referencias/downloads/09_model.py",
+        "extensao": ".py",
+        "nivel_validacao": "sintaxe_python_sem_execucao",
+        "validacao": {
+          "nivel": "sintaxe_python_sem_execucao"
+        }
+      },
+      "commit": "f016ab4448604b1c5a6fb444e5b6a8142590cca4",
+      "repositorio": "m0in92/EV_sim",
+      "license_paths": [
+        "LICENSE",
+        "LICENSE.txt"
+      ],
+      "licencas": [
+        {
+          "url": "https://raw.githubusercontent.com/m0in92/EV_sim/f016ab4448604b1c5a6fb444e5b6a8142590cca4/LICENSE",
+          "data_utc": "2026-10-22T14:04:59.983297+00:00",
+          "url_final": "https://raw.githubusercontent.com/m0in92/EV_sim/f016ab4448604b1c5a6fb444e5b6a8142590cca4/LICENSE",
+          "http": 200,
+          "erro": "",
+          "status": "arquivo_baixado_validado",
+          "tamanho_bytes": 1067,
+          "sha256": "13f5a71b6be397879c97b541058bc326f6160ea9f99620a13aa1e93b49ba737e",
+          "caminho_cache": "/home/mhc/motorhome_referencias/downloads/09_LICENSE",
+          "extensao": "",
+          "nivel_validacao": "texto_utf8_nao_html_sem_execucao",
+          "validacao": {
+            "nivel": "texto_utf8_nao_html_sem_execucao"
+          }
+        },
+        {
+          "url": "https://raw.githubusercontent.com/m0in92/EV_sim/f016ab4448604b1c5a6fb444e5b6a8142590cca4/LICENSE.txt",
+          "data_utc": "2026-10-22T14:05:00.287701+00:00",
+          "url_final": "https://raw.githubusercontent.com/m0in92/EV_sim/f016ab4448604b1c5a6fb444e5b6a8142590cca4/LICENSE.txt",
+          "http": 200,
+          "erro": "",
+          "status": "arquivo_baixado_validado",
+          "tamanho_bytes": 1067,
+          "sha256": "13f5a71b6be397879c97b541058bc326f6160ea9f99620a13aa1e93b49ba737e",
+          "caminho_cache": "/home/mhc/motorhome_referencias/downloads/09_LICENSE.txt",
+          "extensao": ".txt",
+          "nivel_validacao": "texto_utf8_nao_html_sem_execucao",
+          "validacao": {
+            "nivel": "texto_utf8_nao_html_sem_execucao"
+          }
+        }
+      ]
+    },
+    {
+      "indice": 10,
+      "titulo": "FASTSim",
+      "pagina": {
+        "url": "https://github.com/NatLabRockies/fastsim",
+        "data_utc": "2026-10-22T14:04:58.853747+00:00",
+        "url_final": "https://github.com/NatLabRockies/fastsim",
+        "http": 200,
+        "erro": "",
+        "status": "pagina_verificada",
+        "tamanho_bytes": null,
+        "sha256": "",
+        "caminho_cache": "",
+        "extensao": "",
+        "nivel_validacao": "",
+        "validacao": {}
+      },
+      "arquivo": {
+        "url": "https://raw.githubusercontent.com/NatLabRockies/fastsim/6a07d4d816c847d500315a4e5759e157853c563b/fastsim-core/src/vehicle/hvac/hvac_utils.rs",
+        "data_utc": "2026-10-22T14:05:01.928763+00:00",
+        "url_final": "https://raw.githubusercontent.com/NatLabRockies/fastsim/6a07d4d816c847d500315a4e5759e157853c563b/fastsim-core/src/vehicle/hvac/hvac_utils.rs",
+        "http": 200,
+        "erro": "",
+        "status": "arquivo_baixado_validado",
+        "tamanho_bytes": 544,
+        "sha256": "fad559a8d36b2e2457afce18c81fecefb68b3830d1a1e760404c5b0129d4bd83",
+        "caminho_cache": "/home/mhc/motorhome_referencias/downloads/10_hvac_utils.rs",
+        "extensao": ".rs",
+        "nivel_validacao": "texto_utf8_nao_html_sem_execucao",
+        "validacao": {
+          "nivel": "texto_utf8_nao_html_sem_execucao"
+        }
+      },
+      "commit": "6a07d4d816c847d500315a4e5759e157853c563b",
+      "repositorio": "NatLabRockies/fastsim",
+      "license_paths": [
+        "LICENSE"
+      ],
+      "licencas": [
+        {
+          "url": "https://raw.githubusercontent.com/NatLabRockies/fastsim/6a07d4d816c847d500315a4e5759e157853c563b/LICENSE",
+          "data_utc": "2026-10-22T14:05:02.230742+00:00",
+          "url_final": "https://raw.githubusercontent.com/NatLabRockies/fastsim/6a07d4d816c847d500315a4e5759e157853c563b/LICENSE",
+          "http": 200,
+          "erro": "",
+          "status": "arquivo_baixado_validado",
+          "tamanho_bytes": 11357,
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "caminho_cache": "/home/mhc/motorhome_referencias/downloads/10_LICENSE",
+          "extensao": "",
+          "nivel_validacao": "texto_utf8_nao_html_sem_execucao",
+          "validacao": {
+            "nivel": "texto_utf8_nao_html_sem_execucao"
+          }
+        }
+      ]
+    },
+    {
+      "indice": 11,
+      "titulo": "Solar-car velocity optimization",
+      "pagina": {
+        "url": "https://github.com/argonaut031205/Solar-car-velocity-optimization-model",
+        "data_utc": "2026-10-22T14:04:59.708511+00:00",
+        "url_final": "https://github.com/argonaut031205/Solar-car-velocity-optimization-model",
+        "http": 200,
+        "erro": "",
+        "status": "pagina_verificada",
+        "tamanho_bytes": null,
+        "sha256": "",
+        "caminho_cache": "",
+        "extensao": "",
+        "nivel_validacao": "",
+        "validacao": {}
+      },
+      "arquivo": {
+        "url": "https://raw.githubusercontent.com/argonaut031205/Solar-car-velocity-optimization-model/d61611ada74f3b285675c45d327cc98c7c886fab/velocity%20optimization%20model%20for%20solar%20car",
+        "data_utc": "2026-10-22T14:05:03.053586+00:00",
+        "url_final": "https://raw.githubusercontent.com/argonaut031205/Solar-car-velocity-optimization-model/d61611ada74f3b285675c45d327cc98c7c886fab/velocity%20optimization%20model%20for%20solar%20car",
+        "http": 200,
+        "erro": "",
+        "status": "arquivo_baixado_validado",
+        "tamanho_bytes": 5180,
+        "sha256": "e25405dd9532d750bd0f2b2b471ab50696cccf703dd3bd0280db57ed45692105",
+        "caminho_cache": "/home/mhc/motorhome_referencias/downloads/11_velocity optimization model for solar car",
+        "extensao": "",
+        "nivel_validacao": "texto_utf8_nao_html_sem_execucao",
+        "validacao": {
+          "nivel": "texto_utf8_nao_html_sem_execucao"
+        }
+      },
+      "commit": "d61611ada74f3b285675c45d327cc98c7c886fab",
+      "repositorio": "argonaut031205/Solar-car-velocity-optimization-model",
+      "license_paths": []
+    },
+    {
+      "indice": 12,
+      "titulo": "BatteryPack",
+      "pagina": {
+        "url": "https://github.com/chaffybird56/BatteryPack",
+        "data_utc": "2026-10-22T14:05:00.563270+00:00",
+        "url_final": "https://github.com/chaffybird56/BatteryPack",
+        "http": 200,
+        "erro": "",
+        "status": "pagina_verificada",
+        "tamanho_bytes": null,
+        "sha256": "",
+        "caminho_cache": "",
+        "extensao": "",
+        "nivel_validacao": "",
+        "validacao": {}
+      },
+      "arquivo": {
+        "url": "https://raw.githubusercontent.com/chaffybird56/BatteryPack/5af2b41d20258d29cdf14afb273c3ee113c5ed73/battery_pack/thermal.py",
+        "data_utc": "2026-10-22T14:05:03.770356+00:00",
+        "url_final": "https://raw.githubusercontent.com/chaffybird56/BatteryPack/5af2b41d20258d29cdf14afb273c3ee113c5ed73/battery_pack/thermal.py",
+        "http": 200,
+        "erro": "",
+        "status": "arquivo_baixado_validado",
+        "tamanho_bytes": 486,
+        "sha256": "cf4a9beda9e16f4a4b18f7aa1dd72bf4aad64429d5954c7dc411492e68ca0494",
+        "caminho_cache": "/home/mhc/motorhome_referencias/downloads/12_thermal.py",
+        "extensao": ".py",
+        "nivel_validacao": "sintaxe_python_sem_execucao",
+        "validacao": {
+          "nivel": "sintaxe_python_sem_execucao"
+        }
+      },
+      "commit": "5af2b41d20258d29cdf14afb273c3ee113c5ed73",
+      "repositorio": "chaffybird56/BatteryPack",
+      "license_paths": [
+        "LICENSE"
+      ],
+      "licencas": [
+        {
+          "url": "https://raw.githubusercontent.com/chaffybird56/BatteryPack/5af2b41d20258d29cdf14afb273c3ee113c5ed73/LICENSE",
+          "data_utc": "2026-10-22T14:05:03.994864+00:00",
+          "url_final": "https://raw.githubusercontent.com/chaffybird56/BatteryPack/5af2b41d20258d29cdf14afb273c3ee113c5ed73/LICENSE",
+          "http": 200,
+          "erro": "",
+          "status": "arquivo_baixado_validado",
+          "tamanho_bytes": 1057,
+          "sha256": "562ddc22d91b96be9f67019b365a7f1e705a305c1749660f92b5502d75f72c2b",
+          "caminho_cache": "/home/mhc/motorhome_referencias/downloads/12_LICENSE",
+          "extensao": "",
+          "nivel_validacao": "texto_utf8_nao_html_sem_execucao",
+          "validacao": {
+            "nivel": "texto_utf8_nao_html_sem_execucao"
+          }
+        }
+      ]
+    },
+    {
+      "indice": 13,
+      "titulo": "PyBaMM",
+      "pagina": {
+        "url": "https://github.com/pybamm-team/PyBaMM",
+        "data_utc": "2026-10-22T14:05:00.640127+00:00",
+        "url_final": "https://github.com/pybamm-team/PyBaMM",
+        "http": 200,
+        "erro": "",
+        "status": "pagina_verificada",
+        "tamanho_bytes": null,
+        "sha256": "",
+        "caminho_cache": "",
+        "extensao": "",
+        "nivel_validacao": "",
+        "validacao": {}
+      },
+      "arquivo": {
+        "url": "https://raw.githubusercontent.com/pybamm-team/PyBaMM/1495fe3f8f56ed5c12c4d8dad97fd734a682d775/examples/scripts/DFN_ambient_temperature.py",
+        "data_utc": "2026-10-22T14:05:04.181694+00:00",
+        "url_final": "https://raw.githubusercontent.com/pybamm-team/PyBaMM/1495fe3f8f56ed5c12c4d8dad97fd734a682d775/examples/scripts/DFN_ambient_temperature.py",
+        "http": 200,
+        "erro": "",
+        "status": "arquivo_baixado_validado",
+        "tamanho_bytes": 1069,
+        "sha256": "c39374c29db212fc74b7353fc458749e7aed2bda945cac5c86815ee8c6536043",
+        "caminho_cache": "/home/mhc/motorhome_referencias/downloads/13_DFN_ambient_temperature.py",
+        "extensao": ".py",
+        "nivel_validacao": "sintaxe_python_sem_execucao",
+        "validacao": {
+          "nivel": "sintaxe_python_sem_execucao"
+        }
+      },
+      "commit": "1495fe3f8f56ed5c12c4d8dad97fd734a682d775",
+      "repositorio": "pybamm-team/PyBaMM",
+      "license_paths": [
+        "LICENSE.txt",
+        "packages/pybamm-model-zoo/LICENSE.txt",
+        "packages/pybamm/LICENSE.txt",
+        "packages/pybammsolvers/LICENSE"
+      ],
+      "licencas": [
+        {
+          "url": "https://raw.githubusercontent.com/pybamm-team/PyBaMM/1495fe3f8f56ed5c12c4d8dad97fd734a682d775/LICENSE.txt",
+          "data_utc": "2026-10-22T14:05:04.487814+00:00",
+          "url_final": "https://raw.githubusercontent.com/pybamm-team/PyBaMM/1495fe3f8f56ed5c12c4d8dad97fd734a682d775/LICENSE.txt",
+          "http": 200,
+          "erro": "",
+          "status": "arquivo_baixado_validado",
+          "tamanho_bytes": 1494,
+          "sha256": "e32e218b9184b0c498c1e13a8e66c1e67df9ef48ba9071bd2a5ebe04efdb303a",
+          "caminho_cache": "/home/mhc/motorhome_referencias/downloads/13_LICENSE.txt",
+          "extensao": ".txt",
+          "nivel_validacao": "texto_utf8_nao_html_sem_execucao",
+          "validacao": {
+            "nivel": "texto_utf8_nao_html_sem_execucao"
+          }
+        }
+      ]
+    },
+    {
+      "indice": 14,
+      "titulo": "Brake thermal simulation",
+      "pagina": {
+        "url": "https://github.com/ckopsacheilis/brake-thermal-simulation",
+        "data_utc": "2026-10-22T14:05:02.544988+00:00",
+        "url_final": "https://github.com/ckopsacheilis/brake-thermal-simulation",
+        "http": 200,
+        "erro": "",
+        "status": "pagina_verificada",
+        "tamanho_bytes": null,
+        "sha256": "",
+        "caminho_cache": "",
+        "extensao": "",
+        "nivel_validacao": "",
+        "validacao": {}
+      },
+      "arquivo": {
+        "url": "https://raw.githubusercontent.com/ckopsacheilis/brake-thermal-simulation/7d442626e196a2e5958ffbfb1e59ce936153273d/main.py",
+        "data_utc": "2026-10-22T14:05:07.980782+00:00",
+        "url_final": "https://raw.githubusercontent.com/ckopsacheilis/brake-thermal-simulation/7d442626e196a2e5958ffbfb1e59ce936153273d/main.py",
+        "http": 200,
+        "erro": "",
+        "status": "arquivo_baixado_validado",
+        "tamanho_bytes": 4756,
+        "sha256": "cf00b5c82b973e1ef2d46e5926bf7e0bb5a912c46506e8b80b17afd59a175ffd",
+        "caminho_cache": "/home/mhc/motorhome_referencias/downloads/14_main.py",
+        "extensao": ".py",
+        "nivel_validacao": "sintaxe_python_sem_execucao",
+        "validacao": {
+          "nivel": "sintaxe_python_sem_execucao"
+        }
+      },
+      "commit": "7d442626e196a2e5958ffbfb1e59ce936153273d",
+      "repositorio": "ckopsacheilis/brake-thermal-simulation",
+      "license_paths": []
+    },
+    {
+      "indice": 15,
+      "titulo": "AutoCFD",
+      "pagina": {
+        "url": "https://github.com/neilashton/autocfd",
+        "data_utc": "2026-10-22T14:05:03.301481+00:00",
+        "url_final": "https://github.com/neilashton/autocfd",
+        "http": 200,
+        "erro": "",
+        "status": "pagina_verificada",
+        "tamanho_bytes": null,
+        "sha256": "",
+        "caminho_cache": "",
+        "extensao": "",
+        "nivel_validacao": "",
+        "validacao": {}
+      },
+      "arquivo": {
+        "url": "https://raw.githubusercontent.com/neilashton/autocfd/749a99ac9aba7542e57b598f2ef321a004f277e4/README.md",
+        "data_utc": "2026-10-22T14:05:10.628285+00:00",
+        "url_final": "https://raw.githubusercontent.com/neilashton/autocfd/749a99ac9aba7542e57b598f2ef321a004f277e4/README.md",
+        "http": 200,
+        "erro": "",
+        "status": "arquivo_baixado_validado",
+        "tamanho_bytes": 26533,
+        "sha256": "10437bf067b3ae015fd825fe3c193624790677bb845a4abb8f6f5d647dc026ef",
+        "caminho_cache": "/home/mhc/motorhome_referencias/downloads/15_README.md",
+        "extensao": ".md",
+        "nivel_validacao": "texto_utf8_nao_html_sem_execucao",
+        "validacao": {
+          "nivel": "texto_utf8_nao_html_sem_execucao"
+        }
+      },
+      "commit": "749a99ac9aba7542e57b598f2ef321a004f277e4",
+      "repositorio": "neilashton/autocfd",
+      "license_paths": [
+        "LICENSE"
+      ],
+      "licencas": [
+        {
+          "url": "https://raw.githubusercontent.com/neilashton/autocfd/749a99ac9aba7542e57b598f2ef321a004f277e4/LICENSE",
+          "data_utc": "2026-10-22T14:05:10.938139+00:00",
+          "url_final": "https://raw.githubusercontent.com/neilashton/autocfd/749a99ac9aba7542e57b598f2ef321a004f277e4/LICENSE",
+          "http": 200,
+          "erro": "",
+          "status": "arquivo_baixado_validado",
+          "tamanho_bytes": 1086,
+          "sha256": "cdceaa2265e193f74163df1891e9694f1c836dccd13c072a4f7a7d6acea23406",
+          "caminho_cache": "/home/mhc/motorhome_referencias/downloads/15_LICENSE",
+          "extensao": "",
+          "nivel_validacao": "texto_utf8_nao_html_sem_execucao",
+          "validacao": {
+            "nivel": "texto_utf8_nao_html_sem_execucao"
+          }
+        }
+      ]
+    },
+    {
+      "indice": 16,
+      "titulo": "Saoulis — Motorhome photovoltaics thesis",
+      "pagina": {
+        "url": "https://sndbx.library.tuc.gr/view/101452?locale=en&show=full",
+        "data_utc": "2026-10-22T14:05:04.279166+00:00",
+        "url_final": "https://sndbx.library.tuc.gr/view/101452?locale=en&show=full",
+        "http": 403,
+        "erro": "HTTP Error 403: ",
+        "status": "inacessivel",
+        "tamanho_bytes": null,
+        "sha256": "",
+        "caminho_cache": "",
+        "extensao": "",
+        "nivel_validacao": "",
+        "validacao": {}
+      },
+      "arquivo": null
+    },
+    {
+      "indice": 17,
+      "titulo": "Batko — Autonomous power supply motorhome",
+      "pagina": {
+        "url": "https://dspace.cvut.cz/entities/publication/1597542b-2d89-47ac-aed4-ecd574db0275",
+        "data_utc": "2026-10-22T14:05:04.717718+00:00",
+        "url_final": "",
+        "http": null,
+        "erro": "<urlopen error timed out>",
+        "status": "inacessivel",
+        "tamanho_bytes": null,
+        "sha256": "",
+        "caminho_cache": "",
+        "extensao": "",
+        "nivel_validacao": "",
+        "validacao": {}
+      },
+      "arquivo": null
+    },
+    {
+      "indice": 18,
+      "titulo": "Ribeiro — Sistema FV off-grid em motorhome",
+      "pagina": {
+        "url": "https://repositorio.uniceub.br/jspui/handle/prefix/15114",
+        "data_utc": "2026-10-22T14:05:07.967172+00:00",
+        "url_final": "https://repositorio.uniceub.br/jspui/handle/prefix/15114",
+        "http": 410,
+        "erro": "HTTP Error 410: Gone",
+        "status": "inacessivel",
+        "tamanho_bytes": null,
+        "sha256": "",
+        "caminho_cache": "",
+        "extensao": "",
+        "nivel_validacao": "",
+        "validacao": {}
+      },
+      "arquivo": null
+    }
+  ],
+  "adicionais": [
+    {
+      "url": "https://doi.org/10.26233/heallink.tuc.101452",
+      "data_utc": "2026-10-22T14:07:10.949541+00:00",
+      "url_final": "https://dias.library.tuc.gr/view/101452",
+      "http": 200,
+      "erro": "",
+      "titulo": "Saoulis DOI",
+      "links_pdf": [
+        "https://bsky.app/profile/celphase.bsky.social"
+      ]
+    },
+    {
+      "url": "https://purl.tuc.gr/dl/dias/A0A054E1-6A02-4568-89F3-9426C1A4C556",
+      "data_utc": "2026-10-22T14:07:12.487991+00:00",
+      "url_final": "",
+      "http": null,
+      "erro": "<urlopen error timed out>",
+      "titulo": "Saoulis URI"
+    },
+    {
+      "url": "https://www.openarchives.gr/aggregator-openarchives/edm/dias/000058-101452",
+      "data_utc": "2026-10-22T14:07:37.720853+00:00",
+      "url_final": "https://www.openarchives.gr/aggregator-openarchives/edm/dias/000058-101452",
+      "http": 200,
+      "erro": "",
+      "titulo": "Saoulis agregador",
+      "links_pdf": [
+        "/aggregator-openarchives/portal/organisations/logo/tuc/el/file/logo.JPG",
+        "/aggregator-openarchives/portal/organisations/collections/logo/dias/el/file/politehnio_kritis.png"
+      ]
+    },
+    {
+      "url": "https://power.larc.nasa.gov/docs/services/api/temporal/hourly/",
+      "data_utc": "2026-10-22T14:07:39.829028+00:00",
+      "url_final": "https://power.larc.nasa.gov/docs/services/api/temporal/hourly/",
+      "http": 200,
+      "erro": "",
+      "titulo": "NASA POWER API documentação",
+      "links_pdf": []
+    },
+    {
+      "url": "https://repository.tudelft.nl/record/uuid%3A53c0abd4-25b9-47d3-adfc-be57added6bc",
+      "data_utc": "2026-10-22T14:07:40.758958+00:00",
+      "url_final": "",
+      "http": null,
+      "erro": "<urlopen error timed out>",
+      "titulo": "TU Delft motor"
+    },
+    {
+      "url": "https://grabcad.com/library/solar-car--2",
+      "data_utc": "2026-10-22T14:08:06.290698+00:00",
+      "url_final": "https://grabcad.com/library/solar-car--2",
+      "http": 403,
+      "erro": "HTTP Error 403: Forbidden",
+      "titulo": "GrabCAD solar"
+    },
+    {
+      "titulo": "Delica membro",
+      "nome": "_Delica_Assembly.FCStd",
+      "tamanho_bytes": 200561,
+      "sha256": "4298a6605d0abe4532047be8f35196c418fd9d5f38ed458b73d8491ae4ff1466",
+      "caminho_cache": "/home/mhc/motorhome_referencias/downloads/_Delica_Assembly.FCStd",
+      "validacao": {
+        "nivel": "container_zip_crc",
+        "membros": [
+          "Document.xml",
+          "PartShape.brp",
+          "PartShape1.brp",
+          "PartShape2.brp",
+          "PartShape3.brp",
+          "PartShape4.brp",
+          "PartShape5.brp",
+          "PartShape6.brp",
+          "PartShape7.brp",
+          "PartShape8.brp",
+          "PartShape9.brp",
+          "PartShape10.brp",
+          "PartShape11.brp",
+          "PartShape12.brp",
+          "PartShape13.brp",
+          "PartShape14.brp",
+          "PartShape15.brp",
+          "PartShape16.brp",
+          "PartShape17.brp",
+          "PartShape18.brp",
+          "PartShape19.brp",
+          "PartShape20.brp",
+          "PartShape21.brp",
+          "PartShape22.brp",
+          "PartShape23.brp",
+          "PartShape24.brp",
+          "PartShape25.brp",
+          "PartShape26.brp",
+          "PartShape27.brp",
+          "PartShape28.brp",
+          "PartShape29.brp",
+          "PartShape30.brp",
+          "PartShape31.brp",
+          "PartShape32.brp",
+          "PartShape33.brp",
+          "PartShape34.brp",
+          "PartShape35.brp",
+          "PartShape36.brp",
+          "PartShape37.brp",
+          "PartShape38.brp",
+          "PartShape39.brp",
+          "PartShape40.brp",
+          "PartShape41.brp",
+          "PartShape42.brp",
+          "PartShape43.brp",
+          "PartShape44.brp",
+          "PartShape45.brp",
+          "PartShape46.brp",
+          "PartShape47.brp",
+          "GuiDocument.xml",
+          "DiffuseColor",
+          "LineColorArray",
+          "PointColorArray",
+          "DiffuseColor1",
+          "LineColorArray1",
+          "PointColorArray1",
+          "DiffuseColor2",
+          "LineColorArray2",
+          "PointColorArray2",
+          "DiffuseColor3",
+          "LineColorArray3",
+          "PointColorArray3",
+          "DiffuseColor4",
+          "LineColorArray4",
+          "PointColorArray4",
+          "DiffuseColor5",
+          "LineColorArray5",
+          "PointColorArray5",
+          "DiffuseColor6",
+          "LineColorArray6",
+          "PointColorArray6",
+          "DiffuseColor7",
+          "LineColorArray7",
+          "PointColorArray7",
+          "DiffuseColor8",
+          "LineColorArray8",
+          "PointColorArray8",
+          "DiffuseColor9",
+          "LineColorArray9",
+          "PointColorArray9",
+          "DiffuseColor10",
+          "LineColorArray10",
+          "PointColorArray10",
+          "DiffuseColor11",
+          "LineColorArray11",
+          "PointColorArray11",
+          "DiffuseColor12",
+          "LineColorArray12",
+          "PointColorArray12",
+          "DiffuseColor13",
+          "LineColorArray13",
+          "PointColorArray13",
+          "DiffuseColor14",
+          "LineColorArray14",
+          "PointColorArray14",
+          "DiffuseColor15",
+          "LineColorArray15",
+          "PointColorArray15",
+          "DiffuseColor16",
+          "LineColorArray16",
+          "PointColorArray16",
+          "DiffuseColor17",
+          "LineColorArray17",
+          "PointColorArray17",
+          "DiffuseColor18",
+          "LineColorArray18",
+          "PointColorArray18",
+          "DiffuseColor19",
+          "LineColorArray19",
+          "PointColorArray19",
+          "DiffuseColor20",
+          "LineColorArray20",
+          "PointColorArray20",
+          "DiffuseColor21",
+          "LineColorArray21",
+          "PointColorArray21",
+          "DiffuseColor22",
+          "LineColorArray22",
+          "PointColorArray22",
+          "DiffuseColor23",
+          "LineColorArray23",
+          "PointColorArray23",
+          "DiffuseColor24",
+          "LineColorArray24",
+          "PointColorArray24",
+          "DiffuseColor25",
+          "LineColorArray25",
+          "PointColorArray25",
+          "DiffuseColor26",
+          "LineColorArray26",
+          "PointColorArray26",
+          "DiffuseColor27",
+          "LineColorArray27",
+          "PointColorArray27",
+          "DiffuseColor28",
+          "LineColorArray28",
+          "PointColorArray28",
+          "DiffuseColor29",
+          "LineColorArray29",
+          "PointColorArray29",
+          "DiffuseColor30",
+          "LineColorArray30",
+          "PointColorArray30",
+          "DiffuseColor31",
+          "LineColorArray31",
+          "PointColorArray31",
+          "DiffuseColor32",
+          "LineColorArray32",
+          "PointColorArray32",
+          "DiffuseColor33",
+          "LineColorArray33",
+          "PointColorArray33",
+          "DiffuseColor34",
+          "LineColorArray34",
+          "PointColorArray34",
+          "DiffuseColor35",
+          "LineColorArray35",
+          "PointColorArray35",
+          "DiffuseColor36",
+          "LineColorArray36",
+          "PointColorArray36",
+          "DiffuseColor37",
+          "LineColorArray37",
+          "PointColorArray37",
+          "DiffuseColor38",
+          "LineColorArray38",
+          "PointColorArray38",
+          "DiffuseColor39",
+          "LineColorArray39",
+          "PointColorArray39",
+          "DiffuseColor40",
+          "LineColorArray40",
+          "PointColorArray40",
+          "DiffuseColor41",
+          "LineColorArray41",
+          "PointColorArray41",
+          "DiffuseColor42",
+          "LineColorArray42",
+          "PointColorArray42",
+          "DiffuseColor43",
+          "LineColorArray43",
+          "PointColorArray43",
+          "DiffuseColor44",
+          "LineColorArray44",
+          "PointColorArray44",
+          "DiffuseColor45",
+          "LineColorArray45",
+          "PointColorArray45",
+          "DiffuseColor46",
+          "LineColorArray46",
+          "PointColorArray46",
+          "DiffuseColor47",
+          "LineColorArray47",
+          "PointColorArray47"
+        ]
+      }
+    },
+    {
+      "titulo": "Delica membro",
+      "nome": "_Delica_Assembly.iges",
+      "tamanho_bytes": 2050164,
+      "sha256": "ceea4440523e882b800b2c221cbc7b2109ea1bb03ef41007f5ab08ce7eafcc0e",
+      "caminho_cache": "/home/mhc/motorhome_referencias/downloads/_Delica_Assembly.iges",
+      "validacao": {
+        "nivel": "assinatura_iges",
+        "abertura_nativa": false,
+        "watertight": null
+      }
+    },
+    {
+      "titulo": "Delica membro",
+      "nome": "_Delica_Assembly.step",
+      "tamanho_bytes": 1983718,
+      "sha256": "cd4c3ae61d05d30cd04d938da624964abdec8fe10f82bee016a08d900b810bae",
+      "caminho_cache": "/home/mhc/motorhome_referencias/downloads/_Delica_Assembly.step",
+      "validacao": {
+        "nivel": "assinatura_step",
+        "abertura_nativa": false,
+        "watertight": null
+      }
+    },
+    {
+      "titulo": "Delica membro",
+      "nome": "_Delica_Assembly.stl",
+      "tamanho_bytes": 7379984,
+      "sha256": "d4c66b343a4579b5729aafefd71b291da063e63d337bd87e69717548146d5c26",
+      "caminho_cache": "/home/mhc/motorhome_referencias/downloads/_Delica_Assembly.stl",
+      "validacao": {
+        "nivel": "estrutura_stl",
+        "abertura_nativa": false,
+        "watertight": null
+      }
+    },
+    {
+      "titulo": "Delica membro",
+      "nome": "delica-space-gear-papercraft-4x4ward.pdf",
+      "tamanho_bytes": 3507757,
+      "sha256": "ebf1822ce2086b9e4bb6f40e5bd1380ddc4bd4448f9e8e094351d49496f17dcf",
+      "caminho_cache": "/home/mhc/motorhome_referencias/downloads/delica-space-gear-papercraft-4x4ward.pdf",
+      "validacao": {
+        "nivel": "container_pdfinfo",
+        "pdfinfo": "Creator:         Adobe Photoshop 22.1 (Macintosh)\nProducer:        macOS Version 11.1 (Build 20C69) Quartz PDFContext, AppendMode 1.1\nCreationDate:    Fri Feb 26 01:06:54 2021 -03\nModDate:         Fri Feb 26 18:26:24 2021 -03\nCustom Metadata: no\nMetadata Stream: yes\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           2\nEncrypted:       no\nPage size:       594 x 835.92 pts\nPage rot:        0\nFile size:       3507757 bytes\nOptimized:       no\nPDF version:     1.4\n"
+      }
+    }
+  ]
+}

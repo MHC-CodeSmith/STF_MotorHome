@@ -4,7 +4,7 @@ numero,titulo,pessoa,dependencias,pasta,status
 3,Sistema de freios,P1,2;15,equipe/P1_estrutura_freios/I03_sistema_de_freios,nao_iniciado
 14,Suspensão e direção,P1,15;2,equipe/P1_estrutura_freios/I14_suspensao_e_direcao,nao_iniciado
 15,Chassi,P1,1,equipe/P1_estrutura_freios/I15_chassi,nao_iniciado
-18,Massa total com passageiros,P1,2;3;4;5;6;8;9;11;12;13;14;15;16;17,equipe/P1_estrutura_freios/I18_massa_total_com_passageiros,nao_iniciado
+18,Massa total com passageiros,P1,2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17,equipe/P1_estrutura_freios/I18_massa_total_com_passageiros,nao_iniciado
 24,Custo total dos materiais,P1,2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;18,equipe/P1_estrutura_freios/I24_custo_total_dos_materiais,nao_iniciado
 33,Freio: campo térmico multidimensional,P1,3;18;28,equipe/P1_estrutura_freios/I33_freio_campo_termico_multidimensional,nao_iniciado
 6,Bateria,P2,4,equipe/P2_bateria_eletrica/I06_bateria,nao_iniciado

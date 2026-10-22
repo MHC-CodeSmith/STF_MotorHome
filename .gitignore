@@ -9,3 +9,6 @@ fontes_externas/downloads/
 **/externos/arquivos_baixados/
 **/resultados/temporarios/
 *.bak
+.ruff_cache/
+build/
+dist/
