@@ -1,7 +1,7 @@
 # Fundamentação teórica — item 26
 
 ## Objetivo e fenômeno
-Consumo energético por km a 40 e 80 km/h; explicitar auxiliares.
+Distância por energia elétrica da bateria em km/kWh a 40 e 80 km/h; explicitar auxiliares.
 
 ## Equações e hipóteses
 A preencher com equações corretas e citações. Não inventar dados.

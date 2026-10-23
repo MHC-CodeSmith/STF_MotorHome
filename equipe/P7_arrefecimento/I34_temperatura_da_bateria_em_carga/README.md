@@ -3,7 +3,7 @@
 **Responsável:** P7 — Bateria térmica e arrefecimento  
 **Enunciado / tarefa:** Modelar temperatura do pack em carregadores 20 e 80 kW; limites de corrente, calor e arrefecimento.  
 **Depende de:** I06 (P2), I07 (P2), I09 (P2), I10 (P7), I23 (P2)  
-**Status:** Não iniciado (estrutura criada automaticamente).
+**Status:** Em desenvolvimento — artefatos parciais; revisão humana pendente.
 
 ## Entrega mínima
 - `teoria.md`: fenômeno físico, equações, hipóteses e faixa de validade.
@@ -19,3 +19,7 @@ Entradas oficiais em `config/parametros_globais.yaml`; cada atualização releva
 
 ## Aceite
 O item só vira **aprovado** quando tiver resultados reproduzíveis, referências e uma revisão por outro integrante.
+
+## Revisão desta frente — 23/10/2026
+
+Consulte a [revisão dos 35 itens](../../../docs/REVISAO_35_ITENS.md). O método disponível e seus limites estão em [frente térmica](../../../docs/FRENTE_TERMICA.md) e [verificação de requisitos](../../../docs/VERIFICACAO_CAD_APOSTILA.md). Casos sintéticos não são resultados finais.

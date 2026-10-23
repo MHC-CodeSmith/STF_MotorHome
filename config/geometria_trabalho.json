@@ -1,0 +1,15 @@
+{
+  "revision": "geometria-trabalho-1",
+  "status": "EM_DESENVOLVIMENTO",
+  "fonte": "https://github.com/vevalabs/openx-assets/releases/tag/20261015",
+  "fonte_original_sha256": "466c7d0d341147537830174143af0dfda851370282435a0047aeda64c6f32540",
+  "arquivo_trabalho": "/home/mhc/motorhome_referencias_tarefas/ducato-exterior-04/ducato_exterior_m.glb",
+  "arquivo_stl": "/home/mhc/motorhome_referencias_tarefas/ducato-exterior-04/ducato_exterior_m.stl",
+  "unidade": "m",
+  "escala": 1.0,
+  "modelo_visual": "Fiat Ducato 2014; variante fisica a conferir",
+  "license": "MPL-2.0 AND CC-BY-4.0",
+  "manifesto": "equipe/P3_carroceria_cad_cfd/I17_cad_3d_e_vistas_cotadas/resultados/manifesto_carroceria.json",
+  "substitui_envelope_autoral_como_geometria_de_trabalho": true,
+  "aprova_parametros_globais": false
+}

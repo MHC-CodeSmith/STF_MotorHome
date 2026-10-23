@@ -1,3 +1,3 @@
-# Código do item 17
+# Preparação da carroceria
 
-Adicionar scripts/notebooks originais ou dependências open-source autorizadas. Todo código deve indicar entrada, versão de biblioteca, comando de execução e arquivo de saída. Funções comuns vão para `src/motorhome`.
+Usar `scripts/obter_carroceria.py` e `scripts/preparar_carroceria.py` pela raiz da worktree; comandos completos em [carroceria de trabalho](../../../../docs/CARROCERIA_DE_TRABALHO.md). Saída GLB/STL em metros e Z-up, sem reescala. Três testes analíticos estão em `tests/test_geometria_malha.py`.

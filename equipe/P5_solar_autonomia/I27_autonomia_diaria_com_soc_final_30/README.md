@@ -3,7 +3,7 @@
 **Responsável:** P5 — Solar, autonomia e viagem  
 **Enunciado / tarefa:** Determinar autonomia máxima diária, perfil v(t), Pmotor(t) e SOC final alvo de 30%, com tolerância numérica do solver a declarar e justificar.
 **Depende de:** I23 (P2), I25 (P5), I26 (P5)  
-**Status:** Não iniciado (estrutura criada automaticamente).
+**Status:** Em desenvolvimento — artefatos parciais; revisão humana pendente.
 
 ## Entrega mínima
 - `teoria.md`: fenômeno físico, equações, hipóteses e faixa de validade.
@@ -22,3 +22,7 @@ O item só vira **aprovado** quando tiver resultados reproduzíveis, referência
 
 ## Proveniência da correção — 22/10/2026
 Enunciado original, p. 2, item 27: carga final de 30% da carga máxima. O antigo `>=30%` ampliava o cenário; foi corrigido para alvo de 30%, sem definir tolerância nem SOC inicial. O YAML preserva o nome histórico `minimum_soc_fraction_daily`; esta auditoria não o altera nem aprova outra interpretação.
+
+## Revisão desta frente — 23/10/2026
+
+Consulte a [revisão dos 35 itens](../../../docs/REVISAO_35_ITENS.md). O método disponível e seus limites estão em [frente térmica](../../../docs/FRENTE_TERMICA.md) e [verificação de requisitos](../../../docs/VERIFICACAO_CAD_APOSTILA.md). Casos sintéticos não são resultados finais.

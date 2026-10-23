@@ -3,7 +3,7 @@
 **Responsável:** P1 — Estrutura, freios, massa e custos  
 **Enunciado / tarefa:** Frenagem de 30m/s para 10m/s em 5s, 25°C inicial; calcular energia e campo térmico 2D/3D.  
 **Depende de:** I03 (P1), I18 (P1), I28 (P4)  
-**Status:** Não iniciado (estrutura criada automaticamente).
+**Status:** Em desenvolvimento — artefatos parciais; revisão humana pendente.
 
 ## Entrega mínima
 - `teoria.md`: fenômeno físico, equações, hipóteses e faixa de validade.
@@ -22,3 +22,7 @@ O item só vira **aprovado** quando tiver resultados reproduzíveis, referência
 
 ## Alerta de auditoria — 22/10/2026
 A aresta I28→I33 foi preservada para revisão P1/P4: a frenagem prescrita no enunciado p. 2 (30→10 m/s em 5 s) permite iniciar o método sem esperar o resultado 0–100. Possível sobre-restrição de integração, não requisito adicional do docente.
+
+## Revisão desta frente — 23/10/2026
+
+Consulte a [revisão dos 35 itens](../../../docs/REVISAO_35_ITENS.md). O método disponível e seus limites estão em [frente térmica](../../../docs/FRENTE_TERMICA.md) e [verificação de requisitos](../../../docs/VERIFICACAO_CAD_APOSTILA.md). Casos sintéticos não são resultados finais.

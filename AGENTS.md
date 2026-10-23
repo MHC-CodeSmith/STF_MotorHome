@@ -1,5 +1,7 @@
 # Instruções gerais para Codex / agentes
 
+Para esta frente, comece por `docs/RETOMADA_TAREFAS.md`: consulte resumos e trechos de textos locais, sem carregar PDFs, ZIPs ou CAD brutos no contexto. Preserve a outra conversa em `/home/mhc/motorhome_solar_codex`; alterações desta frente pertencem à worktree `/home/mhc/motorhome_solar_codex_tarefas`, branch `hub/tarefas-motorhome-com-codex`.
+
 Você está trabalhando no projeto acadêmico **motorhome elétrico solar** do grupo de 7 integrantes. Esta raiz contém o escopo oficial e as regras para qualquer agente. Leia primeiro `docs/HUB_CONTEXT.md`, `docs/dependencias.md`, `docs/marcos_e_revisoes.md`, `docs/PROMPT_INICIAL_CODEX.md` e `docs/fontes_recebidas/`.
 
 ## Hierarquia de fontes

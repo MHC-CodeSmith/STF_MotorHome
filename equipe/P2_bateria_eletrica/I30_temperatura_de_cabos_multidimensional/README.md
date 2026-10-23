@@ -3,7 +3,7 @@
 **Responsável:** P2 — Bateria, elétrica e fios  
 **Enunciado / tarefa:** Potência máxima do motor; perdas Joule com resistividade dependente da temperatura; simulação 2D/3D.  
 **Depende de:** I04 (P4), I07 (P2)  
-**Status:** Não iniciado (estrutura criada automaticamente).
+**Status:** Em desenvolvimento — artefatos parciais; revisão humana pendente.
 
 ## Entrega mínima
 - `teoria.md`: fenômeno físico, equações, hipóteses e faixa de validade.
@@ -19,3 +19,7 @@ Entradas oficiais em `config/parametros_globais.yaml`; cada atualização releva
 
 ## Aceite
 O item só vira **aprovado** quando tiver resultados reproduzíveis, referências e uma revisão por outro integrante.
+
+## Revisão desta frente — 23/10/2026
+
+Consulte a [revisão dos 35 itens](../../../docs/REVISAO_35_ITENS.md). O método disponível e seus limites estão em [frente térmica](../../../docs/FRENTE_TERMICA.md) e [verificação de requisitos](../../../docs/VERIFICACAO_CAD_APOSTILA.md). Casos sintéticos não são resultados finais.

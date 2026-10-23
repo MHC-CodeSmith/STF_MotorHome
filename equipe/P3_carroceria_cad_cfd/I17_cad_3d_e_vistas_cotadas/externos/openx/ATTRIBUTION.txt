@@ -1,0 +1,5 @@
+(c) 2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>
+(c) 2019 razor24 <https://sketchfab.com/razor24>, licensed under CC-BY-4.0
+License: MPL-2.0 AND CC-BY-4.0
+Source: https://github.com/vevalabs/openx-assets/releases/tag/20261015
+Changes: exterior selection; rigid Y-up to Z-up rotation; GLB/STL export; no scaling.

@@ -13,6 +13,8 @@ dependencies = []
 dev = ["pytest", "ruff", "PyYAML", "build"]
 solar = ["pvlib", "pandas", "numpy", "matplotlib", "PyYAML"]
 scientific = ["numpy", "scipy", "matplotlib", "pandas", "PyYAML"]
+thermal = ["numpy>=1.24", "matplotlib>=3.6"]
+cad = ["gmsh>=4.15,<5", "trimesh>=4", "shapely>=2", "matplotlib>=3.6", "numpy>=1.24"]
 
 [tool.setuptools.packages.find]
 where = ["src"]

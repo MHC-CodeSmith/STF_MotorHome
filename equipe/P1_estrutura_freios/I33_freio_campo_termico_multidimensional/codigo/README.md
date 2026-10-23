@@ -1,3 +1,3 @@
-# Código do item 33
+# Desenvolvimento parcial
 
-Adicionar scripts/notebooks originais ou dependências open-source autorizadas. Todo código deve indicar entrada, versão de biblioteca, comando de execução e arquivo de saída. Funções comuns vão para `src/motorhome`.
+Código compartilhado: `src/motorhome/sistemas_termicos.py` e `src/motorhome/termica_2d.py`. Executar pela raiz da worktree conforme [frente térmica](../../../../docs/FRENTE_TERMICA.md). Não duplicar as funções dentro deste item.

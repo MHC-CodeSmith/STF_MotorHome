@@ -1,0 +1,14 @@
+{
+  "revision": "proposta-envelope-1",
+  "status": "PROPOSTA_NAO_APROVADA",
+  "descricao": "Envelope autoral para testar CAD e vistas; nao reproduz a carroceria de um Fiat nem serve como geometria CFD final.",
+  "envelope_m": {"comprimento": 5.998, "largura": 2.05, "altura": 2.612},
+  "fonte_envelope": "https://www.fiat.it/professional/modello/ducato-elettrico/carratteristiche-tecniche",
+  "acesso": "2026-10-22",
+  "limite_fonte": "Dimensoes de candidato; variante especifica e interferencias ainda precisam ser conferidas.",
+  "hipoteses_desenho_m": {"altura_base": 0.18, "comprimento_frente_inclinada": 1.25, "altura_frente": 1.4},
+  "hipoteses_desenho_fonte": "Decisoes geometricas autorais apenas para estudo de envelope; nao sao cotas de fabricante.",
+  "malha_superficie_mm": 180.0,
+  "inclui": ["um solido de envelope simplificado"],
+  "nao_inclui": ["rodas", "espelhos", "aberturas", "interior", "chassi estrutural", "componentes finais"]
+}
