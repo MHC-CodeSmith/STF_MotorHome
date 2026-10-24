@@ -1,0 +1,22 @@
+{
+  "source": "https://apitempo.inmet.gov.br/estacoes/T",
+  "accessed": "2026-10-24",
+  "record": {
+    "CD_OSCAR": "0-2000-0-86845",
+    "DC_NOME": "SAO CARLOS",
+    "FL_CAPITAL": "N",
+    "DT_FIM_OPERACAO": null,
+    "CD_SITUACAO": "Operante",
+    "TP_ESTACAO": "Automatica",
+    "VL_LATITUDE": "-21.98027777",
+    "CD_WSI": "0-76-0-3548906000000104",
+    "CD_DISTRITO": " 07",
+    "VL_ALTITUDE": "859.29",
+    "SG_ESTADO": "SP",
+    "SG_ENTIDADE": "INMET",
+    "CD_ESTACAO": "A711",
+    "VL_LONGITUDE": "-47.88388888",
+    "DT_INICIO_OPERACAO": "2006-09-03T21:00:00.000-03:00"
+  },
+  "full_response_sha256": "34b646d5842e7f8bbf3ffc8c0d95f10e5367b160bf8c0b5556587354048dc758"
+}

@@ -1,0 +1,273 @@
+{
+  "revision": "adaptacao-0.1",
+  "status": "PROPOSTA_AUTORAL_NAO_HOMOLOGADA",
+  "data_utc": "2026-10-24T22:10:14.210999+00:00",
+  "script": "scripts/adaptar_educato.py",
+  "sha256_fonte": "57d7f7c0dafe86dae29de479176e32e027785f29aeb8cfa2f03b9226bd0eb51d",
+  "sha256_config": "e4ebce3372715e68e88ef770b3cc09acce14211e1a9fbc6dd4c40034a07f6a73",
+  "marcos_x_origem_destino_m": [
+    [
+      -2.499992609024048,
+      -1.0808,
+      0.8917,
+      2.4999923706054688
+    ],
+    [
+      -3.4980076293945315,
+      -2.1132999999999997,
+      0.8917,
+      2.4999923706054688
+    ]
+  ],
+  "marcos_z_origem_destino_m": [
+    [
+      0.0,
+      1.35,
+      2.2451677322387695
+    ],
+    [
+      0.0,
+      1.35,
+      2.612
+    ]
+  ],
+  "rodas_componentes_preservados": [
+    {
+      "node": "Brake_Caliper_0_0",
+      "preserva_dimensoes": true,
+      "translacao_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "node": "Wheel_0_0_32f2d4",
+      "preserva_dimensoes": true,
+      "translacao_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "node": "Wheel_0_0_f9057c",
+      "preserva_dimensoes": true,
+      "translacao_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "node": "Wheel_0_0_dee867",
+      "preserva_dimensoes": true,
+      "translacao_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "node": "Wheel_0_0_137dbb",
+      "preserva_dimensoes": true,
+      "translacao_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "node": "Wheel_0_0_5c215d",
+      "preserva_dimensoes": true,
+      "translacao_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "node": "Brake_Caliper_0_1",
+      "preserva_dimensoes": true,
+      "translacao_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "node": "Wheel_0_1_817b49",
+      "preserva_dimensoes": true,
+      "translacao_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "node": "Wheel_0_1_4955f0",
+      "preserva_dimensoes": true,
+      "translacao_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "node": "Wheel_0_1_813c7e",
+      "preserva_dimensoes": true,
+      "translacao_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "node": "Wheel_0_1_a34406",
+      "preserva_dimensoes": true,
+      "translacao_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "node": "Wheel_0_1_75c89f",
+      "preserva_dimensoes": true,
+      "translacao_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "node": "Brake_Caliper_1_0",
+      "preserva_dimensoes": true,
+      "translacao_m": [
+        -1.0324999999999998,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "node": "Wheel_1_0_d90155",
+      "preserva_dimensoes": true,
+      "translacao_m": [
+        -1.0324999999999998,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "node": "Wheel_1_0_6adbcf",
+      "preserva_dimensoes": true,
+      "translacao_m": [
+        -1.0324999999999998,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "node": "Wheel_1_0_289fee",
+      "preserva_dimensoes": true,
+      "translacao_m": [
+        -1.0324999999999998,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "node": "Wheel_1_0_025635",
+      "preserva_dimensoes": true,
+      "translacao_m": [
+        -1.0324999999999998,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "node": "Wheel_1_0_891d95",
+      "preserva_dimensoes": true,
+      "translacao_m": [
+        -1.0324999999999998,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "node": "Brake_Caliper_1_1",
+      "preserva_dimensoes": true,
+      "translacao_m": [
+        -1.0324999999999998,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "node": "Wheel_1_1_bb36c6",
+      "preserva_dimensoes": true,
+      "translacao_m": [
+        -1.0324999999999998,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "node": "Wheel_1_1_d9710b",
+      "preserva_dimensoes": true,
+      "translacao_m": [
+        -1.0324999999999998,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "node": "Wheel_1_1_e69831",
+      "preserva_dimensoes": true,
+      "translacao_m": [
+        -1.0324999999999998,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "node": "Wheel_1_1_ce941b",
+      "preserva_dimensoes": true,
+      "translacao_m": [
+        -1.0324999999999998,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "node": "Wheel_1_1_0064ff",
+      "preserva_dimensoes": true,
+      "translacao_m": [
+        -1.0324999999999998,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "wheelbase_alvo_m": 4.035,
+  "extensoes_m": [
+    5.998,
+    2.5076358318328857,
+    2.612
+  ],
+  "area_frontal_m2": 5.004665363591343,
+  "triangulos": 32350,
+  "fechada": false,
+  "cfd_executado": false,
+  "limites": [
+    "Largura da fonte preservada; espelhos dobrados, não posição de rodagem OEM",
+    "Altura 2,612 m é hipótese no extremo da faixa publicada",
+    "Região de carga alongada, teto elevado: forma aproximada autoral",
+    "Nenhuma aprovação física ou cálculo de volume habitável"
+  ],
+  "hashes": {
+    "aurora_L3H2_proposta.png": "aa45cb61eb3dbd4cc00d5d074e17064d4061044d20de02b06122c08bbc11defc",
+    "aurora_L3H2_proposta_m.stl": "7ed1250c01f1a2dea5a44c21695d67fdb23d06688b103dd57aa03e5f979e6514",
+    "aurora_L3H2_proposta_m.glb": "1ba262344eb2700340a7e9f6474b9386392b10e7c1c7afb89e4d19950f2f6e2d"
+  }
+}

@@ -1,27 +1,27 @@
 numero,titulo,pessoa,dependencias,pasta,status
-1,Nome e conceito do veículo,P1,,equipe/P1_estrutura_freios/I01_nome_e_conceito_do_veiculo,nao_iniciado
+1,Nome e conceito do veículo,P1,,equipe/P1_estrutura_freios/I01_nome_e_conceito_do_veiculo,em_desenvolvimento
 2,Pneus e rodas,P1,15,equipe/P1_estrutura_freios/I02_pneus_e_rodas,nao_iniciado
 3,Sistema de freios,P1,2;15,equipe/P1_estrutura_freios/I03_sistema_de_freios,nao_iniciado
 14,Suspensão e direção,P1,15;2,equipe/P1_estrutura_freios/I14_suspensao_e_direcao,nao_iniciado
-15,Chassi,P1,1,equipe/P1_estrutura_freios/I15_chassi,nao_iniciado
+15,Chassi,P1,1,equipe/P1_estrutura_freios/I15_chassi,em_desenvolvimento
 18,Massa total com passageiros,P1,2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17,equipe/P1_estrutura_freios/I18_massa_total_com_passageiros,nao_iniciado
 24,Custo total dos materiais,P1,2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;18,equipe/P1_estrutura_freios/I24_custo_total_dos_materiais,nao_iniciado
 33,Freio: campo térmico multidimensional,P1,3;18;28,equipe/P1_estrutura_freios/I33_freio_campo_termico_multidimensional,em_desenvolvimento
-6,Bateria,P2,4,equipe/P2_bateria_eletrica/I06_bateria,nao_iniciado
+6,Bateria,P2,4,equipe/P2_bateria_eletrica/I06_bateria,em_desenvolvimento
 7,Fiação elétrica,P2,4;6;9,equipe/P2_bateria_eletrica/I07_fiacao_eletrica,nao_iniciado
 9,Controladores de carga e inversores,P2,6;8,equipe/P2_bateria_eletrica/I09_controladores_de_carga_e_inversores,nao_iniciado
-23,Capacidade das baterias (kWh),P2,6;8;13;22,equipe/P2_bateria_eletrica/I23_capacidade_das_baterias_kwh,nao_iniciado
+23,Capacidade das baterias (kWh),P2,6;8;13;22,equipe/P2_bateria_eletrica/I23_capacidade_das_baterias_kwh,em_desenvolvimento
 30,Temperatura de cabos multidimensional,P2,4;7,equipe/P2_bateria_eletrica/I30_temperatura_de_cabos_multidimensional,em_desenvolvimento
 16,"Carenagem, portas, vidros",P3,15,equipe/P3_carroceria_cad_cfd/I16_carenagem_portas_vidros,em_desenvolvimento
 17,CAD 3D e vistas cotadas,P3,15;16;13,equipe/P3_carroceria_cad_cfd/I17_cad_3d_e_vistas_cotadas,em_desenvolvimento
 19,Coeficiente de arrasto e CFD,P3,17,equipe/P3_carroceria_cad_cfd/I19_coeficiente_de_arrasto_e_cfd,em_desenvolvimento
-4,Motor elétrico,P4,15,equipe/P4_motor_dinamica/I04_motor_eletrico,nao_iniciado
+4,Motor elétrico,P4,15,equipe/P4_motor_dinamica/I04_motor_eletrico,em_desenvolvimento
 5,Transmissão,P4,4;2,equipe/P4_motor_dinamica/I05_transmissao,nao_iniciado
 20,Resistência de rolamento,P4,2;18,equipe/P4_motor_dinamica/I20_resistencia_de_rolamento,nao_iniciado
 21,Forças resistivas versus velocidade,P4,18;19;20,equipe/P4_motor_dinamica/I21_forcas_resistivas_versus_velocidade,nao_iniciado
 22,Potência resistiva e tração,P4,4;5;21,equipe/P4_motor_dinamica/I22_potencia_resistiva_e_tracao,nao_iniciado
 28,Velocidade máxima e 0–100 km/h,P4,4;5;18;19;20;22,equipe/P4_motor_dinamica/I28_velocidade_maxima_e_0100_km_h,nao_iniciado
-8,Painel fotovoltaico,P5,17,equipe/P5_solar_autonomia/I08_painel_fotovoltaico,nao_iniciado
+8,Painel fotovoltaico,P5,17,equipe/P5_solar_autonomia/I08_painel_fotovoltaico,em_desenvolvimento
 25,Autonomia usando somente solar,P5,8;9;22;23;26,equipe/P5_solar_autonomia/I25_autonomia_usando_somente_solar,nao_iniciado
 26,Consumo (km/kWh),P5,21;22;23;13,equipe/P5_solar_autonomia/I26_consumo_km_kwh,nao_iniciado
 27,Autonomia diária com SOC final 30%,P5,23;25;26,equipe/P5_solar_autonomia/I27_autonomia_diaria_com_soc_final_30,em_desenvolvimento

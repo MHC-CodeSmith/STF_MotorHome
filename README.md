@@ -3,6 +3,8 @@
 **Projeto acadêmico de Sistemas Térmicos e Fluídicos (2026).** Este é um *esqueleto de trabalho*, não um projeto de engenharia concluído nem um pacote de simulações validadas.
 
 ## Início rápido
+Execução de 24/10: [artefatos visuais e CAD adaptado](entregas/parcial_2026-10-24/README.md), [estimativa solar e CFD piloto](docs/AVANCO_2026-10-24.md). Tração elétrica, proposta L3H2; resultados ainda condicionados às hipóteses e à revisão física descrita nos documentos.
+
 Estado desta frente em 23/10: [carroceria Ducato detalhada e arquivos](docs/CARROCERIA_DE_TRABALHO.md), [revisão ponto a ponto dos 35 itens](docs/REVISAO_35_ITENS.md) e [métodos térmicos implementados](docs/FRENTE_TERMICA.md). O envelope autoral anterior fica apenas como teste de exportação.
 
 Auditoria operacional de 22/10/2026: [diagnóstico e evidências](docs/AUDITORIA_INICIAL.md), [dez trabalhos e interfaces](docs/PLANO_10_TRABALHOS.md), [mapa da apostila](docs/mapa_teorico.md) e [software deste host](docs/software_disponivel.md). Status de 21/10 e notas de aquisição anteriores são históricos; consulte o catálogo e o manifesto atualizados.

@@ -11,10 +11,12 @@ dependencies = []
 
 [project.optional-dependencies]
 dev = ["pytest", "ruff", "PyYAML", "build"]
-solar = ["pvlib", "pandas", "numpy", "matplotlib", "PyYAML"]
+solar = ["pvlib>=0.16,<0.17", "h5py>=3", "pandas", "numpy", "matplotlib", "PyYAML"]
 scientific = ["numpy", "scipy", "matplotlib", "pandas", "PyYAML"]
 thermal = ["numpy>=1.24", "matplotlib>=3.6"]
 cad = ["gmsh>=4.15,<5", "trimesh>=4", "shapely>=2", "matplotlib>=3.6", "numpy>=1.24"]
+cfdprep = ["pymeshfix==0.18.1"]
+optimization = ["scipy>=1.11", "pandas", "numpy"]
 
 [tool.setuptools.packages.find]
 where = ["src"]

@@ -3,7 +3,7 @@
 **Responsável:** P5 — Solar, autonomia e viagem  
 **Enunciado / tarefa:** Área, eficiência, tecnologia, potência, massa, montagem e configuração.  
 **Depende de:** I17 (P3)  
-**Status:** Não iniciado (estrutura criada automaticamente).
+**Status:** Em desenvolvimento: módulo candidato e geração condicionada calculados; montagem e conversão pendentes.
 
 ## Entrega mínima
 - `teoria.md`: fenômeno físico, equações, hipóteses e faixa de validade.
@@ -19,3 +19,7 @@ Entradas oficiais em `config/parametros_globais.yaml`; cada atualização releva
 
 ## Aceite
 O item só vira **aprovado** quando tiver resultados reproduzíveis, referências e uma revisão por outro integrante.
+
+## Execução de 24/10/2026
+
+[Estimativa solar, fontes e hipóteses](../../../docs/AVANCO_2026-10-24.md), configuração `config/solar_proposta.yaml` e script `scripts/calcular_solar.py`. Dois/três módulos são cenários a verificar na montagem. Não são ainda energia útil comprovada na bateria de tração.

@@ -8,8 +8,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - run: python -m pip install -e '.[dev,thermal,cad]'
+      - run: python -m pip install -e '.[dev,thermal,cad,solar,optimization]'
       - run: python scripts/verificar_estrutura.py
       - run: python scripts/auditar_projeto.py
-      - run: python -m pytest tests/test_dinamica.py tests/test_auditoria.py tests/test_fontes.py tests/test_termica_2d.py tests/test_sistemas_termicos.py tests/test_agenda_energia.py tests/test_geometria_malha.py -q
+      - run: python -m pytest tests -q
       - run: python scripts/demonstrar_frente_termica.py --sintetico --destino /tmp/motorhome-thermal

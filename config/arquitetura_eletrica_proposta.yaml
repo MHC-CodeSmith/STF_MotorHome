@@ -1,0 +1,89 @@
+# Configuração de trabalho documentada; não substitui o YAML de parâmetros aprovados.
+revision: "eletrica-0.1"
+status: "PROPOSTA_DE_PROJETO_EM_DESENVOLVIMENTO"
+project:
+  name: "Aurora Solar"
+  mission: "Motorhome elétrico solar para pelo menos duas pessoas"
+  propulsion: "BEV"
+  combustion_engine: false
+  onboard_fuel_generator: false
+  donor_platform: "Fiat E-Ducato MY25 L3H2, variante de 4250 kg"
+  platform_choice_source: "Decisão de projeto desta frente; especificações OEM abaixo"
+manufacturer_reference:
+  url: "https://www.fiat.sk/content/dam/fiat2023/sk/cenniky/2026/03/e_Ducato_pricelist_dodavka_200326.pdf"
+  document_date: "2026-03-20"
+  accessed: "2026-10-23"
+  page_scope: "p.1 variante 505.GG1.2; p.2 CCS2; p.4 dados elétricos; p.5 cotas/massas; páginas 1/4/5 conferidas visualmente"
+  market: "Eslováquia, MY25; não misturar com outros anos/mercados"
+  cache_file: "/home/mhc/motorhome_referencias_tarefas/fichas-eletricas/e-ducato-MY25-SK-20260320.pdf"
+  file_size_bytes: 522504
+  sha256: "e3becec7275a4a13df61aa7fc5e8b0f6eb38ff6c3584d755d5b1bbd5f5e6224f"
+chassis:
+  variant_code: "505.GG1.2"
+  gross_vehicle_mass_limit_kg: 4250
+  oem_running_order_mass_without_driver_kg: 2790
+  oem_max_payload_kg: 1460
+  length_m: 5.998
+  body_width_without_mirrors_m: 2.050
+  width_folded_mirrors_m: 2.508
+  width_open_mirrors_m: 2.690
+  height_range_m: [2.592, 2.612]
+  wheelbase_m: 4.035
+  front_track_m: 1.810
+  rear_track_m: 1.790
+  cargo_floor_length_m: 3.705
+  cargo_width_max_m: 1.870
+  cargo_width_between_wheelarches_m: 1.422
+  cargo_height_max_m: 1.932
+  note: "Valores OEM antes da conversão. 4250 kg é limite, não massa montada; 2790 kg já inclui trem de força/bateria de fábrica. Não somar esses componentes outra vez. Altura exata/configuração e cargas por eixo ainda precisam de confirmação."
+motor:
+  type: "Síncrono de ímãs permanentes, 8 polos"
+  drive_axle: "front"
+  peak_power_W: 205000
+  peak_torque_Nm: 410
+  mode_power_W: {eco: 120000, normal: 160000, sport: 205000}
+  mode_torque_Nm: {eco: 360, normal: 380, sport: 410}
+  efficiency_map: null
+  torque_curve_file: null
+  continuous_power_W: null
+  note: "Picos e modos são dados de ficha; não definem curvas completas nem perdas térmicas."
+battery:
+  nominal_energy_kWh: 110
+  usable_energy_kWh: 98
+  nominal_voltage_V: 400
+  modules: 15
+  chemistry: null
+  cell_model: null
+  mass_kg: null
+  resistance_map: null
+  thermal_properties: null
+  note: "98 kWh úteis desta ficha; não misturar com 97 kWh citado em outro mercado."
+charging:
+  oem_max_dc_power_W: 150000
+  assignment_scenarios_W: [20000, 80000]
+  connector: "Combo CCS 2 (p.2 da ficha); confirmar protocolo/BMS antes de projetar interface solar HV"
+  note: "20/80 kW são os cenários do professor, não potências térmicas; depende de SOC, BMS e limites."
+solar:
+  purpose: "Geração útil no barramento elétrico via conversão/controle compatíveis"
+  module_model: null
+  geometry_file: null
+  power_timeseries: null
+  hv_integration_status: "ESTUDO: conversor isolado, BMS e permissões OEM ainda não especificados; não pressupor ligação direta ao pack de tração"
+geometry:
+  current_mesh: "config/geometria_trabalho.json"
+  current_mesh_is_oem_e_ducato_l3h2: false
+  adaptation_required: true
+  note: "A malha Ducato 2014 é referência de forma. Deve ser adaptada às cotas da variante elétrica; não é evidência de motor a combustão."
+assignment_operation:
+  external_charging_during_7000km: false
+  initial_soc: 1.0
+  initial_soc_source: "Hipótese explícita de cenário: iniciar a viagem e I27 com carga completa; não é condição imposta pelo docente."
+  item27_final_soc_target: 0.30
+  driving_limit_hours_per_calendar_day: 8
+  trip_distance_km: 7000
+integration_missing:
+  - "Geometria adaptada e desenho de instalações para duas pessoas"
+  - "Massa montada e cargas por eixo"
+  - "Curvas reais de motor/transmissão/inversor"
+  - "Protocolo, limites e térmica da bateria"
+  - "PV, MPPT, auxiliares, HVAC e arquitetura de conversão"

@@ -3,7 +3,11 @@
 **Responsável:** P1 — Estrutura, freios, massa e custos  
 **Enunciado / tarefa:** Definir nome, referência e requisitos de veículo habitável para pelo menos duas pessoas.  
 **Depende de:** Requisitos gerais e decisões de conceito  
-**Status:** Não iniciado (estrutura criada automaticamente).
+**Status:** Em desenvolvimento: conceito BEV Aurora Solar documentado; revisão final pendente.
+
+## Conceito de trabalho
+
+Motorhome elétrico solar para pelo menos duas pessoas, proposto sobre E-Ducato MY25 L3H2 de 4250 kg. Motor elétrico OEM, bateria de tração e integração solar a dimensionar. Arquitetura, diagrama, ficha conferida e pendências em [ARQUITETURA_ELETRICA.md](../../../docs/ARQUITETURA_ELETRICA.md); entradas em [arquitetura_eletrica_proposta.yaml](../../../config/arquitetura_eletrica_proposta.yaml). A malha detalhada atual é referência de carroceria e precisa de adaptação às cotas dessa variante.
 
 ## Entrega mínima
 - `teoria.md`: fenômeno físico, equações, hipóteses e faixa de validade.

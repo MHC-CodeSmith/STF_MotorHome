@@ -3,7 +3,7 @@
 **Responsável:** P2 — Bateria, elétrica e fios  
 **Enunciado / tarefa:** Dimensionar energia útil/nominal, SOC, limites e margens.  
 **Depende de:** I06 (P2), I08 (P5), I13 (P6), I22 (P4)  
-**Status:** Não iniciado (estrutura criada automaticamente).
+**Status:** Em desenvolvimento: proposta elétrica e dados OEM publicados; especificação final pendente.
 
 ## Entrega mínima
 - `teoria.md`: fenômeno físico, equações, hipóteses e faixa de validade.
@@ -19,3 +19,7 @@ Entradas oficiais em `config/parametros_globais.yaml`; cada atualização releva
 
 ## Aceite
 O item só vira **aprovado** quando tiver resultados reproduzíveis, referências e uma revisão por outro integrante.
+
+## Base elétrica de trabalho
+
+Proposta e fonte OEM conferida em [ARQUITETURA_ELETRICA.md](../../../docs/ARQUITETURA_ELETRICA.md). Dados parciais em [arquitetura_eletrica_proposta.yaml](../../../config/arquitetura_eletrica_proposta.yaml); lacunas permanecem explícitas. Não é aprovação da configuração física final.

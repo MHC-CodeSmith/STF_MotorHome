@@ -23,3 +23,7 @@ O item só vira **aprovado** quando tiver resultados reproduzíveis, referência
 ## Revisão desta frente — 23/10/2026
 
 Consulte a [revisão dos 35 itens](../../../docs/REVISAO_35_ITENS.md). A [carroceria detalhada](../../../docs/CARROCERIA_DE_TRABALHO.md) substitui o bloco como geometria de trabalho. Não há CFD concluído.
+
+## Execução de 24/10/2026
+
+Progresso e limites atualizados em [geometria, CFD, solar e otimização](../../../docs/AVANCO_2026-10-24.md). Artefatos de revisão em [entrega parcial](../../../entregas/parcial_2026-10-24/README.md); não há aprovação final de engenharia.

@@ -3,7 +3,7 @@
 **Responsável:** P4 — Motor, transmissão e dinâmica  
 **Enunciado / tarefa:** Apresentar potência máxima, eficiência e curvas torque/potência versus RPM.  
 **Depende de:** I15 (P1)  
-**Status:** Não iniciado (estrutura criada automaticamente).
+**Status:** Em desenvolvimento: proposta elétrica e dados OEM publicados; especificação final pendente.
 
 ## Entrega mínima
 - `teoria.md`: fenômeno físico, equações, hipóteses e faixa de validade.
@@ -19,3 +19,7 @@ Entradas oficiais em `config/parametros_globais.yaml`; cada atualização releva
 
 ## Aceite
 O item só vira **aprovado** quando tiver resultados reproduzíveis, referências e uma revisão por outro integrante.
+
+## Base elétrica de trabalho
+
+Proposta e fonte OEM conferida em [ARQUITETURA_ELETRICA.md](../../../docs/ARQUITETURA_ELETRICA.md). Dados parciais em [arquitetura_eletrica_proposta.yaml](../../../config/arquitetura_eletrica_proposta.yaml); lacunas permanecem explícitas. Não é aprovação da configuração física final.

@@ -1,0 +1,48 @@
+revision: solar-0.1
+status: ESTIMATIVA_DE_PROJETO_NAO_VALIDADA
+scenario:
+  date: '2026-06-21'
+  timezone: America/Sao_Paulo
+  latitude_deg: -21.98027777
+  longitude_deg: -47.88388888
+  altitude_m: 859.29
+  location_source: https://apitempo.inmet.gov.br/estacoes/T
+  station: A711
+  location_note: "Ponto representativo de São Carlos: estação automática INMET. Coordenadas e altitude do mesmo registro."
+  ambient_temperature_c: 25
+  wind_speed_m_s: 0
+  relative_humidity_percent: 50
+module:
+  model: JAM54D41-450/LB/1500V
+  source: https://www.jasolar.com/uploadfile/2024/0112/20240112034704258.pdf
+  source_page: 2
+  source_sha256: 9a4a626bbd6a6b5cbb49b24fdd68970114836b12ab6e34e74d251471ca07ec17
+  inspected_visually: '2026-10-24'
+  p_stc_w: 450
+  gamma_pdc_per_k: -0.003
+  length_m: 1.762
+  width_m: 1.134
+  mass_kg: 22
+  voc_stc_v: 39.30
+  vmp_stc_v: 32.82
+  isc_stc_a: 14.48
+  imp_stc_a: 13.71
+  front_only: true
+array:
+  module_counts: [2, 3]
+  tilt_deg: 0
+  azimuth_deg: 0
+  albedo: 0.2
+  note: Dois módulos reservam mais espaço a aberturas/HVAC; três são cenário geométrico superior a verificar, não instalação já aprovada.
+assumptions:
+  faiman_u0_w_m2k: 25
+  faiman_u1_w_s_m3k: 6.84
+  temperature_model: Faiman, valores de referência da API; montagem real do teto ainda não calibrada
+  other_losses_fraction: 0.10
+  converter_efficiency: 0.95
+  converter_note: Hipótese de sensibilidade, não eficiência de equipamento selecionado; interface BMS/OEM ainda pendente
+  bifacial_gain_fraction: 0
+  roof_shading: Não modelado; ganhos bifaciais não creditados
+  sky_model: Ineichen com climatologia Linke embarcada no pvlib
+  transposition: isotropic
+  electrical_model: PVWatts DC; STC do fabricante, temperatura de módulo como aproximação de célula

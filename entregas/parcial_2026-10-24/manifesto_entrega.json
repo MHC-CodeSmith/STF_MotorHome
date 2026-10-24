@@ -1,0 +1,23 @@
+{
+  "status": "PARCIAL_NAO_APROVADO",
+  "checks": {
+    "pytest": "90 passed",
+    "ruff": "All checks passed",
+    "estrutura": "35 itens; zero erros",
+    "parametros_globais_sha256": "7b8f5cd7891eb437cb89c41fd2ba440b0567ca1063998042d4828086aad523e2"
+  },
+  "artefatos": {
+    "resumo_cfd_piloto.json": "da23b0734223c10bd21383881f0206a3d3086bdd96a3f6c757e09e8121a58d1f",
+    "inmet_A711.json": "4053d157ee46ec174261cb8de9fa3c43c7449cf7b491a7ae1eca654b4589bb0e",
+    "solar_proposta.png": "720a25e3215783ff736861e4320502010f7a4100f835b451f70b72da56d44846",
+    "CC-BY-4.0.txt": "d557539df68e771cc1eedcc91d13f70fca930e508d11eedcafa4b15db49e3744",
+    "aurora_L3H2_proposta.png": "aa45cb61eb3dbd4cc00d5d074e17064d4061044d20de02b06122c08bbc11defc",
+    "README.md": "b2a96329a93c9108db05c3e96a70d5605e4beb82c4e9b386fb93e2cbeed93fa4",
+    "MPL-2.0.txt": "66a3107d5ad6a058aab753eaac2047ccb2ed0e39465dd0fe5844da3e300d5172",
+    "campos_piloto.png": "32f38b23f24ad8f9fd2c08e975a44701303088576729c769c3036367391f61b9",
+    "manifesto.json": "6d22ee39878b367a028d56e0d443a8f74fc7b76bab9c71f1b6d985ead59d9236",
+    "ATTRIBUTION.txt": "a690522e11aaa3d738716571c506cf93e87b6edec27360f63cc255e9be121d8e",
+    "aurora_L3H2_proposta_m.glb": "1ba262344eb2700340a7e9f6474b9386392b10e7c1c7afb89e4d19950f2f6e2d",
+    "resumo_solar.json": "e67a7861d9eb218067493e82b46b8fb146072047eb572cbe5c0e6d3655c85245"
+  }
+}

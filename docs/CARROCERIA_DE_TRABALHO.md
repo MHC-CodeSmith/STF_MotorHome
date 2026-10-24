@@ -1,5 +1,7 @@
 # Carroceria de trabalho — Ducato detalhado
 
+**Arquitetura elétrica:** D003 propõe o E-Ducato MY25 L3H2 de 4250 kg como plataforma BEV do Aurora Solar. O arquivo `config/arquitetura_eletrica_proposta.yaml` separa os dados OEM de motor/bateria das hipóteses e lacunas. A malha visual Ducato 2014 abaixo não define o trem de força e ainda precisa ser adaptada/confrontada com a variante elétrica escolhida; não é um projeto de motorhome diesel.
+
 O exterior usado nesta frente passou a ser a malha **Fiat Ducato 2014**, derivada do modelo de razor24 e distribuída por Dogan Ulus/OpenX Assets, release **20261015**. O bloco autoral anterior fica restrito a teste de exportação; não é mais a geometria de trabalho. A escolha responde à instrução do usuário para aproveitar uma carroceria existente, sem preencher automaticamente dados físicos aprovados do motorhome.
 
 ## Referências do PDF reenviado

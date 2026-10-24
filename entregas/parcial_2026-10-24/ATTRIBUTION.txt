@@ -1,0 +1,4 @@
+Derived from Fiat Ducato 2014, razor24 (2019), Dogan Ulus (2025), OpenX Assets 20261015.
+MPL-2.0 AND CC-BY-4.0.
+Changes: cargo-body lengthening, roof raising, rigid wheel translations; original dimensions not claimed.
+https://github.com/vevalabs/openx-assets/releases/tag/20261015
