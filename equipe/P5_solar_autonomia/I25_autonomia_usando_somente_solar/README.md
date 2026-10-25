@@ -3,7 +3,7 @@
 **Responsável:** P5 — Solar, autonomia e viagem  
 **Enunciado / tarefa:** Calcular geração de 21/06 céu limpo em São Carlos e distância solar a 40/80km/h; curva versus velocidade.  
 **Depende de:** I08 (P5), I09 (P2), I22 (P4), I23 (P2), I26 (P5)  
-**Status:** Não iniciado (estrutura criada automaticamente).
+**Status:** Em desenvolvimento — curvas de sensibilidade condicionadas, não aprovadas.
 
 ## Entrega mínima
 - `teoria.md`: fenômeno físico, equações, hipóteses e faixa de validade.
@@ -19,3 +19,7 @@ Entradas oficiais em `config/parametros_globais.yaml`; cada atualização releva
 
 ## Aceite
 O item só vira **aprovado** quando tiver resultados reproduzíveis, referências e uma revisão por outro integrante.
+
+## Integração energética e otimização
+
+Métodos, equações, hipóteses e resultados rastreáveis em [ENERGIA_E_OTIMIZACAO.md](../../../docs/ENERGIA_E_OTIMIZACAO.md). Resultados são condicionados; não substituem dados reais nem aprovação. A limitação de oito horas diárias é aplicada a I29, não a I27.

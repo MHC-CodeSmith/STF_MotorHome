@@ -1,0 +1,27 @@
+[
+  {
+    "name": "armacell-af.html",
+    "url": "https://www.armacell.com/en-DE/product/technical-specs/afarmaflex",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "name": "dometic-fjx4.html",
+    "url": "https://www.dometic.com/en/product/dometic-freshjet-fjx4-2200-9600051002?v=9600051003",
+    "final_url": "https://www.dometic.com/en/product/dometic-freshjet-fjx4-2200-9600051002?v=9600051003",
+    "http": 200,
+    "mime": "text/html; charset=utf-8",
+    "bytes": 606397,
+    "sha256": "d94b845fd450d440e802a39cbe66580fe114bf1a7a07c8131b2ad0cc4a2f28d4",
+    "utc": "2026-10-25T18:09:06.433653+00:00"
+  },
+  {
+    "name": "dometic-fjx4.pdf",
+    "url": "https://www.dometic.com/externalassets/dometic-freshjet-fjx4-2200_123485.pdf",
+    "final_url": "https://media.dometic.com/externalassets/dometic-freshjet-fjx4-2200_123485.pdf",
+    "http": 200,
+    "mime": "application/pdf",
+    "bytes": 4061587,
+    "sha256": "f5abe34161ead16fa320bc91a11a4ec77da1db3c5a75941818584f25e45eb45b",
+    "utc": "2026-10-25T18:09:09.456749+00:00"
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "source": "https://dl.openfoam.com/repos/deb/",
+  "version": "2412.260127-1",
+  "packages": [
+    {
+      "name": "openfoam2412",
+      "sha256": "7022b3d4d20fbda9198e7e85510785ce094d91424713233f7571e97cb0d1c80c",
+      "path": "dists/noble/main/pool/2412_260127/binary-amd64/openfoam2412_2412.260127-1_amd64.deb"
+    },
+    {
+      "name": "openfoam2412-common",
+      "sha256": "8d734715802a207de0875ecfc2a2b44399c28cbd4a3f59471a682c56ddaf0310",
+      "path": "dists/noble/main/pool/2412_260127/binary-all/openfoam2412-common_2412.260127-1_all.deb"
+    }
+  ]
+}

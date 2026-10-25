@@ -1,18 +1,23 @@
 # Handoff — 23/10/2026
 
+**Ler primeiro [ESTADO_ATUAL.md](ESTADO_ATUAL.md)**: resumo curto e atualizado de24/10. O restante abaixo é histórico e contém etapas superadas (semCd,semotimizador,layout0.1). Não repetir aquisições ou usar contagens antigas.
+
 
 ## Atualização prioritária — 24/10/2026
 
-Ler primeiro [AVANCO_2026-10-24.md](AVANCO_2026-10-24.md) e [artefatos portáveis](../entregas/parcial_2026-10-24/README.md). Nova implementação ainda no diff além do commit c088758:
+Ler primeiro [AVANCO_2026-10-24.md](AVANCO_2026-10-24.md) e [artefatos portáveis](../entregas/parcial_2026-10-24/README.md). Implementações de geometria/solar/MILP e piloto preservadas em **449e482** (além de c088758). Continuação de layout/atualização CFD ainda no diff:
 
 - `scripts/adaptar_educato.py`, `src/motorhome/adaptacao_geometrica.py`: malha detalhada autoral L3H2 **5,998 m / WB 4,035 m / topo 2,612 m**, rodas preservadas por translação. Cache `aurora-L3H2-01/`; GLB/PNG/manifesto também no repo. Não CAD OEM, largura/espelhos ainda da fonte. Área aberta adaptada **5,004665 m²**.
 - `scripts/reparar_superficie_piloto.py`: candidato fechado **10.444 triângulos**, pneus externos preservados; área **4,827840 m²** (−3,53%). Cache `aurora-cfd-superficie-02/`. Ainda não forma validada; não usar reparos antigos que perderam pneus.
-- CFD piloto `cfd-aurora-piloto-03/`: **29.527 células**, Mesh OK, skewness max2,362; `simpleFoam -noFunctionObjects` atingiu resíduos em **108 iterações**; log `log.simpleFoam.fields`. Campos lidos via VTK em `cfd-aurora-visual-01/`, também no repo. **Cd ausente**: `forceCoeffs` em v1912 falha no IOstream SHA1. Tentativa de atualização local **2412.260127-1** do repositório oficial em `software/openfoam2412-{debs,local}/`; checar download/processo antes de iniciar outro. Script wrapper/env: `scripts/executar_openfoam.py`; gerador `scripts/preparar_cfd_piloto.py`. Sem camadas/y+, grade muito grosseira, rodas estacionárias: só piloto.
+- CFD piloto `cfd-aurora-piloto-03/`: **29.527 células**, Mesh OK, skewness max2,362; `simpleFoam -noFunctionObjects` atingiu resíduos em **108 iterações**; log `log.simpleFoam.fields`. Campos lidos via VTK em `cfd-aurora-visual-01/`, também no repo. **Cd final ausente**: `forceCoeffs` em v1912 falha no IOstream SHA1. Atualização local **2412.260127-1** concluída do repositório oficial em `software/openfoam2412-{debs,local}/`; downloads encerrados, hashes OK; novo pós-processamento calculou **Cd piloto0,65303585**, pressão0,64339287/viscoso0,0096429863, ainda não validado. Prefixo novo `software/openfoam2412-local/usr/lib/openfoam/openfoam2412`, wrapper aceita diretamente. BibliotecasScotch do cacheUbuntu copiadas ali. Script wrapper/env: `scripts/executar_openfoam.py`; gerador `scripts/preparar_cfd_piloto.py`. Sem camadas/y+, grade muito grosseira, rodas estacionárias: só piloto.
 - Verificação do OpenFOAM distribuído: pitzDaily **12.225 células, 282 iterações**, cache `cfd-verificacao-01/pitzDaily/`; não validação experimental do veículo.
 - `config/solar_proposta.yaml`, `src/motorhome/solar.py`, `scripts/calcular_solar.py`: pvlib **0.16.1**, h5py **3.16.0**, Ineichen/POA/Faiman/PVWatts. INMET **A711** oficial: lat **−21,98027777**, lon **−47,88388888**, altitude **859,29 m** (mesmo registro). Fonte `https://apitempo.inmet.gov.br/estacoes/T`, cache `solar-fontes/inmet-estacoes.json`; extrato pequeno no repo.
 - JA Solar **JAM54D41-450/LB/1500V**, p.2 da ficha oficial renderizada/inspecionada: **450 W, 22 kg, 1,762×1,134 m, gamma −.003/K**. Dois/três módulos estimam **3,233/4,849 kWh/dia** após hipóteses de perdas10%/eta95%, sem ganho bifacial. Irradiação horizontal **4,5002 kWh/m²/dia**, Tmaxmódulo **53,29°C**. Resultados corretos `solar-calculo-02/`; descartar 01 (teste detectou unidade interna pandas us/ns; corrigido por `total_seconds`). Consumo residencial/integração HV pendentes.
 - `src/motorhome/otimizacao_agenda.py`: MILP/SciPy maximiza distância em grade temporal/modos, energia causal/reserva/capacidade/SOC final/8h calendárias; **não otimiza ainda o tempo da viagem I29**, nem substitui curvas reais. SOC fracionário precisa ser definido em relação à janela útil vsSOC OEM. Seis testes analíticos.
-- **90 testes passaram**, ruff novo passou antes do último ajuste/documentação. CI instala extras solar/optimization. Status17 parciais/18 não iniciados; nenhum aprovado; YAML global continua intacto. Nenhum processo de CFD permanece rodando após convergência.
+- **90 testes passaram**, ruff novo passou antes do último ajuste/documentação. CI instala extras solar/optimization. Status18 parciais/17 não iniciados; nenhum aprovado; YAML global continua intacto. Pilotos originais encerrados; verificar eventual sessão de refino antes de repetir.
+
+- Refino com camadas **REJEITADO**: `cfd-aurora-refino-01/02/`,74969células,MeshOK mas divergiu;51,13%extrusão.02 encerrado por writeNow (exit0 não é convergência). Novo diagnóstico sem camadas em `cfd-aurora-refino-semcamadas-01/`; consultar logs/sessão. Nunca usar os Cd divergidos.
+- `config/layout_proposto.yaml` / `scripts/gerar_layout_proposto.py`: reservas de ocupação2pessoas e teto2módulos, figura emrepo; encaixe real/ergonomia/equipamentos pendentes. Copiar os resultados para a revisão final dos itens13/17, sem declarar especificação pronta.
 
 ## Missão e decisões
 

@@ -3,7 +3,7 @@
 **Responsável:** P4 — Motor, transmissão e dinâmica  
 **Enunciado / tarefa:** Curvas de potência versus velocidade, eficiência e envelope de tração disponível.  
 **Depende de:** I04 (P4), I05 (P4), I21 (P4)  
-**Status:** Não iniciado (estrutura criada automaticamente).
+**Status:** Em desenvolvimento — potências de sensibilidade condicionadas, não aprovadas.
 
 ## Entrega mínima
 - `teoria.md`: fenômeno físico, equações, hipóteses e faixa de validade.
@@ -19,3 +19,7 @@ Entradas oficiais em `config/parametros_globais.yaml`; cada atualização releva
 
 ## Aceite
 O item só vira **aprovado** quando tiver resultados reproduzíveis, referências e uma revisão por outro integrante.
+
+## Integração energética e otimização
+
+Métodos, equações, hipóteses e resultados rastreáveis em [ENERGIA_E_OTIMIZACAO.md](../../../docs/ENERGIA_E_OTIMIZACAO.md). Resultados são condicionados; não substituem dados reais nem aprovação. A limitação de oito horas diárias é aplicada a I29, não a I27.

@@ -3,7 +3,7 @@
 **Responsável:** P6 — Interior, conforto e cabine  
 **Enunciado / tarefa:** Assentos, móveis, sanitário, chuveiro, eletrônicos, fogão, geladeira e lavadora/secadora.  
 **Depende de:** I15 (P1), I16 (P3)  
-**Status:** Não iniciado (estrutura criada automaticamente).
+**Status:** Em desenvolvimento: reservas preliminares de ocupação; seleção de equipamentos e encaixe físico pendentes.
 
 ## Entrega mínima
 - `teoria.md`: fenômeno físico, equações, hipóteses e faixa de validade.
@@ -19,3 +19,7 @@ Entradas oficiais em `config/parametros_globais.yaml`; cada atualização releva
 
 ## Aceite
 O item só vira **aprovado** quando tiver resultados reproduzíveis, referências e uma revisão por outro integrante.
+
+## Planta preliminar
+
+Ver [planta e ressalvas](../../../entregas/parcial_2026-10-24/README.md) e [registro de execução](../../../docs/AVANCO_2026-10-24.md). Dimensões são reservas autorais, não especificações de produtos escolhidos.

@@ -1,0 +1,19 @@
+{
+  "status": "PILOTO_NAO_VALIDADO",
+  "solver_fields": "OpenFOAM v1912 patch200626",
+  "postprocessor": "OpenFOAM2412 patch260127",
+  "field_iteration": 108,
+  "cells": 29527,
+  "cd": 0.65303585,
+  "cd_pressure": 0.64339287,
+  "cd_viscous": 0.0096429863,
+  "area_ref_m2": 4.827840375264284,
+  "velocity_ref_m_s": 22.222222,
+  "log_sha256": "c38e0ac82a83b5e6f0123d574cdd3ed5dfccd5dbc8ef5154ea87fc7f8add9bef",
+  "limitations": [
+    "Sem camadas de parede nesta malha",
+    "Sem estudo de malha/y+",
+    "Forma adaptada/reparada não homologada",
+    "Não usar como Cd final do veículo"
+  ]
+}

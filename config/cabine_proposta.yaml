@@ -1,0 +1,63 @@
+revision: cabine-0.1
+status: ESTIMATIVA_CONDICIONADA_NAO_VALIDADA
+geometry:
+  cargo_length_m: 3.705
+  width_m: 1.870
+  height_m: 1.932
+  source: config/arquitetura_eletrica_proposta.yaml
+  cab_extension_assumed_m: 1.10
+  note: Caixa térmica equivalente incluindo extensão assumida para cabine dianteira; não é área extraída do CAD.
+  front_azimuth_deg: 0
+  glass_area_m2: {front: 2.5, rear: 0.5, right: 0.8, left: 0.8}
+insulation:
+  candidate: AF/ArmaFlex, chapas até 32 mm
+  source: https://www.armacell.com/en-DE/product/technical-specs/afarmaflex
+  accessed: '2026-10-25'
+  thickness_m: 0.032
+  evaluation_temperature_c: 40
+  conductivity_formula: (33 + 0.1*T_C + 0.0008*T_C**2)/1000
+  note: k na temperatura de referência de 40°C, fixo durante o cálculo; espessura é proposta, adequação automotiva não comprovada.
+assumptions:
+  interior_film_w_m2k: 3
+  exterior_combined_film_w_m2k: 8
+  solar_absorptance: 0.3
+  inner_lining_thickness_m: 0.006
+  inner_lining_k_w_mk: 0.13
+  glass_u_w_m2k: 5.7
+  glass_solar_factor: 0.6
+  thermal_bridge_ua_w_k: 10
+  effective_heat_capacity_j_k: 200000
+  effective_capacity_sensitivity_j_k: [100000, 200000, 400000]
+  surface_absorptance_sensitivity: [0.3, 0.7]
+  glass_solar_factor_sensitivity: [0.3, 0.6]
+  orientation_sensitivity_deg: [0, 90, 180, 270]
+  initial_temperature_c: 25
+  start_local_hour: 6
+  i31_air_changes_h: 0
+  i32_fresh_air_m3_h: 30
+  inside_rh_fraction: 0.5
+  occupant_sensible_w: 75
+  occupant_latent_w: 55
+  i32_equipment_heat_w: 100
+  air_cp_j_kgk: 1006
+  vaporization_j_kg: 2450000
+  cop_sensitivity: [2, 2.5, 3]
+  notes:
+    - Todos os valores desta seção são hipóteses de projeto, não dados OEM nem valores aprovados.
+    - Filme externo combinado inclui convecção natural e radiação linearizada; vento nulo não implica h nulo.
+    - Temperatura radiante externa igual à ambiente; sem resfriamento explícito do céu noturno.
+    - Sem crédito de sombra dos módulos, persianas ou outras obstruções; albedo 0.2.
+    - Piso sem sol; mesma resistência das paredes; radiação refletida incluída nas paredes via pvlib.
+    - Metal externo de resistência desprezível; pontes térmicas contabilizadas por UA adicional.
+    - I31 fechado ideal sem infiltração; I32 ventilação explícita sem recuperação de calor.
+    - I32 um e dois ocupantes; frio calculado em 33°C exterior, 25°C interior e UR50% nos dois estados.
+hvac_candidate:
+  model: Dometic FreshJet FJX4 2200
+  source: https://www.dometic.com/en/product/dometic-freshjet-fjx4-2200-9600051002?v=9600051003
+  cooling_capacity_nameplate_w: 2200
+  note: Só capacidade de catálogo conferida nesta página; COP e capacidade nas condições de projeto não publicados nela. Não selecionado definitivamente.
+  larger_candidate:
+    model: Dometic FreshJet FJX7 3000
+    cooling_capacity_nameplate_w: 3000
+    source: https://www.dometic.com/en/product/dometic-freshjet-fjx7-3000-9600050995
+    note: Compressor inverter e bomba de calor segundo página oficial; falta curva de capacidade/COP em 33°C, instalação e alimentação compatível.

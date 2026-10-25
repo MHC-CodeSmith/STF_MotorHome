@@ -1,0 +1,82 @@
+{
+  "status": "ESTIMATIVA_CONDICIONADA_NAO_VALIDADA",
+  "script": "scripts/calcular_sensibilidade_energia.py",
+  "config_sha256": "d49f6c01790b4ae7ddc5282d3e1793094ac358007666455e1f129c7549172375",
+  "solar_sha256": "e67a7861d9eb218067493e82b46b8fb146072047eb572cbe5c0e6d3655c85245",
+  "assumptions": {
+    "revision": "energia-sensibilidade-0.1",
+    "status": "ESTIMATIVA_CONDICIONADA_NAO_VALIDADA",
+    "mass_kg": 4250,
+    "mass_source": "Cenário no limite OEM de massa total; NÃO massa medida do motorhome montado.",
+    "frontal_area_m2": 4.827840375264284,
+    "area_source": "Superfície autoral reparada do piloto; não área final aprovada.",
+    "drag_coefficients": [
+      0.5806668,
+      0.62487678,
+      0.65303585
+    ],
+    "cd_source": "Pilotos sem camadas de 166212, 63668 e 29527 células; variação final de 7,07%, sem independência de malha/validação física.",
+    "rolling_coefficients": [
+      0.008,
+      0.012,
+      0.016
+    ],
+    "rolling_source": "Faixa assumida de sensibilidade; não medição nem ficha do pneu selecionado.",
+    "traction_efficiencies": [
+      0.85,
+      0.9,
+      0.95
+    ],
+    "efficiency_source": "Hipóteses de sensibilidade, não mapas OEM.",
+    "driving_auxiliary_power_w": 800,
+    "aux_source": "Hipótese de carga elétrica durante condução; perfil de habitação diário ainda não resolvido.",
+    "air_density_kg_m3": 1.1,
+    "air_source": "Mesmo fluido assumido nos pilotos; substituir por cálculo/fonte compatível com condições finais.",
+    "speed_km_h": [
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      100,
+      110,
+      120,
+      130
+    ],
+    "not_included": [
+      "Acelerações e perfil urbano real; as velocidades são casos médios constantes.",
+      "Inclinação, vento relativo variável e curvas reais de motor/inversor.",
+      "Cargas noturnas/paradas da habitação; massa por eixo e inércias.",
+      "Aprovação da transferência solar para bateria de tração."
+    ]
+  },
+  "scenario_count": 324,
+  "official_vehicle_results": false,
+  "urban_road_ranges": {
+    "40": {
+      "km_per_kwh": [
+        3.247966270432634,
+        5.7752890303340765
+      ],
+      "solar_only_assumed_2_panels_km": [
+        10.499055791010223,
+        18.66863036438187
+      ]
+    },
+    "80": {
+      "km_per_kwh": [
+        1.9694219042321433,
+        3.0291373298575097
+      ],
+      "solar_only_assumed_2_panels_km": [
+        6.36615922917717,
+        9.791690915734021
+      ]
+    }
+  },
+  "trip_optimized": false,
+  "item27_optimized_vehicle": false
+}

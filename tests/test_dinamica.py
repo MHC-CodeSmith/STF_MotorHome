@@ -1,8 +1,14 @@
 import sys
-from pathlib import Path
 import unittest
+from pathlib import Path
+
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'src'))
-from motorhome.dinamica import forca_aerodinamica, forca_rolamento, potencia_rodas_w, potencia_eletrica_tracao_w
+from motorhome.dinamica import (
+    forca_aerodinamica,
+    forca_rolamento,
+    potencia_eletrica_tracao_w,
+)
+
 
 class TestModeloLongitudinal(unittest.TestCase):
     def test_drag_cresce_com_quadrado_da_velocidade(self):

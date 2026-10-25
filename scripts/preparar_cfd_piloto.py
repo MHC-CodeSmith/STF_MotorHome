@@ -20,6 +20,8 @@ def main():
     p.add_argument('--superficie', type=Path, required=True)
     p.add_argument('--area-m2', type=float, required=True)
     p.add_argument('--destino', type=Path, required=True)
+    p.add_argument('--nivel', type=int, default=2, choices=[2, 3, 4])
+    p.add_argument('--camadas', type=int, default=0, choices=[0, 3])
     args = p.parse_args()
     if args.area_m2 <= 0:
         raise ValueError('Aref positiva obrigatória')
@@ -83,6 +85,16 @@ meshQualityControls {
 }
 writeFlags (scalarLevels); mergeTolerance 1e-6;
 ''')
+    dictionary = out/'system/snappyHexMeshDict'
+    contents = dictionary.read_text().replace('level (2 3)', f'level ({args.nivel} {args.nivel+1})')
+    if args.camadas:
+        contents = contents.replace('addLayers false;', 'addLayers true;')
+        contents = contents.replace('relativeSizes true; layers {};',
+                                    'relativeSizes false; layers {"aurora.*" {nSurfaceLayers 3;}}')
+        contents = contents.replace('expansionRatio 1.2; finalLayerThickness .3;',
+                                    'expansionRatio 1.3; finalLayerThickness .005;')
+        contents = contents.replace('minThickness .1;', 'minThickness .001;')
+    dictionary.write_text(contents)
     write('system/controlDict', f'''
 application simpleFoam; startFrom startTime; startTime 0; stopAt endTime;
 endTime 600; deltaT 1; writeControl timeStep; writeInterval 200;
@@ -140,8 +152,9 @@ outlet {{type zeroGradient;}} ground {{type {wall}; value uniform {initial};}}
 sides {{type symmetry;}} top {{type symmetryPlane;}}}}''', 'volScalarField')
     report = {'status': 'PILOTO_NAO_VALIDADO', 'superficie_sha256': hashlib.sha256(args.superficie.read_bytes()).hexdigest(),
               'area_referencia_m2': args.area_m2, 'velocity_m_s': 22.222222,
+              'surface_levels': [args.nivel, args.nivel+1], 'requested_layers': args.camadas,
               'hipoteses': ['nu=1.7e-5 e rho=1.1 são valores piloto a revisar',
-                           'Sem camadas prismáticas; sem estudo de malha/y+',
+                           'Camadas solicitadas não garantem cobertura; conferir malha e y+',
                            'Rodas estacionárias; espelhos da malha de referência',
                            'Forma adaptada/reparada não homologada; Cd não é resultado final'],
               'codigo': 'scripts/preparar_cfd_piloto.py'}

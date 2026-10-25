@@ -1,0 +1,598 @@
+{
+  "status": "ESTIMATIVA_CONDICIONADA_NAO_VALIDADA",
+  "vehicle_validated": false,
+  "inputs_sha256": {
+    "config/energia_sensibilidade.yaml": "d49f6c01790b4ae7ddc5282d3e1793094ac358007666455e1f129c7549172375",
+    "/home/mhc/motorhome_referencias_tarefas/solar-calculo-02/pv_timeseries.csv": "57feda6eda1d0bd1bba75250fccfdf25d48409a7cf493f00ba65939ca6595498"
+  },
+  "scenario": {
+    "cd_pilot": 0.62487678,
+    "cr_assumed": 0.012,
+    "traction_efficiency_assumed": 0.9,
+    "parked_auxiliary_w_assumed": 100.0,
+    "battery_usable_kwh_oem": 98.0,
+    "soc_definition": "fração da janela útil de 98 kWh; não SOC OEM confirmado",
+    "solar_while_driving": false,
+    "solar_interface_verified": false,
+    "grade_s": 1800,
+    "speed_modes_m_s": [
+      0.0,
+      5.555555555555555,
+      8.333333333333334,
+      11.11111111111111,
+      16.666666666666668,
+      22.22222222222222
+    ],
+    "terminal_power_modes_w": [
+      100.0,
+      4203.397233925283,
+      6497.818095053385,
+      9503.50564918004,
+      18597.036427093753,
+      33380.70074899589
+    ],
+    "day_27_driving_cap_s": 86400,
+    "trip_29_driving_cap_s": 28800,
+    "initial_soc_assumed": 1.0
+  },
+  "item27_conditioned": {
+    "feasible": true,
+    "optimal_in_grid": true,
+    "solver_status": 0,
+    "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+    "distance_m": 334999.99999999994,
+    "daily_driving_s": {
+      "2026-06-21": 59400.0
+    },
+    "final_soc": 0.3,
+    "max_soc_balance_residual": 2.393918396847994e-16,
+    "schedule": [
+      {
+        "start": "2026-06-21T00:00:00-03:00",
+        "end": "2026-06-21T00:30:00-03:00",
+        "mode": 1,
+        "speed_m_s": 5.555555555555555,
+        "terminal_demand_w": 4203.397233925283,
+        "available_solar_w": 0.0,
+        "soc_final": 0.9785540957452792,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T00:30:00-03:00",
+        "end": "2026-06-21T01:00:00-03:00",
+        "mode": 1,
+        "speed_m_s": 5.555555555555555,
+        "terminal_demand_w": 4203.397233925283,
+        "available_solar_w": 0.0,
+        "soc_final": 0.9571081914905584,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T01:00:00-03:00",
+        "end": "2026-06-21T01:30:00-03:00",
+        "mode": 1,
+        "speed_m_s": 5.555555555555555,
+        "terminal_demand_w": 4203.397233925283,
+        "available_solar_w": 0.0,
+        "soc_final": 0.9356622872358378,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T01:30:00-03:00",
+        "end": "2026-06-21T02:00:00-03:00",
+        "mode": 1,
+        "speed_m_s": 5.555555555555555,
+        "terminal_demand_w": 4203.397233925283,
+        "available_solar_w": 0.0,
+        "soc_final": 0.914216382981117,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T02:00:00-03:00",
+        "end": "2026-06-21T02:30:00-03:00",
+        "mode": 1,
+        "speed_m_s": 5.555555555555555,
+        "terminal_demand_w": 4203.397233925283,
+        "available_solar_w": 0.0,
+        "soc_final": 0.892770478726396,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T02:30:00-03:00",
+        "end": "2026-06-21T03:00:00-03:00",
+        "mode": 1,
+        "speed_m_s": 5.555555555555555,
+        "terminal_demand_w": 4203.397233925283,
+        "available_solar_w": 0.0,
+        "soc_final": 0.8713245744716752,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T03:00:00-03:00",
+        "end": "2026-06-21T03:30:00-03:00",
+        "mode": 1,
+        "speed_m_s": 5.555555555555555,
+        "terminal_demand_w": 4203.397233925283,
+        "available_solar_w": 0.0,
+        "soc_final": 0.8498786702169544,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T03:30:00-03:00",
+        "end": "2026-06-21T04:00:00-03:00",
+        "mode": 1,
+        "speed_m_s": 5.555555555555555,
+        "terminal_demand_w": 4203.397233925283,
+        "available_solar_w": 0.0,
+        "soc_final": 0.8284327659622336,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T04:00:00-03:00",
+        "end": "2026-06-21T04:30:00-03:00",
+        "mode": 1,
+        "speed_m_s": 5.555555555555555,
+        "terminal_demand_w": 4203.397233925283,
+        "available_solar_w": 0.0,
+        "soc_final": 0.8069868617075128,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T04:30:00-03:00",
+        "end": "2026-06-21T05:00:00-03:00",
+        "mode": 1,
+        "speed_m_s": 5.555555555555555,
+        "terminal_demand_w": 4203.397233925283,
+        "available_solar_w": 0.0,
+        "soc_final": 0.785540957452792,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T05:00:00-03:00",
+        "end": "2026-06-21T05:30:00-03:00",
+        "mode": 1,
+        "speed_m_s": 5.555555555555555,
+        "terminal_demand_w": 4203.397233925283,
+        "available_solar_w": 0.0,
+        "soc_final": 0.7640950531980711,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T05:30:00-03:00",
+        "end": "2026-06-21T06:00:00-03:00",
+        "mode": 1,
+        "speed_m_s": 5.555555555555555,
+        "terminal_demand_w": 4203.397233925283,
+        "available_solar_w": 0.0,
+        "soc_final": 0.7426491489433502,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T06:00:00-03:00",
+        "end": "2026-06-21T06:30:00-03:00",
+        "mode": 1,
+        "speed_m_s": 5.555555555555555,
+        "terminal_demand_w": 4203.397233925283,
+        "available_solar_w": 0.0,
+        "soc_final": 0.7212032446886294,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T06:30:00-03:00",
+        "end": "2026-06-21T07:00:00-03:00",
+        "mode": 1,
+        "speed_m_s": 5.555555555555555,
+        "terminal_demand_w": 4203.397233925283,
+        "available_solar_w": 0.0,
+        "soc_final": 0.6997573404339086,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T07:00:00-03:00",
+        "end": "2026-06-21T07:30:00-03:00",
+        "mode": 1,
+        "speed_m_s": 5.555555555555555,
+        "terminal_demand_w": 4203.397233925283,
+        "available_solar_w": 0.0,
+        "soc_final": 0.6783114361791878,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T07:30:00-03:00",
+        "end": "2026-06-21T08:00:00-03:00",
+        "mode": 0,
+        "speed_m_s": 0.0,
+        "terminal_demand_w": 100.0,
+        "available_solar_w": 85.18297889673592,
+        "soc_final": 0.6782358391327425,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T08:00:00-03:00",
+        "end": "2026-06-21T08:30:00-03:00",
+        "mode": 1,
+        "speed_m_s": 5.555555555555555,
+        "terminal_demand_w": 4203.397233925283,
+        "available_solar_w": 0.0,
+        "soc_final": 0.6567899348780217,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T08:30:00-03:00",
+        "end": "2026-06-21T09:00:00-03:00",
+        "mode": 1,
+        "speed_m_s": 5.555555555555555,
+        "terminal_demand_w": 4203.397233925283,
+        "available_solar_w": 0.0,
+        "soc_final": 0.6353440306233009,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T09:00:00-03:00",
+        "end": "2026-06-21T09:30:00-03:00",
+        "mode": 0,
+        "speed_m_s": 0.0,
+        "terminal_demand_w": 100.0,
+        "available_solar_w": 304.7041618533102,
+        "soc_final": 0.6363884396123484,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T09:30:00-03:00",
+        "end": "2026-06-21T10:00:00-03:00",
+        "mode": 0,
+        "speed_m_s": 0.0,
+        "terminal_demand_w": 100.0,
+        "available_solar_w": 363.01843001956126,
+        "soc_final": 0.6377303703777543,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T10:00:00-03:00",
+        "end": "2026-06-21T10:30:00-03:00",
+        "mode": 0,
+        "speed_m_s": 0.0,
+        "terminal_demand_w": 100.0,
+        "available_solar_w": 411.35798536144324,
+        "soc_final": 0.6393189315275576,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T10:30:00-03:00",
+        "end": "2026-06-21T11:00:00-03:00",
+        "mode": 0,
+        "speed_m_s": 0.0,
+        "terminal_demand_w": 100.0,
+        "available_solar_w": 449.208450824021,
+        "soc_final": 0.641100607297068,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T11:00:00-03:00",
+        "end": "2026-06-21T11:30:00-03:00",
+        "mode": 0,
+        "speed_m_s": 0.0,
+        "terminal_demand_w": 100.0,
+        "available_solar_w": 476.2776913385284,
+        "soc_final": 0.6430203914365502,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T11:30:00-03:00",
+        "end": "2026-06-21T12:00:00-03:00",
+        "mode": 0,
+        "speed_m_s": 0.0,
+        "terminal_demand_w": 100.0,
+        "available_solar_w": 492.4058778808949,
+        "soc_final": 0.6450224622420649,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T12:00:00-03:00",
+        "end": "2026-06-21T12:30:00-03:00",
+        "mode": 0,
+        "speed_m_s": 0.0,
+        "terminal_demand_w": 100.0,
+        "available_solar_w": 497.51536347487473,
+        "soc_final": 0.6470506018516307,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T12:30:00-03:00",
+        "end": "2026-06-21T13:00:00-03:00",
+        "mode": 0,
+        "speed_m_s": 0.0,
+        "terminal_demand_w": 100.0,
+        "available_solar_w": 491.5841571866304,
+        "soc_final": 0.6490484802046236,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T13:00:00-03:00",
+        "end": "2026-06-21T13:30:00-03:00",
+        "mode": 0,
+        "speed_m_s": 0.0,
+        "terminal_demand_w": 100.0,
+        "available_solar_w": 474.6378932477858,
+        "soc_final": 0.6509598980273164,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T13:30:00-03:00",
+        "end": "2026-06-21T14:00:00-03:00",
+        "mode": 0,
+        "speed_m_s": 0.0,
+        "terminal_demand_w": 100.0,
+        "available_solar_w": 446.7591686170557,
+        "soc_final": 0.6527290774590361,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T14:00:00-03:00",
+        "end": "2026-06-21T14:30:00-03:00",
+        "mode": 0,
+        "speed_m_s": 0.0,
+        "terminal_demand_w": 100.0,
+        "available_solar_w": 408.1155761928813,
+        "soc_final": 0.6543010957049181,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T14:30:00-03:00",
+        "end": "2026-06-21T15:00:00-03:00",
+        "mode": 0,
+        "speed_m_s": 0.0,
+        "terminal_demand_w": 100.0,
+        "available_solar_w": 359.01201134303926,
+        "soc_final": 0.6553509010404727,
+        "battery_charge_curtailed_j": 95850.29803382643
+      },
+      {
+        "start": "2026-06-21T15:00:00-03:00",
+        "end": "2026-06-21T15:30:00-03:00",
+        "mode": 0,
+        "speed_m_s": 0.0,
+        "terminal_demand_w": 100.0,
+        "available_solar_w": 299.98491517007636,
+        "soc_final": 0.6553509010404727,
+        "battery_charge_curtailed_j": 359972.84730613744
+      },
+      {
+        "start": "2026-06-21T15:30:00-03:00",
+        "end": "2026-06-21T16:00:00-03:00",
+        "mode": 1,
+        "speed_m_s": 5.555555555555555,
+        "terminal_demand_w": 4203.397233925283,
+        "available_solar_w": 0.0,
+        "soc_final": 0.6339049967857519,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T16:00:00-03:00",
+        "end": "2026-06-21T16:30:00-03:00",
+        "mode": 1,
+        "speed_m_s": 5.555555555555555,
+        "terminal_demand_w": 4203.397233925283,
+        "available_solar_w": 0.0,
+        "soc_final": 0.612459092531031,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T16:30:00-03:00",
+        "end": "2026-06-21T17:00:00-03:00",
+        "mode": 2,
+        "speed_m_s": 8.333333333333334,
+        "terminal_demand_w": 6497.818095053385,
+        "available_solar_w": 0.0,
+        "soc_final": 0.5793069593930036,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T17:00:00-03:00",
+        "end": "2026-06-21T17:30:00-03:00",
+        "mode": 1,
+        "speed_m_s": 5.555555555555555,
+        "terminal_demand_w": 4203.397233925283,
+        "available_solar_w": 0.0,
+        "soc_final": 0.5578610551382827,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T17:30:00-03:00",
+        "end": "2026-06-21T18:00:00-03:00",
+        "mode": 1,
+        "speed_m_s": 5.555555555555555,
+        "terminal_demand_w": 4203.397233925283,
+        "available_solar_w": 0.0,
+        "soc_final": 0.5364151508835618,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T18:00:00-03:00",
+        "end": "2026-06-21T18:30:00-03:00",
+        "mode": 1,
+        "speed_m_s": 5.555555555555555,
+        "terminal_demand_w": 4203.397233925283,
+        "available_solar_w": 0.0,
+        "soc_final": 0.514969246628841,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T18:30:00-03:00",
+        "end": "2026-06-21T19:00:00-03:00",
+        "mode": 1,
+        "speed_m_s": 5.555555555555555,
+        "terminal_demand_w": 4203.397233925283,
+        "available_solar_w": 0.0,
+        "soc_final": 0.4935233423741202,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T19:00:00-03:00",
+        "end": "2026-06-21T19:30:00-03:00",
+        "mode": 1,
+        "speed_m_s": 5.555555555555555,
+        "terminal_demand_w": 4203.397233925283,
+        "available_solar_w": 0.0,
+        "soc_final": 0.47207743811939934,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T19:30:00-03:00",
+        "end": "2026-06-21T20:00:00-03:00",
+        "mode": 1,
+        "speed_m_s": 5.555555555555555,
+        "terminal_demand_w": 4203.397233925283,
+        "available_solar_w": 0.0,
+        "soc_final": 0.4506315338646785,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T20:00:00-03:00",
+        "end": "2026-06-21T20:30:00-03:00",
+        "mode": 1,
+        "speed_m_s": 5.555555555555555,
+        "terminal_demand_w": 4203.397233925283,
+        "available_solar_w": 0.0,
+        "soc_final": 0.4291856296099577,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T20:30:00-03:00",
+        "end": "2026-06-21T21:00:00-03:00",
+        "mode": 1,
+        "speed_m_s": 5.555555555555555,
+        "terminal_demand_w": 4203.397233925283,
+        "available_solar_w": 0.0,
+        "soc_final": 0.40773972535523684,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T21:00:00-03:00",
+        "end": "2026-06-21T21:30:00-03:00",
+        "mode": 1,
+        "speed_m_s": 5.555555555555555,
+        "terminal_demand_w": 4203.397233925283,
+        "available_solar_w": 0.0,
+        "soc_final": 0.386293821100516,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T21:30:00-03:00",
+        "end": "2026-06-21T22:00:00-03:00",
+        "mode": 1,
+        "speed_m_s": 5.555555555555555,
+        "terminal_demand_w": 4203.397233925283,
+        "available_solar_w": 0.0,
+        "soc_final": 0.36484791684579515,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T22:00:00-03:00",
+        "end": "2026-06-21T22:30:00-03:00",
+        "mode": 1,
+        "speed_m_s": 5.555555555555555,
+        "terminal_demand_w": 4203.397233925283,
+        "available_solar_w": 0.0,
+        "soc_final": 0.34340201259107433,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T22:30:00-03:00",
+        "end": "2026-06-21T23:00:00-03:00",
+        "mode": 1,
+        "speed_m_s": 5.555555555555555,
+        "terminal_demand_w": 4203.397233925283,
+        "available_solar_w": 0.0,
+        "soc_final": 0.32195610833635346,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T23:00:00-03:00",
+        "end": "2026-06-21T23:30:00-03:00",
+        "mode": 1,
+        "speed_m_s": 5.555555555555555,
+        "terminal_demand_w": 4203.397233925283,
+        "available_solar_w": 0.0,
+        "soc_final": 0.30051020408163265,
+        "battery_charge_curtailed_j": 0.0
+      },
+      {
+        "start": "2026-06-21T23:30:00-03:00",
+        "end": "2026-06-22T00:00:00-03:00",
+        "mode": 0,
+        "speed_m_s": 0.0,
+        "terminal_demand_w": 100.0,
+        "available_solar_w": 0.0,
+        "soc_final": 0.3,
+        "battery_charge_curtailed_j": 0.0
+      }
+    ],
+    "vehicle_validated": false,
+    "scope": "horizonte e velocidades discretos; não prova ótimo contínuo I29"
+  },
+  "short_trip_100km_conditioned": {
+    "solver_status": 0,
+    "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+    "optimal_in_grid": true,
+    "vehicle_validated": false,
+    "scope": "potências constantes por intervalo, modos discretos, chegada fracionária",
+    "feasible": true,
+    "distance_m": 99999.99999999997,
+    "elapsed_s": 4499.999999999999,
+    "arrival": "2026-06-21T01:15:00-03:00",
+    "final_soc": 0.5742257557526035,
+    "daily_driving_s": {
+      "2026-06-21": 4499.999999999999
+    },
+    "max_soc_balance_residual": 1.3877787807814457e-17,
+    "schedule": [
+      {
+        "start": "2026-06-21T00:00:00-03:00",
+        "end": "2026-06-21T00:30:00-03:00",
+        "duration_s": 1800.0,
+        "mode": 5,
+        "speed_m_s": 22.22222222222222,
+        "terminal_demand_w": 33380.70074899589,
+        "solar_w": 0.0,
+        "soc_final": 0.8296903023010413,
+        "curtailed_battery_charge_j": 0.0
+      },
+      {
+        "start": "2026-06-21T00:30:00-03:00",
+        "end": "2026-06-21T01:00:00-03:00",
+        "duration_s": 1800.0,
+        "mode": 5,
+        "speed_m_s": 22.22222222222222,
+        "terminal_demand_w": 33380.70074899589,
+        "solar_w": 0.0,
+        "soc_final": 0.6593806046020827,
+        "curtailed_battery_charge_j": 0.0
+      },
+      {
+        "start": "2026-06-21T01:00:00-03:00",
+        "end": "2026-06-21T01:15:00-03:00",
+        "duration_s": 899.999999999999,
+        "mode": 5,
+        "speed_m_s": 22.22222222222222,
+        "terminal_demand_w": 33380.70074899589,
+        "solar_w": 0.0,
+        "soc_final": 0.5742257557526035,
+        "curtailed_battery_charge_j": 0.0
+      }
+    ],
+    "lower_bound_elapsed_s": 4499.999999999999,
+    "mip_gap": 0.0
+  },
+  "item29_7000km_lower_bound_only": {
+    "rolling_energy_optimistic_kwh": 648.3285277777776,
+    "minimum_calendar_days_at_repeated_june21": 171,
+    "assumptions": "Cr mínimo da grade, sem arrasto/perdas/auxiliares, toda bateria inicial e solar disponíveis; não agenda viável, não previsão meteorológica anual",
+    "optimized_7000km": false
+  },
+  "daily_energy_budget": {
+    "solar_2_panels_kwh": 3.2325014845710616,
+    "house_100w_kwh_per_day_assumed": 2.4,
+    "house_200w_kwh_per_day_assumed": 4.8
+  }
+}

@@ -3,7 +3,7 @@
 **Responsável:** P1 — Estrutura, freios, massa e custos  
 **Enunciado / tarefa:** Definir pneus/rodas reais, dimensões e pressão interna.  
 **Depende de:** I15 (P1)  
-**Status:** Não iniciado (estrutura criada automaticamente).
+**Status:** Em desenvolvimento parcial (estrutura criada automaticamente).
 
 ## Entrega mínima
 - `teoria.md`: fenômeno físico, equações, hipóteses e faixa de validade.
@@ -19,3 +19,7 @@ Entradas oficiais em `config/parametros_globais.yaml`; cada atualização releva
 
 ## Aceite
 O item só vira **aprovado** quando tiver resultados reproduzíveis, referências e uma revisão por outro integrante.
+
+## Avanço de 25/10/2026
+
+Especificações, métodos, hipóteses, fontes, reprodução e limitações em [dossiê de revisão](../../../docs/PNEUS_E_MASSA.md). Desenvolvimento parcial; revisão humana e dados finais pendentes.

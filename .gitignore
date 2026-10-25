@@ -12,3 +12,4 @@ fontes_externas/downloads/
 .ruff_cache/
 build/
 dist/
+node_modules/

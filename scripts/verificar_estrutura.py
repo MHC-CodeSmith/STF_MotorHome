@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """Valida que existem 35 itens, com responsáveis e documentação mínima."""
-import csv, pathlib, sys
+import csv
+import pathlib
+import sys
+
 r=pathlib.Path(__file__).resolve().parents[1]
 items=list(csv.DictReader((r/'metadata/itens.csv').open(encoding='utf-8')))
 problems=[]

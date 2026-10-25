@@ -3,6 +3,8 @@
 **Projeto acadêmico de Sistemas Térmicos e Fluídicos (2026).** Este é um *esqueleto de trabalho*, não um projeto de engenharia concluído nem um pacote de simulações validadas.
 
 ## Início rápido
+Estado atual: [retomada curta](docs/ESTADO_ATUAL.md), [visualizador 3D offline](entregas/parcial_2026-10-24/visualizador.html), [energia e otimização condicionadas](docs/ENERGIA_E_OTIMIZACAO.md) e [CADs online pesquisados](docs/CAD_ONLINE_E_VISUALIZACAO.md).
+
 Execução de 24/10: [artefatos visuais e CAD adaptado](entregas/parcial_2026-10-24/README.md), [estimativa solar e CFD piloto](docs/AVANCO_2026-10-24.md). Tração elétrica, proposta L3H2; resultados ainda condicionados às hipóteses e à revisão física descrita nos documentos.
 
 Estado desta frente em 23/10: [carroceria Ducato detalhada e arquivos](docs/CARROCERIA_DE_TRABALHO.md), [revisão ponto a ponto dos 35 itens](docs/REVISAO_35_ITENS.md) e [métodos térmicos implementados](docs/FRENTE_TERMICA.md). O envelope autoral anterior fica apenas como teste de exportação.
@@ -25,3 +27,7 @@ Auditoria operacional de 22/10/2026: [diagnóstico e evidências](docs/AUDITORIA
 - `relatorio/`: organização do texto final e `bibliografia.bib`.
 
 **Atenção:** o enunciado original solicita grupos de 10; confirmar autorização para 7 com docentes. O material de terceiros só pode ser redistribuído/adaptado conforme licença/autorização, com atribuição, e os cálculos do projeto devem ser refeitos nas condições prescritas.
+
+## Revisão de 25/10/2026
+
+[Memorial PDF parcial](output/pdf/memorial_revisao_aurora.pdf), 13 páginas, aproximadamente1MB. [Cabine/HVAC](docs/CABINE_E_HVAC.md) tem caso numérico condicionado; [pneu/massa](docs/PNEUS_E_MASSA.md) tem especificação primária e limites. **105 testes passaram;24 itens parciais/11 não iniciados/0 aprovados.** O projeto completo ainda depende dos componentes, integração elétrica e simulações físicas descritos na matriz.

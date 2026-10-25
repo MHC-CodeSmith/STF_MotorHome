@@ -1,0 +1,82 @@
+{
+  "status": "PILOTOS_NAO_VALIDADOS",
+  "script": "scripts/comparar_pilotos_cfd.py",
+  "cases": [
+    {
+      "case": "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-piloto-03",
+      "cells": 29527,
+      "iterations": 108,
+      "cd": 0.65303585,
+      "cd_pressure": 0.64339287,
+      "cd_viscous": 0.0096429863,
+      "logs_sha256": {
+        "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-piloto-03/log.checkMesh": "9cd7749684945f609a17ae64010f084b28b1b2cef402b742d5210cd2fbe3702c",
+        "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-piloto-03/log.simpleFoam.fields": "52e98579e68fc246eef6463a5d82ddd23a85423daebf20cc486608c3228c0212",
+        "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-2412-01/log.postprocess2412-02": "c38e0ac82a83b5e6f0123d574cdd3ed5dfccd5dbc8ef5154ea87fc7f8add9bef"
+      }
+    },
+    {
+      "case": "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-01",
+      "cells": 63668,
+      "iterations": 187,
+      "cd": 0.62487678,
+      "cd_pressure": 0.61237656,
+      "cd_viscous": 0.012500228,
+      "max_nonorthogonality_deg": 57.770384,
+      "max_skewness": 3.826709,
+      "logs_sha256": {
+        "mesh": {
+          "path": "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-01/log.checkMesh",
+          "sha256": "5045c0aa17daa372cfc95e6dce0009b8b699ba8fe07f8b3c1619ec8ef5e1bfbc"
+        },
+        "fields": {
+          "path": "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-01/log.simpleFoam",
+          "sha256": "f4982bc18ea8224de4d68a7b9433633214a79a8cf81e11a1afcd1be7aee06750"
+        },
+        "forces": {
+          "path": "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-01/log.simpleFoam",
+          "sha256": "f4982bc18ea8224de4d68a7b9433633214a79a8cf81e11a1afcd1be7aee06750"
+        }
+      }
+    },
+    {
+      "case": "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-02",
+      "cells": 166212,
+      "iterations": 179,
+      "cd": 0.5806668,
+      "cd_pressure": 0.56523233,
+      "cd_viscous": 0.015434472,
+      "max_nonorthogonality_deg": 63.778423,
+      "max_skewness": 3.9852517,
+      "logs_sha256": {
+        "mesh": {
+          "path": "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-02/log.checkMesh",
+          "sha256": "25ca494b0cb20716adbf538224da1f4184a5a56d65cf05af1f9d2a19a27efabb"
+        },
+        "fields": {
+          "path": "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-02/log.simpleFoam",
+          "sha256": "ad75fa8f0cabb4af76b82bb54333db98bc9646bd5d12d24ac25dafe3955d0fc6"
+        },
+        "forces": {
+          "path": "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-02/log.forcas",
+          "sha256": "5fe5bb604fa9064476cd3723066860cc59775ccb54aacc72a490484620e49f6e"
+        }
+      }
+    }
+  ],
+  "mesh_independent": false,
+  "validated_cd": null,
+  "last_relative_change": 0.07074991648753531,
+  "area_reference_m2": 4.827840375264284,
+  "speed_m_s": 22.222222,
+  "density_assumed_kg_m3": 1.1,
+  "limitations": [
+    "Sem camadas/y+ verificado",
+    "Rodas estacionárias",
+    "Geometria autoral reparada sem validação física",
+    "Cobertura espacial de refinamento não uniforme; sem extrapolação Richardson/GCI",
+    "Variação de Cd ainda relevante",
+    "Refinos com camadas divergiram e foram rejeitados",
+    "Resíduos baixos não equivalem a validação experimental"
+  ]
+}

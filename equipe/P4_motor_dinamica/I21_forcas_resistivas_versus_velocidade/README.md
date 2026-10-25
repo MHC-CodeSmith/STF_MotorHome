@@ -3,7 +3,7 @@
 **Responsável:** P4 — Motor, transmissão e dinâmica  
 **Enunciado / tarefa:** Produzir força aerodinâmica e de rolamento versus velocidade; cenário plano e sem vento.  
 **Depende de:** I18 (P1), I19 (P3), I20 (P4)  
-**Status:** Não iniciado (estrutura criada automaticamente).
+**Status:** Em desenvolvimento — forças de sensibilidade condicionadas, não aprovadas.
 
 ## Entrega mínima
 - `teoria.md`: fenômeno físico, equações, hipóteses e faixa de validade.
@@ -19,3 +19,7 @@ Entradas oficiais em `config/parametros_globais.yaml`; cada atualização releva
 
 ## Aceite
 O item só vira **aprovado** quando tiver resultados reproduzíveis, referências e uma revisão por outro integrante.
+
+## Integração energética e otimização
+
+Métodos, equações, hipóteses e resultados rastreáveis em [ENERGIA_E_OTIMIZACAO.md](../../../docs/ENERGIA_E_OTIMIZACAO.md). Resultados são condicionados; não substituem dados reais nem aprovação. A limitação de oito horas diárias é aplicada a I29, não a I27.

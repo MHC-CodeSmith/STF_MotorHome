@@ -1,0 +1,26 @@
+revision: layout-0.2
+status: ESTUDO_DE_OCUPACAO_NAO_APROVADO
+source_dimensions: config/arquitetura_eletrica_proposta.yaml, chassis.cargo_*
+coordinate_system: X da porta traseira para cabine; Y esquerda para direita; metros
+cargo_m: [3.705, 1.870, 1.932]
+min_clear_aisle_m: 0.45
+assumptions:
+  - Retângulo de carga máximo OEM não inclui recorte exato das caixas de roda/isolamento/colunas.
+  - Volumes abaixo são reservas autorais de espaço, não dimensões de equipamentos selecionados.
+  - Cama transversal 1,87m por 1,35m antes de acabamentos; ergonomia e altura de usuários a revisar.
+  - Interferências com portas, caixas de roda, saídas e fixações precisam de revisão 3D.
+  - Banheiro reduzido para reserva 0,90x0,76x1,80m após interferência do topo anterior com teto curvo; altura livre e ergonomia seguem pendentes.
+floor_zones:
+  - {id: cama_dupla, x_m: 0.0, y_m: 0.0, length_m: 1.35, width_m: 1.87, height_m: 0.65, label: Cama dupla / armazenamento inferior}
+  - {id: cozinha, x_m: 1.35, y_m: 0.0, length_m: 1.40, width_m: 0.60, height_m: 0.90, label: Cozinha / fogão / pia / geladeira / lava-seca}
+  - {id: banheiro, x_m: 1.35, y_m: 1.05, length_m: 0.90, width_m: 0.76, height_m: 1.80, label: Banheiro compacto / altura livre a revisar}
+  - {id: dinette, x_m: 2.75, y_m: 0.0, length_m: 0.90, width_m: 0.80, height_m: 0.80, label: Mesa rebatível / assento / eletrônicos}
+roof:
+  modules: 2
+  module_length_x_m: 1.134
+  module_width_y_m: 1.762
+  module_thickness_m: 0.030
+  start_x_m: 0.20
+  gap_m: 0.03
+  support_height_m: 0.08
+  remaining_space: Reservar região dianteira para aberturas/ventilação/HVAC; conferir teto curvo e estrutura.

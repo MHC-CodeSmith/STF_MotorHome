@@ -2,7 +2,6 @@
 
 Todas as entradas são explícitas em unidades SI. Não representa CFD nem curva real do motor.
 """
-from math import pi
 
 G = 9.80665
 

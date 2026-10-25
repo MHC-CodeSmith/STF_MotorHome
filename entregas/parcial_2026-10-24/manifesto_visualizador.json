@@ -1,0 +1,16 @@
+{
+  "status": "INSPECAO_VISUAL_NAO_CAD_HOMOLOGADO",
+  "script": "scripts/gerar_visualizador.py",
+  "inputs_sha256": {
+    "entregas/parcial_2026-10-24/aurora_L3H2_proposta_m.glb": "1ba262344eb2700340a7e9f6474b9386392b10e7c1c7afb89e4d19950f2f6e2d",
+    "config/layout_proposto.yaml": "b71389245361b57ab60745c1464eb8c1d1621604d4a564a45ca139ba390773d0",
+    "/home/mhc/motorhome_referencias_tarefas/software/visualizador-dev/aurora.bundle.js": "b0df2603658d95854587c9f5e8dc644d75eb72f91140fe12582a77faeb861475",
+    "/home/mhc/motorhome_referencias_tarefas/software/visualizador-dev/node_modules/three/LICENSE": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601"
+  },
+  "alignment_assumed": {
+    "rear_x_m": -3.35,
+    "floor_z_m": 0.68
+  },
+  "offline": true,
+  "output_sha256": "3d5e287a282e9f2cab931fae6d6493b09272fa0b567359b057ae163eb4a144f0"
+}

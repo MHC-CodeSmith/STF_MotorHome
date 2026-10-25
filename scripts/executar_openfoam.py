@@ -8,13 +8,22 @@ from pathlib import Path
 
 def ambiente(prefixo):
     p = Path(prefixo).resolve()
-    if not (p/'bin/simpleFoam').is_file() or not (p/'share/openfoam/etc').is_dir():
-        raise FileNotFoundError('Prefixo deve conter bin/simpleFoam e share/openfoam/etc')
+    platform = p/'platforms/linux64GccDPInt32Opt'
+    if (platform/'bin/simpleFoam').is_file() and (p/'etc').is_dir():
+        project, bindir, libdir = p, platform/'bin', platform/'lib'
+        # Execução serial: stubs de decomposição evitam depender de KaHIP/Scotch
+        # externos; Pstream real permanece antes dos stubs MPI.
+        libraries = [libdir/'sys-openmpi', libdir/'dummy', libdir]
+    elif (p/'bin/simpleFoam').is_file() and (p/'share/openfoam/etc').is_dir():
+        project, bindir, libdir = p/'share/openfoam', p/'bin', p/'lib'
+        libraries = [libdir, libdir/'x86_64-linux-gnu']
+    else:
+        raise FileNotFoundError('Prefixo não contém instalação OpenFOAM suportada')
     env = os.environ.copy()
-    env.update(WM_PROJECT_DIR=str(p/'share/openfoam'), FOAM_ETC=str(p/'share/openfoam/etc'),
-               FOAM_LIBBIN=str(p/'lib'), OMP_NUM_THREADS='1', OPENBLAS_NUM_THREADS='1')
-    env['PATH'] = str(p/'bin')+os.pathsep+env.get('PATH', '')
-    env['LD_LIBRARY_PATH'] = os.pathsep.join([str(p/'lib'), str(p/'lib/x86_64-linux-gnu'), env.get('LD_LIBRARY_PATH', '')])
+    env.update(WM_PROJECT_DIR=str(project), FOAM_ETC=str(project/'etc'),
+               FOAM_LIBBIN=str(libdir), OMP_NUM_THREADS='1', OPENBLAS_NUM_THREADS='1')
+    env['PATH'] = str(bindir)+os.pathsep+env.get('PATH', '')
+    env['LD_LIBRARY_PATH'] = os.pathsep.join([*(str(x) for x in libraries), env.get('LD_LIBRARY_PATH', '')])
     return env
 
 
@@ -22,12 +31,14 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--prefixo', type=Path, required=True)
     p.add_argument('--caso', type=Path, required=True)
-    p.add_argument('--ferramenta', choices=['blockMesh', 'snappyHexMesh', 'checkMesh', 'simpleFoam', 'surfaceCheck'], required=True)
+    p.add_argument('--ferramenta', choices=['blockMesh', 'snappyHexMesh', 'checkMesh', 'simpleFoam', 'surfaceCheck', 'forcas'], required=True)
     p.add_argument('--timeout', type=float, default=300)
     p.add_argument('--somente-campos', action='store_true', help='Desativa functionObjects; não gera forças/Cd')
     args = p.parse_args()
     caso = args.caso.resolve()
     command = [args.ferramenta, '-case', str(caso)]
+    if args.ferramenta == 'forcas':
+        command = ['simpleFoam', '-case', str(caso), '-postProcess', '-latestTime']
     if args.ferramenta == 'snappyHexMesh':
         command += ['-overwrite']
     if args.ferramenta == 'surfaceCheck':
@@ -47,6 +58,8 @@ def main():
     print(f'{args.ferramenta}: saída {result.returncode}; log {log}')
     if args.ferramenta == 'checkMesh' and 'Mesh OK.' not in log.read_text():
         raise SystemExit('Malha recusada: checkMesh não confirmou Mesh OK, mesmo com saída 0')
+    if args.ferramenta == 'simpleFoam' and result.returncode == 0 and 'SIMPLE solution converged' not in log.read_text():
+        raise SystemExit('Saída 0 sem convergência SIMPLE; não aceitar como solução convergida')
     raise SystemExit(result.returncode)
 
 

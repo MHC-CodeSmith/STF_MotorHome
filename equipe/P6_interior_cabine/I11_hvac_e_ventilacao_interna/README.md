@@ -3,7 +3,7 @@
 **Responsável:** P6 — Interior, conforto e cabine  
 **Enunciado / tarefa:** Especificar sistemas e tecnologias de aquecimento, ar-condicionado e ventilação.  
 **Depende de:** I13 (P6), I16 (P3), I17 (P3)  
-**Status:** Não iniciado (estrutura criada automaticamente).
+**Status:** Em desenvolvimento parcial (estrutura criada automaticamente).
 
 ## Entrega mínima
 - `teoria.md`: fenômeno físico, equações, hipóteses e faixa de validade.
@@ -19,3 +19,7 @@ Entradas oficiais em `config/parametros_globais.yaml`; cada atualização releva
 
 ## Aceite
 O item só vira **aprovado** quando tiver resultados reproduzíveis, referências e uma revisão por outro integrante.
+
+## Avanço de 25/10/2026
+
+Especificações, métodos, hipóteses, fontes, reprodução e limitações em [dossiê de revisão](../../../docs/CABINE_E_HVAC.md). Desenvolvimento parcial; revisão humana e dados finais pendentes.

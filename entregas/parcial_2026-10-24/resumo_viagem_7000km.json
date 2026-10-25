@@ -1,0 +1,33 @@
+{
+  "status": "ESTIMATIVA_CONDICIONADA_NAO_VALIDADA",
+  "vehicle_validated": false,
+  "script": "scripts/construir_viagem_condicionada.py",
+  "optimized": false,
+  "scope": "Agenda construtiva: limite superior de tempo apenas no modelo condicionado",
+  "assumptions": [
+    "Repete o mesmo perfil solar de São Carlos em 21/06 em todos os dias/locais/anos",
+    "Não é previsão de geração na rota Belém–Chuí",
+    "Integração solar à tração ainda não verificada",
+    "Condução noturna a 20 km/h; cargas constantes; sem acelerações ou relevo",
+    "Cr, eficiência e auxiliares assumidos; Cd piloto não validado",
+    "Descarga/recarga de energia útil sem modelo de tensão/temperatura/BMS"
+  ],
+  "elapsed_days": 1621.7708333333333,
+  "calendar_days": 1622,
+  "arrival": "2030-11-28T18:30:00-03:00",
+  "distance_m": 7000000.0,
+  "final_soc": 0.1293711846981088,
+  "max_driving_hours_calendar_day": 8.0,
+  "independent_energy_residual_j": -0.001857757568359375,
+  "independently_feasible_in_model": true,
+  "external_charging": false,
+  "initial_energy_kwh": 98.0,
+  "solar_energy_kwh": 5243.117407974714,
+  "terminal_demand_kwh": 5328.439031873783,
+  "curtailed_solar_kwh": 0.0,
+  "inputs_sha256": {
+    "/home/mhc/motorhome_referencias_tarefas/agendas-condicionadas-03/resumo_agendas.json": "b2128e1233832dd6875d2f336a0c443e2a09b251a5580dcad5925dc75bf3432f",
+    "/home/mhc/motorhome_referencias_tarefas/solar-calculo-02/pv_timeseries.csv": "57feda6eda1d0bd1bba75250fccfdf25d48409a7cf493f00ba65939ca6595498"
+  },
+  "schedule_csv_sha256": "574060fba30b916ceed28d392175918e04c7afc3a168bf890eac084150d49797"
+}

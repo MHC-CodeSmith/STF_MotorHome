@@ -1,0 +1,1949 @@
+{
+  "revision": "cabine-0.1",
+  "status": "ESTIMATIVA_CONDICIONADA_NAO_VALIDADA",
+  "script": "scripts/calcular_cabine.py",
+  "created_utc": "2026-10-25T18:18:28.692397+00:00",
+  "approved_vehicle_result": false,
+  "config_sha256": "eb593b4adbebb9803bb8782d3f7e9eccd658d71ae3a3c2724e3e41e1a089d207",
+  "solar_config_sha256": "cf5f993a7aa86884ccb5a638185851760258732fbb17377d3de1799cbce7e175",
+  "pvlib_version": "0.16.1",
+  "nominal": {
+    "ua_w_k": 65.43660731006382,
+    "insulation_k_w_mk": 0.03828,
+    "opaque_u_w_m2k": 0.746027676961201,
+    "equivalent_volume_m3": 17.359696200000002,
+    "surfaces": [
+      {
+        "surface": "front",
+        "gross_area_m2": 3.6128400000000003,
+        "glass_area_m2": 2.5,
+        "noon_poa_w_m2": 741.5624743132789,
+        "noon_opaque_solar_gain_w": 23.086956245494502,
+        "noon_glass_solar_gain_w": 1112.3437114699184
+      },
+      {
+        "surface": "rear",
+        "gross_area_m2": 3.6128400000000003,
+        "glass_area_m2": 0.5,
+        "noon_poa_w_m2": 114.53543559190825,
+        "noon_opaque_solar_gain_w": 9.974310365063795,
+        "noon_glass_solar_gain_w": 34.36063067757247
+      },
+      {
+        "surface": "left",
+        "gross_area_m2": 9.283259999999999,
+        "glass_area_m2": 0.8,
+        "noon_poa_w_m2": 114.53543559190825,
+        "noon_opaque_solar_gain_w": 27.182466219764283,
+        "noon_glass_solar_gain_w": 54.97700908411596
+      },
+      {
+        "surface": "right",
+        "gross_area_m2": 9.283259999999999,
+        "glass_area_m2": 0.8,
+        "noon_poa_w_m2": 161.70336577061053,
+        "noon_opaque_solar_gain_w": 38.37673690213253,
+        "noon_glass_solar_gain_w": 77.61761556989305
+      },
+      {
+        "surface": "roof",
+        "gross_area_m2": 8.98535,
+        "glass_area_m2": 0,
+        "noon_poa_w_m2": 705.44024578259,
+        "noon_opaque_solar_gain_w": 177.32968343362145,
+        "noon_glass_solar_gain_w": 0.0
+      },
+      {
+        "surface": "floor",
+        "gross_area_m2": 8.98535,
+        "glass_area_m2": 0,
+        "noon_poa_w_m2": 0.0,
+        "noon_opaque_solar_gain_w": 0.0,
+        "noon_glass_solar_gain_w": 0.0
+      }
+    ],
+    "i31_noon_c": 49.07929419790909,
+    "i31_peak_c": 49.596987046187344,
+    "i31_peak_local_time": "2026-06-21T14:07:00-03:00",
+    "i31_noon_frozen_equilibrium_c": 48.76726398112616,
+    "time_constant_h": 0.8489981042616094,
+    "i31_energy_residual_j": 6.028813004377298e-09,
+    "pressure_pa": 91419.31192051314,
+    "humidity_outside_kg_kg": 0.017606076384050335,
+    "humidity_inside_kg_kg": 0.010968170843397981,
+    "ventilation_sensible_w": 70.05538586536264,
+    "ventilation_latent_w": 137.10042026054188,
+    "i32": [
+      {
+        "occupants": 1,
+        "conduction_w": 523.4928584805106,
+        "solar_w": 1555.2491199675767,
+        "equipment_w": 100,
+        "sensible_w": 2323.7973643134496,
+        "latent_w": 192.10042026054188,
+        "cooling_required_w": 2515.8977845739914,
+        "electrical_w_by_assumed_cop": {
+          "2": 1257.9488922869957,
+          "2.5": 1006.3591138295966,
+          "3": 838.6325948579971
+        }
+      },
+      {
+        "occupants": 2,
+        "conduction_w": 523.4928584805106,
+        "solar_w": 1555.2491199675767,
+        "equipment_w": 100,
+        "sensible_w": 2398.7973643134496,
+        "latent_w": 247.10042026054188,
+        "cooling_required_w": 2645.8977845739914,
+        "electrical_w_by_assumed_cop": {
+          "2": 1322.9488922869957,
+          "2.5": 1058.3591138295965,
+          "3": 881.9659281913305
+        }
+      }
+    ],
+    "heading_deg": 0,
+    "absorptance": 0.3,
+    "glass_g": 0.6,
+    "capacity_j_k": 200000
+  },
+  "noon_1min_5min_difference_k": 0.0008103237032912602,
+  "sensitivity": [
+    {
+      "heading_deg": 0,
+      "absorptance": 0.3,
+      "glass_g": 0.3,
+      "capacity_j_k": 100000,
+      "i31_noon_c": 39.36135347224067,
+      "i31_peak_c": 39.72425664394598,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 915.5996365668265,
+          "equipment_w": 100,
+          "sensible_w": 1684.1478809126997,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 1876.2483011732415,
+          "electrical_w_by_assumed_cop": {
+            "2": 938.1241505866208,
+            "2.5": 750.4993204692967,
+            "3": 625.4161003910805
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 915.5996365668265,
+          "equipment_w": 100,
+          "sensible_w": 1759.1478809126997,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 2006.2483011732415,
+          "electrical_w_by_assumed_cop": {
+            "2": 1003.1241505866208,
+            "2.5": 802.4993204692967,
+            "3": 668.7494337244138
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 0,
+      "absorptance": 0.3,
+      "glass_g": 0.3,
+      "capacity_j_k": 200000,
+      "i31_noon_c": 39.27095672683979,
+      "i31_peak_c": 39.60991612986997,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 915.5996365668265,
+          "equipment_w": 100,
+          "sensible_w": 1684.1478809126997,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 1876.2483011732415,
+          "electrical_w_by_assumed_cop": {
+            "2": 938.1241505866208,
+            "2.5": 750.4993204692967,
+            "3": 625.4161003910805
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 915.5996365668265,
+          "equipment_w": 100,
+          "sensible_w": 1759.1478809126997,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 2006.2483011732415,
+          "electrical_w_by_assumed_cop": {
+            "2": 1003.1241505866208,
+            "2.5": 802.4993204692967,
+            "3": 668.7494337244138
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 0,
+      "absorptance": 0.3,
+      "glass_g": 0.3,
+      "capacity_j_k": 400000,
+      "i31_noon_c": 37.98588681131583,
+      "i31_peak_c": 39.190531267904014,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 915.5996365668265,
+          "equipment_w": 100,
+          "sensible_w": 1684.1478809126997,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 1876.2483011732415,
+          "electrical_w_by_assumed_cop": {
+            "2": 938.1241505866208,
+            "2.5": 750.4993204692967,
+            "3": 625.4161003910805
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 915.5996365668265,
+          "equipment_w": 100,
+          "sensible_w": 1759.1478809126997,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 2006.2483011732415,
+          "electrical_w_by_assumed_cop": {
+            "2": 1003.1241505866208,
+            "2.5": 802.4993204692967,
+            "3": 668.7494337244138
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 0,
+      "absorptance": 0.3,
+      "glass_g": 0.6,
+      "capacity_j_k": 100000,
+      "i31_noon_c": 49.292422819932554,
+      "i31_peak_c": 49.766616728428005,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1555.2491199675767,
+          "equipment_w": 100,
+          "sensible_w": 2323.7973643134496,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 2515.8977845739914,
+          "electrical_w_by_assumed_cop": {
+            "2": 1257.9488922869957,
+            "2.5": 1006.3591138295966,
+            "3": 838.6325948579971
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1555.2491199675767,
+          "equipment_w": 100,
+          "sensible_w": 2398.7973643134496,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 2645.8977845739914,
+          "electrical_w_by_assumed_cop": {
+            "2": 1322.9488922869957,
+            "2.5": 1058.3591138295965,
+            "3": 881.9659281913305
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 0,
+      "absorptance": 0.3,
+      "glass_g": 0.6,
+      "capacity_j_k": 200000,
+      "i31_noon_c": 49.0784838742058,
+      "i31_peak_c": 49.59567374691423,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1555.2491199675767,
+          "equipment_w": 100,
+          "sensible_w": 2323.7973643134496,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 2515.8977845739914,
+          "electrical_w_by_assumed_cop": {
+            "2": 1257.9488922869957,
+            "2.5": 1006.3591138295966,
+            "3": 838.6325948579971
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1555.2491199675767,
+          "equipment_w": 100,
+          "sensible_w": 2398.7973643134496,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 2645.8977845739914,
+          "electrical_w_by_assumed_cop": {
+            "2": 1322.9488922869957,
+            "2.5": 1058.3591138295965,
+            "3": 881.9659281913305
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 0,
+      "absorptance": 0.3,
+      "glass_g": 0.6,
+      "capacity_j_k": 400000,
+      "i31_noon_c": 46.86104907287441,
+      "i31_peak_c": 48.87907434945127,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1555.2491199675767,
+          "equipment_w": 100,
+          "sensible_w": 2323.7973643134496,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 2515.8977845739914,
+          "electrical_w_by_assumed_cop": {
+            "2": 1257.9488922869957,
+            "2.5": 1006.3591138295966,
+            "3": 838.6325948579971
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1555.2491199675767,
+          "equipment_w": 100,
+          "sensible_w": 2398.7973643134496,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 2645.8977845739914,
+          "electrical_w_by_assumed_cop": {
+            "2": 1322.9488922869957,
+            "2.5": 1058.3591138295965,
+            "3": 881.9659281913305
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 0,
+      "absorptance": 0.7,
+      "glass_g": 0.3,
+      "capacity_j_k": 100000,
+      "i31_noon_c": 45.26839897163908,
+      "i31_peak_c": 45.98599979665886,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1283.5331741215953,
+          "equipment_w": 100,
+          "sensible_w": 2052.081418467468,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 2244.18183872801,
+          "electrical_w_by_assumed_cop": {
+            "2": 1122.090919364005,
+            "2.5": 897.672735491204,
+            "3": 748.0606129093367
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1283.5331741215953,
+          "equipment_w": 100,
+          "sensible_w": 2127.081418467468,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 2374.18183872801,
+          "electrical_w_by_assumed_cop": {
+            "2": 1187.090919364005,
+            "2.5": 949.672735491204,
+            "3": 791.39394624267
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 0,
+      "absorptance": 0.7,
+      "glass_g": 0.3,
+      "capacity_j_k": 200000,
+      "i31_noon_c": 45.222196166138204,
+      "i31_peak_c": 45.79492215433185,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1283.5331741215953,
+          "equipment_w": 100,
+          "sensible_w": 2052.081418467468,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 2244.18183872801,
+          "electrical_w_by_assumed_cop": {
+            "2": 1122.090919364005,
+            "2.5": 897.672735491204,
+            "3": 748.0606129093367
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1283.5331741215953,
+          "equipment_w": 100,
+          "sensible_w": 2127.081418467468,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 2374.18183872801,
+          "electrical_w_by_assumed_cop": {
+            "2": 1187.090919364005,
+            "2.5": 949.672735491204,
+            "3": 791.39394624267
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 0,
+      "absorptance": 0.7,
+      "glass_g": 0.3,
+      "capacity_j_k": 400000,
+      "i31_noon_c": 43.46685287765883,
+      "i31_peak_c": 45.200964550861606,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1283.5331741215953,
+          "equipment_w": 100,
+          "sensible_w": 2052.081418467468,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 2244.18183872801,
+          "electrical_w_by_assumed_cop": {
+            "2": 1122.090919364005,
+            "2.5": 897.672735491204,
+            "3": 748.0606129093367
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1283.5331741215953,
+          "equipment_w": 100,
+          "sensible_w": 2127.081418467468,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 2374.18183872801,
+          "electrical_w_by_assumed_cop": {
+            "2": 1187.090919364005,
+            "2.5": 949.672735491204,
+            "3": 791.39394624267
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 0,
+      "absorptance": 0.7,
+      "glass_g": 0.6,
+      "capacity_j_k": 100000,
+      "i31_noon_c": 55.199468319330954,
+      "i31_peak_c": 56.010427200421574,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1923.1826575223454,
+          "equipment_w": 100,
+          "sensible_w": 2691.7309018682186,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 2883.8313221287603,
+          "electrical_w_by_assumed_cop": {
+            "2": 1441.9156610643802,
+            "2.5": 1153.5325288515041,
+            "3": 961.2771073762534
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1923.1826575223454,
+          "equipment_w": 100,
+          "sensible_w": 2766.7309018682186,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 3013.8313221287603,
+          "electrical_w_by_assumed_cop": {
+            "2": 1506.9156610643802,
+            "2.5": 1205.5325288515041,
+            "3": 1004.6104407095868
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 0,
+      "absorptance": 0.7,
+      "glass_g": 0.6,
+      "capacity_j_k": 200000,
+      "i31_noon_c": 55.0297233135042,
+      "i31_peak_c": 55.76470650769805,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1923.1826575223454,
+          "equipment_w": 100,
+          "sensible_w": 2691.7309018682186,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 2883.8313221287603,
+          "electrical_w_by_assumed_cop": {
+            "2": 1441.9156610643802,
+            "2.5": 1153.5325288515041,
+            "3": 961.2771073762534
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1923.1826575223454,
+          "equipment_w": 100,
+          "sensible_w": 2766.7309018682186,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 3013.8313221287603,
+          "electrical_w_by_assumed_cop": {
+            "2": 1506.9156610643802,
+            "2.5": 1205.5325288515041,
+            "3": 1004.6104407095868
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 0,
+      "absorptance": 0.7,
+      "glass_g": 0.6,
+      "capacity_j_k": 400000,
+      "i31_noon_c": 52.34201513921741,
+      "i31_peak_c": 54.88302344639726,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1923.1826575223454,
+          "equipment_w": 100,
+          "sensible_w": 2691.7309018682186,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 2883.8313221287603,
+          "electrical_w_by_assumed_cop": {
+            "2": 1441.9156610643802,
+            "2.5": 1153.5325288515041,
+            "3": 961.2771073762534
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1923.1826575223454,
+          "equipment_w": 100,
+          "sensible_w": 2766.7309018682186,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 3013.8313221287603,
+          "electrical_w_by_assumed_cop": {
+            "2": 1506.9156610643802,
+            "2.5": 1205.5325288515041,
+            "3": 1004.6104407095868
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 90,
+      "absorptance": 0.3,
+      "glass_g": 0.3,
+      "capacity_j_k": 100000,
+      "i31_noon_c": 37.11388960395655,
+      "i31_peak_c": 38.65155984677867,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 739.4356265855234,
+          "equipment_w": 100,
+          "sensible_w": 1507.9838709313967,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 1700.0842911919385,
+          "electrical_w_by_assumed_cop": {
+            "2": 850.0421455959693,
+            "2.5": 680.0337164767755,
+            "3": 566.6947637306462
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 739.4356265855234,
+          "equipment_w": 100,
+          "sensible_w": 1582.9838709313967,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 1830.0842911919385,
+          "electrical_w_by_assumed_cop": {
+            "2": 915.0421455959693,
+            "2.5": 732.0337164767755,
+            "3": 610.0280970639795
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 90,
+      "absorptance": 0.3,
+      "glass_g": 0.3,
+      "capacity_j_k": 200000,
+      "i31_noon_c": 37.44458868741615,
+      "i31_peak_c": 38.14576018556044,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 739.4356265855234,
+          "equipment_w": 100,
+          "sensible_w": 1507.9838709313967,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 1700.0842911919385,
+          "electrical_w_by_assumed_cop": {
+            "2": 850.0421455959693,
+            "2.5": 680.0337164767755,
+            "3": 566.6947637306462
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 739.4356265855234,
+          "equipment_w": 100,
+          "sensible_w": 1582.9838709313967,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 1830.0842911919385,
+          "electrical_w_by_assumed_cop": {
+            "2": 915.0421455959693,
+            "2.5": 732.0337164767755,
+            "3": 610.0280970639795
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 90,
+      "absorptance": 0.3,
+      "glass_g": 0.3,
+      "capacity_j_k": 400000,
+      "i31_noon_c": 36.757383056889616,
+      "i31_peak_c": 36.78603967101947,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 739.4356265855234,
+          "equipment_w": 100,
+          "sensible_w": 1507.9838709313967,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 1700.0842911919385,
+          "electrical_w_by_assumed_cop": {
+            "2": 850.0421455959693,
+            "2.5": 680.0337164767755,
+            "3": 566.6947637306462
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 739.4356265855234,
+          "equipment_w": 100,
+          "sensible_w": 1582.9838709313967,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 1830.0842911919385,
+          "electrical_w_by_assumed_cop": {
+            "2": 915.0421455959693,
+            "2.5": 732.0337164767755,
+            "3": 610.0280970639795
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 90,
+      "absorptance": 0.3,
+      "glass_g": 0.6,
+      "capacity_j_k": 100000,
+      "i31_noon_c": 43.27212066535751,
+      "i31_peak_c": 47.33446954717167,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1083.3569646295125,
+          "equipment_w": 100,
+          "sensible_w": 1851.9052089753857,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 2044.0056292359275,
+          "electrical_w_by_assumed_cop": {
+            "2": 1022.0028146179637,
+            "2.5": 817.602251694371,
+            "3": 681.3352097453092
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1083.3569646295125,
+          "equipment_w": 100,
+          "sensible_w": 1926.9052089753857,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 2174.0056292359277,
+          "electrical_w_by_assumed_cop": {
+            "2": 1087.0028146179638,
+            "2.5": 869.602251694371,
+            "3": 724.6685430786425
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 90,
+      "absorptance": 0.3,
+      "glass_g": 0.6,
+      "capacity_j_k": 200000,
+      "i31_noon_c": 44.18617499309181,
+      "i31_peak_c": 46.347254064639806,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1083.3569646295125,
+          "equipment_w": 100,
+          "sensible_w": 1851.9052089753857,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 2044.0056292359275,
+          "electrical_w_by_assumed_cop": {
+            "2": 1022.0028146179637,
+            "2.5": 817.602251694371,
+            "3": 681.3352097453092
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1083.3569646295125,
+          "equipment_w": 100,
+          "sensible_w": 1926.9052089753857,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 2174.0056292359277,
+          "electrical_w_by_assumed_cop": {
+            "2": 1087.0028146179638,
+            "2.5": 869.602251694371,
+            "3": 724.6685430786425
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 90,
+      "absorptance": 0.3,
+      "glass_g": 0.6,
+      "capacity_j_k": 400000,
+      "i31_noon_c": 43.57024475604142,
+      "i31_peak_c": 43.89630144513726,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1083.3569646295125,
+          "equipment_w": 100,
+          "sensible_w": 1851.9052089753857,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 2044.0056292359275,
+          "electrical_w_by_assumed_cop": {
+            "2": 1022.0028146179637,
+            "2.5": 817.602251694371,
+            "3": 681.3352097453092
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1083.3569646295125,
+          "equipment_w": 100,
+          "sensible_w": 1926.9052089753857,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 2174.0056292359277,
+          "electrical_w_by_assumed_cop": {
+            "2": 1087.0028146179638,
+            "2.5": 869.602251694371,
+            "3": 724.6685430786425
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 90,
+      "absorptance": 0.7,
+      "glass_g": 0.3,
+      "capacity_j_k": 100000,
+      "i31_noon_c": 45.05476766069734,
+      "i31_peak_c": 45.819625030511915,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1266.7880113075691,
+          "equipment_w": 100,
+          "sensible_w": 2035.3362556534423,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 2227.4366759139843,
+          "electrical_w_by_assumed_cop": {
+            "2": 1113.7183379569922,
+            "2.5": 890.9746703655937,
+            "3": 742.4788919713282
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1266.7880113075691,
+          "equipment_w": 100,
+          "sensible_w": 2110.336255653442,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 2357.436675913984,
+          "electrical_w_by_assumed_cop": {
+            "2": 1178.718337956992,
+            "2.5": 942.9746703655935,
+            "3": 785.8122253046613
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 90,
+      "absorptance": 0.7,
+      "glass_g": 0.3,
+      "capacity_j_k": 200000,
+      "i31_noon_c": 45.048591863070115,
+      "i31_peak_c": 45.227079722488774,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1266.7880113075691,
+          "equipment_w": 100,
+          "sensible_w": 2035.3362556534423,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 2227.4366759139843,
+          "electrical_w_by_assumed_cop": {
+            "2": 1113.7183379569922,
+            "2.5": 890.9746703655937,
+            "3": 742.4788919713282
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1266.7880113075691,
+          "equipment_w": 100,
+          "sensible_w": 2110.336255653442,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 2357.436675913984,
+          "electrical_w_by_assumed_cop": {
+            "2": 1178.718337956992,
+            "2.5": 942.9746703655935,
+            "3": 785.8122253046613
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 90,
+      "absorptance": 0.7,
+      "glass_g": 0.3,
+      "capacity_j_k": 400000,
+      "i31_noon_c": 43.35007820054008,
+      "i31_peak_c": 43.82871827142753,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1266.7880113075691,
+          "equipment_w": 100,
+          "sensible_w": 2035.3362556534423,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 2227.4366759139843,
+          "electrical_w_by_assumed_cop": {
+            "2": 1113.7183379569922,
+            "2.5": 890.9746703655937,
+            "3": 742.4788919713282
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1266.7880113075691,
+          "equipment_w": 100,
+          "sensible_w": 2110.336255653442,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 2357.436675913984,
+          "electrical_w_by_assumed_cop": {
+            "2": 1178.718337956992,
+            "2.5": 942.9746703655935,
+            "3": 785.8122253046613
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 90,
+      "absorptance": 0.7,
+      "glass_g": 0.6,
+      "capacity_j_k": 100000,
+      "i31_noon_c": 51.212998722098305,
+      "i31_peak_c": 54.02151309254603,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1610.7093493515583,
+          "equipment_w": 100,
+          "sensible_w": 2379.2575936974313,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 2571.358013957973,
+          "electrical_w_by_assumed_cop": {
+            "2": 1285.6790069789865,
+            "2.5": 1028.5432055831893,
+            "3": 857.119337985991
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1610.7093493515583,
+          "equipment_w": 100,
+          "sensible_w": 2454.2575936974313,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 2701.358013957973,
+          "electrical_w_by_assumed_cop": {
+            "2": 1350.6790069789865,
+            "2.5": 1080.5432055831893,
+            "3": 900.4526713193244
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 90,
+      "absorptance": 0.7,
+      "glass_g": 0.6,
+      "capacity_j_k": 200000,
+      "i31_noon_c": 51.79017816874579,
+      "i31_peak_c": 52.99588711230152,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1610.7093493515583,
+          "equipment_w": 100,
+          "sensible_w": 2379.2575936974313,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 2571.358013957973,
+          "electrical_w_by_assumed_cop": {
+            "2": 1285.6790069789865,
+            "2.5": 1028.5432055831893,
+            "3": 857.119337985991
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1610.7093493515583,
+          "equipment_w": 100,
+          "sensible_w": 2454.2575936974313,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 2701.358013957973,
+          "electrical_w_by_assumed_cop": {
+            "2": 1350.6790069789865,
+            "2.5": 1080.5432055831893,
+            "3": 900.4526713193244
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 90,
+      "absorptance": 0.7,
+      "glass_g": 0.6,
+      "capacity_j_k": 400000,
+      "i31_noon_c": 50.16293989969188,
+      "i31_peak_c": 50.18087175320817,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1610.7093493515583,
+          "equipment_w": 100,
+          "sensible_w": 2379.2575936974313,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 2571.358013957973,
+          "electrical_w_by_assumed_cop": {
+            "2": 1285.6790069789865,
+            "2.5": 1028.5432055831893,
+            "3": 857.119337985991
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1610.7093493515583,
+          "equipment_w": 100,
+          "sensible_w": 2454.2575936974313,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 2701.358013957973,
+          "electrical_w_by_assumed_cop": {
+            "2": 1350.6790069789865,
+            "2.5": 1080.5432055831893,
+            "3": 900.4526713193244
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 180,
+      "absorptance": 0.3,
+      "glass_g": 0.3,
+      "capacity_j_k": 100000,
+      "i31_noon_c": 34.22465142731381,
+      "i31_peak_c": 34.869507240727835,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 574.4668777156916,
+          "equipment_w": 100,
+          "sensible_w": 1343.0151220615649,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 1535.1155423221066,
+          "electrical_w_by_assumed_cop": {
+            "2": 767.5577711610533,
+            "2.5": 614.0462169288427,
+            "3": 511.70518077403557
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 574.4668777156916,
+          "equipment_w": 100,
+          "sensible_w": 1418.0151220615649,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 1665.1155423221066,
+          "electrical_w_by_assumed_cop": {
+            "2": 832.5577711610533,
+            "2.5": 666.0462169288427,
+            "3": 555.0385141073689
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 180,
+      "absorptance": 0.3,
+      "glass_g": 0.3,
+      "capacity_j_k": 200000,
+      "i31_noon_c": 34.318181054215835,
+      "i31_peak_c": 34.74469654475376,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 574.4668777156916,
+          "equipment_w": 100,
+          "sensible_w": 1343.0151220615649,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 1535.1155423221066,
+          "electrical_w_by_assumed_cop": {
+            "2": 767.5577711610533,
+            "2.5": 614.0462169288427,
+            "3": 511.70518077403557
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 574.4668777156916,
+          "equipment_w": 100,
+          "sensible_w": 1418.0151220615649,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 1665.1155423221066,
+          "electrical_w_by_assumed_cop": {
+            "2": 832.5577711610533,
+            "2.5": 666.0462169288427,
+            "3": 555.0385141073689
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 180,
+      "absorptance": 0.3,
+      "glass_g": 0.3,
+      "capacity_j_k": 400000,
+      "i31_noon_c": 33.62658736225296,
+      "i31_peak_c": 34.46610682966575,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 574.4668777156916,
+          "equipment_w": 100,
+          "sensible_w": 1343.0151220615649,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 1535.1155423221066,
+          "electrical_w_by_assumed_cop": {
+            "2": 767.5577711610533,
+            "2.5": 614.0462169288427,
+            "3": 511.70518077403557
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 574.4668777156916,
+          "equipment_w": 100,
+          "sensible_w": 1418.0151220615649,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 1665.1155423221066,
+          "electrical_w_by_assumed_cop": {
+            "2": 832.5577711610533,
+            "2.5": 666.0462169288427,
+            "3": 555.0385141073689
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 180,
+      "absorptance": 0.3,
+      "glass_g": 0.6,
+      "capacity_j_k": 100000,
+      "i31_noon_c": 38.4907396406139,
+      "i31_peak_c": 39.54348414939538,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 837.9001378836191,
+          "equipment_w": 100,
+          "sensible_w": 1606.4483822294924,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 1798.5488024900342,
+          "electrical_w_by_assumed_cop": {
+            "2": 899.2744012450171,
+            "2.5": 719.4195209960137,
+            "3": 599.5162674966781
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 837.9001378836191,
+          "equipment_w": 100,
+          "sensible_w": 1681.4483822294924,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 1928.5488024900342,
+          "electrical_w_by_assumed_cop": {
+            "2": 964.2744012450171,
+            "2.5": 771.4195209960137,
+            "3": 642.8496008300114
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 180,
+      "absorptance": 0.3,
+      "glass_g": 0.6,
+      "capacity_j_k": 200000,
+      "i31_noon_c": 38.66356916706269,
+      "i31_peak_c": 39.35131142764243,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 837.9001378836191,
+          "equipment_w": 100,
+          "sensible_w": 1606.4483822294924,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 1798.5488024900342,
+          "electrical_w_by_assumed_cop": {
+            "2": 899.2744012450171,
+            "2.5": 719.4195209960137,
+            "3": 599.5162674966781
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 837.9001378836191,
+          "equipment_w": 100,
+          "sensible_w": 1681.4483822294924,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 1928.5488024900342,
+          "electrical_w_by_assumed_cop": {
+            "2": 964.2744012450171,
+            "2.5": 771.4195209960137,
+            "3": 642.8496008300114
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 180,
+      "absorptance": 0.3,
+      "glass_g": 0.6,
+      "capacity_j_k": 400000,
+      "i31_noon_c": 37.69412229364638,
+      "i31_peak_c": 38.94038548797314,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 837.9001378836191,
+          "equipment_w": 100,
+          "sensible_w": 1606.4483822294924,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 1798.5488024900342,
+          "electrical_w_by_assumed_cop": {
+            "2": 899.2744012450171,
+            "2.5": 719.4195209960137,
+            "3": 599.5162674966781
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 837.9001378836191,
+          "equipment_w": 100,
+          "sensible_w": 1681.4483822294924,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 1928.5488024900342,
+          "electrical_w_by_assumed_cop": {
+            "2": 964.2744012450171,
+            "2.5": 771.4195209960137,
+            "3": 642.8496008300114
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 180,
+      "absorptance": 0.7,
+      "glass_g": 0.3,
+      "capacity_j_k": 100000,
+      "i31_noon_c": 40.83606904599876,
+      "i31_peak_c": 41.80691153711208,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 989.1783677793767,
+          "equipment_w": 100,
+          "sensible_w": 1757.7266121252499,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 1949.8270323857917,
+          "electrical_w_by_assumed_cop": {
+            "2": 974.9135161928958,
+            "2.5": 779.9308129543167,
+            "3": 649.9423441285973
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 989.1783677793767,
+          "equipment_w": 100,
+          "sensible_w": 1832.7266121252499,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 2079.827032385792,
+          "electrical_w_by_assumed_cop": {
+            "2": 1039.913516192896,
+            "2.5": 831.9308129543167,
+            "3": 693.2756774619306
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 180,
+      "absorptance": 0.7,
+      "glass_g": 0.3,
+      "capacity_j_k": 200000,
+      "i31_noon_c": 40.94857164270779,
+      "i31_peak_c": 41.6047892975982,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 989.1783677793767,
+          "equipment_w": 100,
+          "sensible_w": 1757.7266121252499,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 1949.8270323857917,
+          "electrical_w_by_assumed_cop": {
+            "2": 974.9135161928958,
+            "2.5": 779.9308129543167,
+            "3": 649.9423441285973
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 989.1783677793767,
+          "equipment_w": 100,
+          "sensible_w": 1832.7266121252499,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 2079.827032385792,
+          "electrical_w_by_assumed_cop": {
+            "2": 1039.913516192896,
+            "2.5": 831.9308129543167,
+            "3": 693.2756774619306
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 180,
+      "absorptance": 0.7,
+      "glass_g": 0.3,
+      "capacity_j_k": 400000,
+      "i31_noon_c": 39.705323936732334,
+      "i31_peak_c": 41.12770537979365,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 989.1783677793767,
+          "equipment_w": 100,
+          "sensible_w": 1757.7266121252499,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 1949.8270323857917,
+          "electrical_w_by_assumed_cop": {
+            "2": 974.9135161928958,
+            "2.5": 779.9308129543167,
+            "3": 649.9423441285973
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 989.1783677793767,
+          "equipment_w": 100,
+          "sensible_w": 1832.7266121252499,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 2079.827032385792,
+          "electrical_w_by_assumed_cop": {
+            "2": 1039.913516192896,
+            "2.5": 831.9308129543167,
+            "3": 693.2756774619306
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 180,
+      "absorptance": 0.7,
+      "glass_g": 0.6,
+      "capacity_j_k": 100000,
+      "i31_noon_c": 45.102157259298856,
+      "i31_peak_c": 46.472711067195625,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1252.6116279473042,
+          "equipment_w": 100,
+          "sensible_w": 2021.1598722931774,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 2213.2602925537194,
+          "electrical_w_by_assumed_cop": {
+            "2": 1106.6301462768597,
+            "2.5": 885.3041170214877,
+            "3": 737.7534308512398
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1252.6116279473042,
+          "equipment_w": 100,
+          "sensible_w": 2096.159872293177,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 2343.260292553719,
+          "electrical_w_by_assumed_cop": {
+            "2": 1171.6301462768595,
+            "2.5": 937.3041170214876,
+            "3": 781.086764184573
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 180,
+      "absorptance": 0.7,
+      "glass_g": 0.6,
+      "capacity_j_k": 200000,
+      "i31_noon_c": 45.29395975555465,
+      "i31_peak_c": 46.20307335204041,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1252.6116279473042,
+          "equipment_w": 100,
+          "sensible_w": 2021.1598722931774,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 2213.2602925537194,
+          "electrical_w_by_assumed_cop": {
+            "2": 1106.6301462768597,
+            "2.5": 885.3041170214877,
+            "3": 737.7534308512398
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1252.6116279473042,
+          "equipment_w": 100,
+          "sensible_w": 2096.159872293177,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 2343.260292553719,
+          "electrical_w_by_assumed_cop": {
+            "2": 1171.6301462768595,
+            "2.5": 937.3041170214876,
+            "3": 781.086764184573
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 180,
+      "absorptance": 0.7,
+      "glass_g": 0.6,
+      "capacity_j_k": 400000,
+      "i31_noon_c": 43.772858868125766,
+      "i31_peak_c": 45.59637972689374,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1252.6116279473042,
+          "equipment_w": 100,
+          "sensible_w": 2021.1598722931774,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 2213.2602925537194,
+          "electrical_w_by_assumed_cop": {
+            "2": 1106.6301462768597,
+            "2.5": 885.3041170214877,
+            "3": 737.7534308512398
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1252.6116279473042,
+          "equipment_w": 100,
+          "sensible_w": 2096.159872293177,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 2343.260292553719,
+          "electrical_w_by_assumed_cop": {
+            "2": 1171.6301462768595,
+            "2.5": 937.3041170214876,
+            "3": 781.086764184573
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 270,
+      "absorptance": 0.3,
+      "glass_g": 0.3,
+      "capacity_j_k": 100000,
+      "i31_noon_c": 36.00190292786137,
+      "i31_peak_c": 38.68489992961364,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 713.7740120816735,
+          "equipment_w": 100,
+          "sensible_w": 1482.3222564275468,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 1674.4226766880886,
+          "electrical_w_by_assumed_cop": {
+            "2": 837.2113383440443,
+            "2.5": 669.7690706752354,
+            "3": 558.1408922293629
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 713.7740120816735,
+          "equipment_w": 100,
+          "sensible_w": 1557.3222564275468,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 1804.4226766880886,
+          "electrical_w_by_assumed_cop": {
+            "2": 902.2113383440443,
+            "2.5": 721.7690706752354,
+            "3": 601.4742255626962
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 270,
+      "absorptance": 0.3,
+      "glass_g": 0.3,
+      "capacity_j_k": 200000,
+      "i31_noon_c": 35.762438016218056,
+      "i31_peak_c": 38.41250218197777,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 713.7740120816735,
+          "equipment_w": 100,
+          "sensible_w": 1482.3222564275468,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 1674.4226766880886,
+          "electrical_w_by_assumed_cop": {
+            "2": 837.2113383440443,
+            "2.5": 669.7690706752354,
+            "3": 558.1408922293629
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 713.7740120816735,
+          "equipment_w": 100,
+          "sensible_w": 1557.3222564275468,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 1804.4226766880886,
+          "electrical_w_by_assumed_cop": {
+            "2": 902.2113383440443,
+            "2.5": 721.7690706752354,
+            "3": 601.4742255626962
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 270,
+      "absorptance": 0.3,
+      "glass_g": 0.3,
+      "capacity_j_k": 400000,
+      "i31_noon_c": 34.598064666868865,
+      "i31_peak_c": 37.74465838550855,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 713.7740120816735,
+          "equipment_w": 100,
+          "sensible_w": 1482.3222564275468,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 1674.4226766880886,
+          "electrical_w_by_assumed_cop": {
+            "2": 837.2113383440443,
+            "2.5": 669.7690706752354,
+            "3": 558.1408922293629
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 713.7740120816735,
+          "equipment_w": 100,
+          "sensible_w": 1557.3222564275468,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 1804.4226766880886,
+          "electrical_w_by_assumed_cop": {
+            "2": 902.2113383440443,
+            "2.5": 721.7690706752354,
+            "3": 601.4742255626962
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 270,
+      "absorptance": 0.3,
+      "glass_g": 0.6,
+      "capacity_j_k": 100000,
+      "i31_noon_c": 40.93378613285986,
+      "i31_peak_c": 47.41445625751369,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1029.3945920184412,
+          "equipment_w": 100,
+          "sensible_w": 1797.9428363643144,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 1990.0432566248562,
+          "electrical_w_by_assumed_cop": {
+            "2": 995.0216283124281,
+            "2.5": 796.0173026499425,
+            "3": 663.3477522082854
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1029.3945920184412,
+          "equipment_w": 100,
+          "sensible_w": 1872.9428363643144,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 2120.0432566248564,
+          "electrical_w_by_assumed_cop": {
+            "2": 1060.0216283124282,
+            "2.5": 848.0173026499426,
+            "3": 706.6810855416188
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 270,
+      "absorptance": 0.3,
+      "glass_g": 0.6,
+      "capacity_j_k": 200000,
+      "i31_noon_c": 40.64887451289261,
+      "i31_peak_c": 46.86386036360864,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1029.3945920184412,
+          "equipment_w": 100,
+          "sensible_w": 1797.9428363643144,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 1990.0432566248562,
+          "electrical_w_by_assumed_cop": {
+            "2": 995.0216283124281,
+            "2.5": 796.0173026499425,
+            "3": 663.3477522082854
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1029.3945920184412,
+          "equipment_w": 100,
+          "sensible_w": 1872.9428363643144,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 2120.0432566248564,
+          "electrical_w_by_assumed_cop": {
+            "2": 1060.0216283124282,
+            "2.5": 848.0173026499426,
+            "3": 706.6810855416188
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 270,
+      "absorptance": 0.3,
+      "glass_g": 0.6,
+      "capacity_j_k": 400000,
+      "i31_noon_c": 39.02953499162818,
+      "i31_peak_c": 45.56537077065898,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1029.3945920184412,
+          "equipment_w": 100,
+          "sensible_w": 1797.9428363643144,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 1990.0432566248562,
+          "electrical_w_by_assumed_cop": {
+            "2": 995.0216283124281,
+            "2.5": 796.0173026499425,
+            "3": 663.3477522082854
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1029.3945920184412,
+          "equipment_w": 100,
+          "sensible_w": 1872.9428363643144,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 2120.0432566248564,
+          "electrical_w_by_assumed_cop": {
+            "2": 1060.0216283124282,
+            "2.5": 848.0173026499426,
+            "3": 706.6810855416188
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 270,
+      "absorptance": 0.7,
+      "glass_g": 0.3,
+      "capacity_j_k": 100000,
+      "i31_noon_c": 44.0952625583452,
+      "i31_peak_c": 45.85479357105544,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1244.6452549415478,
+          "equipment_w": 100,
+          "sensible_w": 2013.193499287421,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 2205.293919547963,
+          "electrical_w_by_assumed_cop": {
+            "2": 1102.6469597739815,
+            "2.5": 882.1175678191852,
+            "3": 735.0979731826543
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1244.6452549415478,
+          "equipment_w": 100,
+          "sensible_w": 2088.1934992874208,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 2335.2939195479626,
+          "electrical_w_by_assumed_cop": {
+            "2": 1167.6469597739813,
+            "2.5": 934.1175678191851,
+            "3": 778.4313065159876
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 270,
+      "absorptance": 0.7,
+      "glass_g": 0.3,
+      "capacity_j_k": 200000,
+      "i31_noon_c": 43.59710670894271,
+      "i31_peak_c": 45.57222305661504,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1244.6452549415478,
+          "equipment_w": 100,
+          "sensible_w": 2013.193499287421,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 2205.293919547963,
+          "electrical_w_by_assumed_cop": {
+            "2": 1102.6469597739815,
+            "2.5": 882.1175678191852,
+            "3": 735.0979731826543
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1244.6452549415478,
+          "equipment_w": 100,
+          "sensible_w": 2088.1934992874208,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 2335.2939195479626,
+          "electrical_w_by_assumed_cop": {
+            "2": 1167.6469597739813,
+            "2.5": 934.1175678191851,
+            "3": 778.4313065159876
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 270,
+      "absorptance": 0.7,
+      "glass_g": 0.3,
+      "capacity_j_k": 400000,
+      "i31_noon_c": 41.486857123014886,
+      "i31_peak_c": 44.72121792760874,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1244.6452549415478,
+          "equipment_w": 100,
+          "sensible_w": 2013.193499287421,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 2205.293919547963,
+          "electrical_w_by_assumed_cop": {
+            "2": 1102.6469597739815,
+            "2.5": 882.1175678191852,
+            "3": 735.0979731826543
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1244.6452549415478,
+          "equipment_w": 100,
+          "sensible_w": 2088.1934992874208,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 2335.2939195479626,
+          "electrical_w_by_assumed_cop": {
+            "2": 1167.6469597739813,
+            "2.5": 934.1175678191851,
+            "3": 778.4313065159876
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 270,
+      "absorptance": 0.7,
+      "glass_g": 0.6,
+      "capacity_j_k": 100000,
+      "i31_noon_c": 49.0271457633437,
+      "i31_peak_c": 54.08471252852398,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1560.2658348783157,
+          "equipment_w": 100,
+          "sensible_w": 2328.814079224189,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 2520.9144994847306,
+          "electrical_w_by_assumed_cop": {
+            "2": 1260.4572497423653,
+            "2.5": 1008.3657997938923,
+            "3": 840.3048331615769
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1560.2658348783157,
+          "equipment_w": 100,
+          "sensible_w": 2403.814079224189,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 2650.9144994847306,
+          "electrical_w_by_assumed_cop": {
+            "2": 1325.4572497423653,
+            "2.5": 1060.3657997938922,
+            "3": 883.6381664949103
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 270,
+      "absorptance": 0.7,
+      "glass_g": 0.6,
+      "capacity_j_k": 200000,
+      "i31_noon_c": 48.48354320561727,
+      "i31_peak_c": 53.54130638608751,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1560.2658348783157,
+          "equipment_w": 100,
+          "sensible_w": 2328.814079224189,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 2520.9144994847306,
+          "electrical_w_by_assumed_cop": {
+            "2": 1260.4572497423653,
+            "2.5": 1008.3657997938923,
+            "3": 840.3048331615769
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1560.2658348783157,
+          "equipment_w": 100,
+          "sensible_w": 2403.814079224189,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 2650.9144994847306,
+          "electrical_w_by_assumed_cop": {
+            "2": 1325.4572497423653,
+            "2.5": 1060.3657997938922,
+            "3": 883.6381664949103
+          }
+        }
+      ]
+    },
+    {
+      "heading_deg": 270,
+      "absorptance": 0.7,
+      "glass_g": 0.6,
+      "capacity_j_k": 400000,
+      "i31_noon_c": 45.91832744777422,
+      "i31_peak_c": 52.17796951439972,
+      "i32": [
+        {
+          "occupants": 1,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1560.2658348783157,
+          "equipment_w": 100,
+          "sensible_w": 2328.814079224189,
+          "latent_w": 192.10042026054188,
+          "cooling_required_w": 2520.9144994847306,
+          "electrical_w_by_assumed_cop": {
+            "2": 1260.4572497423653,
+            "2.5": 1008.3657997938923,
+            "3": 840.3048331615769
+          }
+        },
+        {
+          "occupants": 2,
+          "conduction_w": 523.4928584805106,
+          "solar_w": 1560.2658348783157,
+          "equipment_w": 100,
+          "sensible_w": 2403.814079224189,
+          "latent_w": 247.10042026054188,
+          "cooling_required_w": 2650.9144994847306,
+          "electrical_w_by_assumed_cop": {
+            "2": 1325.4572497423653,
+            "2.5": 1060.3657997938922,
+            "3": 883.6381664949103
+          }
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Todos os valores desta seção são hipóteses de projeto, não dados OEM nem valores aprovados.",
+    "Filme externo combinado inclui convecção natural e radiação linearizada; vento nulo não implica h nulo.",
+    "Temperatura radiante externa igual à ambiente; sem resfriamento explícito do céu noturno.",
+    "Sem crédito de sombra dos módulos, persianas ou outras obstruções; albedo 0.2.",
+    "Piso sem sol; mesma resistência das paredes; radiação refletida incluída nas paredes via pvlib.",
+    "Metal externo de resistência desprezível; pontes térmicas contabilizadas por UA adicional.",
+    "I31 fechado ideal sem infiltração; I32 ventilação explícita sem recuperação de calor.",
+    "I32 um e dois ocupantes; frio calculado em 33°C exterior, 25°C interior e UR50% nos dois estados."
+  ],
+  "geometry_limit": "Caixa térmica equivalente incluindo extensão assumida para cabine dianteira; não é área extraída do CAD."
+}

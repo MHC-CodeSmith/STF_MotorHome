@@ -3,7 +3,7 @@
 **Responsável:** P5 — Solar, autonomia e viagem  
 **Enunciado / tarefa:** Distância percorrida por energia elétrica da bateria (km/kWh) a 40 e 80 km/h; explicitar auxiliares.
 **Depende de:** I21 (P4), I22 (P4), I23 (P2), I13 (P6)  
-**Status:** Não iniciado (estrutura criada automaticamente).
+**Status:** Em desenvolvimento — curvas de sensibilidade condicionadas, não aprovadas.
 
 ## Entrega mínima
 - `teoria.md`: fenômeno físico, equações, hipóteses e faixa de validade.
@@ -22,3 +22,7 @@ O item só vira **aprovado** quando tiver resultados reproduzíveis, referência
 
 ## Correção de auditoria — 22/10/2026
 Enunciado original, p. 2, item 26: distância por consumo da bateria em km/kWh. A redação anterior “consumo energético por km” descrevia a razão inversa. O título e a unidade foram preservados; a teoria ainda é template e deve receber a mesma correção ao ser desenvolvida.
+
+## Integração energética e otimização
+
+Métodos, equações, hipóteses e resultados rastreáveis em [ENERGIA_E_OTIMIZACAO.md](../../../docs/ENERGIA_E_OTIMIZACAO.md). Resultados são condicionados; não substituem dados reais nem aprovação. A limitação de oito horas diárias é aplicada a I29, não a I27.

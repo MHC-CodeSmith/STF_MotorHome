@@ -1,0 +1,10 @@
+{
+  "name": "aurora-inspecao-local",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "esbuild scene.js --bundle --minify --format=iife --legal-comments=inline --outfile=build/aurora.bundle.js"
+  },
+  "dependencies": { "three": "0.180.0" },
+  "devDependencies": { "esbuild": "0.25.10", "playwright": "1.56.1" }
+}
