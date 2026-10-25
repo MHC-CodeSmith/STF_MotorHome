@@ -136,3 +136,35 @@ consultar sessões antes de afirmar isso.
   perfil de habitação comsecagem; medir envelope térmico real; mapas e simulações
   físicas I30/33/34/35; CFD da carroceria equipada e missão física7000km. Não reusar
   Cd/agendas históricos de2painéis/100W estacionado como configuração ampliada atual.
+
+## Mais recente — tração, elétrica e compatibilização da indução
+
+- Ler `docs/CAD_TRACAO_E_SERVICOS.md`. Integração geométrica: pack110kWh com15módulos
+ ilustrativos, motor/redutor, inversor/OBC/radiador dianteiros; **cotas estimadas, não OEM**.
+- `config/instalacoes_eletricas_proposta.yaml`, `scripts/gerar_cad_eletrico.py`:
+ 208sólidos STEP reimportados positivos. Cache `cad-eletrico-02/`.
+- Serviços:2NG51,2V100Ah paralelo10,24kWh/200Ah/74kg publicados estimados,
+ LynxBMSNG500A,MultiPlus-II48/5000,MPPTs,Orion48/12-30 eAGM22Ah12V;
+ gabinete metálico lateral e gaveta autoral sob cama. Circuitos/proteções/ventilação
+ e fixação ainda não aprovados. Não somar trem de força de novo à massaOEM2790kg.
+- Indução substituída por **IE3TP220V60Hz2000W**,280x358x62mm/2,3kg, portátil em
+ bancada contínua; manual2025p17 conferido visualmente. Loja mistura1500W genéricos
+ com220V: seguir manual da variante. `interior-0.2`,cache`instalacoes-05/`,157sólidos.
+- `visualizador-eletrico-03/qa`:23seletores,157meshes interior+208elétrica,
+ erros[]/HTTPrequests[]; vista técnica retira corpo/interior/teto, HVAC isolável.
+ Copiado na entrega com STEP/GLB e novas figuras.
+- `integracao-eletrica-02`:23envelopes equipamentos semsobreposição AABB; não
+ inclui estrutura/cabos/portas. Incremento115,4kg serviços fixos; subtotal3373,355kg,
+ saldo876,645kg antes do restante. Temperaturas de cabos são entradas de sensibilidade,
+ não campoI30. `expansao-solar-03`:habitação5,276506kWh/dia semsecagem;
+ saldo fixo0,230343kWh/dia antes de perdas de armazenamento/interbarramento.
+- Fontes primárias e hashes:cache`tracao-fontes-01/`, catálogo e
+ `proveniencia_eletrica.json`. PDFbrutos fora doGit. Ficha antiga2021não aplicada ao packMY25.
+- **117passed**,ruffsrc/scripts/tests e estruturaOK. Memorial parcial18páginas,
+ 1903237bytes; renderização em`memorial-qa-04/`. YAML global intacto.
+- Geradores novos:calcular_integracao_eletrica/consolidar_eletrica; consolidação
+ recebe caches por argumentos. **Não rodar consolidar_expansao antigo**, sobrescreveria
+ entregas com versão anterior. Referências históricas de massa/energia foram superadas.
+- Próximo:fechar circuitos/EVSE/tensões e simultaneidade, desenhosOEM/folgas/estrutura,
+ custos/eixos, casos físicosI30/33/34/35,CFD equipado e missões. Logo/grafismos externos
+ sódepois de terminar a parte técnica, conforme usuário. Sempush/entrega final.

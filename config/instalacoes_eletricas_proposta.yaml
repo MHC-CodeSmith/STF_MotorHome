@@ -1,0 +1,153 @@
+revision: integracao-eletrica-0.1
+status: ESTUDO_DE_INTEGRACAO_COM_ENVELOPES_OEM_ESTIMADOS
+coordinate_system: global_X_frente_Z_cima_metros
+alignment_assumed: {rear_x_m: 0, cargo_width_m: 0, floor_z_m: 0}
+policy: Geometria autoral de integração. Dimensões OEM de tração não disponíveis; não usar envelopes como desenho de fabricação ou modelo térmico validado.
+service_bank: {quantity: 2, connection: parallel, voltage_v: 51.2, capacity_ah: 200, energy_kwh: 10.24, assumed_max_dod: 0.8, max_continuous_discharge_a: 200}
+traction_mass_sensitivity: {gross_energy_wh: 110000, assumed_pack_specific_energy_wh_kg: [140, 170, 200], source: Hipóteses de sensibilidade, não dados de fabricante do pack; já incluído na massa OEM2790kg}
+items:
+  - id: pack_tracao
+    label: Tração OEM / envelope estimado 110 kWh
+    model: traction_pack
+    dimensions_xyz_m: [2.90, 1.44, 0.32]
+    position_xyz_m: [-2.15, -0.72, 0.23]
+    mass_kg: null
+    mass_in_oem_curb: true
+    source: https://www.fiat.sk/content/dam/fiat2023/sk/cenniky/2026/03/e_Ducato_pricelist_dodavka_200326.pdf
+    source_note: Capacidade110/98kWh e15módulos da ficha MY25; arranjo ilustrativo5x3, dimensões2.90x1.44x0.32m e vão livre230mm ASSUMIDOS. Não desenho OEM. Química/massa/troca térmica ainda desconhecidas.
+  - id: motor_tracao
+    label: Motor elétrico dianteiro / 205 kW pico
+    model: motor
+    dimensions_xyz_m: [0.36, 0.42, 0.36]
+    position_xyz_m: [1.3617, -0.49, 0.36]
+    mass_kg: null
+    mass_in_oem_curb: true
+    source: https://www.fiat.sk/content/dam/fiat2023/sk/cenniky/2026/03/e_Ducato_pricelist_dodavka_200326.pdf
+    source_note: Potência205kW/410Nm pico da ficha; envelope cilíndrico e montagem no eixoX1.5417m estimados. Não há mapa de eficiência/potência contínua/massa OEM.
+  - id: redutor
+    label: Redutor e diferencial dianteiros / estimativa
+    model: gearbox
+    dimensions_xyz_m: [0.38, 0.44, 0.30]
+    position_xyz_m: [1.3517, -0.04, 0.39]
+    mass_kg: null
+    mass_in_oem_curb: true
+    source: Estimativa autoral de integração
+    source_note: Relação de transmissão, lubrificante e geometria OEM não publicados nas fontes obtidas; semieixos ilustrativos alinhados com rodas existentes.
+  - id: inversor_tracao
+    label: Inversor de tração / envelope estimado
+    model: electronics
+    dimensions_xyz_m: [0.42, 0.46, 0.16]
+    position_xyz_m: [1.32, -0.30, 0.82]
+    mass_kg: null
+    mass_in_oem_curb: true
+    source: Estimativa autoral de integração
+    source_note: Envelope reservado no cofre dianteiro; perdas, massa e suportes não verificados com OEM.
+  - id: carregador_oem
+    label: Carregador AC OEM / 11 kW MY25
+    model: electronics
+    dimensions_xyz_m: [0.36, 0.42, 0.18]
+    position_xyz_m: [0.84, -0.21, 0.82]
+    mass_kg: null
+    mass_in_oem_curb: true
+    source: https://www.fiat.sk/content/dam/fiat2023/sk/cenniky/2026/03/e_Ducato_pricelist_dodavka_200326.pdf
+    source_note: 11kWAC da ficha; posição/dimensões estimadas, não comprovada compatibilidade de EVSE com alimentação isolada do inversor.
+  - id: radiador_tracao
+    label: Radiador e ventiladores / reserva estimada
+    model: radiator
+    dimensions_xyz_m: [0.08, 0.72, 0.60]
+    position_xyz_m: [2.04, -0.36, 0.43]
+    mass_kg: null
+    mass_in_oem_curb: true
+    source: Estimativa autoral de integração
+    source_note: Reserva de arrefecimento, não seleção de radiador/bomba nem solução I35. Curvas hidráulicas/térmicas ainda ausentes.
+  - id: bateria_servicos_1
+    label: Serviços / Lithium NG 51.2V100Ah n1
+    model: battery
+    dimensions_xyz_m: [0.648, 0.162, 0.235]
+    position_xyz_m: [-2.43, -0.285, 0.73]
+    mass_kg: 37
+    mass_in_oem_curb: false
+    source: https://www.victronenergy.com/media/pg/Lithium_NG_battery_51,2_V/en/technical-data.html
+    source_note: 5120Wh/100A contínuos, massa estimada37kg publicada pelo fabricante. Duas em paralelo200Ah,10.24kWh; atende mínimo200Ah recomendado pelo manual48/5000. Fixação, chicote BMS e fusíveis de ramos pendentes.
+  - id: bateria_servicos_2
+    label: Serviços / Lithium NG 51.2V100Ah n2
+    model: battery
+    dimensions_xyz_m: [0.648, 0.162, 0.235]
+    position_xyz_m: [-2.43, -0.035, 0.73]
+    mass_kg: 37
+    mass_in_oem_curb: false
+    source: https://www.victronenergy.com/media/pg/Lithium_NG_battery_51,2_V/en/technical-data.html
+    source_note: Segundo módulo paralelo, não em série; BMS NG externo obrigatório. Não aumenta capacidade de tração OEM.
+  - id: inversor_servicos
+    label: Serviços / MultiPlus-II48-5000 230V
+    model: inverter
+    dimensions_xyz_m: [0.320, 0.149, 0.565]
+    position_xyz_m: [-3.20, 0.565, 0.84]
+    mass_kg: 30
+    mass_in_oem_curb: false
+    source: https://www.victronenergy.com/media/pg/MultiPlus-II_230V/en/technical-specifications-mp-ii-230v.html
+    source_note: 565x320x149mm h/w/d,30kg;4000W25°C/3700W40°C. Montagem vertical com reserva100mm lateral/superior/inferior; acesso frontal pela porta traseira/garagem. Frequência dos aparelhos e proteção final pendentes.
+  - id: bms_servicos
+    label: Serviços / Lynx Smart BMS NG500A
+    model: electronics
+    dimensions_xyz_m: [0.180, 0.080, 0.190]
+    position_xyz_m: [-2.63, 0.565, 1.20]
+    mass_kg: 1.9
+    mass_in_oem_curb: false
+    source: https://www.victronenergy.com/media/pg/Lynx_Smart_BMS_NG/en/technical-specifications.html
+    source_note: Dimensões/massa de fabricante; contator500A e pré-carga. Não substitui fusíveis adequados aos cabos. Montagem ilustrativa, espaço dos barramentos externos a verificar.
+  - id: mppt_principal
+    label: Solar / SmartSolar150-35 principal
+    model: controller
+    dimensions_xyz_m: [0.186, 0.070, 0.130]
+    position_xyz_m: [-2.63, 0.565, 0.92]
+    mass_kg: 1.25
+    mass_in_oem_curb: false
+    source: https://www.victronenergy.com/media/pg/Manual_SmartSolar_MPPT_150-35__150-45/en/technical-specifications.html
+    source_note: 3SJA1350W/48V,1.25kg; reserva100mm entre faixas verticais proposta, verificar afastamentos e terminais completos do manual antes da construção.
+  - id: mppt_extensao
+    label: Solar / SmartSolar150-35 opcional
+    model: controller
+    optional_extension: true
+    dimensions_xyz_m: [0.186, 0.070, 0.130]
+    position_xyz_m: [-2.35, 0.565, 0.92]
+    mass_kg: 1.25
+    mass_in_oem_curb: false
+    source: https://www.victronenergy.com/media/pg/Manual_SmartSolar_MPPT_150-35__150-45/en/technical-specifications.html
+    source_note: Somente alternativa com3JA extras; independente para limitar perdas de sombra. Massa separada do arranjo fixo principal.
+  - id: mppt_cabine
+    label: Solar / SmartSolar100-20 12V
+    model: controller
+    dimensions_xyz_m: [0.131, 0.060, 0.100]
+    position_xyz_m: [-2.35, 0.565, 1.20]
+    mass_kg: 0.65
+    mass_in_oem_curb: false
+    source: https://www.victronenergy.com/media/pg/Manual_SmartSolar_MPPT_75-10_up_to_100-20/en/technical-specifications.html
+    source_note: Módulo190W/Vmp21.8V no barramento12V; 100/20 suporta48V mas este painel não atinge tensão de partida para48V.
+  - id: dc_dc_servicos
+    label: Serviços / Orion-Tr48-12-30 isolado
+    model: controller
+    dimensions_xyz_m: [0.186, 0.080, 0.130]
+    position_xyz_m: [-2.07, 0.565, 0.92]
+    mass_kg: 1.8
+    mass_in_oem_curb: false
+    source: https://www.victronenergy.com/upload/documents/Datasheet-Orion-Tr-DC-DC-converters-isolated-100-250-400W-EN.pdf
+    source_note: Conversor360W/30A; não carregador inteligente de bateria. Ligação à AGM exige isolamento/prioridade e ajuste de tensão/proteções, ainda não circuito liberado.
+  - id: auxiliar_12v
+    label: Serviços / AGM22Ah buffer12V
+    model: battery
+    dimensions_xyz_m: [0.181, 0.077, 0.167]
+    position_xyz_m: [-1.57, 0.565, 0.73]
+    mass_kg: 5.8
+    mass_in_oem_curb: false
+    source: https://www.victronenergy.com/upload/documents/Brochure_MARINE_EN_2025.pdf
+    source_note: BAT212200084,181x77x167mm/5.8kg,264Wh nominais a20h; buffer para MPPT190W separado da bateria12V OEM. Não supre toda habitação noturna sem48→12V; ventilação exterior e controle de carga pendentes.
+  - id: quadro_ac_dc
+    label: Quadro AC-DC / proteções e seccionamento
+    model: distribution
+    dimensions_xyz_m: [0.25, 0.10, 0.28]
+    position_xyz_m: [-1.77, 0.565, 1.10]
+    mass_kg: null
+    mass_in_oem_curb: false
+    source: Reserva autoral; referência manual MultiPlus-II
+    source_note: Reserva geométrica para disjuntores/DR/barramentos/fusíveis; manual48/5000 sugere fusível200A e70mm² por polo até5m. Coordenação, capacidade de interrupção e normas locais ainda não resolvidas.

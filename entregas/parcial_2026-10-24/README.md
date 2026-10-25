@@ -1,5 +1,17 @@
 # Aurora Solar — revisão parcial de 24/10/2026
 
+**Atualização25/10: [abrir o visualizador equipado](visualizador.html).** Agora inclui
+tração e elétrica com23seletores: use a vista técnica para retirar a carroceria/interior,
+ou selecione A/C para isolá-lo. [STEP tração/serviços](tracao_e_servicos.step),
+[vista da tração](cad_tracao.png), [elétrica de serviços](cad_eletrica_servicos.png)
+e [relatório da integração](../../docs/CAD_TRACAO_E_SERVICOS.md).
+208sólidos novos; dimensões de tração estimadas, componentes de serviços documentados.
+Interior157sólidos com induçãoIE3TP220V60Hz2000W, banco de serviços10,24kWh.
+Subtotal3373,355kg antes de itens faltantes; consumo residencial assumido5,27651kWh/dia
+sem secagem. [Resultados atuais](resumo_integracao_eletrica.json) e
+[fontes/hashes](proveniencia_eletrica.json). Os números anteriores abaixo são históricos;
+não representam a nova configuração completa. Logo/pintura ficam após a parte técnica.
+
 **Projeto em desenvolvimento. Não é entrega final dos 35 itens.**
 
 [Abrir visualizador 3D offline](visualizador.html): carroceria detalhada, vistas, triângulos, módulos e reservas internas. Abra o HTML no navegador. [Método, pesquisa de CAD online e checagem do banheiro](../../docs/CAD_ONLINE_E_VISUALIZACAO.md).

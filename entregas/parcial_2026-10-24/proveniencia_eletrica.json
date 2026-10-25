@@ -1,0 +1,92 @@
+{
+  "script": "scripts/consolidar_eletrica.py",
+  "created_utc": "2026-10-25T20:21:19.971063+00:00",
+  "source_caches": {
+    "cad": "/home/mhc/motorhome_referencias_tarefas/cad-eletrico-02",
+    "viewer": "/home/mhc/motorhome_referencias_tarefas/visualizador-eletrico-03",
+    "calculo": "/home/mhc/motorhome_referencias_tarefas/integracao-eletrica-02",
+    "fontes": "/home/mhc/motorhome_referencias_tarefas/tracao-fontes-01",
+    "interior": "/home/mhc/motorhome_referencias_tarefas/instalacoes-05",
+    "solar": "/home/mhc/motorhome_referencias_tarefas/expansao-solar-03"
+  },
+  "sources": [
+    {
+      "name": "bateria_ng",
+      "url": "https://www.victronenergy.com/media/pg/Lithium_NG_battery_51,2_V/en/technical-data.html",
+      "sha256": "c9958d54499a3eb90e35ea50bbf622b37ac2f9da58d4c7774393848603aba1b8",
+      "bytes": 36737
+    },
+    {
+      "name": "mppt150",
+      "url": "https://www.victronenergy.com/media/pg/Manual_SmartSolar_MPPT_150-35__150-45/en/technical-specifications.html",
+      "sha256": "7cf5bf67fae7c2c949f8225185007026e96bab608fbe5682a930626574817dfa",
+      "bytes": 50136
+    },
+    {
+      "name": "mppt100",
+      "url": "https://www.victronenergy.com/media/pg/Manual_SmartSolar_MPPT_75-10_up_to_100-20/en/technical-specifications.html",
+      "sha256": "7bd71a69c7a9d4c3214030b76c947b8d9da8fb8dd85784f694997afd03892696",
+      "bytes": 54890
+    },
+    {
+      "name": "bms",
+      "url": "https://www.victronenergy.com/media/pg/Lynx_Smart_BMS_NG/en/technical-specifications.html",
+      "sha256": "d7a42206c631c65aa6ef4d3b125f79e80fb7b6d77fff59726c71807b3b6d4940",
+      "bytes": 42032
+    },
+    {
+      "name": "multiplus",
+      "url": "https://www.victronenergy.com/media/pg/MultiPlus-II_230V/en/technical-specifications-mp-ii-230v.html",
+      "sha256": "f093c57d3d465e11780ff37719dc1449317683a18d947276fc0e407e3a89980a",
+      "bytes": 54653
+    },
+    {
+      "name": "instalacao",
+      "url": "https://www.victronenergy.com/media/pg/MultiPlus-II_230V/en/installation.html",
+      "sha256": "70400afe1ae30bfa7f3456d34cc47090ec074a7589e99dfa9799e9a5165c4fe5",
+      "bytes": 55306
+    },
+    {
+      "name": "orion",
+      "filename": "orion.pdf",
+      "url": "https://www.victronenergy.com/upload/documents/Datasheet-Orion-Tr-DC-DC-converters-isolated-100-250-400W-EN.pdf",
+      "bytes": 280439,
+      "sha256": "a9beaed98752324d89d90ad68315084cb4d2a637282d90dcc001ec2b8d26f309"
+    },
+    {
+      "name": "agm",
+      "filename": "agm.pdf",
+      "url": "https://www.victronenergy.com/upload/documents/Brochure_MARINE_EN_2025.pdf",
+      "bytes": 11997658,
+      "sha256": "44c1a1bd1b6e7b2d6676678bc0340b6c454e03db9659858cd61a7b22a5638070"
+    },
+    {
+      "name": "hymer",
+      "filename": "hymer.html",
+      "url": "https://www.hymer.com/gb/en/service/hymer-original-parts-and-accessories/schrankauszug",
+      "bytes": 142312,
+      "sha256": "f5c9a9f0c803b6a1144267279bb4b48542d6070bced1ddc52635b441076e8346"
+    },
+    {
+      "name": "IE3TP manual2025",
+      "filename": "ie3tp_2025.pdf",
+      "url": "https://api.electrolux-medialibrary.com/asset/e295c711-5ce0-44d6-8d54-265bb08e664a/E4RM3Q/250717TCLQ/PDF/250717TCLQ.pdf",
+      "bytes": 5835625,
+      "sha256": "563247915905052d0a0e142637d278ca1f7a6d19cc4341a4d33d2581f245c798"
+    }
+  ],
+  "status": "PARCIAL_NAO_APROVADO",
+  "qa": {
+    "ready": true,
+    "errors": [],
+    "external_requests": [],
+    "canvas_count": 1,
+    "components": 23,
+    "interior_meshes": 157,
+    "electrical_meshes": 208,
+    "technical_view_enabled": true,
+    "interior_restored": true,
+    "focused_item": "Dometic FreshWell 3000 / HVAC sob cama"
+  },
+  "oem_traction_geometry_is_estimated": true
+}

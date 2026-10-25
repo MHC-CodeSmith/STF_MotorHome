@@ -17,3 +17,14 @@ Ver [cabine/HVAC](CABINE_E_HVAC.md), [pneus/massa](PNEUS_E_MASSA.md) e
 ## Ampliação subsequente
 
 P3/P5→P1/P2/P4/P6: cobertura fixa1540W/97,655kg estimados, extensão171,191kg recolhida/2890W aberta; conferir limite do teto exato. P6→P1: componentes conhecidos118kg, sete itens modelados, cargas de secagem ainda desconhecidas. P2→P5: trêsMPPT/barramentos12/48V propostos; transferência à tração400V não verificada. P3→P4: novo exterior equipado exige CFD atualizado; não reusar Cd antigo como validado. P1→todos: massa montada/custos/eixos ainda pendentes.
+
+## Integração elétrica posterior — substitui valores de massa/consumo acima
+
+P2/P3→todos: banco51,2V200Ah10,24kWh/BMS,MPPTs,inversor e conversor noCAD;
+208sólidos adicionais, cotas de tração estimadas. P6→P2/P5: induçãoIE3TP220V60Hz2000W
+substituiCVI1350EMEA; consumo assumido semsecagem5,276506kWh/dia, saldo solar fixo
+0,230343kWh antes do armazenamento/conversão. P2/P6→P1: serviços115,4kg adicionais,
+indução2,3kg; subtotal3373,355kg ainda incompleto. Manual do inversor recomenda
+200Ah/200A/70mm² por poloaté5m; não cabo de tração nem circuito aprovado.
+P2/P7: radiador/bomba/HV noCAD são reservas, sem curvas/perdas/cálculoI35.
+Ver`docs/CAD_TRACAO_E_SERVICOS.md`; nenhum aviso externo foi enviado.

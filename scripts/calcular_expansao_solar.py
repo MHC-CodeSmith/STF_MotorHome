@@ -68,9 +68,12 @@ def main():
     # Orçamento de habitação assumido, sem secagem: não mascara a lacuna do ciclo.
     cabin_path = Path('entregas/parcial_2026-10-24/resumo_cabine.json')
     cabin = json.loads(cabin_path.read_text())
+    equipment_path = Path('config/equipamentos_interior.yaml')
+    equipment = yaml.safe_load(equipment_path.read_text())
+    cooking_w = next(i['electrical']['rated_power_w'] for i in equipment['items'] if i['id'] == 'fogao')
     cooling_two = cabin['nominal']['i32'][1]['cooling_required_w']/1000
     household = {'fridge_55w_assumed_50percent_duty_kwh': .055*12,
-                 'cooktop_2300w_half_hour_kwh': 2.3*.5,
+                 'cooktop_half_hour_kwh': cooking_w/1000*.5,
                  'hvac_two_people_3h_assumed_cop2_5_kwh': cooling_two/2.5*3,
                  'cold_wash_once_week_daily_average_kwh': .29/7,
                  'lights_pump_electronics_assumed_kwh': .4}
@@ -88,7 +91,8 @@ def main():
                               'Sem sombras de árvores/aberturas/antenas; extensão aberta idealmente durante todo o sol, ventozero do enunciado.',
                               'Faiman não calibrado para painéis empilhados; temperatura da pequena placa usa aproximação comum de módulo.',
                               'Perfil de habitação é hipótese; energia de secagem desconhecida e não incluída. Não viabilidade da missão.'],
-              'inputs_sha256': {str(path): hashlib.sha256(path.read_bytes()).hexdigest() for path in [config_path, layout_path, cabin_path]}}
+              'cooktop_rated_power_w': cooking_w,
+              'inputs_sha256': {str(path): hashlib.sha256(path.read_bytes()).hexdigest() for path in [config_path, layout_path, cabin_path, equipment_path]}}
     args.destino.mkdir(parents=True, exist_ok=False)
     d.to_csv(args.destino/'expansao_solar.csv', index_label='local_time')
     (args.destino/'resumo_expansao_solar.json').write_text(json.dumps(result, indent=2, ensure_ascii=False))

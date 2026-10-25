@@ -1,0 +1,33 @@
+{
+  "revision": "integracao-eletrica-0.1",
+  "created_utc": "2026-10-25T20:15:54.379724+00:00",
+  "script": "scripts/gerar_cad_eletrico.py",
+  "policy": "Geometria autoral de integração. Dimensões OEM de tração não disponíveis; não usar envelopes como desenho de fabricação ou modelo térmico validado.",
+  "parts": 208,
+  "step_positive_volumes": 208,
+  "service_known_mass_fixed_kg": 115.4,
+  "service_optional_mass_kg": 1.25,
+  "service_nominal_energy_kwh": 10.24,
+  "service_energy_at_assumed_80pct_dod_kwh": 8.192,
+  "traction_pack_assumed_ground_clearance_m": 0.23,
+  "traction_pack_assumed_outer_volume_m3": 1.3363200000000002,
+  "traction_pack_mass_hypotheses_kg": [
+    785.7142857142857,
+    647.0588235294117,
+    550.0
+  ],
+  "oem_traction_added_mass_kg": 0,
+  "thermal_or_structural_validation": false,
+  "config_sha256": "4f127922ec913ad8f6bd04ccb1aeddf5a423ff26958f24317bcedbb5807347a6",
+  "generator_sha256": "cbe8820a7f42d724fcc82dfa21536e630dcda2b4e503b66eb151a08831f4254b",
+  "outputs_sha256": {
+    "tracao_e_servicos.step": "f57e36ac79ca161b3e88741ca794ee1676c14c604a2d1e4df786801059c4c7c8",
+    "tracao_e_servicos.glb": "e63dd7df4b47f78b8c6860e95384dd2621b1c9cdbfc85e16a382ad5bd4478111"
+  },
+  "limitations": [
+    "Rotas e difusores são conceituais; sem perda de carga/vazão dimensionada.",
+    "Envelope do pack/motor/redutor e seus arranjos não são cotas OEM.",
+    "Massas desconhecidas não foram substituídas por zero em orçamento completo.",
+    "STEP reimportado verifica sólidos, não ausência de interferência entre todos os sistemas."
+  ]
+}

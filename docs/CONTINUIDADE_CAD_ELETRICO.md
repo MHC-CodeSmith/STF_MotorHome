@@ -1,5 +1,15 @@
 # Retomada rápida — CAD elétrico (25/10/2026)
 
+**Atualização posterior: a etapa abaixo já avançou. Ler primeiro
+[CAD_TRACAO_E_SERVICOS.md](CAD_TRACAO_E_SERVICOS.md).** Tração/serviços agora têm
+208sólidos STEP/GLB, viewer23seletores, interior157sólidos e induçãoIE3TP220V60Hz2000W.
+Banco10,24kWh/200Ah; serviços115,4kg adicionais; subtotal3373,355kg ainda incompleto.
+Caches atuais: `cad-eletrico-02`, `instalacoes-05`, `visualizador-eletrico-03/qa`,
+`expansao-solar-03`, `integracao-eletrica-02`, `tracao-fontes-01`, `memorial-qa-04`.
+**117 testes passaram**, ruff e estrutura OK. Memorial18páginas/1903237bytes.
+Logo/pintura solicitados **somente depois do trabalho técnico**, ainda não iniciados.
+O restante desta nota preserva o ponto de partida anterior; números antigos foram superados.
+
 ## Pedido ativo e estado real
 
 Concluir o motorhome **elétrico solar**, seguindo enunciado/apostila e os 35 itens.
@@ -7,8 +17,8 @@ Concluir o motorhome **elétrico solar**, seguindo enunciado/apostila e os 35 it
 componentes elétricos e A/C**, pesquisar aproveitamento típico dos espaços e
 implementar. Usuário autoriza pesquisa, downloads/instalações e avanço autônomo;
 push para `https://github.com/MHC-CodeSmith/STF_MotorHome.git` quando pronto.
-**Essa nova etapa física ainda não foi implementada.** Não afirmar que já pesquisou
-ou instalou os componentes de tração. A/C FreshWell já existe sob a cama, oculto
+**Na origem desta nota, a nova etapa física ainda não havia sido implementada.**
+Foi desenvolvida depois como geometria estimada, não como desenho OEM. A/C FreshWell já existe sob a cama, oculto
 na vista normal; melhorar acesso visual e acrescentar dutos/instalações.
 
 Trabalhar somente em `/home/mhc/motorhome_solar_codex_tarefas`, branch

@@ -1,0 +1,130 @@
+{
+  "equipment_pair_overlaps": [],
+  "scope": "AABB de equipamentos, sem estrutura OEM, acabamentos, portas, terminais ou rotas de tubos/cabos",
+  "known_added_service_mass_kg": 115.4,
+  "unknown_added_mass_ids": [
+    "quadro_ac_dc"
+  ],
+  "oem_traction_mass_already_in_curb": true,
+  "main_bank_energy_kwh": 10.24,
+  "bank_continuous_current_a": 200,
+  "bank_recommended_min_200ah_met": true,
+  "pack_floor_gap_assumed_m": 0.13,
+  "pack_ground_clearance_assumed_m": 0.23,
+  "full_vehicle_interference_free_verified": false,
+  "script": "scripts/calcular_integracao_eletrica.py",
+  "source_revision": "integracao-eletrica-0.1",
+  "services_cable_sensitivity": [
+    {
+      "battery_terminal_v": 44.8,
+      "assumed_copper_temp_c": 20,
+      "current_a": 99.2063492063492,
+      "two_pole_total_cable_length_m": 4,
+      "cross_section_mm2": 70,
+      "resistance_ohm": 0.0009851428571428572,
+      "voltage_drop_v": 0.09773242630385487,
+      "joule_w": 9.695677212684014
+    },
+    {
+      "battery_terminal_v": 44.8,
+      "assumed_copper_temp_c": 60,
+      "current_a": 99.2063492063492,
+      "two_pole_total_cable_length_m": 4,
+      "cross_section_mm2": 70,
+      "resistance_ohm": 0.0011400073142857144,
+      "voltage_drop_v": 0.11309596371882087,
+      "joule_w": 11.219837670517942
+    },
+    {
+      "battery_terminal_v": 44.8,
+      "assumed_copper_temp_c": 90,
+      "current_a": 99.2063492063492,
+      "two_pole_total_cable_length_m": 4,
+      "cross_section_mm2": 70,
+      "resistance_ohm": 0.0012561556571428574,
+      "voltage_drop_v": 0.12461861678004538,
+      "joule_w": 12.362958013893389
+    },
+    {
+      "battery_terminal_v": 51.2,
+      "assumed_copper_temp_c": 20,
+      "current_a": 86.80555555555554,
+      "two_pole_total_cable_length_m": 4,
+      "cross_section_mm2": 70,
+      "resistance_ohm": 0.0009851428571428572,
+      "voltage_drop_v": 0.085515873015873,
+      "joule_w": 7.423252865961198
+    },
+    {
+      "battery_terminal_v": 51.2,
+      "assumed_copper_temp_c": 60,
+      "current_a": 86.80555555555554,
+      "two_pole_total_cable_length_m": 4,
+      "cross_section_mm2": 70,
+      "resistance_ohm": 0.0011400073142857144,
+      "voltage_drop_v": 0.09895896825396824,
+      "joule_w": 8.590188216490299
+    },
+    {
+      "battery_terminal_v": 51.2,
+      "assumed_copper_temp_c": 90,
+      "current_a": 86.80555555555554,
+      "two_pole_total_cable_length_m": 4,
+      "cross_section_mm2": 70,
+      "resistance_ohm": 0.0012561556571428574,
+      "voltage_drop_v": 0.10904128968253969,
+      "joule_w": 9.465389729387125
+    },
+    {
+      "battery_terminal_v": 56.8,
+      "assumed_copper_temp_c": 20,
+      "current_a": 78.2472613458529,
+      "two_pole_total_cable_length_m": 4,
+      "cross_section_mm2": 70,
+      "resistance_ohm": 0.0009851428571428572,
+      "voltage_drop_v": 0.07708473060585738,
+      "joule_w": 6.031669061491188
+    },
+    {
+      "battery_terminal_v": 56.8,
+      "assumed_copper_temp_c": 60,
+      "current_a": 78.2472613458529,
+      "two_pole_total_cable_length_m": 4,
+      "cross_section_mm2": 70,
+      "resistance_ohm": 0.0011400073142857144,
+      "voltage_drop_v": 0.08920245025709816,
+      "joule_w": 6.979847437957603
+    },
+    {
+      "battery_terminal_v": 56.8,
+      "assumed_copper_temp_c": 90,
+      "current_a": 78.2472613458529,
+      "two_pole_total_cable_length_m": 4,
+      "cross_section_mm2": 70,
+      "resistance_ohm": 0.0012561556571428574,
+      "voltage_drop_v": 0.09829073999552876,
+      "joule_w": 7.690981220307415
+    }
+  ],
+  "cable_assumptions": {
+    "copper_rho20_ohm_m": 1.724e-08,
+    "copper_alpha_per_k": 0.00393,
+    "inverter_efficiency_assumed": 0.9,
+    "ac_active_power_w": 4000,
+    "not_measured_cable_properties": true
+  },
+  "service_useful_energy_at_assumed_80pct_dod_kwh": 8.192,
+  "autonomy_days_assumed_house_load_excluding_drying": 1.5525425603987761,
+  "autonomy_note": "Quociente de energia DC/consumo agregado anterior, antes de perdas/standby; não autonomia AC ou da missão.",
+  "base_known_mass_subtotal_kg": 3257.9551780950555,
+  "new_known_mass_subtotal_kg": 3373.3551780950556,
+  "gross_limit_kg": 4250,
+  "unallocated_mass_kg": 876.6448219049445,
+  "mass_budget_note": "Subtotal conhecido/assumido; faltam móveis, suportes elétricos, quadro, cabos, tubos, fixações, bagagem, massas de itens sem ficha. Não massa final nem carga de eixos.",
+  "inputs_sha256": {
+    "config/instalacoes_eletricas_proposta.yaml": "4f127922ec913ad8f6bd04ccb1aeddf5a423ff26958f24317bcedbb5807347a6",
+    "config/equipamentos_interior.yaml": "1ee7b5c6d69e8224cce5263300f1b3796b04d626f8adae9dbf002b0b4d08488c",
+    "entregas/parcial_2026-10-24/orcamento_massa_parcial.json": "44794c0f6e678a24d0a8e460ef94a6cad36f530491cccada02f26e326ffc539a",
+    "/home/mhc/motorhome_referencias_tarefas/expansao-solar-03/resumo_expansao_solar.json": "e7db815ba2661e5530992dc0feca31dece48804aa8658f6d477162a880beb430"
+  }
+}

@@ -3,7 +3,10 @@
 **Responsável:** P2 — Bateria, elétrica e fios  
 **Enunciado / tarefa:** Seções, material, isolação, correntes, perdas e critérios de proteção.  
 **Depende de:** I04 (P4), I06 (P2), I09 (P2)  
-**Status:** Não iniciado (estrutura criada automaticamente).
+**Status:** Parcial — rotas CAD conceituais e estimativa dos cabos do inversor de serviços; tração e circuito completo pendentes.
+
+Ver [integração elétrica](../../../docs/CAD_TRACAO_E_SERVICOS.md) e
+[resultados condicionados](../../../entregas/parcial_2026-10-24/resumo_integracao_eletrica.json).
 
 ## Entrega mínima
 - `teoria.md`: fenômeno físico, equações, hipóteses e faixa de validade.

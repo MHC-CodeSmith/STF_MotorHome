@@ -112,12 +112,12 @@ def interior(c):
             m.box('poste', 'cama', [x, y, 0], [.045, .045, .9], wood)
     for z in [.23, .48, .73]:
         m.box('degrau_retratil', 'cama', [1.75, 1.42, z], [.20, .32, .04], wood)
-    # Galley, incluindo aberturas reais no tampo em torno da cuba e da indução.
+    # Galley: recorte da cuba e tampo contínuo para indução portátil ventilada.
     for x in [1.97, 2.48, 2.93, 3.35]:
         m.box('divisoria', 'cozinha', [x, .04, .02], [.018, .58, .87], wood)
-    for x, length in [(1.97, .54), (2.91, .06), (3.32, .05)]:
+    for x, length in [(1.97, .54), (2.91, .46)]:
         m.box('tampo', 'cozinha', [x, .04, .89], [length, .58, .03], pale)
-    for x, length, y0, y1 in [(2.51, .40, .14, .52), (2.97, .35, .16, .51)]:
+    for x, length, y0, y1 in [(2.51, .40, .14, .52)]:
         m.box('tampo_borda_parede', 'cozinha', [x, .04, .89], [length, y0-.04, .03], pale)
         m.box('tampo_borda_frente', 'cozinha', [x, y1, .89], [length, .62-y1, .03], pale)
     m.box('porta_gabinete', 'cozinha', [2.50, .602, .07], [.40, .018, .65], wood)

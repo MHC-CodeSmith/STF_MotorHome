@@ -1,4 +1,4 @@
-revision: servicos-0.1
+revision: servicos-0.2
 status: ARQUITETURA_FUNCIONAL_AINDA_NAO_DIMENSIONADA
 main_bus_nominal_v: 48
 traction_bus_oem_v: 400
@@ -34,9 +34,22 @@ inverter_candidate:
   peak_efficiency: 0.96
   source: https://www.victronenergy.com/upload/documents/Brochure-Self-Consumption-%26-Energy-Storage_EN_WEB_2026-02.pdf
   note: Eficiência96% é pico, não curva de carga nem valor constante adotado. Frequência e variantes dos equipamentos precisam ser compatibilizadas antes da seleção.
-storage_main: {model: null, capacity_kwh: null, bms: null, mass_kg: null}
-storage_aux: {model: null, capacity_kwh: null, bms: null, mass_kg: null}
-dc_dc_48_to_12: {model: null, continuous_w: null, efficiency_curve: null}
+storage_main:
+  model: 2xVictron Lithium NG51.2V100Ah em paralelo
+  capacity_kwh: 10.24
+  capacity_ah: 200
+  bms: Lynx Smart BMS NG500A
+  mass_kg: 74
+  note: Massa publicada como estimada37kg por módulo; banco200Ah atende mínimo recomendado pelo manual do48/5000. Não aumenta98kWh da tração. Estado de proposta, não compra aprovada.
+storage_aux: {model: Victron AGM BAT21220008422Ah12V, capacity_kwh: 0.264, mass_kg: 5.8, bms: nao_aplicavel_AGM, note: Buffer12V separado da bateria OEM; ventilação e controle de carga pendentes}
+dc_dc_48_to_12: {model: Victron Orion-Tr48-12-30 isolado, continuous_w: 360, mass_kg: 1.8, efficiency_curve: null, note: Conversor não é carregador inteligente; integração com AGM/MPPT requer bloqueio de retorno e controle de tensão/carga}
+integration_cad: config/instalacoes_eletricas_proposta.yaml
+inverter_manual_reference:
+  url: https://www.victronenergy.com/media/pg/MultiPlus-II_230V/en/installation.html
+  min_battery_ah: 200
+  recommended_dc_fuse_a: 200
+  copper_cross_section_per_pole_up_to_5m_mm2: 70
+  note: Recomendação de fabricante para48/5000; não seleção final de proteção ou circuito de tração. Verificar isolamento/temperatura/agrupamento/curto-circuito e normas aplicáveis.
 oem_charging:
   proposed_path: PV→MPPT→bateria de serviços48V→inversor230V→EVSE→carregador AC OEM→pack400V, só estacionado
   evse: null

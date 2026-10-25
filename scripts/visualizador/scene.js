@@ -28,7 +28,8 @@ const grid = new THREE.GridHelper(12, 24, '#7c8a96', '#c4ccd2');
 grid.rotation.x = Math.PI/2; grid.position.z = -.02; scene.add(grid);
 const originalOpacity = new Map();
 const roofClip = new THREE.Plane(new THREE.Vector3(0,0,-1), 2.05);
-let shell, insideModel, stowed, deployed, fixed;
+let shell, insideModel, stowed, deployed, fixed, electrical;
+let activeItem;
 function load(encoded) {
   return new Promise((resolve,reject) => {
     const bytes = Uint8Array.from(atob(encoded), c => c.charCodeAt(0));
@@ -42,10 +43,19 @@ function eachMaterial(root, callback) {
 }
 function update() {
   const inside = document.querySelector('#inside').checked;
-  if(insideModel) insideModel.visible = inside;
-  insideModel?.traverse(obj => { if(obj.isMesh && obj.name.startsWith('cama__')) obj.visible = !document.querySelector('#hideBed').checked; });
-  if(shell) shell.visible = !document.querySelector('#hideShell').checked;
-  const solar = document.querySelector('#panels').checked;
+  const technical = document.querySelector('#technical').checked;
+  if(insideModel) insideModel.visible = inside && !technical;
+  if(electrical) electrical.visible = document.querySelector('#electrical').checked;
+  electrical?.traverse(obj => {if(obj.isMesh && obj.name.startsWith('mppt_extensao__')) obj.visible = document.querySelector('#extensionInstalled').checked;});
+  const isolated = document.querySelector('#isolate').checked && activeItem;
+  insideModel?.traverse(obj => {
+    if(obj.isMesh) obj.visible = (!obj.name.startsWith('cama__') || !document.querySelector('#hideBed').checked) && (!isolated || obj.name.startsWith(activeItem+'__'));
+  });
+  electrical?.traverse(obj => {
+    if(obj.isMesh) obj.visible = (!obj.name.startsWith('mppt_extensao__') || document.querySelector('#extensionInstalled').checked) && (!isolated || obj.name.startsWith(activeItem+'__') || (activeItem === 'hvac' && obj.name.startsWith('dutos_hvac__')));
+  });
+  if(shell) shell.visible = !document.querySelector('#hideShell').checked && !technical;
+  const solar = document.querySelector('#panels').checked && !technical;
   const open = document.querySelector('#deploy').checked;
   const extension = document.querySelector('#extensionInstalled').checked;
   if(fixed) fixed.visible = solar && !extension;
@@ -58,22 +68,25 @@ function update() {
     mat.wireframe = document.querySelector('#wire').checked;
     mat.needsUpdate = true;
   });
-  document.querySelector('#solarState').textContent = !extension
+  document.querySelector('#solarState').textContent = technical
+    ? 'Vista técnica: carroceria, interior e cobertura retirados para inspeção das instalações.' : !extension
     ? 'Cobertura fixa: 3 JA + 1 Victron, 1.540 W STC. Proposta principal mais leve.' : open
     ? 'Estacionado / aberto: 7 módulos expostos, 2.890 W STC; largura 3,564 m.'
     : 'Recolhido: 3 JA + 1 Victron expostos, 1.540 W STC. Camada JA inferior sombreada.';
 }
 Promise.all([load(data.glb_base64), load(data.interior_glb_base64),
-  load(data.roof_stowed_glb_base64), load(data.roof_open_glb_base64), load(data.roof_fixed_glb_base64)]).then(models => {
-    [shell, insideModel, stowed, deployed, fixed] = models;
+  load(data.roof_stowed_glb_base64), load(data.roof_open_glb_base64), load(data.roof_fixed_glb_base64), load(data.electrical_glb_base64)]).then(models => {
+    [shell, insideModel, stowed, deployed, fixed, electrical] = models;
     eachMaterial(shell, mat => originalOpacity.set(mat, mat.opacity));
     models.forEach(model => scene.add(model)); update();
     note.textContent = 'Carroceria, equipamentos e suportes carregados. Arraste para girar; selecione um equipamento para localizar.';
     document.body.dataset.ready = 'true';
     let count = 0; insideModel.traverse(o => { if(o.isMesh) count++; });
     document.body.dataset.interiorMeshes = String(count);
+    let electricalCount = 0; electrical.traverse(o => {if(o.isMesh) electricalCount++;});
+    document.body.dataset.electricalMeshes = String(electricalCount);
   }).catch(err => { note.textContent = 'Falha ao carregar a geometria: '+err.message; });
-for(const id of ['inside','hideShell','hideBed','wire','panels','deploy','extensionInstalled']) {
+for(const id of ['inside','hideShell','hideBed','wire','panels','deploy','extensionInstalled','electrical','technical','isolate']) {
   document.querySelector('#'+id).addEventListener('change', event => {
     if(id === 'inside' && event.target.checked) document.querySelector('#panels').checked = false;
     if(id === 'hideShell' && event.target.checked) document.querySelector('#inside').checked = true;
@@ -87,12 +100,17 @@ document.querySelectorAll('[data-view]').forEach(button => button.addEventListen
   camera.position.set(...views[button.dataset.view]); controls.target.set(-.5,0,1.2); controls.update();
 }));
 let selection;
-function focusItem(item) {
+function focusItem(item, globalCoordinates = false) {
+  activeItem = item.id;
+  document.querySelector('#isolate').checked = item.id === 'hvac';
+  document.querySelector('#technical').checked = globalCoordinates && item.mass_in_oem_curb;
+  document.querySelector('#electrical').checked = true;
+  if(item.optional_extension) document.querySelector('#extensionInstalled').checked = true;
   document.querySelector('#inside').checked = true;
   document.querySelector('#hideShell').checked = true;
   document.querySelector('#panels').checked = false; update();
-  document.querySelector('#hideBed').checked = ['lava_seca','hvac','agua'].includes(item.id); update();
-  const align = data.equipment.alignment_assumed;
+  document.querySelector('#hideBed').checked = globalCoordinates || ['lava_seca','hvac','agua'].includes(item.id); update();
+  const align = globalCoordinates ? data.electrical.alignment_assumed : data.equipment.alignment_assumed;
   const point = new THREE.Vector3(align.rear_x_m+item.position_xyz_m[0]+item.dimensions_xyz_m[0]/2,
     -align.cargo_width_m/2+item.position_xyz_m[1]+item.dimensions_xyz_m[1]/2,
     align.floor_z_m+item.position_xyz_m[2]+item.dimensions_xyz_m[2]/2);
@@ -111,11 +129,13 @@ function focusItem(item) {
   }
   info.scrollIntoView({block:'nearest'});
 }
-data.equipment.items.forEach(item => {
+function addItem(item, globalCoordinates) {
   const button = document.createElement('button'); button.textContent = item.label;
-  button.dataset.component = item.id; button.addEventListener('click', () => focusItem(item));
+  button.dataset.component = item.id; button.addEventListener('click', () => focusItem(item, globalCoordinates));
   document.querySelector('#components').append(button);
-});
+}
+data.equipment.items.forEach(item => addItem(item, false));
+data.electrical.items.forEach(item => addItem(item, true));
 function resize() {
   camera.aspect = host.clientWidth/host.clientHeight; camera.updateProjectionMatrix();
   renderer.setSize(host.clientWidth, host.clientHeight);

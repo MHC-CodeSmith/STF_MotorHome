@@ -3,7 +3,10 @@
   "errors": [],
   "external_requests": [],
   "canvas_count": 1,
-  "components": 7,
-  "interior_meshes": 160,
-  "focused_item": "LG CV9011WC4A / lava e seca 11-7 kg"
+  "components": 23,
+  "interior_meshes": 157,
+  "electrical_meshes": 208,
+  "technical_view_enabled": true,
+  "interior_restored": true,
+  "focused_item": "Dometic FreshWell 3000 / HVAC sob cama"
 }

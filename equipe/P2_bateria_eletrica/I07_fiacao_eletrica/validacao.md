@@ -9,4 +9,6 @@
 - [ ] Revisor: **PENDENTE**; data: **PENDENTE**.
 
 ## Pendências e correções
-A preencher.
+Há cálculo rastreável da alimentação de serviços e fonte primária de bitola/fusível.
+Não há cabo comercial selecionado, coordenação final ou revisão humana. Manter
+status parcial; fonte dos coeficientes equivalentes e propriedades reais deve ser fechada.

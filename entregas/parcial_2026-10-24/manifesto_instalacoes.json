@@ -1,6 +1,6 @@
 {
-  "revision": "interior-0.1",
-  "created_utc": "2026-10-25T19:34:55.408679+00:00",
+  "revision": "interior-0.2",
+  "created_utc": "2026-10-25T20:18:41.543404+00:00",
   "status": "PROPOSTA_DE_INTEGRACAO_NAO_HOMOLOGADA",
   "script": "scripts/gerar_cad_instalacoes.py",
   "equipment_envelopes": {
@@ -93,31 +93,29 @@
     },
     {
       "id": "fogao",
-      "label": "Dometic CVI1350 / indução elétrica",
-      "source": "https://media.dometic.com/externalassets/cvi1525_9600050571_117210.pdf",
-      "source_page": 18,
+      "label": "Electrolux IE3TP220V / indução portátil",
+      "source": "https://api.electrolux-medialibrary.com/asset/e295c711-5ce0-44d6-8d54-265bb08e664a/E4RM3Q/250717TCLQ/PDF/250717TCLQ.pdf",
+      "source_page": 17,
       "accessed": "2026-10-25",
       "dimensions_xyz_m": [
-        0.35,
-        0.35,
-        0.055
+        0.28,
+        0.358,
+        0.062
       ],
       "position_xyz_m": [
-        2.97,
-        0.16,
-        0.865
+        3.0,
+        0.14,
+        0.92
       ],
-      "mass_kg": null,
+      "mass_kg": 2.3,
       "model": "cooktop",
       "electrical": {
-        "voltage_range_v": [
-          220,
-          240
-        ],
-        "frequency_hz": 50,
-        "rated_power_w": 2300
+        "voltage_v": 220,
+        "frequency_hz": 60,
+        "rated_power_w": 2000
       },
-      "source_note": "Frequência50Hz da versão EMEA; lava-seca brasileira exige compatibilização de frequência/alimentação. Verificar versão antes de compra. Sem gás."
+      "mass_source": "https://loja.electrolux.com.br/cooktop-de-inducao-portatil-1-zona-electrolux--ie3tp-/p?idsku=310118641",
+      "source_note": "Manual2025 p17 especifica220V/60Hz/2000W, diferente do campo genérico1500W da loja que mistura versões. Massa2.3kg para220V da loja oficial. Portátil sobre bancada contínua; não embutir/bloquear ventilação. Fixação para transporte e folgas de uso pendentes. Substitui candidatoCVI1350EMEA50Hz."
     },
     {
       "id": "sanitario",
@@ -181,7 +179,7 @@
     "cargo_width_m": 1.87
   },
   "part_counts": {
-    "interior_equipado": 160,
+    "interior_equipado": 157,
     "cobertura_fixa": 146,
     "cobertura_recolhida": 239,
     "cobertura_aberta": 311
@@ -226,18 +224,18 @@
     "Detalhes CAD autorais de integração, não geometrias OEM de fabricação."
   ],
   "inputs_sha256": {
-    "config/equipamentos_interior.yaml": "d0e037c4f910f3fe3cfc4754e56457e915ef604f8d3d63f299072047e7f3ead1",
+    "config/equipamentos_interior.yaml": "1ee7b5c6d69e8224cce5263300f1b3796b04d626f8adae9dbf002b0b4d08488c",
     "config/layout_proposto.yaml": "f79ecc76c24f2b9d93412baf41df1ad23150c1806d7c2e7ba7d4e1fcf60335a5",
     "entregas/parcial_2026-10-24/aurora_L3H2_proposta_m.glb": "1ba262344eb2700340a7e9f6474b9386392b10e7c1c7afb89e4d19950f2f6e2d"
   },
   "outputs_sha256": {
     "cobertura_aberta.glb": "b97cae249696cb5800a233308608ab1f6ec7028b4e90fb75425ece955c7a29b1",
-    "cobertura_aberta.step": "f14d38d9d1d2644deab9701e3aabdf46b8d05c9819493c654106b256e10960a8",
+    "cobertura_aberta.step": "6e676cc58dca2e9304e0056e8ef2890031425705edc9f424393e5db2405f7225",
     "cobertura_fixa.glb": "3d9c9cf0c8e244ab894ab2629814802a5381d34eabdcabc9ab9526f85f6badbe",
-    "cobertura_fixa.step": "85453a209d400123f1e4f13d9f25981f78dfaac45a9561910a73744c2945b777",
+    "cobertura_fixa.step": "993a6e1730d8082d84cf00aaf55e6b0c2800e479e464295b4fea45c0c8b60641",
     "cobertura_recolhida.glb": "26b28209b891f0372f3c2062d18c0bab4a7ee99da29d36a9e6ef04112ad5003a",
-    "cobertura_recolhida.step": "71df9eb0c0f18ff01406344c7e7da5eebae9d1fbfabffcb48b7e7db7861009d0",
-    "interior_equipado.glb": "c09b902d7bb723f42a91b99e2bbb0da8002243d3ca2871eebdfe6ea02a32837f",
-    "interior_equipado.step": "f567c325ca8371339fc925997a7fb931ac35c6990697df65fae7d2aed97d8aaf"
+    "cobertura_recolhida.step": "ab4a64a58ea1cb99d0df56d8cdd886db55b9846aad14d6e0dbf6a32397635739",
+    "interior_equipado.glb": "03cd02f9c6ade89cd28710050487a9b10cb473a15dc9d22d7afd37f1f9492136",
+    "interior_equipado.step": "eea824a9ea0bd3ac60dd9c1fb23346326a1e841ab9f99130916c25d722751ab4"
   }
 }

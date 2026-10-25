@@ -41,12 +41,27 @@ const { pathToFileURL } = require('node:url');
     await page.locator('[data-component="lava_seca"]').click();
     await page.waitForTimeout(400);
     await page.screenshot({path:path.join(dest, 'lava_seca.png')});
+    await page.locator('[data-component="pack_tracao"]').click();
+    await page.getByRole('button', {name:'Perspectiva',exact:true}).click();
+    await page.waitForTimeout(400);
+    await page.screenshot({path:path.join(dest, 'tracao.png')});
+    const technicalEnabled = await page.isChecked('#technical');
+    await page.locator('[data-component="inversor_servicos"]').click();
+    await page.waitForTimeout(400);
+    await page.screenshot({path:path.join(dest, 'eletrica_servicos.png')});
+    const restoredInterior = !(await page.isChecked('#technical'));
+    await page.locator('[data-component="hvac"]').click();
+    await page.waitForTimeout(400);
+    await page.screenshot({path:path.join(dest, 'hvac.png')});
     await page.check('#wire'); await page.uncheck('#panels');
     const result = {ready:true,errors,external_requests:requests,canvas_count:await page.locator('canvas').count(),
       components:await page.locator('[data-component]').count(), interior_meshes:await page.evaluate(() => +document.body.dataset.interiorMeshes),
+      electrical_meshes:await page.evaluate(() => +document.body.dataset.electricalMeshes),
+      technical_view_enabled:technicalEnabled, interior_restored:restoredInterior,
       focused_item:await page.locator('#itemInfo strong').innerText()};
     fs.writeFileSync(path.join(dest,'qa.json'),JSON.stringify(result,null,2));
     console.log(JSON.stringify(result));
-    if(errors.length || requests.length || result.canvas_count !== 1 || result.components !== 7 || result.interior_meshes < 80 || !result.focused_item.includes('LG')) process.exitCode = 1;
+    const expected = await page.evaluate(() => window.AURORA_DATA.equipment.items.length + window.AURORA_DATA.electrical.items.length);
+    if(errors.length || requests.length || result.canvas_count !== 1 || result.components !== expected || result.interior_meshes < 80 || result.electrical_meshes < 100 || !technicalEnabled || !restoredInterior || !result.focused_item.includes('FreshWell')) process.exitCode = 1;
   } finally { await browser.close(); }
 })().catch(error => {console.error(error); process.exitCode=1;});

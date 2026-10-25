@@ -36,7 +36,8 @@ def main():
     solar = json.loads((delivery/'resumo_solar.json').read_text())
     expansion = json.loads((delivery/'resumo_expansao_solar.json').read_text())
     installations = json.loads((delivery/'manifesto_instalacoes.json').read_text())
-    mass_budget = json.loads((delivery/'orcamento_massa_parcial.json').read_text())
+    electrical = json.loads((delivery/'resumo_integracao_eletrica.json').read_text())
+    electrical_cad = json.loads((delivery/'manifesto_cad_eletrico.json').read_text())
     pdfmetrics.registerFont(TTFont('DejaVu', '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'))
     pdfmetrics.registerFont(TTFont('DejaVuBold', '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'))
     pdfmetrics.registerFontFamily('DejaVu', normal='DejaVu', bold='DejaVuBold')
@@ -162,9 +163,10 @@ def main():
          'O candidato é 6,18% maior: adoção exige rever CAD, contato com o solo, transmissão '
          'e CFD. Capacidade por eixo, roda completa e placa de pressões seguem pendentes.')
     para('Orçamento preliminar de carga', 'Heading2')
-    para('Reserva total OEM: 4250 - 2790 = 1460 kg. Descontando dois módulos JA de '
-         '44 kg, duas pessoas de 75 kg e 100 kg de água assumidos, restam 1166 kg '
-         'para conversão, serviços e bagagens. Não equivale à massa montada: é preciso '
+    para(f"Reserva total OEM:4250-2790=1460kg. Com equipamentos internos conhecidos, "
+         f"serviços, teto fixo, duas pessoas e água assumidas, subtotal{electrical['new_known_mass_subtotal_kg']:.1f}kg; "
+         f"restam{electrical['unallocated_mass_kg']:.1f}kg antes dos itens faltantes. "
+         'Não equivale à massa montada: é preciso '
          'BOM sem duplicações, posições de massas e verificação de limites por eixo. '
          'Custos em R$ com impostos ainda não foram consolidados.')
     page()
@@ -237,18 +239,67 @@ def main():
          'compatíveis, módulos mais leves ou transporte dos complementares em suporte interior dimensionado.')
     para('Serviços: duas strings3JA em MPPT150/35 independentes para48 V; o190 W '
          'exige terceiro MPPT100/20 a12 V proposto. Não unir strings diferentes em série. '
-         'Baterias de serviço, DC/DC, EVSE, frequência, proteções e compatibilidade OEM '
-         'ainda faltam. O diagrama funcional éPV-serviços-inversor-EVSE-cargaOEM estacionada; '
+         'Banco de serviços10,24kWh e DC/DC agora têm candidatos dimensionados na seção3D; '
+         'EVSE, proteções e compatibilidade OEM ainda faltam. '
+         'O diagrama funcional éPV-serviços-inversor-EVSE-cargaOEM estacionada; '
          'não há conexão solar400 V aprovada.')
-    para(f"Orçamento parcial de massa: componentes conhecidos{mass_budget['known_equipment_kg']:.1f} kg; "
+    para(f"Orçamento parcial de massa: equipamentos internos conhecidos{sum(i['mass_kg'] or 0 for i in installations['equipment']):.1f} kg; "
          f"soma OEM+componentes+duas pessoas+100 kg água+telhado fixo"
-         f"{mass_budget['sum_known_and_assumed_fixed_kg']:.1f} kg. "
-         'Não é massa montada: faltam mobiliário, baterias de serviço, inversor, cabos, '
+         f"{electrical['base_known_mass_subtotal_kg']:.1f} kg antes da elétrica de serviços da seção3D. "
+         'Não é massa montada: faltam mobiliário, cabos, '
          'tubos, ferragens e bagagens; verificar eixos, centro de massa e custo com impostos.')
     para(f"Habitação assumida, sem secagem:{expansion['household_total_excluding_dryer_kwh_day']:.3f} kWh/dia. "
          f"Saldo agregado fixo de apenas{expansion['remaining_after_household_before_storage_losses_kwh_day']['mixed_stowed_w']:.3f} kWh/dia; "
          'aberta permite saldo maior nas hipóteses, antes de armazenamento e transferência entre barramentos. '
          'Não equivale a energia garantida para tração ou viabilidade da missão7000 km.')
+    page()
+
+    heading('3D. Tração e instalações elétricas no CAD')
+    pic('cad_tracao.png', 8)
+    para(f"Conjunto autoral com{electrical_cad['parts']} sólidos, reimportados em STEP "
+         'com volumes positivos. Pack sob piso com15módulos ilustrativos, motor dianteiro, '
+         'redutor/diferencial, inversor, carregador e radiador/ventiladores; rotas de alta '
+         'tensão, refrigeração e serviços indicadas. O viewer offline oferece23seletores e vista técnica.')
+    para('As cotas de tração não foram obtidas do OEM. Pack2,90x1,44x0,32m, '
+         'motor cilíndrico0,36x0,42m e demais envelopes/posições são estimativas de integração. '
+         'Vão livre230mm e folga130mm até piso são hipóteses, não especificações Fiat. '
+         '15módulos5x3 são ilustração; química, fixações, massa e trocas térmicas seguem pendentes.')
+    para('Pack/motor/transmissão já integram os2790kg OEM. A sensibilidade hipotética '
+         '110000Wh/(140,170,200Wh/kg) dá785,7/647,1/550kg; não foi somada ao veículo, '
+         'usada como massa térmica ou atribuída ao fabricante.')
+    para('A triagem dos envelopes dos23equipamentos não encontrou sobreposição. '
+         'Não abrange estrutura OEM, isolamento, portas, terminais e todas as rotas. '
+         'Reimportar sólidos não valida colisões, montagem, arrefecimento ou resistência.')
+    page()
+
+    heading('3E. Banco de serviços e uso dos espaços')
+    pic('cad_eletrica_servicos.png', 7)
+    table([['Conjunto candidato', 'Proposta e fonte'],
+           ['Banco principal', '2 Lithium NG51,2V100Ah em paralelo:200Ah/10,24kWh;74kg, massa estimada publicada.'],
+           ['Inversor', 'MultiPlus-II48/5000/70-50 230V:30kg;4000W25°C/3700W40°C.'],
+           ['Gestão', 'Lynx Smart BMS NG500A,1,9kg; pré-carga/contator; não substitui fusíveis.'],
+           ['Solar e12V', 'MPPT150/35 +100/20; Orion48/12-30; AGM22Ah/5,8kg. MPPTextra só extensão.']], [6, 11])
+    para('Manual do inversor recomenda200Ah mínimos, fusível200A e70mm² por polo '
+         'até5m. A escolha atende capacidade nominal; não fecha ampacidade, coordenação '
+         'de proteção ou corrente de partida. Estimativas de queda/Joule de serviços '
+         'constam do JSON; temperatura de entrada não é campo multidimensionalI30.')
+    para('Armário lateral seco com anteparo/teto metálicos, acesso removível e reserva '
+         'de ventilação100mm no inversor; baterias baixas separadas da água. Gaveta '
+         'autoral acima do tanque inspira-se no aproveitamento sob cama da Hymer. '
+         'Ventilação ao exterior, fixação/vibração e dutos de A/C ainda precisam de dimensionamento.')
+    para('A indução passou para ElectroluxIE3TP220V/60Hz/2000W sobre bancada contínua. '
+         'Manual2025p17 distingue2000W220V de1500W127V; loja genérica mistura os valores. '
+         'Massa2,3kg220V e dimensões280x358x62mm. Retenção para transporte e ventilação pendentes; '
+         'confirmar tensão/frequência de todos os demais aparelhos e configurar o inversor.')
+    para(f"Serviços fixos acrescentam{electrical['known_added_service_mass_kg']:.1f}kg conhecidos; "
+         f"subtotal atualizado{electrical['new_known_mass_subtotal_kg']:.1f}kg, "
+         f"saldo atéPBT{electrical['unallocated_mass_kg']:.1f}kg antes de móveis, quadro, suportes, "
+         'cabos/tubos/ferragens/bagagem e itens sem massa publicada. Não massa final/eixos. '
+         'ComDoD80%assumido,8,192kWhDC úteis antes de perdas; não energia extra de tração.')
+    para('Fontes: fichas/manuais Victron NG,MultiPlus-II,Lynx,MPPT,Orion/catálogoAGM2025; '
+         'ElectroluxmanualIE3TP2025; Hymergaveta sob cama. URLs/hashes/datas em '
+         'proveniencia_eletrica.json e docs/CAD_TRACAO_E_SERVICOS.md. '
+         'Solar→EVSE→carregadorOEM continua não comprovado; não há circuito de tração liberado.')
     page()
 
     heading('4. Aerodinâmica exploratória')

@@ -4,18 +4,20 @@
   "inputs_sha256": {
     "entregas/parcial_2026-10-24/aurora_L3H2_proposta_m.glb": "1ba262344eb2700340a7e9f6474b9386392b10e7c1c7afb89e4d19950f2f6e2d",
     "config/layout_proposto.yaml": "f79ecc76c24f2b9d93412baf41df1ad23150c1806d7c2e7ba7d4e1fcf60335a5",
-    "/home/mhc/motorhome_referencias_tarefas/software/visualizador-dev/aurora-08.bundle.js": "3bcbcbbc8c9e020e0ba69e35aef986429f6e0c9cc4492443c3d9a18ca71880f3",
+    "/home/mhc/motorhome_referencias_tarefas/scene-eletrico-03.js": "b8f63b7e83a9df0d9e65d7fa0a7b6f061d3f430c8daa4d5325568c649a7b6305",
     "/home/mhc/motorhome_referencias_tarefas/software/visualizador-dev/node_modules/three/LICENSE": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601",
-    "config/equipamentos_interior.yaml": "d0e037c4f910f3fe3cfc4754e56457e915ef604f8d3d63f299072047e7f3ead1",
-    "/home/mhc/motorhome_referencias_tarefas/instalacoes-04/interior_equipado.glb": "c09b902d7bb723f42a91b99e2bbb0da8002243d3ca2871eebdfe6ea02a32837f",
-    "/home/mhc/motorhome_referencias_tarefas/instalacoes-04/cobertura_fixa.glb": "3d9c9cf0c8e244ab894ab2629814802a5381d34eabdcabc9ab9526f85f6badbe",
-    "/home/mhc/motorhome_referencias_tarefas/instalacoes-04/cobertura_recolhida.glb": "26b28209b891f0372f3c2062d18c0bab4a7ee99da29d36a9e6ef04112ad5003a",
-    "/home/mhc/motorhome_referencias_tarefas/instalacoes-04/cobertura_aberta.glb": "b97cae249696cb5800a233308608ab1f6ec7028b4e90fb75425ece955c7a29b1"
+    "config/equipamentos_interior.yaml": "1ee7b5c6d69e8224cce5263300f1b3796b04d626f8adae9dbf002b0b4d08488c",
+    "config/instalacoes_eletricas_proposta.yaml": "4f127922ec913ad8f6bd04ccb1aeddf5a423ff26958f24317bcedbb5807347a6",
+    "/home/mhc/motorhome_referencias_tarefas/cad-eletrico-02/tracao_e_servicos.glb": "e63dd7df4b47f78b8c6860e95384dd2621b1c9cdbfc85e16a382ad5bd4478111",
+    "/home/mhc/motorhome_referencias_tarefas/instalacoes-05/interior_equipado.glb": "03cd02f9c6ade89cd28710050487a9b10cb473a15dc9d22d7afd37f1f9492136",
+    "/home/mhc/motorhome_referencias_tarefas/instalacoes-05/cobertura_fixa.glb": "3d9c9cf0c8e244ab894ab2629814802a5381d34eabdcabc9ab9526f85f6badbe",
+    "/home/mhc/motorhome_referencias_tarefas/instalacoes-05/cobertura_recolhida.glb": "26b28209b891f0372f3c2062d18c0bab4a7ee99da29d36a9e6ef04112ad5003a",
+    "/home/mhc/motorhome_referencias_tarefas/instalacoes-05/cobertura_aberta.glb": "b97cae249696cb5800a233308608ab1f6ec7028b4e90fb75425ece955c7a29b1"
   },
   "alignment_assumed": {
     "rear_x_m": -3.35,
     "floor_z_m": 0.68
   },
   "offline": true,
-  "output_sha256": "dafd7a63c81db662ce54c49755f377501c693e60d8b32132d16e6634aff87f9a"
+  "output_sha256": "dae7691dfd8511b222896eca89bb4199d4108717032e7e7d6476a123df976f0e"
 }
