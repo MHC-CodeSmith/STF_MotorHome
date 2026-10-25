@@ -6,7 +6,11 @@ e avanço autônomo. Não repetir credenciais do chat. Não declarar projeto con
 
 - Worktree **`/home/mhc/motorhome_solar_codex_tarefas`**, branch
   **`hub/tarefas-motorhome-com-codex`**. Outra conversa escreve
-  `/home/mhc/motorhome_solar_codex`: **não editar**. Nenhum push/merge/publicação.
+  `/home/mhc/motorhome_solar_codex`: **não editar**. Push autorizado pelo usuário
+  para `https://github.com/MHC-CodeSmith/STF_MotorHome.git` **quando o projeto estiver pronto**.
+  Usar a branch desta frente; não houve push. Autorização persiste, sem nova confirmação.
+  Merge não solicitado. Ainda não há remoto Git configurado; evitar mudar configuração
+  compartilhada com a outra worktree só para registrar este destino.
 - Base1a4a750; commits anteriores c088758 e449e482. Continuação atual inclui
   layout, CFD2412, energia, otimizador de menor tempo e visualizador; consultar
   `git log -1` para o checkpoint mais recente, sem reexecutar dados já gerados.
