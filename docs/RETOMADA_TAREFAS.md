@@ -1,6 +1,6 @@
 # Handoff — 23/10/2026
 
-**Entrada mais recente (25/10): [CONTINUIDADE_CAD_ELETRICO.md](CONTINUIDADE_CAD_ELETRICO.md)** — pedido ativo, estado verificado, arquivos e próximos passos. Bateria de tração/motor/elétrica ainda precisam ser incluídos; não confundir com interior/solar já implementados.
+**Ler primeiro [RETOMADA_ULTIMA.md](RETOMADA_ULTIMA.md)** — estado verificado no commit`0f9c3b8`, arquivos, comandos e pendências. Tração/elétrica já incluídas como modelos de integração; cotasOEM ainda estimadas. O histórico abaixo contém etapas e contagens superadas.
 
 **Ler primeiro [ESTADO_ATUAL.md](ESTADO_ATUAL.md)**: resumo curto e atualizado de24/10. O restante abaixo é histórico e contém etapas superadas (semCd,semotimizador,layout0.1). Não repetir aquisições ou usar contagens antigas.
 
