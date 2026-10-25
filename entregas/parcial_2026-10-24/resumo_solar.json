@@ -1,9 +1,9 @@
 {
-  "revision": "solar-0.1",
+  "revision": "solar-0.2",
   "tipo": "ESTIMATIVA_DE_PROJETO_NAO_VALIDADA",
-  "data_utc": "2026-10-24T22:12:51.409635+00:00",
+  "data_utc": "2026-10-25T18:53:01.821079+00:00",
   "script": "scripts/calcular_solar.py",
-  "config_sha256": "cf5f993a7aa86884ccb5a638185851760258732fbb17377d3de1799cbce7e175",
+  "config_sha256": "98dab36ffaad100293a42856ff53377ea15afa2e8856f0007c2fa01eb392e10b",
   "pvlib_version": "0.16.1",
   "local": {
     "date": "2026-06-21",
@@ -51,6 +51,15 @@
       "terminal_energy_assumed_kwh": 4.848752226856593,
       "timestep_difference_1min_5min_fraction": 6.252787289302931e-08,
       "peak_terminal_assumed_w": 746.9727673530205
+    },
+    "6": {
+      "p_stc_array_w": 2700,
+      "area_modules_m2": 11.988647999999998,
+      "mass_modules_kg": 132,
+      "dc_energy_kwh": 11.342110472179163,
+      "terminal_energy_assumed_kwh": 9.697504453713186,
+      "timestep_difference_1min_5min_fraction": 6.252787289302931e-08,
+      "peak_terminal_assumed_w": 1493.945534706041
     }
   },
   "approved_vehicle_result": false,

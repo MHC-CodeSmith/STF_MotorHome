@@ -1,0 +1,53 @@
+{
+  "status": "ESTIMATIVA_CONDICIONADA_NAO_VALIDADA",
+  "script": "scripts/calcular_expansao_solar.py",
+  "exposed_stowed_stc_w": 1540,
+  "exposed_open_stc_w": 2890,
+  "exposed_stowed_module_area_m2": 6.986304,
+  "exposed_open_module_area_m2": 12.980628,
+  "small_module": {
+    "model": "Victron BlueSolar SPM041903903",
+    "power_w": 190,
+    "length_x_m": 0.668,
+    "width_y_m": 1.485,
+    "thickness_m": 0.03,
+    "mass_kg": 10.5,
+    "start_x_m": 3.592,
+    "source": "https://www.victronenergy.com/upload/documents/Datasheet-BlueSolar-Monocrystalline-Panels-current-models-EN-.pdf",
+    "electrical_note": "Vmp21.8V/Voc25.5V/Isc9.17A; terceiro MPPT para barramento de serviços12V proposto. Não ligar em série com JA nem a MPPT48V sem conversor boost."
+  },
+  "energy_kwh": {
+    "mixed_stowed_w": 5.506848897584476,
+    "mixed_open_no_shading_upper_w": 10.355601124441069,
+    "mixed_open_geometric_beam_shading_w": 10.32677355422989,
+    "mixed_open_lower_string_off_if_shaded_w": 9.188908582509994
+  },
+  "household_assumptions_excluding_dryer_kwh_day": {
+    "fridge_55w_assumed_50percent_duty_kwh": 0.66,
+    "cooktop_2300w_half_hour_kwh": 1.15,
+    "hvac_two_people_3h_assumed_cop2_5_kwh": 3.175077341488789,
+    "cold_wash_once_week_daily_average_kwh": 0.041428571428571426,
+    "lights_pump_electronics_assumed_kwh": 0.4
+  },
+  "household_total_excluding_dryer_kwh_day": 5.426505912917361,
+  "remaining_after_household_before_storage_losses_kwh_day": {
+    "mixed_stowed_w": 0.08034298466711487,
+    "mixed_open_no_shading_upper_w": 4.929095211523708,
+    "mixed_open_geometric_beam_shading_w": 4.900267641312529,
+    "mixed_open_lower_string_off_if_shaded_w": 3.7624026695926327
+  },
+  "approved_vehicle_result": false,
+  "hv_interface_verified": false,
+  "limitations": [
+    "MPPT/conversão95% e perdas10% assumidos; barramentos12/48V ainda propostos, não energia confirmada na tração400V.",
+    "Sombra só geométrica direta; difusa sem bloqueio e área sombreada não prediz diodos/mismatch da string.",
+    "Sem sombras de árvores/aberturas/antenas; extensão aberta idealmente durante todo o sol, ventozero do enunciado.",
+    "Faiman não calibrado para painéis empilhados; temperatura da pequena placa usa aproximação comum de módulo.",
+    "Perfil de habitação é hipótese; energia de secagem desconhecida e não incluída. Não viabilidade da missão."
+  ],
+  "inputs_sha256": {
+    "config/solar_proposta.yaml": "98dab36ffaad100293a42856ff53377ea15afa2e8856f0007c2fa01eb392e10b",
+    "config/layout_proposto.yaml": "f79ecc76c24f2b9d93412baf41df1ad23150c1806d7c2e7ba7d4e1fcf60335a5",
+    "entregas/parcial_2026-10-24/resumo_cabine.json": "fb3e9b1ed2b499c3d396956e70ca9763357d11f3c5e37c7ee5f5b885e1d16621"
+  }
+}

@@ -27,3 +27,7 @@ Consulte a [revisão dos 35 itens](../../../docs/REVISAO_35_ITENS.md). A [carroc
 ## Execução de 24/10/2026
 
 Progresso e limites atualizados em [geometria, CFD, solar e otimização](../../../docs/AVANCO_2026-10-24.md). Artefatos de revisão em [entrega parcial](../../../entregas/parcial_2026-10-24/README.md); não há aprovação final de engenharia.
+
+## Cobertura e integração interior - 25/10/2026
+
+[CAD, fontes, modelos de sombra, equipamentos e orçamento de massa](../../../docs/EXPANSAO_SOLAR_E_INTERIOR.md). Não promove as propostas a engenharia aprovada.

@@ -20,8 +20,8 @@ e avanço autônomo. Não repetir credenciais do chat. Não declarar projeto con
 - Proposta BEV **Aurora Solar / E-Ducato MY25 L3H2 4250kg**, motor205kW/410Nm,
   bateria110brutos/98úteis kWh/400V, conforme ficha OEM já conferida. Não somar
   bateria/motor de novo à massa OEM2790kg. Mapas/perdas/integração solar-HV ausentes.
-- **105 testes passaram**; ruff dos scripts novos/alterados passou. Status
-  **24 parciais /11 não iniciados /0 aprovados**. YAML global intacto,24nulls,
+- **112 testes passaram**; ruff dos scripts novos/alterados passou. Status
+  **26 parciais /9 não iniciados /0 aprovados**. YAML global intacto,24nulls,
   SHA256`7b8f5cd7891eb437cb89c41fd2ba440b0567ca1063998042d4828086aad523e2`.
 
 ## Evidências que não repetir
@@ -90,3 +90,49 @@ consultar sessões antes de afirmar isso.
 - Próximo avanço físico: equipamentos/BOM e solar-serviços-cargaOEM; medir cabine/vidros
   e instalarHVAC noCAD; obter mapas/pack/transmissão/freios/cabos/bomba/radiador,
   executar I30/33/34/35 reais e corrigirCFD. PerfilHVAC ainda NÃO integrado às agendas.
+
+## Prioridade de retomada - ampliação solar e interior (último avanço)
+
+- Usuário pediu aproveitar teto e equipar interior; executado `layout-0.3` + `interior-0.1`.
+  Ler primeiro **docs/EXPANSAO_SOLAR_E_INTERIOR.md**; dados e CAD não são homologação.
+- **Proposta principal fixa1540W**:3JA450 + Victron190SPM041903903 (ficha de modelos
+  atuais,175W antigo era descontinuado).76,5kg módulos +21,155kg suporteCAD a2700kg/m³
+  =97,655kg antes ferragens; altura2,745m. QuartoJA grande não cabe no retângulo cargo.
+- Alternativa estacionada2890W: +3JA móveis, sete módulos142,5kg+28,691kg suportes
+  =171,191kg recolhidos. Excede referência150kg; FiatUK200kg/50kg-barra dependem da
+  configuração, **variante elétrica exata não confirmada**. Não aprovar por171<200.
+  Recolhida,3JA inferiores sombreados; produtivos só3JA superiores+190W. Largura
+  aberta3,564m/altura recolhida2,805m. Apoios tubulares telescópicos guardados sob cama.
+- `instalacoes-04/`: quatro STEP/GLB, interior160sólidos e cobertura fixa/empilhada/aberta.
+  Três casos anteriores foram reimportados:160/239/311sólidos positivos, `instalacoes-03/qa_step.json`.
+  Apoios nascem de raios verticais contra malha externa; não pontos OEM/estrutura validada.
+  Cabeceira/colchão: estrado1,95x1,35, colchãoCAD1,91x1,31m, topo1,05m; lava-seca abaixo.
+- `visualizador-08/qa`:7seletores/160meshes/readytrue/errors[]/HTTPrequests[].
+  Último teste também seleciona geladeira e depois lava-seca; câmera corrigida para
+  frente do equipamento. `visualizador-04..07` históricos. Cópia vigente na entrega.
+- `solar-calculo-03/`:JA2/3/6 =3,2325/4,8488/9,6975kWh/dia, ainda sem190W.
+  `expansao-solar-02/`:inclui190W → fixa5,50685; aberta semsombra10,3556,
+  sombra direta geométrica10,3268; string inferior desligada ao sombrear9,18891kWh/dia.
+  Modelo de área sombreada não simula diodos/mismatch/difusa; orientaçãoXnorte/Yleste
+  assumida, não faixa garantida. **Não energia comprovada na tração**.
+- Habitação assumida sem secagem5,42651kWh/dia → saldo fixo0,08034; aberta3,7624..4,9003.
+  Energia secagem ausente; lavagemLG0,29kWh frio/68,8L, não ciclo completo lavado/seco.
+- Equipamentos selecionados como candidatos:LGCV9011WC4A73kg (total620mm, não565;
+  aberta1100),NRX80C20kg12/24V55Wnom,FreshWell3000 21kg628x400x286/2700Wfrio,
+  CVI1350 2300W350x350x55 versão50Hz (compatibilizar frequência),Thetford3654kgvazio,
+  pia/tanque100Lautorais. HVAC nominal só2%acima de carga2pessoas estimada: não definitivo.
+- `config/servicos_proposta.yaml`:2MPPT150/35 para3SJA/48V +100/20 para190W/12V;
+  MultiPlus-II48/5000 candidato. Armazenamentos/BMS/DC-DC/EVSE/proteções ainda null.
+- BOMparcial:118kg equipamentos conhecidos; OEM+equip+pessoas150+água100+fixa97,655
+  =3255,655kg; faltam móveis, baterias, inversor, ferragens/cabos/tubos/bagagem/eixos.
+- Scripts:gerar_cad_instalacoes/calcular_expansao_solar/consolidar_expansao;
+  módulosocupacao/sombra com7testes novos. **112passed**,ruff geral passou.
+- Cachefontes `expansao-fontes/`:fichasVictron/FreshWellp13/CVIp18 baixadas+hash;
+  LG/Fiat download403 mas páginas lidas viaweb. Não carregar12MB dePDFs no contexto.
+- Memorial atualizado16páginas/1550830bytes; conferir última QAem`memorial-qa-03/`.
+  Manifesto da entrega deve ser recalculado após últimas alterações. Não fezpush,
+  projeto continua incompleto; autorização de envio final ao GitHub permanece válida.
+- Próximo: fechar montagem de teto/estrutura, storage/DC-DC/EVSE/frequências, custos,
+  perfil de habitação comsecagem; medir envelope térmico real; mapas e simulações
+  físicas I30/33/34/35; CFD da carroceria equipada e missão física7000km. Não reusar
+  Cd/agendas históricos de2painéis/100W estacionado como configuração ampliada atual.

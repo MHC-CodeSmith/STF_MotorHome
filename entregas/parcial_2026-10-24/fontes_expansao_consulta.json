@@ -1,0 +1,54 @@
+[
+  {
+    "name": "victron-modelos-atuais.pdf",
+    "url": "https://www.victronenergy.com/upload/documents/Datasheet-BlueSolar-Monocrystalline-Panels-current-models-EN-.pdf",
+    "utc": "2026-10-25T19:04:16.934856+00:00",
+    "final_url": "https://www.victronenergy.com/upload/documents/Datasheet-BlueSolar-Monocrystalline-Panels-current-models-EN-.pdf",
+    "http": 200,
+    "mime": "application/pdf",
+    "bytes": 162145,
+    "sha256": "7ecf4a9953429b359f263b611096bf570e977af718dacb10e22b4c2a29949c3d"
+  },
+  {
+    "name": "freshwell-manual.pdf",
+    "url": "https://www.dometic.com/externalassets/dometic-freshwell-3000-_104014.pdf",
+    "utc": "2026-10-25T19:04:16.935494+00:00",
+    "final_url": "https://media.dometic.com/externalassets/dometic-freshwell-3000-_104014.pdf",
+    "http": 200,
+    "mime": "application/pdf",
+    "bytes": 5982116,
+    "sha256": "36f2e9fbfcc4666bdcb54a694c6792d3c80049b1324c1a998b71c2b73e413780"
+  },
+  {
+    "name": "cvi-manual.pdf",
+    "url": "https://media.dometic.com/externalassets/cvi1525_9600050571_117210.pdf",
+    "utc": "2026-10-25T19:04:16.935873+00:00",
+    "final_url": "https://media.dometic.com/externalassets/cvi1525_9600050571_117210.pdf",
+    "http": 200,
+    "mime": "application/pdf",
+    "bytes": 5981303,
+    "sha256": "7520ea707fb6bd13fc7945cd7cc0d62dc3aebf7fa14442fd6cd272dee4f535f7"
+  },
+  {
+    "name": "lg-cv9011.html",
+    "url": "https://www.lg.com/br/lavanderia/lava-e-seca/cv9011wc4a/",
+    "utc": "2026-10-25T19:04:18.323761+00:00",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "name": "thetford-365.html",
+    "url": "https://www.thetford.com/au/products-and-support/porta-potti-365-portable-toilet/",
+    "utc": "2026-10-25T19:04:18.884856+00:00",
+    "final_url": "https://www.thetford.com/au/products-and-support/porta-potti-365-portable-toilet/",
+    "http": 200,
+    "mime": "text/html; charset=utf-8",
+    "bytes": 232102,
+    "sha256": "2f3e4fca74348f6d1aadb9086d59ae08fa1f807a0d022a56502c164548707467"
+  },
+  {
+    "name": "fiat-teto.html",
+    "url": "https://www.fiat.co.uk/professional/models/ducato",
+    "utc": "2026-10-25T19:04:20.918009+00:00",
+    "error": "HTTP Error 403: Forbidden"
+  }
+]

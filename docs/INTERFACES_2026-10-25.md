@@ -13,3 +13,7 @@ Todas as alterações abaixo são propostas, sem promoção ao YAML global aprov
 
 Ver [cabine/HVAC](CABINE_E_HVAC.md), [pneus/massa](PNEUS_E_MASSA.md) e
 [matriz35itens](REVISAO_35_ITENS.md). Não foram enviados avisos externos aos integrantes.
+
+## Ampliação subsequente
+
+P3/P5→P1/P2/P4/P6: cobertura fixa1540W/97,655kg estimados, extensão171,191kg recolhida/2890W aberta; conferir limite do teto exato. P6→P1: componentes conhecidos118kg, sete itens modelados, cargas de secagem ainda desconhecidas. P2→P5: trêsMPPT/barramentos12/48V propostos; transferência à tração400V não verificada. P3→P4: novo exterior equipado exige CFD atualizado; não reusar Cd antigo como validado. P1→todos: massa montada/custos/eixos ainda pendentes.

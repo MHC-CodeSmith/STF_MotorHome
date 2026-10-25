@@ -1,5 +1,6 @@
 *.pdf binary
 *.glb binary
+*.step -diff
 *.png binary
 *.csv text eol=lf
 # HTML gerado inclui shaders Three.js com espaços de fim de linha originais.

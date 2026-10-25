@@ -1,4 +1,4 @@
-revision: layout-0.2
+revision: layout-0.3
 status: ESTUDO_DE_OCUPACAO_NAO_APROVADO
 source_dimensions: config/arquitetura_eletrica_proposta.yaml, chassis.cargo_*
 coordinate_system: X da porta traseira para cabine; Y esquerda para direita; metros
@@ -6,21 +6,34 @@ cargo_m: [3.705, 1.870, 1.932]
 min_clear_aisle_m: 0.45
 assumptions:
   - Retângulo de carga máximo OEM não inclui recorte exato das caixas de roda/isolamento/colunas.
-  - Volumes abaixo são reservas autorais de espaço, não dimensões de equipamentos selecionados.
-  - Cama transversal 1,87m por 1,35m antes de acabamentos; ergonomia e altura de usuários a revisar.
+  - Zonas são reservas; os equipamentos identificados estão em config/equipamentos_interior.yaml e possuem CAD de integração autoral.
+  - Cama longitudinal 1,95x1,35m elevada a1,05m para lava-seca sob estrado; altura sentada, fixação e acesso precisam de revisão.
   - Interferências com portas, caixas de roda, saídas e fixações precisam de revisão 3D.
-  - Banheiro reduzido para reserva 0,90x0,76x1,80m após interferência do topo anterior com teto curvo; altura livre e ergonomia seguem pendentes.
+  - Banheiro 0,90x0,70x1,80m; ergonomia/espessuras pendentes; repetir raios contra teto para nova posição.
 floor_zones:
-  - {id: cama_dupla, x_m: 0.0, y_m: 0.0, length_m: 1.35, width_m: 1.87, height_m: 0.65, label: Cama dupla / armazenamento inferior}
-  - {id: cozinha, x_m: 1.35, y_m: 0.0, length_m: 1.40, width_m: 0.60, height_m: 0.90, label: Cozinha / fogão / pia / geladeira / lava-seca}
-  - {id: banheiro, x_m: 1.35, y_m: 1.05, length_m: 0.90, width_m: 0.76, height_m: 1.80, label: Banheiro compacto / altura livre a revisar}
-  - {id: dinette, x_m: 2.75, y_m: 0.0, length_m: 0.90, width_m: 0.80, height_m: 0.80, label: Mesa rebatível / assento / eletrônicos}
+  - {id: cama_dupla, x_m: 0.02, y_m: 0.04, length_m: 1.95, width_m: 1.35, height_m: 1.05, label: Cama longitudinal 1.95x1.35 / lava-seca e HVAC sob estrado}
+  - {id: cozinha, x_m: 1.97, y_m: 0.04, length_m: 1.40, width_m: 0.58, height_m: 0.92, label: Cozinha / indução / pia / geladeira}
+  - {id: banheiro, x_m: 1.97, y_m: 1.10, length_m: 0.90, width_m: 0.70, height_m: 1.80, label: Banheiro compacto / ducha / sanitário}
+  - {id: dinette, x_m: 2.94, y_m: 1.10, length_m: 0.65, width_m: 0.70, height_m: 0.80, label: Mesa rebatível / área de uso estacionado}
 roof:
-  modules: 2
+  modules: 3
+  extension_modules: 3
   module_length_x_m: 1.134
   module_width_y_m: 1.762
   module_thickness_m: 0.030
-  start_x_m: 0.20
+  start_x_m: 0.10
   gap_m: 0.03
-  support_height_m: 0.08
-  remaining_space: Reservar região dianteira para aberturas/ventilação/HVAC; conferir teto curvo e estrutura.
+  support_height_m: 0.10
+  extension_vertical_gap_m: 0.030
+  extension_lateral_gap_m: 0.040
+  cab_module:
+    model: Victron BlueSolar SPM041903903
+    power_w: 190
+    length_x_m: 0.668
+    width_y_m: 1.485
+    thickness_m: 0.030
+    mass_kg: 10.5
+    start_x_m: 3.592
+    source: https://www.victronenergy.com/upload/documents/Datasheet-BlueSolar-Monocrystalline-Panels-current-models-EN-.pdf
+    electrical_note: Vmp21.8V/Voc25.5V/Isc9.17A; terceiro MPPT para barramento de serviços12V proposto. Não ligar em série com JA nem a MPPT48V sem conversor boost.
+  remaining_space: HVAC sob cama; ventilação lateral e pelo piso a detalhar; extensão solar só estacionado, recolhida cobre a camada inferior.

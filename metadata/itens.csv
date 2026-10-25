@@ -4,12 +4,12 @@ numero,titulo,pessoa,dependencias,pasta,status
 3,Sistema de freios,P1,2;15,equipe/P1_estrutura_freios/I03_sistema_de_freios,nao_iniciado
 14,Suspensão e direção,P1,15;2,equipe/P1_estrutura_freios/I14_suspensao_e_direcao,nao_iniciado
 15,Chassi,P1,1,equipe/P1_estrutura_freios/I15_chassi,em_desenvolvimento
-18,Massa total com passageiros,P1,2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17,equipe/P1_estrutura_freios/I18_massa_total_com_passageiros,nao_iniciado
+18,Massa total com passageiros,P1,2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17,equipe/P1_estrutura_freios/I18_massa_total_com_passageiros,em_desenvolvimento
 24,Custo total dos materiais,P1,2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;18,equipe/P1_estrutura_freios/I24_custo_total_dos_materiais,nao_iniciado
 33,Freio: campo térmico multidimensional,P1,3;18;28,equipe/P1_estrutura_freios/I33_freio_campo_termico_multidimensional,em_desenvolvimento
 6,Bateria,P2,4,equipe/P2_bateria_eletrica/I06_bateria,em_desenvolvimento
 7,Fiação elétrica,P2,4;6;9,equipe/P2_bateria_eletrica/I07_fiacao_eletrica,nao_iniciado
-9,Controladores de carga e inversores,P2,6;8,equipe/P2_bateria_eletrica/I09_controladores_de_carga_e_inversores,nao_iniciado
+9,Controladores de carga e inversores,P2,6;8,equipe/P2_bateria_eletrica/I09_controladores_de_carga_e_inversores,em_desenvolvimento
 23,Capacidade das baterias (kWh),P2,6;8;13;22,equipe/P2_bateria_eletrica/I23_capacidade_das_baterias_kwh,em_desenvolvimento
 30,Temperatura de cabos multidimensional,P2,4;7,equipe/P2_bateria_eletrica/I30_temperatura_de_cabos_multidimensional,em_desenvolvimento
 16,"Carenagem, portas, vidros",P3,15,equipe/P3_carroceria_cad_cfd/I16_carenagem_portas_vidros,em_desenvolvimento

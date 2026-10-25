@@ -3,7 +3,7 @@
 **Responsável:** P2 — Bateria, elétrica e fios  
 **Enunciado / tarefa:** Modelos reais, tensão de operação, potências, eficiências e limites.  
 **Depende de:** I06 (P2), I08 (P5)  
-**Status:** Não iniciado (estrutura criada automaticamente).
+**Status:** Em desenvolvimento parcial; revisão humana pendente.
 
 ## Entrega mínima
 - `teoria.md`: fenômeno físico, equações, hipóteses e faixa de validade.
@@ -19,3 +19,7 @@ Entradas oficiais em `config/parametros_globais.yaml`; cada atualização releva
 
 ## Aceite
 O item só vira **aprovado** quando tiver resultados reproduzíveis, referências e uma revisão por outro integrante.
+
+## Cobertura e integração interior - 25/10/2026
+
+[CAD, fontes, modelos de sombra, equipamentos e orçamento de massa](../../../docs/EXPANSAO_SOLAR_E_INTERIOR.md). Não promove as propostas a engenharia aprovada.

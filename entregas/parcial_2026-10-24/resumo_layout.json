@@ -1,55 +1,55 @@
 {
   "status": "ESTUDO_DE_OCUPACAO_NAO_APROVADO",
-  "config_sha256": "b71389245361b57ab60745c1464eb8c1d1621604d4a564a45ca139ba390773d0",
+  "config_sha256": "f79ecc76c24f2b9d93412baf41df1ad23150c1806d7c2e7ba7d4e1fcf60335a5",
   "script": "scripts/gerar_layout_proposto.py",
   "zones": [
     {
       "id": "cama_dupla",
-      "x_m": 0.0,
-      "y_m": 0.0,
-      "length_m": 1.35,
-      "width_m": 1.87,
-      "height_m": 0.65,
-      "label": "Cama dupla / armazenamento inferior"
+      "x_m": 0.02,
+      "y_m": 0.04,
+      "length_m": 1.95,
+      "width_m": 1.35,
+      "height_m": 1.05,
+      "label": "Cama longitudinal 1.95x1.35 / lava-seca e HVAC sob estrado"
     },
     {
       "id": "cozinha",
-      "x_m": 1.35,
-      "y_m": 0.0,
+      "x_m": 1.97,
+      "y_m": 0.04,
       "length_m": 1.4,
-      "width_m": 0.6,
-      "height_m": 0.9,
-      "label": "Cozinha / fogão / pia / geladeira / lava-seca"
+      "width_m": 0.58,
+      "height_m": 0.92,
+      "label": "Cozinha / indução / pia / geladeira"
     },
     {
       "id": "banheiro",
-      "x_m": 1.35,
-      "y_m": 1.05,
+      "x_m": 1.97,
+      "y_m": 1.1,
       "length_m": 0.9,
-      "width_m": 0.76,
+      "width_m": 0.7,
       "height_m": 1.8,
-      "label": "Banheiro compacto / altura livre a revisar"
+      "label": "Banheiro compacto / ducha / sanitário"
     },
     {
       "id": "dinette",
-      "x_m": 2.75,
-      "y_m": 0.0,
-      "length_m": 0.9,
-      "width_m": 0.8,
+      "x_m": 2.94,
+      "y_m": 1.1,
+      "length_m": 0.65,
+      "width_m": 0.7,
       "height_m": 0.8,
-      "label": "Mesa rebatível / assento / eletrônicos"
+      "label": "Mesa rebatível / área de uso estacionado"
     }
   ],
   "no_rectangle_overlap": true,
   "roof_modules_rectangular_fit": true,
-  "roof_length_occupied_m": 2.2979999999999996,
-  "height_increment_support_and_module_m": 0.11,
+  "roof_length_occupied_m": 3.4619999999999997,
+  "height_increment_support_and_module_m": 0.13,
   "verified_interference_free_vehicle": false,
   "assumptions": [
     "Retângulo de carga máximo OEM não inclui recorte exato das caixas de roda/isolamento/colunas.",
-    "Volumes abaixo são reservas autorais de espaço, não dimensões de equipamentos selecionados.",
-    "Cama transversal 1,87m por 1,35m antes de acabamentos; ergonomia e altura de usuários a revisar.",
+    "Zonas são reservas; os equipamentos identificados estão em config/equipamentos_interior.yaml e possuem CAD de integração autoral.",
+    "Cama longitudinal 1,95x1,35m elevada a1,05m para lava-seca sob estrado; altura sentada, fixação e acesso precisam de revisão.",
     "Interferências com portas, caixas de roda, saídas e fixações precisam de revisão 3D.",
-    "Banheiro reduzido para reserva 0,90x0,76x1,80m após interferência do topo anterior com teto curvo; altura livre e ergonomia seguem pendentes."
+    "Banheiro 0,90x0,70x1,80m; ergonomia/espessuras pendentes; repetir raios contra teto para nova posição."
   ]
 }

@@ -10,88 +10,112 @@ scene.background = new THREE.Color('#ecf0f3');
 const camera = new THREE.PerspectiveCamera(42, 1, .05, 100);
 camera.up.set(0, 0, 1);
 camera.position.set(6, -7, 4.5);
-const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+const renderer = new THREE.WebGLRenderer({antialias:true, preserveDrawingBuffer:true});
+renderer.localClippingEnabled = true;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = .9;
 renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
 host.append(renderer.domElement);
 const controls = new OrbitControls(camera, renderer.domElement);
-controls.target.set(-.5, 0, 1.2);
-controls.enableDamping = true;
+controls.target.set(-.5, 0, 1.2); controls.enableDamping = true;
 controls.listenToKeyEvents(window);
 scene.add(new THREE.HemisphereLight(0xffffff, 0x62676c, 2.3));
 const sun = new THREE.DirectionalLight(0xffffff, 2.7);
-sun.position.set(3, -4, 8); scene.add(sun);
+sun.position.set(3,-4,8); scene.add(sun);
 const back = new THREE.DirectionalLight(0xc9e4ff, 1.8);
-back.position.set(-5, 4, 4); scene.add(back);
+back.position.set(-5,4,4); scene.add(back);
 const grid = new THREE.GridHelper(12, 24, '#7c8a96', '#c4ccd2');
 grid.rotation.x = Math.PI/2; grid.position.z = -.02; scene.add(grid);
-
-let shell;
 const originalOpacity = new Map();
-const volumes = new THREE.Group();
-volumes.visible = false;
-scene.add(volumes);
-const colors = [0x83bb6b, 0xe5a35e, 0x74aeb8, 0xae8dce];
-const alignment = data.layout_alignment_assumed;
-data.layout.floor_zones.forEach((z, i) => {
-  const mesh = new THREE.Mesh(new THREE.BoxGeometry(z.length_m, z.width_m, z.height_m),
-    new THREE.MeshStandardMaterial({ color: colors[i], transparent: true, opacity: .8 }));
-  mesh.position.set(alignment.rear_x_m+z.x_m+z.length_m/2,
-    -data.layout.cargo_m[1]/2+z.y_m+z.width_m/2, alignment.floor_z_m+z.height_m/2);
-  mesh.name = z.label; volumes.add(mesh);
-  const edges = new THREE.LineSegments(new THREE.EdgesGeometry(mesh.geometry),
-    new THREE.LineBasicMaterial({color: 0x334455}));
-  edges.position.copy(mesh.position); volumes.add(edges);
-});
-const panels = new THREE.Group(); scene.add(panels);
-const roof = data.layout.roof;
-for(let i=0; i<roof.modules; i++) {
-  const module = new THREE.Mesh(new THREE.BoxGeometry(roof.module_length_x_m,
-    roof.module_width_y_m, roof.module_thickness_m),
-    new THREE.MeshStandardMaterial({color: 0x143d63, roughness: .35, metalness: .3}));
-  module.position.set(alignment.rear_x_m+roof.start_x_m+i*(roof.module_length_x_m+roof.gap_m)+roof.module_length_x_m/2,
-    0, 2.612+roof.support_height_m+roof.module_thickness_m/2);
-  panels.add(module);
-  const border = new THREE.LineSegments(new THREE.EdgesGeometry(module.geometry), new THREE.LineBasicMaterial({color: 0xc2cbd2}));
-  border.position.copy(module.position); panels.add(border);
-  for(let j=1; j<6; j++) {
-    const line = new THREE.Line(new THREE.BufferGeometry().setFromPoints([
-      new THREE.Vector3(module.position.x-roof.module_length_x_m/2, -roof.module_width_y_m/2+j*roof.module_width_y_m/6, module.position.z+.016),
-      new THREE.Vector3(module.position.x+roof.module_length_x_m/2, -roof.module_width_y_m/2+j*roof.module_width_y_m/6, module.position.z+.016)]),
-      new THREE.LineBasicMaterial({color: 0x92afc3}));
-    panels.add(line);
-  }
-}
-const bytes = Uint8Array.from(atob(data.glb_base64), c => c.charCodeAt(0));
-new GLTFLoader().parse(bytes.buffer, '', gltf => {
-  shell = gltf.scene;
-  shell.traverse(obj => {
-    if(!obj.isMesh) return;
-    const mats = (Array.isArray(obj.material) ? obj.material : [obj.material]).map(mat => {
-      const copy = mat.clone(); originalOpacity.set(copy, copy.opacity); return copy;
-    });
-    obj.material = Array.isArray(obj.material) ? mats : mats[0];
+const roofClip = new THREE.Plane(new THREE.Vector3(0,0,-1), 2.05);
+let shell, insideModel, stowed, deployed, fixed;
+function load(encoded) {
+  return new Promise((resolve,reject) => {
+    const bytes = Uint8Array.from(atob(encoded), c => c.charCodeAt(0));
+    new GLTFLoader().parse(bytes.buffer, '', gltf => resolve(gltf.scene), reject);
   });
-  scene.add(shell);
-  note.textContent = 'Carroceria detalhada carregada · arraste para girar · roda para aproximar';
-  document.body.dataset.ready = 'true';
-}, err => { note.textContent = 'Falha ao carregar a geometria: '+err.message; });
-
-function materials(callback) {
-  shell?.traverse(obj => {
+}
+function eachMaterial(root, callback) {
+  root?.traverse(obj => {
     if(obj.isMesh) (Array.isArray(obj.material) ? obj.material : [obj.material]).forEach(callback);
   });
 }
-document.querySelector('#inside').addEventListener('change', event => {
-  volumes.visible = event.target.checked;
-  if(event.target.checked) { panels.visible = false; document.querySelector('#panels').checked = false; }
-  materials(mat => { mat.opacity = event.target.checked ? .16 : originalOpacity.get(mat); mat.transparent = mat.opacity < 1; mat.depthWrite = !event.target.checked; });
-});
-document.querySelector('#wire').addEventListener('change', event => materials(mat => mat.wireframe = event.target.checked));
-document.querySelector('#panels').addEventListener('change', event => panels.visible = event.target.checked);
-const views = {iso: [6,-7,4.5], side: [-.5,-10,1.3], top: [-.5,-.001,10], front: [10,0,1.3]};
+function update() {
+  const inside = document.querySelector('#inside').checked;
+  if(insideModel) insideModel.visible = inside;
+  insideModel?.traverse(obj => { if(obj.isMesh && obj.name.startsWith('cama__')) obj.visible = !document.querySelector('#hideBed').checked; });
+  if(shell) shell.visible = !document.querySelector('#hideShell').checked;
+  const solar = document.querySelector('#panels').checked;
+  const open = document.querySelector('#deploy').checked;
+  const extension = document.querySelector('#extensionInstalled').checked;
+  if(fixed) fixed.visible = solar && !extension;
+  if(stowed) stowed.visible = solar && extension && !open;
+  if(deployed) deployed.visible = solar && extension && open;
+  eachMaterial(shell, mat => {
+    mat.opacity = inside ? .22 : originalOpacity.get(mat);
+    mat.transparent = mat.opacity < 1; mat.depthWrite = !inside;
+    mat.clippingPlanes = inside ? [roofClip] : [];
+    mat.wireframe = document.querySelector('#wire').checked;
+    mat.needsUpdate = true;
+  });
+  document.querySelector('#solarState').textContent = !extension
+    ? 'Cobertura fixa: 3 JA + 1 Victron, 1.540 W STC. Proposta principal mais leve.' : open
+    ? 'Estacionado / aberto: 7 módulos expostos, 2.890 W STC; largura 3,564 m.'
+    : 'Recolhido: 3 JA + 1 Victron expostos, 1.540 W STC. Camada JA inferior sombreada.';
+}
+Promise.all([load(data.glb_base64), load(data.interior_glb_base64),
+  load(data.roof_stowed_glb_base64), load(data.roof_open_glb_base64), load(data.roof_fixed_glb_base64)]).then(models => {
+    [shell, insideModel, stowed, deployed, fixed] = models;
+    eachMaterial(shell, mat => originalOpacity.set(mat, mat.opacity));
+    models.forEach(model => scene.add(model)); update();
+    note.textContent = 'Carroceria, equipamentos e suportes carregados. Arraste para girar; selecione um equipamento para localizar.';
+    document.body.dataset.ready = 'true';
+    let count = 0; insideModel.traverse(o => { if(o.isMesh) count++; });
+    document.body.dataset.interiorMeshes = String(count);
+  }).catch(err => { note.textContent = 'Falha ao carregar a geometria: '+err.message; });
+for(const id of ['inside','hideShell','hideBed','wire','panels','deploy','extensionInstalled']) {
+  document.querySelector('#'+id).addEventListener('change', event => {
+    if(id === 'inside' && event.target.checked) document.querySelector('#panels').checked = false;
+    if(id === 'hideShell' && event.target.checked) document.querySelector('#inside').checked = true;
+    if(id === 'deploy' && event.target.checked) document.querySelector('#extensionInstalled').checked = true;
+    if(id === 'extensionInstalled' && !event.target.checked) document.querySelector('#deploy').checked = false;
+    update();
+  });
+}
+const views = {iso:[6,-7,4.5], side:[-.5,-10,1.3], top:[-.5,-.001,10], front:[10,0,1.3]};
 document.querySelectorAll('[data-view]').forEach(button => button.addEventListener('click', () => {
   camera.position.set(...views[button.dataset.view]); controls.target.set(-.5,0,1.2); controls.update();
 }));
+let selection;
+function focusItem(item) {
+  document.querySelector('#inside').checked = true;
+  document.querySelector('#hideShell').checked = true;
+  document.querySelector('#panels').checked = false; update();
+  document.querySelector('#hideBed').checked = ['lava_seca','hvac','agua'].includes(item.id); update();
+  const align = data.equipment.alignment_assumed;
+  const point = new THREE.Vector3(align.rear_x_m+item.position_xyz_m[0]+item.dimensions_xyz_m[0]/2,
+    -align.cargo_width_m/2+item.position_xyz_m[1]+item.dimensions_xyz_m[1]/2,
+    align.floor_z_m+item.position_xyz_m[2]+item.dimensions_xyz_m[2]/2);
+  if(selection) { scene.remove(selection); selection.dispose(); }
+  selection = new THREE.Box3Helper(new THREE.Box3().setFromCenterAndSize(point,
+    new THREE.Vector3(...item.dimensions_xyz_m)), 0xd87520); scene.add(selection);
+  controls.target.copy(point); camera.position.copy(point.clone().add(new THREE.Vector3(2,2.5,1.8)));
+  const info = document.querySelector('#itemInfo'); info.replaceChildren();
+  const title = document.createElement('strong'); title.textContent = item.label; info.append(title);
+  const size = document.createElement('p');
+  size.textContent = item.dimensions_xyz_m.map(v => (v*1000).toFixed(0)).join(' × ')+' mm (X/Y/Z) · massa '+(item.mass_kg ?? 'pendente')+' kg'; info.append(size);
+  const desc = document.createElement('p'); desc.textContent = item.source_note; info.append(desc);
+  if(/^https:\/\//.test(item.source)) {
+    const link = document.createElement('a'); link.href = item.source; link.target = '_blank';
+    link.rel = 'noopener'; link.textContent = 'Fonte de fabricante'; info.append(link);
+  }
+  info.scrollIntoView({block:'nearest'});
+}
+data.equipment.items.forEach(item => {
+  const button = document.createElement('button'); button.textContent = item.label;
+  button.dataset.component = item.id; button.addEventListener('click', () => focusItem(item));
+  document.querySelector('#components').append(button);
+});
 function resize() {
   camera.aspect = host.clientWidth/host.clientHeight; camera.updateProjectionMatrix();
   renderer.setSize(host.clientWidth, host.clientHeight);

@@ -23,3 +23,7 @@ O item só vira **aprovado** quando tiver resultados reproduzíveis, referência
 ## Execução de 24/10/2026
 
 [Estimativa solar, fontes e hipóteses](../../../docs/AVANCO_2026-10-24.md), configuração `config/solar_proposta.yaml` e script `scripts/calcular_solar.py`. Dois/três módulos são cenários a verificar na montagem. Não são ainda energia útil comprovada na bateria de tração.
+
+## Cobertura e integração interior - 25/10/2026
+
+[CAD, fontes, modelos de sombra, equipamentos e orçamento de massa](../../../docs/EXPANSAO_SOLAR_E_INTERIOR.md). Não promove as propostas a engenharia aprovada.

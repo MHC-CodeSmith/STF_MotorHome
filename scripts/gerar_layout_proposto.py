@@ -38,22 +38,25 @@ def main():
         raise ValueError('Módulos não cabem no retângulo de referência')
     args.destino.mkdir(parents=True, exist_ok=False)
     fig, axes = plt.subplots(2, 1, figsize=(11, 8), layout='constrained')
-    labels = ['Cama dupla\n1,87 × 1,35 m', 'Cozinha\nreservas sob bancada', 'Banheiro compacto\n0,90 × 0,76 m; H 1,80 m', 'Mesa rebatível\nassento / eletrônicos']
+    labels = ['Cama longitudinal\n1,95 × 1,35 m\nlava-seca/HVAC sob estrado', 'Geladeira / pia\nindução elétrica', 'Banheiro\n0,90 × 0,70 m\nH 1,80 m', 'Mesa\nrebatível']
     colors = ['#b6d7a8', '#f4c99b', '#a2c4c9', '#c9b8d9']
     for z, label, color in zip(zones, labels, colors):
         axes[0].add_patch(Rectangle((z['x_m'], z['y_m']), z['length_m'], z['width_m'], facecolor=color, edgecolor='black'))
         axes[0].text(z['x_m']+z['length_m']/2, z['y_m']+z['width_m']/2, label, ha='center', va='center', fontsize=9)
-    axes[0].text(1.8, .825, 'Corredor\n0,45 m', ha='center', va='center', fontsize=9)
-    axes[0].text(3.1, 1.6, 'Acesso lateral\na conferir no CAD', ha='center', va='center', fontsize=9)
+    axes[0].text(2.55, .855, 'Corredor\n0,48 m', ha='center', va='center', fontsize=9)
     for i in range(roof['modules']):
         x = roof['start_x_m']+i*(roof['module_length_x_m']+roof['gap_m'])
         y = (width-roof['module_width_y_m'])/2
         axes[1].add_patch(Rectangle((x, y), roof['module_length_x_m'], roof['module_width_y_m'], facecolor='#274d75', edgecolor='black'))
         axes[1].text(x+roof['module_length_x_m']/2, width/2, 'JA Solar\n450 W\n22 kg', ha='center', va='center', color='white')
-    axes[1].text((roof_end+length)/2, width/2, 'Reserva para\naberturas / HVAC\n(compatibilidade pendente)', ha='center', va='center', fontsize=9)
-    for ax, title in zip(axes, ['Planta de ocupação — equipamentos ainda não selecionados', 'Proposta de teto: 900 W; 44 kg somente em módulos']):
+    cab = roof['cab_module']
+    axes[1].add_patch(Rectangle((cab['start_x_m'], (width-cab['width_y_m'])/2), cab['length_x_m'], cab['width_y_m'], facecolor='#497598', edgecolor='black'))
+    axes[1].text(cab['start_x_m']+cab['length_x_m']/2, width/2, 'Victron\n190 W\n10,5 kg', color='white', ha='center', va='center', fontsize=9)
+    axes[1].axvline(length, color='gray', ls='--', alpha=.8)
+    for ax, title in zip(axes, ['Planta de integração: cama elevada, itens identificados e mesa rebatível', 'Teto: 1540 W expostos recolhidos; até2890 W com extensão aberta (não desenhada nesta planta)']):
         ax.add_patch(Rectangle((0, 0), length, width, fill=False, linewidth=2))
         ax.set(xlim=(-.1, length+.1), ylim=(-.1, width+.1), aspect='equal', xlabel='X — traseira → cabine [m]', ylabel='Y [m]', title=title)
+    axes[1].set_xlim(-.1, cab['start_x_m']+cab['length_x_m']+.1)
     fig.suptitle('Aurora Solar — estudo preliminar para duas pessoas\nEnvelope máximo OEM; caixas de roda, acabamentos e fixações ainda precisam de conferência')
     fig.savefig(args.destino/'layout_proposto.png', dpi=160)
     plt.close(fig)

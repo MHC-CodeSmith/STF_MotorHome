@@ -62,3 +62,7 @@ CHROMIUM_BIN=/caminho/chromium node scripts/visualizador/verificar.cjs NOVO/visu
 
 Também se pode usar o Chromium instalado pelo Playwright e omitir CHROMIUM_BIN.
 O cache de dependências desta execução fica fora do Git em `software/visualizador-dev/`.
+
+## Estado atual após equipamentos e ampliação
+
+A versão antiga de reservas foi substituída pelo [interior equipado e coberturas fixa/extensível](EXPANSAO_SOLAR_E_INTERIOR.md). Fonte: YAML e scripts de Gmsh/OCC+trimesh, sólidos STEP e visualizadorThree offline. Atual: `visualizador-08`, sete seletores e160sólidos de interior; nenhuma importação para CAD online ou envio público.

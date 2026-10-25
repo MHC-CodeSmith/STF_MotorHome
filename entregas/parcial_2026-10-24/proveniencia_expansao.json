@@ -1,0 +1,41 @@
+{
+  "script": "scripts/consolidar_expansao.py",
+  "created_utc": "2026-10-25T19:47:35.149098+00:00",
+  "generator_sha256": "0e1cd650f7d06f9b9de8ff1f6fdc122ba71316054b409ba244882f1490241b02",
+  "source_cache_folders": {
+    "instalacoes-04": [
+      "interior_equipado.glb",
+      "interior_equipado.step",
+      "cobertura_fixa.glb",
+      "cobertura_fixa.step",
+      "cobertura_recolhida.glb",
+      "cobertura_recolhida.step",
+      "cobertura_aberta.glb",
+      "cobertura_aberta.step",
+      "manifesto_instalacoes.json"
+    ],
+    "visualizador-08": [
+      "visualizador.html",
+      "manifesto_visualizador.json"
+    ],
+    "solar-calculo-03": [
+      "resumo_solar.json",
+      "solar_proposta.png"
+    ],
+    "expansao-solar-02": [
+      "resumo_expansao_solar.json",
+      "expansao_solar.png",
+      "expansao_solar.csv"
+    ],
+    "layout-03": [
+      "layout_proposto.png",
+      "resumo_layout.json"
+    ],
+    "triagem-banho-03": [
+      "triagem_banheiro.json"
+    ]
+  },
+  "source_qa": "visualizador-08/qa",
+  "cad_policy": "Modelos CAD autorais de integração; dimensões externas de fabricante onde indicado, detalhes visuais aproximados. Não são arquivos CAD OEM.",
+  "not_final_engineering_approval": true
+}

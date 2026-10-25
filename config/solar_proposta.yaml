@@ -1,4 +1,4 @@
-revision: solar-0.1
+revision: solar-0.2
 status: ESTIMATIVA_DE_PROJETO_NAO_VALIDADA
 scenario:
   date: '2026-06-21'
@@ -29,11 +29,11 @@ module:
   imp_stc_a: 13.71
   front_only: true
 array:
-  module_counts: [2, 3]
+  module_counts: [2, 3, 6]
   tilt_deg: 0
   azimuth_deg: 0
   albedo: 0.2
-  note: Dois módulos reservam mais espaço a aberturas/HVAC; três são cenário geométrico superior a verificar, não instalação já aprovada.
+  note: Dois módulos são base histórica; três são a cobertura exposta recolhida; seis só com extensão deslizante aberta e sem sombra. HVAC proposto sob cama. Recolhida, camada superior cobre a inferior, portanto não somar seis módulos expostos.
 assumptions:
   faiman_u0_w_m2k: 25
   faiman_u1_w_s_m3k: 6.84

@@ -55,3 +55,13 @@ Verificação desta continuação: **96 testes passaram**, ruff dos arquivos nov
 [Memorial PDF de revisão](../../output/pdf/memorial_revisao_aurora.pdf): 13 páginas, cerca de1MB; nenhum resultado foi declarado aprovado. [Cabine](cabine_termica.png), [JSON dos48cenários](resumo_cabine.json) e [CSV temporal](cabine_timeseries.csv): I31/I32 condicionados, conforme [método e fontes](../../docs/CABINE_E_HVAC.md). [Fontes consultadas](fontes_conforto_consulta.json) registra também a falha HTTP403 do download Armacell e o manual Dometic APAC que não foi adotado como ficha do modelo EMEA.
 
 O manifesto de hashes agora cobre os arquivos atuais e referencia o PDF fora desta pasta. Parciais24/35, nenhum aprovado. O relatório não é a entrega final aos professores.
+
+## Atualização posterior: cobertura ampliada e interior equipado
+
+[Abrir visualizador atualizado](visualizador.html): comece por **Ver interior equipado**; use **Retirar cama** ou selecione a lava-seca/HVAC para ver instalações inferiores. A cobertura inicial é a **fixa1540W**, estimada97,7kg antes de ferragens. **Comparar extensão** e **Abrir extensão** mostram a alternativa2890W estacionada, cuja montagem empilhada171,2kg está condicionada ao teto/fixações.
+
+[Interior STEP](interior_equipado.step), [cobertura fixa STEP](cobertura_fixa.step), [extensão recolhida STEP](cobertura_recolhida.step), [extensão aberta STEP](cobertura_aberta.step). Modelos autorais dimensionados por fontes indicadas; não CAD OEM. Os GLB correspondentes estão nesta pasta. [Figura superior](cad_solar_recolhido.png), [interior](cad_interior.png), [lava-seca e instalações inferiores](cad_lava_seca.png).
+
+[Geração ampliada](expansao_solar.png), [resultados e hipóteses](resumo_expansao_solar.json), [orçamento parcial de massa](orcamento_massa_parcial.json) e [fontes/reprodução/limites](../../docs/EXPANSAO_SOLAR_E_INTERIOR.md). Potência e energia agregadas não comprovam transferência ao pack400V. O caso térmico de cabine continua condicionado ao envelope anterior; o perfil de habitação e a nova cobertura ainda não foram integrados à missão física7000km.
+
+O [memorial atualizado](../../output/pdf/memorial_revisao_aurora.pdf) tem16páginas/~1,55MB. A descrição anterior de13páginas e dois painéis é histórica.112testes passaram;26itens em desenvolvimento parcial/9nãoiniciados/0aprovados. Não é projeto concluído nem entrega aos docentes.

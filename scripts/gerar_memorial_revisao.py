@@ -34,6 +34,9 @@ def main():
     cabin = json.loads((delivery/'resumo_cabine.json').read_text())
     n = cabin['nominal']
     solar = json.loads((delivery/'resumo_solar.json').read_text())
+    expansion = json.loads((delivery/'resumo_expansao_solar.json').read_text())
+    installations = json.loads((delivery/'manifesto_instalacoes.json').read_text())
+    mass_budget = json.loads((delivery/'orcamento_massa_parcial.json').read_text())
     pdfmetrics.registerFont(TTFont('DejaVu', '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'))
     pdfmetrics.registerFont(TTFont('DejaVuBold', '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'))
     pdfmetrics.registerFontFamily('DejaVu', normal='DejaVu', bold='DejaVuBold')
@@ -172,19 +175,80 @@ def main():
          'entre-eixos 4,035 m e topo 2,612 m. Rodas deslocadas rigidamente, preservando '
          'tamanho original. Não é uma reprodução certificada da variante elétrica.')
     table([['Reserva interna', 'Dimensões e restrições'],
-           ['Cama para duas pessoas', '1,35 x 1,87 m antes de acabamentos; altura 0,65 m.'],
-           ['Cozinha', '1,40 x 0,60 x 0,90 m; equipamentos reais ainda não selecionados.'],
-           ['Banheiro', '0,90 x 0,76 x 1,80 m; reduzido após interferência com teto curvo.'],
-           ['Dinette', '0,90 x 0,80 x 0,80 m; mesa rebatível e reserva de assento.'],
-           ['Painéis no teto', 'Dois módulos 1,134 x 1,762 m; suportes e abertura HVAC por revisar.']], [5, 12])
-    para('A triagem do topo do banheiro usou 81 raios e folga mínima externa de 33 mm. '
+           ['Cama para duas pessoas', 'Estrado1,95 x 1,35 m; colchão modelado1,91 x 1,31 m; topo1,05 m, instalações sob estrado.'],
+           ['Cozinha', '1,40 x 0,58 x 0,92 m; geladeira, pia e indução com envelopes especificados.'],
+           ['Banheiro', '0,90 x 0,70 x 1,80 m; sanitário e ducha; ergonomia/espessuras ainda pendentes.'],
+           ['Dinette', 'Mesa rebatível em reserva0,65 x 0,70 m; assentos de cabine ilustrativos.'],
+           ['Painéis no teto', 'Fixa:3JA450 + Victron190 =1540 W; extensão opcional+3JA450 só estacionado.']], [5, 12])
+    para('A triagem do topo do banheiro usou 81 raios e folga mínima externa de 40,85 mm. '
          'Não considera espessura/isolamento, caixas de roda, ergonomia ou colisão completa. '
          'O piso Z=0,68 m e a traseira X=-3,35 m são alinhamentos assumidos.')
-    para('visualizador.html contém a carroceria GLB e reservas internas, funciona offline '
+    para('visualizador.html contém a carroceria GLB e equipamentos reconhecíveis em CAD autoral, funciona offline '
          'e permite inspeção de vistas. É visualizador, não editor CAD paramétrico. '
          'Onshape e Fusion foram pesquisados em documentação oficial; não houve upload '
          'a serviços públicos. Onshape gratuito implica documentos públicos/não comerciais. '
          'O exterior OpenX preserva MPL-2.0 e CC-BY-4.0 com atribuição na entrega.')
+    page()
+
+    heading('3A. Equipamentos internos e CAD de integração')
+    pic('cad_interior.png', 8)
+    rows = [['Equipamento', 'X / Y / Z [mm]', 'Massa de fabricante']]
+    for item in installations['equipment']:
+        rows.append([item['label'], ' x '.join(str(round(v*1000)) for v in item['dimensions_xyz_m']),
+                     f"{item['mass_kg']} kg" if item['mass_kg'] is not None else 'Pendente'])
+    table(rows, [8, 5, 4])
+    para('Lava-seca sob cama: profundidade total620 mm e porta aberta1100 mm segundo LG; '
+         'não usar565 mm como envelope total. Uma lavagem fria consome68,8 L/0,29 kWh; '
+         'energia de secagem ainda desconhecida. Fixação automotiva e acesso precisam de revisão. '
+         'As dimensões da geladeira, HVAC, indução e sanitário vêm de fabricantes; '
+         'os sólidos e detalhes visuais são autorais, não CAD OEM. Pia e tanque são propostas próprias.')
+    para('O HVAC sob cama libera o teto. FreshWell3000:2700 W de frio,21 kg,230 V50/60 Hz, '
+         '4,3 A de corrente. Corrente AC não define potência ativa nem COP. Sua margem '
+         'nominal sobre2646 W condicionados para duas pessoas é de apenas2%; '
+         'curva33°C, dutos e sombreamento de vidros precisam fechar a seleção.')
+    page()
+
+    heading('3B. Ampliação solar, montagem e peso')
+    pic('cad_solar_aberto.png', 7.5)
+    pic('expansao_solar.png', 7)
+    para('Proposta principal: cobertura fixa1540 W, quatro módulos. Alternativa de '
+         'estudo: seis JA450 e um Victron190,2890 W expostos quando aberta. '
+         'Recolhida, a camada superior sombreia a inferior: apenas três JA mais190 W produtivos. '
+         'Módulo menor:SPM041903903, ficha atual; o175 W encontrado na pesquisa estava descontinuado.')
+    para(f"Após perdas assumidas: fixa/recolhida{expansion['energy_kwh']['mixed_stowed_w']:.3f} kWh/dia; "
+         f"aberta{expansion['energy_kwh']['mixed_open_lower_string_off_if_shaded_w']:.3f} a"
+         f"{expansion['energy_kwh']['mixed_open_geometric_beam_shading_w']:.3f} kWh/dia nos dois modelos de sombra. "
+         'Não é faixa garantida: difusa, diodos/mismatch e térmica da montagem não foram validados. '
+         'OrientaçãoX=norte/Y=leste e operação estacionada durante o sol são hipóteses.')
+    page()
+    heading('3C. Limites de execução da cobertura')
+    table([['Caso', 'Potência exposta STC', 'Massa de teto estimada'],
+           ['Fixa, proposta principal', '1540 W', f"{installations['fixed_roof_mass_estimate_kg']:.2f} kg"],
+           ['Extensão empilhada recolhida', '1540 W', f"{installations['stacked_roof_mass_estimate_kg']:.2f} kg"],
+           ['Extensão aberta estacionado', '2890 W', 'Apoios ao solo; vento/fixação ainda não dimensionados']], [7, 5, 5])
+    para('Massas de suporte usam volume sólido CAD e densidade2700 kg/m³ assumida, '
+         'sem ferragens adicionais. O desenho inclui longarinas/travessas tubulares, '
+         'guias, sapatas com altura ajustada à malha e apoios telescópicos. '
+         'Não é FEM, mecanismo homologado ou montagem validada nos pontos OEM.')
+    para('O arranjo empilhado171,19 kg excede uma referência de teto/rack150 kg. '
+         'A Fiat UK menciona até200 kg e50 kg por barra dependendo da configuração; '
+         'isso não confirma a variante E-DucatoMY25 escolhida nem a distribuição entre barras. '
+         'A versão fixa mais leve é a proposta principal. Extensão requer teto/fixação '
+         'compatíveis, módulos mais leves ou transporte dos complementares em suporte interior dimensionado.')
+    para('Serviços: duas strings3JA em MPPT150/35 independentes para48 V; o190 W '
+         'exige terceiro MPPT100/20 a12 V proposto. Não unir strings diferentes em série. '
+         'Baterias de serviço, DC/DC, EVSE, frequência, proteções e compatibilidade OEM '
+         'ainda faltam. O diagrama funcional éPV-serviços-inversor-EVSE-cargaOEM estacionada; '
+         'não há conexão solar400 V aprovada.')
+    para(f"Orçamento parcial de massa: componentes conhecidos{mass_budget['known_equipment_kg']:.1f} kg; "
+         f"soma OEM+componentes+duas pessoas+100 kg água+telhado fixo"
+         f"{mass_budget['sum_known_and_assumed_fixed_kg']:.1f} kg. "
+         'Não é massa montada: faltam mobiliário, baterias de serviço, inversor, cabos, '
+         'tubos, ferragens e bagagens; verificar eixos, centro de massa e custo com impostos.')
+    para(f"Habitação assumida, sem secagem:{expansion['household_total_excluding_dryer_kwh_day']:.3f} kWh/dia. "
+         f"Saldo agregado fixo de apenas{expansion['remaining_after_household_before_storage_losses_kwh_day']['mixed_stowed_w']:.3f} kWh/dia; "
+         'aberta permite saldo maior nas hipóteses, antes de armazenamento e transferência entre barramentos. '
+         'Não equivale a energia garantida para tração ou viabilidade da missão7000 km.')
     page()
 
     heading('4. Aerodinâmica exploratória')
@@ -204,9 +268,11 @@ def main():
          '4,827840 m², diferença de -3,53%. Fechamento por componente não garante '
          'fidelidade física nem ausência de auto-interseções. Não combinar estes resultados '
          'com a roda candidata nova sem nova geometria e ensaio.')
+    para('A cobertura solar e os suportes novos não integraram estes pilotos; '
+         'não reutilizar o Cd exploratório como coeficiente validado da carroceria equipada.')
     page()
 
-    heading('5. Geração e consumo')
+    heading('5. Referência JA e consumo histórico')
     pic('solar_proposta.png', 8)
     para('JA Solar JAM54D41-450/LB/1500V: 450 W STC, 22 kg, 1,762 x 1,134 m; '
          'coeficiente térmico -0,003/K. Plano horizontal, pvlib 0.16.1, Ineichen e '
@@ -225,6 +291,9 @@ def main():
          '6,4 a 9,8 km a 80 km/h. Não são intervalos medidos: variam Cd dos pilotos, '
          'Cr=0,008/0,012/0,016 e rendimento=0,85/0,90/0,95 assumidos, a massa de 4250 kg '
          'e auxiliares de condução de 800 W. Sem consumo completo de habitação.')
+    para('Esses cenários e as agendas seguintes são a referência histórica de dois '
+         'módulos/100 W estacionado. A expansão e os equipamentos novos estão nas '
+         'seções3A-3C; falta integrar os barramentos e refazer aerodinâmica/demanda para uma missão atualizada.')
     page()
 
     heading('6. Agendas e missão de 7.000 km')

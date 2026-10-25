@@ -1,0 +1,73 @@
+revision: interior-0.1
+status: PROPOSTA_DE_INTEGRACAO_NAO_HOMOLOGADA
+model_policy: Modelos CAD autorais de integração; dimensões externas de fabricante onde indicado, detalhes visuais aproximados. Não são arquivos CAD OEM.
+coordinate_system: metros; X traseira para cabine; Y esquerda para direita; Z piso do compartimento
+alignment_assumed: {rear_x_m: -3.35, floor_z_m: 0.68, cargo_width_m: 1.87}
+items:
+  - id: lava_seca
+    label: LG CV9011WC4A / lava e seca 11-7 kg
+    source: https://www.lg.com/br/lavanderia/lava-e-seca/cv9011wc4a/?search=%7B%7D
+    accessed: '2026-10-25'
+    dimensions_xyz_m: [0.600, 0.620, 0.850]
+    position_xyz_m: [0.26, 0.70, 0.02]
+    mass_kg: 73
+    model: washer
+    source_note: Fonte distingue profundidade nominal565mm de total620mm; CAD usa total. Profundidade com porta aberta1100mm; lavagem fria0.29kWh/ciclo e68.8L, não energia da secagem.
+    electrical: {voltage_v: 220, cold_wash_energy_kwh_cycle: 0.29, water_l_cycle: 68.8, drying_energy_kwh_cycle: null, rated_power_w: null}
+  - id: geladeira
+    label: Dometic NRX 80C / geladeira 75 L
+    source: https://www.dometic.com/en-gb/outdoor/motorhome-and-van/fridges/camper-van-refrigerators/dometic-nrx-80c-333351
+    accessed: '2026-10-25'
+    dimensions_xyz_m: [0.475, 0.537, 0.625]
+    position_xyz_m: [2.00, 0.06, 0.08]
+    mass_kg: 20
+    model: fridge
+    electrical: {voltage_v: [12, 24], rated_power_w: 55}
+    source_note: NRX0080C SKU9620001483; consumo nominal55W não é média de24h; conversor48→12/24V e ventilação pendentes.
+  - id: hvac
+    label: Dometic FreshWell 3000 / HVAC sob cama
+    source: https://www.dometic.com/externalassets/dometic-freshwell-3000-_104014.pdf
+    source_page: 13
+    accessed: '2026-10-25'
+    dimensions_xyz_m: [0.628, 0.400, 0.286]
+    position_xyz_m: [1.15, 0.10, 0.03]
+    mass_kg: 21
+    model: hvac
+    electrical: {voltage_v: 230, frequency_hz: [50, 60], cooling_rated_current_a: 4.3, cooling_capacity_w: 2700, heating_capacity_w: 3000}
+    source_note: Dimensões e massa da ficha p13; corrente AC não basta para obter potência ativa/COP. Carga2.646kW deixa margem nominal de apenas2%; curva33°C e perdas de dutos pendentes, não seleção térmica definitiva.
+  - id: fogao
+    label: Dometic CVI1350 / indução elétrica
+    source: https://media.dometic.com/externalassets/cvi1525_9600050571_117210.pdf
+    source_page: 18
+    accessed: '2026-10-25'
+    dimensions_xyz_m: [0.350, 0.350, 0.055]
+    position_xyz_m: [2.97, 0.16, 0.865]
+    mass_kg: null
+    model: cooktop
+    electrical: {voltage_range_v: [220, 240], frequency_hz: 50, rated_power_w: 2300}
+    source_note: Frequência50Hz da versão EMEA; lava-seca brasileira exige compatibilização de frequência/alimentação. Verificar versão antes de compra. Sem gás.
+  - id: sanitario
+    label: Thetford Porta Potti 365
+    source: https://www.thetford.com/au/products-and-support/porta-potti-365-portable-toilet/
+    accessed: '2026-10-25'
+    dimensions_xyz_m: [0.383, 0.427, 0.414]
+    position_xyz_m: [2.07, 1.28, 0.04]
+    mass_kg: 4
+    model: toilet
+    source_note: Tanques21L resíduos e15L descarga; massa vazia4kg. Água/resíduos contabilizados conforme enchimento, sem duplicar água geral.
+  - id: pia
+    label: Cuba inox compacta / desenho autoral
+    source: Projeto autoral de integração, componente comercial não selecionado
+    dimensions_xyz_m: [0.400, 0.380, 0.160]
+    position_xyz_m: [2.51, 0.14, 0.76]
+    mass_kg: null
+    model: sink
+    source_note: Espessuras, sifão e fixação ainda a dimensionar.
+  - id: agua
+    label: Reservatório100L / envelope autoral
+    source: Projeto autoral; volume interno ideal, parede e conexões pendentes
+    dimensions_xyz_m: [1.000, 0.400, 0.250]
+    position_xyz_m: [0.08, 0.10, 0.03]
+    mass_kg: null
+    model: water
+    source_note: 0.100m³ é envelope nominal; capacidade útil depende de parede/baffles. Massa de água100kg assumida, não massa do tanque.

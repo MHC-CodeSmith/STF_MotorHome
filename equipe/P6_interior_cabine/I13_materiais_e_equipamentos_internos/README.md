@@ -23,3 +23,7 @@ O item só vira **aprovado** quando tiver resultados reproduzíveis, referência
 ## Planta preliminar
 
 Ver [planta e ressalvas](../../../entregas/parcial_2026-10-24/README.md) e [registro de execução](../../../docs/AVANCO_2026-10-24.md). Dimensões são reservas autorais, não especificações de produtos escolhidos.
+
+## Cobertura e integração interior - 25/10/2026
+
+[CAD, fontes, modelos de sombra, equipamentos e orçamento de massa](../../../docs/EXPANSAO_SOLAR_E_INTERIOR.md). Não promove as propostas a engenharia aprovada.

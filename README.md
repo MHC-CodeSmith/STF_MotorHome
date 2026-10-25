@@ -1,5 +1,7 @@
 # Motorhome elétrico solar — organização para grupo de 7 e Codex
 
+**Atualização mais recente:** [interior equipado e cobertura solar ampliada](docs/EXPANSAO_SOLAR_E_INTERIOR.md), [visualizador offline](entregas/parcial_2026-10-24/visualizador.html), [memorial parcial16p](output/pdf/memorial_revisao_aurora.pdf). Cobertura fixa1540W; extensão de estudo2890W.112testes,26itens parciais/9nãoiniciados/0aprovados.
+
 **Projeto acadêmico de Sistemas Térmicos e Fluídicos (2026).** Este é um *esqueleto de trabalho*, não um projeto de engenharia concluído nem um pacote de simulações validadas.
 
 ## Início rápido

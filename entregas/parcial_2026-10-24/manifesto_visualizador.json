@@ -3,14 +3,19 @@
   "script": "scripts/gerar_visualizador.py",
   "inputs_sha256": {
     "entregas/parcial_2026-10-24/aurora_L3H2_proposta_m.glb": "1ba262344eb2700340a7e9f6474b9386392b10e7c1c7afb89e4d19950f2f6e2d",
-    "config/layout_proposto.yaml": "b71389245361b57ab60745c1464eb8c1d1621604d4a564a45ca139ba390773d0",
-    "/home/mhc/motorhome_referencias_tarefas/software/visualizador-dev/aurora.bundle.js": "b0df2603658d95854587c9f5e8dc644d75eb72f91140fe12582a77faeb861475",
-    "/home/mhc/motorhome_referencias_tarefas/software/visualizador-dev/node_modules/three/LICENSE": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601"
+    "config/layout_proposto.yaml": "f79ecc76c24f2b9d93412baf41df1ad23150c1806d7c2e7ba7d4e1fcf60335a5",
+    "/home/mhc/motorhome_referencias_tarefas/software/visualizador-dev/aurora-08.bundle.js": "3bcbcbbc8c9e020e0ba69e35aef986429f6e0c9cc4492443c3d9a18ca71880f3",
+    "/home/mhc/motorhome_referencias_tarefas/software/visualizador-dev/node_modules/three/LICENSE": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601",
+    "config/equipamentos_interior.yaml": "d0e037c4f910f3fe3cfc4754e56457e915ef604f8d3d63f299072047e7f3ead1",
+    "/home/mhc/motorhome_referencias_tarefas/instalacoes-04/interior_equipado.glb": "c09b902d7bb723f42a91b99e2bbb0da8002243d3ca2871eebdfe6ea02a32837f",
+    "/home/mhc/motorhome_referencias_tarefas/instalacoes-04/cobertura_fixa.glb": "3d9c9cf0c8e244ab894ab2629814802a5381d34eabdcabc9ab9526f85f6badbe",
+    "/home/mhc/motorhome_referencias_tarefas/instalacoes-04/cobertura_recolhida.glb": "26b28209b891f0372f3c2062d18c0bab4a7ee99da29d36a9e6ef04112ad5003a",
+    "/home/mhc/motorhome_referencias_tarefas/instalacoes-04/cobertura_aberta.glb": "b97cae249696cb5800a233308608ab1f6ec7028b4e90fb75425ece955c7a29b1"
   },
   "alignment_assumed": {
     "rear_x_m": -3.35,
     "floor_z_m": 0.68
   },
   "offline": true,
-  "output_sha256": "3d5e287a282e9f2cab931fae6d6493b09272fa0b567359b057ae163eb4a144f0"
+  "output_sha256": "dafd7a63c81db662ce54c49755f377501c693e60d8b32132d16e6634aff87f9a"
 }

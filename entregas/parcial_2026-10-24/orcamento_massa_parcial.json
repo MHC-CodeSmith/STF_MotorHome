@@ -1,0 +1,32 @@
+{
+  "status": "ORCAMENTO_PARCIAL_NAO_MASSA_MONTADA",
+  "oem_without_driver_kg": 2790,
+  "oem_limit_kg": 4250,
+  "known_equipment_kg": 118,
+  "assumed_two_occupants_kg": 150,
+  "assumed_total_water_kg": 100,
+  "unknown_equipment_mass": [
+    "fogao",
+    "pia",
+    "agua"
+  ],
+  "other_missing": [
+    "mobiliário/acabamentos",
+    "baterias de serviços/BMS/inversor/conversores",
+    "chicotes/proteções/conexões/tubulações",
+    "ferragens/apoios/bagagens"
+  ],
+  "roof_fixed_estimate_kg": 97.6551780950553,
+  "roof_stacked_estimate_kg": 171.19089969505532,
+  "roof_150kg_case": {
+    "fixed_below_limit_before_missing_parts": true,
+    "stacked_below_limit_before_missing_parts": false
+  },
+  "exact_oem_roof_limit_confirmed": false,
+  "axle_loads_verified": false,
+  "vehicle_total_mass_is_complete": false,
+  "sum_known_and_assumed_fixed_kg": 3255.6551780950554,
+  "remaining_before_missing_parts_fixed_kg": 994.3448219049446,
+  "sum_known_and_assumed_stacked_kg": 3329.190899695055,
+  "remaining_before_missing_parts_stacked_kg": 920.8091003049449
+}

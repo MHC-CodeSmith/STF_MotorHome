@@ -1,0 +1,243 @@
+{
+  "revision": "interior-0.1",
+  "created_utc": "2026-10-25T19:34:55.408679+00:00",
+  "status": "PROPOSTA_DE_INTEGRACAO_NAO_HOMOLOGADA",
+  "script": "scripts/gerar_cad_instalacoes.py",
+  "equipment_envelopes": {
+    "outside": [],
+    "overlaps": [],
+    "envelope_check_passed": true
+  },
+  "equipment": [
+    {
+      "id": "lava_seca",
+      "label": "LG CV9011WC4A / lava e seca 11-7 kg",
+      "source": "https://www.lg.com/br/lavanderia/lava-e-seca/cv9011wc4a/?search=%7B%7D",
+      "accessed": "2026-10-25",
+      "dimensions_xyz_m": [
+        0.6,
+        0.62,
+        0.85
+      ],
+      "position_xyz_m": [
+        0.26,
+        0.7,
+        0.02
+      ],
+      "mass_kg": 73,
+      "model": "washer",
+      "source_note": "Fonte distingue profundidade nominal565mm de total620mm; CAD usa total. Profundidade com porta aberta1100mm; lavagem fria0.29kWh/ciclo e68.8L, não energia da secagem.",
+      "electrical": {
+        "voltage_v": 220,
+        "cold_wash_energy_kwh_cycle": 0.29,
+        "water_l_cycle": 68.8,
+        "drying_energy_kwh_cycle": null,
+        "rated_power_w": null
+      }
+    },
+    {
+      "id": "geladeira",
+      "label": "Dometic NRX 80C / geladeira 75 L",
+      "source": "https://www.dometic.com/en-gb/outdoor/motorhome-and-van/fridges/camper-van-refrigerators/dometic-nrx-80c-333351",
+      "accessed": "2026-10-25",
+      "dimensions_xyz_m": [
+        0.475,
+        0.537,
+        0.625
+      ],
+      "position_xyz_m": [
+        2.0,
+        0.06,
+        0.08
+      ],
+      "mass_kg": 20,
+      "model": "fridge",
+      "electrical": {
+        "voltage_v": [
+          12,
+          24
+        ],
+        "rated_power_w": 55
+      },
+      "source_note": "NRX0080C SKU9620001483; consumo nominal55W não é média de24h; conversor48→12/24V e ventilação pendentes."
+    },
+    {
+      "id": "hvac",
+      "label": "Dometic FreshWell 3000 / HVAC sob cama",
+      "source": "https://www.dometic.com/externalassets/dometic-freshwell-3000-_104014.pdf",
+      "source_page": 13,
+      "accessed": "2026-10-25",
+      "dimensions_xyz_m": [
+        0.628,
+        0.4,
+        0.286
+      ],
+      "position_xyz_m": [
+        1.15,
+        0.1,
+        0.03
+      ],
+      "mass_kg": 21,
+      "model": "hvac",
+      "electrical": {
+        "voltage_v": 230,
+        "frequency_hz": [
+          50,
+          60
+        ],
+        "cooling_rated_current_a": 4.3,
+        "cooling_capacity_w": 2700,
+        "heating_capacity_w": 3000
+      },
+      "source_note": "Dimensões e massa da ficha p13; corrente AC não basta para obter potência ativa/COP. Carga2.646kW deixa margem nominal de apenas2%; curva33°C e perdas de dutos pendentes, não seleção térmica definitiva."
+    },
+    {
+      "id": "fogao",
+      "label": "Dometic CVI1350 / indução elétrica",
+      "source": "https://media.dometic.com/externalassets/cvi1525_9600050571_117210.pdf",
+      "source_page": 18,
+      "accessed": "2026-10-25",
+      "dimensions_xyz_m": [
+        0.35,
+        0.35,
+        0.055
+      ],
+      "position_xyz_m": [
+        2.97,
+        0.16,
+        0.865
+      ],
+      "mass_kg": null,
+      "model": "cooktop",
+      "electrical": {
+        "voltage_range_v": [
+          220,
+          240
+        ],
+        "frequency_hz": 50,
+        "rated_power_w": 2300
+      },
+      "source_note": "Frequência50Hz da versão EMEA; lava-seca brasileira exige compatibilização de frequência/alimentação. Verificar versão antes de compra. Sem gás."
+    },
+    {
+      "id": "sanitario",
+      "label": "Thetford Porta Potti 365",
+      "source": "https://www.thetford.com/au/products-and-support/porta-potti-365-portable-toilet/",
+      "accessed": "2026-10-25",
+      "dimensions_xyz_m": [
+        0.383,
+        0.427,
+        0.414
+      ],
+      "position_xyz_m": [
+        2.07,
+        1.28,
+        0.04
+      ],
+      "mass_kg": 4,
+      "model": "toilet",
+      "source_note": "Tanques21L resíduos e15L descarga; massa vazia4kg. Água/resíduos contabilizados conforme enchimento, sem duplicar água geral."
+    },
+    {
+      "id": "pia",
+      "label": "Cuba inox compacta / desenho autoral",
+      "source": "Projeto autoral de integração, componente comercial não selecionado",
+      "dimensions_xyz_m": [
+        0.4,
+        0.38,
+        0.16
+      ],
+      "position_xyz_m": [
+        2.51,
+        0.14,
+        0.76
+      ],
+      "mass_kg": null,
+      "model": "sink",
+      "source_note": "Espessuras, sifão e fixação ainda a dimensionar."
+    },
+    {
+      "id": "agua",
+      "label": "Reservatório100L / envelope autoral",
+      "source": "Projeto autoral; volume interno ideal, parede e conexões pendentes",
+      "dimensions_xyz_m": [
+        1.0,
+        0.4,
+        0.25
+      ],
+      "position_xyz_m": [
+        0.08,
+        0.1,
+        0.03
+      ],
+      "mass_kg": null,
+      "model": "water",
+      "source_note": "0.100m³ é envelope nominal; capacidade útil depende de parede/baffles. Massa de água100kg assumida, não massa do tanque."
+    }
+  ],
+  "alignment_assumed": {
+    "rear_x_m": -3.35,
+    "floor_z_m": 0.68,
+    "cargo_width_m": 1.87
+  },
+  "part_counts": {
+    "interior_equipado": 160,
+    "cobertura_fixa": 146,
+    "cobertura_recolhida": 239,
+    "cobertura_aberta": 311
+  },
+  "roof_grid": [
+    {
+      "nx": 3,
+      "ny": 1,
+      "count": 3,
+      "module_x_m": 1.134,
+      "module_y_m": 1.762
+    },
+    {
+      "nx": 2,
+      "ny": 1,
+      "count": 2,
+      "module_x_m": 1.762,
+      "module_y_m": 1.134
+    }
+  ],
+  "installed_pv_w": 2890,
+  "exposed_stowed_pv_w": 1540,
+  "exposed_deployed_pv_w": 2890,
+  "module_mass_kg": 142.5,
+  "frame_solid_volume_m3": 0.010626259146316782,
+  "frame_mass_estimate_at_2700kg_m3": 28.69089969505531,
+  "fixed_array_module_mass_kg": 76.5,
+  "fixed_frame_mass_estimate_at_2700kg_m3": 21.15517809505531,
+  "fixed_roof_mass_estimate_kg": 97.6551780950553,
+  "stacked_roof_mass_estimate_kg": 171.19089969505532,
+  "height_fixed_m": 2.745,
+  "height_stowed_m": 2.805,
+  "array_deployed_width_m": 3.564,
+  "interference_free_vehicle_verified": false,
+  "limitations": [
+    "Envelopes nominais sem sobreposição não verificam portas/mangueiras/manutenção/malha externa.",
+    "Lava-seca total620mm; porta aberta1100mm pode bloquear corredor; fixação/vibração pendentes.",
+    "Longarinas/travessas/corrediças e apoios são conceituais; carga do teto OEM, cálculo estrutural e travas ainda pendentes.",
+    "Recolhida, camada superior sombreia a inferior: só três módulos expostos, não seis.",
+    "Extensão aberta só estacionado; operação com vento e drenagem ainda não dimensionadas.",
+    "Assentos OEM ilustrativos não são assentos adicionais homologados; massa já incluída no veículo-base.",
+    "Detalhes CAD autorais de integração, não geometrias OEM de fabricação."
+  ],
+  "inputs_sha256": {
+    "config/equipamentos_interior.yaml": "d0e037c4f910f3fe3cfc4754e56457e915ef604f8d3d63f299072047e7f3ead1",
+    "config/layout_proposto.yaml": "f79ecc76c24f2b9d93412baf41df1ad23150c1806d7c2e7ba7d4e1fcf60335a5",
+    "entregas/parcial_2026-10-24/aurora_L3H2_proposta_m.glb": "1ba262344eb2700340a7e9f6474b9386392b10e7c1c7afb89e4d19950f2f6e2d"
+  },
+  "outputs_sha256": {
+    "cobertura_aberta.glb": "b97cae249696cb5800a233308608ab1f6ec7028b4e90fb75425ece955c7a29b1",
+    "cobertura_aberta.step": "f14d38d9d1d2644deab9701e3aabdf46b8d05c9819493c654106b256e10960a8",
+    "cobertura_fixa.glb": "3d9c9cf0c8e244ab894ab2629814802a5381d34eabdcabc9ab9526f85f6badbe",
+    "cobertura_fixa.step": "85453a209d400123f1e4f13d9f25981f78dfaac45a9561910a73744c2945b777",
+    "cobertura_recolhida.glb": "26b28209b891f0372f3c2062d18c0bab4a7ee99da29d36a9e6ef04112ad5003a",
+    "cobertura_recolhida.step": "71df9eb0c0f18ff01406344c7e7da5eebae9d1fbfabffcb48b7e7db7861009d0",
+    "interior_equipado.glb": "c09b902d7bb723f42a91b99e2bbb0da8002243d3ca2871eebdfe6ea02a32837f",
+    "interior_equipado.step": "f567c325ca8371339fc925997a7fb931ac35c6990697df65fae7d2aed97d8aaf"
+  }
+}
