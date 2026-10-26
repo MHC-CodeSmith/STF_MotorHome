@@ -1,3 +1,8 @@
+# Atualização térmica — 26/10/2026
+
+Novos `resumo_cabos.json`/`resumo_radiador.json`, camposCSV, figuras e três malhas por método.
+[Hipóteses, fontes e resultados](../../docs/CABOS_E_RADIADOR_2D.md). São estudos condicionados; I30/I35 ainda parciais.
+
 # Aurora Solar — revisão parcial de 24/10/2026
 
 **Atualização25/10: [abrir o visualizador equipado](visualizador.html).** Agora inclui

@@ -23,3 +23,7 @@ O item só vira **aprovado** quando tiver resultados reproduzíveis, referência
 ## Revisão desta frente — 23/10/2026
 
 Consulte a [revisão dos 35 itens](../../../docs/REVISAO_35_ITENS.md). O método disponível e seus limites estão em [frente térmica](../../../docs/FRENTE_TERMICA.md) e [verificação de requisitos](../../../docs/VERIFICACAO_CAD_APOSTILA.md). Casos sintéticos não são resultados finais.
+
+## Avanço de 26/10/2026 — radiador cruzado
+
+Método/casos, hipóteses, fontes e convergência em [cabos e radiador](../../../docs/CABOS_E_RADIADOR_2D.md). Resultados reproduzíveis em [resumo](resultados/resumo_radiador.json); o requisito continua parcial e sem aprovação humana.

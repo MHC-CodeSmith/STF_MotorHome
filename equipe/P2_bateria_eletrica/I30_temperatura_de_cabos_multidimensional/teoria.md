@@ -12,10 +12,14 @@ Apostila pp. 9–10: Fourier/Newton; geração Joule é complemento elétrico. C
 
 ## Método disponível e limitações
 
-Fornecer corrente RMS/DC apropriada, seção, material, isolamento e resistividade com fonte. O solver atual é cartesiano homogêneo e usa fonte fixa; o acoplamento rho_e(T), isolamento e cabo real ainda precisam ser implementados.
+Fornecer corrente RMS/DC apropriada, seção, material, isolamento e resistividade com fonte. O solver cartesiano inicial permanece didático. O novo solver polar resolve feixe+isolamento e R(T) em duas dimensões; correntes reais, propriedades térmicas e contornos da instalação seguem pendentes.
 
 Implementação própria em [sistemas_termicos.py](../../../src/motorhome/sistemas_termicos.py) e [termica_2d.py](../../../src/motorhome/termica_2d.py). Temperaturas absolutas em K, tempo em s, energia em J, potência em W; demais propriedades em SI. Não foram importadas propriedades didáticas como dados reais.
 
 ## Estado
 
 Métodos verificados com dados SYNTHETIC; entradas físicas e revisão humana **PENDENTES**. O status é desenvolvimento parcial. Consulte a [revisão completa](../../../docs/REVISAO_35_ITENS.md).
+
+## Avanço de 26/10/2026 — cabos r–theta
+
+Método/casos, hipóteses, fontes e convergência em [cabos e radiador](../../../docs/CABOS_E_RADIADOR_2D.md). Resultados reproduzíveis em [resumo](resultados/resumo_cabos.json); o requisito continua parcial e sem aprovação humana.

@@ -12,10 +12,14 @@ Apostila Eqs. 49–62 pp. 31/38, tabela 4 p. 39 e Eqs. 92–93 p. 56. Consulta l
 
 ## Método disponível e limitações
 
-O código suporta trocador paralelo/contracorrente e perfil somente paralelo; não substituir um radiador cruzado por esse exemplo. Faltam perdas máximas do motor, fluido, UA/arranjo reais, curvas de bomba/sistema e NPSH. Converter altura em pressão com rho g H quando necessário.
+O método inicial paralelo/contracorrente foi complementado por campos cruzados não misturados, balanços por célula e comparação integral; os cenários ainda dependem de UA/vazões hipotéticos. Faltam perdas máximas do motor, fluido, UA/arranjo reais, curvas de bomba/sistema e NPSH. Converter altura em pressão com rho g H quando necessário.
 
 Implementação própria em [sistemas_termicos.py](../../../src/motorhome/sistemas_termicos.py) e [termica_2d.py](../../../src/motorhome/termica_2d.py). Temperaturas absolutas em K, tempo em s, energia em J, potência em W; demais propriedades em SI. Não foram importadas propriedades didáticas como dados reais.
 
 ## Estado
 
 Métodos verificados com dados SYNTHETIC; entradas físicas e revisão humana **PENDENTES**. O status é desenvolvimento parcial. Consulte a [revisão completa](../../../docs/REVISAO_35_ITENS.md).
+
+## Avanço de 26/10/2026 — radiador cruzado
+
+Método/casos, hipóteses, fontes e convergência em [cabos e radiador](../../../docs/CABOS_E_RADIADOR_2D.md). Resultados reproduzíveis em [resumo](resultados/resumo_radiador.json); o requisito continua parcial e sem aprovação humana.

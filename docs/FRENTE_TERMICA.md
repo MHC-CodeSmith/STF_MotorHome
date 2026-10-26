@@ -1,3 +1,7 @@
+# Atualização de 26/10/2026
+
+Novos [campos de cabo isolado e radiador cruzado](CABOS_E_RADIADOR_2D.md) complementam os métodos abaixo. I30 agora tem R(T) acoplado e geometria de ficha; I35 tem campos cruzados e verificação integral. Propriedades térmicas/correntes/UA permanecem condicionadas.
+
 # Métodos térmicos implementados — revisão física pendente
 
 Os módulos [sistemas_termicos.py](../src/motorhome/sistemas_termicos.py) e [termica_2d.py](../src/motorhome/termica_2d.py) são implementações próprias de balanços. Não incorporam o código de freios externo sem licença. Dados da demonstração são explicitamente **SYNTHETIC**; as propriedades reais do motorhome continuam pendentes.

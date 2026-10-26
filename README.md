@@ -1,3 +1,5 @@
+Avanço de26/10: [cabos isolados e radiador cruzado](docs/CABOS_E_RADIADOR_2D.md), com campos2D, fontes, alternativas, três malhas e **132testes passados**. [Memorial de revisão](output/pdf/memorial_revisao_aurora.pdf):20páginas, parcial. I30/I35 ainda dependem de entradas físicas/revisão.
+
 # Motorhome elétrico solar — organização para grupo de 7 e Codex
 
 **Atualização mais recente:** [interior equipado e cobertura solar ampliada](docs/EXPANSAO_SOLAR_E_INTERIOR.md), [visualizador offline](entregas/parcial_2026-10-24/visualizador.html), [memorial parcial16p](output/pdf/memorial_revisao_aurora.pdf). Cobertura fixa1540W; extensão de estudo2890W.112testes,26itens parciais/9nãoiniciados/0aprovados.

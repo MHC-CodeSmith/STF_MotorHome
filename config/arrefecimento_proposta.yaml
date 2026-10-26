@@ -1,0 +1,38 @@
+revision: arrefecimento-0.1
+status: SENSIBILIDADE_CONDICIONADA_SEM_RADIADOR_OEM_SELECIONADO
+method:
+  arrangement: crossflow_both_unmixed_single_pass
+  source_url: https://ht.readthedocs.io/en/stable/ht.hx.html#ht.hx.effectiveness_from_NTU
+  accessed: '2026-10-26'
+  local_course_reference: Apostila SEM0571 v0.4/2025 pp.31 e38-39; ressalvas em docs/revisao_apostila.md
+  verification: Integração independente da expressão exata e refinamento 16/32/64.
+assumed:
+  air_inlet_k: 298.15
+  hot_coolant_inlet_k: 353.15
+  coolant_cp_j_kgk: 3500
+  coolant_mass_flow_kg_s: [0.3, 0.5, 0.8]
+  air_cp_j_kgk: 1006
+  air_mass_flow_kg_s: [0.5, 1, 1.5]
+  ua_w_k: [500, 1000, 1500]
+  combined_motor_inverter_efficiencies: [0.85, 0.9, 0.95]
+  nominal_field_case:
+    coolant_mass_flow_kg_s: 0.5
+    air_mass_flow_kg_s: 1
+    ua_w_k: 1000
+unknown:
+  motor_efficiency_map: null
+  heat_split_motor_inverter: null
+  peak_duration_s: null
+  radiator_model: null
+  radiator_ua_vs_flows: null
+  radiator_pressure_drop_curve: null
+  pump_curve: null
+  fan_curve: null
+  coolant_composition: null
+  coolant_max_temperature_k: null
+limits:
+  - UA e vazões são sensibilidades independentes; não caracterizam um mesmo radiador/ventilador.
+  - Ar forçado pelo ventilador ou movimento requer potência auxiliar e curva; vento ambiente oficial permanece zero.
+  - 80°C é temperatura de entrada hipotética, não limite OEM nem condição do professor.
+  - Perdas combinadas calculadas por Pmec*(1/eta-1), não atribuídas integralmente ao motor.
+  - Sem perda de pressão/ponto de bomba, não fecha I35 nem valida mangueiras CAD.

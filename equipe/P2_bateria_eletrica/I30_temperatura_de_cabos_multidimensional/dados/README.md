@@ -1,3 +1,4 @@
-# Dados do item 30
+# Entradas e proveniência
 
-Somente entrada com fonte, unidades, versão e status (provisório/aprovado). Não inserir dados plausíveis como se fossem validados.
+Configuração proposta em `config/`; SHA256 e hipóteses no JSON de resultados.
+[Parâmetros físicos disponíveis e ausentes](../../../../docs/CABOS_E_RADIADOR_2D.md).

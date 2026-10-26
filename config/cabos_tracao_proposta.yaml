@@ -1,0 +1,58 @@
+revision: cabo-0.1
+status: ESTUDO_CONDICIONADO_NAO_ESPECIFICACAO_OEM
+manufacturer:
+  name: HUBER+SUHNER
+  product: RADOX 155 FLR4G/FLHR4G 1x120
+  part_example: '84117096'
+  document: STD 718404 G (e), PIM-P8937, 2026-09-25
+  url: https://www.hubersuhner.com/Asset/eyJpZGVudGlmaWVyIjoxMjkzNjUsInR5cGUiOiJhc3NldCJ9/Cw_PM-5rAg0CEAkH/H%2BS_RADOX155_FLR4GANDFLHR4G__EN.PDF
+  accessed: '2026-10-26'
+  cache: /home/mhc/motorhome_referencias_tarefas/cabos-fontes-01/radox155.pdf
+  sha256: 9e81119baadcac523f4c5b8207117fb1425ffce08ac1f5f66737cde3911d4549
+  page: 2
+  visually_checked: true
+  nominal_area_mm2: 120
+  conductor_diameter_max_mm: 15.1
+  cable_diameter_nominal_mm: 18
+  cable_diameter_tolerance_mm: 0.3
+  resistance20_max_ohm_km: 0.153
+  mass_nominal_kg_m: 1.147
+  dc_voltage_rating_v: 1500
+  temperature_range_3000h_c: [-40, 150]
+  insulation: Poliolefina reticulada por irradiação RADOX 155
+  disclaimer: Cabo não blindado, cores preta/vermelha nesta seção; não prova aprovação OEM, EMC, conectores ou vida útil contínua a 150°C.
+alternative_manufacturer_same_table:
+  nominal_area_mm2: 150
+  conductor_diameter_max_mm: 17
+  cable_diameter_nominal_mm: 20
+  resistance20_max_ohm_km: 0.122
+  mass_nominal_kg_m: 1.434
+  part_example: '84133912'
+model:
+  # Diâmetro máximo do feixe usado como cenário, não dimensão medida.
+  bundle_radius_m: 0.00755
+  outer_radius_m: 0.009
+  resistance20_ohm_m: 0.000153
+  bundle_k_assumed_w_mk: 200
+  insulation_k_assumed_w_mk: 0.2
+  alpha_assumed_per_k: 0.00393
+  reference_k: 293.15
+  ambient_k: 298.15
+  h_assumed_w_m2k: [5, 10, 20]
+  phase_rms_currents_assumed_a: [300, 450, 600]
+  dc_example_motor_mechanical_w: 205000
+  dc_example_voltage_v: 400
+  dc_example_combined_efficiency_assumed: 0.9
+  radial_cells_per_material: [8, 16, 32]
+  angular_cells: [32, 64, 128]
+  asymmetric_case_current_assumed_a: 450
+  asymmetric_h_mean_assumed_w_m2k: 10
+  asymmetric_h_sine_fraction_assumed: 0.5
+  limitations:
+    - Correntes RMS de fase são sensibilidades independentes; mapa/tensão de linha/fator de potência reais não disponíveis.
+    - Corrente DC do exemplo não é corrente de fase; 205 kW são pico mecânico, duração contínua desconhecida.
+    - Fonte uniforme no feixe, usando R20 máximo de catálogo e lei linear aproximada; não resolve redistribuição entre fios.
+    - Condutividades térmicas do feixe poroso e isolamento são hipóteses, não dados do produto.
+    - Estado estacionário por metro axial, sem contatos, condução axial, radiação, feixe de cabos, conduíte ou perdas AC/PWM.
+    - h é hipótese de filme, não vento imposto; ambiente oficial sem vento, convecção natural ainda existe.
+    - Referência 150°C em 3000h não equivale a autorização de operação contínua.

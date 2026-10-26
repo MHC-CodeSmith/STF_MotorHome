@@ -1,0 +1,516 @@
+{
+  "status": "ESTUDO_CONDICIONADO_NAO_ESPECIFICACAO_OEM",
+  "revision": "cabo-0.1",
+  "generated_utc": "2026-10-26T04:23:45.536012+00:00",
+  "script": "scripts/calcular_cabos_tracao.py",
+  "inputs_sha256": {
+    "config/cabos_tracao_proposta.yaml": "ab74a64157fc053fdb98b9ce32192f8218349495636bba38b362b76b42370395",
+    "/home/mhc/motorhome_solar_codex_tarefas/scripts/calcular_cabos_tracao.py": "aff17ed0b6daeeea66cc7faa717382d90f4ec3085fdb2561bd21319e80f8c966",
+    "src/motorhome/cabos_polares.py": "58f5f3033573be55c77cc0868afe28946281b094c263c6404bb4940bc2dd687f"
+  },
+  "manufacturer": {
+    "name": "HUBER+SUHNER",
+    "product": "RADOX 155 FLR4G/FLHR4G 1x120",
+    "part_example": "84117096",
+    "document": "STD 718404 G (e), PIM-P8937, 2026-09-25",
+    "url": "https://www.hubersuhner.com/Asset/eyJpZGVudGlmaWVyIjoxMjkzNjUsInR5cGUiOiJhc3NldCJ9/Cw_PM-5rAg0CEAkH/H%2BS_RADOX155_FLR4GANDFLHR4G__EN.PDF",
+    "accessed": "2026-10-26",
+    "cache": "/home/mhc/motorhome_referencias_tarefas/cabos-fontes-01/radox155.pdf",
+    "sha256": "9e81119baadcac523f4c5b8207117fb1425ffce08ac1f5f66737cde3911d4549",
+    "page": 2,
+    "visually_checked": true,
+    "nominal_area_mm2": 120,
+    "conductor_diameter_max_mm": 15.1,
+    "cable_diameter_nominal_mm": 18,
+    "cable_diameter_tolerance_mm": 0.3,
+    "resistance20_max_ohm_km": 0.153,
+    "mass_nominal_kg_m": 1.147,
+    "dc_voltage_rating_v": 1500,
+    "temperature_range_3000h_c": [
+      -40,
+      150
+    ],
+    "insulation": "Poliolefina reticulada por irradiação RADOX 155",
+    "disclaimer": "Cabo não blindado, cores preta/vermelha nesta seção; não prova aprovação OEM, EMC, conectores ou vida útil contínua a 150°C."
+  },
+  "assumptions_and_limits": [
+    "Correntes RMS de fase são sensibilidades independentes; mapa/tensão de linha/fator de potência reais não disponíveis.",
+    "Corrente DC do exemplo não é corrente de fase; 205 kW são pico mecânico, duração contínua desconhecida.",
+    "Fonte uniforme no feixe, usando R20 máximo de catálogo e lei linear aproximada; não resolve redistribuição entre fios.",
+    "Condutividades térmicas do feixe poroso e isolamento são hipóteses, não dados do produto.",
+    "Estado estacionário por metro axial, sem contatos, condução axial, radiação, feixe de cabos, conduíte ou perdas AC/PWM.",
+    "h é hipótese de filme, não vento imposto; ambiente oficial sem vento, convecção natural ainda existe.",
+    "Referência 150°C em 3000h não equivale a autorização de operação contínua."
+  ],
+  "dc_current_example_a": 569.4444444444445,
+  "cases": [
+    {
+      "circuito": "fase_RMS_hipotetica",
+      "corrente_a": 300,
+      "h_w_m2k": 5,
+      "temperatura_max_c": 89.45080306727675,
+      "acima_referencia_150c": false,
+      "extrapolacao_material": false,
+      "joule_w_m": 17.528217846244356,
+      "removido_w_m": 17.52821784699178,
+      "residuo_w_m": -7.474234564597282e-10,
+      "residuo_max_celula_w_m": 6.375848388476529e-10,
+      "temperatura_media_feixe_k": 362.5973150549347,
+      "temperatura_max_k": 362.60080306727673,
+      "variacao_angular_superficie_k": 2.5579538487363607e-12
+    },
+    {
+      "circuito": "fase_RMS_hipotetica",
+      "corrente_a": 300,
+      "h_w_m2k": 10,
+      "temperatura_max_c": 54.88389625444148,
+      "acima_referencia_150c": false,
+      "extrapolacao_material": false,
+      "joule_w_m": 15.657611804626171,
+      "removido_w_m": 15.657611804741677,
+      "residuo_w_m": -1.1550582712516189e-10,
+      "residuo_max_celula_w_m": 3.518898156532318e-10,
+      "temperatura_media_feixe_k": 328.0307804817082,
+      "temperatura_max_k": 328.03389625444146,
+      "variacao_angular_superficie_k": 1.0800249583553523e-12
+    },
+    {
+      "circuito": "fase_RMS_hipotetica",
+      "corrente_a": 300,
+      "h_w_m2k": 20,
+      "temperatura_max_c": 40.227016561308346,
+      "acima_referencia_150c": false,
+      "extrapolacao_material": false,
+      "joule_w_m": 14.864447178884554,
+      "removido_w_m": 14.864447179100315,
+      "residuo_w_m": -2.1576163078407262e-10,
+      "residuo_max_celula_w_m": 1.3977859817412668e-10,
+      "temperatura_media_feixe_k": 313.374058623673,
+      "temperatura_max_k": 313.3770165613083,
+      "variacao_angular_superficie_k": 4.547473508864641e-13
+    },
+    {
+      "circuito": "fase_RMS_hipotetica",
+      "corrente_a": 450,
+      "h_w_m2k": 5,
+      "temperatura_max_c": 235.31690345760205,
+      "acima_referencia_150c": true,
+      "extrapolacao_material": true,
+      "joule_w_m": 57.19836401263504,
+      "removido_w_m": 57.19836406341209,
+      "residuo_w_m": -5.0777053672845796e-08,
+      "residuo_max_celula_w_m": 1.8321401294154552e-09,
+      "temperatura_media_feixe_k": 508.4555212169148,
+      "temperatura_max_k": 508.46690345760203,
+      "variacao_angular_superficie_k": 8.640199666842818e-12
+    },
+    {
+      "circuito": "fase_RMS_hipotetica",
+      "corrente_a": 450,
+      "h_w_m2k": 10,
+      "temperatura_max_c": 103.5463375328481,
+      "acima_referencia_150c": false,
+      "extrapolacao_material": false,
+      "joule_w_m": 41.15420723639603,
+      "removido_w_m": 41.15420725514432,
+      "residuo_w_m": -1.8748288255210355e-08,
+      "residuo_max_celula_w_m": 1.0598654407725176e-09,
+      "temperatura_media_feixe_k": 376.68814801383627,
+      "temperatura_max_k": 376.6963375328481,
+      "variacao_angular_superficie_k": 2.1600499167107046e-12
+    },
+    {
+      "circuito": "fase_RMS_hipotetica",
+      "corrente_a": 450,
+      "h_w_m2k": 20,
+      "temperatura_max_c": 61.972614823994036,
+      "acima_referencia_150c": false,
+      "extrapolacao_material": false,
+      "joule_w_m": 36.09226248240875,
+      "removido_w_m": 36.09226249109159,
+      "residuo_w_m": -8.682839336415782e-09,
+      "residuo_max_celula_w_m": 4.4487649211743564e-10,
+      "temperatura_media_feixe_k": 335.11543261131567,
+      "temperatura_max_k": 335.122614823994,
+      "variacao_angular_superficie_k": 8.526512829121202e-13
+    },
+    {
+      "circuito": "fase_RMS_hipotetica",
+      "corrente_a": 600,
+      "h_w_m2k": 5,
+      "temperatura_max_c": 1036.7501967986082,
+      "acima_referencia_150c": true,
+      "extrapolacao_material": true,
+      "joule_w_m": 275.1583685581143,
+      "removido_w_m": 275.1583685730119,
+      "residuo_w_m": -1.4897580058459425e-08,
+      "residuo_max_celula_w_m": 4.220393951957953e-09,
+      "temperatura_media_feixe_k": 1309.8454407196482,
+      "temperatura_max_k": 1309.9001967986082,
+      "variacao_angular_superficie_k": 3.9108272176235914e-11
+    },
+    {
+      "circuito": "fase_RMS_hipotetica",
+      "corrente_a": 600,
+      "h_w_m2k": 10,
+      "temperatura_max_c": 207.63795211046255,
+      "acima_referencia_150c": true,
+      "extrapolacao_material": true,
+      "joule_w_m": 95.6928146502192,
+      "removido_w_m": 95.69281465097187,
+      "residuo_w_m": -7.526637091359589e-10,
+      "residuo_max_celula_w_m": 1.5001003485183226e-09,
+      "temperatura_media_feixe_k": 480.7689093921181,
+      "temperatura_max_k": 480.7879521104625,
+      "variacao_angular_superficie_k": 7.16227077646181e-12
+    },
+    {
+      "circuito": "fase_RMS_hipotetica",
+      "corrente_a": 600,
+      "h_w_m2k": 20,
+      "temperatura_max_c": 98.92048208715744,
+      "acima_referencia_150c": false,
+      "extrapolacao_material": false,
+      "joule_w_m": 72.16036641754633,
+      "removido_w_m": 72.16036641962812,
+      "residuo_w_m": -2.081790739794087e-09,
+      "residuo_max_celula_w_m": 6.75638351797965e-10,
+      "temperatura_media_feixe_k": 372.0561222886827,
+      "temperatura_max_k": 372.0704820871574,
+      "variacao_angular_superficie_k": 2.1600499167107046e-12
+    },
+    {
+      "circuito": "DC_exemplo_eta90",
+      "corrente_a": 569.4444444444445,
+      "h_w_m2k": 5,
+      "temperatura_max_c": 682.0278718055786,
+      "acima_referencia_150c": true,
+      "extrapolacao_material": true,
+      "joule_w_m": 178.68710861558083,
+      "removido_w_m": 178.68710866264968,
+      "residuo_w_m": -4.706885192717891e-08,
+      "residuo_max_celula_w_m": 5.64314072510827e-09,
+      "temperatura_media_feixe_k": 955.1423134556469,
+      "temperatura_max_k": 955.1778718055785,
+      "variacao_angular_superficie_k": 2.3419488570652902e-11
+    },
+    {
+      "circuito": "DC_exemplo_eta90",
+      "corrente_a": 569.4444444444445,
+      "h_w_m2k": 10,
+      "temperatura_max_c": 178.76681146729072,
+      "acima_referencia_150c": true,
+      "extrapolacao_material": true,
+      "joule_w_m": 80.56583433956818,
+      "removido_w_m": 80.56583435006198,
+      "residuo_w_m": -1.0493792501620192e-08,
+      "residuo_max_celula_w_m": 2.089517551605996e-09,
+      "temperatura_media_feixe_k": 451.90077903973986,
+      "temperatura_max_k": 451.9168114672907,
+      "variacao_angular_superficie_k": 6.0254023992456496e-12
+    },
+    {
+      "circuito": "DC_exemplo_eta90",
+      "corrente_a": 569.4444444444445,
+      "h_w_m2k": 20,
+      "temperatura_max_c": 89.75243488954294,
+      "acima_referencia_150c": false,
+      "extrapolacao_material": false,
+      "joule_w_m": 63.21061903079346,
+      "removido_w_m": 63.21061903470107,
+      "residuo_w_m": -3.907608459030598e-09,
+      "residuo_max_celula_w_m": 7.264123673238199e-10,
+      "temperatura_media_feixe_k": 362.88985611248455,
+      "temperatura_max_k": 362.9024348895429,
+      "variacao_angular_superficie_k": 2.1032064978498966e-12
+    }
+  ],
+  "mesh_study_asymmetric": [
+    {
+      "nr_por_material": 8,
+      "ntheta": 32,
+      "celulas": 512,
+      "joule_w_m": 41.26078912946248,
+      "removido_w_m": 41.26078912854828,
+      "residuo_w_m": 9.141984946836601e-10,
+      "residuo_max_celula_w_m": 1.128682338563669e-10,
+      "temperatura_media_feixe_k": 377.5634832699201,
+      "temperatura_max_k": 377.5751783769556,
+      "variacao_angular_superficie_k": 5.349548393811062
+    },
+    {
+      "nr_por_material": 16,
+      "ntheta": 64,
+      "celulas": 2048,
+      "joule_w_m": 41.26075589767069,
+      "removido_w_m": 41.260755891012664,
+      "residuo_w_m": 6.658027018602297e-09,
+      "residuo_max_celula_w_m": 2.9860984063039e-10,
+      "temperatura_media_feixe_k": 377.5632103440211,
+      "temperatura_max_k": 377.57493207391343,
+      "variacao_angular_superficie_k": 5.368610405887409
+    },
+    {
+      "nr_por_material": 32,
+      "ntheta": 128,
+      "celulas": 8192,
+      "joule_w_m": 41.260747514577474,
+      "removido_w_m": 41.26074753380621,
+      "residuo_w_m": -1.922873593684926e-08,
+      "residuo_max_celula_w_m": 6.610520140450885e-10,
+      "temperatura_media_feixe_k": 377.5631414953937,
+      "temperatura_max_k": 377.57486305990693,
+      "variacao_angular_superficie_k": 5.373374408039695
+    }
+  ],
+  "finest_max_change_k": 6.90140064989464e-05,
+  "analytical_verification_synthetic": {
+    "radial_max_error_k": [
+      0.0006205839524682233,
+      0.00017345147051628373,
+      4.794092717474996e-05
+    ],
+    "harmonic_2d_rms_error_k": [
+      0.00538766392038257,
+      0.0013497271347338688,
+      0.00033759161494702525
+    ],
+    "radial_observed_orders": [
+      1.8390943192427258,
+      1.8552023557928767
+    ],
+    "harmonic_observed_orders": [
+      1.9969920822651168,
+      1.9993168006439739
+    ]
+  },
+  "alternatives_independent_cooling_equal_current_assumed": [
+    {
+      "alternativa": "1x120_por_condutor",
+      "corrente_total_a": 569.4444444444445,
+      "corrente_por_cabo_a": 569.4444444444445,
+      "cabos_por_condutor": 1,
+      "h_assumido_w_m2k": 5,
+      "temperatura_max_c": 682.0278718055786,
+      "joule_total_por_condutor_w_m": 178.68710861558083,
+      "acima_referencia_150c": true
+    },
+    {
+      "alternativa": "1x120_por_condutor",
+      "corrente_total_a": 569.4444444444445,
+      "corrente_por_cabo_a": 569.4444444444445,
+      "cabos_por_condutor": 1,
+      "h_assumido_w_m2k": 10,
+      "temperatura_max_c": 178.76681146729072,
+      "joule_total_por_condutor_w_m": 80.56583433956818,
+      "acima_referencia_150c": true
+    },
+    {
+      "alternativa": "1x120_por_condutor",
+      "corrente_total_a": 569.4444444444445,
+      "corrente_por_cabo_a": 569.4444444444445,
+      "cabos_por_condutor": 1,
+      "h_assumido_w_m2k": 20,
+      "temperatura_max_c": 89.75243488954294,
+      "joule_total_por_condutor_w_m": 63.21061903079346,
+      "acima_referencia_150c": false
+    },
+    {
+      "alternativa": "1x120_por_condutor",
+      "corrente_total_a": 600.0,
+      "corrente_por_cabo_a": 600.0,
+      "cabos_por_condutor": 1,
+      "h_assumido_w_m2k": 5,
+      "temperatura_max_c": 1036.7501967986082,
+      "joule_total_por_condutor_w_m": 275.1583685581143,
+      "acima_referencia_150c": true
+    },
+    {
+      "alternativa": "1x120_por_condutor",
+      "corrente_total_a": 600.0,
+      "corrente_por_cabo_a": 600.0,
+      "cabos_por_condutor": 1,
+      "h_assumido_w_m2k": 10,
+      "temperatura_max_c": 207.63795211046255,
+      "joule_total_por_condutor_w_m": 95.6928146502192,
+      "acima_referencia_150c": true
+    },
+    {
+      "alternativa": "1x120_por_condutor",
+      "corrente_total_a": 600.0,
+      "corrente_por_cabo_a": 600.0,
+      "cabos_por_condutor": 1,
+      "h_assumido_w_m2k": 20,
+      "temperatura_max_c": 98.92048208715744,
+      "joule_total_por_condutor_w_m": 72.16036641754633,
+      "acima_referencia_150c": false
+    },
+    {
+      "alternativa": "1x150_por_condutor",
+      "corrente_total_a": 569.4444444444445,
+      "corrente_por_cabo_a": 569.4444444444445,
+      "cabos_por_condutor": 1,
+      "h_assumido_w_m2k": 5,
+      "temperatura_max_c": 300.54473841822346,
+      "joule_total_por_condutor_w_m": 83.17514211689857,
+      "acima_referencia_150c": true
+    },
+    {
+      "alternativa": "1x150_por_condutor",
+      "corrente_total_a": 569.4444444444445,
+      "corrente_por_cabo_a": 569.4444444444445,
+      "cabos_por_condutor": 1,
+      "h_assumido_w_m2k": 10,
+      "temperatura_max_c": 119.79920299805053,
+      "joule_total_por_condutor_w_m": 55.074952920636406,
+      "acima_referencia_150c": false
+    },
+    {
+      "alternativa": "1x150_por_condutor",
+      "corrente_total_a": 569.4444444444445,
+      "corrente_por_cabo_a": 569.4444444444445,
+      "cabos_por_condutor": 1,
+      "h_assumido_w_m2k": 20,
+      "temperatura_max_c": 68.60595216997126,
+      "joule_total_por_condutor_w_m": 47.116028621363384,
+      "acima_referencia_150c": false
+    },
+    {
+      "alternativa": "1x150_por_condutor",
+      "corrente_total_a": 600.0,
+      "corrente_por_cabo_a": 600.0,
+      "cabos_por_condutor": 1,
+      "h_assumido_w_m2k": 5,
+      "temperatura_max_c": 371.4519006928808,
+      "joule_total_por_condutor_w_m": 104.57897410741806,
+      "acima_referencia_150c": true
+    },
+    {
+      "alternativa": "1x150_por_condutor",
+      "corrente_total_a": 600.0,
+      "corrente_por_cabo_a": 600.0,
+      "cabos_por_condutor": 1,
+      "h_assumido_w_m2k": 10,
+      "temperatura_max_c": 134.66054941068649,
+      "joule_total_por_condutor_w_m": 63.708864652702474,
+      "acima_referencia_150c": false
+    },
+    {
+      "alternativa": "1x150_por_condutor",
+      "corrente_total_a": 600.0,
+      "corrente_por_cabo_a": 600.0,
+      "cabos_por_condutor": 1,
+      "h_assumido_w_m2k": 20,
+      "temperatura_max_c": 74.32448834174824,
+      "joule_total_por_condutor_w_m": 53.29488033021255,
+      "acima_referencia_150c": false
+    },
+    {
+      "alternativa": "2x120_por_condutor_resfriamento_independente",
+      "corrente_total_a": 569.4444444444445,
+      "corrente_por_cabo_a": 284.72222222222223,
+      "cabos_por_condutor": 2,
+      "h_assumido_w_m2k": 5,
+      "temperatura_max_c": 81.65662294699177,
+      "joule_total_por_condutor_w_m": 30.816982297383774,
+      "acima_referencia_150c": false
+    },
+    {
+      "alternativa": "2x120_por_condutor_resfriamento_independente",
+      "corrente_total_a": 569.4444444444445,
+      "corrente_por_cabo_a": 284.72222222222223,
+      "cabos_por_condutor": 2,
+      "h_assumido_w_m2k": 10,
+      "temperatura_max_c": 51.613438762047565,
+      "joule_total_por_condutor_w_m": 27.888123369657862,
+      "acima_referencia_150c": false
+    },
+    {
+      "alternativa": "2x120_por_condutor_resfriamento_independente",
+      "corrente_total_a": 569.4444444444445,
+      "corrente_por_cabo_a": 284.72222222222223,
+      "cabos_por_condutor": 2,
+      "h_assumido_w_m2k": 20,
+      "temperatura_max_c": 38.63618682759892,
+      "joule_total_por_condutor_w_m": 26.622993150717733,
+      "acima_referencia_150c": false
+    },
+    {
+      "alternativa": "2x120_por_condutor_resfriamento_independente",
+      "corrente_total_a": 600.0,
+      "corrente_por_cabo_a": 300.0,
+      "cabos_por_condutor": 2,
+      "h_assumido_w_m2k": 5,
+      "temperatura_max_c": 89.45080306727675,
+      "joule_total_por_condutor_w_m": 35.05643569248871,
+      "acima_referencia_150c": false
+    },
+    {
+      "alternativa": "2x120_por_condutor_resfriamento_independente",
+      "corrente_total_a": 600.0,
+      "corrente_por_cabo_a": 300.0,
+      "cabos_por_condutor": 2,
+      "h_assumido_w_m2k": 10,
+      "temperatura_max_c": 54.88389625444148,
+      "joule_total_por_condutor_w_m": 31.315223609252342,
+      "acima_referencia_150c": false
+    },
+    {
+      "alternativa": "2x120_por_condutor_resfriamento_independente",
+      "corrente_total_a": 600.0,
+      "corrente_por_cabo_a": 300.0,
+      "cabos_por_condutor": 2,
+      "h_assumido_w_m2k": 20,
+      "temperatura_max_c": 40.227016561308346,
+      "joule_total_por_condutor_w_m": 29.728894357769107,
+      "acima_referencia_150c": false
+    }
+  ],
+  "conductivity_sensitivity": [
+    {
+      "k_feixe_assumida_w_mk": 100,
+      "k_isolamento_assumida_w_mk": 0.15,
+      "temperatura_max_c": 107.25271192419598
+    },
+    {
+      "k_feixe_assumida_w_mk": 100,
+      "k_isolamento_assumida_w_mk": 0.2,
+      "temperatura_max_c": 104.45187230454383
+    },
+    {
+      "k_feixe_assumida_w_mk": 100,
+      "k_isolamento_assumida_w_mk": 0.3,
+      "temperatura_max_c": 101.68532491550326
+    },
+    {
+      "k_feixe_assumida_w_mk": 200,
+      "k_isolamento_assumida_w_mk": 0.15,
+      "temperatura_max_c": 107.22567480240048
+    },
+    {
+      "k_feixe_assumida_w_mk": 200,
+      "k_isolamento_assumida_w_mk": 0.2,
+      "temperatura_max_c": 104.42486305990695
+    },
+    {
+      "k_feixe_assumida_w_mk": 200,
+      "k_isolamento_assumida_w_mk": 0.3,
+      "temperatura_max_c": 101.65832483837482
+    },
+    {
+      "k_feixe_assumida_w_mk": 385,
+      "k_isolamento_assumida_w_mk": 0.15,
+      "temperatura_max_c": 107.21268070188478
+    },
+    {
+      "k_feixe_assumida_w_mk": 385,
+      "k_isolamento_assumida_w_mk": 0.2,
+      "temperatura_max_c": 104.41188188932608
+    },
+    {
+      "k_feixe_assumida_w_mk": 385,
+      "k_isolamento_assumida_w_mk": 0.3,
+      "temperatura_max_c": 101.6453470300795
+    }
+  ]
+}

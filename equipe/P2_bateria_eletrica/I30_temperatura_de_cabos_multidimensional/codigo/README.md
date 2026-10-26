@@ -1,3 +1,6 @@
-# Desenvolvimento parcial
+# Código executável
 
-Código compartilhado: `src/motorhome/sistemas_termicos.py` e `src/motorhome/termica_2d.py`. Executar pela raiz da worktree conforme [frente térmica](../../../../docs/FRENTE_TERMICA.md). Não duplicar as funções dentro deste item.
+` .venv/bin/python scripts/calcular_cabos_tracao.py --destino /tmp/resultado-novo `
+
+Executar da raiz; destino precisa ser novo.
+[Documentação do método](../../../../docs/CABOS_E_RADIADOR_2D.md).

@@ -1,0 +1,397 @@
+{
+  "status": "SENSIBILIDADE_CONDICIONADA_SEM_RADIADOR_OEM_SELECIONADO",
+  "revision": "arrefecimento-0.1",
+  "generated_utc": "2026-10-26T04:26:56.943546+00:00",
+  "inputs_sha256": {
+    "config/arrefecimento_proposta.yaml": "c17315d229e90897093d9bcf1d50ccfa7e4ae9c638a49ca58c6360e59b1987b7",
+    "config/arquitetura_eletrica_proposta.yaml": "e4ebce3372715e68e88ef770b3cc09acce14211e1a9fbc6dd4c40034a07f6a73",
+    "/home/mhc/motorhome_solar_codex_tarefas/scripts/calcular_radiador_cruzado.py": "f04835adadcb51bd68f4dcc2b98de242d7f61353cb6453f8bc420bf1a4823f9e",
+    "src/motorhome/radiador_cruzado.py": "d390f45f8a74f2a3169798005430f6e4c9bcb631fd65a3f07ce602b4918921be"
+  },
+  "method_source": {
+    "arrangement": "crossflow_both_unmixed_single_pass",
+    "source_url": "https://ht.readthedocs.io/en/stable/ht.hx.html#ht.hx.effectiveness_from_NTU",
+    "accessed": "2026-10-26",
+    "local_course_reference": "Apostila SEM0571 v0.4/2025 pp.31 e38-39; ressalvas em docs/revisao_apostila.md",
+    "verification": "Integração independente da expressão exata e refinamento 16/32/64."
+  },
+  "assumptions": {
+    "air_inlet_k": 298.15,
+    "hot_coolant_inlet_k": 353.15,
+    "coolant_cp_j_kgk": 3500,
+    "coolant_mass_flow_kg_s": [
+      0.3,
+      0.5,
+      0.8
+    ],
+    "air_cp_j_kgk": 1006,
+    "air_mass_flow_kg_s": [
+      0.5,
+      1,
+      1.5
+    ],
+    "ua_w_k": [
+      500,
+      1000,
+      1500
+    ],
+    "combined_motor_inverter_efficiencies": [
+      0.85,
+      0.9,
+      0.95
+    ],
+    "nominal_field_case": {
+      "coolant_mass_flow_kg_s": 0.5,
+      "air_mass_flow_kg_s": 1,
+      "ua_w_k": 1000
+    }
+  },
+  "unknown": {
+    "motor_efficiency_map": null,
+    "heat_split_motor_inverter": null,
+    "peak_duration_s": null,
+    "radiator_model": null,
+    "radiator_ua_vs_flows": null,
+    "radiator_pressure_drop_curve": null,
+    "pump_curve": null,
+    "fan_curve": null,
+    "coolant_composition": null,
+    "coolant_max_temperature_k": null
+  },
+  "limits": [
+    "UA e vazões são sensibilidades independentes; não caracterizam um mesmo radiador/ventilador.",
+    "Ar forçado pelo ventilador ou movimento requer potência auxiliar e curva; vento ambiente oficial permanece zero.",
+    "80°C é temperatura de entrada hipotética, não limite OEM nem condição do professor.",
+    "Perdas combinadas calculadas por Pmec*(1/eta-1), não atribuídas integralmente ao motor.",
+    "Sem perda de pressão/ponto de bomba, não fecha I35 nem valida mangueiras CAD."
+  ],
+  "nominal_conditioned": {
+    "calor_w": 29567.916306049578,
+    "quente_saida_media_k": 336.2540478251145,
+    "fria_saida_media_k": 327.54156690462185,
+    "residuo_w": -5.820766091346741e-11,
+    "efetividade": 0.5343921255385791
+  },
+  "mesh_study": [
+    {
+      "n": 16,
+      "cells": 256,
+      "effectiveness": 0.5344676074950253,
+      "error_against_integral": 8.05120351267119e-05,
+      "heat_w": 29572.09272269975,
+      "residual_w": -3.637978807091713e-11
+    },
+    {
+      "n": 32,
+      "cells": 1024,
+      "effectiveness": 0.534407217312699,
+      "error_against_integral": 2.0121852800425444e-05,
+      "heat_w": 29568.751333911638,
+      "residual_w": 1.2005330063402653e-10
+    },
+    {
+      "n": 64,
+      "cells": 4096,
+      "effectiveness": 0.5343921255385791,
+      "error_against_integral": 5.030078680468009e-06,
+      "heat_w": 29567.916306049578,
+      "residual_w": -5.820766091346741e-11
+    }
+  ],
+  "reference_integral_effectiveness": 0.5343870954598986,
+  "conditional_combined_losses": [
+    {
+      "eta_combined_assumed": 0.85,
+      "mechanical_peak_w": 205000,
+      "combined_loss_w": 36176.4705882353,
+      "coolant_delta_t_if_all_loss_here_k": 20.67226890756303,
+      "capacity_margin_w_at_assumed_inlet_temperatures": -6608.554282185723
+    },
+    {
+      "eta_combined_assumed": 0.9,
+      "mechanical_peak_w": 205000,
+      "combined_loss_w": 22777.77777777779,
+      "coolant_delta_t_if_all_loss_here_k": 13.015873015873021,
+      "capacity_margin_w_at_assumed_inlet_temperatures": 6790.138528271789
+    },
+    {
+      "eta_combined_assumed": 0.95,
+      "mechanical_peak_w": 205000,
+      "combined_loss_w": 10789.473684210514,
+      "coolant_delta_t_if_all_loss_here_k": 6.165413533834579,
+      "capacity_margin_w_at_assumed_inlet_temperatures": 18778.442621839065
+    }
+  ],
+  "sensitivity": [
+    {
+      "coolant_mass_flow_kg_s": 0.3,
+      "air_mass_flow_kg_s": 0.5,
+      "ua_assumed_w_k": 500,
+      "calor_w": 15189.264229088525,
+      "quente_saida_media_k": 338.68403406753475,
+      "fria_saida_media_k": 328.347344391826,
+      "residuo_w": -1.8189894035458565e-11,
+      "efetividade": 0.549042625305929
+    },
+    {
+      "coolant_mass_flow_kg_s": 0.3,
+      "air_mass_flow_kg_s": 0.5,
+      "ua_assumed_w_k": 1000,
+      "calor_w": 20369.82926257402,
+      "quente_saida_media_k": 333.75016260707235,
+      "fria_saida_media_k": 338.6466784544215,
+      "residuo_w": -1.0913936421275139e-11,
+      "efetividade": 0.7363032446258457
+    },
+    {
+      "coolant_mass_flow_kg_s": 0.3,
+      "air_mass_flow_kg_s": 0.5,
+      "ua_assumed_w_k": 1500,
+      "calor_w": 22808.78871191253,
+      "quente_saida_media_k": 331.4273440838928,
+      "fria_saida_media_k": 343.4955043974404,
+      "residuo_w": -2.546585164964199e-11,
+      "efetividade": 0.8244637163170985
+    },
+    {
+      "coolant_mass_flow_kg_s": 0.3,
+      "air_mass_flow_kg_s": 1,
+      "ua_assumed_w_k": 500,
+      "calor_w": 18124.045277390804,
+      "quente_saida_media_k": 335.889004497723,
+      "fria_saida_media_k": 316.1659495799113,
+      "residuo_w": 2.9103830456733704e-11,
+      "efetividade": 0.32756271963475153
+    },
+    {
+      "coolant_mass_flow_kg_s": 0.3,
+      "air_mass_flow_kg_s": 1,
+      "ua_assumed_w_k": 1000,
+      "calor_w": 26581.419336462168,
+      "quente_saida_media_k": 327.83436253670266,
+      "fria_saida_media_k": 324.57288204419694,
+      "residuo_w": 3.637978807091713e-11,
+      "efetividade": 0.4804160371672179
+    },
+    {
+      "coolant_mass_flow_kg_s": 0.3,
+      "air_mass_flow_kg_s": 1,
+      "ua_assumed_w_k": 1500,
+      "calor_w": 31352.352218737033,
+      "quente_saida_media_k": 323.29061693453616,
+      "fria_saida_media_k": 329.31536005838666,
+      "residuo_w": 3.637978807091713e-12,
+      "efetividade": 0.5666429101524857
+    },
+    {
+      "coolant_mass_flow_kg_s": 0.3,
+      "air_mass_flow_kg_s": 1.5,
+      "ua_assumed_w_k": 500,
+      "calor_w": 19273.26053487666,
+      "quente_saida_media_k": 334.7945137763079,
+      "fria_saida_media_k": 310.922207113901,
+      "residuo_w": 7.275957614183426e-11,
+      "efetividade": 0.33373611315803736
+    },
+    {
+      "coolant_mass_flow_kg_s": 0.3,
+      "air_mass_flow_kg_s": 1.5,
+      "ua_assumed_w_k": 1000,
+      "calor_w": 29200.361762386536,
+      "quente_saida_media_k": 325.34013165487,
+      "fria_saida_media_k": 317.5008030234503,
+      "residuo_w": -7.639755494892597e-11,
+      "efetividade": 0.5056339699114552
+    },
+    {
+      "coolant_mass_flow_kg_s": 0.3,
+      "air_mass_flow_kg_s": 1.5,
+      "ua_assumed_w_k": 1500,
+      "calor_w": 35052.93228107543,
+      "quente_saida_media_k": 319.76625497040436,
+      "fria_saida_media_k": 321.3792460444502,
+      "residuo_w": -7.275957614183426e-12,
+      "efetividade": 0.6069771823562845
+    },
+    {
+      "coolant_mass_flow_kg_s": 0.5,
+      "air_mass_flow_kg_s": 0.5,
+      "ua_assumed_w_k": 500,
+      "calor_w": 16040.948160249689,
+      "quente_saida_media_k": 343.9837439084288,
+      "fria_saida_media_k": 330.04055300248444,
+      "residuo_w": -8.913048077374697e-11,
+      "efetividade": 0.5798282364088085
+    },
+    {
+      "coolant_mass_flow_kg_s": 0.5,
+      "air_mass_flow_kg_s": 0.5,
+      "ua_assumed_w_k": 1000,
+      "calor_w": 21743.87563358792,
+      "quente_saida_media_k": 340.7249282093783,
+      "fria_saida_media_k": 341.37838098128805,
+      "residuo_w": 8.003553375601768e-11,
+      "efetividade": 0.7859705632961475
+    },
+    {
+      "coolant_mass_flow_kg_s": 0.5,
+      "air_mass_flow_kg_s": 0.5,
+      "ua_assumed_w_k": 1500,
+      "calor_w": 24271.884554275028,
+      "quente_saida_media_k": 339.2803516832714,
+      "fria_saida_media_k": 346.40424364667,
+      "residuo_w": -5.093170329928398e-11,
+      "efetividade": 0.8773498844849097
+    },
+    {
+      "coolant_mass_flow_kg_s": 0.5,
+      "air_mass_flow_kg_s": 1,
+      "ua_assumed_w_k": 500,
+      "calor_w": 19443.12868670052,
+      "quente_saida_media_k": 342.0396407504568,
+      "fria_saida_media_k": 317.4771656925452,
+      "residuo_w": 8.36735125631094e-11,
+      "efetividade": 0.35140301259173173
+    },
+    {
+      "coolant_mass_flow_kg_s": 0.5,
+      "air_mass_flow_kg_s": 1,
+      "ua_assumed_w_k": 1000,
+      "calor_w": 29567.916306049578,
+      "quente_saida_media_k": 336.2540478251145,
+      "fria_saida_media_k": 327.54156690462185,
+      "residuo_w": -5.820766091346741e-11,
+      "efetividade": 0.5343921255385791
+    },
+    {
+      "coolant_mass_flow_kg_s": 0.5,
+      "air_mass_flow_kg_s": 1,
+      "ua_assumed_w_k": 1500,
+      "calor_w": 35532.057486586,
+      "quente_saida_media_k": 332.84596715052226,
+      "fria_saida_media_k": 333.4701366665864,
+      "residuo_w": 4.3655745685100555e-11,
+      "efetividade": 0.6421843030288452
+    },
+    {
+      "coolant_mass_flow_kg_s": 0.5,
+      "air_mass_flow_kg_s": 1.5,
+      "ua_assumed_w_k": 500,
+      "calor_w": 20799.17051193609,
+      "quente_saida_media_k": 341.26475970746503,
+      "fria_saida_media_k": 311.9334131954513,
+      "residuo_w": 1.1641532182693481e-10,
+      "efetividade": 0.25060751264457004
+    },
+    {
+      "coolant_mass_flow_kg_s": 0.5,
+      "air_mass_flow_kg_s": 1.5,
+      "ua_assumed_w_k": 1000,
+      "calor_w": 33060.65294772601,
+      "quente_saida_media_k": 334.2581983155851,
+      "fria_saida_media_k": 320.0589814100239,
+      "residuo_w": -3.637978807091713e-11,
+      "efetividade": 0.39834511654588844
+    },
+    {
+      "coolant_mass_flow_kg_s": 0.5,
+      "air_mass_flow_kg_s": 1.5,
+      "ua_assumed_w_k": 1500,
+      "calor_w": 40936.74424989897,
+      "quente_saida_media_k": 329.7575747143434,
+      "fria_saida_media_k": 325.2783924783955,
+      "residuo_w": 1.8189894035458565e-10,
+      "efetividade": 0.4932434996071928
+    },
+    {
+      "coolant_mass_flow_kg_s": 0.8,
+      "air_mass_flow_kg_s": 0.5,
+      "ua_assumed_w_k": 500,
+      "calor_w": 16545.019002829824,
+      "quente_saida_media_k": 347.2410646418465,
+      "fria_saida_media_k": 331.0426819141745,
+      "residuo_w": -3.637978807091713e-11,
+      "efetividade": 0.5980487620759019
+    },
+    {
+      "coolant_mass_flow_kg_s": 0.8,
+      "air_mass_flow_kg_s": 0.5,
+      "ua_assumed_w_k": 1000,
+      "calor_w": 22536.721045946768,
+      "quente_saida_media_k": 345.101171055019,
+      "fria_saida_media_k": 342.95461440546075,
+      "residuo_w": -1.4551915228366852e-11,
+      "efetividade": 0.8146293528265595
+    },
+    {
+      "coolant_mass_flow_kg_s": 0.8,
+      "air_mass_flow_kg_s": 0.5,
+      "ua_assumed_w_k": 1500,
+      "calor_w": 25058.16866498707,
+      "quente_saida_media_k": 344.2006540482189,
+      "fria_saida_media_k": 347.96743273357265,
+      "residuo_w": -2.1827872842550278e-11,
+      "efetividade": 0.9057715042467764
+    },
+    {
+      "coolant_mass_flow_kg_s": 0.8,
+      "air_mass_flow_kg_s": 1,
+      "ua_assumed_w_k": 500,
+      "calor_w": 20241.516245355113,
+      "quente_saida_media_k": 345.9208870552303,
+      "fria_saida_media_k": 318.27079149637683,
+      "residuo_w": -4.3655745685100555e-11,
+      "efetividade": 0.3658325726613973
+    },
+    {
+      "coolant_mass_flow_kg_s": 0.8,
+      "air_mass_flow_kg_s": 1,
+      "ua_assumed_w_k": 1000,
+      "calor_w": 31430.027045479004,
+      "quente_saida_media_k": 341.92499034090037,
+      "fria_saida_media_k": 329.3925716157843,
+      "residuo_w": -9.094947017729282e-11,
+      "efetividade": 0.5680467566506237
+    },
+    {
+      "coolant_mass_flow_kg_s": 0.8,
+      "air_mass_flow_kg_s": 1,
+      "ua_assumed_w_k": 1500,
+      "calor_w": 38136.10319727419,
+      "quente_saida_media_k": 339.5299631438306,
+      "fria_saida_media_k": 336.058651289537,
+      "residuo_w": -8.003553375601768e-11,
+      "efetividade": 0.6892482052643085
+    },
+    {
+      "coolant_mass_flow_kg_s": 0.8,
+      "air_mass_flow_kg_s": 1.5,
+      "ua_assumed_w_k": 500,
+      "calor_w": 21729.760809124487,
+      "quente_saida_media_k": 345.3893711395983,
+      "fria_saida_media_k": 312.55010656668287,
+      "residuo_w": 1.418811734765768e-10,
+      "efetividade": 0.26182011939423444
+    },
+    {
+      "coolant_mass_flow_kg_s": 0.8,
+      "air_mass_flow_kg_s": 1.5,
+      "ua_assumed_w_k": 1000,
+      "calor_w": 35533.511403176366,
+      "quente_saida_media_k": 340.45946021315126,
+      "fria_saida_media_k": 321.6977212744706,
+      "residuo_w": 2.255546860396862e-10,
+      "efetividade": 0.42814038680855915
+    },
+    {
+      "coolant_mass_flow_kg_s": 0.8,
+      "air_mass_flow_kg_s": 1.5,
+      "ua_assumed_w_k": 1500,
+      "calor_w": 44803.14926600243,
+      "quente_saida_media_k": 337.1488752621419,
+      "fria_saida_media_k": 327.84062244267886,
+      "residuo_w": 1.0186340659856796e-10,
+      "efetividade": 0.5398294989577979
+    }
+  ]
+}

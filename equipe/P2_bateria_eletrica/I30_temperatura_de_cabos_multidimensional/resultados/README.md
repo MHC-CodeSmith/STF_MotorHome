@@ -1,3 +1,5 @@
-# Desenvolvimento parcial
+# Resultados condicionados — 26/10/2026
 
-As saídas de verificação ficam em `/home/mhc/motorhome_referencias_tarefas/verificacao-termica-01/`, com rótulo SYNTHETIC, entradas e hashes. Ainda não há resultado físico validado deste item. Para reproduzir, seguir [frente térmica](../../../../docs/FRENTE_TERMICA.md).
+[resumo_cabos.json](resumo_cabos.json), CSVs e figura gerados por `scripts/calcular_cabos_tracao.py`.
+Entradas e seus hashes no JSON; não resultados OEM aprovados.
+[Detalhes, reprodução e limites](../../../../docs/CABOS_E_RADIADOR_2D.md).

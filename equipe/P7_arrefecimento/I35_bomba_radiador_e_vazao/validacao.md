@@ -10,3 +10,7 @@
 
 ## Pendências e correções
 A preencher.
+
+## Avanço de 26/10/2026 — radiador cruzado
+
+Método/casos, hipóteses, fontes e convergência em [cabos e radiador](../../../docs/CABOS_E_RADIADOR_2D.md). Resultados reproduzíveis em [resumo](resultados/resumo_radiador.json); o requisito continua parcial e sem aprovação humana.

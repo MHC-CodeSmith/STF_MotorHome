@@ -302,6 +302,56 @@ def main():
          'Solar→EVSE→carregadorOEM continua não comprovado; não há circuito de tração liberado.')
     page()
 
+    heading('3F. Cabos com isolamento: campo multidimensional I30')
+    pic('cabos_campo_e_sensibilidade.png', 7)
+    para('Volumes finitos r-theta, feixe e isolamento, resistividade dependente da temperatura '
+         'acoplada à solução. Fonte integrada por metro I²R(T), referência de resistência '
+         'máxima da ficha RADOX155 STD718404G de25/09/2026. '
+         'Cabo120mm²: feixe máximo15,1mm/externo nominal18mm/R20máx0,153ohm/km. '
+         'Propriedades térmicas, coeficiente elétrico e filme são hipóteses.')
+    table([['Triagem condicionada', 'h [W/m²K]', 'Tmax [°C]'],
+           ['1x120mm²; DC569,44A', '10', '178,77 (extrapolação)'],
+           ['1x150mm²; DC569,44A', '10', '119,80'],
+           ['1x150mm²; DC569,44A', '5', '300,54 (extrapolação)'],
+           ['2x120mm²;600A repartidos', '5', '89,45 por cabo']], [8.5, 3.3, 5.2])
+    para('DC569,44A deriva de205kW mecânicos/400V/eficiência combinada90% <b>assumida</b>; '
+         'não é corrente de fase. Fases300/450/600A são sensibilidades independentes. '
+         'Paralelo pressupõe corrente igualmente dividida e resfriamento independente. '
+         'A ficha indica150°C/3000h; valores superiores são extrapolações sem material '
+         'qualificado. Cabo preto/vermelho não blindado não foi aprovado para substituir OEM.')
+    para('Caso assimétrico450A: Tmax104,4249°C;41,26075W/m; variação superficial5,3734K. '
+         '512/2048/8192células: mudança final deTmax0,000069K e de amplitude superficial0,004764K; '
+         'resíduo1,93e-8W/m. Verificação analítica radial e harmônica2D, ordens1,84–1,86/2,00. '
+         'Faltam corrente real/tempo de pico, k do produto, contatos, agrupamento, perdasAC e EMC. '
+         'Não é chicote OEM resolvido. Fontes/hipóteses/scripts/hashes: resumo_cabos.json e '
+         'docs/CABOS_E_RADIADOR_2D.md.')
+    page()
+
+    heading('3G. Radiador cruzado: perfis e capacidade condicionada I35')
+    pic('radiador_campos_radiador.png', 7)
+    para('Modelo autoral de uma passagem, ambos fluidos não misturados, conservação por célula; '
+         'não CFD/geométrico de aletas. Entrada quente80°C, ar25°C; refrigerante0,5kg/s ecp3500J/(kgK), '
+         'ar1kg/s ecp1006J/(kgK), UA1000W/K, <b>todos parâmetros de equipamento assumidos</b>. '
+         'Capacidade29,5679kW; saídas médias63,1040°C/54,3916°C. Não confundir capacidade sob '
+         'entradas fixas com equilíbrio do circuito fechado.')
+    table([['Eficiência combinada assumida', 'Perda motor+inversor', 'Margem de capacidade'],
+           ['85%', '36,176kW', '-6,609kW'],
+           ['90%', '22,778kW', '+6,790kW'],
+           ['95%', '10,789kW', '+18,778kW']], [7.5, 4.5, 5])
+    para('Perda=P_mec(1/eta-1), com205kW mecânicos de pico. Não atribuir toda perda ao motor; '
+         'faltam mapa, duração e partição térmica. Há27combinações independentes deUA/vazões, '
+         'que não representam pontos de uma curva real de radiador. O envelope CAD não determinaUA.')
+    para('Malhas16²/32²/64²: erros absolutos emefetividade8,05e-5/2,01e-5/5,03e-6 contra integral '
+         'independente ht.hx, ordem2; diferença final0,835W e resíduo5,83e-11W. '
+         'Apostila pp.31/38-39 fundamenta conservação/epsilon-NUT; ressalva da tabela4 mantida. '
+         'Não foi usada sua expressão problemática. Fonte integral: documentação oficial '
+         'ht.readthedocs.io/en/stable/ht.hx.html, consulta26/10/2026.')
+    para('Faltam UA e perdas de pressão versus vazões reais, curva da bomba/ventilador, fluido, '
+         'temperaturas permitidas e ponto hidráulico. A Rheinmetall confirma aplicações daCWA400, '
+         'mas comunicado não fornece curva para selecionar a bomba. Dados, hipóteses e hashes em '
+         'resumo_radiador.json; item permanece parcial.')
+    page()
+
     heading('4. Aerodinâmica exploratória')
     pic('comparacao_cfd.png', 8)
     table([['Células', 'Iterações', 'Cd exploratório'],
@@ -411,12 +461,13 @@ def main():
          f'carga I32 para uma pessoa de{low/1000:.2f} a{high/1000:.2f} kW. '
          'São alternativas de parâmetros, não intervalo estatístico. Alterar C '
          'afeta I31, mas não o balanço permanente de I32.')
-    para('FJX4 2200: catálogo oficial2200 W, abaixo de2516/2646 W calculados. '
-         'FJX7 3000: candidato oficial3000 W com compressor inverter/bomba de calor, '
-         'a revisar. A capacidade e o COP em33°C, alimentação e montagem ainda faltam; '
-         'não se conclui atendimento de todos os casos. Três horas de carga nominal '
-         'de meio-dia com COP2,5 consumiriam3,019 kWh antes do inversor, comparáveis '
-         'aos3,233 kWh/dia solares de dois módulos. Não é simulação diária de HVAC.')
+    para('O candidato atual é FreshWell3000 sob cama:2700W nominais de frio e230V/50-60Hz; '
+         'a ficha não fornece COP verificado no ponto de33°C. A carga condicionada para duas '
+         'pessoas2645,9W deixa apenas54,1W de margem nominal, aproximadamente2%. '
+         'Não demonstra atendimento real com dutos/retorno/condensador e tolerâncias. '
+         'FJX4 2200 foi descartado por capacidade insuficiente; FJX7 3000 é alternativa '
+         'histórica não instalada. Três horas da carga de uma pessoa/COP2,5 assumido '
+         'consumiriam3,019kWh antes de perdas do inversor; não é simulação diária de HVAC.')
     page()
 
     heading('9. Situação dos 35 itens')
@@ -449,7 +500,7 @@ def main():
             '1. Especificar equipamentos reais, componentes de tração e serviço, massas, posições e custos. Resolver solar-serviços-carga OEM estacionado, sem ligar48 V diretamente ao pack400 V.',
             '2. Integrar interior, roda, isolamento e HVAC em CAD; concluir vistas cotadas, aberturas, manutenção e ergonomia. Medir áreas/vidros para substituir a caixa térmica equivalente.',
             '3. Resolver a superfície CFD, camadas/y+, rodas e independência de malha. Atualizar Cd/área/massa/Cr e integrar mapa motor/transmissão, vmax e0-100.',
-            '4. Executar I30-I35 com componentes reais: cabo isolado, disco/pastilha, perdas de pack e motor, refrigerante, bomba/radiador e curvas. Métodos genéricos não são casos físicos finais.',
+            '4. Fechar dados reais I30-I35: cabo polar e radiador cruzado já calculados sob hipóteses; obter correntes/materiais/contornos, disco/pastilha, perdas pack/motor e curvas de bomba/radiador. Métodos condicionados não são casos físicos finais.',
             '5. Atualizar geração e cargas reais, otimizar I27/I29, revisar energia causal e grade; concluir memorial final, revisão cruzada e apresentações. Vídeo requer participação dos integrantes.']:
         para(item)
     para('Fontes e documentos locais', 'Heading2')

@@ -1,4 +1,4 @@
-# Revisão dos 35 itens — 25/10/2026
+# Revisão dos 35 itens — 26/10/2026
 
 Revisão técnica desta worktree após a correção do CAD. **Nenhum item foi aprovado como resultado final de engenharia.** Há uma carroceria externa detalhada em uso, métodos numéricos verificados e requisitos parcialmente preparados. Testes sintéticos não foram contados como resultados físicos do motorhome.
 
@@ -47,12 +47,12 @@ Fontes locais: enunciado original 2026, pp. 1–2; divisão P1–P7; apostila SE
 | 27 / P5 | Máxima autonomia diária, SOC final 30%, v(t) e potência instantânea | Parcial:335km no cenário condicionado em grade, SOC100→30%exato; agenda e potência terminal exportadas | Conservação; otimização não fornecida pela apostila | Integrar componentes reais, potência mecânica do motor, acelerações e estudo da grade |
 | 28 / P4 | Velocidade máxima e 0–100 no plano e sem vento | Pendente | Dinâmica externa | Integrar torque/forças/inércias e limites; informar se 100 km/h é inalcançável |
 | 29 / P5 | Menor tempo em 7000 km, bateria inicial+solar, até 8 h/dia | Parcial: minimizador em grade testado; agenda construtiva7000km/1622datas verificada, cenário solar repetido; não ótimo nem previsão da rota | Cap. 1 contextualiza otimização; não resolve a rota | Resolver modelo solar/consumo/integração real e executar otimização da missão física |
-| 30 / P2 | Temperatura nos cabos em potência máxima, campo multidimensional | Parcial: solver 2D e Joule testados, sem cabo real | Fourier p. 9, Newton p. 10 | Inserir geometria/material/isolação, corrente real, rho_e(T), contornos e convergência do componente |
+| 30 / P2 | Temperatura nos cabos em potência máxima, campo multidimensional | Parcial: cabo120/150mm² com ficha; campo r-theta feixe/isolamento/R(T), três malhas, correntes/h/k condicionados | Fourier p. 9, Newton p. 10 | Confirmar corrente RMS real, k/R(T) do produto, contatos/agrupamento/contornos e revisar alternativa paralela |
 | 31 / P6 | Cabine fechada estacionada ao meio-dia, sem A/C e sem passageiros | Parcial: caso condicionado de caixa equivalente,49,079°C ao meio-dia; sol orientado, hipóteseC/UA,48combinações e verificação temporal; não cabine CAD validada | Cap. 2; armazenamento sensível p. 74 Eq. 112 | Extrair superfícies, modelar sol/radiação/convecção e justificar regime/condição inicial |
 | 32 / P6 | Potência A/C: 33 °C externo, 25 °C interno, passageiro, permanente | Parcial: caso condicionado33/25°C+UR50%+ventilação, uma/duas pessoas2,516/2,646kW de frio; COP2–3assumido; parâmetros de envelope a revisar | Caps. 2 e 6 | Calcular ganhos e psicrometria com ocupação definida; obter COP/capacidade de equipamento |
 | 33 / P1 | Freios: 30→10 m/s em 5 s, início 25 °C e campo multidimensional | Derivação 400 J/kg e 80 W/kg; solver 2D genérico, sem disco real | Cap. 2 e conservação de energia | Distribuir calor com massa/discos/pastilhas/inércias/regeneração; iniciar 298,15 K e refinar malha/tempo |
 | 34 / P7 | Temperatura da bateria com cargas 20/80 kW | Parcial: parcela I²R e armazenamento testados, pack sintético | Cap. 2 e Eq. 112 p. 74 | Implementar protocolo real/BMS, dependência SOC/T, calor reversível e arrefecimento |
-| 35 / P7 | Bomba, radiador, vazão em potência máxima do motor; perfis e ponto de operação | Parcial: ε-NUT/perfil paralelo e interseções de curvas testados | Eqs. 49–62 pp. 31/38; tabela 4 p. 39; Eq. 93 p. 56 | Obter perdas máximas, fluido, geometria/arranjo do radiador, curvas reais, NPSH e perfis compatíveis |
+| 35 / P7 | Bomba, radiador, vazão em potência máxima do motor; perfis e ponto de operação | Parcial: campos cruzados verificados contra integral, três malhas e27cenários condicionados; curvas reais pendentes | Eqs. 49–62 pp. 31/38; tabela 4 p. 39; Eq. 93 p. 56 | Obter perdas/UA/fluido e curvas bomba/sistema/ventilador; fechar operação máxima |
 
 ## Correções já executadas
 
@@ -64,7 +64,7 @@ Fontes locais: enunciado original 2026, pp. 1–2; divisão P1–P7; apostila SE
 
 ## Ordem de execução para o fechamento físico
 
-Verificação integrada mais recente (25/10): **117 testes passaram** (dinâmica, auditoria, fontes simuladas, térmica, agendas, menor tempo e geometria/integração elétrica). Há **27 itens em desenvolvimento parcial e 8 ainda não iniciados** nos metadados; os24campos `null` da configuração são uma contagem distinta. Nenhum item aprovado. `config/parametros_globais.yaml` permanece intacto. O visualizador offline foi aberto em Chromium; testes não aprovam a engenharia final.
+Verificação integrada mais recente (26/10): **132 testes passaram** (dinâmica, auditoria, fontes simuladas, térmica, agendas, menor tempo e geometria/integração elétrica). Há **27 itens em desenvolvimento parcial e 8 ainda não iniciados** nos metadados; os24campos `null` da configuração são uma contagem distinta. Nenhum item aprovado. `config/parametros_globais.yaml` permanece intacto. O visualizador offline foi aberto em Chromium; testes não aprovam a engenharia final.
 
 Primeiro conferir a variante/dimensões da carroceria e resolver chassi, layout e equipamentos (I01–I17), em paralelo aos dossiês de motor/transmissão/bateria/painéis. Consolidar massa/BOM e preparar a superfície externa para CFD. Depois integrar Cd/Cr/dinâmica e geração solar para I18–I29. Os métodos térmicos podem avançar em paralelo, mas só recebem o rótulo de resultado do motorhome quando usam componentes e cenários reais. A cada interface alterada, registrar impacto em massa, energia e térmica e refazer os cálculos dependentes.
 

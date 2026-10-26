@@ -1,3 +1,15 @@
+# Atualização prioritária — 26/10/2026
+
+Usuário mandou continuar; o pedido anterior de só preservar contexto foi superado.
+Implementados I30 polar feixe+isolamento/R(T) e I35 campos cruzados/integral.
+Ler [CABOS_E_RADIADOR_2D.md](CABOS_E_RADIADOR_2D.md). Configs`cabos_tracao_proposta.yaml`/`arrefecimento_proposta.yaml`.
+Caches`cabos-calculo-04/` e`radiador-calculo-02/`; PDFs/fontes`cabos-fontes-01/`.
+Resultados nos itensI30/I35 e entrega parcial, sem aprovar componentes.
+132testes passaram/ruffOK/estrutura0erros; global intacto24nulls.
+Memorial20p/QA`memorial-qa-05/`; nenhuma aprovação de engenharia.
+Próximos: circuitos e fontes físicas OEM, freios/pack, CFD equipado/malhas, fixações/BOM/eixos e missões atualizadas.
+Decoração continua depois da parte técnica. Outra worktree intocada; sem push.
+
 # Retomada rápida — 25/10/2026
 
 Missão: concluir os35itens do motorhome **elétrico solar**, seguindo enunciado e
