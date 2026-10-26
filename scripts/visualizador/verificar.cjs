@@ -32,6 +32,15 @@ const { pathToFileURL } = require('node:url');
     await page.check('#deploy');
     await page.waitForTimeout(400);
     await page.screenshot({path:path.join(dest, 'solar_aberto.png')});
+    await page.check('#portableInstalled');
+    await page.check('#portableDeployed');
+    await page.getByRole('button', {name:'Vista dos portáteis',exact:true}).click();
+    await page.waitForTimeout(400);
+    await page.screenshot({path:path.join(dest, 'solar_portatil.png')});
+    const alternativeExclusive = !(await page.isChecked('#extensionInstalled'));
+    const portableMeshes = await page.evaluate(() => +document.body.dataset.portableMeshes);
+    if(!alternativeExclusive || portableMeshes !== 324) throw new Error('Alternativa portátil ausente ou montagem dupla');
+    await page.uncheck('#portableDeployed');
     await page.check('#inside');
     await page.check('#hideShell');
     await page.getByRole('button', {name:'Superior',exact:true}).click();
@@ -54,7 +63,7 @@ const { pathToFileURL } = require('node:url');
     await page.waitForTimeout(400);
     await page.screenshot({path:path.join(dest, 'hvac.png')});
     await page.check('#wire'); await page.uncheck('#panels');
-    const result = {ready:true,errors,external_requests:requests,canvas_count:await page.locator('canvas').count(),
+    const result = {ready:true,errors,external_requests:requests,portable_meshes:portableMeshes,alternatives_exclusive:alternativeExclusive,canvas_count:await page.locator('canvas').count(),
       components:await page.locator('[data-component]').count(), interior_meshes:await page.evaluate(() => +document.body.dataset.interiorMeshes),
       electrical_meshes:await page.evaluate(() => +document.body.dataset.electricalMeshes),
       technical_view_enabled:technicalEnabled, interior_restored:restoredInterior,

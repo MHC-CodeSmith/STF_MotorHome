@@ -1,11 +1,11 @@
 numero,titulo,pessoa,dependencias,pasta,status
 1,Nome e conceito do veículo,P1,,equipe/P1_estrutura_freios/I01_nome_e_conceito_do_veiculo,em_desenvolvimento
 2,Pneus e rodas,P1,15,equipe/P1_estrutura_freios/I02_pneus_e_rodas,em_desenvolvimento
-3,Sistema de freios,P1,2;15,equipe/P1_estrutura_freios/I03_sistema_de_freios,nao_iniciado
-14,Suspensão e direção,P1,15;2,equipe/P1_estrutura_freios/I14_suspensao_e_direcao,nao_iniciado
+3,Sistema de freios,P1,2;15,equipe/P1_estrutura_freios/I03_sistema_de_freios,em_desenvolvimento
+14,Suspensão e direção,P1,15;2,equipe/P1_estrutura_freios/I14_suspensao_e_direcao,em_desenvolvimento
 15,Chassi,P1,1,equipe/P1_estrutura_freios/I15_chassi,em_desenvolvimento
 18,Massa total com passageiros,P1,2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17,equipe/P1_estrutura_freios/I18_massa_total_com_passageiros,em_desenvolvimento
-24,Custo total dos materiais,P1,2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;18,equipe/P1_estrutura_freios/I24_custo_total_dos_materiais,nao_iniciado
+24,Custo total dos materiais,P1,2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;18,equipe/P1_estrutura_freios/I24_custo_total_dos_materiais,em_desenvolvimento
 33,Freio: campo térmico multidimensional,P1,3;18;28,equipe/P1_estrutura_freios/I33_freio_campo_termico_multidimensional,em_desenvolvimento
 6,Bateria,P2,4,equipe/P2_bateria_eletrica/I06_bateria,em_desenvolvimento
 7,Fiação elétrica,P2,4;6;9,equipe/P2_bateria_eletrica/I07_fiacao_eletrica,em_desenvolvimento
@@ -16,11 +16,11 @@ numero,titulo,pessoa,dependencias,pasta,status
 17,CAD 3D e vistas cotadas,P3,15;16;13,equipe/P3_carroceria_cad_cfd/I17_cad_3d_e_vistas_cotadas,em_desenvolvimento
 19,Coeficiente de arrasto e CFD,P3,17,equipe/P3_carroceria_cad_cfd/I19_coeficiente_de_arrasto_e_cfd,em_desenvolvimento
 4,Motor elétrico,P4,15,equipe/P4_motor_dinamica/I04_motor_eletrico,em_desenvolvimento
-5,Transmissão,P4,4;2,equipe/P4_motor_dinamica/I05_transmissao,nao_iniciado
-20,Resistência de rolamento,P4,2;18,equipe/P4_motor_dinamica/I20_resistencia_de_rolamento,nao_iniciado
+5,Transmissão,P4,4;2,equipe/P4_motor_dinamica/I05_transmissao,em_desenvolvimento
+20,Resistência de rolamento,P4,2;18,equipe/P4_motor_dinamica/I20_resistencia_de_rolamento,em_desenvolvimento
 21,Forças resistivas versus velocidade,P4,18;19;20,equipe/P4_motor_dinamica/I21_forcas_resistivas_versus_velocidade,em_desenvolvimento
 22,Potência resistiva e tração,P4,4;5;21,equipe/P4_motor_dinamica/I22_potencia_resistiva_e_tracao,em_desenvolvimento
-28,Velocidade máxima e 0–100 km/h,P4,4;5;18;19;20;22,equipe/P4_motor_dinamica/I28_velocidade_maxima_e_0100_km_h,nao_iniciado
+28,Velocidade máxima e 0–100 km/h,P4,4;5;18;19;20;22,equipe/P4_motor_dinamica/I28_velocidade_maxima_e_0100_km_h,em_desenvolvimento
 8,Painel fotovoltaico,P5,17,equipe/P5_solar_autonomia/I08_painel_fotovoltaico,em_desenvolvimento
 25,Autonomia usando somente solar,P5,8;9;22;23;26,equipe/P5_solar_autonomia/I25_autonomia_usando_somente_solar,em_desenvolvimento
 26,Consumo (km/kWh),P5,21;22;23;13,equipe/P5_solar_autonomia/I26_consumo_km_kwh,em_desenvolvimento
@@ -30,7 +30,7 @@ numero,titulo,pessoa,dependencias,pasta,status
 13,Materiais e equipamentos internos,P6,15;16,equipe/P6_interior_cabine/I13_materiais_e_equipamentos_internos,em_desenvolvimento
 31,Cabine fechada ao meio-dia,P6,11;13;16;17;8,equipe/P6_interior_cabine/I31_cabine_fechada_ao_meio_dia,em_desenvolvimento
 32,Potência térmica de A/C,P6,11;13;16;17;31,equipe/P6_interior_cabine/I32_potencia_termica_de_a_c,em_desenvolvimento
-10,Resfriamento de componentes elétricos,P7,4;6;9,equipe/P7_arrefecimento/I10_resfriamento_de_componentes_eletricos,nao_iniciado
-12,Sistema de lubrificação,P7,4;5,equipe/P7_arrefecimento/I12_sistema_de_lubrificacao,nao_iniciado
+10,Resfriamento de componentes elétricos,P7,4;6;9,equipe/P7_arrefecimento/I10_resfriamento_de_componentes_eletricos,em_desenvolvimento
+12,Sistema de lubrificação,P7,4;5,equipe/P7_arrefecimento/I12_sistema_de_lubrificacao,em_desenvolvimento
 34,Temperatura da bateria em carga,P7,6;7;9;10;23,equipe/P7_arrefecimento/I34_temperatura_da_bateria_em_carga,em_desenvolvimento
 35,"Bomba, radiador e vazão",P7,4;5;10;12,equipe/P7_arrefecimento/I35_bomba_radiador_e_vazao,em_desenvolvimento

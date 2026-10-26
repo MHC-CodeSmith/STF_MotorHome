@@ -2,6 +2,8 @@
   "ready": true,
   "errors": [],
   "external_requests": [],
+  "portable_meshes": 324,
+  "alternatives_exclusive": true,
   "canvas_count": 1,
   "components": 23,
   "interior_meshes": 157,

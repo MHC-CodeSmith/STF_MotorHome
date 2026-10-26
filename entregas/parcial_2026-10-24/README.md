@@ -1,3 +1,27 @@
+# Verificação atual dos35itens
+
+[Auditoria integrada](../../docs/VERIFICACAO_INTEGRADA_35.md):158testes,124artefatos
+com hashes e controles digitais sem erros. **35emdesenvolvimento/0aprovados;
+projeto não concluído.** [Memorial25páginas](../../output/pdf/memorial_revisao_aurora.pdf).
+[BOM e rolamento](resumo_bom_rolamento.json),[fontes mecânicas](../../docs/MECANICA_ROLAMENTO_E_CUSTOS.md).
+Total de custo instalado/com tributos permanece ausente.
+
+# Avanço integrado — 26/10/2026
+
+[Abrir visualizador atualizado](visualizador.html): alternativa portátil com quatro
+painéis no solo e bolsas verticais sob cama; controles impedem somar a extensão
+empilhada à alternativa portátil. [STEP](solar_portatil.step),
+[vista](solar_portatil.png), [geração e reservas](resumo_solar_portatil.json).
+324sólidos novos; bolsas/suportes/ancoragem ainda em revisão.
+
+[Bateria20/80kW](bateria_carga_carga_bateria.png),
+[ponto da bomba](hidraulica_ponto_operacao.png),
+[missão com teto atual](resumo_missao_atual.json).
+[Fontes, cálculos, hipóteses e limites](../../docs/FECHAMENTO_TERMICO_E_MISSAO.md).
+O teto fixo sozinho entra em déficit com a habitação/perdas assumidas; agendas
+anteriores são históricas. Limite90km/h da versão4250kg preservado;0–100
+inalcançável com limitador ativo. Não é entrega final dos35itens.
+
 # Freios — atualização de 26/10/2026
 
 [Campo térmico r–z](freios_campo_freio.png), [histórico](freios_historico_freio.png)

@@ -26,3 +26,25 @@ Sem regeneração no caso nominal, mas inércias omitidas: não declarar limite 
 completo. Não duplicar massa de freios já na tara OEM. Interfaces P1/P4/P3:
 centro de gravidade/distribuição, inércias e geometria física pendentes.
 [Método/resultados/convergências](FREIOS_2D.md). Global intacto, aprovação pendente.
+
+## D010 — 26/10/2026: I34/I35, limite de90km/h e alternativa solar no solo
+
+AdicionarECM/térmica de bateria com entradas hipotéticas explícitas e curva
+Bosch publicada para ponto hidráulico de circuito assumido. Preservar limitador
+90km/h específico4250kg da fichaSKp3; I28 não promete0–100 eI33 segue ensaio
+docente. Recalcular balanço do teto atual: habitação/perdas deixam déficit.
+Alternativa4×EcoFlow400W no solo +MPPT dedicado, com bolsas verticais CAD;
+substitui alternativa pesada, sem somar ambas no viewer. Sem interfaceHV
+comprovada ou agenda atual ótima. Interfaces P1–P7 registradas em
+[FECHAMENTO_TERMICO_E_MISSAO.md](FECHAMENTO_TERMICO_E_MISSAO.md).
+YAMLglobal preservado;35itens não foram aprovados.
+
+## D011 — 26/10/2026: mecânica retida, pneu comparativo e BOM incompleta
+
+Confirmar arquitetura elétrica/suspensão/direção em fonteFiatUK primária,
+sem transplantar dados elétricos contraditórios ou placa de outra variante.
+Camper0451473/Cr por rótulo é alternativa, não mudança silenciosa do A/S.
+Preservar lubrificaçãoOEM e registrar óleo/volume/intervalo desconhecidos.
+IniciarBOM27linhas com preços ausentes null; R$439 é referência públicaIE3TP,
+não orçamento final instalado/com impostos. Todos35itens têm trabalho em curso,
+nenhum aprovado. Fontes/escopo em[MECANICA_ROLAMENTO_E_CUSTOS.md](MECANICA_ROLAMENTO_E_CUSTOS.md).

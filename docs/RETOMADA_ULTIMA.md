@@ -1,3 +1,33 @@
+# Estado prioritário — 26/10/2026: revisão integrada dos35itens
+
+Pedido atual: continuar autonomamente até concluir/verificar35itens. **Ainda não concluído.**
+Ler `VERIFICACAO_INTEGRADA_35.md`, `FECHAMENTO_TERMICO_E_MISSAO.md` e
+`MECANICA_ROLAMENTO_E_CUSTOS.md`. Estado35emdesenvolvimento/0aprovados; sem templates
+vazios nos quatro itens antes não iniciados, mas dados físicos/custo/óleo seguem pendentes.
+
+Novos métodos: I34ECM+SOC+dois nós térmicos20/80kW; I35curvaBosch039202453G +Darcy
+interseção31,85099L/min/71,62575kPa/96W, circuito eUA assumidos. I34nominal25,8705/31,9663°C,
+protocolo20→80% e todos parâmetros nãoOEM explícitos. Não confundir potência elétrica/calor.
+FonteFiatSKp3: versão4250kg tem limitador90km/h;0–100 inalcançável ativo; I33ensaio108→36.
+Teto1540W5,50685kWh/dia vs5,27651dehabitação: déficit com perdas90/95%; agendas antigas históricas.
+Alternativa4EcoFlow400W no solo, bolsas verticais sob cama,21kg/un com bolsa,MPPT150/35 dedicado2s2p.
+Geração portátil8,11954/total13,62639kWh,dia claro45°norte; sem sombra/agenda/interfaceHV comprovadas.
+CAD324sólidosSTEP positivos +GLB solo/transporte. Viewer atualizado8GLB,23seletores,alternativas
+exclusivas; Chromium0errosJS/HTTP. BolsaAABBsem colisões com equipamentos; ancoragem/acesso pendentes.
+BOM27linhas/preçoIE3TPR$439só referência genérica,20linhas nãoOEM sem oferta; total finalnull.
+Cr0,0068–0,0080 é outro pneuCamper0451473; não aplicado silenciosamente ao A/S anterior.
+
+Caches vigentes: `bateria-carga-01`,`hidraulica-calculo-01`,`missao-atual-02`,
+`solar-portatil-02`,`cad-portatil-01`,`visualizador-portatil-01/qa`,`bom-rolamento-02`.
+Config/scripts nomes nos docs. Consolidador exige6origens,conferehashes; camposI35hidráulicos
+agora prefixados para preservar caso anterior radiador80°C. Não sobrescrever com caches antigos.
+158testes/6,37s,ruffOK,estrutura/auditoria0erros. `verificar_entrega_integrada.py` conferiu35itens,
+124artefatos+PDF e entradas atuais; `all_35_finished=false`. PDF25p/2741667bytes,QA07/08.
+Global intacto24nulls/SHA7b8f5cd7891eb437cb89c41fd2ba440b0567ca1063998042d4828086aad523e2.
+Próximos: CFD equipado/malhas, massa/eixos/fixações, cotações completas, óleo/mapasOEM,
+agendasI27/I29atuais com montagem portátil/interfaces. Logo/pintura só depois da técnica.
+Outra worktree intocada; sem remote/push. Consultar gitlog para checkpoint desta etapa.
+
 # Avanço mais recente — 26/10/2026, freios I33
 
 Implementado campo transiente r–z para duas pistas anulares ventiladas simplificadas.

@@ -28,9 +28,10 @@ const grid = new THREE.GridHelper(12, 24, '#7c8a96', '#c4ccd2');
 grid.rotation.x = Math.PI/2; grid.position.z = -.02; scene.add(grid);
 const originalOpacity = new Map();
 const roofClip = new THREE.Plane(new THREE.Vector3(0,0,-1), 2.05);
-let shell, insideModel, stowed, deployed, fixed, electrical;
+let shell, insideModel, stowed, deployed, fixed, electrical, portableGround, portableStorage;
 let activeItem;
 function load(encoded) {
+  if(!encoded) return Promise.resolve(new THREE.Group());
   return new Promise((resolve,reject) => {
     const bytes = Uint8Array.from(atob(encoded), c => c.charCodeAt(0));
     new GLTFLoader().parse(bytes.buffer, '', gltf => resolve(gltf.scene), reject);
@@ -61,6 +62,10 @@ function update() {
   if(fixed) fixed.visible = solar && !extension;
   if(stowed) stowed.visible = solar && extension && !open;
   if(deployed) deployed.visible = solar && extension && open;
+  const portable = document.querySelector('#portableInstalled').checked;
+  const portableOpen = document.querySelector('#portableDeployed').checked;
+  if(portableGround) portableGround.visible = portable && portableOpen && !technical;
+  if(portableStorage) portableStorage.visible = portable && !portableOpen && !technical;
   eachMaterial(shell, mat => {
     mat.opacity = inside ? .22 : originalOpacity.get(mat);
     mat.transparent = mat.opacity < 1; mat.depthWrite = !inside;
@@ -73,10 +78,15 @@ function update() {
     ? 'Cobertura fixa: 3 JA + 1 Victron, 1.540 W STC. Proposta principal mais leve.' : open
     ? 'Estacionado / aberto: 7 módulos expostos, 2.890 W STC; largura 3,564 m.'
     : 'Recolhido: 3 JA + 1 Victron expostos, 1.540 W STC. Camada JA inferior sombreada.';
+  if(portable && !technical) document.querySelector('#solarState').textContent += portableOpen
+    ? ' Alternativa: +1.600 W no solo, somente parado. Arranjo e fixação em revisão.'
+    : ' Quatro bolsas verticais reservadas sob cama; acesso e ancoragem pendentes.';
 }
 Promise.all([load(data.glb_base64), load(data.interior_glb_base64),
-  load(data.roof_stowed_glb_base64), load(data.roof_open_glb_base64), load(data.roof_fixed_glb_base64), load(data.electrical_glb_base64)]).then(models => {
-    [shell, insideModel, stowed, deployed, fixed, electrical] = models;
+  load(data.roof_stowed_glb_base64), load(data.roof_open_glb_base64), load(data.roof_fixed_glb_base64), load(data.electrical_glb_base64),
+  load(data.portable_ground_glb_base64), load(data.portable_storage_glb_base64)]).then(models => {
+    [shell, insideModel, stowed, deployed, fixed, electrical, portableGround, portableStorage] = models;
+    for(const id of ['portableInstalled','portableDeployed']) document.querySelector('#'+id).disabled = !data.portable_ground_glb_base64;
     eachMaterial(shell, mat => originalOpacity.set(mat, mat.opacity));
     models.forEach(model => scene.add(model)); update();
     note.textContent = 'Carroceria, equipamentos e suportes carregados. Arraste para girar; selecione um equipamento para localizar.';
@@ -85,19 +95,32 @@ Promise.all([load(data.glb_base64), load(data.interior_glb_base64),
     document.body.dataset.interiorMeshes = String(count);
     let electricalCount = 0; electrical.traverse(o => {if(o.isMesh) electricalCount++;});
     document.body.dataset.electricalMeshes = String(electricalCount);
+    let portableCount = 0; portableGround.traverse(o => {if(o.isMesh) portableCount++;});
+    portableStorage.traverse(o => {if(o.isMesh) portableCount++;});
+    document.body.dataset.portableMeshes = String(portableCount);
   }).catch(err => { note.textContent = 'Falha ao carregar a geometria: '+err.message; });
-for(const id of ['inside','hideShell','hideBed','wire','panels','deploy','extensionInstalled','electrical','technical','isolate']) {
+for(const id of ['inside','hideShell','hideBed','wire','panels','deploy','extensionInstalled','electrical','technical','isolate','portableInstalled','portableDeployed']) {
   document.querySelector('#'+id).addEventListener('change', event => {
     if(id === 'inside' && event.target.checked) document.querySelector('#panels').checked = false;
     if(id === 'hideShell' && event.target.checked) document.querySelector('#inside').checked = true;
     if(id === 'deploy' && event.target.checked) document.querySelector('#extensionInstalled').checked = true;
     if(id === 'extensionInstalled' && !event.target.checked) document.querySelector('#deploy').checked = false;
+    if(['extensionInstalled','deploy'].includes(id) && event.target.checked) {
+      document.querySelector('#portableInstalled').checked = false;
+      document.querySelector('#portableDeployed').checked = false;
+    }
+    if(['portableInstalled','portableDeployed'].includes(id) && event.target.checked) {
+      document.querySelector('#portableInstalled').checked = true;
+      document.querySelector('#extensionInstalled').checked = false;
+      document.querySelector('#deploy').checked = false;
+    }
+    if(id === 'portableInstalled' && !event.target.checked) document.querySelector('#portableDeployed').checked = false;
     update();
   });
 }
-const views = {iso:[6,-7,4.5], side:[-.5,-10,1.3], top:[-.5,-.001,10], front:[10,0,1.3]};
+const views = {iso:[6,-7,4.5], side:[-.5,-10,1.3], top:[-.5,-.001,10], front:[10,0,1.3], portable:[6,-10,6]};
 document.querySelectorAll('[data-view]').forEach(button => button.addEventListener('click', () => {
-  camera.position.set(...views[button.dataset.view]); controls.target.set(-.5,0,1.2); controls.update();
+  camera.position.set(...views[button.dataset.view]); controls.target.set(-.5,button.dataset.view === 'portable' ? -1.6 : 0,1.2); controls.update();
 }));
 let selection;
 function focusItem(item, globalCoordinates = false) {

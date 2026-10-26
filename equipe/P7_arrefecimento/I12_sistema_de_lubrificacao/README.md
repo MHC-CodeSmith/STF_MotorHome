@@ -3,7 +3,7 @@
 **Responsável:** P7 — Bateria térmica e arrefecimento  
 **Enunciado / tarefa:** Especificar lubrificação aplicável à transmissão/motor e requisitos.  
 **Depende de:** I04 (P4), I05 (P4)  
-**Status:** Não iniciado (estrutura criada automaticamente).
+**Status:** Em desenvolvimento — evidências parciais; revisão humana pendente.
 
 ## Entrega mínima
 - `teoria.md`: fenômeno físico, equações, hipóteses e faixa de validade.

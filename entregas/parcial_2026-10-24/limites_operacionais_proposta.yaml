@@ -1,0 +1,30 @@
+revision: limites-operacionais-0.1
+status: RESTRICAO_DE_FICHA_OEM_COM_DIVERGENCIA_REGISTRADA
+platform_variant: 505.GG1.2
+gross_limit_kg: 4250
+source:
+  file: /home/mhc/motorhome_referencias_tarefas/fichas-eletricas/e-ducato-MY25-SK-20260320.pdf
+  sha256: e3becec7275a4a13df61aa7fc5e8b0f6eb38ff6c3584d755d5b1bbd5f5e6224f
+  url: https://www.fiat.sk/content/dam/fiat2023/sk/cenniky/2026/03/e_Ducato_pricelist_dodavka_200326.pdf
+  restriction_page: 3
+  mode_table_page: 4
+  accessed: '2026-10-26'
+speed_limiter_km_h: 90
+speed_limiter_status: A ficha informa90km/h de série nas versões4250kg; conservar ativo na proposta.
+generic_mode_speeds_km_h: {eco: 90, normal: 130, sport: 130}
+conflict_resolution: Limite específico da versão prevalece no cenário conservador; não assumir retirada do limitador.
+zero_to_100:
+  attainable_with_limiter: false
+  time_s: null
+  reason: Velocidade-alvo100km/h excede limite90km/h; não inventar tempo de aceleração.
+item33:
+  prescribed_initial_speed_km_h: 108
+  prescribed_final_speed_km_h: 36
+  interpretation: Ensaio térmico prescrito, acima do limite operacional; não alegar evento viável nesta configuração limitada.
+transmission:
+  architecture: Retenção do redutor de relação fixa e diferencial dianteiro OEM.
+  supplemental_oem_url: https://www.fiat.de/professional/modelle/e-ducato/technical-data
+  total_ratio: null
+  efficiency_map: null
+  maximum_rpm: null
+  note: Dados alemães confirmam arquitetura; não importar97kWh úteis do mercadoDE para98kWh da varianteSK.

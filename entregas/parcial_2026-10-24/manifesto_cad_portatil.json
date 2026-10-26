@@ -1,0 +1,12 @@
+{
+  "status": "ALTERNATIVA_ESTACIONADA_SEM_SOBRECARGA_DO_TETO_PENDENTE_FIXACAO",
+  "positive_step_volumes": 324,
+  "storage": "Bolsas verticais sob cama; envelopes assumidos, sem projeto de ancoragem.",
+  "ground": "Posições ilustrativas; sem cálculo de sombra entre fileiras/vento/ancoragem.",
+  "inputs_sha256": {
+    "config/solar_portatil_proposta.yaml": "e50cbee5f70a290bf9f7ea738d7ef2b45e4c3de672d702a0d830737a00e6d7f3",
+    "/home/mhc/motorhome_referencias_tarefas/solar-portatil-02/resumo_solar_portatil.json": "c632a58872a3a349b20b5e6244a060668f49db13b2c6303591de7fdbdc39fea3",
+    "/home/mhc/motorhome_solar_codex_tarefas/scripts/gerar_cad_solar_portatil.py": "34e6ccabc2c978469b1de5b421f446fed04432a2eada809d8d9b7362088cb738",
+    "entregas/parcial_2026-10-24/aurora_L3H2_proposta_m.glb": "1ba262344eb2700340a7e9f6474b9386392b10e7c1c7afb89e4d19950f2f6e2d"
+  }
+}

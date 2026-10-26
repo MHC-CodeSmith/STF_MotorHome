@@ -1,0 +1,169 @@
+{
+  "status": "LIMITES_CONDICIONADOS_NAO_AGENDA_OTIMA",
+  "generated_utc": "2026-10-26T13:41:13.161153+00:00",
+  "case_40_80": [
+    {
+      "speed_km_h": 40,
+      "battery_km_kwh_min": 3.247966270432634,
+      "battery_km_kwh_max": 5.7752890303340765,
+      "fixed_pv_only_distance_km_min": 17.886059475723513,
+      "fixed_pv_only_distance_km_max": 31.803644029926925
+    },
+    {
+      "speed_km_h": 80,
+      "battery_km_kwh_min": 1.9694219042321433,
+      "battery_km_kwh_max": 3.0291373298575097,
+      "fixed_pv_only_distance_km_min": 10.845308842199497,
+      "fixed_pv_only_distance_km_max": 16.68100156555781
+    }
+  ],
+  "mission_daily_budgets": [
+    {
+      "layout": "fixed",
+      "pv_kwh_day": 5.506848897584476,
+      "house_consumption_kwh_day": 5.276505912917361,
+      "aggregate_house_efficiency_assumed": 0.85,
+      "daily_surplus_before_traction_conversion_kwh": -0.7008051176124193,
+      "best_battery_km_kwh_in_grid": 6.6366816760190535,
+      "optimistic_initial_usable_kwh": 106.19200000000001,
+      "necessary_days_energy_lower_bound": null,
+      "7000km_energy_infeasible_in_repeated_day_model": true
+    },
+    {
+      "layout": "fixed",
+      "pv_kwh_day": 5.506848897584476,
+      "house_consumption_kwh_day": 5.276505912917361,
+      "aggregate_house_efficiency_assumed": 0.9,
+      "daily_surplus_before_traction_conversion_kwh": -0.3559354501014802,
+      "best_battery_km_kwh_in_grid": 6.6366816760190535,
+      "optimistic_initial_usable_kwh": 106.19200000000001,
+      "necessary_days_energy_lower_bound": null,
+      "7000km_energy_infeasible_in_repeated_day_model": true
+    },
+    {
+      "layout": "fixed",
+      "pv_kwh_day": 5.506848897584476,
+      "house_consumption_kwh_day": 5.276505912917361,
+      "aggregate_house_efficiency_assumed": 0.95,
+      "daily_surplus_before_traction_conversion_kwh": -0.04736785285485112,
+      "best_battery_km_kwh_in_grid": 6.6366816760190535,
+      "optimistic_initial_usable_kwh": 106.19200000000001,
+      "necessary_days_energy_lower_bound": null,
+      "7000km_energy_infeasible_in_repeated_day_model": true
+    },
+    {
+      "layout": "fixed",
+      "pv_kwh_day": 5.506848897584476,
+      "house_consumption_kwh_day": 5.276505912917361,
+      "aggregate_house_efficiency_assumed": 1.0,
+      "daily_surplus_before_traction_conversion_kwh": 0.23034298466711522,
+      "best_battery_km_kwh_in_grid": 6.6366816760190535,
+      "optimistic_initial_usable_kwh": 106.19200000000001,
+      "necessary_days_energy_lower_bound": 4117.99810007993,
+      "7000km_energy_infeasible_in_repeated_day_model": false
+    },
+    {
+      "layout": "extension_shading_geometric",
+      "pv_kwh_day": 10.32677355422989,
+      "house_consumption_kwh_day": 5.276505912917361,
+      "aggregate_house_efficiency_assumed": 0.85,
+      "daily_surplus_before_traction_conversion_kwh": 4.119119539032995,
+      "best_battery_km_kwh_in_grid": 6.6366816760190535,
+      "optimistic_initial_usable_kwh": 106.19200000000001,
+      "necessary_days_energy_lower_bound": 230.2802733053489,
+      "7000km_energy_infeasible_in_repeated_day_model": false
+    },
+    {
+      "layout": "extension_shading_geometric",
+      "pv_kwh_day": 10.32677355422989,
+      "house_consumption_kwh_day": 5.276505912917361,
+      "aggregate_house_efficiency_assumed": 0.9,
+      "daily_surplus_before_traction_conversion_kwh": 4.463989206543934,
+      "best_battery_km_kwh_in_grid": 6.6366816760190535,
+      "optimistic_initial_usable_kwh": 106.19200000000001,
+      "necessary_days_energy_lower_bound": 212.48975509067137,
+      "7000km_energy_infeasible_in_repeated_day_model": false
+    },
+    {
+      "layout": "extension_shading_geometric",
+      "pv_kwh_day": 10.32677355422989,
+      "house_consumption_kwh_day": 5.276505912917361,
+      "aggregate_house_efficiency_assumed": 0.95,
+      "daily_surplus_before_traction_conversion_kwh": 4.772556803790563,
+      "best_battery_km_kwh_in_grid": 6.6366816760190535,
+      "optimistic_initial_usable_kwh": 106.19200000000001,
+      "necessary_days_energy_lower_bound": 198.75132182241214,
+      "7000km_energy_infeasible_in_repeated_day_model": false
+    },
+    {
+      "layout": "extension_shading_geometric",
+      "pv_kwh_day": 10.32677355422989,
+      "house_consumption_kwh_day": 5.276505912917361,
+      "aggregate_house_efficiency_assumed": 1.0,
+      "daily_surplus_before_traction_conversion_kwh": 5.050267641312529,
+      "best_battery_km_kwh_in_grid": 6.6366816760190535,
+      "optimistic_initial_usable_kwh": 106.19200000000001,
+      "necessary_days_energy_lower_bound": 187.82211965688987,
+      "7000km_energy_infeasible_in_repeated_day_model": false
+    },
+    {
+      "layout": "extension_lower_string_disabled",
+      "pv_kwh_day": 9.188908582509994,
+      "house_consumption_kwh_day": 5.276505912917361,
+      "aggregate_house_efficiency_assumed": 0.85,
+      "daily_surplus_before_traction_conversion_kwh": 2.9812545673130986,
+      "best_battery_km_kwh_in_grid": 6.6366816760190535,
+      "optimistic_initial_usable_kwh": 106.19200000000001,
+      "necessary_days_energy_lower_bound": 318.17208219183306,
+      "7000km_energy_infeasible_in_repeated_day_model": false
+    },
+    {
+      "layout": "extension_lower_string_disabled",
+      "pv_kwh_day": 9.188908582509994,
+      "house_consumption_kwh_day": 5.276505912917361,
+      "aggregate_house_efficiency_assumed": 0.9,
+      "daily_surplus_before_traction_conversion_kwh": 3.3261242348240376,
+      "best_battery_km_kwh_in_grid": 6.6366816760190535,
+      "optimistic_initial_usable_kwh": 106.19200000000001,
+      "necessary_days_energy_lower_bound": 285.18236429497114,
+      "7000km_energy_infeasible_in_repeated_day_model": false
+    },
+    {
+      "layout": "extension_lower_string_disabled",
+      "pv_kwh_day": 9.188908582509994,
+      "house_consumption_kwh_day": 5.276505912917361,
+      "aggregate_house_efficiency_assumed": 0.95,
+      "daily_surplus_before_traction_conversion_kwh": 3.6346918320706667,
+      "best_battery_km_kwh_in_grid": 6.6366816760190535,
+      "optimistic_initial_usable_kwh": 106.19200000000001,
+      "necessary_days_energy_lower_bound": 260.97177341319065,
+      "7000km_energy_infeasible_in_repeated_day_model": false
+    },
+    {
+      "layout": "extension_lower_string_disabled",
+      "pv_kwh_day": 9.188908582509994,
+      "house_consumption_kwh_day": 5.276505912917361,
+      "aggregate_house_efficiency_assumed": 1.0,
+      "daily_surplus_before_traction_conversion_kwh": 3.912402669592633,
+      "best_battery_km_kwh_in_grid": 6.6366816760190535,
+      "optimistic_initial_usable_kwh": 106.19200000000001,
+      "necessary_days_energy_lower_bound": 242.4474302193148,
+      "7000km_energy_infeasible_in_repeated_day_model": false
+    }
+  ],
+  "speed_limit_km_h": 90,
+  "notes": [
+    "98kWh tração+8,192kWh de serviços compartilhados idealmente só para limite otimista; interligação não demonstrada.",
+    "Perdas da habitação são sensibilidades agregadas; auxiliares de tração800W ainda independentes, sem descontar suposta sobreposição.",
+    "Limite necessário de energia não é agenda, mínimo global ou previsão da rota; não inclui limite de8h/dia ou instalação da extensão.",
+    "Dia claro21jun repetido; expansão excede referência de teto na hipótese empilhada. Não arquitetura aprovada.",
+    "I25 antes da habitação mostra limite superior solar-only, não energia realmente disponível ao motor.",
+    "I27/I29 anteriores continuam históricos; este arquivo não substitui suas agendas por ótimo inventado."
+  ],
+  "inputs_sha256": {
+    "config/energia_sensibilidade.yaml": "d49f6c01790b4ae7ddc5282d3e1793094ac358007666455e1f129c7549172375",
+    "config/limites_operacionais_proposta.yaml": "68a1032fa99d9c6c1fabe8d563782523260249069f2ceba5bde804d8ba566c78",
+    "entregas/parcial_2026-10-24/resumo_expansao_solar.json": "e7db815ba2661e5530992dc0feca31dece48804aa8658f6d477162a880beb430",
+    "/home/mhc/motorhome_solar_codex_tarefas/scripts/calcular_missao_atual.py": "d34cba269969533b7c5b7c3a270ea0e65b04cfa920d1f29752d088bf473f2b02"
+  }
+}

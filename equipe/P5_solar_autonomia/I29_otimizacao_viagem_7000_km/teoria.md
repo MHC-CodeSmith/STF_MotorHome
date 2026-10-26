@@ -1,3 +1,9 @@
+# Atualização de26/10/2026
+
+Resultados, fontes primárias, hipóteses, equações e limites atuais em
+[FECHAMENTO_TERMICO_E_MISSAO.md](../../../docs/FECHAMENTO_TERMICO_E_MISSAO.md).
+Os métodos abaixo preservam o histórico; nenhuma aprovação de engenharia foi concedida.
+
 # Método e limites — item 29
 
 Minimizar o tempo total para 7.000.000 m com bateria inicial e solar, sem recarga externa, até 28.800 s de condução por dia de calendário.

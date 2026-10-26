@@ -1,16 +1,16 @@
-# Fundamentação teórica — item 24
+# I24 — BOM e custo em reais
 
-## Objetivo e fenômeno
-BOM em BRL, quantidades, taxas, impostos de importação e data das cotações.
+BOM parcial27linhas derivadas das configurações de equipamentos/elétrica/solar,
+com quantidade, massa conhecida, inclusãoOEM, opção e preço de referência quando
+consultado. Custo final=sum(q_i*p_i)+fretes+instalação+tributos aplicáveis sem
+dupla contagem; insumos ausentes permanecem null, nunca zero.
 
-## Equações e hipóteses
-A preencher com equações corretas e citações. Não inventar dados.
+Oferta pública ElectroluxIE3TPR$439/R$589referência,26/10/2026, exige seleção
+devoltagem/entrega; não é cotação vinculante220V ou custo instalado. Tributos
+não foram discriminados. SubtotalR$439 não é o preço do motorhome.
+ChassiSK€50990semIVA não é custo nacional de importação emR$.
 
-## Entradas e unidades
-Dependências diretas: I02 (P1), I03 (P1), I04 (P4), I05 (P4), I06 (P2), I07 (P2), I08 (P5), I09 (P2), I10 (P7), I11 (P6), I12 (P7), I13 (P6), I14 (P1), I15 (P1), I16 (P3), I18 (P1).
-
-## Modelo / procedimento
-Descrever método, condição de contorno e critérios de convergência (se aplicável).
-
-## Limitações
-Identificar aproximações e sensibilidade das entradas.
+Preços, fretes, câmbio e tributos de aquisição efetiva, além de mobiliário,
+fixações/cabos/tubos/quadros/mão de obra, precisam completar o orçamento.
+[scripts/calcular_bom_e_rolamento.py](../../../scripts/calcular_bom_e_rolamento.py)
+reproduz CSV/JSON comhashes. [Fontes e limitações](../../../docs/MECANICA_ROLAMENTO_E_CUSTOS.md).

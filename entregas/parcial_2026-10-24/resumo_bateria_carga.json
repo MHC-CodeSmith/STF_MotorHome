@@ -1,0 +1,99 @@
+{
+  "status": "SENSIBILIDADE_ECM_TERMICA_NAO_PACK_OEM_CALIBRADO",
+  "revision": "bateria-termica-0.1",
+  "nominal": [
+    {
+      "requested_power_w": 20000,
+      "stop": "target_soc",
+      "duration_s": 10666.344572133281,
+      "final_soc": 0.8,
+      "final_battery_k": 299.02051241972833,
+      "max_battery_k": 299.02051241972833,
+      "terminal_energy_j": 213326891.4426656,
+      "ocv_charge_integral_j": 211680001.41685173,
+      "ohmic_energy_j": 1646890.0258138014,
+      "reversible_energy_j": 0.0,
+      "cooling_energy_j": 1117391.6070070376,
+      "sensible_energy_j": 529498.4188069276,
+      "electrical_residual_j": 7.613562047481537e-08,
+      "thermal_residual_j": -1.6379635781049728e-07
+    },
+    {
+      "requested_power_w": 80000,
+      "stop": "target_soc",
+      "duration_s": 2720.8939998892165,
+      "final_soc": 0.7999999999999999,
+      "final_battery_k": 305.11631764076753,
+      "max_battery_k": 305.11631764076753,
+      "terminal_energy_j": 217671519.99113733,
+      "ocv_charge_integral_j": 211680008.86701986,
+      "ohmic_energy_j": 5991511.124117495,
+      "reversible_energy_j": 0.0,
+      "cooling_energy_j": 1757444.0725172532,
+      "sensible_energy_j": 4234067.051600204,
+      "electrical_residual_j": -3.073364496231079e-08,
+      "thermal_residual_j": 3.725290298461914e-08
+    }
+  ],
+  "generated_utc": "2026-10-26T13:37:22.066034+00:00",
+  "convergence": [
+    {
+      "power_w": 20000,
+      "max_step_s": 120,
+      "duration_error_to_reference_s": 0.0015993065571819898,
+      "temperature_error_to_reference_k": 8.378394795727218e-07
+    },
+    {
+      "power_w": 20000,
+      "max_step_s": 60,
+      "duration_error_to_reference_s": 0.00011724089199560694,
+      "temperature_error_to_reference_k": 6.060344048819388e-08
+    },
+    {
+      "power_w": 20000,
+      "max_step_s": 30,
+      "duration_error_to_reference_s": 0.00010077499791805167,
+      "temperature_error_to_reference_k": 5.301825467540766e-08
+    },
+    {
+      "power_w": 80000,
+      "max_step_s": 120,
+      "duration_error_to_reference_s": 0.0029012264562879864,
+      "temperature_error_to_reference_k": 1.6535345196189155e-05
+    },
+    {
+      "power_w": 80000,
+      "max_step_s": 60,
+      "duration_error_to_reference_s": 1.7174054391944082e-05,
+      "temperature_error_to_reference_k": 9.835258651946788e-08
+    },
+    {
+      "power_w": 80000,
+      "max_step_s": 30,
+      "duration_error_to_reference_s": 0.00017535740971652558,
+      "temperature_error_to_reference_k": 9.997724532695429e-07
+    }
+  ],
+  "sources": {
+    "platform": "config/arquitetura_eletrica_proposta.yaml",
+    "chemistry_url": "https://www.fiat.co.uk/professional/models/ducato-electric",
+    "chemistry_evidence": "FAQ identifica110kWh LFP/205kW/410Nm; mercadoUK, não comprova composição da varianteSK individual.",
+    "method_url": "https://docs.pybamm.org/en/v25.10.2/source/examples/notebooks/models/thermal-models.html",
+    "accessed": "2026-10-26"
+  },
+  "limits": [
+    "Nenhum R(SOC,T), OCV, entropia, capacidade térmica, UA ou limiteBMS foi medido no packOEM.",
+    "Massa650kg não deve ser adicionada à tara2790kg OEM; usada somente na sensibilidade térmica.",
+    "Modelo de duas temperaturas concentradas; não campo de células nem eletroquímica PyBaMM executada.",
+    "Corrente positiva significa carga; calor reversível +I*T*dUoc/dT nesta convenção.",
+    "Potência é entregue aos terminais do pack; perdas do carregador externo não aquecem automaticamente o pack.",
+    "SOC20–80% é protocolo proposto; professor especifica potência, não esse intervalo.",
+    "Proteções250A/450V/45°C são limites hipotéticos; não aprovação OEM.",
+    "Refrigeração é dissipação para25°C por UA assumido, sem chiller abaixo do ambiente."
+  ],
+  "inputs_sha256": {
+    "config/bateria_termica_proposta.yaml": "96ee85de644490efa6d2b04ccd6875650cb00ba2e8706a9733ef2cb4708d86ae",
+    "/home/mhc/motorhome_solar_codex_tarefas/scripts/calcular_bateria_carga.py": "b8a67f485fb24872b2899a1c2cd57d14406474e057bd58681f55cf8368794a53",
+    "src/motorhome/bateria_carga.py": "d00b26a51b06eec8b729babb8203edd45717faa42f3fcd8a379e3840c61d3fd3"
+  }
+}

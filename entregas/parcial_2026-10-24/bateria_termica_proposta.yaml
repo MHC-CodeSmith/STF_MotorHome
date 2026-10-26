@@ -1,0 +1,48 @@
+revision: bateria-termica-0.1
+status: SENSIBILIDADE_ECM_TERMICA_NAO_PACK_OEM_CALIBRADO
+sources:
+  platform: config/arquitetura_eletrica_proposta.yaml
+  chemistry_url: https://www.fiat.co.uk/professional/models/ducato-electric
+  chemistry_evidence: FAQ identifica110kWh LFP/205kW/410Nm; mercadoUK, não comprova composição da varianteSK individual.
+  method_url: https://docs.pybamm.org/en/v25.10.2/source/examples/notebooks/models/thermal-models.html
+  accessed: '2026-10-26'
+official:
+  charger_powers_w: [20000, 80000]
+  ambient_k: 298.15
+assumed:
+  soc_initial: 0.2
+  soc_final: 0.8
+  capacity_ah: 245
+  capacity_note: 98kWh/400V; capacidade equivalente da janela útil, não Ah medido da célula/pack.
+  ocv_soc: [0, 0.2, 0.5, 0.8, 1]
+  ocv_v: [360, 390, 400, 410, 440]
+  ocv_note: Curva hipotética; 400Vnominais não definem OCV(SOC).
+  reference_k: 298.15
+  resistance_ref_ohm: 0.06
+  resistance_soc_curvature: 2
+  resistance_activation_over_r_k: 2000
+  pack_entropy_v_k: 0
+  battery_mass_kg: 650
+  battery_cp_j_kgk: 900
+  coolant_mass_kg: 20
+  coolant_cp_j_kgk: 3500
+  battery_coolant_ua_w_k: 250
+  cooler_ambient_ua_w_k: 500
+  initial_battery_k: 298.15
+  initial_coolant_k: 298.15
+  maximum_current_a: 250
+  maximum_voltage_v: 450
+  temperature_stop_k: 318.15
+  maximum_simulation_s: 30000
+sensitivities:
+  resistance_ref_ohm: [0.03, 0.06, 0.12]
+  pack_entropy_v_k: [-0.02, 0, 0.02]
+limits:
+  - Nenhum R(SOC,T), OCV, entropia, capacidade térmica, UA ou limiteBMS foi medido no packOEM.
+  - Massa650kg não deve ser adicionada à tara2790kg OEM; usada somente na sensibilidade térmica.
+  - Modelo de duas temperaturas concentradas; não campo de células nem eletroquímica PyBaMM executada.
+  - Corrente positiva significa carga; calor reversível +I*T*dUoc/dT nesta convenção.
+  - Potência é entregue aos terminais do pack; perdas do carregador externo não aquecem automaticamente o pack.
+  - SOC20–80% é protocolo proposto; professor especifica potência, não esse intervalo.
+  - Proteções250A/450V/45°C são limites hipotéticos; não aprovação OEM.
+  - Refrigeração é dissipação para25°C por UA assumido, sem chiller abaixo do ambiente.

@@ -19,6 +19,7 @@ def main():
     p.add_argument('--equipamentos', type=Path, default=Path('config/equipamentos_interior.yaml'))
     p.add_argument('--eletrica', type=Path, default=Path('config/instalacoes_eletricas_proposta.yaml'))
     p.add_argument('--cad-eletrico', type=Path, required=True)
+    p.add_argument('--cad-portatil', type=Path)
     p.add_argument('--destino', type=Path, required=True)
     args = p.parse_args()
     layout = yaml.safe_load(args.layout.read_text())
@@ -28,6 +29,13 @@ def main():
     data['electrical'] = yaml.safe_load(args.eletrica.read_text())
     data['electrical_glb_base64'] = base64.b64encode(args.cad_eletrico.read_bytes()).decode()
     cad_inputs = []
+    for key, filename in [('portable_ground_glb_base64', 'solar_portatil_solo.glb'),
+                          ('portable_storage_glb_base64', 'solar_portatil_transporte.glb')]:
+        data[key] = None
+        if args.cad_portatil:
+            path = args.cad_portatil/filename
+            cad_inputs.append(path)
+            data[key] = base64.b64encode(path.read_bytes()).decode()
     for key, filename in [('interior_glb_base64', 'interior_equipado.glb'),
                           ('roof_fixed_glb_base64', 'cobertura_fixa.glb'),
                           ('roof_stowed_glb_base64', 'cobertura_recolhida.glb'),
@@ -51,6 +59,7 @@ def main():
 <p>Geometria: razor24 (2019), Dogan Ulus (2025), OpenX Assets 20261015, MPL-2.0 AND CC-BY-4.0. Transformações autorais: eixos, comprimento e altura; rodas por translação. Créditos/licenças completos em <a href="ATTRIBUTION.txt">ATTRIBUTION.txt</a>, <a href="CC-BY-4.0.txt">CC-BY-4.0</a> e <a href="MPL-2.0.txt">MPL-2.0</a>. Fonte em <a href="https://github.com/vevalabs/openx-assets/tree/1a63f13b5cfee3e01207a84b13b40fc172d92a95/src/vehicles/fiat_ducato_2014">OpenX Assets</a>. Renderização: Three.js 0.180.0, licença MIT preservada.</p></footer>
 <script>window.AURORA_DATA=__DATA__;</script><script>__BUNDLE__</script></html>'''
     html = html.replace('__DATA__', json.dumps(data, ensure_ascii=True).replace('</', '<\\/'))
+    html = html.replace('<p id="solarState">', '<label><input type="checkbox" id="portableInstalled"> Alternativa: 4 painéis portáteis / bolsas sob cama</label><label><input type="checkbox" id="portableDeployed"> Montar portáteis no solo (somente parado)</label><button data-view="portable">Vista dos portáteis</button><p id="solarState">')
     html = html.replace('<label><input type="checkbox" id="wire">', '<label><input type="checkbox" id="isolate"> Isolar equipamento selecionado</label><label><input type="checkbox" id="wire">')
     html = html.replace('<a href="interior_equipado.step">', '<a href="tracao_e_servicos.step">CAD STEP da tração e elétrica</a> · <a href="interior_equipado.step">')
     html = html.replace('__BUNDLE__', args.bundle.read_text().replace('</script', '<\\/script'))

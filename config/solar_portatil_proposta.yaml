@@ -1,0 +1,48 @@
+revision: solar-portatil-0.1
+status: ALTERNATIVA_ESTACIONADA_SEM_SOBRECARGA_DO_TETO_PENDENTE_FIXACAO
+module:
+  model: EcoFlow400W Portable Solar Panel, manual2022
+  url: https://websiteoss.ecoflow.com/website/upload/2022/2/22/400W_Solar_Panel_User_Manual_1645511402758.pdf
+  page: 8
+  pdf_sha256: d61b79b927ab0903f26d28a30ef352bd9c475e3a48c15f894e54f242fe0f65e0
+  accessed: '2026-10-26'
+  quantity: 4
+  p_stc_w: 400
+  gamma_pdc_per_k: -0.0039
+  voc_v: 48
+  vmp_v: 41
+  isc_a: 11
+  imp_a: 9.8
+  beta_voc_per_k: -0.0033
+  beta_voc_uncertainty_per_k: 0.0003
+  mass_panel_kg: 15
+  mass_with_case_kg: 21
+  open_dimensions_m: [2.390, 1.068, 0.024]
+  folded_dimensions_m: [1.068, 0.620, 0.024]
+  storage_instruction: Manualp5 recomenda vertical, sem compressão/impacto; bolsa de proteção quando armazenado.
+controller:
+  model: VictronSmartSolarMPPT150/35 dedicado ao portátil
+  url: https://www.victronenergy.com/upload/documents/Datasheet-SmartSolar-charge-controller-MPPT-150-35-%26-150-45-EN.pdf
+  series: 2
+  parallel: 2
+  max_pv_short_circuit_a: 40
+  max_cold_voc_v: 150
+  max_operating_v: 145
+  max_charge_a: 35
+  nominal_pv_at48v_w: 2000
+assumed:
+  ground_tilt_deg: 45
+  azimuth_deg: 0
+  cold_design_c: -20
+  operating_cell_hot_c: 85
+  case_envelope_xyz_m: [1.10, 0.065, 0.65]
+  first_case_position_interior_xyz_m: [0.87, 1.08, 0.05]
+  additional_controller_mass_kg: 1.25
+  supports_and_tie_down_mass_kg: null
+limits:
+  - Substitui como alternativa a extensão empilhada pesada; não somar ambas na configuração proposta.
+  - Somente parado, quatro módulos no solo, sem sombra; recolher antes de conduzir.
+  - Volume da bolsa e suportes de transporte estimados; AABB não valida acesso, ventilação ou fixação contra colisão.
+  - Estojo84kg total inclui bolsas; não usar60kg do painel sozinho.
+  - Sem curvaIV/coeficientes completos: tensão em calor/frio é triagem, não certificação elétrica.
+  - Interligação com traçãoOEM continua não demonstrada; a geração não é autonomia garantida.

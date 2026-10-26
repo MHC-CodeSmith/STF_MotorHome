@@ -1,16 +1,25 @@
-# Fundamentação teórica — item 28
+# Atualização de26/10/2026
 
-## Objetivo e fenômeno
-Calcular vmax e tempo 0–100 no plano, sem vento; se não atingir 100, declarar.
+Resultados, fontes primárias, hipóteses, equações e limites atuais em
+[FECHAMENTO_TERMICO_E_MISSAO.md](../../../docs/FECHAMENTO_TERMICO_E_MISSAO.md).
+Os métodos abaixo preservam o histórico; nenhuma aprovação de engenharia foi concedida.
 
-## Equações e hipóteses
-A preencher com equações corretas e citações. Não inventar dados.
+# I28 — limite operacional e 0–100
 
-## Entradas e unidades
-Dependências diretas: I04 (P4), I05 (P4), I18 (P1), I19 (P3), I20 (P4), I22 (P4).
+FichaFiatSK20/03/2026p3: limitador90km/h de série nas versões4250kg.
+P4 indica90/130/130km/h genericamente nos modosECO/NORMAL/SPORT; a proposta
+preserva a restrição específica da versão, sem alegar retirada do limitador.
+Página3 renderizada e conferida. Fonte/hash emconfig/limites_operacionais_proposta.yaml.
 
-## Modelo / procedimento
-Descrever método, condição de contorno e critérios de convergência (se aplicável).
+Logo v_max_operacional <=25m/s. Atingir o próprio limite90km/h exige curvas
+reais/perdas/massa; não é provado apenas pela ficha. Com limitador ativo,
+100km/h não é alcançável: tempo0–100 não finito/aplicável; campoJSON permanece null
+com motivo explícito, nunca0s. Não inventar curva de aceleração.
 
-## Limitações
-Identificar aproximações e sensibilidade das entradas.
+Sem limitador, a integração seria m_equiv*dv/dt=F_tracao(v)-F_aero(v)-F_rol,
+com F_tracao limitada por torque/RPM, transmissão, corrente, potência e aderência.
+Essas entradas continuam pendentes; não confundir picos205kW/410Nm com mapa.
+
+I33 usa30→10m/s por exigência do professor, equivalente108→36km/h;
+é ensaio térmico prescrito, não evento operacional alegado nesta versão limitada.
+[Integração](../../../docs/FECHAMENTO_TERMICO_E_MISSAO.md).

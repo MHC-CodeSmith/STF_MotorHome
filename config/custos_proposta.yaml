@@ -1,0 +1,24 @@
+revision: custos-0.1
+status: BOM_COTACOES_PARCIAIS_SEM_TOTAL_FINAL
+quote_date: '2026-10-26'
+currency: BRL
+quotes:
+  - id: fogao
+    unit_price_brl: 439.00
+    public_reference_price_brl: 589.00
+    url: https://loja.electrolux.com.br/cooktop-de-inducao-portatil-1-zona-electrolux--ie3tp-/p?idsku=310118641
+    evidence: Página oficial mostra439promocional/589referência; exige seleção de tensão e consulta de entrega.
+    exact_220v_price_confirmed: false
+    tax_breakdown_verified: false
+    shipping_brl: null
+    note: Referência pública, não cotação vinculante de220V; não usar como custo total instalado.
+missing_scopes:
+  - ChassiBEV no Brasil/importação; preçoOEMSK50990EUR é semIVA e não preço nacional emR$.
+  - Móveis/isolamento/revestimentos/vidros/aberturas/suportes/fixações/mão de obra.
+  - Frete, câmbio/tributação de importação, encargos e documentação, conforme aquisição efetiva.
+  - Preços atuais das baterias, HVAC, geladeira, solar e eletrônica de serviços.
+  - Água/esgoto, mangueiras/cabos/fusíveis/conectores/quadro/ventilação e ferragens.
+rules:
+  - ItensOEM já incluídos no chassi não devem ser somados novamente.
+  - Preço ausente permanece null; nunca zero nem estimativa silenciosa.
+  - Subtotal cotado não é custo total do projeto; tributos/frete não confirmados bloqueiamI24final.

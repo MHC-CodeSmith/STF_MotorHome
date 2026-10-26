@@ -3,7 +3,7 @@
 **Responsável:** P4 — Motor, transmissão e dinâmica  
 **Enunciado / tarefa:** Calcular vmax e tempo 0–100 no plano, sem vento; se não atingir 100, declarar.  
 **Depende de:** I04 (P4), I05 (P4), I18 (P1), I19 (P3), I20 (P4), I22 (P4)  
-**Status:** Não iniciado (estrutura criada automaticamente).
+**Status:** Em desenvolvimento — evidências parciais; revisão humana pendente.
 
 ## Entrega mínima
 - `teoria.md`: fenômeno físico, equações, hipóteses e faixa de validade.
@@ -19,3 +19,7 @@ Entradas oficiais em `config/parametros_globais.yaml`; cada atualização releva
 
 ## Aceite
 O item só vira **aprovado** quando tiver resultados reproduzíveis, referências e uma revisão por outro integrante.
+
+## Avanço de26/10/2026
+
+Ver [integração térmica, operação e missão](../../../docs/FECHAMENTO_TERMICO_E_MISSAO.md).

@@ -1,16 +1,23 @@
-# Fundamentação teórica — item 05
+# Atualização de26/10/2026
 
-## Objetivo e fenômeno
-Selecionar transmissão e relações; documentar eficiência.
+Resultados, fontes primárias, hipóteses, equações e limites atuais em
+[FECHAMENTO_TERMICO_E_MISSAO.md](../../../docs/FECHAMENTO_TERMICO_E_MISSAO.md).
+Os métodos abaixo preservam o histórico; nenhuma aprovação de engenharia foi concedida.
 
-## Equações e hipóteses
-A preencher com equações corretas e citações. Não inventar dados.
+# I05 — transmissão elétrica retida
 
-## Entradas e unidades
-Dependências diretas: I04 (P4), I02 (P1).
+Proposta: manter redutor de relação fixa, diferencial e semieixos dianteiros OEM.
+A [Fiat DE](https://www.fiat.de/professional/modelle/e-ducato/technical-data)
+confirma transmissão elétrica de relação fixa. Consulta26/10/2026. Isso não
+fornece relação total, rendimento, rotação máxima ou curva de perdas da varianteSK.
+Não importar97kWh úteis da páginaDE para98kWh da fichaSK.
 
-## Modelo / procedimento
-Descrever método, condição de contorno e critérios de convergência (se aplicável).
+Equações SI: omega_motor=i_total*v/r_efetivo;
+T_roda=eta_trans*i_total*T_motor; P_roda=eta_trans*P_motor.
+Raio efetivo do pneu candidato0,361262m, conforme documentação Continental;
+não é raio da malha visual. Sem i_total/n_max/mapas, não se geram curvas reais.
+Nenhum câmbio manual de Ducato diesel foi adotado por analogia.
 
-## Limitações
-Identificar aproximações e sensibilidade das entradas.
+Limite de90km/h na versão4250kg da fichaSKp3 deve ser preservado.
+[Proveniência e interfaces](../../../docs/FECHAMENTO_TERMICO_E_MISSAO.md).
+Relação, óleo homologado, limites e revisão humana PENDENTES.

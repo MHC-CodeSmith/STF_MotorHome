@@ -3,7 +3,7 @@
 **Responsável:** P4 — Motor, transmissão e dinâmica  
 **Enunciado / tarefa:** Determinar Cr adequado a pneus/superfície/pressão/carga com referência.  
 **Depende de:** I02 (P1), I18 (P1)  
-**Status:** Não iniciado (estrutura criada automaticamente).
+**Status:** Em desenvolvimento — evidências parciais; revisão humana pendente.
 
 ## Entrega mínima
 - `teoria.md`: fenômeno físico, equações, hipóteses e faixa de validade.

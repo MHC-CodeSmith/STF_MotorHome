@@ -379,6 +379,121 @@ def main():
          'no máximo superficial. Fontes/hipóteses/hashes em resumo_freios.json; I03/I33 parciais.')
     page()
 
+    heading('3I. Bateria em carga: 20 e 80 kW — I34')
+    pack = json.loads((delivery/'resumo_bateria_carga.json').read_text())
+    pic('bateria_carga_carga_bateria.png', 7)
+    table([['Carga elétrica', 'Tempo 20–80%', 'Bateria final', 'Calor Joule'],
+           *[[f'{r["requested_power_w"]/1000:.0f} kW', f'{r["duration_s"]/3600:.4f} h',
+              f'{r["final_battery_k"]-273.15:.3f} °C', f'{r["ohmic_energy_j"]/3.6e6:.4f} kWh']
+             for r in pack['nominal']]], [4, 4, 4, 5])
+    para('Modelo autoral ECM e dois nós térmicos, SOC, R(SOC,T), calor reversível e eventos '
+         'de parada. Corrente positiva na carga: P = Uoc I + RI²; Q = RI² + IT dUoc/dT. '
+         'A potência do carregador é entregue aos terminais; não vira integralmente calor. '
+         'Integral de Uoc I e balanço térmico conferidos separadamente; não declarar integral '
+         'Uoc I como energia química total com entropia.')
+    para('<b>Parâmetros de pack ainda hipotéticos:</b> 245 Ah equivalentes, curva OCV, '
+         'Rref 0,06 ohm, massa 650 kg, cp 900 J/(kg K), refrigerante 20 kg, UA 250/500 W/K. '
+         'Início 25 °C; protocolo proposto 20–80%; limites ilustrativos 250 A / 450 V / 45 °C. '
+         'Não são limites OEM. Massa do pack não é adicionada novamente à tara.')
+    para('18 sensibilidades de resistência/entropia e dois casos adiabáticos. Resíduos nominais '
+         'menores que 2e-7 J; comparação adaptativa contra passo máximo de 5 s: diferenças '
+         'até 0,00291 s e 0,0000166 K. Nove testes de limites, carga ideal, energia e parada. '
+         'I34 continua condicionado; não foi executado modelo eletroquímico de células. '
+         'Método: apostila cap. 2 / Eq. 112 e documentação térmica PyBaMM v25.10.2. '
+         'Fontes, hashes e limites em resumo_bateria_carga.json e docs/FECHAMENTO_TERMICO_E_MISSAO.md.')
+    page()
+
+    heading('3J. Ponto de operação da bomba — I35')
+    hydraulic = json.loads((delivery/'resumo_hidraulica.json').read_text())
+    op = hydraulic['operating_point']
+    pic('hidraulica_ponto_operacao.png', 6.5)
+    para(f'Curva publicada Bosch PCE2-XL 039202453G a 12 V, leitura visual aproximada. '
+         f'Interseção com circuito proposto: <b>{op["flow_l_min"]:.3f} L/min</b>, '
+         f'{op["pump_pressure_pa"]/1000:.3f} kPa e {op["mass_flow_kg_s"]:.4f} kg/s. '
+         f'Consumo {op["electric_power_w"]:.0f} W; potência hidráulica {op["hydraulic_power_w"]:.2f} W. '
+         'PCHIP sem extrapolação. Leitura ±3 kPa resulta aproximadamente 31,38–32,31 L/min; '
+         'isso não é intervalo de fabricação ou de confiança.')
+    para('Darcy–Weisbach: 6 m de mangueira de 20 mm, K = 8; perdas de camisas/radiador '
+         '20/8/15 kPa a 30 L/min, <b>assumidas</b>. Propriedades do fluido também assumidas. '
+         'Circuito fechado: não adicionar altura geométrica como carga estática líquida. '
+         'Pressão de enchimento não é a pressão diferencial da bomba.')
+    table([['eta motor+inversor assumida', 'Carga incluindo bomba', 'Entrada / retorno'],
+           *[[f'{r["combined_efficiency_assumed"]*100:.0f}%', f'{r["radiator_load_w"]/1000:.3f} kW',
+              f'{r["hot_inlet_k"]-273.15:.2f} / {r["coolant_outlet_k"]-273.15:.2f} °C']
+             for r in hydraulic['thermal_equilibria']]], [6.5, 5, 5.5])
+    para('Equilíbrio cruzado com UA = 1000 W/K e ar = 1 kg/s assumidos, na vazão calculada. '
+         'Toda potência da bomba foi atribuída ao circuito como calor. 205 kW é pico, '
+         'não potência contínua comprovada. Faltam UA/perdas reais, curva do ventilador, '
+         'NPSH, propriedades na temperatura de trabalho e limites OEM. Não substitui circuito '
+         'original. Ficha Bosch, método, perfis e hashes: resumo_hidraulica.json e documentação local.')
+    page()
+
+    heading('3K. Alternativa portátil e revisão da missão solar')
+    portable = json.loads((delivery/'resumo_solar_portatil.json').read_text())
+    pic('solar_portatil.png', 7)
+    para('Alternativa à extensão empilhada: quatro EcoFlow 400 W no solo, somente parado, '
+         'além do teto fixo de 1540 W. Modelos autorais de painéis dobráveis e bolsas verticais '
+         'sob cama; 324 sólidos STEP reimportados positivos. Não são CAD OEM ou suportes '
+         'homologados. O visualizador permite comparar as alternativas sem somá-las.')
+    para(f'Geração condicionada com portáteis a 45°/norte, sem sombra: '
+         f'{portable["portable_generation_kwh_day"]:.3f} kWh/dia; total com teto '
+         f'{portable["fixed_plus_portable_generation_kwh_day"]:.3f} kWh/dia. '
+         f'Saldo após habitação com eficiência agregada de 90%: '
+         f'{portable["surplus_after_house_at_assumed90pct_efficiency_kwh_day"]:.3f} kWh/dia, '
+         'antes da interface com a tração. Faiman/perdas/conversão continuam hipóteses; '
+         'sombras entre fileiras e cronologia de montagem ainda não calculadas.')
+    para('Arranjo 2s2p / MPPT 150/35 dedicado: Voc frio estimado 111,55 V, Isc 22 A; '
+         'limites do controlador 150 V / 40 A. Pode haver clipping próximo da tensão mínima '
+         'do banco. Quatro bolsas pesam 84 kg, não 60 kg dos painéis isolados. Reserva '
+         'de armazenamento e ancoragem não medidas; subtotal com controlador 3458,605 kg '
+         'ainda não inclui todas as massas/eixos. Manual EcoFlow p. 8 e ficha Victron citados '
+         'em config/solar_portatil_proposta.yaml.')
+    para('<b>Correção da missão:</b> teto fixo sozinho gera 5,507 kWh/dia para habitação '
+         'estimada em 5,277 kWh/dia antes das perdas. A 95% de eficiência agregada, já há '
+         'déficit: a agenda antiga de 7000 km não representa a versão equipada atual. '
+         'A alternativa portátil tem saldo positivo sob hipóteses, mas ainda exige otimizar '
+         'paradas/condução e demonstrar interface HV. Não é uma nova agenda ótima.')
+    para('Ficha Fiat SK p. 3: limitador de 90 km/h de série em 4250 kg. Conservar a restrição '
+         'apesar da tabela genérica p. 4 mencionar 130 km/h. Assim, 0–100 é inalcançável '
+         'com limitador ativo. I33 mantém 108→36 km/h como ensaio prescrito, não evento '
+         'operacional alegado. Fontes, equações e auditoria: docs/FECHAMENTO_TERMICO_E_MISSAO.md.')
+    page()
+
+    heading('3L. Mecânica retida, rolamento e orçamento')
+    para('A brochura primária Fiat UK MY25.5, seção elétrica, p. 25, descreve suspensão '
+         'dianteira pseudo-MacPherson, molas helicoidais, amortecedores e barra estabilizadora; '
+         'traseira com feixes duplos reforçados acima de 3,5 t. Direção elétrica e redutor '
+         'fixo são retidos. Referência UK não substitui placa por eixo da variante SK. '
+         'Não adotar automaticamente os 95 Ah / 180 células listados nessa brochura como '
+         'topologia comprovada do pack de 110 kWh / 400 V.')
+    para('I12: não há óleo de motor diesel no BEV. Engrenagens/diferencial, rolamentos e '
+         'juntas ainda precisam da lubrificação OEM correta. Grau, volume e intervalo do '
+         'redutor não foram obtidos; continuam pendentes. EPS não implica reservatório '
+         'de direção hidráulica. Não usar óleo de caixa diesel antiga por analogia.')
+    bom = json.loads((delivery/'resumo_bom_rolamento.json').read_text())
+    table([['Cr de comparação', 'Força a 4250 kg', 'Potência a 40 / 80 km/h'],
+           *[[f'{r["cr"]:.4f}', f'{r["rolling_force_n"]:.2f} N',
+              f'{r["rolling_power_at40_w"]/1000:.3f} / {r["rolling_power_at80_w"]/1000:.3f} kW']
+             for r in bom['rolling_comparison_not_main_tyre']]], [4.5, 5.5, 7])
+    para('Pneu alternativo Continental VanContact Camper 0451473, 225/75 R16CP 118R, '
+         'classe C2 / eficiência C: intervalo RRC de rótulo 6,8–8,0 N/kN, segundo '
+         'UE 2020/740 Anexo I. Cr = RRC/1000. Ponto médio 0,0074 escolhido para comparação; '
+         '<b>não é medição rodoviária nem coeficiente do A/S anterior</b>. Não transferir '
+         'massa, raio ou pressão entre modelos. Compatibilidade por eixo/roda segue pendente.')
+    para(f'I24: BOM parcial com {bom["bom_lines"]} linhas rastreáveis; '
+         f'{bom["lines_with_no_public_quote"]} linhas não OEM sem oferta registrada. '
+         'Referência pública Electrolux IE3TP: R$ 439 promocional / R$ 589 de referência, '
+         'consulta 26/10/2026, seleção de tensão e frete ainda exigidas. Não é cotação '
+         'vinculante de 220 V, custo instalado ou total do projeto. Total com tributos e '
+         'frete permanece ausente. Não converter o preço europeu do chassi em custo '
+         'nacional sem câmbio, aquisição e tributação efetivos.')
+    para('BOM distingue itens já incluídos no chassi para evitar dupla contagem. '
+         'Faltam móveis, fixações, materiais, cabos/tubos, acabamentos, instalação e '
+         'cotações completas. Fontes, hashes e método: resumo_bom_rolamento.json e '
+         'docs/MECANICA_ROLAMENTO_E_CUSTOS.md. Todos os 35 itens têm trabalho iniciado; '
+         '<b>nenhum recebeu aprovação final de engenharia</b>.')
+    page()
+
     heading('4. Aerodinâmica exploratória')
     pic('comparacao_cfd.png', 8)
     table([['Células', 'Iterações', 'Cd exploratório'],

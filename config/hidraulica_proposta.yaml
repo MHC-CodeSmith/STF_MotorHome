@@ -1,0 +1,54 @@
+revision: hidraulica-0.1
+status: BOMBA_PUBLICADA_CIRCUITO_CONDICIONADO
+pump:
+  model: Bosch PCE2-XL 039202453G
+  url: https://www.bosch-ibusiness.com/en-2/products/product-categories/auxiliary-pumps-and-valves/pce-039202453g/pce-039202453g.pdf
+  accessed: '2026-10-26'
+  pdf_sha256: 7110a9250eda65f382b00ea7b1fe83f4d754cbcd8e351cef7883820aea2633b9
+  page: 1
+  voltage_v: 12
+  mass_kg: 0.46
+  medium_published: Water/Glycol 50/50
+  curve_method: Leitura visual aproximada da curva azul pressão e vermelha corrente; não curva nominal ponto a ponto fornecida por Bosch.
+  pressure_reading_uncertainty_pa: 3000
+  current_reading_uncertainty_a: 0.2
+  # Vazão l/h, pressão kPa, corrente A. Não extrapolar além do gráfico.
+  curve_l_h_kpa_a:
+    - [0, 92, 4.3]
+    - [250, 94, 4.95]
+    - [500, 95, 5.6]
+    - [750, 94.5, 6.2]
+    - [1000, 94, 6.9]
+    - [1250, 92.5, 7.65]
+    - [1500, 85.5, 8]
+    - [1750, 77, 8]
+    - [2000, 68.5, 8]
+    - [2250, 58.5, 8]
+    - [2500, 50, 8]
+assumed:
+  loop: closed_single_series_no_net_static_head
+  density_kg_m3: 1050
+  dynamic_viscosity_pa_s: 0.0015
+  cp_j_kgk: 3500
+  hose_length_m: 6
+  hose_internal_diameter_m: 0.020
+  roughness_m: 0.0000015
+  minor_loss_k: 8
+  component_reference_flow_m3_s: 0.0005
+  component_drop_pa_at_reference:
+    motor_jacket: 20000
+    inverter: 8000
+    radiator: 15000
+  radiator_ua_w_k: 1000
+  air_mass_flow_kg_s: 1
+  air_cp_j_kgk: 1006
+  ambient_k: 298.15
+  max_motor_mechanical_w: 205000
+  combined_efficiencies: [0.85, 0.9, 0.95]
+limits:
+  - Curva a12V; PWM não foi convertido automaticamente em razão de rotação.
+  - Coeficientes de perdas de camisas/radiador são hipóteses quadráticas; não fichas OEM.
+  - Circuito fechado: altura geométrica não é carga estática líquida; pressão de enchimento não é pressão diferencial.
+  - UA e vazão de ar assumidos; sem curva do ventilador/ensaio do núcleo.
+  - Confirmar temperatura da curva, viscosidade, cavitação/NPSH, conectores, proteção elétrica e compatibilidade química.
+  - Modelo não modifica circuito OEM nem orçamento de massa aprovado.

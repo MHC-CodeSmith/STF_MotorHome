@@ -3,7 +3,7 @@
 **Responsável:** P7 — Bateria térmica e arrefecimento  
 **Enunciado / tarefa:** Definir arquitetura de dissipação/refrigeração de motor, inversor e bateria.  
 **Depende de:** I04 (P4), I06 (P2), I09 (P2)  
-**Status:** Não iniciado (estrutura criada automaticamente).
+**Status:** Em desenvolvimento — evidências parciais; revisão humana pendente.
 
 ## Entrega mínima
 - `teoria.md`: fenômeno físico, equações, hipóteses e faixa de validade.
@@ -19,3 +19,7 @@ Entradas oficiais em `config/parametros_globais.yaml`; cada atualização releva
 
 ## Aceite
 O item só vira **aprovado** quando tiver resultados reproduzíveis, referências e uma revisão por outro integrante.
+
+## Avanço de26/10/2026
+
+Ver [integração térmica, operação e missão](../../../docs/FECHAMENTO_TERMICO_E_MISSAO.md).

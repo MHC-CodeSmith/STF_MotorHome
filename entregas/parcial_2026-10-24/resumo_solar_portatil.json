@@ -1,0 +1,91 @@
+{
+  "status": "ALTERNATIVA_ESTACIONADA_SEM_SOBRECARGA_DO_TETO_PENDENTE_FIXACAO",
+  "portable_generation_kwh_day": 8.119544947051343,
+  "fixed_plus_portable_generation_kwh_day": 13.62639384463582,
+  "surplus_after_house_at_assumed90pct_efficiency_kwh_day": 7.763609496949863,
+  "additional_known_mass_kg": 85.25,
+  "known_subtotal_with_portable_kg": 3458.6051780950556,
+  "cold_voc_design_v": 111.55199999999999,
+  "input_isc_stc_a": 22,
+  "hot_vmp_approx_v": 65.76400000000001,
+  "output_current_at44_8v_ideal_a": 35.714285714285715,
+  "output_note": "35A pode limitar perto de44,8V; potência máxima nominal não é garantia de saída sem clipping.",
+  "case_envelopes_interior": [
+    {
+      "id": "bolsa_pv_1",
+      "position_xyz_m": [
+        0.87,
+        1.08,
+        0.05
+      ],
+      "dimensions_xyz_m": [
+        1.1,
+        0.065,
+        0.65
+      ]
+    },
+    {
+      "id": "bolsa_pv_2",
+      "position_xyz_m": [
+        0.87,
+        1.145,
+        0.05
+      ],
+      "dimensions_xyz_m": [
+        1.1,
+        0.065,
+        0.65
+      ]
+    },
+    {
+      "id": "bolsa_pv_3",
+      "position_xyz_m": [
+        0.87,
+        1.21,
+        0.05
+      ],
+      "dimensions_xyz_m": [
+        1.1,
+        0.065,
+        0.65
+      ]
+    },
+    {
+      "id": "bolsa_pv_4",
+      "position_xyz_m": [
+        0.87,
+        1.2750000000000001,
+        0.05
+      ],
+      "dimensions_xyz_m": [
+        1.1,
+        0.065,
+        0.65
+      ]
+    }
+  ],
+  "equipment_clashes_aabb": [],
+  "limits": [
+    "Substitui como alternativa a extensão empilhada pesada; não somar ambas na configuração proposta.",
+    "Somente parado, quatro módulos no solo, sem sombra; recolher antes de conduzir.",
+    "Volume da bolsa e suportes de transporte estimados; AABB não valida acesso, ventilação ou fixação contra colisão.",
+    "Estojo84kg total inclui bolsas; não usar60kg do painel sozinho.",
+    {
+      "Sem curvaIV/coeficientes completos": "tensão em calor/frio é triagem, não certificação elétrica."
+    },
+    "Interligação com traçãoOEM continua não demonstrada; a geração não é autonomia garantida.",
+    "Vmp quente aproximado com betaVoc; margem de partida requer curvaIV real.",
+    "Faiman/perdas10%/conversão95% mantidos como hipóteses; sem sombra, só parado, nenhuma agenda otimizada.",
+    "AABB verifica equipamentos, não todo estrado/rotas/abertura da porta; reserva de bolsa ainda não medida."
+  ],
+  "inputs_sha256": {
+    "config/solar_portatil_proposta.yaml": "e50cbee5f70a290bf9f7ea738d7ef2b45e4c3de672d702a0d830737a00e6d7f3",
+    "config/solar_proposta.yaml": "98dab36ffaad100293a42856ff53377ea15afa2e8856f0007c2fa01eb392e10b",
+    "config/equipamentos_interior.yaml": "1ee7b5c6d69e8224cce5263300f1b3796b04d626f8adae9dbf002b0b4d08488c",
+    "config/instalacoes_eletricas_proposta.yaml": "4f127922ec913ad8f6bd04ccb1aeddf5a423ff26958f24317bcedbb5807347a6",
+    "entregas/parcial_2026-10-24/resumo_expansao_solar.json": "e7db815ba2661e5530992dc0feca31dece48804aa8658f6d477162a880beb430",
+    "entregas/parcial_2026-10-24/resumo_integracao_eletrica.json": "40b6f26cecc4fa299ffb1c535dea58aef6a67fa864b07023e6d0600210082954",
+    "/home/mhc/motorhome_solar_codex_tarefas/scripts/calcular_solar_portatil.py": "a46b8ffa3759a5f73d05ac3f3b94457ac33b92c0daf20537fca7616f328992ae",
+    "src/motorhome/solar.py": "367a57dc468b2ef42747c3fee505ad394a4feee0b9ee7bc43df37ea9be3e7d97"
+  }
+}

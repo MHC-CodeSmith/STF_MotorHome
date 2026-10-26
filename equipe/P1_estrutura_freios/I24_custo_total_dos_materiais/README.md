@@ -3,7 +3,7 @@
 **Responsável:** P1 — Estrutura, freios, massa e custos  
 **Enunciado / tarefa:** BOM em BRL, quantidades, taxas, impostos de importação e data das cotações.  
 **Depende de:** I02 (P1), I03 (P1), I04 (P4), I05 (P4), I06 (P2), I07 (P2), I08 (P5), I09 (P2), I10 (P7), I11 (P6), I12 (P7), I13 (P6), I14 (P1), I15 (P1), I16 (P3), I18 (P1)  
-**Status:** Não iniciado (estrutura criada automaticamente).
+**Status:** Em desenvolvimento — evidências parciais; revisão humana pendente.
 
 ## Entrega mínima
 - `teoria.md`: fenômeno físico, equações, hipóteses e faixa de validade.

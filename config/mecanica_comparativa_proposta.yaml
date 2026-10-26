@@ -1,0 +1,47 @@
+revision: mecanica-comparativa-0.1
+status: FONTES_OEM_E_ROTULO_PARA_COMPARACAO_NAO_SUBSTITUICAO_AUTOMATICA
+source_suspension:
+  url: https://www.fiat.co.uk/content/dam/fiat2023/professional/uk/tools/pricelist/ducato-and-e-ducato-van.pdf
+  version: MY25.5 effective1July2025
+  page: 25
+  pdf_sha256: e207632d48d490dd47637cb012f7b7d5d499b4b7c72b3232fcbfe888a5a53a67
+  pdf_bytes: 3449628
+  note: SeçãoElectric Engine110kWh. Não usar especificações da seçãoDiesel p27.
+  accessed: '2026-10-26'
+suspension:
+  front: Pseudo-MacPherson, braços inferiores, molas helicoidais, amortecedores hidráulicos telescópicos e barra estabilizadora.
+  rear_over3500kg: Feixes duplos reforçados e amortecedores hidráulicos telescópicos, arquitetura de referênciaUK.
+  steering: EPS/direção elétrica; manter conjuntoOEM.
+  exact_SK_axle_plate_kg: null
+  spring_rates_n_m: null
+  damper_curves: null
+  conversion_axle_loads_kg: null
+tyre_comparison:
+  model: ContinentalVanContactCamper225/75R16CP118R
+  type_identifier: '0451473'
+  source: https://www.contimediacenter.com/eulabel/en_GB/04514730000/
+  source_pdf: https://www.contimediacenter.com/eulabel-download-pis-pdf/en_GB/04514730000/
+  accessed: '2026-10-26'
+  tyre_class: C2
+  energy_class: C
+  rolling_coefficient_label_interval: [0.0068, 0.0080]
+  midpoint_for_comparison: 0.0074
+  interval_source: https://eur-lex.europa.eu/eli/reg/2020/740/oj
+  interval_section: AnnexI PartA; RRC emN/kN dividido1000 para coeficiente adimensional.
+  main_previous_tyre: ContinentalVanContactA/S04514690000
+  replacement_adopted: false
+  notes:
+    - Rótulo não mede resistência real no asfalto local/carga/pressão/temperatura/velocidade do motorhome.
+    - Não transferir massa/raio efetivo/pressão do A/S para o Camper.
+    - Índice118, dimensões, rodas/pressões e cargas por eixo precisam conferência de compatibilidade.
+lubrication:
+  policy: Reter conjunto OEM fechado; sem aplicar óleo de Ducato diesel ao redutorBEV.
+  motor_bearings: Rolamentos; especificação/tipo de lubrificação OEM ainda não obtidos.
+  reduction_differential: Lubrificante e quantidade homologados da transmissão elétrica pendentes.
+  driveshaft_joints: Preservar graxa/coifas OEM; não extrapolar especificação de manual diesel antigo.
+  eps: Sem presumir bomba hidráulica ou reservatório de óleo de direção.
+  coolant_is_lubricant: false
+  engine_oil_required_for_combustion_engine: false
+  oil_grade: null
+  oil_volume_l: null
+  service_interval: null

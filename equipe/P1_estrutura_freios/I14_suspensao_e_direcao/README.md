@@ -3,7 +3,7 @@
 **Responsável:** P1 — Estrutura, freios, massa e custos  
 **Enunciado / tarefa:** Tipos, cargas admissíveis, dimensões, materiais e massas.  
 **Depende de:** I15 (P1), I02 (P1)  
-**Status:** Não iniciado (estrutura criada automaticamente).
+**Status:** Em desenvolvimento — evidências parciais; revisão humana pendente.
 
 ## Entrega mínima
 - `teoria.md`: fenômeno físico, equações, hipóteses e faixa de validade.
