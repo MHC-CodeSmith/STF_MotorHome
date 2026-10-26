@@ -1,3 +1,5 @@
+**Começar por [RETOMADA_COMPACTA.md](RETOMADA_COMPACTA.md)**: checkpoint9742cd5, comandos, caches e pendências; o restante preserva histórico.
+
 # Estado prioritário — 26/10/2026: revisão integrada dos35itens
 
 Pedido atual: continuar autonomamente até concluir/verificar35itens. **Ainda não concluído.**
