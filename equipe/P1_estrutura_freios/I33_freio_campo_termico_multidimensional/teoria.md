@@ -10,7 +10,16 @@ Delta E_trans/m=(vi²−vf²)/2=400 J/kg e potência média removida/m=80 W/kg. 
 
 Enunciado p. 2 I33; apostila cap. 2 para condução/convecção. Consulta local em 23/10/2026. A derivação, unidades, condições de contorno e testes estão na [frente térmica](../../../docs/FRENTE_TERMICA.md).
 
-## Método disponível e limitações
+## Avanço — 26/10/2026
+
+Campo r–z transiente em duas pistas anulares simétricas de disco ventilado,
+com volumetria cilíndrica, Crank–Nicolson, fonte e Robin conservativos.
+[Método, fontes, resultados e limites](../../../docs/FREIOS_2D.md).
+Código`src/motorhome/freios_axisimetricos.py`, configuração`config/freios_proposta.yaml`.
+4250kg/0,7dianteira/0,9disco são cenário condicionado, não parâmetros aprovados.
+I33 segue parcial: faltam geometria/material/distribuição reais e revisão humana.
+
+## Método anterior e limitações
 
 Distribuir a energia entre arrasto, rolamento, regeneração e freios; incluir inércias e partição disco/pastilha. Gerar geometria/material/contornos e iniciar 298,15 K. O teste retangular 2D é verificação de método, não resultado do disco.
 

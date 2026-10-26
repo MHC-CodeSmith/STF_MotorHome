@@ -1,3 +1,11 @@
+# Freios — atualização de 26/10/2026
+
+[Campo térmico r–z](freios_campo_freio.png), [histórico](freios_historico_freio.png)
+e [dados/proveniência](resumo_freios.json). Simulação da frenagem oficial,
+com geometria/partição condicionadas, refinamentos e série analítica independente.
+[Pesquisa, equações e limites](../../docs/FREIOS_2D.md). I03/I33 ainda parciais;
+não representa aprovação do freio OEM nem compatibilidade da peça candidata.
+
 # Atualização térmica — 26/10/2026
 
 Novos `resumo_cabos.json`/`resumo_radiador.json`, camposCSV, figuras e três malhas por método.

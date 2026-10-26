@@ -1,3 +1,7 @@
+# Atualização I33 — 26/10/2026
+
+Campo r–z, partição de energia, série analítica e refinamentos em [FREIOS_2D.md](FREIOS_2D.md). Estudo condicionado: I03/I33 continuam parciais.
+
 # Atualização de 26/10/2026
 
 Novos [campos de cabo isolado e radiador cruzado](CABOS_E_RADIADOR_2D.md) complementam os métodos abaixo. I30 agora tem R(T) acoplado e geometria de ficha; I35 tem campos cruzados e verificação integral. Propriedades térmicas/correntes/UA permanecem condicionadas.

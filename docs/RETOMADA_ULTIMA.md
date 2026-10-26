@@ -1,3 +1,20 @@
+# Avanço mais recente — 26/10/2026, freios I33
+
+Implementado campo transiente r–z para duas pistas anulares ventiladas simplificadas.
+Ler [FREIOS_2D.md](FREIOS_2D.md): fonte Brembo300×32mm NÃO confirma MY25;
+material ferroviário tabela2 via XML EuropePMC, dimensões internas/partição assumidas.
+Cenário4250kg:1,70MJ translacional,535,5kJ/disco dianteiro,334,9906°C superficial.
+Não é aprovação do freio: inércias/cubo/aletas/contato móvel/cotas reais ausentes.
+Código`freios_axisimetricos.py`,config`freios_proposta.yaml`,scripts`calcular_freios.py`
+e`consolidar_freios.py` (confere hashes). Cache vigente`freios-calculo-03/`;
+fonte`freios-fontes-01/`; resultados noI33 e entrega parcial prefixo`freios_`.
+143testes passaram em2,61s;ruffsrc/scripts/tests OK;estrutura35itens7equipes/auditoria0erros.
+Memorial21p/2288146bytes, página12 conferida em`memorial-qa-06/`.
+Global intacto24nulls;27parciais/8não iniciados/0aprovados. Nenhum push.
+Próximos: pack I34/perdas reais, bomba/curvas I35, CFD equipado/malhas,
+fixações/BOM/eixos e missões com geração/consumo atuais; fonte/distribuição real I03/I33.
+Logo/pintura continuam ao final; outra worktree intocada.
+
 # Atualização prioritária — 26/10/2026
 
 Usuário mandou continuar; o pedido anterior de só preservar contexto foi superado.

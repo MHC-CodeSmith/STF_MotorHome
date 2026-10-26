@@ -1,0 +1,56 @@
+revision: freios-0.1
+status: ESTUDO_CONDICIONADO_NAO_ESPECIFICACAO_OEM
+official:
+  initial_speed_m_s: 30
+  final_speed_m_s: 10
+  braking_duration_s: 5
+  initial_temperature_k: 298.15
+reference_component:
+  model: Brembo 09.D018.11
+  url: https://www.bremboparts.com/europe/en/catalogue/disc/09-D018-11
+  accessed: '2026-10-26'
+  diameter_m: 0.300
+  overall_friction_thickness_m: 0.032
+  type: ventilated
+  compatibility_MY25_4250kg: null
+material_reference:
+  title: Analytical Model of the Frictional Heating in a Railway Brake Disc at Single Braking with Experimental Verification
+  doi: 10.3390/ma15196821
+  url: https://pmc.ncbi.nlm.nih.gov/articles/PMC9571107/
+  table: 2
+  machine_readable_url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9571107/fullTextXML
+  xml_sha256: ef5d73b16a00a55a9bb64867e54960a273db128ad4b51baadb48dd924f0b7d21
+  xml_bytes: 212925
+  accessed: '2026-10-26'
+  density_kg_m3: 7100
+  cp_j_kgk: 500
+  conductivity_w_mk: 51
+  applicability: Ferro fundido do artigo ferroviário; NÃO propriedades medidas do produto Brembo.
+assumed:
+  vehicle_mass_kg: 4250
+  front_axle_energy_fraction: 0.7
+  disc_heat_fraction: 0.9
+  regeneration_fraction: 0
+  inner_ring_radius_m: 0.09
+  plate_thickness_m: 0.008
+  channel_gap_m: 0.016
+  pad_track_inner_radius_m: 0.10
+  pad_track_outer_radius_m: 0.145
+  outside_h_w_m2k: 20
+  channel_h_w_m2k: 50
+  spatial_flux_law: uniform_wear_circumferential_average
+unknown:
+  caliper_and_pad: null
+  actual_plate_and_vane_geometry: null
+  measured_disc_mass_kg: null
+  axle_distribution_and_CG: null
+  rotation_inertias_kg_m2: null
+  material_vs_temperature: null
+  regenerative_brake_map: null
+limits:
+  - Massa4250kg é cenário no PBT proposto, não massa consolidada.
+  - Duas placas independentes iguais; cubo/aletas e radiação não modelados.
+  - Espessura8mm e canal16mm SOMAM32mm mas não são cotas publicadas do produto.
+  - Sem regeneração/arrasto/rolamento; inclui apenas energia translacional.
+  - Frações0.7/0.9 assumidas; calor restante permanece no eixo traseiro/pastilhas.
+  - Média circunferencial não prevê hot spots, fade, tensões ou homologação.

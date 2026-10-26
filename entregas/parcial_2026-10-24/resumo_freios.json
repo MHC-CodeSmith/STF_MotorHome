@@ -1,0 +1,128 @@
+{
+  "dt_real_s": 0.005,
+  "energia_translacional_j": 1700000.0,
+  "energia_entrada_disco_j": 535499.9999999997,
+  "energia_saida_disco_j": 3810.0372748770874,
+  "energia_armazenada_disco_j": 531689.9627251183,
+  "residuo_disco_j": 4.307366907596588e-09,
+  "massa_duas_placas_kg": 5.1391429264483275,
+  "pico_superficie_k": 608.1406268668147,
+  "status": "ESTUDO_CONDICIONADO_NAO_ESPECIFICACAO_OEM",
+  "generated_utc": "2026-10-26T06:27:12.581452+00:00",
+  "scenario_revision": "freios-0.1",
+  "config": "config/freios_proposta.yaml",
+  "final_max_cell_k": 606.2611207823038,
+  "final_max_surface_k": 608.1406268668147,
+  "grid": [
+    {
+      "nr": 12,
+      "nz": 4,
+      "dt_s": 0.005,
+      "final_max_cell_k": 593.7208092240558,
+      "peak_surface_k": 608.7566163356453,
+      "residual_j": 1.5133991837501526e-09
+    },
+    {
+      "nr": 24,
+      "nz": 8,
+      "dt_s": 0.005,
+      "final_max_cell_k": 600.6379086016802,
+      "peak_surface_k": 608.1559299391214,
+      "residual_j": -1.6298145055770874e-09
+    },
+    {
+      "nr": 48,
+      "nz": 16,
+      "dt_s": 0.005,
+      "final_max_cell_k": 604.3921298283592,
+      "peak_surface_k": 608.1511409665868,
+      "residual_j": 6.6356733441352844e-09
+    },
+    {
+      "nr": 96,
+      "nz": 32,
+      "dt_s": 0.005,
+      "final_max_cell_k": 606.2611207823038,
+      "peak_surface_k": 608.1406268668147,
+      "residual_j": 4.307366907596588e-09
+    }
+  ],
+  "time_convergence": [
+    {
+      "requested_dt_s": 0.08,
+      "actual_dt_s": 0.07936507936507936,
+      "final_max_cell_k": 606.2676821198552,
+      "error_to_dt005_k": 0.01597852372736952
+    },
+    {
+      "requested_dt_s": 0.04,
+      "actual_dt_s": 0.04,
+      "final_max_cell_k": 606.2613182776543,
+      "error_to_dt005_k": 0.0009596099276336645
+    },
+    {
+      "requested_dt_s": 0.02,
+      "actual_dt_s": 0.02,
+      "final_max_cell_k": 606.261167801299,
+      "error_to_dt005_k": 0.00022847799533565194
+    },
+    {
+      "requested_dt_s": 0.01,
+      "actual_dt_s": 0.01,
+      "final_max_cell_k": 606.2611301863415,
+      "error_to_dt005_k": 4.569556870137603e-05
+    }
+  ],
+  "analytical_verification": [
+    {
+      "nz": 16,
+      "max_error_to_series_k": 0.016269854295757114
+    },
+    {
+      "nz": 32,
+      "max_error_to_series_k": 0.004269988415700254
+    },
+    {
+      "nz": 64,
+      "max_error_to_series_k": 0.0010964486845637111
+    }
+  ],
+  "sources": [
+    {
+      "model": "Brembo 09.D018.11",
+      "url": "https://www.bremboparts.com/europe/en/catalogue/disc/09-D018-11",
+      "accessed": "2026-10-26",
+      "diameter_m": 0.3,
+      "overall_friction_thickness_m": 0.032,
+      "type": "ventilated",
+      "compatibility_MY25_4250kg": null
+    },
+    {
+      "title": "Analytical Model of the Frictional Heating in a Railway Brake Disc at Single Braking with Experimental Verification",
+      "doi": "10.3390/ma15196821",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9571107/",
+      "table": 2,
+      "machine_readable_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9571107/fullTextXML",
+      "xml_sha256": "ef5d73b16a00a55a9bb64867e54960a273db128ad4b51baadb48dd924f0b7d21",
+      "xml_bytes": 212925,
+      "accessed": "2026-10-26",
+      "density_kg_m3": 7100,
+      "cp_j_kgk": 500,
+      "conductivity_w_mk": 51,
+      "applicability": "Ferro fundido do artigo ferroviário; NÃO propriedades medidas do produto Brembo."
+    }
+  ],
+  "limits": [
+    "Massa4250kg é cenário no PBT proposto, não massa consolidada.",
+    "Duas placas independentes iguais; cubo/aletas e radiação não modelados.",
+    "Espessura8mm e canal16mm SOMAM32mm mas não são cotas publicadas do produto.",
+    "Sem regeneração/arrasto/rolamento; inclui apenas energia translacional.",
+    "Frações0.7/0.9 assumidas; calor restante permanece no eixo traseiro/pastilhas.",
+    "Média circunferencial não prevê hot spots, fade, tensões ou homologação."
+  ],
+  "inputs_sha256": {
+    "config/freios_proposta.yaml": "815b28c188d20a3f7ab47b00d382d72a3abaea07815f6676424304926423da7f",
+    "/home/mhc/motorhome_solar_codex_tarefas/scripts/calcular_freios.py": "dc44ae28ef0897e229e4494874e9e3c3fe4365bfe0f289fd18a4c5ac75a62dfd",
+    "src/motorhome/freios_axisimetricos.py": "e012e4a74cedf989137aa967e444f0682bcf0728fe25e77da599aedd307a78cb"
+  }
+}

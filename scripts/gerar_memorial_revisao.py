@@ -352,6 +352,33 @@ def main():
          'resumo_radiador.json; item permanece parcial.')
     page()
 
+    heading('3H. Freios: frenagem prescrita e campo r–z I33')
+    brakes = json.loads((delivery/'resumo_freios.json').read_text())
+    pic('freios_campo_freio.png', 6.5)
+    para('Condição oficial: 30 → 10 m/s em 5 s, início 25 °C; desaceleração constante assumida. '
+         'Cenário no PBT de 4250 kg: energia translacional de 1,70 MJ e potência média de 340 kW. '
+         'Sem regeneração, arrasto/rolamento ou inércias rotativas. Fração dianteira de 70% '
+         'e partição disco de 90% são hipóteses; dois discos dianteiros recebem 535,5 kJ cada. '
+         'Não é limite superior completo: falta energia rotativa.')
+    para('Brembo 09.D018.11 fornece referência de diâmetro de 300 mm e espessura ventilada de 32 mm, '
+         'não compatibilidade confirmada com MY25. Modelo autoral: duas placas anulares '
+         'de 8 mm, canal de 16 mm, raios de 90–150 mm e contato de 100–145 mm, todos detalhes internos '
+         'assumidos. Ferro fundido do artigo ferroviário DOI 10.3390/ma15196821, tabela 2: '
+         'rho = 7100 kg/m³, cp = 500 J/(kg K), k = 51 W/(m K), não medidos no produto Brembo. '
+         'Robin de 20/50 W/(m² K) assumido; raio interno isolado; sem cubo/aletas/radiação.')
+    para(f'Pico superficial reconstruído: {brakes["pico_superficie_k"]-273.15:.2f} °C; '
+         f'massa de apenas duas placas: {brakes["massa_duas_placas_kg"]:.3f} kg. '
+         f'Energia armazenada: {brakes["energia_armazenada_disco_j"]/1000:.3f} kJ; '
+         f'convecção: {brakes["energia_saida_disco_j"]/1000:.3f} kJ. '
+         'Não somar massa de freios à tara OEM. Média circunferencial não prevê hot spots '
+         'sob pastilhas nem fade, tensões, pinça ou homologação.')
+    para('Malhas 12×4 / 24×8 / 48×16 / 96×32; diferença superficial final de 0,0105 K, '
+         'máximo de centros celulares ainda difere 1,869 K por resolução da camada próxima '
+         'à face. Série analítica axial independente e refinamento temporal documentados '
+         'em docs/FREIOS_2D.md. Não declarar independência de todo o campo com base apenas '
+         'no máximo superficial. Fontes/hipóteses/hashes em resumo_freios.json; I03/I33 parciais.')
+    page()
+
     heading('4. Aerodinâmica exploratória')
     pic('comparacao_cfd.png', 8)
     table([['Células', 'Iterações', 'Cd exploratório'],

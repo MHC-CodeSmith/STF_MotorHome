@@ -1,9 +1,9 @@
 {
   "status": "PARCIAL_NAO_APROVADO",
-  "updated_utc": "2026-10-26T04:30:05.475560+00:00",
+  "updated_utc": "2026-10-26T06:33:23.809251+00:00",
   "generator": "scripts/atualizar_manifesto_entrega.py",
   "checks": {
-    "pytest": "132 passed in 2.07s (PYTHONPATH=src .venv/bin/python -m pytest -q)",
+    "pytest": "143 passed in 2.61s (PYTHONPATH=src .venv/bin/python -m pytest -q)",
     "estrutura": "35 itens, 7 equipes; estrutura/auditoria: 0 erros; 24 nulls não aprovados",
     "ruff": "All checks passed: src scripts tests",
     "parametros_globais_sha256": "7b8f5cd7891eb437cb89c41fd2ba440b0567ca1063998042d4828086aad523e2"
@@ -12,7 +12,7 @@
     "ATTRIBUTION.txt": "a690522e11aaa3d738716571c506cf93e87b6edec27360f63cc255e9be121d8e",
     "CC-BY-4.0.txt": "d557539df68e771cc1eedcc91d13f70fca930e508d11eedcafa4b15db49e3744",
     "MPL-2.0.txt": "66a3107d5ad6a058aab753eaac2047ccb2ed0e39465dd0fe5844da3e300d5172",
-    "README.md": "f65c3bdacf214225a84ae232ae9ee9b80f3462f151d3e0a3128cd0310eee0239",
+    "README.md": "1eabb6aad4482583074bc2492951f1b10f4f41ef195c64d752bc5d46a344498a",
     "THREE-LICENSE.txt": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601",
     "agenda_i27.csv": "de9264298449bd32027619eb0cc73130737e81b2f8ebc5525a1913d55d4ba4f1",
     "agenda_i27.png": "c763f950b1886058ba4a646c11ebfd3ad4bcecbab81acc2a4df92a801f47568a",
@@ -50,6 +50,16 @@
     "expansao_solar.png": "07defcd07c23a4423b609b31cf65a656cdd6a4a877645dfa97ac52f5492f6622",
     "fontes_conforto_consulta.json": "ca40dd8419d4829552dc730b8167028e3c2387a6567e83eb714aa9b7837c3641",
     "fontes_expansao_consulta.json": "c23928a449d68b41948512688fbb304a55be48c1c8a6fa84d9d11e2aea0b595d",
+    "freios_campo_freio.png": "7444f580934ca6bea4335471fad1be9dd8721a47b82b7c1eefda0fee80f69298",
+    "freios_campo_rz.csv": "3a11fdb80ba3f5984af2f17a07e95a58948187414b5dffa595f8ce5d65fbfc74",
+    "freios_convergencia_malha.csv": "ce7a2b50ac803a87d0108d83b8cc4a41499cc6e5a020b4a5fcb4bf98e7b04d28",
+    "freios_convergencia_tempo.csv": "b52f00899728fdd0b929a07c4d8644f4f2f0425d1a13aec2a75bfc4a19537ba0",
+    "freios_historico.csv": "ac541d3399061db24163e945b3468561d47df5cf2c59f21f6c8209cd5341a579",
+    "freios_historico_freio.png": "66eb4923bf5766d0e7a8b11cf64da1a0c57ded2dfcd04474ef1c6d198d60bbee",
+    "freios_proposta.yaml": "815b28c188d20a3f7ab47b00d382d72a3abaea07815f6676424304926423da7f",
+    "freios_sensibilidade_conveccao.csv": "40c7bc0596ba72180aac692d3ab693e45760f78defc03a936934f138c877b875",
+    "freios_sensibilidade_particao.csv": "2002222bae687762fcfd00134005140275d0d816aa308b99d49b3b540c187d37",
+    "freios_verificacao_analitica.csv": "2dabcbb6b8093ae28f0a5cccc9d9cb1a489bd339bbe64d4a99e7f9c2f17f9afc",
     "inmet_A711.json": "4053d157ee46ec174261cb8de9fa3c43c7449cf7b491a7ae1eca654b4589bb0e",
     "interior_equipado.glb": "03cd02f9c6ade89cd28710050487a9b10cb473a15dc9d22d7afd37f1f9492136",
     "interior_equipado.step": "eea824a9ea0bd3ac60dd9c1fb23346326a1e841ab9f99130916c25d722751ab4",
@@ -74,6 +84,7 @@
     "resumo_cabos.json": "3dbf69a65f9909acda04b3785fef5ba7ff02ff7acf41fe69c33c569da8eec1fe",
     "resumo_cfd_piloto.json": "da23b0734223c10bd21383881f0206a3d3086bdd96a3f6c757e09e8121a58d1f",
     "resumo_expansao_solar.json": "e7db815ba2661e5530992dc0feca31dece48804aa8658f6d477162a880beb430",
+    "resumo_freios.json": "3ffbd4ab858ac9b16bc55cc795c07af80ba5c936ee7b2fc2f3d43bd7d16b1ec7",
     "resumo_integracao_eletrica.json": "40b6f26cecc4fa299ffb1c535dea58aef6a67fa864b07023e6d0600210082954",
     "resumo_layout.json": "711e8e75c2ff54451182155750cda5cfa43784e7a0d9508c94111424719810d8",
     "resumo_radiador.json": "e3af0dd2d5ca0ac23827b651606bc099329e9f9145da2ed2ae102de84ff912b0",
@@ -91,8 +102,8 @@
   },
   "memorial": {
     "path_relative_to_repo": "output/pdf/memorial_revisao_aurora.pdf",
-    "bytes": 2215715,
-    "sha256": "ee3fe599c9f98f0d261c5a8a5331b3d82afc43274343cb0a32297495ecb70b8d"
+    "bytes": 2288146,
+    "sha256": "85b6ea99e42aa0937eb0f7ed4147fa337387e37aed3810e0f3e433ed46503585"
   },
   "warning": "Testes e hashes não aprovam a engenharia; revisões físicas e humanas pendentes."
 }

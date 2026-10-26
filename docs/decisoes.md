@@ -16,3 +16,13 @@ As perguntas e evidências necessárias ao marco inicial estão no [registro M0]
 ## D008 — 26/10/2026: métodos I30/I35 com hipóteses separadas
 
 Adicionar cabo polar feixe/isolamento/R(T) e radiador cruzado conservativo; configurações propostas próprias. RADOX120/150mm² são candidatos de estudo, não substituição do chicoteOEM. Dois120mm² paralelos precisam divisão de corrente/resfriamento independentes. Não selecionar radiador/bomba a partir de UA/vazões arbitrários. Não alterar parâmetros globais/massa OEM. Interfaces P2/P4/P7: corrente RMS, mapa de perdas, materiais/UA/curvas ainda pendentes. [Evidências](CABOS_E_RADIADOR_2D.md).
+
+## D009 — 26/10/2026: I33 em pistas anulares ventiladas simplificadas
+
+Condução r–z transiente própria e proposta separada`freios_proposta.yaml`.
+Brembo09.D018.11 apenas referência300×32mm; compatibilidadeMY25 não afirmada.
+Material de artigo ferroviário tabela2 como hipótese rastreável, não fabricante.
+Sem regeneração no caso nominal, mas inércias omitidas: não declarar limite superior
+completo. Não duplicar massa de freios já na tara OEM. Interfaces P1/P4/P3:
+centro de gravidade/distribuição, inércias e geometria física pendentes.
+[Método/resultados/convergências](FREIOS_2D.md). Global intacto, aprovação pendente.
