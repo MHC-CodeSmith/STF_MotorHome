@@ -1,0 +1,91 @@
+{
+  "passed": true,
+  "cases": {
+    "clear_60": {
+      "distance_km": 7511.282108637341,
+      "max_balance_residual_kwh": 9.28963572732755e-11,
+      "max_driving_hours_per_day": 5.275015533867118,
+      "max_speed_km_h": 60.0,
+      "driving_hours": 130.33154269566904,
+      "solar_kwh": 4847.5612987757395,
+      "house_kwh": 2127.5764940840504,
+      "traction_energy_kwh": 2290.728301233242,
+      "weather_source_replayed": true,
+      "road_speed_bounds_passed": true
+    },
+    "clear_80": {
+      "distance_km": 7511.282108637341,
+      "max_balance_residual_kwh": 1.1245404607507226e-10,
+      "max_driving_hours_per_day": 3.8689301016921984,
+      "max_speed_km_h": 80.0,
+      "driving_hours": 114.82250755677993,
+      "solar_kwh": 5923.652722562648,
+      "house_kwh": 2757.525814522354,
+      "traction_energy_kwh": 2649.8413331497445,
+      "weather_source_replayed": true,
+      "road_speed_bounds_passed": true
+    },
+    "clear_90": {
+      "distance_km": 7511.282108637341,
+      "max_balance_residual_kwh": 1.128004356587553e-10,
+      "max_driving_hours_per_day": 3.8689301016921984,
+      "max_speed_km_h": 88.87609756097561,
+      "driving_hours": 114.55496255678008,
+      "solar_kwh": 5952.00243934687,
+      "house_kwh": 2770.3820498843925,
+      "traction_energy_kwh": 2661.193998015898,
+      "weather_source_replayed": true,
+      "road_speed_bounds_passed": true
+    },
+    "era5_60": {
+      "distance_km": 4112.659868640115,
+      "max_balance_residual_kwh": 4.590816615746007e-11,
+      "max_driving_hours_per_day": 5.1030545395700475,
+      "max_speed_km_h": 60.0,
+      "driving_hours": 71.66136816484878,
+      "solar_kwh": 3065.422052966555,
+      "house_kwh": 1636.0332582715782,
+      "traction_energy_kwh": 1249.9728200000045,
+      "weather_source_replayed": true,
+      "road_speed_bounds_passed": true
+    },
+    "era5_80": {
+      "distance_km": 3462.1249293312417,
+      "max_balance_residual_kwh": 4.4302339574642247e-11,
+      "max_driving_hours_per_day": 3.751152018833738,
+      "max_speed_km_h": 80.0,
+      "driving_hours": 52.280611716143405,
+      "solar_kwh": 3068.7876515159514,
+      "house_kwh": 1651.4993822494698,
+      "traction_energy_kwh": 1240.1361800000045,
+      "weather_source_replayed": true,
+      "road_speed_bounds_passed": true
+    },
+    "era5_90": {
+      "distance_km": 3459.513119764248,
+      "max_balance_residual_kwh": 4.306244250074087e-11,
+      "max_driving_hours_per_day": 3.751152018833738,
+      "max_speed_km_h": 85.32000000000001,
+      "driving_hours": 52.219323616036036,
+      "solar_kwh": 3069.009177190239,
+      "house_kwh": 1651.4993822494698,
+      "traction_energy_kwh": 1240.3411100000044,
+      "weather_source_replayed": true,
+      "road_speed_bounds_passed": true
+    },
+    "clear_80_sem_interface": {
+      "distance_km": 242.42593563931217,
+      "max_balance_residual_kwh": 1.8829382497642655e-13,
+      "max_driving_hours_per_day": 3.6181331790068367,
+      "max_speed_km_h": 77.38935663382783,
+      "driving_hours": 3.6181331790068323,
+      "solar_kwh": 30.139402448491524,
+      "house_kwh": 12.862447663625877,
+      "traction_energy_kwh": 87.20000000000002,
+      "weather_source_replayed": true,
+      "road_speed_bounds_passed": true
+    }
+  },
+  "physical_vehicle_validated": false,
+  "verifier_sha256": "9d99ecdd4ddab9f9879aa1660a280465894f4099ea323ddbf7c0d063dfdcd1fe"
+}

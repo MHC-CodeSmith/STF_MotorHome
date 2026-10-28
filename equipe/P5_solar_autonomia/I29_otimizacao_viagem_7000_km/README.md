@@ -31,3 +31,25 @@ Progresso e limites atualizados em [geometria, CFD, solar e otimização](../../
 ## Integração energética e otimização
 
 Métodos, equações, hipóteses e resultados rastreáveis em [ENERGIA_E_OTIMIZACAO.md](../../../docs/ENERGIA_E_OTIMIZACAO.md). Resultados são condicionados; não substituem dados reais nem aprovação. A limitação de oito horas diárias é aplicada a I29, não a I27.
+
+## Atualização27/10 — portátil e bancos separados
+
+[Modelo, hipóteses e resultados atuais](../../../docs/AGENDA_PORTATIL_2026-10-27.md).
+[CSV/figuras/JSON](../../../entregas/etapa_2026-10-27_agenda_portatil/README.md).
+Reprodução: `scripts/calcular_agenda_portatil.py`; verificação dos CSV:
+`scripts/verificar_agenda_portatil.py`. Configuração própria, global preservado.
+I27: SOC final30% exato, sem limite8h; potência de eixo ainda desconhecida.
+I29:7000km/até8h diárias, política construtiva, não ótimo de tempo.
+Transferência HV é hipótese, sem integração OEM comprovada.
+
+Continuação: [interfaceAC discreta e PV12/48V separado](../../../docs/INTERFACE_CARGA_2026-10-27.md).
+O cenário atual usa344,768kmI27 e construção276diasI29; as agendas anteriores
+são comparações preservadas. AceitaçãoOEM e revisão humana continuam pendentes.
+
+## Avanço28/10 — rodovias e calendário reais
+
+[Rota costeiraOSRM7511km e marco7000km](../../../docs/ROTA_REAL_2026-10-28.md),
+velocidades aproximadas por trecho/relevoDEM, solar por local/data eERA5horário.
+Sete casos com CSV reabertos: céu limpo60km/h chegaChuí330,93dias; casos
+históricos interrompem por reserva dos serviços. [Entrega/QA](../../../entregas/etapa_2026-10-28_rota_real/README.md).
+178testes passaram; falta gestão com previsão/reserva, interface física e mínimo global.

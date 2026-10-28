@@ -1,0 +1,418 @@
+{
+  "status": "SIMULACAO_GEOGRAFICA_CONDICIONADA",
+  "generated_utc": "2026-10-28T17:02:43.172864+00:00",
+  "configuration": {
+    "revision": "rota-0.1",
+    "status": "SIMULACAO_GEOGRAFICA_CONDICIONADA",
+    "start_date": "2025-06-21",
+    "date_note": "Reconstituição histórica iniciada em21jun2025; permite usar meteorologia arquivada, sem previsão de viagem futura.",
+    "max_days": 490,
+    "timezone": "America/Sao_Paulo",
+    "integration_minutes": 5,
+    "driving_hours_per_day_max": 8,
+    "vehicle_limiter_km_h": 90,
+    "approximate_caps_km_h": {
+      "federal": 90,
+      "state": 80,
+      "urban": 40,
+      "other": 60
+    },
+    "speed_policy_note": "Limites de cenário por identificação da via, reduzidos pela velocidade média do perfil OSRM. Não são leitura de placas nem base legal de maxspeed.",
+    "cruise_caps_km_h": [
+      60,
+      80,
+      90
+    ],
+    "grade_sampling_km": 5,
+    "regeneration_efficiency_assumed": 0.5,
+    "solar_weather_nodes": 14,
+    "weather_end_date": "2026-10-26",
+    "portable_setup_minutes": 30,
+    "portable_teardown_minutes": 30,
+    "portable_tilt_deg": 45,
+    "portable_azimuth_deg": 0,
+    "traction_initial_soc": 1.0,
+    "traction_reserve_soc": 0.1,
+    "service_initial_soc": 0.8,
+    "service_reserve_soc": 0.2,
+    "service_target_before_trip_soc": 0.8,
+    "service_target_during_solar_soc": 0.55,
+    "night_driving_start_hour": 22,
+    "night_driving_end_hour": 6,
+    "traction_keep_next_day_kwh": 1,
+    "waypoints": [
+      {
+        "name": "Belém",
+        "lat": -1.4558,
+        "lon": -48.4902
+      },
+      {
+        "name": "São Luís",
+        "lat": -2.5307,
+        "lon": -44.3028
+      },
+      {
+        "name": "Parnaíba",
+        "lat": -2.905,
+        "lon": -41.776
+      },
+      {
+        "name": "Fortaleza",
+        "lat": -3.7319,
+        "lon": -38.5267
+      },
+      {
+        "name": "Natal",
+        "lat": -5.7945,
+        "lon": -35.211
+      },
+      {
+        "name": "João Pessoa",
+        "lat": -7.115,
+        "lon": -34.8641
+      },
+      {
+        "name": "Recife",
+        "lat": -8.0476,
+        "lon": -34.877
+      },
+      {
+        "name": "Maceió",
+        "lat": -9.6498,
+        "lon": -35.7089
+      },
+      {
+        "name": "Aracaju",
+        "lat": -10.9472,
+        "lon": -37.0731
+      },
+      {
+        "name": "Salvador",
+        "lat": -12.973,
+        "lon": -38.501
+      },
+      {
+        "name": "Ilhéus",
+        "lat": -14.7935,
+        "lon": -39.046
+      },
+      {
+        "name": "Porto Seguro",
+        "lat": -16.449,
+        "lon": -39.0647
+      },
+      {
+        "name": "Vitória",
+        "lat": -20.3155,
+        "lon": -40.3128
+      },
+      {
+        "name": "Rio de Janeiro",
+        "lat": -22.9068,
+        "lon": -43.1729
+      },
+      {
+        "name": "Paraty",
+        "lat": -23.22,
+        "lon": -44.713
+      },
+      {
+        "name": "Ubatuba",
+        "lat": -23.4338,
+        "lon": -45.0831
+      },
+      {
+        "name": "Santos",
+        "lat": -23.9608,
+        "lon": -46.3289
+      },
+      {
+        "name": "Florianópolis",
+        "lat": -27.5954,
+        "lon": -48.548
+      },
+      {
+        "name": "Porto Alegre",
+        "lat": -30.0346,
+        "lon": -51.2177
+      },
+      {
+        "name": "Rio Grande",
+        "lat": -32.0349,
+        "lon": -52.099
+      },
+      {
+        "name": "Chuí",
+        "lat": -33.686,
+        "lon": -53.4595
+      }
+    ],
+    "limits": [
+      "Rota roteada sobreOpenStreetMap, sem inspeção local de circulação, altura, peso, estacionamento ou condição de pavimento.",
+      "Limites aproximados por classe e perfil de tempo OSRM; placas reais continuam autoridade na condução.",
+      "RelevoDEM5km suaviza rampas locais, pontes e túneis; não valida potência de pico.",
+      "ClimaERA5 em nós esparsos aproxima nuvens/temperatura; não é medição a bordo nem previsão.",
+      "Interface de cargaOEM e mapas de eficiência continuam hipóteses.",
+      "Política construtiva com recolhimento e condução noturna; sem certificado de mínimo global.",
+      "Paradas na coordenada de progresso não identificam estacionamento legal/seguro com área para painéis."
+    ]
+  },
+  "actual_route_km": 7511.282108637341,
+  "prescribed_distance_km": 7000,
+  "extra_distance_km": 511.28210863734057,
+  "cases": {
+    "clear_60": {
+      "status": "arrived",
+      "arrived": true,
+      "scenario": "clear",
+      "cruise_cap_km_h": 60,
+      "interface_hypothetical": true,
+      "failure": null,
+      "distance_km": 7511.282108637341,
+      "route_target_km": 7511.282108637341,
+      "milestones": {
+        "7000km": {
+          "time": "2026-04-13T22:18:16.156596351-03:00",
+          "elapsed_days": 296.92935366430555,
+          "latitude_deg": -30.291205794582687,
+          "longitude_deg": -51.415808866408156
+        },
+        "route_finish": {
+          "time": "2026-05-17T22:12:11.060174376-03:00",
+          "elapsed_days": 330.92512801127316,
+          "latitude_deg": -33.686004,
+          "longitude_deg": -53.460193
+        }
+      },
+      "traction_final_soc": 0.1152433547628791,
+      "service_final_soc": 0.6993949894229796,
+      "max_driving_h_day": 5.275015533867119,
+      "globally_optimized": false,
+      "agenda_csv": "clear_60_agenda.csv",
+      "driving_csv": "clear_60_conducao.csv"
+    },
+    "clear_80": {
+      "status": "arrived",
+      "arrived": true,
+      "scenario": "clear",
+      "cruise_cap_km_h": 80,
+      "interface_hypothetical": true,
+      "failure": null,
+      "distance_km": 7511.282108637341,
+      "route_target_km": 7511.282108637341,
+      "milestones": {
+        "7000km": {
+          "time": "2026-07-13T22:03:10.072960964-03:00",
+          "elapsed_days": 387.9188665851852,
+          "latitude_deg": -30.291205794582687,
+          "longitude_deg": -51.415808866408156
+        },
+        "route_finish": {
+          "time": "2026-08-23T22:08:45.412635339-03:00",
+          "elapsed_days": 428.9227478314236,
+          "latitude_deg": -33.686004,
+          "longitude_deg": -53.460193
+        }
+      },
+      "traction_final_soc": 0.1395646617373603,
+      "service_final_soc": 0.6847566445599947,
+      "max_driving_h_day": 3.8689301016922024,
+      "globally_optimized": false,
+      "agenda_csv": "clear_80_agenda.csv",
+      "driving_csv": "clear_80_conducao.csv"
+    },
+    "clear_90": {
+      "status": "arrived",
+      "arrived": true,
+      "scenario": "clear",
+      "cruise_cap_km_h": 90,
+      "interface_hypothetical": true,
+      "failure": null,
+      "distance_km": 7511.282108637341,
+      "route_target_km": 7511.282108637341,
+      "milestones": {
+        "7000km": {
+          "time": "2026-07-16T22:00:41.459124424-03:00",
+          "elapsed_days": 390.91714651763886,
+          "latitude_deg": -30.291205794582687,
+          "longitude_deg": -51.415808866408156
+        },
+        "route_finish": {
+          "time": "2026-08-25T22:06:08.968034923-03:00",
+          "elapsed_days": 430.92093713002316,
+          "latitude_deg": -33.686004,
+          "longitude_deg": -53.460193
+        }
+      },
+      "traction_final_soc": 0.15127961208273352,
+      "service_final_soc": 0.6906630334452655,
+      "max_driving_h_day": 3.8689301016922024,
+      "globally_optimized": false,
+      "agenda_csv": "clear_90_agenda.csv",
+      "driving_csv": "clear_90_conducao.csv"
+    },
+    "era5_60": {
+      "status": "service_reserve_violation_predicted",
+      "arrived": false,
+      "scenario": "era5",
+      "cruise_cap_km_h": 60,
+      "interface_hypothetical": true,
+      "failure": {
+        "time": "2026-03-02T13:55:00-03:00",
+        "projected_service_soc": 0.19323241335612365,
+        "last_feasible_km": 4112.659868640115,
+        "policy_infeasible": true
+      },
+      "distance_km": 4112.659868640115,
+      "route_target_km": 7511.282108637341,
+      "milestones": {},
+      "traction_final_soc": 0.11020408163265306,
+      "service_final_soc": 0.20105416943145024,
+      "max_driving_h_day": 5.103054539570049,
+      "globally_optimized": false,
+      "agenda_csv": "era5_60_agenda.csv",
+      "driving_csv": "era5_60_conducao.csv"
+    },
+    "era5_80": {
+      "status": "service_reserve_violation_predicted",
+      "arrived": false,
+      "scenario": "era5",
+      "cruise_cap_km_h": 80,
+      "interface_hypothetical": true,
+      "failure": {
+        "time": "2026-03-04T19:25:00-03:00",
+        "projected_service_soc": 0.18660857223736477,
+        "last_feasible_km": 3462.1249293312417,
+        "policy_infeasible": true
+      },
+      "distance_km": 3462.1249293312417,
+      "route_target_km": 7511.282108637341,
+      "milestones": {},
+      "traction_final_soc": 0.11020408163265306,
+      "service_final_soc": 0.2052997330549904,
+      "max_driving_h_day": 3.7511520188337415,
+      "globally_optimized": false,
+      "agenda_csv": "era5_80_agenda.csv",
+      "driving_csv": "era5_80_conducao.csv"
+    },
+    "era5_90": {
+      "status": "service_reserve_violation_predicted",
+      "arrived": false,
+      "scenario": "era5",
+      "cruise_cap_km_h": 90,
+      "interface_hypothetical": true,
+      "failure": {
+        "time": "2026-03-04T19:25:00-03:00",
+        "projected_service_soc": 0.18353490761690378,
+        "last_feasible_km": 3459.513119764248,
+        "policy_infeasible": true
+      },
+      "distance_km": 3459.513119764248,
+      "route_target_km": 7511.282108637341,
+      "milestones": {},
+      "traction_final_soc": 0.11020408163265306,
+      "service_final_soc": 0.20222606843452945,
+      "max_driving_h_day": 3.7511520188337415,
+      "globally_optimized": false,
+      "agenda_csv": "era5_90_agenda.csv",
+      "driving_csv": "era5_90_conducao.csv"
+    },
+    "clear_80_sem_interface": {
+      "status": "traction_stranded_without_interface",
+      "arrived": false,
+      "scenario": "clear",
+      "cruise_cap_km_h": 80,
+      "interface_hypothetical": false,
+      "failure": null,
+      "distance_km": 242.42593563931217,
+      "route_target_km": 7511.282108637341,
+      "milestones": {},
+      "traction_final_soc": 0.11020408163265306,
+      "service_final_soc": 0.8472061399429509,
+      "max_driving_h_day": 3.61813317900684,
+      "globally_optimized": false,
+      "agenda_csv": "clear_80_sem_interface_agenda.csv",
+      "driving_csv": "clear_80_sem_interface_conducao.csv"
+    }
+  },
+  "physical_vehicle_validated": false,
+  "sources_attribution": "©OpenStreetMap contributors/OSRM; Open-Meteo/ERA5; CopernicusDEM2021GLO90 DOI10.5270/ESA-c5d3d65",
+  "solar_method": "pvlibIneichen céu limpo variável por data/local OU ERA5horário; interpolação linear entre14nós na distância da rota; PV12V sem crédito",
+  "time_resolution_minutes": 5,
+  "weather_resolution_h": 1,
+  "unavailable_trailing_weather_hours_discarded": {
+    "clima-00.json": 99,
+    "clima-01.json": 99,
+    "clima-02.json": 99,
+    "clima-03.json": 99,
+    "clima-04.json": 99,
+    "clima-05.json": 99,
+    "clima-06.json": 99,
+    "clima-07.json": 99,
+    "clima-08.json": 99,
+    "clima-09.json": 99,
+    "clima-10.json": 99,
+    "clima-11.json": 99,
+    "clima-12.json": 99,
+    "clima-13.json": 99
+  },
+  "last_available_weather_hour": "2026-10-22T20:00:00-03:00",
+  "limitations": [
+    "Rota roteada sobreOpenStreetMap, sem inspeção local de circulação, altura, peso, estacionamento ou condição de pavimento.",
+    "Limites aproximados por classe e perfil de tempo OSRM; placas reais continuam autoridade na condução.",
+    "RelevoDEM5km suaviza rampas locais, pontes e túneis; não valida potência de pico.",
+    "ClimaERA5 em nós esparsos aproxima nuvens/temperatura; não é medição a bordo nem previsão.",
+    "Interface de cargaOEM e mapas de eficiência continuam hipóteses.",
+    "Política construtiva com recolhimento e condução noturna; sem certificado de mínimo global.",
+    "Paradas na coordenada de progresso não identificam estacionamento legal/seguro com área para painéis.",
+    "Mapas motor/eficiência/Cd/Cr e demandaHVAC são os cenários condicionados anteriores.",
+    "Não inclui acelerações, filas, pedágios, vento relativo, partidas dos aparelhos ou secagem.",
+    "Relevo em5km não resolve rampas curtas; céu limpo usa25°C e vento0, histórico usa temperaturaERA5 e vento0.",
+    "A política pode falhar onde outra gestão de energia seria viável; falha de política não prova inviabilidade global."
+  ],
+  "inputs_sha256": {
+    "config/rota_belem_chui_proposta.yaml": "d8fba8b0a5d8ff459b1761802ba4314da300c3dca87c0213af5679fdcc9b2160",
+    "config/agenda_portatil_proposta.yaml": "0ee3fd8c36600de3a3749b6909b1ac6a21b9b9d873a70d6383c3c36dda5b7761",
+    "config/interface_carga_proposta.yaml": "43698f2d859b5d047f4ac394b482f2f2f7efdcbc095a4918ea9c91a5bc5a1c51",
+    "config/energia_sensibilidade.yaml": "d49f6c01790b4ae7ddc5282d3e1793094ac358007666455e1f129c7549172375",
+    "config/solar_proposta.yaml": "98dab36ffaad100293a42856ff53377ea15afa2e8856f0007c2fa01eb392e10b",
+    "config/solar_portatil_proposta.yaml": "e50cbee5f70a290bf9f7ea738d7ef2b45e4c3de672d702a0d830737a00e6d7f3",
+    "entregas/parcial_2026-10-24/resumo_expansao_solar.json": "e7db815ba2661e5530992dc0feca31dece48804aa8658f6d477162a880beb430",
+    "/home/mhc/motorhome_solar_codex_tarefas/scripts/simular_rota_real.py": "cad58b53181b6003d8b141951a07e368a8e42cb9406009b8e7729951b2486a5f",
+    "src/motorhome/rota.py": "3a5e0017c88bbec981406db0958394fb1336383168cd5328a38194c1a674fd54",
+    "src/motorhome/viagem_rota.py": "81024ea874317782adce15e722321cc6d1471b3e3404f565f433ff6b7b68bbc9",
+    "src/motorhome/interface_carga.py": "6e94e360fc44c330c6cdc6c041d0807aa28eb06636d62dd62431e80d6fe5d321",
+    "/home/mhc/motorhome_referencias_tarefas/rota-litoral-fontes-02/fontes.json": "e18bb9d1c53070ded1a3b95838d7faab54b91ca0bbb07e5caf2b401a5285c425",
+    "/home/mhc/motorhome_referencias_tarefas/rota-litoral-fontes-02/resumo_fontes_rota.json": "99b171952537a739d3c61ef26e1c2dae597cf35a2addbfc03097c4ac81e16f8b",
+    "/home/mhc/motorhome_referencias_tarefas/rota-litoral-fontes-02/geometria.csv": "f8c5afe498f8a3f7b2f9a678121f1f2dd17ffdcbb519dbd4d9ea0f00d6d419a1",
+    "/home/mhc/motorhome_referencias_tarefas/rota-litoral-fontes-02/trechos.csv": "4e309f4465fa2c4bb4d5d58e8f23b878a2436b97791a0910c3d2fd296edcb805",
+    "/home/mhc/motorhome_referencias_tarefas/rota-litoral-fontes-02/relevo.csv": "9bd86c5978f0ca464dd6dbf04ba29e7e012542fc6516ef0d368f47a9ed0a0f78",
+    "/home/mhc/motorhome_referencias_tarefas/rota-litoral-fontes-02/nos_clima.csv": "4dedd88777e69329c7df5e69fccd544641fa5bde718d86cb815184a04955a718"
+  },
+  "output_csv_sha256": {
+    "clear_90_dias.csv": "fff8c2a53736a2b3de1bbbd30eb91e855b28c2036aceb17ffc6109bec4618a4c",
+    "clear_90_agenda.csv": "16f6e2e7d304f3cde405eb270920b976404bd22a599122dca4c91c06afff8dd6",
+    "era5_80_dias.csv": "4baf3a4f0d6caa746e9776f17b2f8786adfd56a9d42f445117848977a9f694fb",
+    "relevo.csv": "9bd86c5978f0ca464dd6dbf04ba29e7e012542fc6516ef0d368f47a9ed0a0f78",
+    "clear_60_conducao.csv": "f023ea1aeda9e1669a0715c1e49c26f3b68fdcc25c2fe505e5d97c49ced9a0b9",
+    "era5_60_dias.csv": "88e360b158ebef701f715f6620460de156a87770e08cc510d592c280c94f793c",
+    "clear_80_dias.csv": "e900c898cb9880d7f45b7e318309be9b8947a44903f519f689d6ec44af3af072",
+    "clear_80_sem_interface_conducao.csv": "1e9ac2af571a345f2b94d3560edaab8419c5f6ffb589ce2e951f392e826149d1",
+    "clear_60_dias.csv": "49d721b6760f5c28fd9b7e1b1121f4e88bf24e671483fc98eaddddf95e4f889c",
+    "era5_80_agenda.csv": "2da08b7045f013c30e5fd06da69bba6f10a829d0c7efa29270ed672d9e4be935",
+    "era5_80_conducao.csv": "38cd03d742acadfc1e991d72d67efcc221b6c930a2595551fce7a9914018b2bd",
+    "era5_60_agenda.csv": "08fb93806886e44ae7a141187f267a92700adedd21f68bce40f0440597e593e2",
+    "era5_90_agenda.csv": "1f4c268e00d013f75b8d16a40ed34123e2e24f09a992d626f78297aae73092de",
+    "era5_90_conducao.csv": "98c1cbd85acc7358ac20b9013e0487b6ad74a362e211d8d6a809c6ceef17caf0",
+    "clear_80_conducao.csv": "e950bddc95cb94fe6c5f23c7574059a48625590cc020b6a9c767613aaea8187d",
+    "clear_80_sem_interface_agenda.csv": "7e5ad680957b1c8b30c41d54cac744b81fe11616e4b669e5f5ecf55a964ccc26",
+    "clear_60_agenda.csv": "ce69b22714cf94989b33f189e3526b682ef6c84345c9c385b99c8e8b645fd989",
+    "clear_90_conducao.csv": "5f65091de2bbb1482df3d69e7eba6b92586d500dad51a54cdb7df12d2febe582",
+    "clear_80_agenda.csv": "262e7a7658e589d30e39bf226e2d587a75dfc085097ce826119e6c4affd34f80",
+    "trechos.csv": "4e309f4465fa2c4bb4d5d58e8f23b878a2436b97791a0910c3d2fd296edcb805",
+    "nos_clima.csv": "4dedd88777e69329c7df5e69fccd544641fa5bde718d86cb815184a04955a718",
+    "clear_80_sem_interface_dias.csv": "676dbe7be59c699d0192600bf211447ddac413be720c181dbcf221face13961e",
+    "era5_60_conducao.csv": "1c26e396d8d6b7fd262aeb89a122abe8a8e8e78cca35616e0add31295b1ae93d",
+    "era5_90_dias.csv": "821ef30037e5e0e9b6162bb06908a1ee9ff9892c4a742d87c9a5fb4f45ba8dbc"
+  }
+}

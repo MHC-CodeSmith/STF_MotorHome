@@ -1,0 +1,461 @@
+{
+  "date": "2026-10-28",
+  "items_reviewed": 35,
+  "items": [
+    {
+      "item": 1,
+      "owner": "P1",
+      "requirement": "Nome do carro e conceito elétrico solar",
+      "evidence": "Parcial: proposta BEV Aurora Solar, E-Ducato MY25 L3H2; arquitetura e fonte OEM conferidas",
+      "method": "Cap. 1, pp. 5–7, requisitos/projeto",
+      "missing": "Definir nome, arquitetura, duas pessoas e configuração coerente; registrar decisão",
+      "status": "em_desenvolvimento",
+      "human_approval_recorded": false
+    },
+    {
+      "item": 2,
+      "owner": "P1",
+      "requirement": "Pneus/rodas, inclusive pressão, material, dimensões e peso",
+      "evidence": "Parcial: Continental225/75R16C artigo04514690000 documentado; diâmetro0,74422m/massa16,919kg; pressão operacional e roda pendentes",
+      "method": "Dados do fabricante, fora do escopo da apostila",
+      "missing": "Escolher pneu/roda com capacidade de carga, pressão e raio efetivo documentados",
+      "status": "em_desenvolvimento",
+      "human_approval_recorded": false
+    },
+    {
+      "item": 3,
+      "owner": "P1",
+      "requirement": "Sistema de freios especificado",
+      "evidence": "Referência Brembo300×32 ventilado pesquisada; compatibilidadeMY25 pendente; [I33 condicionado](FREIOS_2D.md)",
+      "method": "Cap. 2 apoia I33, sem dimensionamento completo do sistema",
+      "missing": "Confirmar peça exata/pinça/pastilha, propriedades, cotas, massas e distribuição",
+      "status": "em_desenvolvimento",
+      "human_approval_recorded": false
+    },
+    {
+      "item": 4,
+      "owner": "P4",
+      "requirement": "Motor: potência máxima, curvas de torque, potência e eficiência por RPM",
+      "evidence": "Parcial: motor OEM elétrico 205 kW/410 Nm; curvas/mapas ainda ausentes",
+      "method": "Curvas reais fora da apostila",
+      "missing": "Selecionar motor elétrico compatível e obter mapas/limites citados",
+      "status": "em_desenvolvimento",
+      "human_approval_recorded": false
+    },
+    {
+      "item": 5,
+      "owner": "P4",
+      "requirement": "Transmissão especificada",
+      "evidence": "Redutor fixo OEM retido, arquitetura confirmada porFiatDE; relação/rendimento/RPM pendentes",
+      "method": "Referências mecânicas externas",
+      "missing": "Obter relação total e limites/perdas, preservando varianteSK",
+      "status": "em_desenvolvimento",
+      "human_approval_recorded": false
+    },
+    {
+      "item": 6,
+      "owner": "P2",
+      "requirement": "Bateria especificada",
+      "evidence": "Parcial: OEM110/98kWh400V com envelope CAD estimado; serviços2NG51,2V100Ah paralelo+LynxBMSNG; perdas/massa OEM pendentes",
+      "method": "Armazenamento térmico não define capacidade elétrica",
+      "missing": "Definir célula/pack/BMS, tensão, capacidades, massa, curvas e limites",
+      "status": "em_desenvolvimento",
+      "human_approval_recorded": false
+    },
+    {
+      "item": 7,
+      "owner": "P2",
+      "requirement": "Fiação elétrica",
+      "evidence": "Parcial: rotasCAD conceituais; manual de serviços70mm²/fusível200A e sensibilidadeI²R/queda; cabo de tração e isolamento pendentes",
+      "method": "Cap. 2 para dissipação, não substitui especificação elétrica",
+      "missing": "Documentar percursos, bitolas, corrente RMS/DC correta, isolamento, perdas e proteção",
+      "status": "em_desenvolvimento",
+      "human_approval_recorded": false
+    },
+    {
+      "item": 8,
+      "owner": "P5",
+      "requirement": "Painéis: área, eficiência e tecnologia",
+      "evidence": "Teto1540W e portátil1600W documentados/modelados; solar12/48V separado; geração agora calculada ao longo da rota/data.",
+      "method": "Solar/pvlib fora da apostila",
+      "missing": "Confirmar montagem/fixações, sombras, curvaIV, clippingMPPT e perdas; refinar dados meteorológicos da rota",
+      "status": "em_desenvolvimento",
+      "human_approval_recorded": false
+    },
+    {
+      "item": 9,
+      "owner": "P2",
+      "requirement": "Controladoras e inversores com eficiências",
+      "evidence": "Parcial: MPPT150/35 principal+opcional e100/20 a12V; MultiPlus-II48/5000,Orion48/12-30,banco10,24kWh eBMS dimensionados noCAD; EVSE/circuitos e curvas pendentes",
+      "method": "Conversão elétrica fora da apostila",
+      "missing": "Compatibilizar tensão/corrente/MPPT/inversor e mapas de eficiência reais",
+      "status": "em_desenvolvimento",
+      "human_approval_recorded": false
+    },
+    {
+      "item": 10,
+      "owner": "P7",
+      "requirement": "Resfriamento de componentes elétricos",
+      "evidence": "Dois circuitos propostos; bateriaECM e ponto hidráulico Bosch+campos em [integração](FECHAMENTO_TERMICO_E_MISSAO.md)",
+      "method": "Caps. 2–4, condução/convecção/trocadores/bombas",
+      "missing": "Confirmar perdas/UA/limites reais, ventilação e integrar fisicamente",
+      "status": "em_desenvolvimento",
+      "human_approval_recorded": false
+    },
+    {
+      "item": 11,
+      "owner": "P6",
+      "requirement": "A/C, aquecimento e ventilação",
+      "evidence": "Parcial: FreshWell3000 sob cama modelado628x400x286mm/21kg;2700W frio vs2646W carga nominal estimada; curva/dutos e cenários altos pendentes",
+      "method": "Cap. 6, pp. 69–72",
+      "missing": "Dimensionar ciclo/equipamento após cargas de cabine; fornecer potência elétrica a P5",
+      "status": "em_desenvolvimento",
+      "human_approval_recorded": false
+    },
+    {
+      "item": 12,
+      "owner": "P7",
+      "requirement": "Lubrificação",
+      "evidence": "Escopo de lubrificaçãoBEV identificado; reterOEM, sem óleo de motor diesel. Grau/volume do redutor pendentes",
+      "method": "Cap. 4 para escoamento, não seleção de lubrificante",
+      "missing": "Identificar pontos a lubrificar, fluido, circuito, vazão/perdas e fichas",
+      "status": "em_desenvolvimento",
+      "human_approval_recorded": false
+    },
+    {
+      "item": 13,
+      "owner": "P6",
+      "requirement": "Materiais/equipamentos internos, incluindo assentos, mobiliário, banheiro, eletrônicos, fogão, geladeira, lavadora/secadora",
+      "evidence": "Parcial:7equipamentos internos/157sólidos; induçãoIE3TP220V60Hz2000W substitui50Hz; garagem/armário técnico,serviços e dutos em conjunto adicional208sólidos; montagem/ergonomia pendentes",
+      "method": "Cap. 2 e cap. 6 apoiam materiais/HVAC/geladeira",
+      "missing": "Escolher equipamentos e materiais reais; conferir portas/rodas/isolamento/ergonomia; BOM/cargas/fontes",
+      "status": "em_desenvolvimento",
+      "human_approval_recorded": false
+    },
+    {
+      "item": 14,
+      "owner": "P1",
+      "requirement": "Suspensão/direção",
+      "evidence": "ArquiteturaOEM elétrica pesquisada: pseudo-MacPherson/feixes reforçados/EPS; referênciaUK, sem placaSK",
+      "method": "Fora da cobertura específica da apostila",
+      "missing": "Definir eixos, cargas, geometria e compatibilidade com massa montada",
+      "status": "em_desenvolvimento",
+      "human_approval_recorded": false
+    },
+    {
+      "item": 15,
+      "owner": "P1",
+      "requirement": "Chassi e dimensões",
+      "evidence": "Parcial: cotas/limite/massa OEM; malha adaptada às cotas-alvo L3H2, não CAD OEM",
+      "method": "Cap. 1, definição de arquitetura; dimensionamento estrutural externo",
+      "missing": "Vincular chassi real à variante escolhida, cotas, massa e limites de carga",
+      "status": "em_desenvolvimento",
+      "human_approval_recorded": false
+    },
+    {
+      "item": 16,
+      "owner": "P3",
+      "requirement": "Carenagem, portas, aberturas e vidros",
+      "evidence": "Parcial: exterior Ducato importado com portas, vidros e espelhos",
+      "method": "Cap. 2 para propriedades/trocas; CAD não prescrito pela apostila",
+      "missing": "Conferir escala/variante e definir materiais, espessuras e aberturas do motorhome",
+      "status": "em_desenvolvimento",
+      "human_approval_recorded": false
+    },
+    {
+      "item": 17,
+      "owner": "P3",
+      "requirement": "Geometria 3D e três vistas com cotagem principal",
+      "evidence": "Parcial: exterior detalhado+interior157sólidos+tração/serviços208sólidos STEP/GLB; coberturas; viewer23seletores e vista técnica; tração estimada,não CAD OEM",
+      "method": "Enunciado I17; [carroceria](CARROCERIA_DE_TRABALHO.md)",
+      "missing": "Adaptar interior e instalações; conferir dimensões contra ficha real e completar desenho técnico",
+      "status": "em_desenvolvimento",
+      "human_approval_recorded": false
+    },
+    {
+      "item": 18,
+      "owner": "P1",
+      "requirement": "Massa montada com passageiros",
+      "evidence": "Subtotal conhecido com portátil3458,605kg; taraOEM inclui tração. Ainda não massa completa/eixos.",
+      "method": "Conservação/contabilidade; sem BOM na apostila",
+      "missing": "Somar componentes sem sobreposição, incluindo I07/I10, água, carga e passageiros; conferir eixos/CG",
+      "status": "em_desenvolvimento",
+      "human_approval_recorded": false
+    },
+    {
+      "item": 19,
+      "owner": "P3",
+      "requirement": "Cd e área frontal com CFD",
+      "evidence": "Parcial: três malhas29527/63668/166212células convergidas, Cd0,653/0,625/0,581; mudança final7,07%; refino com camadas rejeitado",
+      "method": "Aerodinâmica externa fora da apostila",
+      "missing": "Resolver camadas/y+, rodas, geometria e estudo de independência; sem Cd final validado",
+      "status": "em_desenvolvimento",
+      "human_approval_recorded": false
+    },
+    {
+      "item": 20,
+      "owner": "P4",
+      "requirement": "Coeficiente de rolamento Cr",
+      "evidence": "ComparaçãoCamper0451473 classeC2/C:Cr0,0068–0,0080 de rótulo, não adoção nem medição no A/S",
+      "method": "Dados pneu/superfície; não é Cr de trocador",
+      "missing": "Obter coeficiente com carga/pressão/superfície e fonte apropriadas",
+      "status": "em_desenvolvimento",
+      "human_approval_recorded": false
+    },
+    {
+      "item": 21,
+      "owner": "P4",
+      "requirement": "Forças aerodinâmica e rolamento versus velocidade",
+      "evidence": "Parcial:324cenários explícitos Cd/Cr/eta/velocidade; forças tabeladas, não dados aprovados Novo estudo integra consumo por trecho com velocidade aproximada e relevoDEM.",
+      "method": "Dinâmica fora da apostila",
+      "missing": "Substituir hipóteses por massa/Cd/Cr/rho validados",
+      "status": "em_desenvolvimento",
+      "human_approval_recorded": false
+    },
+    {
+      "item": 22,
+      "owner": "P4",
+      "requirement": "Potência resistiva e tração versus velocidade",
+      "evidence": "Parcial: potência nas rodas/terminais nos324cenários; curva disponível real ausente Novo estudo integra consumo por trecho com velocidade aproximada e relevoDEM.",
+      "method": "Dinâmica/motor fora da apostila",
+      "missing": "Integrar transmissão, motor, mapas de perdas e limites elétricos",
+      "status": "em_desenvolvimento",
+      "human_approval_recorded": false
+    },
+    {
+      "item": 23,
+      "owner": "P2",
+      "requirement": "Capacidade das baterias em kWh",
+      "evidence": "Parcial: 110 kWh brutos/98 úteis da ficha; adequação à missão ainda pendente",
+      "method": "Armazenamento elétrico não se obtém da Eq. térmica 112",
+      "missing": "Dimensionar nominal/útil e janela de SOC a partir de componentes e uso definidos",
+      "status": "em_desenvolvimento",
+      "human_approval_recorded": false
+    },
+    {
+      "item": 24,
+      "owner": "P1",
+      "requirement": "Custo dos materiais em R$, incluindo impostos",
+      "evidence": "BOM27linhas/20linhas nãoOEM sem oferta registrada; referênciaIE3TPR$439, sem preço final/taxas confirmados",
+      "method": "Cap. 1 apoia análise de projeto, não preços atuais",
+      "missing": "Consolidar BOM, cotações datadas, quantidade, transporte e tributação aplicável com fonte",
+      "status": "em_desenvolvimento",
+      "human_approval_recorded": false
+    },
+    {
+      "item": 25,
+      "owner": "P5",
+      "requirement": "Autonomia com solar do dia a 40/80 km/h e gráfico versus velocidade",
+      "evidence": "Teto atual1540W:17,89–31,80km@40/10,85–16,68km@80 antes da habitação; grade condicionada20–90km/h",
+      "method": "Solar/dinâmica fora da apostila",
+      "missing": "Fechar interfaceHV/perdas e demanda; portátil como alternativa parada",
+      "status": "em_desenvolvimento",
+      "human_approval_recorded": false
+    },
+    {
+      "item": 26,
+      "owner": "P5",
+      "requirement": "km/kWh da bateria a 40/80 km/h",
+      "evidence": "Parcial:3,25–5,78@40 e1,97–3,03@80 na grade de hipóteses, não faixas medidas Novo estudo integra consumo por trecho com velocidade aproximada e relevoDEM.",
+      "method": "Balanço elétrico e dinâmica externos",
+      "missing": "Integrar mapas terminal–rodas e auxiliares reais, preservando km/kWh",
+      "status": "em_desenvolvimento",
+      "human_approval_recorded": false
+    },
+    {
+      "item": 27,
+      "owner": "P5",
+      "requirement": "Máxima autonomia diária, SOC final 30%, v(t) e potência instantânea",
+      "evidence": "Atual27/10:326,403km semHV/344,768km comHVhipotética; solar12/48V separado, correntes0/6/8/10A e SOC100→30%exato",
+      "method": "Conservação; otimização não fornecida pela apostila",
+      "missing": "Verificar aceitaçãoOBC/perfis/componentes e grade nova; potência nas rodas exportada, eixo do motor ainda null",
+      "status": "em_desenvolvimento",
+      "human_approval_recorded": false
+    },
+    {
+      "item": 28,
+      "owner": "P4",
+      "requirement": "Velocidade máxima e 0–100 no plano e sem vento",
+      "evidence": "Limitador90km/h de série na variante4250kg, fichaSKp3;0–100 inalcançável com limitador ativo",
+      "method": "Dinâmica externa",
+      "missing": "Confirmar curvas para atingir90; não inventar aceleração sem mapas",
+      "status": "em_desenvolvimento",
+      "human_approval_recorded": false
+    },
+    {
+      "item": 29,
+      "owner": "P5",
+      "requirement": "Menor tempo em 7000 km, bateria inicial+solar, até 8 h/dia",
+      "evidence": "Rota costeiraOSRM de7511.3km,21pontos,DEM5km,ERA5 em14nós; comparação60/80/90km/h e marco7000km; replay de velocidades/energia.",
+      "method": "Conservação/dinâmica, geografiaOSM, reanáliseERA5 e otimização em grade",
+      "missing": "Fechar interfaceOEM, mapas/Cd/Cr e cargas reais; melhorar despacho para dias nublados, validar paradas e obter mínimo global de tempo. Resultados condicionados.",
+      "status": "em_desenvolvimento",
+      "human_approval_recorded": false
+    },
+    {
+      "item": 30,
+      "owner": "P2",
+      "requirement": "Temperatura nos cabos em potência máxima, campo multidimensional",
+      "evidence": "Parcial: cabo120/150mm² com ficha; campo r-theta feixe/isolamento/R(T), três malhas, correntes/h/k condicionados",
+      "method": "Fourier p. 9, Newton p. 10",
+      "missing": "Confirmar corrente RMS real, k/R(T) do produto, contatos/agrupamento/contornos e revisar alternativa paralela",
+      "status": "em_desenvolvimento",
+      "human_approval_recorded": false
+    },
+    {
+      "item": 31,
+      "owner": "P6",
+      "requirement": "Cabine fechada estacionada ao meio-dia, sem A/C e sem passageiros",
+      "evidence": "Parcial: caso condicionado de caixa equivalente,49,079°C ao meio-dia; sol orientado, hipóteseC/UA,48combinações e verificação temporal; não cabine CAD validada",
+      "method": "Cap. 2; armazenamento sensível p. 74 Eq. 112",
+      "missing": "Extrair superfícies, modelar sol/radiação/convecção e justificar regime/condição inicial",
+      "status": "em_desenvolvimento",
+      "human_approval_recorded": false
+    },
+    {
+      "item": 32,
+      "owner": "P6",
+      "requirement": "Potência A/C: 33 °C externo, 25 °C interno, passageiro, permanente",
+      "evidence": "Parcial: caso condicionado33/25°C+UR50%+ventilação, uma/duas pessoas2,516/2,646kW de frio; COP2–3assumido; parâmetros de envelope a revisar",
+      "method": "Caps. 2 e 6",
+      "missing": "Calcular ganhos e psicrometria com ocupação definida; obter COP/capacidade de equipamento",
+      "status": "em_desenvolvimento",
+      "human_approval_recorded": false
+    },
+    {
+      "item": 33,
+      "owner": "P1",
+      "requirement": "Freios: 30→10 m/s em 5 s, início 25 °C e campo multidimensional",
+      "evidence": "Campo r–z condicionado, energia/partição, série analítica e refinamentos; [evidências](FREIOS_2D.md)",
+      "method": "Cap. 2, Fourier/Newton e conservação",
+      "missing": "Confirmar peçaMY25/cotas/material, distribuição e inércias, contato móvel/regeneração e revisão humana",
+      "status": "em_desenvolvimento",
+      "human_approval_recorded": false
+    },
+    {
+      "item": 34,
+      "owner": "P7",
+      "requirement": "Temperatura da bateria com cargas 20/80 kW",
+      "evidence": "ECM SOC/T com dois nós térmicos20/80kW, eventos de parada,18sensibilidades+2adiabáticos e balanços; parâmetros não OEM",
+      "method": "Cap. 2 e Eq. 112 p. 74",
+      "missing": "Calibrar OCV/R(SOC,T)/entropia/capacidades/UA e BMS real",
+      "status": "em_desenvolvimento",
+      "human_approval_recorded": false
+    },
+    {
+      "item": 35,
+      "owner": "P7",
+      "requirement": "Bomba, radiador, vazão em potência máxima do motor; perfis e ponto de operação",
+      "evidence": "Curva publicadaBosch039202453G cruza circuito assumido em31,85L/min;96W elétricos; perfis na vazão calculada",
+      "method": "Eqs. 49–62 pp. 31/38; tabela 4 p. 39; Eq. 93 p. 56",
+      "missing": "Obter perdas reais/UA/fluido/ventilador/NPSH e limites; circuito ainda condicionado",
+      "status": "em_desenvolvimento",
+      "human_approval_recorded": false
+    }
+  ],
+  "route_cases": [
+    {
+      "case": "clear_60",
+      "weather": "clear",
+      "cruise_cap_km_h": 60,
+      "distance_km": 7511.282108637341,
+      "status": "arrived",
+      "7000km_elapsed_days": 296.92935366430555,
+      "route_elapsed_days": 330.92512801127316,
+      "failure": null
+    },
+    {
+      "case": "clear_80",
+      "weather": "clear",
+      "cruise_cap_km_h": 80,
+      "distance_km": 7511.282108637341,
+      "status": "arrived",
+      "7000km_elapsed_days": 387.9188665851852,
+      "route_elapsed_days": 428.9227478314236,
+      "failure": null
+    },
+    {
+      "case": "clear_90",
+      "weather": "clear",
+      "cruise_cap_km_h": 90,
+      "distance_km": 7511.282108637341,
+      "status": "arrived",
+      "7000km_elapsed_days": 390.91714651763886,
+      "route_elapsed_days": 430.92093713002316,
+      "failure": null
+    },
+    {
+      "case": "era5_60",
+      "weather": "era5",
+      "cruise_cap_km_h": 60,
+      "distance_km": 4112.659868640115,
+      "status": "service_reserve_violation_predicted",
+      "7000km_elapsed_days": null,
+      "route_elapsed_days": null,
+      "failure": {
+        "time": "2026-03-02T13:55:00-03:00",
+        "projected_service_soc": 0.19323241335612365,
+        "last_feasible_km": 4112.659868640115,
+        "policy_infeasible": true
+      }
+    },
+    {
+      "case": "era5_80",
+      "weather": "era5",
+      "cruise_cap_km_h": 80,
+      "distance_km": 3462.1249293312417,
+      "status": "service_reserve_violation_predicted",
+      "7000km_elapsed_days": null,
+      "route_elapsed_days": null,
+      "failure": {
+        "time": "2026-03-04T19:25:00-03:00",
+        "projected_service_soc": 0.18660857223736477,
+        "last_feasible_km": 3462.1249293312417,
+        "policy_infeasible": true
+      }
+    },
+    {
+      "case": "era5_90",
+      "weather": "era5",
+      "cruise_cap_km_h": 90,
+      "distance_km": 3459.513119764248,
+      "status": "service_reserve_violation_predicted",
+      "7000km_elapsed_days": null,
+      "route_elapsed_days": null,
+      "failure": {
+        "time": "2026-03-04T19:25:00-03:00",
+        "projected_service_soc": 0.18353490761690378,
+        "last_feasible_km": 3459.513119764248,
+        "policy_infeasible": true
+      }
+    },
+    {
+      "case": "clear_80_sem_interface",
+      "weather": "clear",
+      "cruise_cap_km_h": 80,
+      "distance_km": 242.42593563931217,
+      "status": "traction_stranded_without_interface",
+      "7000km_elapsed_days": null,
+      "route_elapsed_days": null,
+      "failure": null
+    }
+  ],
+  "all_35_finished": false,
+  "notes": [
+    "Os35itens possuem trabalho iniciado; nenhum tem aprovação humana final registrada.",
+    "Testes e replay verificam implementação, conservação e rastreabilidade; não medem o veículo físico.",
+    "Estado de carga é a fração de energia restante: I27 parte100% e termina30% da janela útil98kWh nesta hipótese.",
+    "I29 parte100%, reserva10% na tração e20% nos serviços; não impõe30% ao fim da viagem.",
+    "Rota aproximada por vias reaisOSM; limites por classe/perfilOSRM não substituem placas.",
+    "21jun2025 é a partida histórica escolhida; calendário/local mudam a geração em cada parada.",
+    "DadosERA5 são reanálise horária em14nós espaciais; céu limpo é outro cenário. Falha de política não prova inviabilidade global.",
+    "Sem recargas externas; transferência48V→OBCOEM continua hipótese e requer comprovação.",
+    "Faltam integração dos suplementos ao memorial final, revisão cruzada, seminário e vídeo com os integrantes."
+  ],
+  "inputs_sha256": {
+    "docs/REVISAO_35_ITENS.md": "ff0f71e06bdb4861cac2430a6835434f9e2aaad715eab739fe6c8a978e6779b3",
+    "entregas/etapa_2026-10-28_rota_real/resumo_rota_real.json": "2c241ded11582688ad00677d7e598c80f77561f455c7b2fdbea9fd74931edd60",
+    "entregas/etapa_2026-10-28_rota_real/qa_rota.json": "500e35dcfcfbee1786658dbd5437af426a705c2ceb8b076adc88fc6bcede1da2",
+    "/home/mhc/motorhome_solar_codex_tarefas/scripts/gerar_revisao_35_atual.py": "970c39ab34c8c933a540eaa057bbd6407173e988b857780652d49e19f5620f85"
+  }
+}

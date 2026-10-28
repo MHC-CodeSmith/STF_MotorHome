@@ -1,0 +1,222 @@
+{
+  "status": "ESTUDO_CONDICIONADO_SEM_COMPATIBILIDADE_OEM_COMPROVADA",
+  "generated_utc": "2026-10-27T17:39:21.231949+00:00",
+  "configuration": {
+    "revision": "agenda-portatil-0.1",
+    "status": "ESTIMATIVA_CONDICIONADA_NAO_VALIDADA",
+    "step_minutes": 30,
+    "setup_minutes_assumed": 30,
+    "teardown_minutes_assumed": 30,
+    "speed_modes_km_h": [
+      20,
+      30,
+      40,
+      60,
+      80,
+      90
+    ],
+    "drag_coefficient_assumed": 0.62487678,
+    "rolling_coefficient_assumed": 0.012,
+    "traction_efficiency_assumed": 0.9,
+    "traction_capacity_kwh": 98,
+    "traction_initial_soc": 1.0,
+    "traction_min_soc": 0.1,
+    "traction_final_soc_i27": 0.3,
+    "service_capacity_kwh": 10.24,
+    "service_initial_soc": 0.8,
+    "service_min_soc": 0.2,
+    "service_final_soc": 0.8,
+    "transfer_power_kw_assumed": 0.0,
+    "transfer_efficiency_assumed": 0.81,
+    "transfer_interface_verified": false,
+    "solver_time_limit_s": 30,
+    "limits": [
+      "EVSE permite frequência60Hz; aceitação monofásica60Hz do OBCMY25 continua desconhecida.",
+      "Não é circuito pronto; PE, neutro, DR/disjuntores e intertravamentos exigem projeto e revisão elétrica.",
+      "Não substituir entrada400V do pack por ligação direta; manter carregadorOEM e permissõesBMS.",
+      "Tensão230V de saída vs aparelhos220V requer faixas admissíveis, não supor compatibilidade.",
+      "Eficiências e fatores de potência são sensibilidades, sem curvas de carga medidas.",
+      "Potências contínuas e perfis não verificam corrente de partida, harmônicos ou térmica do armário.",
+      "MassaEVSE não foi incorporada à BOM final; cabos/adaptadores/proteções adicionais ainda sem massa/custo.",
+      "Perfis horários de AC/DC substituem habitação uniforme da etapa anterior."
+    ]
+  },
+  "interface_specification": {
+    "revision": "interface-carga-0.1",
+    "status": "ESTUDO_CONDICIONADO_SEM_COMPATIBILIDADE_OEM_COMPROVADA",
+    "source_date": "2026-10-27",
+    "evse_candidate": {
+      "model": "NRGkick16A, cabo5m e adaptador monofásico apropriado, somente candidato",
+      "manual_url": "https://nrgkick.com/wp-content/uploads/Bedienungsanleitung-DE-EN-FR-NL-TR.pdf",
+      "manual_version": "2602-04-1",
+      "manual_sha256": "d7ef4be369554196dea4b591d0aa2863fd364ae1abeb7e19c36d0889d1ae7a36",
+      "technical_page": 20,
+      "voltage_v": 230,
+      "frequencies_hz": [
+        50,
+        60
+      ],
+      "published_approximate_mass_kg": 2.55,
+      "enclosure_dimensions_m": [
+        0.216,
+        0.09,
+        0.064
+      ],
+      "selected_or_purchased": false,
+      "oem_single_phase_60hz_acceptance_verified": false,
+      "earthing_and_protection_design_verified": false
+    },
+    "inverter": {
+      "model": "MultiPlus-II48/5000/70-50 230V",
+      "source_url": "https://www.victronenergy.com/media/pg/MultiPlus-II_230V/en/technical-specifications-mp-ii-230v.html",
+      "output_frequency_hz_assumed": 60,
+      "continuous_power_kw_at40c": 3.7,
+      "apparent_power_kva_at25c": 5.0,
+      "idle_power_kw_published": 0.018,
+      "efficiency_assumed": 0.9,
+      "household_power_factor_assumed": 0.9
+    },
+    "charge": {
+      "current_modes_a_assumed": [
+        0
+      ],
+      "voltage_v_assumed": 230,
+      "power_factor_assumed": 0.99,
+      "onboard_efficiency_assumed": 0.9,
+      "evse_standby_kw_assumed": 0.005,
+      "control_note": "Modos discretos do estudo, mantidos por um passo inteiro30min; limites OEM e resposta real não medidos."
+    },
+    "household": {
+      "hvac_start_hour_assumed": 12,
+      "hvac_duration_h_assumed": 3,
+      "cooktop_start_hour_assumed": 19,
+      "cooktop_duration_h_assumed": 0.5,
+      "dc_dc_efficiency_assumed": 0.9,
+      "dc12_power_limit_kw": 0.36,
+      "solar_12v_credit_to_mission": false,
+      "note": "Geladeira e luzes/bomba/eletrônica uniformes; lavagem média diária distribuída. Secagem ausente. Solar12V separado e sem crédito à missão; conversor48→12 supre cargasDC assumidas, sem carregar AGM."
+    },
+    "limits": [
+      "EVSE permite frequência60Hz; aceitação monofásica60Hz do OBCMY25 continua desconhecida.",
+      "Não é circuito pronto; PE, neutro, DR/disjuntores e intertravamentos exigem projeto e revisão elétrica.",
+      "Não substituir entrada400V do pack por ligação direta; manter carregadorOEM e permissõesBMS.",
+      "Tensão230V de saída vs aparelhos220V requer faixas admissíveis, não supor compatibilidade.",
+      "Eficiências e fatores de potência são sensibilidades, sem curvas de carga medidas.",
+      "Potências contínuas e perfis não verificam corrente de partida, harmônicos ou térmica do armário.",
+      "MassaEVSE não foi incorporada à BOM final; cabos/adaptadores/proteções adicionais ainda sem massa/custo."
+    ]
+  },
+  "cases": {
+    "i27": {
+      "feasible": true,
+      "optimal_in_grid": true,
+      "solver_status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "vehicle_validated": false,
+      "verification": {
+        "distance_km": 326.4026509145262,
+        "solar_kwh": 6.9616028568037365,
+        "house_kwh": 6.42811768101929,
+        "transfer_input_kwh": 0.0,
+        "drive_kwh": 68.6,
+        "curtailed_kwh": 0.533485175784461,
+        "max_balance_residual_kwh": 9.947598300641403e-14,
+        "daily_driving_h": {
+          "2026-06-21": 16.32013254572631
+        },
+        "traction_final_soc": 0.3000000000000009,
+        "service_final_soc": 0.7999999999999998,
+        "transfer_loss_kwh": 0.0,
+        "external_charge_kwh": 0.0,
+        "independently_feasible_in_model": true,
+        "max_shared_active_kw": 2.0067261904761904,
+        "max_shared_apparent_kva": 2.229695767195767,
+        "charging_starts": 0,
+        "interface_oem_verified": false
+      },
+      "distance_km": 326.4026509145262,
+      "mip_gap": 0.0,
+      "distance_upper_bound_km": 326.4026509145262
+    }
+  },
+  "trip": {
+    "constructed": false,
+    "globally_optimized": false,
+    "target_km": 7000.0
+  },
+  "traction_powers_kw": [
+    4.203397233925283,
+    6.497818095053385,
+    9.50350564918004,
+    18.597036427093755,
+    33.38070074899589,
+    43.49905523310808
+  ],
+  "interface_oem_verified": false,
+  "daily_fixed_48v_kwh": 4.848752226856592,
+  "daily_12v_solar_excluded_kwh": 0.6580966707278844,
+  "house_dc_demand_kwh_day": 6.428117681019288,
+  "house_ac_demand_kwh_day_including_evse_standby": 4.33650591291736,
+  "dc12_demand_kwh_day": 1.06,
+  "simultaneity": [
+    {
+      "house_case": "base",
+      "charge_current_a": 0,
+      "house_ac_kw": 0.006726190476190476,
+      "shared_ac_kw": 0.006726190476190476,
+      "charge_dc_input_kw": 0.0,
+      "active_limit_passed": true
+    },
+    {
+      "house_case": "hvac",
+      "charge_current_a": 0,
+      "house_ac_kw": 1.0650853043057869,
+      "shared_ac_kw": 1.0650853043057869,
+      "charge_dc_input_kw": 0.0,
+      "active_limit_passed": true
+    },
+    {
+      "house_case": "cooktop",
+      "charge_current_a": 0,
+      "house_ac_kw": 2.0067261904761904,
+      "shared_ac_kw": 2.0067261904761904,
+      "charge_dc_input_kw": 0.0,
+      "active_limit_passed": true
+    }
+  ],
+  "conservative_max_dc_current_at44_8v_a": 51.267183956916085,
+  "service_bank_max_continuous_a": 200,
+  "limitations": [
+    "EVSE permite frequência60Hz; aceitação monofásica60Hz do OBCMY25 continua desconhecida.",
+    "Não é circuito pronto; PE, neutro, DR/disjuntores e intertravamentos exigem projeto e revisão elétrica.",
+    "Não substituir entrada400V do pack por ligação direta; manter carregadorOEM e permissõesBMS.",
+    "Tensão230V de saída vs aparelhos220V requer faixas admissíveis, não supor compatibilidade.",
+    "Eficiências e fatores de potência são sensibilidades, sem curvas de carga medidas.",
+    "Potências contínuas e perfis não verificam corrente de partida, harmônicos ou térmica do armário.",
+    "MassaEVSE não foi incorporada à BOM final; cabos/adaptadores/proteções adicionais ainda sem massa/custo.",
+    "Solar12V não alimenta48V/HV e não é creditado às cargas desta missão; reserva conservadora, não otimização do barramento12V.",
+    "Perfis horários de uso assumidos, sem secagem, lavagem como média semanal e sem potência de partida.",
+    "Contabiliza18W contínuos de standby além de perdas proporcionais assumidas; não curva medida do inversor.",
+    "A corrente anunciada pelo EVSE é limite superior; OBC pode aceitar menos ou interromper.",
+    "Dias21junSãoCarlos repetidos, sem clima/rota real; viagem construtiva não mínimo global."
+  ],
+  "inputs_sha256": {
+    "config/agenda_portatil_proposta.yaml": "0ee3fd8c36600de3a3749b6909b1ac6a21b9b9d873a70d6383c3c36dda5b7761",
+    "config/interface_carga_proposta.yaml": "43698f2d859b5d047f4ac394b482f2f2f7efdcbc095a4918ea9c91a5bc5a1c51",
+    "config/energia_sensibilidade.yaml": "d49f6c01790b4ae7ddc5282d3e1793094ac358007666455e1f129c7549172375",
+    "config/instalacoes_eletricas_proposta.yaml": "4f127922ec913ad8f6bd04ccb1aeddf5a423ff26958f24317bcedbb5807347a6",
+    "entregas/parcial_2026-10-24/manifesto_entrega.json": "63f69530fa7ac77d72be08ceb9567a7524c8b88a684dfdce7cab0cf84368e384",
+    "entregas/parcial_2026-10-24/expansao_solar.csv": "8de2c9aa3f8343671266c5fbf8bee4132cda1e5f00f282479fb2c510351766d5",
+    "entregas/parcial_2026-10-24/solar_portatil_solar_portatil.csv": "a01b7d0c4a03499cfd53427a37e2c68bb4dfee5970902d6ad699179ea737837a",
+    "entregas/parcial_2026-10-24/resumo_expansao_solar.json": "e7db815ba2661e5530992dc0feca31dece48804aa8658f6d477162a880beb430",
+    "/home/mhc/motorhome_solar_codex_tarefas/scripts/calcular_interface_carga.py": "564e5d976dfb2fdd16cb70d3a8de0bbf30e5bb1d970b2cf2e5b2846ad14285f4",
+    "scripts/calcular_agenda_portatil.py": "5b072592f46428f468591c2b5d9f3b73d36cae49d727fb953e57f8754dd6b75c",
+    "src/motorhome/agenda_portatil.py": "c309a6598b745b9493e65a4faa78c6b0c465690b6a0960e51ec3aaaf99cf5381",
+    "src/motorhome/interface_carga.py": "6e94e360fc44c330c6cdc6c041d0807aa28eb06636d62dd62431e80d6fe5d321",
+    "/home/mhc/motorhome_referencias_tarefas/interface-fontes-01/nrgkick-2602-04-1.pdf": "d7ef4be369554196dea4b591d0aa2863fd364ae1abeb7e19c36d0889d1ae7a36"
+  },
+  "output_csv_sha256": {
+    "i27.csv": "ceccab0aa2c584fbf9af05f4c46b31c2e0ffce4fd3e86787e58beeaa20bcc70e",
+    "entradas_interface.csv": "13f77287d74129a8f9d95bcc786674244ecdd044e38c2ceab8f615b17f691f2d"
+  }
+}

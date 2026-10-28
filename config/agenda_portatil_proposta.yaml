@@ -1,0 +1,33 @@
+revision: agenda-portatil-0.1
+status: ESTIMATIVA_CONDICIONADA_NAO_VALIDADA
+step_minutes: 30
+setup_minutes_assumed: 30
+teardown_minutes_assumed: 30
+speed_modes_km_h: [20, 30, 40, 60, 80, 90]
+drag_coefficient_assumed: 0.62487678
+rolling_coefficient_assumed: 0.012
+traction_efficiency_assumed: 0.90
+traction_capacity_kwh: 98
+traction_initial_soc: 1.0
+traction_min_soc: 0.10
+traction_final_soc_i27: 0.30
+service_capacity_kwh: 10.24
+service_initial_soc: 0.80
+service_min_soc: 0.20
+service_final_soc: 0.80
+household_aggregate_efficiency_assumed: 0.90
+transfer_power_kw_assumed: 2.0
+transfer_efficiency_assumed: 0.90
+transfer_interface_verified: false
+solver_time_limit_s: 30
+limits:
+  - Interface serviços-para-tração hipotética e unidirecional, somente parado; sem modificação OEM autorizada.
+  - A comparação sem interface usa transferência zero; não soma as duas capacidades.
+  - Habitação uniforme nas 24h; inclui carga diária anterior, sem energia da secagem.
+  - Montagem e recolhimento assumidos, arredondados para cima na grade; só gera portátil no estado aberto.
+  - Teto fixo gera também em movimento; perfil de orientação e sombra do veículo ainda não verificado.
+  - Demanda de tração usa massa limite4250kg e Cd/Cr/eficiência condicionados; não mapas OEM.
+  - Velocidade constante em trecho inicial de cada intervalo; restante parado e com portátil guardado.
+  - Solar médio por intervalo, estados elétricos lineares; sem irradiância intrapasso, BMS, corrente ou térmica.
+  - Sem perdas adicionais nas baterias; conversão solar já nos CSV, perdas residenciais e de transferência explícitas.
+  - Viagem construtiva repete São Carlos21jun; não é previsão da rota nem ótimo global I29.

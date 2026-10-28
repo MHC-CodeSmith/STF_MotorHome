@@ -1,0 +1,59 @@
+revision: rota-0.1
+status: SIMULACAO_GEOGRAFICA_CONDICIONADA
+start_date: '2025-06-21'
+date_note: Reconstituição histórica iniciada em21jun2025; permite usar meteorologia arquivada, sem previsão de viagem futura.
+max_days: 490
+timezone: America/Sao_Paulo
+integration_minutes: 5
+driving_hours_per_day_max: 8
+vehicle_limiter_km_h: 90
+approximate_caps_km_h: {federal: 90, state: 80, urban: 40, other: 60}
+speed_policy_note: Limites de cenário por identificação da via, reduzidos pela velocidade média do perfil OSRM. Não são leitura de placas nem base legal de maxspeed.
+cruise_caps_km_h: [60, 80, 90]
+grade_sampling_km: 5
+regeneration_efficiency_assumed: 0.50
+solar_weather_nodes: 14
+weather_end_date: '2026-10-26'
+portable_setup_minutes: 30
+portable_teardown_minutes: 30
+portable_tilt_deg: 45
+portable_azimuth_deg: 0
+traction_initial_soc: 1.0
+traction_reserve_soc: 0.10
+service_initial_soc: 0.80
+service_reserve_soc: 0.20
+service_target_before_trip_soc: 0.80
+service_target_during_solar_soc: 0.55
+night_driving_start_hour: 22
+night_driving_end_hour: 6
+traction_keep_next_day_kwh: 1
+waypoints:
+  - {name: Belém, lat: -1.4558, lon: -48.4902}
+  - {name: São Luís, lat: -2.5307, lon: -44.3028}
+  - {name: Parnaíba, lat: -2.9050, lon: -41.7760}
+  - {name: Fortaleza, lat: -3.7319, lon: -38.5267}
+  - {name: Natal, lat: -5.7945, lon: -35.2110}
+  - {name: João Pessoa, lat: -7.1150, lon: -34.8641}
+  - {name: Recife, lat: -8.0476, lon: -34.8770}
+  - {name: Maceió, lat: -9.6498, lon: -35.7089}
+  - {name: Aracaju, lat: -10.9472, lon: -37.0731}
+  - {name: Salvador, lat: -12.9730, lon: -38.5010}
+  - {name: Ilhéus, lat: -14.7935, lon: -39.0460}
+  - {name: Porto Seguro, lat: -16.4490, lon: -39.0647}
+  - {name: Vitória, lat: -20.3155, lon: -40.3128}
+  - {name: Rio de Janeiro, lat: -22.9068, lon: -43.1729}
+  - {name: Paraty, lat: -23.2200, lon: -44.7130}
+  - {name: Ubatuba, lat: -23.4338, lon: -45.0831}
+  - {name: Santos, lat: -23.9608, lon: -46.3289}
+  - {name: Florianópolis, lat: -27.5954, lon: -48.5480}
+  - {name: Porto Alegre, lat: -30.0346, lon: -51.2177}
+  - {name: Rio Grande, lat: -32.0349, lon: -52.0990}
+  - {name: Chuí, lat: -33.6860, lon: -53.4595}
+limits:
+  - Rota roteada sobreOpenStreetMap, sem inspeção local de circulação, altura, peso, estacionamento ou condição de pavimento.
+  - Limites aproximados por classe e perfil de tempo OSRM; placas reais continuam autoridade na condução.
+  - RelevoDEM5km suaviza rampas locais, pontes e túneis; não valida potência de pico.
+  - ClimaERA5 em nós esparsos aproxima nuvens/temperatura; não é medição a bordo nem previsão.
+  - Interface de cargaOEM e mapas de eficiência continuam hipóteses.
+  - Política construtiva com recolhimento e condução noturna; sem certificado de mínimo global.
+  - Paradas na coordenada de progresso não identificam estacionamento legal/seguro com área para painéis.

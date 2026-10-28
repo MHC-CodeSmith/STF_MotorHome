@@ -1,0 +1,170 @@
+{
+  "status": "ESTIMATIVA_CONDICIONADA_NAO_VALIDADA",
+  "generated_utc": "2026-10-27T17:03:49.580107+00:00",
+  "vehicle_validated": false,
+  "transfer_interface_verified": false,
+  "inputs_sha256": {
+    "config/agenda_portatil_proposta.yaml": "0ee3fd8c36600de3a3749b6909b1ac6a21b9b9d873a70d6383c3c36dda5b7761",
+    "config/energia_sensibilidade.yaml": "d49f6c01790b4ae7ddc5282d3e1793094ac358007666455e1f129c7549172375",
+    "config/limites_operacionais_proposta.yaml": "68a1032fa99d9c6c1fabe8d563782523260249069f2ceba5bde804d8ba566c78",
+    "config/instalacoes_eletricas_proposta.yaml": "4f127922ec913ad8f6bd04ccb1aeddf5a423ff26958f24317bcedbb5807347a6",
+    "entregas/parcial_2026-10-24/manifesto_entrega.json": "63f69530fa7ac77d72be08ceb9567a7524c8b88a684dfdce7cab0cf84368e384",
+    "entregas/parcial_2026-10-24/expansao_solar.csv": "8de2c9aa3f8343671266c5fbf8bee4132cda1e5f00f282479fb2c510351766d5",
+    "entregas/parcial_2026-10-24/solar_portatil_solar_portatil.csv": "a01b7d0c4a03499cfd53427a37e2c68bb4dfee5970902d6ad699179ea737837a",
+    "entregas/parcial_2026-10-24/resumo_expansao_solar.json": "e7db815ba2661e5530992dc0feca31dece48804aa8658f6d477162a880beb430",
+    "entregas/parcial_2026-10-24/resumo_solar_portatil.json": "c632a58872a3a349b20b5e6244a060668f49db13b2c6303591de7fdbdc39fea3",
+    "/home/mhc/motorhome_solar_codex_tarefas/scripts/calcular_agenda_portatil.py": "5b072592f46428f468591c2b5d9f3b73d36cae49d727fb953e57f8754dd6b75c",
+    "src/motorhome/agenda_portatil.py": "c309a6598b745b9493e65a4faa78c6b0c465690b6a0960e51ec3aaaf99cf5381"
+  },
+  "configuration": {
+    "revision": "agenda-portatil-0.1",
+    "status": "ESTIMATIVA_CONDICIONADA_NAO_VALIDADA",
+    "step_minutes": 15,
+    "setup_minutes_assumed": 30,
+    "teardown_minutes_assumed": 30,
+    "speed_modes_km_h": [
+      20,
+      30,
+      40,
+      60,
+      80,
+      90
+    ],
+    "drag_coefficient_assumed": 0.62487678,
+    "rolling_coefficient_assumed": 0.012,
+    "traction_efficiency_assumed": 0.9,
+    "traction_capacity_kwh": 98,
+    "traction_initial_soc": 1.0,
+    "traction_min_soc": 0.1,
+    "traction_final_soc_i27": 0.3,
+    "service_capacity_kwh": 10.24,
+    "service_initial_soc": 0.8,
+    "service_min_soc": 0.2,
+    "service_final_soc": 0.8,
+    "household_aggregate_efficiency_assumed": 0.9,
+    "transfer_power_kw_assumed": 2.0,
+    "transfer_efficiency_assumed": 0.9,
+    "transfer_interface_verified": false,
+    "solver_time_limit_s": 30,
+    "limits": [
+      "Interface serviços-para-tração hipotética e unidirecional, somente parado; sem modificação OEM autorizada.",
+      "A comparação sem interface usa transferência zero; não soma as duas capacidades.",
+      "Habitação uniforme nas 24h; inclui carga diária anterior, sem energia da secagem.",
+      "Montagem e recolhimento assumidos, arredondados para cima na grade; só gera portátil no estado aberto.",
+      "Teto fixo gera também em movimento; perfil de orientação e sombra do veículo ainda não verificado.",
+      "Demanda de tração usa massa limite4250kg e Cd/Cr/eficiência condicionados; não mapas OEM.",
+      "Velocidade constante em trecho inicial de cada intervalo; restante parado e com portátil guardado.",
+      "Solar médio por intervalo, estados elétricos lineares; sem irradiância intrapasso, BMS, corrente ou térmica.",
+      "Sem perdas adicionais nas baterias; conversão solar já nos CSV, perdas residenciais e de transferência explícitas.",
+      "Viagem construtiva repete São Carlos21jun; não é previsão da rota nem ótimo global I29."
+    ]
+  },
+  "traction_modes_kw": [
+    4.203397233925283,
+    6.497818095053385,
+    9.50350564918004,
+    18.597036427093755,
+    33.38070074899589,
+    43.49905523310808
+  ],
+  "wheel_mechanical_modes_kw": [
+    3.063057510532755,
+    5.128036285548047,
+    7.833155084262036,
+    16.01733278438438,
+    29.322630674096303,
+    38.42914970979727
+  ],
+  "motor_shaft_modes_kw": null,
+  "daily_only": true,
+  "full_day_fixed_kwh": 5.506848897584477,
+  "full_day_portable_kwh_if_always_deployed": 8.119544947051343,
+  "house_battery_demand_kwh_day": 5.862784347685957,
+  "cases": {
+    "i27_sem_interface": {
+      "feasible": true,
+      "optimal_in_grid": true,
+      "solver_status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "transfer_kw_assumed": 0.0,
+      "vehicle_validated": false,
+      "distance_km": 326.4026509145267,
+      "mip_gap": 0.0,
+      "distance_upper_bound_km": 326.4026509145267,
+      "verification": {
+        "distance_km": 326.4026509145267,
+        "solar_kwh": 8.864391072879743,
+        "house_kwh": 5.862784347685959,
+        "transfer_input_kwh": 0.0,
+        "drive_kwh": 68.6,
+        "curtailed_kwh": 3.0016067251938177,
+        "max_balance_residual_kwh": 1.1368683772161603e-13,
+        "daily_driving_h": {
+          "2026-06-21": 16.320132545726334
+        },
+        "traction_final_soc": 0.300000000000001,
+        "service_final_soc": 0.8,
+        "transfer_loss_kwh": 0.0,
+        "external_charge_kwh": 0.0,
+        "independently_feasible_in_model": true
+      }
+    },
+    "i27_com_interface_hipotetica": {
+      "feasible": true,
+      "optimal_in_grid": true,
+      "solver_status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "transfer_kw_assumed": 2.0,
+      "vehicle_validated": false,
+      "distance_km": 352.14552651255553,
+      "mip_gap": 0.0,
+      "distance_upper_bound_km": 352.1455265125608,
+      "verification": {
+        "distance_km": 352.14552651255553,
+        "solar_kwh": 13.210132643167604,
+        "house_kwh": 5.862784347685959,
+        "transfer_input_kwh": 7.3473482954816545,
+        "drive_kwh": 75.21261346593602,
+        "curtailed_kwh": 0.0,
+        "max_balance_residual_kwh": 2.476241434123949e-12,
+        "daily_driving_h": {
+          "2026-06-21": 14.488184217085383
+        },
+        "traction_final_soc": 0.29999999999997473,
+        "service_final_soc": 0.8000000000000017,
+        "transfer_loss_kwh": 0.7347348295481653,
+        "external_charge_kwh": 0.0,
+        "independently_feasible_in_model": true
+      }
+    }
+  },
+  "trip_7000km": {
+    "constructed": false,
+    "globally_optimized": false,
+    "distance_target_km": 7000.0
+  },
+  "without_hv_interface": {
+    "traction_distance_upper_bound_km_in_this_model": 419.66055117581965,
+    "7000km_infeasible_in_this_model": true,
+    "basis": "Reserva10%, só98kWh de tração; melhor km/kWh dos modos, sem contribuição solar HV"
+  },
+  "notes": [
+    "Interface serviços-para-tração hipotética e unidirecional, somente parado; sem modificação OEM autorizada.",
+    "A comparação sem interface usa transferência zero; não soma as duas capacidades.",
+    "Habitação uniforme nas 24h; inclui carga diária anterior, sem energia da secagem.",
+    "Montagem e recolhimento assumidos, arredondados para cima na grade; só gera portátil no estado aberto.",
+    "Teto fixo gera também em movimento; perfil de orientação e sombra do veículo ainda não verificado.",
+    "Demanda de tração usa massa limite4250kg e Cd/Cr/eficiência condicionados; não mapas OEM.",
+    "Velocidade constante em trecho inicial de cada intervalo; restante parado e com portátil guardado.",
+    "Solar médio por intervalo, estados elétricos lineares; sem irradiância intrapasso, BMS, corrente ou térmica.",
+    "Sem perdas adicionais nas baterias; conversão solar já nos CSV, perdas residenciais e de transferência explícitas.",
+    "Viagem construtiva repete São Carlos21jun; não é previsão da rota nem ótimo global I29.",
+    "Certificado MILP é restrito a esta grade/modos e duração variável, não controle contínuo.",
+    "Optimal_in_grid false preserva incumbente e limite superior; viagem só é limite superior condicionado."
+  ],
+  "output_csv_sha256": {
+    "entradas_grade.csv": "fb7389ebe387df497f6fd80d530c030ab0eaefbb932b13227f482d96e0ffcad6",
+    "i27_com_interface_hipotetica.csv": "4b4b45371eda2109b201f43cea90be7949b380a4f28e45d024870d66cacdd6bd",
+    "i27_sem_interface.csv": "f2321e5460262a62e00c1ebfc3cfaba06eb90a7c503b4bf0adbcdf59d772a67a"
+  }
+}

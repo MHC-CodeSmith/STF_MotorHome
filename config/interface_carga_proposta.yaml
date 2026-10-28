@@ -1,0 +1,49 @@
+revision: interface-carga-0.1
+status: ESTUDO_CONDICIONADO_SEM_COMPATIBILIDADE_OEM_COMPROVADA
+source_date: '2026-10-27'
+evse_candidate:
+  model: NRGkick16A, cabo5m e adaptador monofásico apropriado, somente candidato
+  manual_url: https://nrgkick.com/wp-content/uploads/Bedienungsanleitung-DE-EN-FR-NL-TR.pdf
+  manual_version: 2602-04-1
+  manual_sha256: d7ef4be369554196dea4b591d0aa2863fd364ae1abeb7e19c36d0889d1ae7a36
+  technical_page: 20
+  voltage_v: 230
+  frequencies_hz: [50, 60]
+  published_approximate_mass_kg: 2.55
+  enclosure_dimensions_m: [0.216, 0.090, 0.064]
+  selected_or_purchased: false
+  oem_single_phase_60hz_acceptance_verified: false
+  earthing_and_protection_design_verified: false
+inverter:
+  model: MultiPlus-II48/5000/70-50 230V
+  source_url: https://www.victronenergy.com/media/pg/MultiPlus-II_230V/en/technical-specifications-mp-ii-230v.html
+  output_frequency_hz_assumed: 60
+  continuous_power_kw_at40c: 3.7
+  apparent_power_kva_at25c: 5.0
+  idle_power_kw_published: 0.018
+  efficiency_assumed: 0.90
+  household_power_factor_assumed: 0.90
+charge:
+  current_modes_a_assumed: [0, 6, 8, 10]
+  voltage_v_assumed: 230
+  power_factor_assumed: 0.99
+  onboard_efficiency_assumed: 0.90
+  evse_standby_kw_assumed: 0.005
+  control_note: Modos discretos do estudo, mantidos por um passo inteiro30min; limites OEM e resposta real não medidos.
+household:
+  hvac_start_hour_assumed: 12
+  hvac_duration_h_assumed: 3
+  cooktop_start_hour_assumed: 19
+  cooktop_duration_h_assumed: 0.5
+  dc_dc_efficiency_assumed: 0.90
+  dc12_power_limit_kw: 0.360
+  solar_12v_credit_to_mission: false
+  note: Geladeira e luzes/bomba/eletrônica uniformes; lavagem média diária distribuída. Secagem ausente. Solar12V separado e sem crédito à missão; conversor48→12 supre cargasDC assumidas, sem carregar AGM.
+limits:
+  - EVSE permite frequência60Hz; aceitação monofásica60Hz do OBCMY25 continua desconhecida.
+  - Não é circuito pronto; PE, neutro, DR/disjuntores e intertravamentos exigem projeto e revisão elétrica.
+  - Não substituir entrada400V do pack por ligação direta; manter carregadorOEM e permissõesBMS.
+  - Tensão230V de saída vs aparelhos220V requer faixas admissíveis, não supor compatibilidade.
+  - Eficiências e fatores de potência são sensibilidades, sem curvas de carga medidas.
+  - Potências contínuas e perfis não verificam corrente de partida, harmônicos ou térmica do armário.
+  - MassaEVSE não foi incorporada à BOM final; cabos/adaptadores/proteções adicionais ainda sem massa/custo.

@@ -48,3 +48,37 @@ Preservar lubrificaçãoOEM e registrar óleo/volume/intervalo desconhecidos.
 IniciarBOM27linhas com preços ausentes null; R$439 é referência públicaIE3TP,
 não orçamento final instalado/com impostos. Todos35itens têm trabalho em curso,
 nenhum aprovado. Fontes/escopo em[MECANICA_ROLAMENTO_E_CUSTOS.md](MECANICA_ROLAMENTO_E_CUSTOS.md).
+
+## D012 — 27/10/2026: agendas com portátil e bancos separados
+
+Adicionar modelo diário com montagem/recolhimento e duas baterias; sem somar
+capacidades. Comparar transferênciazero com interfaceHV2kW/90% hipotética,
+somente parado. Serviços80→80%/reserva20% e tempos30min são hipóteses de operação,
+não mudança do componente ou aprovação OEM. Tração I27 termina30% exatamente;
+8h/dia aplica-se só aI29. Política repetida7000km/202dias é limite superior
+condicionado, não ótimo global. Exportar potência nas rodas; eixo motor null
+até obter perdas reais. YAMLglobal preservado; suplemento separado e revisão
+humana pendente. [Método/limites/interfaces](AGENDA_PORTATIL_2026-10-27.md).
+
+## D013 — 27/10/2026: solar12/48V e despachoAC discretos
+
+Separar0,658097kWh/dia do PV12V, sem creditar à missão48V/HV até demonstrar rota
+elétrica. Adicionar EVSE candidatoNRGkick16A50/60Hz, sem afirmar aceitação do
+OBCMY25 em monofásico60Hz, seleção/aprovação ou mudança da BOM final.
+Correntes0/6/8/10A por30min, perfisAC/DC, perdas por conversão e limites
+compartilhados produzem I27condicionado344,767978km e construçãoI29de276dias,
+não ótimo global ou previsão da rota. Fonte primária conferida e catalogada;
+PDF no cache externo. Preservar entrega anterior e parâmetros globais.
+[Evidências e limitações](INTERFACE_CARGA_2026-10-27.md); revisão humana pendente.
+
+## D014 —28/10/2026: rota real, limites aproximados e calendário
+
+Por instrução do usuário, avançar com vias reais e velocidades aproximadas.
+Corredor costeiroOSRM7511,282km por21pontos; manter marco7000km sem reescalar.
+Usar DEM5km e dois cenários solares por local/data: céu limpo eERA5histórico,
+partida21/06/2025. Comparar tetos60/80/90km/h com perfil da via e limitador90.
+Cauda meteorológica indisponível descartada e declarada; nada de inventar clima.
+Política com duas baterias e8h/calendário, interfaceOEM ainda hipótese. Documentar
+tanto chegadas em céu limpo quanto falhas por reserva com nuvens; não promover
+a política a ótimo global nem ao veículo validado. Revisão35atualizada após
+executar/reabrir os resultados. [Evidências](ROTA_REAL_2026-10-28.md).

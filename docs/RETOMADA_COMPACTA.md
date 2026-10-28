@@ -1,11 +1,60 @@
-# Retomada compacta — 26/10/2026
+# Retomada compacta —28/10/2026
+
+## Nova etapa28/10 — prioridade
+
+Usuário mandou usar rota real/limites aproximados e executar o necessário nos35,
+sem parar para perguntas interpretativas. SOC explicado: I27assume100→30% útil;
+I29parte100%/reserva10%, serviços80%/reserva20%. [Rota](ROTA_REAL_2026-10-28.md).
+RotaOSRM21pontos costeiros7511,282km,969passos,95478vértices; mantém marco7000km,
+sem reescalar. DEM5km/1504pontos,ERA5horário14nós(~578km),21jun2025 em diante.
+Céu limpo varia data/local; ERA5inclui nuvens. Cauda99h ausente descartada,
+última hora22out2026às20h. Fontesbrutas15MB cache`rota-litoral-fontes-02`.
+Política22–06h/máx8h porcalendário; montagem06–06h30,recolher21h30–22h.
+Compara tetos60/80/90kmh, reduzidos por classe/perfilOSRM e limitador90.
+PV12V sem crédito; mantém cargas6,428118kWh/dia, sem secagem. InterfaceOEMhipotética.
+Céu limpo chegaChuí330,925/428,923/430,921dias; marco7000km296,929/387,919/390,917.
+ERA5interrompe por reserva dos serviços4112,66/3462,12/3459,51km; é falha da
+política atual, não prova global de inviabilidade. Seminterface80kmh avança242,43km.
+Não certificado mínimo global. Testar previsão/reserva de dias nublados a seguir.
+Módulos`rota.py`/`viagem_rota.py`,scripts`obter_rota_e_clima.py`,`simular_rota_real.py`,
+`verificar_rota_real.py`,`gerar_revisao_35_atual.py`;config`rota_belem_chui_proposta.yaml`.
+Cachefinal`rota-simulacao-03`; entrega`entregas/etapa_2026-10-28_rota_real/`,
+CSVcompletosgzipsemperda,QA,mapa, revisão35MD/HTML/JSON.178testes passaram;
+replay7casos confere clima/local/vias/energia/reservas/8h, resíduo1,13e−10kWh.
+35itens têm trabalho iniciado; nenhum aprovado. Fontecatalogada/proveniência.
+MemorialPDF/viewer26/10 preservados, suplementos ainda precisam ser incorporados.
+
+## Continuação27/10 — ler primeiro
+
+Retomada de`fd8ae1e`. Atual:[interface de carga](INTERFACE_CARGA_2026-10-27.md).
+Config`interface_carga_proposta.yaml`, módulo`interface_carga.py`, scripts
+`calcular_interface_carga.py`/`verificar_interface_carga.py`; reutilizam estados
+da agenda anterior sem alterar os arquivos/hashes dela. EVSE0/6/8/10A, perdas
+inversor/OBC separadas90%cada, perfisAC/DC e limite compartilhado3700W.
+**0,658097kWh/dia do PV12V agora separado, sem crédito48V/HV**. PV48fixo4,848752;
+total com portátil12,968297kWh/dia. Casa/perdas/standby6,428118kWh/dia.
+I27:326,402651km semHV/344,767978km com interface **hipotética**. Tração100→30%
+exato, serviços80→80%/reserva20%; I27sem8h. I29até8h/calendário: política7000km
+em276dias inteiros =primeiro312,331887+274ciclos24,376711+último8,449272;
+**não ótimo global nem previsão da rota**,21junSãoCarlos repetido.
+NRGkick16A candidato: manual2602-04-1p20,230V50/60Hz,2,55kg; cache
+`interface-fontes-01`,PDFexterno. OBCMY25 monofásico60Hz/PE/DR/faixas220/230V
+ainda não comprovados. Cinco inícios de carga/dia cíclico; handshake não medido.
+Entrega`entregas/etapa_2026-10-27_interface_carga/`; caches`interface-carga-02`
+e`interface-carga-sem-hv-02`;01históricos.172testes/ruffOK;CSV/hashes reabertos,
+viagem7000km e até8h/dia conferidos, resíduo~3,46e−11kWh; global intacto.
+Anterior:[agenda portátil](AGENDA_PORTATIL_2026-10-27.md), caches
+`agenda-portatil-03`/`agenda-portatil-grade15-01`,351,997km/202dias pertencem
+àquelas hipóteses agregadas e não à interface nova. Potência nas rodas exportada;
+eixo motor`null`. PDF/viewer26/10 preservados; suplementos fora do memorial.
+Nenhum item aprovado. Próximo: aceitaçãoOBC/proteções/faixas e perdas reais.
 
 ## Objetivo e limites
 
 Concluir os **35 itens** do motorhome **elétrico solar Aurora Solar**, seguindo
 enunciado/apostila SEM0571 e requisitos do professor. Usuário quer autonomia,
 pesquisa online quando necessária e CAD realista. **Ainda não concluído:**
-35 em desenvolvimento, 0 aprovados. Este turno pediu só preservar contexto.
+35 em desenvolvimento, 0 aprovados. A preservação anterior foi seguida da retomada27/10.
 Logo/pintura externa foram pedidos **depois da parte técnica**; não antecipar.
 
 Worktree exclusiva: `/home/mhc/motorhome_solar_codex_tarefas`, branch
@@ -84,7 +133,7 @@ PYTHONPATH=src .venv/bin/python -m pytest -q
 .venv/bin/python scripts/verificar_entrega_integrada.py
 ```
 
-Último resultado: **158 testes/6,37s**,ruffOK,estrutura/auditoria0erros;
+Resultado26/10: **158 testes/6,37s**,ruffOK,estrutura/auditoria0erros;
 124artefatos+PDF e entradas atuais conferidos; renderQA07/08. Não equivale a validação física.
 Global intacto24nulls, SHA256
 `7b8f5cd7891eb437cb89c41fd2ba440b0567ca1063998042d4828086aad523e2`.
@@ -92,7 +141,8 @@ Global intacto24nulls, SHA256
 ## Próximo trabalho real
 
 CFD equipado/malhas, massa/BOM/eixos/fixações, mapasOEM e óleo correto, custos completos,
-agendasI27/I29 atuais com montagem portátil e interfaceHV. I27 terminaSOC **exatamente30%**;
+interfaceHV real/perfis de operação e minimização globalI29 a partir das agendas
+condicionadas27/10. I27 terminaSOC **exatamente30%**;
 limite8h/dia pertence sóI29,7000km, bateria inicial+solar, sem recarga externa.
 Não substituir dados físicos por testes sintéticos ou dizer que35 foram concluídos.
 Revisão cruzada e vídeo/seminário com integrantes continuam necessários.

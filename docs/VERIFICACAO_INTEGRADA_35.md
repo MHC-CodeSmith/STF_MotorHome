@@ -1,5 +1,17 @@
 # Verificação integrada dos35itens — 26/10/2026
 
+Suplemento28/10: [rota geográfica e calendário](ROTA_REAL_2026-10-28.md),
+7casos reabertos,178testes passaram, maior resíduo1,13e−10kWh. Rota7511km,
+marco7000km e limites aproximados; histórico meteorológico revela interrupção
+da política por reserva dos serviços. [Revisão de cada item](../entregas/etapa_2026-10-28_rota_real/REVISAO_35_ITENS.md).
+Integridade da entrega26/10 continua passando; PDFfinal ainda requer integração.
+
+Suplementos27/10: [interface de carga atual](INTERFACE_CARGA_2026-10-27.md) e
+[agenda anterior](AGENDA_PORTATIL_2026-10-27.md). Solar12/48V separado, montagem
+e interfaceHV hipotética com modos discretos.172testes passaram; ruffOK.
+Os registros abaixo descrevem a entrega26/10. O suplemento tem verificador
+próprio de hashes/CSV e ainda não foi incorporado ao PDF/visualizador.
+
 **35itens revisados,35em desenvolvimento,0aprovados. Projeto não concluído.**
 Inventário ponto a ponto:[REVISAO_35_ITENS.md](REVISAO_35_ITENS.md).
 Relatório executável:[output/verificacao_integrada_35.json](../output/verificacao_integrada_35.json).

@@ -1,0 +1,137 @@
+{
+  "clear_60_agenda.csv.gz": {
+    "sha256": "9a0fc11b980249da415a60530eb7a90985d71a06ab10b2655d2dfec3cb2c74bd",
+    "uncompressed_original": "clear_60_agenda.csv",
+    "original_sha256": "ce69b22714cf94989b33f189e3526b682ef6c84345c9c385b99c8e8b645fd989"
+  },
+  "clear_60_conducao.csv.gz": {
+    "sha256": "f885e546f4d650f909dd36b850c4de1783f55418aa5dd8cc6922d7b3a2238bd1",
+    "uncompressed_original": "clear_60_conducao.csv",
+    "original_sha256": "f023ea1aeda9e1669a0715c1e49c26f3b68fdcc25c2fe505e5d97c49ced9a0b9"
+  },
+  "clear_60_dias.csv": {
+    "sha256": "49d721b6760f5c28fd9b7e1b1121f4e88bf24e671483fc98eaddddf95e4f889c",
+    "uncompressed_original": "clear_60_dias.csv",
+    "original_sha256": "49d721b6760f5c28fd9b7e1b1121f4e88bf24e671483fc98eaddddf95e4f889c"
+  },
+  "clear_80_agenda.csv.gz": {
+    "sha256": "9bb0f23008bc8cb0f4edcac7f062f60d4fd97a84abeb93141d0dc22c03b03507",
+    "uncompressed_original": "clear_80_agenda.csv",
+    "original_sha256": "262e7a7658e589d30e39bf226e2d587a75dfc085097ce826119e6c4affd34f80"
+  },
+  "clear_80_conducao.csv.gz": {
+    "sha256": "64a37ca1bc9b36239b111b311bac486f0325851921f2fe84872bdf7773d1b613",
+    "uncompressed_original": "clear_80_conducao.csv",
+    "original_sha256": "e950bddc95cb94fe6c5f23c7574059a48625590cc020b6a9c767613aaea8187d"
+  },
+  "clear_80_dias.csv": {
+    "sha256": "e900c898cb9880d7f45b7e318309be9b8947a44903f519f689d6ec44af3af072",
+    "uncompressed_original": "clear_80_dias.csv",
+    "original_sha256": "e900c898cb9880d7f45b7e318309be9b8947a44903f519f689d6ec44af3af072"
+  },
+  "clear_80_sem_interface_agenda.csv.gz": {
+    "sha256": "836e133a552331c9754ae3b4c75ab07f3fc4ecf3c6ef56f8b56f1253888312f1",
+    "uncompressed_original": "clear_80_sem_interface_agenda.csv",
+    "original_sha256": "7e5ad680957b1c8b30c41d54cac744b81fe11616e4b669e5f5ecf55a964ccc26"
+  },
+  "clear_80_sem_interface_conducao.csv.gz": {
+    "sha256": "8b5e9a39cee01c33dc326494cbca15a155739138fcda3c3761fa05d2b11893b9",
+    "uncompressed_original": "clear_80_sem_interface_conducao.csv",
+    "original_sha256": "1e9ac2af571a345f2b94d3560edaab8419c5f6ffb589ce2e951f392e826149d1"
+  },
+  "clear_80_sem_interface_dias.csv": {
+    "sha256": "676dbe7be59c699d0192600bf211447ddac413be720c181dbcf221face13961e",
+    "uncompressed_original": "clear_80_sem_interface_dias.csv",
+    "original_sha256": "676dbe7be59c699d0192600bf211447ddac413be720c181dbcf221face13961e"
+  },
+  "clear_90_agenda.csv.gz": {
+    "sha256": "65a318312957484fe04d2f8976f286e8904fdd5b1a4428f2195ed3bec045da1a",
+    "uncompressed_original": "clear_90_agenda.csv",
+    "original_sha256": "16f6e2e7d304f3cde405eb270920b976404bd22a599122dca4c91c06afff8dd6"
+  },
+  "clear_90_conducao.csv.gz": {
+    "sha256": "a5f727cc4cf20ff5ddcfe93acce2405a3e29e8cbacc87cf190d4266b2a0a4e15",
+    "uncompressed_original": "clear_90_conducao.csv",
+    "original_sha256": "5f65091de2bbb1482df3d69e7eba6b92586d500dad51a54cdb7df12d2febe582"
+  },
+  "clear_90_dias.csv": {
+    "sha256": "fff8c2a53736a2b3de1bbbd30eb91e855b28c2036aceb17ffc6109bec4618a4c",
+    "uncompressed_original": "clear_90_dias.csv",
+    "original_sha256": "fff8c2a53736a2b3de1bbbd30eb91e855b28c2036aceb17ffc6109bec4618a4c"
+  },
+  "era5_60_agenda.csv.gz": {
+    "sha256": "65b0a518e1ac5b8bc1408710b2218960e0608d1fa11b4f6b413a77f17d937b95",
+    "uncompressed_original": "era5_60_agenda.csv",
+    "original_sha256": "08fb93806886e44ae7a141187f267a92700adedd21f68bce40f0440597e593e2"
+  },
+  "era5_60_conducao.csv.gz": {
+    "sha256": "8587b166a512d722957714af292afe7f4c4d6b3ed5a5ce35a574695fe032079d",
+    "uncompressed_original": "era5_60_conducao.csv",
+    "original_sha256": "1c26e396d8d6b7fd262aeb89a122abe8a8e8e78cca35616e0add31295b1ae93d"
+  },
+  "era5_60_dias.csv": {
+    "sha256": "88e360b158ebef701f715f6620460de156a87770e08cc510d592c280c94f793c",
+    "uncompressed_original": "era5_60_dias.csv",
+    "original_sha256": "88e360b158ebef701f715f6620460de156a87770e08cc510d592c280c94f793c"
+  },
+  "era5_80_agenda.csv.gz": {
+    "sha256": "c25a798e01212c740a5b7105c1de2ff6ff0a222460bf07ea891a5438033014ea",
+    "uncompressed_original": "era5_80_agenda.csv",
+    "original_sha256": "2da08b7045f013c30e5fd06da69bba6f10a829d0c7efa29270ed672d9e4be935"
+  },
+  "era5_80_conducao.csv.gz": {
+    "sha256": "58faeb37e897dd17d43faf76cfdfc36e5201f0bfc45a44fd03e88aba77bea5af",
+    "uncompressed_original": "era5_80_conducao.csv",
+    "original_sha256": "38cd03d742acadfc1e991d72d67efcc221b6c930a2595551fce7a9914018b2bd"
+  },
+  "era5_80_dias.csv": {
+    "sha256": "4baf3a4f0d6caa746e9776f17b2f8786adfd56a9d42f445117848977a9f694fb",
+    "uncompressed_original": "era5_80_dias.csv",
+    "original_sha256": "4baf3a4f0d6caa746e9776f17b2f8786adfd56a9d42f445117848977a9f694fb"
+  },
+  "era5_90_agenda.csv.gz": {
+    "sha256": "d3a5f9b55b21f16ffab8a93d1187188c3dd7154a34ea73573323cb673b49ad65",
+    "uncompressed_original": "era5_90_agenda.csv",
+    "original_sha256": "1f4c268e00d013f75b8d16a40ed34123e2e24f09a992d626f78297aae73092de"
+  },
+  "era5_90_conducao.csv.gz": {
+    "sha256": "59d25ffd0fd0d6bbee9da50d838e52d9d0b9ca2b741b9aa3cf10416dc924d71d",
+    "uncompressed_original": "era5_90_conducao.csv",
+    "original_sha256": "98c1cbd85acc7358ac20b9013e0487b6ad74a362e211d8d6a809c6ceef17caf0"
+  },
+  "era5_90_dias.csv": {
+    "sha256": "821ef30037e5e0e9b6162bb06908a1ee9ff9892c4a742d87c9a5fb4f45ba8dbc",
+    "uncompressed_original": "era5_90_dias.csv",
+    "original_sha256": "821ef30037e5e0e9b6162bb06908a1ee9ff9892c4a742d87c9a5fb4f45ba8dbc"
+  },
+  "nos_clima.csv": {
+    "sha256": "4dedd88777e69329c7df5e69fccd544641fa5bde718d86cb815184a04955a718",
+    "uncompressed_original": "nos_clima.csv",
+    "original_sha256": "4dedd88777e69329c7df5e69fccd544641fa5bde718d86cb815184a04955a718"
+  },
+  "qa_rota.json": {
+    "sha256": "500e35dcfcfbee1786658dbd5437af426a705c2ceb8b076adc88fc6bcede1da2",
+    "uncompressed_original": "qa_rota.json",
+    "original_sha256": "500e35dcfcfbee1786658dbd5437af426a705c2ceb8b076adc88fc6bcede1da2"
+  },
+  "relevo.csv": {
+    "sha256": "9bd86c5978f0ca464dd6dbf04ba29e7e012542fc6516ef0d368f47a9ed0a0f78",
+    "uncompressed_original": "relevo.csv",
+    "original_sha256": "9bd86c5978f0ca464dd6dbf04ba29e7e012542fc6516ef0d368f47a9ed0a0f78"
+  },
+  "resumo_rota_real.json": {
+    "sha256": "2c241ded11582688ad00677d7e598c80f77561f455c7b2fdbea9fd74931edd60",
+    "uncompressed_original": "resumo_rota_real.json",
+    "original_sha256": "2c241ded11582688ad00677d7e598c80f77561f455c7b2fdbea9fd74931edd60"
+  },
+  "rota_e_progresso.png": {
+    "sha256": "5bcfc4bc8b68279ea37b0fb3ab3e41819a47e3390a44ab770b25c8c60cc54596",
+    "uncompressed_original": "rota_e_progresso.png",
+    "original_sha256": "5bcfc4bc8b68279ea37b0fb3ab3e41819a47e3390a44ab770b25c8c60cc54596"
+  },
+  "trechos.csv": {
+    "sha256": "4e309f4465fa2c4bb4d5d58e8f23b878a2436b97791a0910c3d2fd296edcb805",
+    "uncompressed_original": "trechos.csv",
+    "original_sha256": "4e309f4465fa2c4bb4d5d58e8f23b878a2436b97791a0910c3d2fd296edcb805"
+  }
+}

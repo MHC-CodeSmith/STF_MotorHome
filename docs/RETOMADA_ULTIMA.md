@@ -1,4 +1,4 @@
-**Começar por [RETOMADA_COMPACTA.md](RETOMADA_COMPACTA.md)**: checkpoint9742cd5, comandos, caches e pendências; o restante preserva histórico.
+**Começar por [RETOMADA_COMPACTA.md](RETOMADA_COMPACTA.md)**: etapa28/10 com rota costeiraOSRM,climaERA5/relevo,7casos e revisão de cada um dos35itens; o restante preserva histórico.
 
 # Estado prioritário — 26/10/2026: revisão integrada dos35itens
 
