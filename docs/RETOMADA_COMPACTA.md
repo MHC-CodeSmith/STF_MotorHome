@@ -1,6 +1,55 @@
-# Retomada atual: pós-DEC061
+# Retomada — pós-DEC061, 09/11/2026
 
-Comece por `docs/INTEGRACAO_POS_DEC061.md` e `docs/PLANO_EXECUCAO_POS_DEC061.md`. Resultados ativos: `entregas/etapa_pos_dec061/`. DEC001B, bancos independentes,220V60Hz,7000km plano e ambosSOC100% são obrigatórios. As entradas históricas abaixo foram superadas quando conflitarem com o registro. Os35itens continuam sem aprovação final.
+**Estado:** execução solicitada concluída e publicada; próximo trabalho depende de evidências técnicas, não de perguntas genéricas. 35/35 itens iniciados, **0 aprovações humanas finais**. Usuário permite seleção técnica provisória (DEC061), preservando decisões anteriores e lista única de aprovações.
+
+## Onde e o que ler
+
+- Trabalhar somente em `/home/mhc/motorhome_solar_codex_tarefas`, branch `hub/tarefas-motorhome-com-codex`. Não editar a outra worktree `/home/mhc/motorhome_solar_codex`.
+- Remoto SSH `git@github.com:MHC-CodeSmith/STF_MotorHome.git`; `main` remoto e HEAD técnico conferidos em **`29defc4318f7ebc3984782317b8a8b96654d2ef5`**. Implementação: `97b1f0c`; pacote final: `29defc4`. Árvore limpa antes desta nota. Push já autorizado na sessão.
+- Ler `AGENTS.md`, registro integral `docs/decisoes_motorhome_2026-10-28.md`, depois `docs/INTEGRACAO_POS_DEC061.md`. Plano e bloqueios: `docs/PLANO_EXECUCAO_POS_DEC061.md`, `docs/BLOQUEIOS_POS_DEC061.md`.
+- Fonte ativa **`config/parametros_globais.yaml`**, revisão `1.0.0-pos-DEC061` (161 parâmetros + fontes/cargas/BOM). Histórico/reuso: `config/registro_cenarios.yaml`. Matrizes: `docs/MATRIZ_DECISOES_61.md`, `docs/REVISAO_35_ITENS.md`. Lista única: `docs/APROVACOES_FINAIS_PENDENTES.md` (16 escolhas). Execução e arquivos: `docs/EXECUCAO_POS_DEC061.md`.
+
+## Invariantes e bloqueios
+
+- **Arquitetura B escolhida**, interface externa DC OEM autorizada; compatibilidade/mínimos/protocolo/isolamento **não demonstrados**. Não abrir/modificar HV/BMS/cabos OEM; não conectar diretamente ao pack. Antigo caminho PV→bateria de serviços48V→inversor/EVSE/OBC→tração descartado. Nenhuma energia armazenada cruza entre bancos. Buffer dedicado só comparação, inicia vazio, não instalado.
+- E-Ducato L3H2 geométrico; candidata coerente **SK MY25 505.GG1.2**: PBT4250kg, tara2790kg,110/98kWh nominal/útil,400V,205kW/410Nm pico,limitador90km/h,50990EUR semIVA. Fonte FiatSK20/03/2026 em YAML; limites por eixo/mapas/redutor/importação faltam. Não misturar mercados. 0–100 não atingível nessa candidata. I33prescreve108km/h como ensaio acadêmico do componente, não velocidade atingível. Pneus/suspensão OEM inalterados.
+- Meta1540Wp fixos +1600Wp portáteis só parado, ângulos fixos por parada. Arranjo antigo3JA450+190W tem módulo190W de baixa tensão sem caminho48V comprovado: novo replay credita **1350Wp**, mantendo meta1540 em aberto. MPPT compartilhado e comutação não validados.
+- Serviços48V LiFePO4 modular/BMS integrado; AC220V60Hz; média diária + picos separados. Natural ventilação, HVACsob banco e indicadores comerciais prioritários. Nenhum shedding físico/limiarBMS validado. Novo candidato3US5000/14.4kWh tem aplicação móvel ainda não demonstrada.
+- I29principal7000km plano/velocidadeconstante, ambosSOC100%,≤8h direção/dia,sem recargaexterna, SãoCarlos21junho25°C/UR50/vento0 repetido como idealização. ERA5/rota7511.282km são complementos. Reservas10/20 vs20/30; I27separado100→30principal/80→30sensibilidade. Nenhum ótimo global demonstrado.
+- Água100Llimpa/70Lcinza/cassete~20L,2×80kg+60kg bagagem; conservar água e massa. Reabastecimento/descarte adequado permitido. **`config/hidraulica_proposta.yaml` é arrefecimento água/glicol, não rede potável.** Nova curvaShurflo12V separada; QuickB315L500W candidato com frequência/aplicação móvel pendentes; ElgenaKB6 rejeitado na combinação pressurizada.
+
+## Resultados caros já produzidos
+
+- `entregas/etapa_pos_dec061/`: **972 casos de consumo,36 DCdireta/buffer,56 missões**, CSV diários e séries completas `.csv.gz`, campos2D `.npz`, rede térmica, hidráulica e BOM26linhas; 142 arquivos no diretório. Não sobrescrever resultados históricos anteriores.
+- Missões:8controles param por reserva de tração;32porserviços;4atingemhorizonte;12chegadas **condicionais** (303.02–703.01dias). MínimoDC1kW é hipótese, NÃO dadoOEM. Controle percorre192.51–405.35km. Erro energético máximo~2.8e-8kWh. Janelas08–16 vs00–08 são comparação parcial, não otimização. Água/paradas sanitárias e shedding ainda não completos no replay.
+- Serviços-base7.2288254kWh/dia;24h requer2/3US5000comreservas20/30%;48h4/5. Banco provisório3módulos119.1kg. BOM:440kgconversão conhecida+2790tara+320carga=**3550kg subtotal**,700kgaté4250 antes de móveis/isolamento/suportes/etc; variante3500excede50kg antes dos faltantes. Custo instalado **null**, não somar moedas ou OEM duplicado.
+- Consumo central4250kg:40km/h~0.218kWh/km;80~0.407. FaixasCd0.5806668/0.62487678/0.65303585;malhas29527/63668/166212células,última variação7.07%,semcamadas/y+; não Cd final/GCI validado.
+- I30novos camposrθ70/95mm²,102.17A,3malhas;I33solverr-zestendido para potência real de atrito descontadas resistências+regenhipotética0/40/80kW,malha/passo/massa. Materiais/geometriasOEMnão validados. I31é **rede equivalente**, não CFD3D; CFD3Dcabine/novasmalhasaero/FEAcrítica NÃO executados. I34/35modelosparametrizados antigos preservados;20/80kWnão são solar.
+- Registro61foi encontrado em `/home/mhc/Downloads/decisoes_motorhome_61.md` e copiado sem edição:298721bytes,SHA256 `1e082c4961a57b865f008fa1daadd37e696bdb060f22c922596715096c793969`. Base anterior para reproduzir histórico: `2ef84f67c3aa820633b0565e92c0a23ea810302b`.
+
+## Reprodução e verificações
+
+```bash
+PYTHONPATH=src .venv/bin/python scripts/conciliar_dec061.py
+.venv/bin/python scripts/consolidar_pacote_dec061.py
+.venv/bin/python scripts/verificar_pos_dec061.py
+PYTHONPATH=src .venv/bin/python -m pytest -q
+ruff check src scripts tests
+.venv/bin/python scripts/verificar_estrutura.py
+.venv/bin/python scripts/auditar_projeto.py --json
+```
+
+Último estado: **197testes passaram**, Ruff/estrutura/QAatual passaram;QAconfere61decisões/35itens/15entradas/138saídas/9complementos. Logs `output/*pos_dec061*`; manifestos numérico e pacote no diretório da entrega. Verificador histórico `verificar_entrega_integrada.py` retorna1 com UMA proveniência desatualizada (`resumo_freios.json`→código alterado);124hashes de artefatos antigos conferem. Não atualizar hash antigo para esconder isso.
+
+Quatro runners (`calcular_interface_carga.py`, `calcular_agenda_portatil.py`, `construir_viagem_condicionada.py`, `simular_rota_real.py`) exigem `--historico`;guardas4/4testadas. Não usar seus resultados como baselineB.
+
+Próximo avanço: P2/P4interfaceDC+documentaçãoOEM;P1/P3massa/eixos/CAD/CFD/fixações;P6cargas/aparelhoscompatíveis/água;P7térmicaOEM;entãoP5reintegrar. Divisão: P1=1,2,3,14,15,18,24,33;P2=6,7,9,23,30;P3=16,17,19;P4=4,5,20,21,22,28;P5=8,25,26,27,29;P6=11,13,31,32;P7=10,12,34,35. Entrega02/12/2026às06hAmerica/Sao_Paulo.
+
+Ambiente: `exec_command` sem escalonamento falhava no bwrap; `sandbox_permissions=require_escalated` funciona. Limite de uso interrompeu revisão automática, depois resolvido; nenhum bloqueio de aprovação restante. Sem ghCLI; GitSSH funciona. Não reenviar e-mails/comprar/instalar nada; não declarar certificação. Esta atualização é documental, sem novos cálculos.
+
+---
+
+## Histórico anterior — não prevalece sobre o estado acima
 
 # Retomada compacta — fechamento da conversa30/10/2026
 
