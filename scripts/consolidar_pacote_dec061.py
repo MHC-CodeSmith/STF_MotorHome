@@ -113,7 +113,7 @@ def main():
         url=sources[source].get('url')
         reference=f'[{source}]({url})' if url else f'`config/parametros_globais.yaml:sources.{source}`'
         doc+=f'## {ident} — {title}\n\n- **Estado / responsável:** {status}; {owner}.\n- **Opções:** {options}.\n- **Recomendação provisória:** {recommend}.\n- **Justificativa e fonte:** {why}. {reference}.\n- **Impactos e incertezas:** {impact}.\n- **Dependências:** {deps}.\n- **Aprovação necessária:** revisão técnica das evidências e aprovação humana final da escolha; enquanto houver bloqueio, não liberar instalação, homologação ou conclusão física.\n\n'
-    (ROOT/'docs/APROVACOES_FINAIS_PENDENTES.md').write_text(prosa(doc))
+    (ROOT/'docs/APROVACOES_FINAIS_PENDENTES.md').write_text(prosa(doc).rstrip()+'\n')
     missions=json.loads((OUT/'missoes_7000km.json').read_text())
     successes=[m for m in missions if m['status']=='chegada_condicional']
     controls=[m for m in missions if m['mode']=='sem_interface']

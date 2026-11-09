@@ -1,6 +1,6 @@
 {
   "generator": "scripts/consolidar_pacote_dec061.py",
-  "generator_sha256": "1f9f7f8915485c2b14375c342c7d7365dec87fbd447a43eeaa4e7452df7508e6",
+  "generator_sha256": "176b6151e641591bdd8c68b8a253e155f56998e590d9dd31444f8147aeb08b91",
   "canonical_sha256": "456cbcf6fe0a66959ce8c3b9f4251f2ea6c3ecda6a6d082501aa832b46c61d9d",
   "inputs_numerical_manifest_sha256": "944b0867f39363a000b50c6d682c9096890291979e2c9d57cbeeb3c5120c388d",
   "files_sha256": {
@@ -9,7 +9,7 @@
   },
   "documents_sha256": {
     "docs/INTEGRACAO_POS_DEC061.md": "63fdf921673ac6a9843f7d5ca01b83c5d4f3b877f19bd2bf91414853bd55546e",
-    "docs/APROVACOES_FINAIS_PENDENTES.md": "f4e846c12c6a620143af33f873292333722a7948693a13aea0321d0608952716",
+    "docs/APROVACOES_FINAIS_PENDENTES.md": "f639cf3e4406a49ca5422ac606b2de217582a23904e5ecba8c0090f1dffa7105",
     "docs/BLOQUEIOS_POS_DEC061.md": "c5da5efe0b11a4db303006606351521fa6ca916aec61bcd9db860dd068867e90",
     "docs/PLANO_EXECUCAO_POS_DEC061.md": "d9f0bce425075ab98d39a9ea8c4300001e7854243910df77f05165faf9d4b7d1",
     "docs/ARQUITETURA_POS_DEC061.md": "247f007b4e6dce0a43b3a524771fa879e77354c55f4e32a49faba32164419d45",

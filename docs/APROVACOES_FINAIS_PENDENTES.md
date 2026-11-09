@@ -163,4 +163,3 @@ Já aprovados anteriormente e preservados: arquitetura B como direção, bancos 
 - **Impactos e incertezas:** Motor, packHV, freios e arrefecimentoOEM não são somados novamente. Alternativas não se somam entre si.
 - **Dependências:** B12; depende deA01–A15.
 - **Aprovação necessária:** revisão técnica das evidências e aprovação humana final da escolha; enquanto houver bloqueio, não liberar instalação, homologação ou conclusão física.
-
