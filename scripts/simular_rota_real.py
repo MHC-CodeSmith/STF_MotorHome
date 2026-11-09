@@ -28,7 +28,10 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--fontes', required=True, type=Path)
     p.add_argument('--destino', required=True, type=Path)
+    p.add_argument('--historico', action='store_true', help='Método anterior às DEC001/020/043; não representa o baseline atual')
     args = p.parse_args()
+    if not args.historico:
+        p.error('Execução histórica bloqueada por padrão após DEC061. Use scripts/conciliar_dec061.py; --historico permite apenas reproduzir o método antigo, sem validade para a arquitetura B.')
     paths = [Path('config')/name for name in ['rota_belem_chui_proposta.yaml', 'agenda_portatil_proposta.yaml',
              'interface_carga_proposta.yaml', 'energia_sensibilidade.yaml', 'solar_proposta.yaml', 'solar_portatil_proposta.yaml']]
     c, battery, spec, dynamics, solar_config, portable = [yaml.safe_load(path.read_text()) for path in paths]

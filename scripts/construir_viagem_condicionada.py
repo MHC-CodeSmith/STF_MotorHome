@@ -24,7 +24,10 @@ def main():
     p.add_argument('--cenario', type=Path, required=True)
     p.add_argument('--solar-csv', type=Path, required=True)
     p.add_argument('--destino', type=Path, required=True)
+    p.add_argument('--historico', action='store_true', help='Método anterior às DEC001/020/043; não representa o baseline atual')
     args = p.parse_args()
+    if not args.historico:
+        p.error('Execução histórica bloqueada por padrão após DEC061. Use scripts/conciliar_dec061.py; --historico permite apenas reproduzir o método antigo, sem validade para a arquitetura B.')
     scenario = json.loads(args.cenario.read_text())
     if scenario['status'] != 'ESTIMATIVA_CONDICIONADA_NAO_VALIDADA':
         raise ValueError('Esta rotina exige cenário condicionado')

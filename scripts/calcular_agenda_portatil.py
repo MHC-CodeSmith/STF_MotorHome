@@ -46,7 +46,10 @@ def main():
     p.add_argument('--config', default=Path('config/agenda_portatil_proposta.yaml'), type=Path)
     p.add_argument('--step-minutes', type=int, help='Sobrescreve só a grade deste cenário')
     p.add_argument('--daily-only', action='store_true', help='Calcula somente I27 para comparar grades')
+    p.add_argument('--historico', action='store_true', help='Método anterior às DEC001/020/043; não representa o baseline atual')
     args = p.parse_args()
+    if not args.historico:
+        p.error('Execução histórica bloqueada por padrão após DEC061. Use scripts/conciliar_dec061.py; --historico permite apenas reproduzir o método antigo, sem validade para a arquitetura B.')
     delivery = Path('entregas/parcial_2026-10-24')
     names = ['expansao_solar.csv', 'solar_portatil_solar_portatil.csv',
              'resumo_expansao_solar.json', 'resumo_solar_portatil.json']

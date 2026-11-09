@@ -1,0 +1,123 @@
+{
+  "i25": {
+    "status": "nao_demonstrado",
+    "solar_traction_demonstrated_kwh": 0,
+    "note": "Zero é crédito permitido no modelo sem interface; não prova física de impossibilidade universal."
+  },
+  "i26": [
+    {
+      "speed_kmh": 40,
+      "mass_kg": 3500,
+      "aerodinamica_n": 204.84480758358342,
+      "rolamento_n": 411.8793,
+      "rodas_kw": 6.852490084262038,
+      "bateria_kw": 7.613877871402264,
+      "kwh_km": 0.1903469467850566,
+      "km_kwh": 5.253564697989189
+    },
+    {
+      "speed_kmh": 40,
+      "mass_kg": 4250,
+      "aerodinamica_n": 204.84480758358342,
+      "rolamento_n": 500.13915,
+      "rodas_kw": 7.833155084262036,
+      "bateria_kw": 8.70350564918004,
+      "kwh_km": 0.21758764122950097,
+      "km_kwh": 4.595849260322869
+    },
+    {
+      "speed_kmh": 80,
+      "mass_kg": 3500,
+      "aerodinamica_n": 819.3792303343337,
+      "rolamento_n": 411.8793,
+      "rodas_kw": 27.361300674096302,
+      "bateria_kw": 30.401445193440335,
+      "kwh_km": 0.38001806491800416,
+      "km_kwh": 2.6314538500051787
+    },
+    {
+      "speed_kmh": 80,
+      "mass_kg": 4250,
+      "aerodinamica_n": 819.3792303343337,
+      "rolamento_n": 500.13915,
+      "rodas_kw": 29.322630674096303,
+      "bateria_kw": 32.58070074899589,
+      "kwh_km": 0.4072587593624486,
+      "km_kwh": 2.455441355185264
+    }
+  ],
+  "i27_no_solar_conditional_storage_only": [
+    {
+      "speed_kmh": 40,
+      "mass_study_kg": 3500,
+      "initial_soc": 1,
+      "final_soc": 0.3,
+      "available_traction_kwh": 68.6,
+      "distance_km": 360.3945382820583,
+      "optimization_demonstrated": false
+    },
+    {
+      "speed_kmh": 40,
+      "mass_study_kg": 3500,
+      "initial_soc": 0.8,
+      "final_soc": 0.3,
+      "available_traction_kwh": 49.0,
+      "distance_km": 257.42467020147024,
+      "optimization_demonstrated": false
+    },
+    {
+      "speed_kmh": 40,
+      "mass_study_kg": 4250,
+      "initial_soc": 1,
+      "final_soc": 0.3,
+      "available_traction_kwh": 68.6,
+      "distance_km": 315.2752592581488,
+      "optimization_demonstrated": false
+    },
+    {
+      "speed_kmh": 40,
+      "mass_study_kg": 4250,
+      "initial_soc": 0.8,
+      "final_soc": 0.3,
+      "available_traction_kwh": 49.0,
+      "distance_km": 225.1966137558206,
+      "optimization_demonstrated": false
+    },
+    {
+      "speed_kmh": 80,
+      "mass_study_kg": 3500,
+      "initial_soc": 1,
+      "final_soc": 0.3,
+      "available_traction_kwh": 68.6,
+      "distance_km": 180.51773411035524,
+      "optimization_demonstrated": false
+    },
+    {
+      "speed_kmh": 80,
+      "mass_study_kg": 3500,
+      "initial_soc": 0.8,
+      "final_soc": 0.3,
+      "available_traction_kwh": 49.0,
+      "distance_km": 128.94123865025375,
+      "optimization_demonstrated": false
+    },
+    {
+      "speed_kmh": 80,
+      "mass_study_kg": 4250,
+      "initial_soc": 1,
+      "final_soc": 0.3,
+      "available_traction_kwh": 68.6,
+      "distance_km": 168.4432769657091,
+      "optimization_demonstrated": false
+    },
+    {
+      "speed_kmh": 80,
+      "mass_study_kg": 4250,
+      "initial_soc": 0.8,
+      "final_soc": 0.3,
+      "available_traction_kwh": 49.0,
+      "distance_km": 120.31662640407792,
+      "optimization_demonstrated": false
+    }
+  ]
+}

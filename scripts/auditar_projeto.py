@@ -128,7 +128,8 @@ def audit(root, booklet=BOOKLET):
     if missing:
         warnings.append(f'{len(missing)} parâmetros null: engenharia bloqueada')
     if not parameters.get('project', {}).get('vehicle_baseline_approved'):
-        warnings.append('Veículo-base sem aprovação')
+        warnings.append('Variante/configuração integrada sem aprovação final'
+                        if parameters.get('canonical') else 'Veículo-base sem aprovação')
     if 28 in graph.get(33, []):
         warnings.append('I28 -> I33: possível sobre-restrição; revisar com P1/P4')
     inventory = [{'path': str(root / 'docs/fontes_recebidas' / name),

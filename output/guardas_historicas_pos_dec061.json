@@ -1,0 +1,22 @@
+[
+  {
+    "script": "calcular_interface_carga.py",
+    "exit_code": 2,
+    "blocked_by_dec061": true
+  },
+  {
+    "script": "calcular_agenda_portatil.py",
+    "exit_code": 2,
+    "blocked_by_dec061": true
+  },
+  {
+    "script": "construir_viagem_condicionada.py",
+    "exit_code": 2,
+    "blocked_by_dec061": true
+  },
+  {
+    "script": "simular_rota_real.py",
+    "exit_code": 2,
+    "blocked_by_dec061": true
+  }
+]

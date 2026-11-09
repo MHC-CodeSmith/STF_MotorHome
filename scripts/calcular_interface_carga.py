@@ -35,7 +35,10 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--destino', required=True, type=Path)
     p.add_argument('--sem-interface', action='store_true', help='SóI27 com todos modos de carga desligados')
+    p.add_argument('--historico', action='store_true', help='Método anterior às DEC001/020/043; não representa o baseline atual')
     args = p.parse_args()
+    if not args.historico:
+        p.error('Execução histórica bloqueada por padrão após DEC061. Use scripts/conciliar_dec061.py; --historico permite apenas reproduzir o método antigo, sem validade para a arquitetura B.')
     config_paths = [Path('config')/name for name in ['agenda_portatil_proposta.yaml',
                     'interface_carga_proposta.yaml', 'energia_sensibilidade.yaml',
                     'instalacoes_eletricas_proposta.yaml']]

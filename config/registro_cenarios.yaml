@@ -1,0 +1,32 @@
+revision: 1.0.0-pos-DEC061
+active_shared_parameters: config/parametros_globais.yaml
+active_runner: scripts/conciliar_dec061.py
+historical_commit: 2ef84f67c3aa820633b0565e92c0a23ea810302b
+historical_or_reference_only:
+- config/agenda_portatil_proposta.yaml
+- config/arquitetura_eletrica_proposta.yaml
+- config/arrefecimento_proposta.yaml
+- config/bateria_termica_proposta.yaml
+- config/cabine_proposta.yaml
+- config/cabos_tracao_proposta.yaml
+- config/custos_proposta.yaml
+- config/freios_proposta.yaml
+- config/hidraulica_proposta.yaml
+- config/instalacoes_eletricas_proposta.yaml
+- config/interface_carga_proposta.yaml
+- config/limites_operacionais_proposta.yaml
+- config/mecanica_comparativa_proposta.yaml
+- config/rota_belem_chui_proposta.yaml
+- config/servicos_proposta.yaml
+- config/solar_portatil_proposta.yaml
+- config/solar_proposta.yaml
+- config/energia_sensibilidade.yaml
+- config/equipamentos_interior.yaml
+rules:
+- Resultados até28/10 ficam preservados byte a byte, mas não representam implementaçãoB
+  nem missão física validada.
+- Somente freios/cabine/solar são reutilizados como modelos constitutivos versionados
+  com parâmetros compartilhados sobrescritos pela fonte ativa.
+- Método antigoAC/EVSE e relevo/ERA5 não são cenário principal; runners exigem --historico.
+- Hashes antigos não são atualizados para fingir atualidade. Resultados novos têm
+  manifesto independente.

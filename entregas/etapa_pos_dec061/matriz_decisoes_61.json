@@ -1,0 +1,1780 @@
+[
+  {
+    "decision": "DEC-001",
+    "items": [
+      6,
+      7,
+      9,
+      23,
+      25,
+      27,
+      29
+    ],
+    "evidence": "config/interface_carga_proposta.yaml",
+    "lead": "P2",
+    "pending": "InterfaceDC/handshake/mínimos/autorizaçãoOEMausentes; caminhoACantigo descartado",
+    "title": "Arquitetura solar → tração",
+    "section_sha256": "7c665aec16ea3f01610543a567bb2314fd8ed713b4f53459ebe1e23b08ef069a",
+    "parameter_keys": [
+      "architecture",
+      "oem_hv_modification_allowed",
+      "dc_interface_demonstrated",
+      "dc_min_power_kw",
+      "dc_min_current_a",
+      "dc_voltage_window_v",
+      "dc_protocol",
+      "dc_oem_authorization",
+      "dc_charger_model"
+    ],
+    "owners": [
+      "P2",
+      "P5"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-002",
+    "items": [
+      1,
+      15,
+      16,
+      17,
+      18,
+      28
+    ],
+    "evidence": "config/arquitetura_eletrica_proposta.yaml",
+    "lead": "P1",
+    "pending": "VarianteSKprovisória; comparar mercadoBR sem combinar fichas",
+    "title": "Veículo-base e variante",
+    "section_sha256": "a87dd616a6de6b03bea81c5718e8ebd8df8591b3e655627bdc90a36ca9d85527",
+    "parameter_keys": [
+      "vehicle_geometry",
+      "vehicle_variant",
+      "oem_pbt_kg",
+      "oem_tare_kg",
+      "wheelbase_m",
+      "front_track_m",
+      "rear_track_m",
+      "traction_nominal_kwh",
+      "traction_usable_kwh",
+      "traction_voltage_v",
+      "motor_peak_kw",
+      "motor_peak_nm",
+      "speed_limit_kmh",
+      "vehicle_price_eur_ex_vat"
+    ],
+    "owners": [
+      "P1",
+      "P3",
+      "P4"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-003",
+    "items": [
+      8,
+      16,
+      17,
+      19,
+      25,
+      27,
+      29
+    ],
+    "evidence": "config/layout_proposto.yaml",
+    "lead": "P3",
+    "pending": "1540Wpémeta; arranjo3JA+190Wtem barramentos incompatíveis sem conversão extra",
+    "title": "Configuração solar: painéis fixos e portáteis",
+    "section_sha256": "db3465e9bba98183f950e53e40aeac579b204b0001cd22f6c7dd955ae91d1b71",
+    "parameter_keys": [
+      "roof_target_wp",
+      "portable_wp",
+      "portable_only_parked",
+      "roof_power_48v_study_wp"
+    ],
+    "owners": [
+      "P3",
+      "P5"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-004",
+    "items": [
+      11,
+      13,
+      23,
+      27,
+      29
+    ],
+    "evidence": "config/equipamentos_interior.yaml",
+    "lead": "P6",
+    "pending": "Consumo moderado revisto inclui boiler e secagem; picos ainda incompletos",
+    "title": "Perfil de uso habitável e autonomia dos serviços",
+    "section_sha256": "d4308621945451635e5103bd4be0ac718ff02910b85dbde883960de522548ba3",
+    "parameter_keys": [
+      "pendencia_dec004"
+    ],
+    "owners": [
+      "P2",
+      "P5",
+      "P6"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-005",
+    "items": [
+      6,
+      18,
+      23,
+      24,
+      29
+    ],
+    "evidence": "config/servicos_proposta.yaml",
+    "lead": "P2",
+    "pending": "Comparar24/48h e reservas20/30%;10.24kWh não definitivo",
+    "title": "Critério de autonomia da bateria de serviços",
+    "section_sha256": "ae2ce9561d6c085a001ee76e5c56398aaff065462be22207524eccc117074afb",
+    "parameter_keys": [
+      "module_service_kwh",
+      "service_modules_provisional"
+    ],
+    "owners": [
+      "P1",
+      "P2",
+      "P5"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-006",
+    "items": [
+      29
+    ],
+    "evidence": "entregas/etapa_2026-10-28_rota_real/resumo_rota_real.json",
+    "lead": "P5",
+    "pending": "7000km principal;7511.282km geográfico apenas complementar",
+    "title": "Escopo e apresentação da viagem do item 29",
+    "section_sha256": "ff668d96c9150b755d4e6b9ff46647b81e9973001d5e1592e77e424f3bd7c177",
+    "parameter_keys": [
+      "trip_km",
+      "trip_max_driving_h",
+      "trip_external_charge"
+    ],
+    "owners": [
+      "P5"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-007",
+    "items": [
+      8,
+      25,
+      27,
+      29,
+      31,
+      32
+    ],
+    "evidence": "config/solar_proposta.yaml",
+    "lead": "P5",
+    "pending": "SãoCarlos21junho repetido idealmente;ERA5 histórico complementar",
+    "title": "Cenário de insolação e meteorologia da viagem",
+    "section_sha256": "7780d0059a2da41ae47541809998a6dfdee600cd2358ed72d84dcd7052223630",
+    "parameter_keys": [
+      "ambient_c",
+      "rh_percent",
+      "wind_m_s",
+      "reference_day",
+      "latitude_deg",
+      "longitude_deg",
+      "altitude_m"
+    ],
+    "owners": [
+      "P5",
+      "P6"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-008",
+    "items": [
+      13,
+      18,
+      29
+    ],
+    "evidence": "config/equipamentos_interior.yaml",
+    "lead": "P1",
+    "pending": "2x80kg+60kg+água100L; conservar massa nas transferências",
+    "title": "Carga útil e água para o layout do motorhome",
+    "section_sha256": "44c72893c40273d47421558f296443e2120630a2c8d2610d2030106101d1258d",
+    "parameter_keys": [
+      "occupants_kg",
+      "baggage_kg",
+      "water_clean_l",
+      "water_grey_l"
+    ],
+    "owners": [
+      "P1",
+      "P5",
+      "P6"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-009",
+    "items": [
+      4,
+      5,
+      20,
+      21,
+      22,
+      28
+    ],
+    "evidence": "config/limites_operacionais_proposta.yaml",
+    "lead": "P4",
+    "pending": "4250SKlimitado90;0–100não alcançável;curvas ausentes",
+    "title": "Tratamento da velocidade máxima e aceleração 0–100 km/h",
+    "section_sha256": "d31ebdc8ff6de2b373e057b9076116693d0412330a18fbe1fe6392d1fc661fdd",
+    "parameter_keys": [
+      "oem_pbt_kg",
+      "oem_tare_kg",
+      "wheelbase_m",
+      "front_track_m",
+      "rear_track_m",
+      "traction_nominal_kwh",
+      "traction_usable_kwh",
+      "traction_voltage_v",
+      "motor_peak_kw",
+      "motor_peak_nm",
+      "speed_limit_kmh",
+      "vehicle_price_eur_ex_vat"
+    ],
+    "owners": [
+      "P4"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-010",
+    "items": [
+      11,
+      23,
+      32
+    ],
+    "evidence": "config/cabine_proposta.yaml",
+    "lead": "P6",
+    "pending": "FreshWell2700W vs maiorWebasto3500W; maior rejeitado50Hz/teto",
+    "title": "Dimensionamento do ar-condicionado e margem de capacidade",
+    "section_sha256": "52e53535ce5ae123f8d2af33a9da34b33c6531e4568d313bb926e42e26bd0441",
+    "parameter_keys": [
+      "pendencia_dec010"
+    ],
+    "owners": [
+      "P2",
+      "P6"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-011",
+    "items": [
+      27,
+      29
+    ],
+    "evidence": "config/agenda_portatil_proposta.yaml",
+    "lead": "P5",
+    "pending": "Comparação08–16 vs00–08 é parcial; antiga agendaACnão válida;ótimo global não demonstrado",
+    "title": "Estratégia de paradas e horários dos painéis portáteis na viagem",
+    "section_sha256": "1e78daf9a8296fdc60ed58c5ec48b6488d568d2cdd0cd7d621b85eff74fa46df",
+    "parameter_keys": [
+      "pendencia_dec011"
+    ],
+    "owners": [
+      "P5"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-012",
+    "items": [
+      1,
+      6,
+      8,
+      9,
+      11,
+      13,
+      24,
+      30,
+      34,
+      35
+    ],
+    "evidence": "fontes_externas/catalogo.csv",
+    "lead": "P1",
+    "pending": "Custos/dados faltantes ficamnull; separar ficha/estimativa/simulado",
+    "title": "Critério de seleção de componentes e realismo do projeto",
+    "section_sha256": "b60439b0751f65d70286dcb73e0009e42b19598b7f54307c425d2e66ee6f5e8b",
+    "parameter_keys": [
+      "eta_inverter",
+      "eta_dc",
+      "eta_buffer",
+      "pv_gamma",
+      "pv_other_loss",
+      "pv_faiman_u0",
+      "pv_faiman_u1",
+      "pv_albedo",
+      "pv_setup_h",
+      "pv_teardown_h",
+      "cable_min_voltage_v",
+      "cable_eta",
+      "cable_loop_m",
+      "cable_k_copper",
+      "cable_k_insulation",
+      "cable_alpha",
+      "cable_rho20",
+      "cable_insulation_m"
+    ],
+    "owners": [
+      "P1",
+      "P2",
+      "P5",
+      "P6",
+      "P7"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-013",
+    "items": [
+      6,
+      23,
+      27,
+      29
+    ],
+    "evidence": "config/limites_operacionais_proposta.yaml",
+    "lead": "P5",
+    "pending": "Comparar10/20e20/30; não atribuir30%final aoI29",
+    "title": "Reservas mínimas de carga (SOC) na viagem de 7.000 km",
+    "section_sha256": "5ab18af7220afe0009845e5e3f9b052828726ff1974bb054b31f97c097aa102b",
+    "parameter_keys": [
+      "trip_reserve_pairs"
+    ],
+    "owners": [
+      "P2",
+      "P5"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-014",
+    "items": [
+      27
+    ],
+    "evidence": "config/agenda_portatil_proposta.yaml",
+    "lead": "P5",
+    "pending": "100→30principal80→30sensibilidade,energia útil98kWhprovisória",
+    "title": "Estado de carga inicial (SOC) do item 27",
+    "section_sha256": "90d30fc0a7455995ece8c820b02ef4f037062aa23421032c00d7ad676ab9116d",
+    "parameter_keys": [
+      "item27_initial_soc",
+      "item27_final_soc"
+    ],
+    "owners": [
+      "P5"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-015",
+    "items": [
+      13,
+      18,
+      23,
+      24,
+      29
+    ],
+    "evidence": "config/equipamentos_interior.yaml",
+    "lead": "P6",
+    "pending": "LGocasionalsemana; secagemsem ficha, faixa1/2/4kWh não dadofabricante",
+    "title": "Lavadora/secadora compacta 2 em 1 para uso ocasional",
+    "section_sha256": "0ed3e8ad78a1258beaafc835427366bf9ca18123e0d2818b9b81d6eafa2a9bd6",
+    "parameter_keys": [
+      "drying_energy_cycle_range_kwh"
+    ],
+    "owners": [
+      "P1",
+      "P2",
+      "P5",
+      "P6"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-016",
+    "items": [
+      11,
+      13,
+      18,
+      31,
+      32
+    ],
+    "evidence": "config/cabine_proposta.yaml",
+    "lead": "P6",
+    "pending": "32mmcandidato; áreaCAD,pontes,vidros,fogo/umidade pendentes",
+    "title": "Isolamento térmico do motorhome e controle solar dos vidros",
+    "section_sha256": "5e73972bee4b2d10f772eadb0d3df1ffca3b97432efbfd199eeef7422f6aa3dc",
+    "parameter_keys": [
+      "insulation_provisional_m"
+    ],
+    "owners": [
+      "P1",
+      "P6"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-017",
+    "items": [
+      13,
+      23,
+      24,
+      29,
+      32
+    ],
+    "evidence": "config/equipamentos_interior.yaml",
+    "lead": "P6",
+    "pending": "Boilerincluído no consumo; modelo220V60Hzpressão não selecionado",
+    "title": "Boiler elétrico compacto para água quente",
+    "section_sha256": "088fc2e2ebba2a7d674d215a5c399daa456a9b4593661cdfde271639d2a01862",
+    "parameter_keys": [
+      "boiler_commercial_model",
+      "boiler_candidate_model",
+      "boiler_candidate_empty_mass_kg",
+      "boiler_candidate_l",
+      "boiler_candidate_power_w"
+    ],
+    "owners": [
+      "P1",
+      "P2",
+      "P5",
+      "P6"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-018",
+    "items": [
+      13,
+      18,
+      29
+    ],
+    "evidence": "config/equipamentos_interior.yaml",
+    "lead": "P6",
+    "pending": "Cassete~20L sem outro tanque; candidato365tem21Lresíduo+15Ldescarga contabilizável",
+    "title": "Vaso sanitário com cassete removível de aproximadamente 20 L",
+    "section_sha256": "37d984b0d8191dfa355e58e2b4480eea16b24249798a028f4a105828370b1099",
+    "parameter_keys": [
+      "cassette_l",
+      "extra_black_tank"
+    ],
+    "owners": [
+      "P1",
+      "P5",
+      "P6"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-019",
+    "items": [
+      9,
+      23,
+      30
+    ],
+    "evidence": "config/servicos_proposta.yaml",
+    "lead": "P2",
+    "pending": "Inversor4000W25C3700W40C; controle de simultaneidade real pendente",
+    "title": "Gerenciamento de cargas da habitação e inversor como candidato",
+    "section_sha256": "5f83c10361f987958236fb94ddee687a289339e1cf562f213eafda586e62bd32",
+    "parameter_keys": [
+      "inverter_continuous_w"
+    ],
+    "owners": [
+      "P2"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-020",
+    "items": [
+      6,
+      7,
+      9,
+      23,
+      25,
+      27,
+      29
+    ],
+    "evidence": "config/servicos_proposta.yaml",
+    "lead": "P2",
+    "pending": "Nenhum fluxo de energia armazenada entre bancos; créditoHVbloqueado",
+    "title": "Bateria de serviços independente da bateria de tração",
+    "section_sha256": "615f0171b4278d875d853e480a621b819614d8269bb6e5a7cd2cccf1dd16867d",
+    "parameter_keys": [
+      "architecture",
+      "stored_transfer_allowed",
+      "service_bus_v"
+    ],
+    "owners": [
+      "P2",
+      "P5"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-021",
+    "items": [
+      8,
+      9,
+      23,
+      25,
+      27,
+      29
+    ],
+    "evidence": "config/agenda_portatil_proposta.yaml",
+    "lead": "P2",
+    "pending": "AlocaçõesfixasA/B/flexível comparativas; comutação física não demonstrada",
+    "title": "Comparar alocação fixa e flexível da geração fotovoltaica sem interligar os bancos",
+    "section_sha256": "41d87001814a45bc8ba5120314bb2a8127ab2509335769f301dfb6fbd731921d",
+    "parameter_keys": [
+      "pendencia_dec021",
+      "eta_service_charge"
+    ],
+    "owners": [
+      "P2",
+      "P5"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-022",
+    "items": [
+      14,
+      15,
+      18,
+      20,
+      21,
+      22,
+      25,
+      26,
+      27,
+      28,
+      29,
+      33
+    ],
+    "evidence": "entregas/parcial_2026-10-24/orcamento_massa_parcial.json",
+    "lead": "P1",
+    "pending": "3500/4250sensibilidade; massa típica completa e eixos não demonstrados",
+    "title": "Comparação entre massa operacional típica e massa máxima admissível",
+    "section_sha256": "c2e13586f2b54c3d4e264366083305d5abe0e5e96e0028337f889a58ca70c57f",
+    "parameter_keys": [
+      "axle_front_limit_kg",
+      "axle_rear_limit_kg",
+      "assembled_typical_mass_kg",
+      "cg_xyz_m",
+      "oem_tyre_pressure",
+      "motor_map",
+      "reduction_ratio",
+      "mass_study_kg"
+    ],
+    "owners": [
+      "P1",
+      "P4",
+      "P5"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-023",
+    "items": [
+      19,
+      20,
+      25,
+      26,
+      27,
+      28,
+      29
+    ],
+    "evidence": "entregas/parcial_2026-10-24/comparacao_cfd.json",
+    "lead": "P3",
+    "pending": "3malhas29527/63668/166212,delta7.07%,semcamadas/y+;Cd não final",
+    "title": "Refinamento progressivo e quantificação de incerteza do CFD aerodinâmico",
+    "section_sha256": "cff31a8d2113722ff7c6492f060d96d71bf41dcda663b1987b51ca976fa0ac57",
+    "parameter_keys": [
+      "cd_range",
+      "area_m2"
+    ],
+    "owners": [
+      "P3",
+      "P4",
+      "P5"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-024",
+    "items": [
+      10,
+      34,
+      35
+    ],
+    "evidence": "config/bateria_termica_proposta.yaml",
+    "lead": "P7",
+    "pending": "20/80kWtérmicaECM, sem correspondênciaOEMcomprovada",
+    "title": "Modelo térmico da bateria de tração e circuito de arrefecimento",
+    "section_sha256": "8f69c51ac11a8c3cdd5cd5c58b2a3f10fc63a5e5fa24bc00cf13965a89010264",
+    "parameter_keys": [
+      "battery_thermal_test_kw"
+    ],
+    "owners": [
+      "P7"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-025",
+    "items": [
+      3,
+      20,
+      33
+    ],
+    "evidence": "config/freios_proposta.yaml",
+    "lead": "P1",
+    "pending": "Discorzrepresentativo; subtrair resistências e regeneração limitada hipotética",
+    "title": "Comparação térmica da frenagem por atrito e regenerativa (item 33)",
+    "section_sha256": "ed47203ea6cc1b544b42dec86e4080e9da88b629b5be1404f7bdd6f1d8fa7243",
+    "parameter_keys": [
+      "brake_speeds_ms",
+      "brake_duration_s",
+      "regen_power_study_kw"
+    ],
+    "owners": [
+      "P1",
+      "P4"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-026",
+    "items": [
+      7,
+      9,
+      23,
+      30
+    ],
+    "evidence": "src/motorhome/cabos_polares.py",
+    "lead": "P2",
+    "pending": "Novo camporθserviços70/95mm2,proteções/conexões não validadas;HVpreservado",
+    "title": "Análise térmica multidimensional dos cabos de serviços 48 V e avaliação fotovoltaica (item 30)",
+    "section_sha256": "eff06b1da67f82053e1b0cf2bc14333b345cc07618c09a01f547c9ffc4c6ad63",
+    "parameter_keys": [
+      "oem_hv_modification_allowed",
+      "eta_inverter",
+      "eta_dc",
+      "eta_buffer",
+      "pv_gamma",
+      "pv_other_loss",
+      "pv_faiman_u0",
+      "pv_faiman_u1",
+      "pv_albedo",
+      "pv_setup_h",
+      "pv_teardown_h",
+      "cable_min_voltage_v",
+      "cable_eta",
+      "cable_loop_m",
+      "cable_k_copper",
+      "cable_k_insulation",
+      "cable_alpha",
+      "cable_rho20",
+      "cable_insulation_m"
+    ],
+    "owners": [
+      "P2"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-027",
+    "items": [
+      11,
+      31
+    ],
+    "evidence": "scripts/calcular_cabine.py",
+    "lead": "P6",
+    "pending": "Rede térmica reexecutável; CFD3Dnatural ainda inexistente",
+    "title": "Modelo térmico transiente com CFD 3D complementar para cabine fechada (item 31)",
+    "section_sha256": "d222b7565987302c9d2a30149b90019213c5cd143ee5e4b602bb399c52c5a0af",
+    "parameter_keys": [
+      "item31_occupants",
+      "item31_ac_w"
+    ],
+    "owners": [
+      "P6"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-028",
+    "items": [
+      11,
+      23,
+      32
+    ],
+    "evidence": "scripts/calcular_cabine.py",
+    "lead": "P6",
+    "pending": "1ocupante33→25principal;2complemento;solar/envelope hipotéticos",
+    "title": "Dimensionamento do ar-condicionado para um e dois ocupantes (item 32)",
+    "section_sha256": "5419cfa9abdedbcfda91adf5361fd5e52d60f725464024c72452fbc890bfd1b2",
+    "parameter_keys": [
+      "item32_outside_c",
+      "item32_inside_c",
+      "item32_occupants"
+    ],
+    "owners": [
+      "P2",
+      "P6"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-029",
+    "items": [
+      25,
+      27,
+      29
+    ],
+    "evidence": "scripts/simular_rota_real.py",
+    "lead": "P5",
+    "pending": "Controle seminterface não completa7000km;replaysACanteriores não demonstramB",
+    "title": "Viabilidade energética condicional versus viabilidade técnica da missão de 7.000 km",
+    "section_sha256": "fec2469a87cf7a0120ab5041d81d07b055edc95502cfeecaa6b9deb8bbde0574",
+    "parameter_keys": [
+      "dc_interface_demonstrated"
+    ],
+    "owners": [
+      "P5"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-030",
+    "items": [
+      13,
+      16,
+      17,
+      18
+    ],
+    "evidence": "config/layout_proposto.yaml",
+    "lead": "P3",
+    "pending": "Cama fixa provisóriaaproveitaCAD; falta segundo estudo conversível cotado",
+    "title": "Comparar layout interno com cama fixa versus cama conversível antes de congelar CAD",
+    "section_sha256": "40a8311a267d66ad0dc62b7a7531fe76f77d98823deddda3c55dc1053ed8ab75",
+    "parameter_keys": [
+      "layout_provisional"
+    ],
+    "owners": [
+      "P1",
+      "P3",
+      "P6"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-031",
+    "items": [
+      8,
+      16,
+      17,
+      19
+    ],
+    "evidence": "config/layout_proposto.yaml",
+    "lead": "P3",
+    "pending": "2arranjos/cotas/ancoragens/sombras não validados;meta1540inalterada",
+    "title": "Comparar configurações reais de ocupação do teto com 1.540 Wp como meta condicionada",
+    "section_sha256": "91755d8bc106a63f0f63e2278bc279b01f3ea2d4582c22dba398481ca6002960",
+    "parameter_keys": [
+      "roof_target_wp",
+      "roof_arrangement_provisional",
+      "roof_power_48v_study_wp"
+    ],
+    "owners": [
+      "P3",
+      "P5"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-032",
+    "items": [
+      20,
+      25,
+      26,
+      27,
+      28,
+      29
+    ],
+    "evidence": "src/motorhome/dinamica.py",
+    "lead": "P4",
+    "pending": "Nova varredura40/80incluiCd,área,massa,Crr,rho,eta;semserviços",
+    "title": "Modelo físico de consumo de tração a 40 e 80 km/h, verificação documental e incertezas",
+    "section_sha256": "26621cd3ba8db2baf7232aa0d982bf97f3d656f389d6cfe26264a1c01f8d2363",
+    "parameter_keys": [
+      "mass_study_kg",
+      "cd_range",
+      "area_m2",
+      "crr_range",
+      "eta_traction_range",
+      "rho_range",
+      "area_multiplier_range",
+      "consumption_speeds_kmh"
+    ],
+    "owners": [
+      "P4",
+      "P5"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-033",
+    "items": [
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "evidence": "docs/VERIFICACAO_CAD_APOSTILA.md",
+    "lead": "P1",
+    "pending": "AncoragensOEM/casosdeesforço/FEAcrítica ainda pendentes",
+    "title": "Comparar ancoragens OEM documentadas e subestruturas próprias para instalações do motorhome",
+    "section_sha256": "de40f3fa2677624c1da5a10ea8123689b41effa33ec664b98d01950d8a4506cd",
+    "parameter_keys": [
+      "structural_anchor_capacity"
+    ],
+    "owners": [
+      "P1",
+      "P3"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-034",
+    "items": [
+      24
+    ],
+    "evidence": "config/custos_proposta.yaml",
+    "lead": "P1",
+    "pending": "BOMtraceável custosnulos;sem câmbio/frete/imposto/engenharia não há total",
+    "title": "Custo total de aquisição e conversão do motorhome, sem dupla contagem OEM",
+    "section_sha256": "9d9bfdc515aa6a1329e67ff996f81f50f1ae10e47966fe95185ddcb778e174ab",
+    "parameter_keys": [
+      "cost_installed_total_brl"
+    ],
+    "owners": [
+      "P1"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-035",
+    "items": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35
+    ],
+    "evidence": "docs/dependencias.md",
+    "lead": "P1",
+    "pending": "Fonteúnica/matrizes/proveniência M1M2M3;0aprovações finais",
+    "title": "Integração contínua dos sete pacotes de trabalho, fonte única de parâmetros e marcos de validação",
+    "section_sha256": "f119fec735f4415b8a030b461c379e3dda15b7e94c90367656729862132a7dac",
+    "parameter_keys": [
+      "pendencia_dec035",
+      "time_step_minutes"
+    ],
+    "owners": [
+      "P1",
+      "P2",
+      "P3",
+      "P4",
+      "P5",
+      "P6",
+      "P7"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-036",
+    "items": [
+      1,
+      4,
+      5,
+      6,
+      14,
+      15,
+      18,
+      24,
+      28
+    ],
+    "evidence": "config/arquitetura_eletrica_proposta.yaml",
+    "lead": "P4",
+    "pending": "SK505GGprovisória;505BG3500separada;BRsem ficha correspondente encontrada",
+    "title": "Comparação documentada de variantes elétricas Fiat E-Ducato L3H2 nos mercados brasileiro e europeu",
+    "section_sha256": "81c62b15e50fff616bd80ab3017a2b2a737f8aa80338462f01b63042416d11fb",
+    "parameter_keys": [
+      "vehicle_variant",
+      "oem_pbt_kg",
+      "oem_tare_kg",
+      "wheelbase_m",
+      "front_track_m",
+      "rear_track_m",
+      "traction_nominal_kwh",
+      "traction_usable_kwh",
+      "traction_voltage_v",
+      "motor_peak_kw",
+      "motor_peak_nm",
+      "speed_limit_kmh",
+      "vehicle_price_eur_ex_vat"
+    ],
+    "owners": [
+      "P1",
+      "P2",
+      "P4"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-037",
+    "items": [
+      4,
+      5,
+      20,
+      21,
+      22,
+      28
+    ],
+    "evidence": "config/limites_operacionais_proposta.yaml",
+    "lead": "P4",
+    "pending": "Semcurvas/redutornão calcularaceleraçãoOEM;0–1004250inviável",
+    "title": "Modelo longitudinal de velocidade máxima e aceleração 0–100 km/h, verificado com dados OEM (item 28)",
+    "section_sha256": "c54e49d5272d0f1bc05980ecc439f43aa805f510305cfdbbb20ddbd92198da05",
+    "parameter_keys": [
+      "oem_pbt_kg",
+      "oem_tare_kg",
+      "wheelbase_m",
+      "front_track_m",
+      "rear_track_m",
+      "traction_nominal_kwh",
+      "traction_usable_kwh",
+      "traction_voltage_v",
+      "motor_peak_kw",
+      "motor_peak_nm",
+      "speed_limit_kmh",
+      "vehicle_price_eur_ex_vat",
+      "axle_front_limit_kg",
+      "axle_rear_limit_kg",
+      "assembled_typical_mass_kg",
+      "cg_xyz_m",
+      "oem_tyre_pressure",
+      "motor_map",
+      "reduction_ratio",
+      "regen_power_study_kw"
+    ],
+    "owners": [
+      "P4"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-038",
+    "items": [
+      8,
+      25,
+      27,
+      29
+    ],
+    "evidence": "src/motorhome/solar.py",
+    "lead": "P5",
+    "pending": "IneichenPOAFaimanPVWattsreutilizado;idealSTCvsfísicocomperdas separados",
+    "title": "Comparar geração fotovoltaica idealizada versus modelo físico realista horário",
+    "section_sha256": "1deaff4520ffa7c1fd58374a43055cb1d7f67d04f33755998d7504203cec3e79",
+    "parameter_keys": [
+      "eta_inverter",
+      "eta_dc",
+      "eta_buffer",
+      "pv_gamma",
+      "pv_other_loss",
+      "pv_faiman_u0",
+      "pv_faiman_u1",
+      "pv_albedo",
+      "pv_setup_h",
+      "pv_teardown_h",
+      "cable_min_voltage_v",
+      "cable_eta",
+      "cable_loop_m",
+      "cable_k_copper",
+      "cable_k_insulation",
+      "cable_alpha",
+      "cable_rho20",
+      "cable_insulation_m",
+      "roof_power_48v_study_wp",
+      "eta_service_charge",
+      "portable_gamma",
+      "time_step_minutes"
+    ],
+    "owners": [
+      "P5"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-039",
+    "items": [
+      6,
+      9,
+      18,
+      23,
+      24,
+      29
+    ],
+    "evidence": "config/instalacoes_eletricas_proposta.yaml",
+    "lead": "P2",
+    "pending": "US5000BMSintegrado candidato; autorização uso veicular não demonstrada",
+    "title": "Bateria auxiliar LiFePO₄ comercial modular, com BMS integrado",
+    "section_sha256": "bb060fb529163efb019b79d0fcae28baaede358bc612fd8bb148484a64c30528",
+    "parameter_keys": [
+      "service_bus_v",
+      "module_service_kwh",
+      "module_service_mass_kg",
+      "module_service_dod",
+      "module_service_dimensions_m",
+      "service_module_model",
+      "service_modules_provisional"
+    ],
+    "owners": [
+      "P1",
+      "P2",
+      "P5"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-040",
+    "items": [
+      7,
+      9,
+      23,
+      30
+    ],
+    "evidence": "config/instalacoes_eletricas_proposta.yaml",
+    "lead": "P2",
+    "pending": "Unifilar/curto/DR/topologiaPE/BMS/ensaios de bancada pendentes",
+    "title": "Projeto elétrico detalhado 48 V DC e AC, análise de falhas e plano de inspeções/ensaios",
+    "section_sha256": "014026f4b1016fcfe8fb8a7c253cee0669d62555e69872094c92e48f0997095f",
+    "parameter_keys": [
+      "oem_hv_modification_allowed"
+    ],
+    "owners": [
+      "P2"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-041",
+    "items": [
+      13,
+      18,
+      29
+    ],
+    "evidence": "config/equipamentos_interior.yaml",
+    "lead": "P6",
+    "pending": "Reabastecer/descarteadequado permitido; frequência calculada condicionada",
+    "title": "Reabastecimento de água e descarte de resíduos na missão solar",
+    "section_sha256": "f8622b89b2b52a8cb7eaa06922863a3584fe6aa9841844da9c27d38cc698e34a",
+    "parameter_keys": [
+      "water_clean_l",
+      "water_grey_l",
+      "cassette_l",
+      "water_daily_study_l"
+    ],
+    "owners": [
+      "P1",
+      "P5",
+      "P6"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-042",
+    "items": [
+      6,
+      7,
+      9,
+      18,
+      23,
+      24,
+      29
+    ],
+    "evidence": "src/motorhome/reconciliacao.py",
+    "lead": "P2",
+    "pending": "Diretovsbuffer0/2/5kWh e mínimo.5–10kWhipotéticos;OEMnão demonstrado",
+    "title": "Comparar recarga solar DC direta versus buffer dedicado à tração",
+    "section_sha256": "6cc5682efaf1c5a45f849f5735d75129d0c6e4ab8feeb585ca59eaa00fa4838a",
+    "parameter_keys": [
+      "architecture",
+      "dc_interface_demonstrated",
+      "dc_min_power_kw",
+      "dc_min_current_a",
+      "dc_voltage_window_v",
+      "dc_protocol",
+      "dc_oem_authorization",
+      "dc_charger_model",
+      "buffer_installed",
+      "eta_inverter",
+      "eta_dc",
+      "eta_buffer",
+      "pv_gamma",
+      "pv_other_loss",
+      "pv_faiman_u0",
+      "pv_faiman_u1",
+      "pv_albedo",
+      "pv_setup_h",
+      "pv_teardown_h",
+      "cable_min_voltage_v",
+      "cable_eta",
+      "cable_loop_m",
+      "cable_k_copper",
+      "cable_k_insulation",
+      "cable_alpha",
+      "cable_rho20",
+      "cable_insulation_m",
+      "dc_min_sweep_kw",
+      "buffer_study_kwh",
+      "mission_hypothetical_min_kw",
+      "mission_hypothetical_buffer_kwh"
+    ],
+    "owners": [
+      "P1",
+      "P2",
+      "P5"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-043",
+    "items": [
+      20,
+      25,
+      26,
+      27,
+      29
+    ],
+    "evidence": "config/rota_belem_chui_proposta.yaml",
+    "lead": "P5",
+    "pending": "Principalplano,velocidadeconstante;relevo/regen não creditados",
+    "title": "Percurso plano e velocidade constante como cenário principal da missão de 7.000 km",
+    "section_sha256": "e4087ab2ee48e5cb899e7ea5f664a71cbe30c934e92d3b8535f8eb196b8d97eb",
+    "parameter_keys": [
+      "trip_flat",
+      "consumption_speeds_kmh"
+    ],
+    "owners": [
+      "P4",
+      "P5"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-044",
+    "items": [
+      6,
+      23,
+      29
+    ],
+    "evidence": "config/agenda_portatil_proposta.yaml",
+    "lead": "P5",
+    "pending": "Ambosbancos100% emI29;energia inicial separada deFV",
+    "title": "SOC inicial de 100% na missão solar de 7.000 km (item 29)",
+    "section_sha256": "c7007bba75ee89b652c7d33cf128733c86359d5c7511ddb301eac2a4e604aaa9",
+    "parameter_keys": [
+      "trip_initial_soc",
+      "trip_external_charge"
+    ],
+    "owners": [
+      "P2",
+      "P5"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-045",
+    "items": [
+      8,
+      25,
+      27,
+      29
+    ],
+    "evidence": "config/solar_portatil_proposta.yaml",
+    "lead": "P5",
+    "pending": "Ângulo fixo porparada;busca discreta entre orientações não rastreamento",
+    "title": "Orientação e inclinação fixas dos painéis portáteis durante cada parada",
+    "section_sha256": "1fb075c16944a1605c02be183b3101b7f8846056c75f23f2c7c98f3ccbac974a",
+    "parameter_keys": [
+      "portable_wp",
+      "portable_only_parked",
+      "portable_fixed_per_stop",
+      "portable_gamma"
+    ],
+    "owners": [
+      "P5"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-046",
+    "items": [
+      6,
+      11,
+      13,
+      23,
+      29
+    ],
+    "evidence": "config/interface_carga_proposta.yaml",
+    "lead": "P6",
+    "pending": "Média diária simplificada; picos separados;não reusarscheduleACantigo",
+    "title": "Consumo médio diário simplificado dos equipamentos internos",
+    "section_sha256": "b0000da71d42d4fff3b315640efcf2dfbfb75446c5b5a15bc69f6c3cffaf871e",
+    "parameter_keys": [
+      "load_method",
+      "eta_inverter",
+      "eta_dc",
+      "eta_buffer",
+      "pv_gamma",
+      "pv_other_loss",
+      "pv_faiman_u0",
+      "pv_faiman_u1",
+      "pv_albedo",
+      "pv_setup_h",
+      "pv_teardown_h",
+      "cable_min_voltage_v",
+      "cable_eta",
+      "cable_loop_m",
+      "cable_k_copper",
+      "cable_k_insulation",
+      "cable_alpha",
+      "cable_rho20",
+      "cable_insulation_m",
+      "inverter_idle_w",
+      "fridge_kwh_month",
+      "drying_energy_cycle_range_kwh",
+      "eta_lv"
+    ],
+    "owners": [
+      "P2",
+      "P5",
+      "P6"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-047",
+    "items": [
+      6,
+      9,
+      23,
+      29
+    ],
+    "evidence": "config/servicos_proposta.yaml",
+    "lead": "P2",
+    "pending": "Prioridadesqualitativas preservadas;patamaresBMS/atuadoresnull",
+    "title": "Gerenciamento automático escalonado de cargas por SOC da bateria auxiliar",
+    "section_sha256": "aa42952f244bb9b9c2776d902f88a01f718ed69934a3e6a394d8504a02f21672",
+    "parameter_keys": [
+      "load_shedding",
+      "service_shed_soc_thresholds",
+      "shared_mppt_model",
+      "secondary_dc_bus_v"
+    ],
+    "owners": [
+      "P2",
+      "P5"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-048",
+    "items": [
+      13,
+      18,
+      23,
+      24,
+      29
+    ],
+    "evidence": "config/equipamentos_interior.yaml",
+    "lead": "P6",
+    "pending": "Rede potável não implementada: hidraulica_proposta.yaml é arrefecimento água/glicol; falta instalação potável, curva de bomba, boiler e trecho crítico compatíveis",
+    "title": "Projeto hidráulico documentado, com dimensionamento essencial e componentes comerciais",
+    "section_sha256": "4fbfd14d8cde4b8f07de860dad6cd8b8300d28febf0f8b196567dc4b7e5986fe",
+    "parameter_keys": [
+      "boiler_commercial_model",
+      "water_daily_study_l",
+      "potable_pump_model",
+      "potable_pump_curve",
+      "potable_pump_mass_kg",
+      "potable_pipe_lengths_m",
+      "potable_pipe_diameters_m",
+      "potable_minor_k",
+      "potable_height_m",
+      "potable_fixture_design_lpm",
+      "potable_fixture_pressure_pa",
+      "potable_density_kg_m3",
+      "potable_viscosity_pa_s"
+    ],
+    "owners": [
+      "P1",
+      "P2",
+      "P5",
+      "P6"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-049",
+    "items": [
+      11,
+      13,
+      16,
+      31,
+      32
+    ],
+    "evidence": "config/cabine_proposta.yaml",
+    "lead": "P6",
+    "pending": "Natural;vento0semcruzamento presumido;umidade/vazãonão demonstradas",
+    "title": "Ventilação natural por aberturas e janelas",
+    "section_sha256": "b4325904d60fbf787fb1cc2e3bba2cfc6628c8996684d9cacc78d3deb25f1339",
+    "parameter_keys": [
+      "ventilation"
+    ],
+    "owners": [
+      "P3",
+      "P6"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-050",
+    "items": [
+      9,
+      13,
+      23,
+      24,
+      29
+    ],
+    "evidence": "config/equipamentos_interior.yaml",
+    "lead": "P6",
+    "pending": "MRC10B2ACsubstituiNRXDC;partida/fixaçãomóvel e margemfaltam",
+    "title": "Geladeira comercial AC compacta alimentada pelo inversor de serviços",
+    "section_sha256": "95abc3888799e4163e198fa76e1ed96a3a6d6bc545c0edef9354e8ae1fe89fe0",
+    "parameter_keys": [
+      "fridge_type",
+      "fridge_model",
+      "fridge_mass_kg",
+      "fridge_dimensions_m",
+      "fridge_kwh_month"
+    ],
+    "owners": [
+      "P1",
+      "P2",
+      "P5",
+      "P6"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-051",
+    "items": [
+      9,
+      13,
+      23,
+      24,
+      29
+    ],
+    "evidence": "config/equipamentos_interior.yaml",
+    "lead": "P6",
+    "pending": "IE3TP220V60Hz2kWprovisório;gestão/picos/retensão pendentes",
+    "title": "Cooktop de indução portátil com uma zona e potência ajustável",
+    "section_sha256": "26f5ab68976897635ff7d7dd599c647c3c42dfc09ac0d636169477ede61f7a16",
+    "parameter_keys": [
+      "cooktop_type"
+    ],
+    "owners": [
+      "P1",
+      "P2",
+      "P5",
+      "P6"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-052",
+    "items": [
+      7,
+      9,
+      11,
+      13,
+      23,
+      30
+    ],
+    "evidence": "config/servicos_proposta.yaml",
+    "lead": "P2",
+    "pending": "220V60Hzativo;230Vnão é aprovaçãoautomática deaparelhos",
+    "title": "Padrão AC dos serviços: 220 V / 60 Hz",
+    "section_sha256": "1ed78266ad2b00fe29f830e733ae688f5464913ecf061c19dfdc2a3853381418",
+    "parameter_keys": [
+      "ac_voltage_v",
+      "ac_frequency_hz"
+    ],
+    "owners": [
+      "P2",
+      "P6"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-053",
+    "items": [
+      9,
+      18,
+      23,
+      24
+    ],
+    "evidence": "config/servicos_proposta.yaml",
+    "lead": "P2",
+    "pending": "ComparadosMultiPlusII eInverterSmart48/5000;MultiPlusprovisório",
+    "title": "Comparação de inversores comerciais para serviços 48 V DC → 220 V / 60 Hz AC",
+    "section_sha256": "9bca920ae58ebec3928c89ce915190cefe34a46371bb21236c40677677317714",
+    "parameter_keys": [
+      "inverter_model",
+      "inverter_idle_w",
+      "inverter_continuous_w"
+    ],
+    "owners": [
+      "P1",
+      "P2"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-054",
+    "items": [
+      8,
+      9,
+      23,
+      25,
+      29
+    ],
+    "evidence": "config/servicos_proposta.yaml",
+    "lead": "P2",
+    "pending": "MPPT único — stringsJA eEcoFlowheterogêneas,IV/mismatch/saídaindependente não provados",
+    "title": "Estudar MPPT compartilhado entre os arranjos fotovoltaicos fixos e portáteis",
+    "section_sha256": "d8b268a3218ab7d0473164f6aead7d52a080c16224d634221b663f850c044474",
+    "parameter_keys": [
+      "service_shed_soc_thresholds",
+      "shared_mppt_model",
+      "secondary_dc_bus_v"
+    ],
+    "owners": [
+      "P2",
+      "P5"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-055",
+    "items": [
+      11,
+      13,
+      16,
+      17,
+      18,
+      32
+    ],
+    "evidence": "config/equipamentos_interior.yaml",
+    "lead": "P6",
+    "pending": "Sobbancomantido;FreshWell230Vnão confirma220V;condensadorparaexterior",
+    "title": "Priorizar instalação de ar-condicionado compacto sob banco ou armário",
+    "section_sha256": "3aab3fdd1e9edbf494677e80e1220a509c941cb48797e614016aa049d9933ec4",
+    "parameter_keys": [
+      "hvac_location"
+    ],
+    "owners": [
+      "P1",
+      "P3",
+      "P6"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-056",
+    "items": [
+      6,
+      9,
+      13,
+      23,
+      34,
+      35
+    ],
+    "evidence": "config/servicos_proposta.yaml",
+    "lead": "P2",
+    "pending": "Indicadorescomerciais semcentral;automaçãoSOCnão implementada",
+    "title": "Monitoramento básico por indicadores comerciais existentes",
+    "section_sha256": "aaa4cdaccb05c770fcd18e47264c267751f3dc6a69bb63369ac995f4f88e6ce2",
+    "parameter_keys": [
+      "monitoring"
+    ],
+    "owners": [
+      "P2",
+      "P6",
+      "P7"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-057",
+    "items": [
+      7,
+      9,
+      13,
+      23,
+      24
+    ],
+    "evidence": "config/servicos_proposta.yaml",
+    "lead": "P2",
+    "pending": "Comparação100Wem12/24V;candidatosOrion48/12 e48/24;modelo24eprodutosfimpendentes",
+    "title": "Comparação de barramentos auxiliares de 12 V e 24 V DC a partir do banco de serviços de 48 V",
+    "section_sha256": "a3151a045237f72094e33b4f295903e28118e2a7da4b3a16b9b7dc51ea3e95a1",
+    "parameter_keys": [
+      "service_shed_soc_thresholds",
+      "shared_mppt_model",
+      "secondary_dc_bus_v",
+      "dc_distribution_provisional_v",
+      "lv_power_study_w",
+      "lv_cable_loop_study_m",
+      "lv_cable_section_study_mm2",
+      "eta_lv",
+      "potable_pump_model"
+    ],
+    "owners": [
+      "P1",
+      "P2",
+      "P6"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-058",
+    "items": [
+      2,
+      14,
+      18,
+      20,
+      25,
+      26,
+      28
+    ],
+    "evidence": "config/mecanica_comparativa_proposta.yaml",
+    "lead": "P4",
+    "pending": "ManterpneusOEM;Continentalantigo éreferência,não autorização do chassi",
+    "title": "Pneus homologados da variante OEM e resistência ao rolamento rastreável",
+    "section_sha256": "faaaf262e8c4a76e487d0131ced9a84d9b4b3c78aae2f3782285ded7791c6b5c",
+    "parameter_keys": [
+      "axle_front_limit_kg",
+      "axle_rear_limit_kg",
+      "assembled_typical_mass_kg",
+      "cg_xyz_m",
+      "oem_tyre_pressure",
+      "motor_map",
+      "reduction_ratio",
+      "crr_range",
+      "eta_traction_range",
+      "rho_range",
+      "area_multiplier_range"
+    ],
+    "owners": [
+      "P1",
+      "P4",
+      "P5"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-059",
+    "items": [
+      2,
+      14,
+      15,
+      18,
+      28
+    ],
+    "evidence": "config/mecanica_comparativa_proposta.yaml",
+    "lead": "P1",
+    "pending": "SuspensãoOEMinalterada;eixos/curso/rigidez/limitespendentes",
+    "title": "Preservar suspensão OEM e verificar limites com massas típica e máxima",
+    "section_sha256": "cc2e443b3dc80d98721ff78e15523c9a23ddb58051ad371dc7cc6721d95d58af",
+    "parameter_keys": [
+      "axle_front_limit_kg",
+      "axle_rear_limit_kg",
+      "assembled_typical_mass_kg",
+      "cg_xyz_m",
+      "oem_tyre_pressure",
+      "motor_map",
+      "reduction_ratio"
+    ],
+    "owners": [
+      "P1",
+      "P4"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-060",
+    "items": [
+      14,
+      15,
+      18,
+      28
+    ],
+    "evidence": "src/motorhome/reconciliacao.py",
+    "lead": "P1",
+    "pending": "ÍndicequaseestáticocomCGhipotético;não limiarrealnemhomologação",
+    "title": "Estabilidade lateral quase-estática e sensibilidade do centro de gravidade",
+    "section_sha256": "be81d756a7745bfbe53af3b1caebc0258dd534d30884224de9dba8687cca12be",
+    "parameter_keys": [
+      "axle_front_limit_kg",
+      "axle_rear_limit_kg",
+      "assembled_typical_mass_kg",
+      "cg_xyz_m",
+      "oem_tyre_pressure",
+      "motor_map",
+      "reduction_ratio",
+      "lateral_cg_height_sweep_m",
+      "lateral_cg_offset_sweep_m"
+    ],
+    "owners": [
+      "P1",
+      "P4"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  },
+  {
+    "decision": "DEC-061",
+    "items": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35
+    ],
+    "evidence": "docs/decisoes_motorhome_2026-10-28.md",
+    "lead": "P1",
+    "pending": "Escolhasprovisórias emlistaúnica;aprovaçãohumanafinalpendente",
+    "title": "Autonomia técnica provisória do Codex com aprovação final consolidada",
+    "section_sha256": "530d8f38ea77dcda9d01da9d6400ff8c44242f2b63c82eb5c683f09ad59f36ee",
+    "parameter_keys": [
+      "vehicle_variant",
+      "module_service_kwh",
+      "module_service_mass_kg",
+      "service_module_model",
+      "inverter_model",
+      "fridge_model",
+      "service_modules_provisional",
+      "layout_provisional",
+      "roof_arrangement_provisional",
+      "dc_distribution_provisional_v",
+      "insulation_provisional_m",
+      "boiler_candidate_model"
+    ],
+    "owners": [
+      "P1",
+      "P2",
+      "P3",
+      "P4",
+      "P5",
+      "P6",
+      "P7"
+    ],
+    "status": "em_integracao_sem_aprovacao_final"
+  }
+]

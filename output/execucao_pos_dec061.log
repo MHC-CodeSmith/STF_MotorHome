@@ -1,0 +1,18 @@
+{
+  "revision": "1.0.0-pos-DEC061",
+  "parameters": 161,
+  "decisions": 61,
+  "items": 35,
+  "traction_sensitivity_cases": 972,
+  "mission_cases": 56,
+  "dc_cases": 36,
+  "service_base_kwh_day": 7.228825396825397,
+  "mission_states": {
+    "reserva_tracao_sem_interface": 8,
+    "reserva_servicos_sem_perfil_de_reducao_validado": 32,
+    "horizonte_sem_conclusao": 4,
+    "chegada_condicional": 12
+  },
+  "maximum_mission_energy_residual_kwh": 2.7848727768287063e-08,
+  "output": "/home/mhc/motorhome_solar_codex_tarefas/entregas/etapa_pos_dec061"
+}

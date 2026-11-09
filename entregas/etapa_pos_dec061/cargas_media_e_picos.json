@@ -1,0 +1,130 @@
+{
+  "loads": [
+    {
+      "id": "geladeira",
+      "energy_ac_or_dc_kwh_day": {
+        "base": 0.47,
+        "min": 0.47,
+        "max": 0.94
+      },
+      "side": "AC",
+      "source": "fridge",
+      "assumption_status": "estimado",
+      "usage": "Uso moderado hipotético",
+      "peak_w": null,
+      "uncertainty_note": "0.73A de corrente nominal do manual não informa W ativos nem pico de partida;160.6VA=220V×0.73A somente referência aparente.",
+      "rated_current_a": 0.73,
+      "rated_apparent_va_estimate": 160.6
+    },
+    {
+      "id": "inducao",
+      "energy_ac_or_dc_kwh_day": {
+        "base": 1,
+        "min": 0.6,
+        "max": 1.4
+      },
+      "side": "AC",
+      "source": "cooktop",
+      "assumption_status": "estimado",
+      "usage": "Uso moderado hipotético",
+      "peak_w": 2000,
+      "uncertainty_note": "Energia/horas estimadas; preencher consumo e partida comercial ausentes. Boiler:40L/d misturada25→38C,cp4180J/kgK,eficiência.9,espera~.05kWh/d; volume interno está nos100L totais."
+    },
+    {
+      "id": "ar_condicionado",
+      "energy_ac_or_dc_kwh_day": {
+        "base": 3,
+        "min": 1.5,
+        "max": 5.2
+      },
+      "side": "AC",
+      "source": "freshwell",
+      "assumption_status": "estimado",
+      "usage": "Uso moderado hipotético",
+      "peak_w": null,
+      "uncertainty_note": "Energia/horas estimadas; preencher consumo e partida comercial ausentes. Boiler:40L/d misturada25→38C,cp4180J/kgK,eficiência.9,espera~.05kWh/d; volume interno está nos100L totais."
+    },
+    {
+      "id": "boiler",
+      "energy_ac_or_dc_kwh_day": {
+        "base": 0.72,
+        "min": 0.45,
+        "max": 1.25
+      },
+      "side": "AC",
+      "source": "hyp",
+      "assumption_status": "estimado",
+      "usage": "Uso moderado hipotético",
+      "peak_w": null,
+      "uncertainty_note": "Energia/horas estimadas; preencher consumo e partida comercial ausentes. Boiler:40L/d misturada25→38C,cp4180J/kgK,eficiência.9,espera~.05kWh/d; volume interno está nos100L totais."
+    },
+    {
+      "id": "lavagem",
+      "energy_ac_or_dc_kwh_day": {
+        "base": 0.041428571428571426,
+        "min": 0.041428571428571426,
+        "max": 0.041428571428571426
+      },
+      "side": "AC",
+      "source": "washer",
+      "assumption_status": "estimado",
+      "usage": "Uma lavagem+secagem por semana",
+      "peak_w": null,
+      "uncertainty_note": "Energia/horas estimadas; preencher consumo e partida comercial ausentes. Boiler:40L/d misturada25→38C,cp4180J/kgK,eficiência.9,espera~.05kWh/d; volume interno está nos100L totais."
+    },
+    {
+      "id": "secagem",
+      "energy_ac_or_dc_kwh_day": {
+        "base": 0.2857142857142857,
+        "min": 0.14285714285714285,
+        "max": 0.5714285714285714
+      },
+      "side": "AC",
+      "source": "hyp",
+      "assumption_status": "estimado",
+      "usage": "Uma lavagem+secagem por semana",
+      "peak_w": null,
+      "uncertainty_note": "Energia/horas estimadas; preencher consumo e partida comercial ausentes. Boiler:40L/d misturada25→38C,cp4180J/kgK,eficiência.9,espera~.05kWh/d; volume interno está nos100L totais."
+    },
+    {
+      "id": "iluminacao_eletronicos_bombas",
+      "energy_ac_or_dc_kwh_day": {
+        "base": 0.6,
+        "min": 0.35,
+        "max": 0.9
+      },
+      "side": "DC",
+      "source": "hyp",
+      "assumption_status": "estimado",
+      "usage": "Uso moderado hipotético",
+      "peak_w": null,
+      "uncertainty_note": "Energia/horas estimadas; preencher consumo e partida comercial ausentes. Boiler:40L/d misturada25→38C,cp4180J/kgK,eficiência.9,espera~.05kWh/d; volume interno está nos100L totais."
+    }
+  ],
+  "energy": [
+    {
+      "level": "min",
+      "ac_kwh_day": 3.204285714285714,
+      "dc_load_kwh_day": 0.35,
+      "battery_kwh_day": 4.381206349206349,
+      "idle_kwh_day": 0.432
+    },
+    {
+      "level": "base",
+      "ac_kwh_day": 5.517142857142857,
+      "dc_load_kwh_day": 0.6,
+      "battery_kwh_day": 7.228825396825397,
+      "idle_kwh_day": 0.432
+    },
+    {
+      "level": "max",
+      "ac_kwh_day": 9.402857142857142,
+      "dc_load_kwh_day": 0.9,
+      "battery_kwh_day": 11.879619047619046,
+      "idle_kwh_day": 0.432
+    }
+  ],
+  "peaks_verified": false,
+  "shedding_implemented": false,
+  "note": "Somar energia média não demonstra partidas ou capacidade de operação simultânea. Faltam potência/partidaAC/lava-seca/boiler. Não usar todos ligados."
+}

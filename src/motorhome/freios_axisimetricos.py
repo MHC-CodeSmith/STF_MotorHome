@@ -60,18 +60,33 @@ def placa_analitica(espessura_m, nz, tempo_s, fluxo_inicial_w_m2, declive_relati
 def resolver(pista, massa_kg=4250., fracao_eixo=.7, fracao_disco=.9,
              fracao_regenerada=0., nr=48, nz=16, dt_s=.01, duracao_s=5.,
              vi_m_s=30., vf_m_s=10., h_externo_w_m2k=20.,
-             h_canal_w_m2k=50., ambiente_k=298.15):
+             h_canal_w_m2k=50., ambiente_k=298.15,
+             potencia_total_friccao_w=None):
     """Aquece duas faces de um disco; retorna a placa equivalente r–z.
 
     Potência de um disco = m*(-dv/dt)*v*(1-regen)*f_eixo*f_disco/2.
     Cada placa recebe metade. Fluxo uniforme no anel (desgaste uniforme).
     Robin nas faces axiais e raio externo; raio interno adiabático.
     Valores de h são hipóteses independentes, não função OEM de velocidade.
+    Callback opcional(t) fornece potência total mecânica nos freios por atrito,
+    já descontadas resistências e regeneração. Não combinar com fração regen.
     """
     energia = energia_frenagem(massa_kg, vi_m_s, vf_m_s, duracao_s)
     fractions = [fracao_eixo, fracao_disco, fracao_regenerada]
     if any(not np.isfinite(f) or not 0 <= f <= 1 for f in fractions):
         raise ValueError('Frações fora de [0,1]')
+    if potencia_total_friccao_w is not None and (
+            not callable(potencia_total_friccao_w) or fracao_regenerada != 0):
+        raise ValueError('Perfil de atrito exige callback e regeneração já descontada')
+
+    def potencia_placa(t):
+        demand = massa_kg*(vi_m_s-vf_m_s)/duracao_s*(vi_m_s-(vi_m_s-vf_m_s)/duracao_s*t)
+        if potencia_total_friccao_w is None:
+            return demand*(1-fracao_regenerada)*fracao_eixo*fracao_disco/4
+        friction = potencia_total_friccao_w(t)
+        if not np.isfinite(friction) or not 0 <= friction <= demand+1e-6:
+            raise ValueError('Potência de atrito fora da demanda mecânica')
+        return friction*fracao_eixo*fracao_disco/4
     if any(isinstance(n, bool) or not isinstance(n, int) or n < 2 for n in (nr, nz)):
         raise ValueError('Malhas exigem inteiros >=2')
     if not np.isfinite(dt_s) or dt_s <= 0 or not np.isfinite(ambiente_k) or ambiente_k <= 0:
@@ -123,19 +138,17 @@ def resolver(pista, massa_kg=4250., fracao_eixo=.7, fracao_disco=.9,
     cumulative_in, cumulative_out = 0., 0.
     trace = [{'tempo_s': 0., 'tmax_celula_k': ambiente_k, 'tmax_superficie_k': ambiente_k,
               'energia_entrada_placa_j': 0., 'energia_saida_placa_j': 0., 'energia_armazenada_placa_j': 0.}]
-    acceleration = (vi_m_s-vf_m_s)/duracao_s
-    scale = (1-fracao_regenerada)*fracao_eixo*fracao_disco/4
     peak_surface = ambiente_k
     surface = np.full(nr, ambiente_k)
     for step in range(steps):
         t = (step+1)*dt
-        power = massa_kg*acceleration*(vi_m_s-acceleration*(t-dt/2))*scale
+        power = potencia_placa(t-dt/2)
         new = solve(rhs_matrix@theta+source*power)
         cumulative_in += power*dt
         # Robin inclui parcela da fonte que sai diretamente pela superfície.
         cumulative_out += (robin@(.5*(new+theta))+(1-source_factor)*power)*dt
         theta = new
-        flux_end = massa_kg*acceleration*(vi_m_s-acceleration*t)*scale*weights/area
+        flux_end = potencia_placa(t)*weights/area
         surface = ambiente_k+(theta.reshape(nr, nz)[:, -1]+resistance*flux_end)*source_factor
         peak_surface = max(peak_surface, float(surface.max()))
         trace.append({'tempo_s': t, 'tmax_celula_k': float(theta.max()+ambiente_k),

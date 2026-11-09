@@ -1,31 +1,32 @@
 revision: servicos-0.2
-status: ARQUITETURA_FUNCIONAL_AINDA_NAO_DIMENSIONADA
+status: HISTORICO_SUPERADO_PELAS_DEC001_020_039_052_054_057
 main_bus_nominal_v: 48
 traction_bus_oem_v: 400
 aux_bus_nominal_v: 12
 controllers:
-  - model: Victron SmartSolar MPPT150/35
-    quantity: 2
-    array_each: 3 JA450 em série, uma string por camada; controladores independentes
-    battery_bus_v: 48
-    nominal_pv_power_48v_w: 2000
-    max_voc_v: 150
-    max_pv_isc_a: 35
-    max_charge_a: 35
-    peak_efficiency: 0.98
-    source: https://www.victronenergy.com/media/pg/Manual_SmartSolar_MPPT_150-35__150-45/en/technical-specifications.html
-    checks_stc: 1350W <2000W; Voc117.9V <150V; Isc14.48A <35A; ainda verificar frio e Vmp quente.
-  - model: Victron SmartSolar MPPT100/20
-    quantity: 1
-    array_each: 1 Victron190W sobre cabine
-    battery_bus_v: 12
-    nominal_pv_power_12v_w: 290
-    max_voc_v: 100
-    max_pv_isc_a: 20
-    max_charge_a: 20
-    peak_efficiency: 0.98
-    source: https://www.victronenergy.com/media/pg/Manual_SmartSolar_MPPT_75-10_up_to_100-20/en/technical-specifications.html
-    checks_stc: 190W <290W; Voc25.5V <100V; Isc9.17A <20A; usar12V, não48V nesta string.
+- model: Victron SmartSolar MPPT150/35
+  quantity: 2
+  array_each: 3 JA450 em série, uma string por camada; controladores independentes
+  battery_bus_v: 48
+  nominal_pv_power_48v_w: 2000
+  max_voc_v: 150
+  max_pv_isc_a: 35
+  max_charge_a: 35
+  peak_efficiency: 0.98
+  source: https://www.victronenergy.com/media/pg/Manual_SmartSolar_MPPT_150-35__150-45/en/technical-specifications.html
+  checks_stc: 1350W <2000W; Voc117.9V <150V; Isc14.48A <35A; ainda verificar frio
+    e Vmp quente.
+- model: Victron SmartSolar MPPT100/20
+  quantity: 1
+  array_each: 1 Victron190W sobre cabine
+  battery_bus_v: 12
+  nominal_pv_power_12v_w: 290
+  max_voc_v: 100
+  max_pv_isc_a: 20
+  max_charge_a: 20
+  peak_efficiency: 0.98
+  source: https://www.victronenergy.com/media/pg/Manual_SmartSolar_MPPT_75-10_up_to_100-20/en/technical-specifications.html
+  checks_stc: 190W <290W; Voc25.5V <100V; Isc9.17A <20A; usar12V, não48V nesta string.
 inverter_candidate:
   model: Victron MultiPlus-II 48/5000/70-50 230V
   continuous_active_25c_w: 4000
@@ -33,30 +34,49 @@ inverter_candidate:
   apparent_va: 5000
   peak_efficiency: 0.96
   source: https://www.victronenergy.com/upload/documents/Brochure-Self-Consumption-%26-Energy-Storage_EN_WEB_2026-02.pdf
-  note: Eficiência96% é pico, não curva de carga nem valor constante adotado. Frequência e variantes dos equipamentos precisam ser compatibilizadas antes da seleção.
+  note: Eficiência96% é pico, não curva de carga nem valor constante adotado. Frequência
+    e variantes dos equipamentos precisam ser compatibilizadas antes da seleção.
 storage_main:
   model: 2xVictron Lithium NG51.2V100Ah em paralelo
   capacity_kwh: 10.24
   capacity_ah: 200
   bms: Lynx Smart BMS NG500A
   mass_kg: 74
-  note: Massa publicada como estimada37kg por módulo; banco200Ah atende mínimo recomendado pelo manual do48/5000. Não aumenta98kWh da tração. Estado de proposta, não compra aprovada.
-storage_aux: {model: Victron AGM BAT21220008422Ah12V, capacity_kwh: 0.264, mass_kg: 5.8, bms: nao_aplicavel_AGM, note: Buffer12V separado da bateria OEM; ventilação e controle de carga pendentes}
-dc_dc_48_to_12: {model: Victron Orion-Tr48-12-30 isolado, continuous_w: 360, mass_kg: 1.8, efficiency_curve: null, note: Conversor não é carregador inteligente; integração com AGM/MPPT requer bloqueio de retorno e controle de tensão/carga}
+  note: Massa publicada como estimada37kg por módulo; banco200Ah atende mínimo recomendado
+    pelo manual do48/5000. Não aumenta98kWh da tração. Estado de proposta, não compra
+    aprovada.
+storage_aux:
+  model: Victron AGM BAT21220008422Ah12V
+  capacity_kwh: 0.264
+  mass_kg: 5.8
+  bms: nao_aplicavel_AGM
+  note: Buffer12V separado da bateria OEM; ventilação e controle de carga pendentes
+dc_dc_48_to_12:
+  model: Victron Orion-Tr48-12-30 isolado
+  continuous_w: 360
+  mass_kg: 1.8
+  efficiency_curve: null
+  note: Conversor não é carregador inteligente; integração com AGM/MPPT requer bloqueio
+    de retorno e controle de tensão/carga
 integration_cad: config/instalacoes_eletricas_proposta.yaml
 inverter_manual_reference:
   url: https://www.victronenergy.com/media/pg/MultiPlus-II_230V/en/installation.html
   min_battery_ah: 200
   recommended_dc_fuse_a: 200
   copper_cross_section_per_pole_up_to_5m_mm2: 70
-  note: Recomendação de fabricante para48/5000; não seleção final de proteção ou circuito de tração. Verificar isolamento/temperatura/agrupamento/curto-circuito e normas aplicáveis.
+  note: Recomendação de fabricante para48/5000; não seleção final de proteção ou circuito
+    de tração. Verificar isolamento/temperatura/agrupamento/curto-circuito e normas
+    aplicáveis.
 oem_charging:
-  proposed_path: PV→MPPT→bateria de serviços48V→inversor230V→EVSE→carregador AC OEM→pack400V, só estacionado
+  proposed_path: FV dedicado → condicionamento/MPPT → estágio DC/DC → interface externaDC
+    autorizadaOEM → conectorOEM; sem ligação direta ao pack
   evse: null
   verified_with_educato_my25: false
-  note: Falta compatibilidade/proteções/aterramento, potência mínima, frequência, eficiência do carregador e intertravamentos. Não usar como circuito pronto nem creditar toda energia PV à tração.
+  note: Direção B escolhida; equipamento/protocolo/mínimos/autorização não demonstrados.
+    Caminho via armazenamento48V dos serviços descartado. Demais campos deste YAML
+    são registro histórico, não seleção atual.
 load_dispatch:
-  - Priorizar serviços essenciais e reservar energia útil de habitação.
-  - Intertravar carga OEM, secagem e indução conforme potência/VA e limites reais dos aparelhos e do BMS.
-  - Geração da camada inferior recolhida não é creditada; sombreada pela camada superior.
-  - Barramentos12/48V são diferentes; soma energética do estudo solar é potencial agregado, sem garantia de transferência entre eles.
+- 'Histórico: não usar este despacho no baseline pósDEC061. Consulte fonte canônica
+  e novo simulador.'
+canonical_active_parameters: config/parametros_globais.yaml
+historical_original_commit: 2ef84f67c3aa820633b0565e92c0a23ea810302b

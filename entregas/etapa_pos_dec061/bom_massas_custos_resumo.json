@@ -1,0 +1,32 @@
+{
+  "scenario": "pacote_provisorio_com_masses_parciais_nao_massa_montada",
+  "known_added_conversion_kg": 440.0,
+  "occupants_baggage_water_kg": 320,
+  "known_subtotal_kg": 3550.0,
+  "headroom_to_4250_before_missing_kg": 700.0,
+  "excess_over_3500_even_before_missing_kg": 50.0,
+  "actual_typical_mass_kg": null,
+  "axle_loads_kg": null,
+  "installed_total_brl": null,
+  "missing_mass_ids": [
+    "mppt",
+    "conversor_lv",
+    "protecao_controle",
+    "reservatorios",
+    "hidraulica",
+    "moveis",
+    "isolamento",
+    "suportes"
+  ],
+  "excluded_oem_double_count": [
+    "motor",
+    "packHV",
+    "redutor",
+    "inversorHV",
+    "cabosHV",
+    "freios",
+    "arrefecimentoOEM"
+  ],
+  "buffer_included": false,
+  "water_in_boiler_is_part_of_100L": true
+}

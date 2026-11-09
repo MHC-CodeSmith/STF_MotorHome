@@ -1,60 +1,2872 @@
-# Fonte única de parâmetros APROVADOS. Campos null estão pendentes; NÃO completar com valores fictícios.
-revision: "0.0.0-scaffold"
+revision: 1.0.0-pos-DEC061
+updated: '2026-11-09'
 project:
-  year: 2026
-  vehicle_name: null
-  vehicle_reference: null
-  passenger_count_min: 2
   vehicle_baseline_approved: false
-scenario:
-  city: "São Carlos, SP, Brasil"
-  date_month: 6
-  date_day: 21
-  simulation_year_assumption: 2026  # convenção computacional, citar a escolha; enunciado informa dia/mês
-  sky: "clear_sky"
-  latitude_deg: null                 # pesquisar e citar ponto representativo
-  longitude_deg: null
-  altitude_m: null
-  timezone: "America/Sao_Paulo"
-  ambient_temperature_C: 25
-  relative_humidity_percent: 50
-  wind_speed_m_per_s: 0
-speed_cases:
-  urban_km_per_h: 40
-  road_km_per_h: 80
-battery:
-  nominal_capacity_kWh: null
-  usable_capacity_kWh: null
-  nominal_voltage_V: null
-  minimum_soc_fraction_daily: 0.30
-  initial_soc_fraction: null         # precisa ser explicitado no item 27
-vehicle:
-  curb_mass_kg: null
-  passengers_mass_kg: null
-  water_and_cargo_mass_kg: null
-  total_mass_kg: null
-  frontal_area_m2: null
-  drag_coefficient: null
-  rolling_resistance_coefficient: null
-  tire_effective_radius_m: null
-motor:
-  maximum_power_kW: null
-  efficiency_map_path: null
-solar:
-  panel_area_m2: null
-  panel_module_efficiency: null
-  tilt_deg: null
-  azimuth_deg: null
-  inverter_efficiency: null
-special_cases:
-  air_conditioning_outdoor_temperature_C: 33
-  air_conditioning_indoor_temperature_C: 25
-  braking_initial_speed_m_per_s: 30
-  braking_final_speed_m_per_s: 10
-  braking_duration_s: 5
-  braking_initial_temperature_C: 25
-  battery_charger_powers_kW: [20, 80]
-trip:
-  total_distance_km: 7000
-  maximum_driving_hours_per_day: 8
-  external_charging_allowed: false
+canonical: true
+historical_commit: 2ef84f67c3aa820633b0565e92c0a23ea810302b
+decision_record: docs/decisoes_motorhome_2026-10-28.md
+policy: Única fonte ativa pósDEC061; outros config/*_proposta são entradas históricas,
+  não parâmetros aprovados. Valores comerciais provisórios não equivalem a produto
+  veicular validado.
+units_policy: SI nos cálculos; unidades práticas kWh/km/h/L/EUR explicitadas e convertidas;
+  SOC do serviço nominal, tração útil.
+sources:
+  dec:
+    path: docs/decisoes_motorhome_2026-10-28.md
+    sha256: 1e082c4961a57b865f008fa1daadd37e696bdb060f22c922596715096c793969
+    date: '2026-10-30'
+    kind: deliberacao_usuario
+  oem_sk:
+    url: https://www.fiat.sk/content/dam/fiat2023/sk/cenniky/2026/03/e_Ducato_pricelist_dodavka_200326.pdf
+    date: '2026-03-20'
+    kind: fabricante
+    sha256: e3becec7275a4a13df61aa7fc5e8b0f6eb38ff6c3584d755d5b1bbd5f5e6224f
+    evidence: config/arquitetura_eletrica_proposta.yaml; texto local conferido pp1/3/4/5;
+      limite específico4250 prevalece sobre tabela genérica130
+  cfd:
+    path: entregas/parcial_2026-10-24/comparacao_cfd.json
+    kind: simulacao_nao_validada
+  inmet:
+    url: https://apitempo.inmet.gov.br/estacoes/T
+    evidence: config/solar_proposta.yaml, estação A711; consulta histórica
+    kind: cadastro_publico
+  multi:
+    url: https://www.victronenergy.com/media/pg/MultiPlus-II_230V/en/technical-specifications-mp-ii-230v.html
+    configuration_url: https://www.victronenergy.com/media/pg/MultiPlus-II_230V/en/configuration.html
+    kind: fabricante
+    accessed: '2026-11-09'
+    evidence: Saída ajustável210–245V,50/60Hz; especificação48/5000; não é curva de
+      eficiência
+  phoenix:
+    url: https://www.victronenergy.com/upload/documents/Datasheet-Inverter-Smart-1600VA-5000VA-EN.pdf
+    configuration_url: https://www.victronenergy.com/media/pg/Inverter_Smart/en/configuration.html
+    kind: fabricante
+    accessed: '2026-11-09'
+  pylon:
+    url: https://en.pylontech.com.cn/products/c23/134.html
+    kind: fabricante
+    accessed: '2026-11-09'
+    evidence: 'Tabela webUS5000:4.8/4.56kWh,39.7kg; não misturar com folhetos antigos38kg.
+      Aplicação residencial: uso veicular não autorizado aqui.'
+  fridge:
+    url: https://www.midea.com/br/refrigeracao/frigobares/frigobar-branco-93l-midea
+    manual_url: https://www.midea.com/br/wp-content/uploads/2020/01/Manual-do-produto-Frigobar-Midea-93L.pdf
+    kind: fabricante
+    accessed: '2026-11-09'
+    evidence: MRC10B2; não confundir com sucessorMDRD142FGD303 de18kg
+  cooktop:
+    path: config/equipamentos_interior.yaml
+    url: https://api.electrolux-medialibrary.com/asset/e295c711-5ce0-44d6-8d54-265bb08e664a/E4RM3Q/250717TCLQ/PDF/250717TCLQ.pdf
+    kind: fabricante
+    date: '2025-07-17'
+    evidence: p17,220V60Hz2kW; referência histórica
+  washer:
+    path: config/equipamentos_interior.yaml
+    url: https://www.lg.com/br/lavanderia/lava-e-seca/cv9011wc4a/
+    kind: fabricante
+    evidence: 0.29kWh lavagem fria e68.8L/ciclo; secagem SEM dado comercial
+  freshwell:
+    url: https://www.dometic.com/externalassets/dometic-freshwell-3000-_104014.pdf
+    kind: fabricante
+    accessed: '2026-11-09'
+    evidence: 2700W térmicos230V50/60Hz4.3A;220V e potência ativa não confirmados
+  webasto:
+    url: https://dealers.webasto.com/service/files_content.aspx?Files_FileId=31353
+    kind: fabricante
+    accessed: '2026-11-09'
+    evidence: CoolTopTrail35:3500W térmicos1300W elétricos220–240V50Hz; teto e50Hz
+      incompatíveis com baseline
+  elgena:
+    url: https://www.elgena.de/products/kb-6
+    kind: fabricante
+    accessed: '2026-11-09'
+    evidence: KB6 não admite bomba pressurizadora; máximo0.8bar,230V. Não selecionado
+      como compatível.
+  venema:
+    url: https://4x4electric.com/charging-technique/
+    test_url: https://4x4electric.com/first-time-solar-charging/
+    kind: relato_primario_outro_veiculo
+    accessed: '2026-11-09'
+    evidence: Demonstra outra instalação solarDC em2022;30kW é máximo;10kWp é dimensionamento
+      daquela missão, NÃO mínimoOEM
+  sungrow:
+    url: https://uk.sungrowpower.com/upload/file/20221215/EN%20FS%20IDC30E%20DC%20Charger%20Factsheet.pdf
+    kind: fabricante
+    accessed: '2026-11-09'
+    evidence: IDC30E:entradaAC400V3f50Hz;FAQ mínimo ajustável1kW; não é carregador
+      de entradaFV/DC
+  hyp:
+    kind: hipotese_engenharia
+    date: '2026-11-09'
+    evidence: Faixas exploratórias não probabilísticas; não são dados ou curvas OEM
+  history:
+    commit: 2ef84f67c3aa820633b0565e92c0a23ea810302b
+    kind: historico_repositorio
+    evidence: Valores/simulações anteriores não são baseline aprovado
+  potable_pump:
+    url: https://www.pentair.com/content/dam/extranet/web/nam/shurflo/data-sheets/pds-4008-101-X65.pdf
+    kind: fabricante
+    accessed: '2026-11-09'
+    version: 4008-101-A65[E65] Rev04/16
+    pages:
+    - 1
+    - 2
+    evidence: Tabela típica a12V; não extrapolar fora de1.9–11.3L/min. Pressostato55psi,
+      bomba intermitente para água fria potávelRV.
+  quick_boiler:
+    url: https://www.go2marine.com/Product-Guides/MFR/Quick/208285F.pdf
+    kind: manual_fabricante_espelho_distribuidor
+    accessed: '2026-11-09'
+    version: BOILERB3REV003A
+    evidence: B31505S15L500W220Vac±10%,7kg,600kPa máximo. Uso náutico;60Hz/uso veicular
+      e operação só resistência sem ligação ao arrefecimentoOEM devem ser confirmados.
+parameters:
+  architecture:
+    value: B
+    unit: categoria
+    source: dec
+    decisions:
+    - DEC-001
+    - DEC-020
+    - DEC-042
+    owner: P2
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  stored_transfer_allowed:
+    value: false
+    unit: bool
+    source: dec
+    decisions:
+    - DEC-020
+    owner: P2
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  oem_hv_modification_allowed:
+    value: false
+    unit: bool
+    source: dec
+    decisions:
+    - DEC-001
+    - DEC-026
+    - DEC-040
+    owner: P2
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  dc_interface_demonstrated:
+    value: false
+    unit: bool
+    source: hyp
+    decisions:
+    - DEC-001
+    - DEC-029
+    - DEC-042
+    owner: P2
+    status: nao_demonstrado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Ausência de comprovação; não é prova universal de impossibilidade
+  dc_min_power_kw:
+    value: null
+    unit: kW
+    source: hyp
+    decisions:
+    - DEC-001
+    - DEC-042
+    owner: P2
+    status: nao_demonstrado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  dc_min_current_a:
+    value: null
+    unit: A
+    source: hyp
+    decisions:
+    - DEC-001
+    - DEC-042
+    owner: P2
+    status: nao_demonstrado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  dc_voltage_window_v:
+    value: null
+    unit: V
+    source: hyp
+    decisions:
+    - DEC-001
+    - DEC-042
+    owner: P2
+    status: nao_demonstrado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  dc_protocol:
+    value: null
+    unit: categoria
+    source: hyp
+    decisions:
+    - DEC-001
+    - DEC-042
+    owner: P2
+    status: nao_demonstrado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  dc_oem_authorization:
+    value: null
+    unit: documento
+    source: hyp
+    decisions:
+    - DEC-001
+    - DEC-042
+    owner: P2
+    status: nao_demonstrado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  dc_charger_model:
+    value: null
+    unit: categoria
+    source: hyp
+    decisions:
+    - DEC-001
+    - DEC-042
+    owner: P2
+    status: nao_demonstrado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  buffer_installed:
+    value: false
+    unit: bool
+    source: dec
+    decisions:
+    - DEC-042
+    owner: P2
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Somente comparação; energia inicial do buffer de estudo=0
+  vehicle_geometry:
+    value: Fiat E-Ducato L3H2
+    unit: categoria
+    source: dec
+    decisions:
+    - DEC-002
+    owner: P3
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  vehicle_variant:
+    value: SK MY25 505.GG1.2
+    unit: categoria
+    source: oem_sk
+    decisions:
+    - DEC-002
+    - DEC-036
+    - DEC-061
+    owner: P1
+    status: provisorio
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Recomendação de trabalho; sem homologação/importação brasileira demonstrada
+  oem_pbt_kg:
+    value: 4250
+    unit: kg
+    source: oem_sk
+    decisions:
+    - DEC-002
+    - DEC-009
+    - DEC-036
+    - DEC-037
+    owner: P4
+    status: provisorio
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Dado documentado da candidata SK; não aprovação da variante
+  oem_tare_kg:
+    value: 2790
+    unit: kg
+    source: oem_sk
+    decisions:
+    - DEC-002
+    - DEC-009
+    - DEC-036
+    - DEC-037
+    owner: P4
+    status: provisorio
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Dado documentado da candidata SK; não aprovação da variante
+  wheelbase_m:
+    value: 4.035
+    unit: m
+    source: oem_sk
+    decisions:
+    - DEC-002
+    - DEC-009
+    - DEC-036
+    - DEC-037
+    owner: P4
+    status: provisorio
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Dado documentado da candidata SK; não aprovação da variante
+  front_track_m:
+    value: 1.81
+    unit: m
+    source: oem_sk
+    decisions:
+    - DEC-002
+    - DEC-009
+    - DEC-036
+    - DEC-037
+    owner: P4
+    status: provisorio
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Dado documentado da candidata SK; não aprovação da variante
+  rear_track_m:
+    value: 1.79
+    unit: m
+    source: oem_sk
+    decisions:
+    - DEC-002
+    - DEC-009
+    - DEC-036
+    - DEC-037
+    owner: P4
+    status: provisorio
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Dado documentado da candidata SK; não aprovação da variante
+  traction_nominal_kwh:
+    value: 110
+    unit: kWh
+    source: oem_sk
+    decisions:
+    - DEC-002
+    - DEC-009
+    - DEC-036
+    - DEC-037
+    owner: P4
+    status: provisorio
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Dado documentado da candidata SK; não aprovação da variante
+  traction_usable_kwh:
+    value: 98
+    unit: kWh
+    source: oem_sk
+    decisions:
+    - DEC-002
+    - DEC-009
+    - DEC-036
+    - DEC-037
+    owner: P4
+    status: provisorio
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Dado documentado da candidata SK; não aprovação da variante
+  traction_voltage_v:
+    value: 400
+    unit: V
+    source: oem_sk
+    decisions:
+    - DEC-002
+    - DEC-009
+    - DEC-036
+    - DEC-037
+    owner: P4
+    status: provisorio
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Dado documentado da candidata SK; não aprovação da variante
+  motor_peak_kw:
+    value: 205
+    unit: kW
+    source: oem_sk
+    decisions:
+    - DEC-002
+    - DEC-009
+    - DEC-036
+    - DEC-037
+    owner: P4
+    status: provisorio
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Dado documentado da candidata SK; não aprovação da variante
+  motor_peak_nm:
+    value: 410
+    unit: N m
+    source: oem_sk
+    decisions:
+    - DEC-002
+    - DEC-009
+    - DEC-036
+    - DEC-037
+    owner: P4
+    status: provisorio
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Dado documentado da candidata SK; não aprovação da variante
+  speed_limit_kmh:
+    value: 90
+    unit: km/h
+    source: oem_sk
+    decisions:
+    - DEC-002
+    - DEC-009
+    - DEC-036
+    - DEC-037
+    owner: P4
+    status: provisorio
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Dado documentado da candidata SK; não aprovação da variante
+  vehicle_price_eur_ex_vat:
+    value: 50990
+    unit: EUR
+    source: oem_sk
+    decisions:
+    - DEC-002
+    - DEC-009
+    - DEC-036
+    - DEC-037
+    owner: P4
+    status: provisorio
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Dado documentado da candidata SK; não aprovação da variante
+  axle_front_limit_kg:
+    value: null
+    unit: kg
+    source: hyp
+    decisions:
+    - DEC-022
+    - DEC-037
+    - DEC-058
+    - DEC-059
+    - DEC-060
+    owner: P1
+    status: nao_demonstrado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  axle_rear_limit_kg:
+    value: null
+    unit: kg
+    source: hyp
+    decisions:
+    - DEC-022
+    - DEC-037
+    - DEC-058
+    - DEC-059
+    - DEC-060
+    owner: P1
+    status: nao_demonstrado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  assembled_typical_mass_kg:
+    value: null
+    unit: kg
+    source: hyp
+    decisions:
+    - DEC-022
+    - DEC-037
+    - DEC-058
+    - DEC-059
+    - DEC-060
+    owner: P1
+    status: nao_demonstrado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  cg_xyz_m:
+    value: null
+    unit: m
+    source: hyp
+    decisions:
+    - DEC-022
+    - DEC-037
+    - DEC-058
+    - DEC-059
+    - DEC-060
+    owner: P1
+    status: nao_demonstrado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  oem_tyre_pressure:
+    value: null
+    unit: Pa
+    source: hyp
+    decisions:
+    - DEC-022
+    - DEC-037
+    - DEC-058
+    - DEC-059
+    - DEC-060
+    owner: P1
+    status: nao_demonstrado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  motor_map:
+    value: null
+    unit: arquivo
+    source: hyp
+    decisions:
+    - DEC-022
+    - DEC-037
+    - DEC-058
+    - DEC-059
+    - DEC-060
+    owner: P4
+    status: nao_demonstrado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  reduction_ratio:
+    value: null
+    unit: '1'
+    source: hyp
+    decisions:
+    - DEC-022
+    - DEC-037
+    - DEC-058
+    - DEC-059
+    - DEC-060
+    owner: P1
+    status: nao_demonstrado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  mass_study_kg:
+    value:
+    - 3500
+    - 4250
+    unit: kg
+    source: hyp
+    decisions:
+    - DEC-022
+    - DEC-032
+    owner: P1
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: 3500 é ponto de sensibilidade, NÃO massa típica montada;4250 tetoPBT candidato,
+      não prova dos eixos
+  cd_range:
+    value:
+    - 0.5806668
+    - 0.62487678
+    - 0.65303585
+    unit: '1'
+    source: cfd
+    decisions:
+    - DEC-023
+    - DEC-032
+    owner: P3
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Envelope observado nos pilotos, não intervalo de confiança/erro validado;delta7.07%
+  area_m2:
+    value: 4.827840375264284
+    unit: m2
+    source: cfd
+    decisions:
+    - DEC-023
+    - DEC-032
+    owner: P3
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Geometria autoral não final
+  crr_range:
+    value:
+    - 0.008
+    - 0.012
+    - 0.016
+    unit: '1'
+    source: hyp
+    decisions:
+    - DEC-032
+    - DEC-058
+    owner: P4
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Faixa anterior mantida, pneusOEM sem alteração
+  eta_traction_range:
+    value:
+    - 0.85
+    - 0.9
+    - 0.95
+    unit: '1'
+    source: hyp
+    decisions:
+    - DEC-032
+    - DEC-058
+    owner: P4
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Sem mapaOEM; constante apenas para sensibilidade
+  rho_range:
+    value:
+    - 1.05
+    - 1.1
+    - 1.15
+    unit: kg/m3
+    source: hyp
+    decisions:
+    - DEC-032
+    - DEC-058
+    owner: P4
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Faixa de densidade em altitude; central1.1 do CFD
+  area_multiplier_range:
+    value:
+    - 0.95
+    - 1
+    - 1.05
+    unit: '1'
+    source: hyp
+    decisions:
+    - DEC-032
+    - DEC-058
+    owner: P4
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Sensibilidade de5%, não erro medido de área
+  roof_target_wp:
+    value: 1540
+    unit: Wp
+    source: dec
+    decisions:
+    - DEC-003
+    - DEC-031
+    owner: P5
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  portable_wp:
+    value: 1600
+    unit: Wp
+    source: dec
+    decisions:
+    - DEC-003
+    - DEC-045
+    owner: P5
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  portable_only_parked:
+    value: true
+    unit: bool
+    source: dec
+    decisions:
+    - DEC-003
+    - DEC-045
+    owner: P5
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  portable_fixed_per_stop:
+    value: true
+    unit: bool
+    source: dec
+    decisions:
+    - DEC-045
+    owner: P5
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  ac_voltage_v:
+    value: 220
+    unit: V
+    source: dec
+    decisions:
+    - DEC-052
+    owner: P2
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  ac_frequency_hz:
+    value: 60
+    unit: Hz
+    source: dec
+    decisions:
+    - DEC-052
+    owner: P2
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  service_bus_v:
+    value: 48
+    unit: V
+    source: dec
+    decisions:
+    - DEC-020
+    - DEC-039
+    owner: P2
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  occupants_kg:
+    value:
+    - 80
+    - 80
+    unit: kg
+    source: dec
+    decisions:
+    - DEC-008
+    owner: P1
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  baggage_kg:
+    value: 60
+    unit: kg
+    source: dec
+    decisions:
+    - DEC-008
+    owner: P1
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  water_clean_l:
+    value: 100
+    unit: L
+    source: dec
+    decisions:
+    - DEC-008
+    - DEC-041
+    owner: P6
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  water_grey_l:
+    value: 70
+    unit: L
+    source: dec
+    decisions:
+    - DEC-008
+    - DEC-041
+    owner: P6
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  cassette_l:
+    value: 20
+    unit: L
+    source: dec
+    decisions:
+    - DEC-018
+    - DEC-041
+    owner: P6
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  extra_black_tank:
+    value: false
+    unit: bool
+    source: dec
+    decisions:
+    - DEC-018
+    owner: P6
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  trip_km:
+    value: 7000
+    unit: km
+    source: dec
+    decisions:
+    - DEC-006
+    owner: P5
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  trip_flat:
+    value: true
+    unit: bool
+    source: dec
+    decisions:
+    - DEC-043
+    owner: P5
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  trip_initial_soc:
+    value:
+    - 1
+    - 1
+    unit: '1'
+    source: dec
+    decisions:
+    - DEC-044
+    owner: P5
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  trip_max_driving_h:
+    value: 8
+    unit: h/dia
+    source: dec
+    decisions:
+    - DEC-006
+    owner: P5
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  trip_external_charge:
+    value: false
+    unit: bool
+    source: dec
+    decisions:
+    - DEC-006
+    - DEC-044
+    owner: P5
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  trip_reserve_pairs:
+    value:
+    - - 0.1
+      - 0.2
+    - - 0.2
+      - 0.3
+    unit: '1'
+    source: dec
+    decisions:
+    - DEC-013
+    owner: P5
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  item27_initial_soc:
+    value:
+    - 1
+    - 0.8
+    unit: '1'
+    source: dec
+    decisions:
+    - DEC-014
+    owner: P5
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  item27_final_soc:
+    value: 0.3
+    unit: '1'
+    source: dec
+    decisions:
+    - DEC-014
+    owner: P5
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  consumption_speeds_kmh:
+    value:
+    - 40
+    - 80
+    unit: km/h
+    source: dec
+    decisions:
+    - DEC-032
+    - DEC-043
+    owner: P4
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  ambient_c:
+    value: 25
+    unit: degC
+    source: dec
+    decisions:
+    - DEC-007
+    owner: P6
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  rh_percent:
+    value: 50
+    unit: '%'
+    source: dec
+    decisions:
+    - DEC-007
+    owner: P6
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  wind_m_s:
+    value: 0
+    unit: m/s
+    source: dec
+    decisions:
+    - DEC-007
+    owner: P5
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  reference_day:
+    value: '2026-06-21'
+    unit: data
+    source: dec
+    decisions:
+    - DEC-007
+    owner: P5
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Ano2026 é convenção computacional, não requisito do professor
+  item31_occupants:
+    value: 0
+    unit: pessoa
+    source: dec
+    decisions:
+    - DEC-027
+    owner: P6
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  item31_ac_w:
+    value: 0
+    unit: W
+    source: dec
+    decisions:
+    - DEC-027
+    owner: P6
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  item32_outside_c:
+    value: 33
+    unit: degC
+    source: dec
+    decisions:
+    - DEC-028
+    owner: P6
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  item32_inside_c:
+    value: 25
+    unit: degC
+    source: dec
+    decisions:
+    - DEC-028
+    owner: P6
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  item32_occupants:
+    value:
+    - 1
+    - 2
+    unit: pessoa
+    source: dec
+    decisions:
+    - DEC-028
+    owner: P6
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  brake_speeds_ms:
+    value:
+    - 30
+    - 10
+    unit: m/s
+    source: dec
+    decisions:
+    - DEC-025
+    owner: P1
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  brake_duration_s:
+    value: 5
+    unit: s
+    source: dec
+    decisions:
+    - DEC-025
+    owner: P1
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  battery_thermal_test_kw:
+    value:
+    - 20
+    - 80
+    unit: kW
+    source: dec
+    decisions:
+    - DEC-024
+    owner: P7
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  latitude_deg:
+    value: -21.98027777
+    unit: deg
+    source: inmet
+    decisions:
+    - DEC-007
+    owner: P5
+    status: provisorio
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  longitude_deg:
+    value: -47.88388888
+    unit: deg
+    source: inmet
+    decisions:
+    - DEC-007
+    owner: P5
+    status: provisorio
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  altitude_m:
+    value: 859.29
+    unit: m
+    source: inmet
+    decisions:
+    - DEC-007
+    owner: P5
+    status: provisorio
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  load_method:
+    value: media_diaria
+    unit: categoria
+    source: dec
+    decisions:
+    - DEC-046
+    owner: P6
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  ventilation:
+    value: natural
+    unit: categoria
+    source: dec
+    decisions:
+    - DEC-049
+    owner: P6
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  hvac_location:
+    value: sob_banco
+    unit: categoria
+    source: dec
+    decisions:
+    - DEC-055
+    owner: P6
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  monitoring:
+    value: indicadores_comerciais
+    unit: categoria
+    source: dec
+    decisions:
+    - DEC-056
+    owner: P6
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  load_shedding:
+    value: automatico_escalonado
+    unit: categoria
+    source: dec
+    decisions:
+    - DEC-047
+    owner: P6
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  fridge_type:
+    value: AC_compacta
+    unit: categoria
+    source: dec
+    decisions:
+    - DEC-050
+    owner: P6
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  cooktop_type:
+    value: inducao_portatil_1_zona
+    unit: categoria
+    source: dec
+    decisions:
+    - DEC-051
+    owner: P6
+    status: aprovado
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  service_shed_soc_thresholds:
+    value: null
+    unit: '1'
+    source: hyp
+    decisions:
+    - DEC-047
+    - DEC-054
+    - DEC-057
+    owner: P2
+    status: nao_demonstrado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  shared_mppt_model:
+    value: null
+    unit: categoria
+    source: hyp
+    decisions:
+    - DEC-047
+    - DEC-054
+    - DEC-057
+    owner: P2
+    status: nao_demonstrado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  secondary_dc_bus_v:
+    value: null
+    unit: V
+    source: hyp
+    decisions:
+    - DEC-047
+    - DEC-054
+    - DEC-057
+    owner: P2
+    status: nao_demonstrado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  eta_inverter:
+    value: 0.9
+    unit: '1'
+    source: hyp
+    decisions:
+    - DEC-012
+    - DEC-026
+    - DEC-038
+    - DEC-042
+    - DEC-046
+    owner: P2
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Rendimento constante de estudo, não pico96%; vazio somado conservadoramente
+      sem já estar na eta
+  eta_dc:
+    value: 0.9
+    unit: '1'
+    source: hyp
+    decisions:
+    - DEC-012
+    - DEC-026
+    - DEC-038
+    - DEC-042
+    - DEC-046
+    owner: P2
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Hipótese da cadeia externa completa; não dado real de carregador
+  eta_buffer:
+    value: 0.95
+    unit: '1'
+    source: hyp
+    decisions:
+    - DEC-012
+    - DEC-026
+    - DEC-038
+    - DEC-042
+    - DEC-046
+    owner: P2
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Uma carga; descarga/perdasDC separadas; sem hardware selecionado
+  pv_gamma:
+    value: -0.003
+    unit: 1/K
+    source: hyp
+    decisions:
+    - DEC-012
+    - DEC-026
+    - DEC-038
+    - DEC-042
+    - DEC-046
+    owner: P2
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: JA450 referência; arranjo1540W agregado de estudo não catálogo único
+  pv_other_loss:
+    value: 0.1
+    unit: '1'
+    source: hyp
+    decisions:
+    - DEC-012
+    - DEC-026
+    - DEC-038
+    - DEC-042
+    - DEC-046
+    owner: P2
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Perdas adicionais; não inclui etaDC
+  pv_faiman_u0:
+    value: 25
+    unit: W/m2/K
+    source: hyp
+    decisions:
+    - DEC-012
+    - DEC-026
+    - DEC-038
+    - DEC-042
+    - DEC-046
+    owner: P2
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Montagem não calibrada
+  pv_faiman_u1:
+    value: 6.84
+    unit: W s/m3/K
+    source: hyp
+    decisions:
+    - DEC-012
+    - DEC-026
+    - DEC-038
+    - DEC-042
+    - DEC-046
+    owner: P2
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Faiman referência do modelo
+  pv_albedo:
+    value: 0.2
+    unit: '1'
+    source: hyp
+    decisions:
+    - DEC-012
+    - DEC-026
+    - DEC-038
+    - DEC-042
+    - DEC-046
+    owner: P2
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Sensibilidade futura
+  pv_setup_h:
+    value: 0.5
+    unit: h
+    source: hyp
+    decisions:
+    - DEC-012
+    - DEC-026
+    - DEC-038
+    - DEC-042
+    - DEC-046
+    owner: P2
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Montagem por parada
+  pv_teardown_h:
+    value: 0.5
+    unit: h
+    source: hyp
+    decisions:
+    - DEC-012
+    - DEC-026
+    - DEC-038
+    - DEC-042
+    - DEC-046
+    owner: P2
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Desmontagem por parada
+  cable_min_voltage_v:
+    value: 43.5
+    unit: V
+    source: hyp
+    decisions:
+    - DEC-012
+    - DEC-026
+    - DEC-038
+    - DEC-042
+    - DEC-046
+    owner: P2
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Limite de estudo baseado no manualUS5000; verificar revisão e BMS
+  cable_eta:
+    value: 0.9
+    unit: '1'
+    source: hyp
+    decisions:
+    - DEC-012
+    - DEC-026
+    - DEC-038
+    - DEC-042
+    - DEC-046
+    owner: P2
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: EntradaDC calculada porW/(V eta)
+  cable_loop_m:
+    value: 4
+    unit: m
+    source: hyp
+    decisions:
+    - DEC-012
+    - DEC-026
+    - DEC-038
+    - DEC-042
+    - DEC-046
+    owner: P2
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Ida+retorno; rotaCAD não fechada
+  cable_k_copper:
+    value: 200
+    unit: W/m/K
+    source: hyp
+    decisions:
+    - DEC-012
+    - DEC-026
+    - DEC-038
+    - DEC-042
+    - DEC-046
+    owner: P2
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Feixe homogeneizado estimado
+  cable_k_insulation:
+    value: 0.2
+    unit: W/m/K
+    source: hyp
+    decisions:
+    - DEC-012
+    - DEC-026
+    - DEC-038
+    - DEC-042
+    - DEC-046
+    owner: P2
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Material representativo não homologado
+  cable_alpha:
+    value: 0.00393
+    unit: 1/K
+    source: hyp
+    decisions:
+    - DEC-012
+    - DEC-026
+    - DEC-038
+    - DEC-042
+    - DEC-046
+    owner: P2
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Cobre linearizado
+  cable_rho20:
+    value: 1.724e-08
+    unit: ohm m
+    source: hyp
+    decisions:
+    - DEC-012
+    - DEC-026
+    - DEC-038
+    - DEC-042
+    - DEC-046
+    owner: P2
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Cobre nominal, não resistência máxima de cabo comercial
+  cable_insulation_m:
+    value: 0.002
+    unit: m
+    source: hyp
+    decisions:
+    - DEC-012
+    - DEC-026
+    - DEC-038
+    - DEC-042
+    - DEC-046
+    owner: P2
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Espessura estimada
+  dc_min_sweep_kw:
+    value:
+    - 0.5
+    - 1
+    - 2
+    - 3
+    - 5
+    - 10
+    unit: kW
+    source: hyp
+    decisions:
+    - DEC-042
+    owner: P2
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Varredura matemática; nenhum ponto atribuído aoOEM
+  buffer_study_kwh:
+    value:
+    - 0
+    - 2
+    - 5
+    unit: kWh
+    source: hyp
+    decisions:
+    - DEC-042
+    owner: P2
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Capacidade exclusiva de estudo, inicia vazia, massa/custo desconhecidos;
+      não instalação aprovada
+  module_service_kwh:
+    value: 4.8
+    unit: kWh
+    source: pylon
+    decisions:
+    - DEC-005
+    - DEC-039
+    - DEC-061
+    owner: P2
+    status: provisorio
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  module_service_mass_kg:
+    value: 39.7
+    unit: kg
+    source: pylon
+    decisions:
+    - DEC-039
+    - DEC-061
+    owner: P1
+    status: provisorio
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  module_service_dod:
+    value: 0.95
+    unit: '1'
+    source: pylon
+    decisions:
+    - DEC-039
+    owner: P2
+    status: provisorio
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  module_service_dimensions_m:
+    value:
+    - 0.442
+    - 0.42
+    - 0.161
+    unit: m
+    source: pylon
+    decisions:
+    - DEC-039
+    owner: P3
+    status: provisorio
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  service_module_model:
+    value: Pylontech US5000
+    unit: categoria
+    source: pylon
+    decisions:
+    - DEC-039
+    - DEC-061
+    owner: P2
+    status: provisorio
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: BMS e modularidade documentados; uso móvel/vibração/fixações/garantia ainda
+      não demonstrados
+  inverter_model:
+    value: MultiPlus-II 48/5000/70-50 230V ajustado220V60Hz
+    unit: categoria
+    source: multi
+    decisions:
+    - DEC-053
+    - DEC-061
+    owner: P2
+    status: provisorio
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  inverter_idle_w:
+    value: 18
+    unit: W
+    source: multi
+    decisions:
+    - DEC-046
+    - DEC-053
+    owner: P5
+    status: provisorio
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  inverter_continuous_w:
+    value:
+    - 4000
+    - 3700
+    unit: W
+    source: multi
+    decisions:
+    - DEC-019
+    - DEC-053
+    owner: P2
+    status: provisorio
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: 25/40degC respectivamente; não5000W contínuos
+  fridge_model:
+    value: Midea MRC10B2 220V60Hz
+    unit: categoria
+    source: fridge
+    decisions:
+    - DEC-050
+    - DEC-061
+    owner: P6
+    status: provisorio
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  fridge_mass_kg:
+    value: 20.8
+    unit: kg
+    source: fridge
+    decisions:
+    - DEC-050
+    owner: P1
+    status: provisorio
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  fridge_dimensions_m:
+    value:
+    - 0.472
+    - 0.45
+    - 0.86
+    unit: m
+    source: fridge
+    decisions:
+    - DEC-050
+    owner: P3
+    status: provisorio
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ''
+  fridge_kwh_month:
+    value: 14.1
+    unit: kWh/mes
+    source: fridge
+    decisions:
+    - DEC-046
+    - DEC-050
+    owner: P6
+    status: provisorio
+    confidence: alta
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Converter por30dias; condições de ensaio não equivalem a uso veicular; testar×1–2
+  service_modules_provisional:
+    value: 3
+    unit: modulo
+    source: hyp
+    decisions:
+    - DEC-005
+    - DEC-039
+    - DEC-061
+    owner: P2
+    status: provisorio
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Banco provisório14.4kWh:base24h com ambas reservas20/30%;48h ainda comparação4/5módulos.
+      Não é aprovação de uso veicular.
+  layout_provisional:
+    value: cama_fixa
+    unit: categoria
+    source: hyp
+    decisions:
+    - DEC-030
+    - DEC-061
+    owner: P3
+    status: provisorio
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Aproveitar CAD existente; conversível ainda precisa estudo cotado comparável
+  roof_arrangement_provisional:
+    value: 3JA450+190W_cabine
+    unit: categoria
+    source: hyp
+    decisions:
+    - DEC-031
+    - DEC-061
+    owner: P3
+    status: provisorio
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: '1540Wp nominais: módulo190W não alimenta48V com MPPTbuck; não creditar190W
+      à tração/48V sem circuito demonstrado'
+  roof_power_48v_study_wp:
+    value: 1350
+    unit: Wp
+    source: hyp
+    decisions:
+    - DEC-003
+    - DEC-031
+    - DEC-038
+    owner: P5
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Caso realista de estudo da string3JA; meta1540Wp INALTERADA;190W sem rota
+      de serviço48Vdemonstrada
+  structural_anchor_capacity:
+    value: null
+    unit: N
+    source: hyp
+    decisions:
+    - DEC-033
+    owner: P1
+    status: nao_demonstrado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: PontosOEM/subestruturas/FEA pendentes
+  cost_installed_total_brl:
+    value: null
+    unit: BRL
+    source: hyp
+    decisions:
+    - DEC-034
+    owner: P1
+    status: nao_demonstrado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Não somarEUR/USD/BRL nem converter sem câmbio/frete/tributos
+  dc_distribution_provisional_v:
+    value: 12
+    unit: V
+    source: hyp
+    decisions:
+    - DEC-057
+    - DEC-061
+    owner: P2
+    status: provisorio
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Recomendação por catálogo12V existente;24V segue comparação, não tensão
+      final
+  insulation_provisional_m:
+    value: 0.032
+    unit: m
+    source: hyp
+    decisions:
+    - DEC-016
+    - DEC-061
+    owner: P6
+    status: provisorio
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: AFArmaflex candidato já modelado; avaliar fogo/umidade/uso automotivo
+  boiler_commercial_model:
+    value: null
+    unit: categoria
+    source: hyp
+    decisions:
+    - DEC-017
+    - DEC-048
+    owner: P6
+    status: nao_demonstrado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: CandidatoQuickB31505Sdocumentado; seleção funcional220V60Hz/veicular ainda
+      condicionada.
+  water_daily_study_l:
+    value: 60
+    unit: L/dia
+    source: hyp
+    decisions:
+    - DEC-041
+    - DEC-048
+    owner: P6
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Estimativa duas pessoas40Lbanho+20Lpia/cozinha/higiene; não inclui lavanderia
+  drying_energy_cycle_range_kwh:
+    value:
+    - 1
+    - 2
+    - 4
+    unit: kWh/ciclo
+    source: hyp
+    decisions:
+    - DEC-015
+    - DEC-046
+    owner: P6
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Faixa exploratória sem medição do modeloLG; não usar zero para ausência
+      de dados
+  lv_power_study_w:
+    value: 100
+    unit: W
+    source: hyp
+    decisions:
+    - DEC-057
+    owner: P2
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Carga comum comparativa, não soma de equipamentos reais
+  lv_cable_loop_study_m:
+    value: 10
+    unit: m
+    source: hyp
+    decisions:
+    - DEC-057
+    owner: P2
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Comprimento ida+retorno hipotético
+  lv_cable_section_study_mm2:
+    value: 2.5
+    unit: mm2
+    source: hyp
+    decisions:
+    - DEC-057
+    owner: P2
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Caso comparativo, não bitola homologada
+  regen_power_study_kw:
+    value:
+    - 0
+    - 40
+    - 80
+    unit: kW
+    source: hyp
+    decisions:
+    - DEC-025
+    - DEC-037
+    owner: P4
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Limites de potência no evento; somente sensibilidade, nunca curvaOEM
+  lateral_cg_height_sweep_m:
+    value:
+    - 0.8
+    - 1
+    - 1.2
+    - 1.4
+    unit: m
+    source: hyp
+    decisions:
+    - DEC-060
+    owner: P1
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Faixa hipotética sem CG extraído do CAD
+  lateral_cg_offset_sweep_m:
+    value:
+    - 0
+    - 0.1
+    - 0.2
+    unit: m
+    source: hyp
+    decisions:
+    - DEC-060
+    owner: P1
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Faixa hipotética de assimetria
+  pendencia_dec004:
+    value: null
+    unit: documento
+    source: dec
+    decisions:
+    - DEC-004
+    owner: P6
+    status: nao_demonstrado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Consumo moderado revisto inclui boiler e secagem; picos ainda incompletos
+  pendencia_dec010:
+    value: null
+    unit: documento
+    source: dec
+    decisions:
+    - DEC-010
+    owner: P6
+    status: nao_demonstrado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: FreshWell2700W vs maiorWebasto3500W; maior rejeitado50Hz/teto
+  pendencia_dec011:
+    value: null
+    unit: documento
+    source: dec
+    decisions:
+    - DEC-011
+    owner: P5
+    status: nao_demonstrado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Comparação08–16 vs00–08 é parcial; antiga agendaACnão válida;ótimo global
+      não demonstrado
+  pendencia_dec021:
+    value: null
+    unit: documento
+    source: dec
+    decisions:
+    - DEC-021
+    owner: P2
+    status: nao_demonstrado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: AlocaçõesfixasA/B/flexível comparativas; comutação física não demonstrada
+  pendencia_dec035:
+    value: null
+    unit: documento
+    source: dec
+    decisions:
+    - DEC-035
+    owner: P1
+    status: nao_demonstrado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Fonteúnica/matrizes/proveniência M1M2M3;0aprovações finais
+  eta_lv:
+    value: 0.9
+    unit: '1'
+    source: hyp
+    decisions:
+    - DEC-046
+    - DEC-057
+    owner: P2
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Rendimento assumido48→baixa tensão; não curva comercial
+  eta_service_charge:
+    value: 0.95
+    unit: '1'
+    source: hyp
+    decisions:
+    - DEC-021
+    - DEC-038
+    owner: P2
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: ConversãoFV→serviços assumida; geraçãojá desconta perdasPV, sem duplicar
+  portable_gamma:
+    value: -0.0039
+    unit: 1/K
+    source: hyp
+    decisions:
+    - DEC-038
+    - DEC-045
+    owner: P5
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: CoeficienteEcoFlow de referência histórica; não dadoJA
+  mission_hypothetical_min_kw:
+    value: 1.0
+    unit: kW
+    source: hyp
+    decisions:
+    - DEC-042
+    owner: P2
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Exclusivamente hipótese explícita, nunca mínimoOEM
+  mission_hypothetical_buffer_kwh:
+    value: 2.0
+    unit: kWh
+    source: hyp
+    decisions:
+    - DEC-042
+    owner: P2
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Buffer dedicado hipotético, inicia vazio
+  time_step_minutes:
+    value: 15
+    unit: min
+    source: hyp
+    decisions:
+    - DEC-035
+    - DEC-038
+    owner: P5
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Resolução do replay; chegada arredondada ao intervalo
+  potable_pump_model:
+    value: Shurflo 4008-101-E65 12V
+    unit: categoria
+    source: potable_pump
+    decisions:
+    - DEC-048
+    - DEC-057
+    owner: P6
+    status: provisorio
+    confidence: media
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Seleção provisória com manualRV; não confundir com bombaBoschdoarrefecimento
+  potable_pump_curve:
+    value:
+    - - 0
+      - 11.3
+      - 2.2
+    - - 10
+      - 8.3
+      - 3.3
+    - - 20
+      - 6.8
+      - 4.3
+    - - 30
+      - 5.7
+      - 5.1
+    - - 40
+      - 4.5
+      - 6
+    - - 50
+      - 1.9
+      - 6.8
+    unit: '[psi,L/min,A]'
+    source: potable_pump
+    decisions:
+    - DEC-048
+    owner: P6
+    status: provisorio
+    confidence: media
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Tabela típica a12V; dados não fornecidos como curva24V
+  potable_pump_mass_kg:
+    value: 2.3
+    unit: kg
+    source: potable_pump
+    decisions:
+    - DEC-048
+    owner: P6
+    status: provisorio
+    confidence: media
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Massa aproximada fabricante
+  potable_pipe_lengths_m:
+    value: 6
+    unit: m
+    source: hyp
+    decisions:
+    - DEC-048
+    owner: P6
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Comprimento crítico hipotético; conferirCAD
+  potable_pipe_diameters_m:
+    value:
+    - 0.01
+    - 0.013
+    unit: m
+    source: hyp
+    decisions:
+    - DEC-048
+    owner: P6
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Comparação diâmetro interno10/13mm; material/espessura/proteção a selecionar
+  potable_minor_k:
+    value: 10
+    unit: '1'
+    source: hyp
+    decisions:
+    - DEC-048
+    owner: P6
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Perdas locais assumidas
+  potable_height_m:
+    value: 1.5
+    unit: m
+    source: hyp
+    decisions:
+    - DEC-048
+    owner: P6
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Cota geométrica do trecho crítico
+  potable_fixture_design_lpm:
+    value: 4
+    unit: L/min
+    source: hyp
+    decisions:
+    - DEC-048
+    owner: P6
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Demanda hipotética de ducha única
+  potable_fixture_pressure_pa:
+    value: 100000
+    unit: Pa
+    source: hyp
+    decisions:
+    - DEC-048
+    owner: P6
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Resistência de aparelho modeladaquadrática; não ficha de ducha
+  potable_density_kg_m3:
+    value: 997
+    unit: kg/m3
+    source: hyp
+    decisions:
+    - DEC-048
+    owner: P6
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Água25C aproximada
+  potable_viscosity_pa_s:
+    value: 0.00089
+    unit: Pa s
+    source: hyp
+    decisions:
+    - DEC-048
+    owner: P6
+    status: estimado
+    confidence: baixa
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Água25C aproximada
+  boiler_candidate_model:
+    value: Quick B3 15 05S
+    unit: categoria
+    source: quick_boiler
+    decisions:
+    - DEC-017
+    - DEC-061
+    owner: P6
+    status: provisorio
+    confidence: media
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Candidato elétrico220V500W; frequência e instalação veicular não demonstradas
+  boiler_candidate_empty_mass_kg:
+    value: 7
+    unit: kg
+    source: quick_boiler
+    decisions:
+    - DEC-017
+    owner: P6
+    status: provisorio
+    confidence: media
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Massa vazia;água integra100L
+  boiler_candidate_l:
+    value: 15
+    unit: L
+    source: quick_boiler
+    decisions:
+    - DEC-017
+    owner: P6
+    status: provisorio
+    confidence: media
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Volume útil indicado no manual
+  boiler_candidate_power_w:
+    value: 500
+    unit: W
+    source: quick_boiler
+    decisions:
+    - DEC-017
+    owner: P6
+    status: provisorio
+    confidence: media
+    version: 1.0.0-pos-DEC061
+    reference_date: '2026-11-09'
+    note: Elemento resistivo; não assumir autorização para conectar arrefecimentoOEM
+loads:
+- id: geladeira
+  energy_ac_or_dc_kwh_day:
+    base: 0.47
+    min: 0.47
+    max: 0.94
+  side: AC
+  source: fridge
+  assumption_status: estimado
+  usage: Uso moderado hipotético
+  peak_w: null
+  uncertainty_note: 0.73A de corrente nominal do manual não informa W ativos nem pico
+    de partida;160.6VA=220V×0.73A somente referência aparente.
+  rated_current_a: 0.73
+  rated_apparent_va_estimate: 160.6
+- id: inducao
+  energy_ac_or_dc_kwh_day:
+    base: 1
+    min: 0.6
+    max: 1.4
+  side: AC
+  source: cooktop
+  assumption_status: estimado
+  usage: Uso moderado hipotético
+  peak_w: 2000
+  uncertainty_note: Energia/horas estimadas; preencher consumo e partida comercial
+    ausentes. Boiler:40L/d misturada25→38C,cp4180J/kgK,eficiência.9,espera~.05kWh/d;
+    volume interno está nos100L totais.
+- id: ar_condicionado
+  energy_ac_or_dc_kwh_day:
+    base: 3
+    min: 1.5
+    max: 5.2
+  side: AC
+  source: freshwell
+  assumption_status: estimado
+  usage: Uso moderado hipotético
+  peak_w: null
+  uncertainty_note: Energia/horas estimadas; preencher consumo e partida comercial
+    ausentes. Boiler:40L/d misturada25→38C,cp4180J/kgK,eficiência.9,espera~.05kWh/d;
+    volume interno está nos100L totais.
+- id: boiler
+  energy_ac_or_dc_kwh_day:
+    base: 0.72
+    min: 0.45
+    max: 1.25
+  side: AC
+  source: hyp
+  assumption_status: estimado
+  usage: Uso moderado hipotético
+  peak_w: null
+  uncertainty_note: Energia/horas estimadas; preencher consumo e partida comercial
+    ausentes. Boiler:40L/d misturada25→38C,cp4180J/kgK,eficiência.9,espera~.05kWh/d;
+    volume interno está nos100L totais.
+- id: lavagem
+  energy_ac_or_dc_kwh_day:
+    base: 0.041428571428571426
+    min: 0.041428571428571426
+    max: 0.041428571428571426
+  side: AC
+  source: washer
+  assumption_status: estimado
+  usage: Uma lavagem+secagem por semana
+  peak_w: null
+  uncertainty_note: Energia/horas estimadas; preencher consumo e partida comercial
+    ausentes. Boiler:40L/d misturada25→38C,cp4180J/kgK,eficiência.9,espera~.05kWh/d;
+    volume interno está nos100L totais.
+- id: secagem
+  energy_ac_or_dc_kwh_day:
+    base: 0.2857142857142857
+    min: 0.14285714285714285
+    max: 0.5714285714285714
+  side: AC
+  source: hyp
+  assumption_status: estimado
+  usage: Uma lavagem+secagem por semana
+  peak_w: null
+  uncertainty_note: Energia/horas estimadas; preencher consumo e partida comercial
+    ausentes. Boiler:40L/d misturada25→38C,cp4180J/kgK,eficiência.9,espera~.05kWh/d;
+    volume interno está nos100L totais.
+- id: iluminacao_eletronicos_bombas
+  energy_ac_or_dc_kwh_day:
+    base: 0.6
+    min: 0.35
+    max: 0.9
+  side: DC
+  source: hyp
+  assumption_status: estimado
+  usage: Uso moderado hipotético
+  peak_w: null
+  uncertainty_note: Energia/horas estimadas; preencher consumo e partida comercial
+    ausentes. Boiler:40L/d misturada25→38C,cp4180J/kgK,eficiência.9,espera~.05kWh/d;
+    volume interno está nos100L totais.
+invalidation:
+  retired:
+  - PV→bateria_servicos→inversor→EVSE→OBC→tracao
+  - geladeiraDC como principal
+  - 230V50Hz serviços como baseline
+  - SOC80% no item29
+  - relevo/ERA5 como caso principal
+  - 6JA450 com extensão como configuração decidida
+  rerun_required:
+  - massa/CAD/CFD final
+  - cabine1/2p com materiais finais
+  - protecoes/curto/picos
+  - missao com interfaceDCdocumentada
+reference_models:
+  freios:
+    path: config/freios_proposta.yaml
+    sha256: 815b28c188d20a3f7ab47b00d382d72a3abaea07815f6676424304926423da7f
+    status: modelo_parametrizado_nao_validado
+    shared_parameters_override: parameters desta fonte canônica
+    reason: Reaproveita constitutivas/geométricas anteriores; não habilita fluxos
+      elétricos antigos
+  cabine:
+    path: config/cabine_proposta.yaml
+    sha256: eb593b4adbebb9803bb8782d3f7e9eccd658d71ae3a3c2724e3e41e1a089d207
+    status: modelo_parametrizado_nao_validado
+    shared_parameters_override: parameters desta fonte canônica
+    reason: Reaproveita constitutivas/geométricas anteriores; não habilita fluxos
+      elétricos antigos
+  solar:
+    path: config/solar_proposta.yaml
+    sha256: 98dab36ffaad100293a42856ff53377ea15afa2e8856f0007c2fa01eb392e10b
+    status: modelo_parametrizado_nao_validado
+    shared_parameters_override: parameters desta fonte canônica
+    reason: Reaproveita constitutivas/geométricas anteriores; não habilita fluxos
+      elétricos antigos
+bom_components:
+- id: veiculo
+  model: Fiat SK MY25 505.GG1.2
+  quantity: 1
+  owner: P1
+  source: oem_sk
+  scope: veiculo
+  status: provisorio
+  version: 1.0.0-pos-DEC061
+  reference_date: '2026-11-09'
+  confidence: media
+  dimensions_m: null
+  installed_price_brl: null
+  unit_reference_price: null
+  price_currency: EUR
+  mass_parameter: oem_tare_kg
+  price_parameter: vehicle_price_eur_ex_vat
+  price_date: '2026-03-20'
+- id: pv_teto
+  model: JA JAM54D41-450/LB
+  quantity: 3
+  unit_mass_kg: 22
+  owner: P5
+  source: history
+  scope: conversao
+  status: provisorio
+  version: 1.0.0-pos-DEC061
+  reference_date: '2026-11-09'
+  confidence: media
+  dimensions_m: null
+  installed_price_brl: null
+  unit_reference_price: null
+  price_currency: BRL
+- id: pv_cabine
+  model: Victron BlueSolar190W
+  quantity: 1
+  unit_mass_kg: 10.5
+  owner: P5
+  source: history
+  scope: conversao
+  status: condicionado_sem_caminho48V
+  version: 1.0.0-pos-DEC061
+  reference_date: '2026-11-09'
+  confidence: media
+  dimensions_m: null
+  installed_price_brl: null
+  unit_reference_price: null
+  price_currency: BRL
+- id: pv_portatil
+  model: EcoFlow400W com bolsa/suporte
+  quantity: 4
+  unit_mass_kg: 21
+  owner: P5
+  source: history
+  scope: conversao
+  status: provisorio_so_parado
+  version: 1.0.0-pos-DEC061
+  reference_date: '2026-11-09'
+  confidence: media
+  dimensions_m: null
+  installed_price_brl: null
+  unit_reference_price: null
+  price_currency: BRL
+- id: bateria_servicos
+  owner: P2
+  source: pylon
+  scope: conversao
+  status: provisorio_uso_veicular_nao_demonstrado
+  version: 1.0.0-pos-DEC061
+  reference_date: '2026-11-09'
+  confidence: media
+  dimensions_m: null
+  installed_price_brl: null
+  unit_reference_price: null
+  price_currency: BRL
+  model_parameter: service_module_model
+  mass_parameter: module_service_mass_kg
+  quantity_parameter: service_modules_provisional
+- id: inversor_servicos
+  quantity: 1
+  unit_mass_kg: 30
+  owner: P2
+  source: multi
+  scope: conversao
+  status: provisorio
+  version: 1.0.0-pos-DEC061
+  reference_date: '2026-11-09'
+  confidence: media
+  dimensions_m: null
+  installed_price_brl: null
+  unit_reference_price: null
+  price_currency: BRL
+  model_parameter: inverter_model
+- id: geladeira
+  quantity: 1
+  owner: P6
+  source: fridge
+  scope: conversao
+  status: provisorio_retencao_e_partida_pendentes
+  version: 1.0.0-pos-DEC061
+  reference_date: '2026-11-09'
+  confidence: media
+  dimensions_m: null
+  installed_price_brl: null
+  unit_reference_price: null
+  price_currency: BRL
+  model_parameter: fridge_model
+  mass_parameter: fridge_mass_kg
+- id: cooktop
+  model: Electrolux IE3TP220V60Hz
+  quantity: 1
+  unit_mass_kg: 2.3
+  owner: P6
+  source: cooktop
+  scope: conversao
+  status: provisorio
+  version: 1.0.0-pos-DEC061
+  reference_date: '2026-11-09'
+  confidence: media
+  dimensions_m: null
+  installed_price_brl: null
+  unit_reference_price: 439
+  price_currency: BRL
+  price_date: '2026-10-26'
+- id: lava_seca
+  model: LG CV9011WC4A220V
+  quantity: 1
+  unit_mass_kg: 73
+  owner: P6
+  source: washer
+  scope: conversao
+  status: provisorio_secagem_estimada
+  version: 1.0.0-pos-DEC061
+  reference_date: '2026-11-09'
+  confidence: media
+  dimensions_m: null
+  installed_price_brl: null
+  unit_reference_price: null
+  price_currency: BRL
+- id: hvac
+  model: FreshWell3000 — candidato sem220V confirmado
+  quantity: 1
+  unit_mass_kg: 21
+  owner: P6
+  source: freshwell
+  scope: conversao
+  status: condicionado_nao_selecao_final
+  version: 1.0.0-pos-DEC061
+  reference_date: '2026-11-09'
+  confidence: media
+  dimensions_m: null
+  installed_price_brl: null
+  unit_reference_price: null
+  price_currency: BRL
+- id: cassete
+  model: Thetford PortaPotti36521L, sem tanque negro extra
+  quantity: 1
+  unit_mass_kg: 4
+  owner: P6
+  source: history
+  scope: conversao
+  status: provisorio
+  version: 1.0.0-pos-DEC061
+  reference_date: '2026-11-09'
+  confidence: media
+  dimensions_m: null
+  installed_price_brl: null
+  unit_reference_price: null
+  price_currency: BRL
+- id: boiler
+  quantity: 1
+  owner: P6
+  source: quick_boiler
+  scope: conversao
+  status: candidato_60Hz_veicular_pendentes
+  version: 1.0.0-pos-DEC061
+  reference_date: '2026-11-09'
+  confidence: media
+  dimensions_m: null
+  installed_price_brl: null
+  unit_reference_price: null
+  price_currency: BRL
+  model_parameter: boiler_candidate_model
+  mass_parameter: boiler_candidate_empty_mass_kg
+- id: bomba_potavel
+  quantity: 1
+  owner: P6
+  source: potable_pump
+  scope: conversao
+  status: provisorio
+  version: 1.0.0-pos-DEC061
+  reference_date: '2026-11-09'
+  confidence: media
+  dimensions_m: null
+  installed_price_brl: null
+  unit_reference_price: null
+  price_currency: BRL
+  model_parameter: potable_pump_model
+  mass_parameter: potable_pump_mass_kg
+- id: mppt
+  model: 'Controlador compartilhado: modelo/topologia não selecionados'
+  quantity: null
+  unit_mass_kg: null
+  owner: P2
+  source: hyp
+  scope: conversao
+  status: nao_demonstrado
+  version: 1.0.0-pos-DEC061
+  reference_date: '2026-11-09'
+  confidence: baixa
+  dimensions_m: null
+  installed_price_brl: null
+  unit_reference_price: null
+  price_currency: BRL
+- id: interface_dc
+  model: CarregadorDC externo autorizadoOEM ainda não encontrado
+  quantity: null
+  unit_mass_kg: null
+  owner: P2
+  source: hyp
+  scope: condicional
+  status: nao_demonstrado
+  version: 1.0.0-pos-DEC061
+  reference_date: '2026-11-09'
+  confidence: baixa
+  dimensions_m: null
+  installed_price_brl: null
+  unit_reference_price: null
+  price_currency: BRL
+- id: buffer
+  model: Buffer dedicado SOMENTE alternativa comparativa
+  quantity: 0
+  unit_mass_kg: null
+  owner: P2
+  source: hyp
+  scope: alternativa_nao_instalada
+  status: nao_aprovado
+  version: 1.0.0-pos-DEC061
+  reference_date: '2026-11-09'
+  confidence: baixa
+  dimensions_m: null
+  installed_price_brl: null
+  unit_reference_price: null
+  price_currency: BRL
+- id: conversor_lv
+  model: Orion48→12 ou48→24, modelo a validar
+  quantity: 1
+  unit_mass_kg: null
+  owner: P2
+  source: history
+  scope: conversao
+  status: em_comparacao
+  version: 1.0.0-pos-DEC061
+  reference_date: '2026-11-09'
+  confidence: baixa
+  dimensions_m: null
+  installed_price_brl: null
+  unit_reference_price: null
+  price_currency: BRL
+- id: protecao_controle
+  model: Cabos, fusíveis, chaves, contatores, quadros e controleSOC
+  quantity: null
+  unit_mass_kg: null
+  owner: P2
+  source: hyp
+  scope: conversao
+  status: dimensionamento_pendente
+  version: 1.0.0-pos-DEC061
+  reference_date: '2026-11-09'
+  confidence: baixa
+  dimensions_m: null
+  installed_price_brl: null
+  unit_reference_price: null
+  price_currency: BRL
+- id: reservatorios
+  model: Tanques vazios100L/70L; cassete já na linha sanitário
+  quantity: null
+  unit_mass_kg: null
+  owner: P6
+  source: hyp
+  scope: conversao
+  status: cotacao_e_massa_pendentes
+  version: 1.0.0-pos-DEC061
+  reference_date: '2026-11-09'
+  confidence: baixa
+  dimensions_m: null
+  installed_price_brl: null
+  unit_reference_price: null
+  price_currency: BRL
+- id: hidraulica
+  model: Tubos, válvulas, filtros, expansão/alívio e drenos
+  quantity: null
+  unit_mass_kg: null
+  owner: P6
+  source: hyp
+  scope: conversao
+  status: cotacao_e_massa_pendentes
+  version: 1.0.0-pos-DEC061
+  reference_date: '2026-11-09'
+  confidence: baixa
+  dimensions_m: null
+  installed_price_brl: null
+  unit_reference_price: null
+  price_currency: BRL
+- id: moveis
+  model: Cama, móveis, bancada, assentos e retenção
+  quantity: null
+  unit_mass_kg: null
+  owner: P3
+  source: hyp
+  scope: conversao
+  status: layout_comparativo_pendente
+  version: 1.0.0-pos-DEC061
+  reference_date: '2026-11-09'
+  confidence: baixa
+  dimensions_m: null
+  installed_price_brl: null
+  unit_reference_price: null
+  price_currency: BRL
+- id: isolamento
+  model: AFArmaflex32mm e revestimentos/proteções solares
+  quantity: null
+  unit_mass_kg: null
+  owner: P6
+  source: history
+  scope: conversao
+  status: area_e_custo_pendentes
+  version: 1.0.0-pos-DEC061
+  reference_date: '2026-11-09'
+  confidence: baixa
+  dimensions_m: null
+  installed_price_brl: null
+  unit_reference_price: null
+  price_currency: BRL
+- id: suportes
+  model: FV, portáteis recolhidos, bateria, tanques e aparelhos
+  quantity: null
+  unit_mass_kg: null
+  owner: P1
+  source: hyp
+  scope: conversao
+  status: FEA_ancoragens_pendentes
+  version: 1.0.0-pos-DEC061
+  reference_date: '2026-11-09'
+  confidence: baixa
+  dimensions_m: null
+  installed_price_brl: null
+  unit_reference_price: null
+  price_currency: BRL
+- id: mao_obra
+  model: Fabricação/montagem/acabamento
+  quantity: null
+  unit_mass_kg: null
+  owner: P1
+  source: hyp
+  scope: instalacao
+  status: cotacao_pendente
+  version: 1.0.0-pos-DEC061
+  reference_date: '2026-11-09'
+  confidence: baixa
+  dimensions_m: null
+  installed_price_brl: null
+  unit_reference_price: null
+  price_currency: BRL
+- id: engenharia
+  model: CAD/CFD/FEA/projeto/ensaios
+  quantity: null
+  unit_mass_kg: null
+  owner: P1
+  source: hyp
+  scope: engenharia
+  status: cotacao_pendente
+  version: 1.0.0-pos-DEC061
+  reference_date: '2026-11-09'
+  confidence: baixa
+  dimensions_m: null
+  installed_price_brl: null
+  unit_reference_price: null
+  price_currency: BRL
+- id: frete_tributos
+  model: Transporte/importação/documentação/tributos
+  quantity: null
+  unit_mass_kg: null
+  owner: P1
+  source: hyp
+  scope: encargos
+  status: cotacao_pendente
+  version: 1.0.0-pos-DEC061
+  reference_date: '2026-11-09'
+  confidence: baixa
+  dimensions_m: null
+  installed_price_brl: null
+  unit_reference_price: null
+  price_currency: BRL

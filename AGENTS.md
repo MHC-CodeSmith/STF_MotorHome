@@ -1,3 +1,7 @@
+# Baseline ativo após DEC-061
+
+Leia integralmente `docs/decisoes_motorhome_2026-10-28.md` e depois `docs/INTEGRACAO_POS_DEC061.md`. O arquivo canônico continua `config/parametros_globais.yaml`, revisão1.0.0-pos-DEC061, agora com unidade, fonte, confiança e status por parâmetro. `config/registro_cenarios.yaml` distingue entradas históricas e modelos de referência reutilizáveis. Não use os replays AC/EVSE anteriores como arquitetura B. A execução ativa é `scripts/conciliar_dec061.py`; quatro runners antigos exigem `--historico`. O status inicial scaffold descrito abaixo é histórico.
+
 # Instruções gerais para Codex / agentes
 
 Para esta frente, comece por `docs/RETOMADA_TAREFAS.md`: consulte resumos e trechos de textos locais, sem carregar PDFs, ZIPs ou CAD brutos no contexto. Preserve a outra conversa em `/home/mhc/motorhome_solar_codex`; alterações desta frente pertencem à worktree `/home/mhc/motorhome_solar_codex_tarefas`, branch `hub/tarefas-motorhome-com-codex`.

@@ -1,3 +1,11 @@
+# Execução atual — conciliação DEC-001 a DEC-061
+
+[Integração e resultados atuais](docs/INTEGRACAO_POS_DEC061.md) · [35itens](docs/REVISAO_35_ITENS.md) · [61decisões rastreadas](docs/MATRIZ_DECISOES_61.md) · [aprovações finais pendentes](docs/APROVACOES_FINAIS_PENDENTES.md).
+
+**ArquiteturaB escolhida; recargaDC OEM não demonstrada;35trabalhos iniciados e0aprovações finais.** Fonte única: `config/parametros_globais.yaml`. Execute `PYTHONPATH=src .venv/bin/python scripts/conciliar_dec061.py` e depois `scripts/consolidar_pacote_dec061.py` e `scripts/verificar_pos_dec061.py`. O CAD/PDF anteriores continuam disponíveis como histórico. Os status e potências de extensão descritos abaixo não são o baseline atual.
+
+## Histórico anterior à conciliação
+
 Avanço de26/10: [cabos isolados e radiador cruzado](docs/CABOS_E_RADIADOR_2D.md), com campos2D, fontes, alternativas, três malhas e **132testes passados**. [Memorial de revisão](output/pdf/memorial_revisao_aurora.pdf):20páginas, parcial. I30/I35 ainda dependem de entradas físicas/revisão.
 
 # Motorhome elétrico solar — organização para grupo de 7 e Codex

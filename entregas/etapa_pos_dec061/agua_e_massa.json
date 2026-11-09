@@ -1,0 +1,10 @@
+{
+  "occupants_baggage_initial_water_kg": 320,
+  "nominal_clean_days_without_laundry": 1.6666666666666667,
+  "laundry_cycle_l": 68.8,
+  "nominal_clean_days_including_one_laundry": 0.52,
+  "extra_black_tank": false,
+  "assembled_mass_kg": null,
+  "axle_loads_verified": false,
+  "note": "100L incluem água do boiler e descarga. Ciclo68.8L usa98% do tanque cinza70L antes de banho/cozinha; exige esvaziamento adequado. Níveis exatos de transferência e fixações continuam pendentes."
+}

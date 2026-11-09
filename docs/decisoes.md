@@ -82,3 +82,12 @@ Política com duas baterias e8h/calendário, interfaceOEM ainda hipótese. Docum
 tanto chegadas em céu limpo quanto falhas por reserva com nuvens; não promover
 a política a ótimo global nem ao veículo validado. Revisão35atualizada após
 executar/reabrir os resultados. [Evidências](ROTA_REAL_2026-10-28.md).
+
+
+## Conciliação pós-DEC061 — 09/11/2026
+
+O usuário autorizou execução técnica provisória e preservação das61decisões. O registro não estava no repositório nem no remoto; foi localizado em `/home/mhc/Downloads/decisoes_motorhome_61.md` e incorporado byte a byte em `docs/decisoes_motorhome_2026-10-28.md` (SHA256 `1e082c4961a57b865f008fa1daadd37e696bdb060f22c922596715096c793969`,298721bytes). O arquivo original permanece inalterado.
+
+`config/parametros_globais.yaml` foi migrado do scaffold0.0.0 para1.0.0-pos-DEC061, com registros por parâmetro e proveniência. O estado anterior é recuperável no commit `2ef84f67c3aa820633b0565e92c0a23ea810302b`; não é substituído no histórico. Alteração deliberada afeta os35itens: arquiteturaB, independência dos bancos,220V60Hz, consumo diário simplificado,100%SOC inicial nos dois bancos da missão,7000kmplano, equipamentos e seleções provisórias.
+
+`config/servicos_proposta.yaml` é agora explicitamente histórico e não descreve caminho via banco auxiliar como proposta vigente. Os runners antigos de interface/agenda/rota/viagem exigem `--historico`; o novo runner lê exclusivamente parâmetros compartilhados da fonte canônica. Os resultados anteriores não tiveram seus hashes ou números reescritos. Modelo de freios foi estendido para receber potência de atrito já descontadas resistências e recuperação, preservando a API anterior. A conferência atual está em `docs/INTEGRACAO_POS_DEC061.md`; nenhuma aprovação humana foi acrescentada.

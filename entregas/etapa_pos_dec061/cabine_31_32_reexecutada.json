@@ -1,0 +1,105 @@
+{
+  "ua_w_k": 65.43660731006382,
+  "insulation_k_w_mk": 0.03828,
+  "opaque_u_w_m2k": 0.746027676961201,
+  "equivalent_volume_m3": 17.359696200000002,
+  "surfaces": [
+    {
+      "surface": "front",
+      "gross_area_m2": 3.6128400000000003,
+      "glass_area_m2": 2.5,
+      "noon_poa_w_m2": 741.5624743132789,
+      "noon_opaque_solar_gain_w": 23.086956245494502,
+      "noon_glass_solar_gain_w": 1112.3437114699184
+    },
+    {
+      "surface": "rear",
+      "gross_area_m2": 3.6128400000000003,
+      "glass_area_m2": 0.5,
+      "noon_poa_w_m2": 114.53543559190825,
+      "noon_opaque_solar_gain_w": 9.974310365063795,
+      "noon_glass_solar_gain_w": 34.36063067757247
+    },
+    {
+      "surface": "left",
+      "gross_area_m2": 9.283259999999999,
+      "glass_area_m2": 0.8,
+      "noon_poa_w_m2": 114.53543559190825,
+      "noon_opaque_solar_gain_w": 27.182466219764283,
+      "noon_glass_solar_gain_w": 54.97700908411596
+    },
+    {
+      "surface": "right",
+      "gross_area_m2": 9.283259999999999,
+      "glass_area_m2": 0.8,
+      "noon_poa_w_m2": 161.70336577061053,
+      "noon_opaque_solar_gain_w": 38.37673690213253,
+      "noon_glass_solar_gain_w": 77.61761556989305
+    },
+    {
+      "surface": "roof",
+      "gross_area_m2": 8.98535,
+      "glass_area_m2": 0,
+      "noon_poa_w_m2": 705.44024578259,
+      "noon_opaque_solar_gain_w": 177.32968343362145,
+      "noon_glass_solar_gain_w": 0.0
+    },
+    {
+      "surface": "floor",
+      "gross_area_m2": 8.98535,
+      "glass_area_m2": 0,
+      "noon_poa_w_m2": 0.0,
+      "noon_opaque_solar_gain_w": 0.0,
+      "noon_glass_solar_gain_w": 0.0
+    }
+  ],
+  "i31_noon_c": 49.0784838742058,
+  "i31_peak_c": 49.59567374691423,
+  "i31_peak_local_time": "2026-06-21T14:05:00-03:00",
+  "i31_noon_frozen_equilibrium_c": 48.76726398112616,
+  "time_constant_h": 0.8489981042616094,
+  "i31_energy_residual_j": -4.214780346956104e-08,
+  "pressure_pa": 91419.31192051314,
+  "humidity_outside_kg_kg": 0.017606076384050335,
+  "humidity_inside_kg_kg": 0.010968170843397981,
+  "ventilation_sensible_w": 70.05538586536264,
+  "ventilation_latent_w": 137.10042026054188,
+  "i32": [
+    {
+      "occupants": 1,
+      "conduction_w": 523.4928584805106,
+      "solar_w": 1555.2491199675767,
+      "equipment_w": 100,
+      "sensible_w": 2323.7973643134496,
+      "latent_w": 192.10042026054188,
+      "cooling_required_w": 2515.8977845739914,
+      "electrical_w_by_assumed_cop": {
+        "2": 1257.9488922869957,
+        "2.5": 1006.3591138295966,
+        "3": 838.6325948579971
+      }
+    },
+    {
+      "occupants": 2,
+      "conduction_w": 523.4928584805106,
+      "solar_w": 1555.2491199675767,
+      "equipment_w": 100,
+      "sensible_w": 2398.7973643134496,
+      "latent_w": 247.10042026054188,
+      "cooling_required_w": 2645.8977845739914,
+      "electrical_w_by_assumed_cop": {
+        "2": 1322.9488922869957,
+        "2.5": 1058.3591138295965,
+        "3": 881.9659281913305
+      }
+    }
+  ],
+  "heading_deg": 0,
+  "absorptance": 0.3,
+  "glass_g": 0.6,
+  "capacity_j_k": 200000,
+  "cfd_3d_executed": false,
+  "model": "rede_termica_equivalente",
+  "physical_envelope_validated": false,
+  "ventilation_30m3h_is_assumed": true
+}

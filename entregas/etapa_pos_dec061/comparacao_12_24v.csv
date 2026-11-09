@@ -1,0 +1,3 @@
+bus_v,load_w,current_a,loop_m,section_mm2,drop_v,joule_w,converter_efficiency,status
+12,100,8.333333333333334,10,2.5,0.5746666666666668,4.7888888888888905,,comparacao_nao_homologacao
+24,100,4.166666666666667,10,2.5,0.2873333333333334,1.1972222222222226,,comparacao_nao_homologacao

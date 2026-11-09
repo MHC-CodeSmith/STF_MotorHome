@@ -1,0 +1,667 @@
+revision: 1.0.0-pos-DEC061
+rows:
+- decision: DEC-001
+  items:
+  - 6
+  - 7
+  - 9
+  - 23
+  - 25
+  - 27
+  - 29
+  evidence: config/interface_carga_proposta.yaml
+  lead: P2
+  pending: InterfaceDC/handshake/mínimos/autorizaçãoOEMausentes; caminhoACantigo descartado
+- decision: DEC-002
+  items:
+  - 1
+  - 15
+  - 16
+  - 17
+  - 18
+  - 28
+  evidence: config/arquitetura_eletrica_proposta.yaml
+  lead: P1
+  pending: VarianteSKprovisória; comparar mercadoBR sem combinar fichas
+- decision: DEC-003
+  items:
+  - 8
+  - 16
+  - 17
+  - 19
+  - 25
+  - 27
+  - 29
+  evidence: config/layout_proposto.yaml
+  lead: P3
+  pending: 1540Wpémeta; arranjo3JA+190Wtem barramentos incompatíveis sem conversão
+    extra
+- decision: DEC-004
+  items:
+  - 11
+  - 13
+  - 23
+  - 27
+  - 29
+  evidence: config/equipamentos_interior.yaml
+  lead: P6
+  pending: Consumo moderado revisto inclui boiler e secagem; picos ainda incompletos
+- decision: DEC-005
+  items:
+  - 6
+  - 18
+  - 23
+  - 24
+  - 29
+  evidence: config/servicos_proposta.yaml
+  lead: P2
+  pending: Comparar24/48h e reservas20/30%;10.24kWh não definitivo
+- decision: DEC-006
+  items:
+  - 29
+  evidence: entregas/etapa_2026-10-28_rota_real/resumo_rota_real.json
+  lead: P5
+  pending: 7000km principal;7511.282km geográfico apenas complementar
+- decision: DEC-007
+  items:
+  - 8
+  - 25
+  - 27
+  - 29
+  - 31
+  - 32
+  evidence: config/solar_proposta.yaml
+  lead: P5
+  pending: SãoCarlos21junho repetido idealmente;ERA5 histórico complementar
+- decision: DEC-008
+  items:
+  - 13
+  - 18
+  - 29
+  evidence: config/equipamentos_interior.yaml
+  lead: P1
+  pending: 2x80kg+60kg+água100L; conservar massa nas transferências
+- decision: DEC-009
+  items:
+  - 4
+  - 5
+  - 20
+  - 21
+  - 22
+  - 28
+  evidence: config/limites_operacionais_proposta.yaml
+  lead: P4
+  pending: 4250SKlimitado90;0–100não alcançável;curvas ausentes
+- decision: DEC-010
+  items:
+  - 11
+  - 23
+  - 32
+  evidence: config/cabine_proposta.yaml
+  lead: P6
+  pending: FreshWell2700W vs maiorWebasto3500W; maior rejeitado50Hz/teto
+- decision: DEC-011
+  items:
+  - 27
+  - 29
+  evidence: config/agenda_portatil_proposta.yaml
+  lead: P5
+  pending: Comparação08–16 vs00–08 é parcial; antiga agendaACnão válida;ótimo global
+    não demonstrado
+- decision: DEC-012
+  items:
+  - 1
+  - 6
+  - 8
+  - 9
+  - 11
+  - 13
+  - 24
+  - 30
+  - 34
+  - 35
+  evidence: fontes_externas/catalogo.csv
+  lead: P1
+  pending: Custos/dados faltantes ficamnull; separar ficha/estimativa/simulado
+- decision: DEC-013
+  items:
+  - 6
+  - 23
+  - 27
+  - 29
+  evidence: config/limites_operacionais_proposta.yaml
+  lead: P5
+  pending: Comparar10/20e20/30; não atribuir30%final aoI29
+- decision: DEC-014
+  items:
+  - 27
+  evidence: config/agenda_portatil_proposta.yaml
+  lead: P5
+  pending: 100→30principal80→30sensibilidade,energia útil98kWhprovisória
+- decision: DEC-015
+  items:
+  - 13
+  - 18
+  - 23
+  - 24
+  - 29
+  evidence: config/equipamentos_interior.yaml
+  lead: P6
+  pending: LGocasionalsemana; secagemsem ficha, faixa1/2/4kWh não dadofabricante
+- decision: DEC-016
+  items:
+  - 11
+  - 13
+  - 18
+  - 31
+  - 32
+  evidence: config/cabine_proposta.yaml
+  lead: P6
+  pending: 32mmcandidato; áreaCAD,pontes,vidros,fogo/umidade pendentes
+- decision: DEC-017
+  items:
+  - 13
+  - 23
+  - 24
+  - 29
+  - 32
+  evidence: config/equipamentos_interior.yaml
+  lead: P6
+  pending: Boilerincluído no consumo; modelo220V60Hzpressão não selecionado
+- decision: DEC-018
+  items:
+  - 13
+  - 18
+  - 29
+  evidence: config/equipamentos_interior.yaml
+  lead: P6
+  pending: Cassete~20L sem outro tanque; candidato365tem21Lresíduo+15Ldescarga contabilizável
+- decision: DEC-019
+  items:
+  - 9
+  - 23
+  - 30
+  evidence: config/servicos_proposta.yaml
+  lead: P2
+  pending: Inversor4000W25C3700W40C; controle de simultaneidade real pendente
+- decision: DEC-020
+  items:
+  - 6
+  - 7
+  - 9
+  - 23
+  - 25
+  - 27
+  - 29
+  evidence: config/servicos_proposta.yaml
+  lead: P2
+  pending: Nenhum fluxo de energia armazenada entre bancos; créditoHVbloqueado
+- decision: DEC-021
+  items:
+  - 8
+  - 9
+  - 23
+  - 25
+  - 27
+  - 29
+  evidence: config/agenda_portatil_proposta.yaml
+  lead: P2
+  pending: AlocaçõesfixasA/B/flexível comparativas; comutação física não demonstrada
+- decision: DEC-022
+  items:
+  - 14
+  - 15
+  - 18
+  - 20
+  - 21
+  - 22
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 33
+  evidence: entregas/parcial_2026-10-24/orcamento_massa_parcial.json
+  lead: P1
+  pending: 3500/4250sensibilidade; massa típica completa e eixos não demonstrados
+- decision: DEC-023
+  items:
+  - 19
+  - 20
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  evidence: entregas/parcial_2026-10-24/comparacao_cfd.json
+  lead: P3
+  pending: 3malhas29527/63668/166212,delta7.07%,semcamadas/y+;Cd não final
+- decision: DEC-024
+  items:
+  - 10
+  - 34
+  - 35
+  evidence: config/bateria_termica_proposta.yaml
+  lead: P7
+  pending: 20/80kWtérmicaECM, sem correspondênciaOEMcomprovada
+- decision: DEC-025
+  items:
+  - 3
+  - 20
+  - 33
+  evidence: config/freios_proposta.yaml
+  lead: P1
+  pending: Discorzrepresentativo; subtrair resistências e regeneração limitada hipotética
+- decision: DEC-026
+  items:
+  - 7
+  - 9
+  - 23
+  - 30
+  evidence: src/motorhome/cabos_polares.py
+  lead: P2
+  pending: Novo camporθserviços70/95mm2,proteções/conexões não validadas;HVpreservado
+- decision: DEC-027
+  items:
+  - 11
+  - 31
+  evidence: scripts/calcular_cabine.py
+  lead: P6
+  pending: Rede térmica reexecutável; CFD3Dnatural ainda inexistente
+- decision: DEC-028
+  items:
+  - 11
+  - 23
+  - 32
+  evidence: scripts/calcular_cabine.py
+  lead: P6
+  pending: 1ocupante33→25principal;2complemento;solar/envelope hipotéticos
+- decision: DEC-029
+  items:
+  - 25
+  - 27
+  - 29
+  evidence: scripts/simular_rota_real.py
+  lead: P5
+  pending: Controle seminterface não completa7000km;replaysACanteriores não demonstramB
+- decision: DEC-030
+  items:
+  - 13
+  - 16
+  - 17
+  - 18
+  evidence: config/layout_proposto.yaml
+  lead: P3
+  pending: Cama fixa provisóriaaproveitaCAD; falta segundo estudo conversível cotado
+- decision: DEC-031
+  items:
+  - 8
+  - 16
+  - 17
+  - 19
+  evidence: config/layout_proposto.yaml
+  lead: P3
+  pending: 2arranjos/cotas/ancoragens/sombras não validados;meta1540inalterada
+- decision: DEC-032
+  items:
+  - 20
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  evidence: src/motorhome/dinamica.py
+  lead: P4
+  pending: Nova varredura40/80incluiCd,área,massa,Crr,rho,eta;semserviços
+- decision: DEC-033
+  items:
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  evidence: docs/VERIFICACAO_CAD_APOSTILA.md
+  lead: P1
+  pending: AncoragensOEM/casosdeesforço/FEAcrítica ainda pendentes
+- decision: DEC-034
+  items:
+  - 24
+  evidence: config/custos_proposta.yaml
+  lead: P1
+  pending: BOMtraceável custosnulos;sem câmbio/frete/imposto/engenharia não há total
+- decision: DEC-035
+  items:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
+  - 32
+  - 33
+  - 34
+  - 35
+  evidence: docs/dependencias.md
+  lead: P1
+  pending: Fonteúnica/matrizes/proveniência M1M2M3;0aprovações finais
+- decision: DEC-036
+  items:
+  - 1
+  - 4
+  - 5
+  - 6
+  - 14
+  - 15
+  - 18
+  - 24
+  - 28
+  evidence: config/arquitetura_eletrica_proposta.yaml
+  lead: P4
+  pending: SK505GGprovisória;505BG3500separada;BRsem ficha correspondente encontrada
+- decision: DEC-037
+  items:
+  - 4
+  - 5
+  - 20
+  - 21
+  - 22
+  - 28
+  evidence: config/limites_operacionais_proposta.yaml
+  lead: P4
+  pending: Semcurvas/redutornão calcularaceleraçãoOEM;0–1004250inviável
+- decision: DEC-038
+  items:
+  - 8
+  - 25
+  - 27
+  - 29
+  evidence: src/motorhome/solar.py
+  lead: P5
+  pending: IneichenPOAFaimanPVWattsreutilizado;idealSTCvsfísicocomperdas separados
+- decision: DEC-039
+  items:
+  - 6
+  - 9
+  - 18
+  - 23
+  - 24
+  - 29
+  evidence: config/instalacoes_eletricas_proposta.yaml
+  lead: P2
+  pending: US5000BMSintegrado candidato; autorização uso veicular não demonstrada
+- decision: DEC-040
+  items:
+  - 7
+  - 9
+  - 23
+  - 30
+  evidence: config/instalacoes_eletricas_proposta.yaml
+  lead: P2
+  pending: Unifilar/curto/DR/topologiaPE/BMS/ensaios de bancada pendentes
+- decision: DEC-041
+  items:
+  - 13
+  - 18
+  - 29
+  evidence: config/equipamentos_interior.yaml
+  lead: P6
+  pending: Reabastecer/descarteadequado permitido; frequência calculada condicionada
+- decision: DEC-042
+  items:
+  - 6
+  - 7
+  - 9
+  - 18
+  - 23
+  - 24
+  - 29
+  evidence: src/motorhome/reconciliacao.py
+  lead: P2
+  pending: Diretovsbuffer0/2/5kWh e mínimo.5–10kWhipotéticos;OEMnão demonstrado
+- decision: DEC-043
+  items:
+  - 20
+  - 25
+  - 26
+  - 27
+  - 29
+  evidence: config/rota_belem_chui_proposta.yaml
+  lead: P5
+  pending: Principalplano,velocidadeconstante;relevo/regen não creditados
+- decision: DEC-044
+  items:
+  - 6
+  - 23
+  - 29
+  evidence: config/agenda_portatil_proposta.yaml
+  lead: P5
+  pending: Ambosbancos100% emI29;energia inicial separada deFV
+- decision: DEC-045
+  items:
+  - 8
+  - 25
+  - 27
+  - 29
+  evidence: config/solar_portatil_proposta.yaml
+  lead: P5
+  pending: Ângulo fixo porparada;busca discreta entre orientações não rastreamento
+- decision: DEC-046
+  items:
+  - 6
+  - 11
+  - 13
+  - 23
+  - 29
+  evidence: config/interface_carga_proposta.yaml
+  lead: P6
+  pending: Média diária simplificada; picos separados;não reusarscheduleACantigo
+- decision: DEC-047
+  items:
+  - 6
+  - 9
+  - 23
+  - 29
+  evidence: config/servicos_proposta.yaml
+  lead: P2
+  pending: Prioridadesqualitativas preservadas;patamaresBMS/atuadoresnull
+- decision: DEC-048
+  items:
+  - 13
+  - 18
+  - 23
+  - 24
+  - 29
+  evidence: config/equipamentos_interior.yaml
+  lead: P6
+  pending: 'Rede potável não implementada: hidraulica_proposta.yaml é arrefecimento
+    água/glicol; falta instalação potável, curva de bomba, boiler e trecho crítico
+    compatíveis'
+- decision: DEC-049
+  items:
+  - 11
+  - 13
+  - 16
+  - 31
+  - 32
+  evidence: config/cabine_proposta.yaml
+  lead: P6
+  pending: Natural;vento0semcruzamento presumido;umidade/vazãonão demonstradas
+- decision: DEC-050
+  items:
+  - 9
+  - 13
+  - 23
+  - 24
+  - 29
+  evidence: config/equipamentos_interior.yaml
+  lead: P6
+  pending: MRC10B2ACsubstituiNRXDC;partida/fixaçãomóvel e margemfaltam
+- decision: DEC-051
+  items:
+  - 9
+  - 13
+  - 23
+  - 24
+  - 29
+  evidence: config/equipamentos_interior.yaml
+  lead: P6
+  pending: IE3TP220V60Hz2kWprovisório;gestão/picos/retensão pendentes
+- decision: DEC-052
+  items:
+  - 7
+  - 9
+  - 11
+  - 13
+  - 23
+  - 30
+  evidence: config/servicos_proposta.yaml
+  lead: P2
+  pending: 220V60Hzativo;230Vnão é aprovaçãoautomática deaparelhos
+- decision: DEC-053
+  items:
+  - 9
+  - 18
+  - 23
+  - 24
+  evidence: config/servicos_proposta.yaml
+  lead: P2
+  pending: ComparadosMultiPlusII eInverterSmart48/5000;MultiPlusprovisório
+- decision: DEC-054
+  items:
+  - 8
+  - 9
+  - 23
+  - 25
+  - 29
+  evidence: config/servicos_proposta.yaml
+  lead: P2
+  pending: MPPT único — stringsJA eEcoFlowheterogêneas,IV/mismatch/saídaindependente
+    não provados
+- decision: DEC-055
+  items:
+  - 11
+  - 13
+  - 16
+  - 17
+  - 18
+  - 32
+  evidence: config/equipamentos_interior.yaml
+  lead: P6
+  pending: Sobbancomantido;FreshWell230Vnão confirma220V;condensadorparaexterior
+- decision: DEC-056
+  items:
+  - 6
+  - 9
+  - 13
+  - 23
+  - 34
+  - 35
+  evidence: config/servicos_proposta.yaml
+  lead: P2
+  pending: Indicadorescomerciais semcentral;automaçãoSOCnão implementada
+- decision: DEC-057
+  items:
+  - 7
+  - 9
+  - 13
+  - 23
+  - 24
+  evidence: config/servicos_proposta.yaml
+  lead: P2
+  pending: Comparação100Wem12/24V;candidatosOrion48/12 e48/24;modelo24eprodutosfimpendentes
+- decision: DEC-058
+  items:
+  - 2
+  - 14
+  - 18
+  - 20
+  - 25
+  - 26
+  - 28
+  evidence: config/mecanica_comparativa_proposta.yaml
+  lead: P4
+  pending: ManterpneusOEM;Continentalantigo éreferência,não autorização do chassi
+- decision: DEC-059
+  items:
+  - 2
+  - 14
+  - 15
+  - 18
+  - 28
+  evidence: config/mecanica_comparativa_proposta.yaml
+  lead: P1
+  pending: SuspensãoOEMinalterada;eixos/curso/rigidez/limitespendentes
+- decision: DEC-060
+  items:
+  - 14
+  - 15
+  - 18
+  - 28
+  evidence: src/motorhome/reconciliacao.py
+  lead: P1
+  pending: ÍndicequaseestáticocomCGhipotético;não limiarrealnemhomologação
+- decision: DEC-061
+  items:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
+  - 32
+  - 33
+  - 34
+  - 35
+  evidence: docs/decisoes_motorhome_2026-10-28.md
+  lead: P1
+  pending: Escolhasprovisórias emlistaúnica;aprovaçãohumanafinalpendente

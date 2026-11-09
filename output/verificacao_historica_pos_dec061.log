@@ -1,0 +1,10 @@
+{
+  "items_checked": 35,
+  "errors": [
+    "Proveni\u00eancia atual divergente: resumo_freios.json: ['src/motorhome/freios_axisimetricos.py']"
+  ],
+  "all_35_finished": false,
+  "historical_or_changed_provenance": [
+    "resumo_freios.json"
+  ]
+}

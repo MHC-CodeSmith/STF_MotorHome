@@ -1,0 +1,474 @@
+{
+  "status": "AUDITORIA_TECNICA_PARCIAL_NAO_APROVACAO_FISICA",
+  "generated_utc": "2026-11-09T20:33:53.822370+00:00",
+  "errors": [
+    "Proveniência atual divergente: resumo_freios.json: ['src/motorhome/freios_axisimetricos.py']"
+  ],
+  "items_checked": 35,
+  "delivery_hashes_checked": 124,
+  "provenance": [
+    {
+      "file": "coeficientes_piloto.json",
+      "status": "sem_mapa_inputs_sha256",
+      "changed_inputs": []
+    },
+    {
+      "file": "comparacao_cfd.json",
+      "status": "sem_mapa_inputs_sha256",
+      "changed_inputs": []
+    },
+    {
+      "file": "fontes_conforto_consulta.json",
+      "status": "lista_sem_mapa_inputs_sha256",
+      "changed_inputs": []
+    },
+    {
+      "file": "fontes_expansao_consulta.json",
+      "status": "lista_sem_mapa_inputs_sha256",
+      "changed_inputs": []
+    },
+    {
+      "file": "inmet_A711.json",
+      "status": "sem_mapa_inputs_sha256",
+      "changed_inputs": []
+    },
+    {
+      "file": "manifesto.json",
+      "status": "sem_mapa_inputs_sha256",
+      "changed_inputs": []
+    },
+    {
+      "file": "manifesto_cad_eletrico.json",
+      "status": "sem_mapa_inputs_sha256",
+      "changed_inputs": []
+    },
+    {
+      "file": "manifesto_cad_portatil.json",
+      "status": "entradas_conferidas",
+      "changed_inputs": []
+    },
+    {
+      "file": "manifesto_entrega.json",
+      "status": "sem_mapa_inputs_sha256",
+      "changed_inputs": []
+    },
+    {
+      "file": "manifesto_instalacoes.json",
+      "status": "entradas_conferidas",
+      "changed_inputs": []
+    },
+    {
+      "file": "manifesto_visualizador.json",
+      "status": "entradas_conferidas",
+      "changed_inputs": []
+    },
+    {
+      "file": "openfoam2412_instalacao.json",
+      "status": "sem_mapa_inputs_sha256",
+      "changed_inputs": []
+    },
+    {
+      "file": "orcamento_massa_parcial.json",
+      "status": "sem_mapa_inputs_sha256",
+      "changed_inputs": []
+    },
+    {
+      "file": "proveniencia_eletrica.json",
+      "status": "sem_mapa_inputs_sha256",
+      "changed_inputs": []
+    },
+    {
+      "file": "proveniencia_expansao.json",
+      "status": "sem_mapa_inputs_sha256",
+      "changed_inputs": []
+    },
+    {
+      "file": "qa_visualizador.json",
+      "status": "sem_mapa_inputs_sha256",
+      "changed_inputs": []
+    },
+    {
+      "file": "resumo_agendas.json",
+      "status": "entradas_conferidas",
+      "changed_inputs": []
+    },
+    {
+      "file": "resumo_bateria_carga.json",
+      "status": "entradas_conferidas",
+      "changed_inputs": []
+    },
+    {
+      "file": "resumo_bom_rolamento.json",
+      "status": "entradas_conferidas",
+      "changed_inputs": []
+    },
+    {
+      "file": "resumo_cabine.json",
+      "status": "sem_mapa_inputs_sha256",
+      "changed_inputs": []
+    },
+    {
+      "file": "resumo_cabos.json",
+      "status": "entradas_conferidas",
+      "changed_inputs": []
+    },
+    {
+      "file": "resumo_cfd_piloto.json",
+      "status": "sem_mapa_inputs_sha256",
+      "changed_inputs": []
+    },
+    {
+      "file": "resumo_expansao_solar.json",
+      "status": "entradas_conferidas",
+      "changed_inputs": []
+    },
+    {
+      "file": "resumo_freios.json",
+      "status": "historico_ou_desatualizado",
+      "changed_inputs": [
+        "src/motorhome/freios_axisimetricos.py"
+      ]
+    },
+    {
+      "file": "resumo_hidraulica.json",
+      "status": "entradas_conferidas",
+      "changed_inputs": []
+    },
+    {
+      "file": "resumo_integracao_eletrica.json",
+      "status": "entradas_conferidas",
+      "changed_inputs": []
+    },
+    {
+      "file": "resumo_layout.json",
+      "status": "sem_mapa_inputs_sha256",
+      "changed_inputs": []
+    },
+    {
+      "file": "resumo_missao_atual.json",
+      "status": "entradas_conferidas",
+      "changed_inputs": []
+    },
+    {
+      "file": "resumo_radiador.json",
+      "status": "entradas_conferidas",
+      "changed_inputs": []
+    },
+    {
+      "file": "resumo_sensibilidade.json",
+      "status": "sem_mapa_inputs_sha256",
+      "changed_inputs": []
+    },
+    {
+      "file": "resumo_solar.json",
+      "status": "sem_mapa_inputs_sha256",
+      "changed_inputs": []
+    },
+    {
+      "file": "resumo_solar_portatil.json",
+      "status": "entradas_conferidas",
+      "changed_inputs": []
+    },
+    {
+      "file": "resumo_viagem_7000km.json",
+      "status": "entradas_conferidas",
+      "changed_inputs": []
+    },
+    {
+      "file": "triagem_banheiro.json",
+      "status": "entradas_conferidas",
+      "changed_inputs": []
+    }
+  ],
+  "items": [
+    {
+      "item": 1,
+      "owner": "P1",
+      "title": "Nome e conceito do veículo",
+      "status": "em_desenvolvimento",
+      "folder": "equipe/P1_estrutura_freios/I01_nome_e_conceito_do_veiculo",
+      "human_review_pending": true
+    },
+    {
+      "item": 2,
+      "owner": "P1",
+      "title": "Pneus e rodas",
+      "status": "em_desenvolvimento",
+      "folder": "equipe/P1_estrutura_freios/I02_pneus_e_rodas",
+      "human_review_pending": true
+    },
+    {
+      "item": 3,
+      "owner": "P1",
+      "title": "Sistema de freios",
+      "status": "em_desenvolvimento",
+      "folder": "equipe/P1_estrutura_freios/I03_sistema_de_freios",
+      "human_review_pending": true
+    },
+    {
+      "item": 4,
+      "owner": "P4",
+      "title": "Motor elétrico",
+      "status": "em_desenvolvimento",
+      "folder": "equipe/P4_motor_dinamica/I04_motor_eletrico",
+      "human_review_pending": true
+    },
+    {
+      "item": 5,
+      "owner": "P4",
+      "title": "Transmissão",
+      "status": "em_desenvolvimento",
+      "folder": "equipe/P4_motor_dinamica/I05_transmissao",
+      "human_review_pending": true
+    },
+    {
+      "item": 6,
+      "owner": "P2",
+      "title": "Bateria",
+      "status": "em_desenvolvimento",
+      "folder": "equipe/P2_bateria_eletrica/I06_bateria",
+      "human_review_pending": true
+    },
+    {
+      "item": 7,
+      "owner": "P2",
+      "title": "Fiação elétrica",
+      "status": "em_desenvolvimento",
+      "folder": "equipe/P2_bateria_eletrica/I07_fiacao_eletrica",
+      "human_review_pending": true
+    },
+    {
+      "item": 8,
+      "owner": "P5",
+      "title": "Painel fotovoltaico",
+      "status": "em_desenvolvimento",
+      "folder": "equipe/P5_solar_autonomia/I08_painel_fotovoltaico",
+      "human_review_pending": true
+    },
+    {
+      "item": 9,
+      "owner": "P2",
+      "title": "Controladores de carga e inversores",
+      "status": "em_desenvolvimento",
+      "folder": "equipe/P2_bateria_eletrica/I09_controladores_de_carga_e_inversores",
+      "human_review_pending": true
+    },
+    {
+      "item": 10,
+      "owner": "P7",
+      "title": "Resfriamento de componentes elétricos",
+      "status": "em_desenvolvimento",
+      "folder": "equipe/P7_arrefecimento/I10_resfriamento_de_componentes_eletricos",
+      "human_review_pending": true
+    },
+    {
+      "item": 11,
+      "owner": "P6",
+      "title": "HVAC e ventilação interna",
+      "status": "em_desenvolvimento",
+      "folder": "equipe/P6_interior_cabine/I11_hvac_e_ventilacao_interna",
+      "human_review_pending": true
+    },
+    {
+      "item": 12,
+      "owner": "P7",
+      "title": "Sistema de lubrificação",
+      "status": "em_desenvolvimento",
+      "folder": "equipe/P7_arrefecimento/I12_sistema_de_lubrificacao",
+      "human_review_pending": true
+    },
+    {
+      "item": 13,
+      "owner": "P6",
+      "title": "Materiais e equipamentos internos",
+      "status": "em_desenvolvimento",
+      "folder": "equipe/P6_interior_cabine/I13_materiais_e_equipamentos_internos",
+      "human_review_pending": true
+    },
+    {
+      "item": 14,
+      "owner": "P1",
+      "title": "Suspensão e direção",
+      "status": "em_desenvolvimento",
+      "folder": "equipe/P1_estrutura_freios/I14_suspensao_e_direcao",
+      "human_review_pending": true
+    },
+    {
+      "item": 15,
+      "owner": "P1",
+      "title": "Chassi",
+      "status": "em_desenvolvimento",
+      "folder": "equipe/P1_estrutura_freios/I15_chassi",
+      "human_review_pending": true
+    },
+    {
+      "item": 16,
+      "owner": "P3",
+      "title": "Carenagem, portas, vidros",
+      "status": "em_desenvolvimento",
+      "folder": "equipe/P3_carroceria_cad_cfd/I16_carenagem_portas_vidros",
+      "human_review_pending": true
+    },
+    {
+      "item": 17,
+      "owner": "P3",
+      "title": "CAD 3D e vistas cotadas",
+      "status": "em_desenvolvimento",
+      "folder": "equipe/P3_carroceria_cad_cfd/I17_cad_3d_e_vistas_cotadas",
+      "human_review_pending": true
+    },
+    {
+      "item": 18,
+      "owner": "P1",
+      "title": "Massa total com passageiros",
+      "status": "em_desenvolvimento",
+      "folder": "equipe/P1_estrutura_freios/I18_massa_total_com_passageiros",
+      "human_review_pending": true
+    },
+    {
+      "item": 19,
+      "owner": "P3",
+      "title": "Coeficiente de arrasto e CFD",
+      "status": "em_desenvolvimento",
+      "folder": "equipe/P3_carroceria_cad_cfd/I19_coeficiente_de_arrasto_e_cfd",
+      "human_review_pending": true
+    },
+    {
+      "item": 20,
+      "owner": "P4",
+      "title": "Resistência de rolamento",
+      "status": "em_desenvolvimento",
+      "folder": "equipe/P4_motor_dinamica/I20_resistencia_de_rolamento",
+      "human_review_pending": true
+    },
+    {
+      "item": 21,
+      "owner": "P4",
+      "title": "Forças resistivas versus velocidade",
+      "status": "em_desenvolvimento",
+      "folder": "equipe/P4_motor_dinamica/I21_forcas_resistivas_versus_velocidade",
+      "human_review_pending": true
+    },
+    {
+      "item": 22,
+      "owner": "P4",
+      "title": "Potência resistiva e tração",
+      "status": "em_desenvolvimento",
+      "folder": "equipe/P4_motor_dinamica/I22_potencia_resistiva_e_tracao",
+      "human_review_pending": true
+    },
+    {
+      "item": 23,
+      "owner": "P2",
+      "title": "Capacidade das baterias (kWh)",
+      "status": "em_desenvolvimento",
+      "folder": "equipe/P2_bateria_eletrica/I23_capacidade_das_baterias_kwh",
+      "human_review_pending": true
+    },
+    {
+      "item": 24,
+      "owner": "P1",
+      "title": "Custo total dos materiais",
+      "status": "em_desenvolvimento",
+      "folder": "equipe/P1_estrutura_freios/I24_custo_total_dos_materiais",
+      "human_review_pending": true
+    },
+    {
+      "item": 25,
+      "owner": "P5",
+      "title": "Autonomia usando somente solar",
+      "status": "em_desenvolvimento",
+      "folder": "equipe/P5_solar_autonomia/I25_autonomia_usando_somente_solar",
+      "human_review_pending": true
+    },
+    {
+      "item": 26,
+      "owner": "P5",
+      "title": "Consumo (km/kWh)",
+      "status": "em_desenvolvimento",
+      "folder": "equipe/P5_solar_autonomia/I26_consumo_km_kwh",
+      "human_review_pending": true
+    },
+    {
+      "item": 27,
+      "owner": "P5",
+      "title": "Autonomia diária com SOC final 30%",
+      "status": "em_desenvolvimento",
+      "folder": "equipe/P5_solar_autonomia/I27_autonomia_diaria_com_soc_final_30",
+      "human_review_pending": true
+    },
+    {
+      "item": 28,
+      "owner": "P4",
+      "title": "Velocidade máxima e 0–100 km/h",
+      "status": "em_desenvolvimento",
+      "folder": "equipe/P4_motor_dinamica/I28_velocidade_maxima_e_0100_km_h",
+      "human_review_pending": true
+    },
+    {
+      "item": 29,
+      "owner": "P5",
+      "title": "Otimização viagem 7000 km",
+      "status": "em_desenvolvimento",
+      "folder": "equipe/P5_solar_autonomia/I29_otimizacao_viagem_7000_km",
+      "human_review_pending": true
+    },
+    {
+      "item": 30,
+      "owner": "P2",
+      "title": "Temperatura de cabos multidimensional",
+      "status": "em_desenvolvimento",
+      "folder": "equipe/P2_bateria_eletrica/I30_temperatura_de_cabos_multidimensional",
+      "human_review_pending": true
+    },
+    {
+      "item": 31,
+      "owner": "P6",
+      "title": "Cabine fechada ao meio-dia",
+      "status": "em_desenvolvimento",
+      "folder": "equipe/P6_interior_cabine/I31_cabine_fechada_ao_meio_dia",
+      "human_review_pending": true
+    },
+    {
+      "item": 32,
+      "owner": "P6",
+      "title": "Potência térmica de A/C",
+      "status": "em_desenvolvimento",
+      "folder": "equipe/P6_interior_cabine/I32_potencia_termica_de_a_c",
+      "human_review_pending": true
+    },
+    {
+      "item": 33,
+      "owner": "P1",
+      "title": "Freio: campo térmico multidimensional",
+      "status": "em_desenvolvimento",
+      "folder": "equipe/P1_estrutura_freios/I33_freio_campo_termico_multidimensional",
+      "human_review_pending": true
+    },
+    {
+      "item": 34,
+      "owner": "P7",
+      "title": "Temperatura da bateria em carga",
+      "status": "em_desenvolvimento",
+      "folder": "equipe/P7_arrefecimento/I34_temperatura_da_bateria_em_carga",
+      "human_review_pending": true
+    },
+    {
+      "item": 35,
+      "owner": "P7",
+      "title": "Bomba, radiador e vazão",
+      "status": "em_desenvolvimento",
+      "folder": "equipe/P7_arrefecimento/I35_bomba_radiador_e_vazao",
+      "human_review_pending": true
+    }
+  ],
+  "all_35_finished": false,
+  "final_blockers": [
+    "Dados físicos e revisões humanas pendentes descritos na matriz docs/REVISAO_35_ITENS.md.",
+    "CFD sem independência de malha; mapas motor/R(SOC,T)/UA/curvas de perdas reais ausentes.",
+    "Massa/eixos/fixação/custos emR$ não fechados; transmissão numérica/lubrificante/rolamento ainda sem dados.",
+    "MissõesI27/I29 ainda sem agenda atual integrada à alternativa portátil e interfaceHV demonstrada.",
+    "Relatório é parcial; seminário/vídeo com integrantes não produzidos."
+  ],
+  "warning": "Zero erros nesta auditoria significa integridade dos controles implementados, não validação física de todos os cálculos."
+}

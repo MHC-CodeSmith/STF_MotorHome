@@ -1,3 +1,7 @@
+# Estado pós-DEC061
+
+Registro original: [61 decisões](decisoes_motorhome_2026-10-28.md). Fonte ativa: `config/parametros_globais.yaml`. Veja [integração atual](INTEGRACAO_POS_DEC061.md), [matriz61](MATRIZ_DECISOES_61.md), [35itens](REVISAO_35_ITENS.md) e [aprovações consolidadas](APROVACOES_FINAIS_PENDENTES.md). ArquiteturaB escolhida; interfaceDC não demonstrada. Nenhum resultado anterior transforma recarga via serviços48V em caminho permitido.
+
 # Contexto central — enviar ao chat geral de agentes
 
 ## Missão

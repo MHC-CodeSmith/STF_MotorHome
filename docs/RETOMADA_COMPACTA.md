@@ -1,3 +1,7 @@
+# Retomada atual: pós-DEC061
+
+Comece por `docs/INTEGRACAO_POS_DEC061.md` e `docs/PLANO_EXECUCAO_POS_DEC061.md`. Resultados ativos: `entregas/etapa_pos_dec061/`. DEC001B, bancos independentes,220V60Hz,7000km plano e ambosSOC100% são obrigatórios. As entradas históricas abaixo foram superadas quando conflitarem com o registro. Os35itens continuam sem aprovação final.
+
 # Retomada compacta — fechamento da conversa30/10/2026
 
 
