@@ -1,4 +1,50 @@
-# Retomada compacta —28/10/2026
+# Retomada compacta — fechamento da conversa30/10/2026
+
+
+## Checkpoint para a próxima conversa
+
+Último commit técnico confirmado: **`5eca6c0`** (rota, interfaces e revisão35).
+Em30/10, `git status --short` estava vazio antes desta atualização. Esta nota é
+uma atualização documental posterior; não foram rodadas novas simulações no
+fechamento. Os178testes e os replays descritos abaixo são da etapa28/10.
+
+O usuário quer execução autônoma até fechar os35itens e uma revisão concreta
+por item; não quer que dúvidas rotineiras sejam devolvidas ao professor.
+A última pergunta foi se já havia rodado: foi confirmado que os sete casos
+terminaram e que os CSV foram reabertos. O pedido atual é só salvar a retomada.
+Não iniciar novos cálculos durante este fechamento.
+
+Entrega mais recente para abrir primeiro:
+`entregas/etapa_2026-10-28_rota_real/revisao_35_itens.html`,
+`REVISAO_35_ITENS.md`, `resumo_rota_real.json`, `qa_rota.json`,
+`rota_e_progresso.png`. MD/HTML/JSON têm a revisão dos35itens, não apenas uma
+contagem de aprovações. Não repetir a resposta vaga “faltam35”: todos têm
+trabalho parcial, com pendências físicas distintas. Ver também
+`docs/REVISAO_35_ITENS.md` e `docs/ROTA_REAL_2026-10-28.md`.
+
+Próximo avanço recomendado: melhorar a gestão de energia com previsão/reserva
+para dias nublados na rota, usando os caches já adquiridos. A política histórica
+interrompe por reserva dos serviços; não apresentar isso como prova de
+inviabilidade global. Depois refazer os cenários e o replay. Continuam em
+paralelo: compatibilidadeOBC/EVSE e proteções reais; mapasOEM/redução/óleo;
+massa completa/eixos/CG/fixações; cotações/impostos/frete; CFD equipado com
+independência; envelope térmico da cabine e calibração dos componentes.
+Faltam incorporar os suplementos27/28 ao memorial, revisão cruzada, seminário
+e vídeo com integrantes. Logo/pintura seguem para depois da parte técnica.
+
+Comandos úteis (rodar da worktree exclusiva):
+```bash
+PYTHONPATH=src OMP_NUM_THREADS=2 .venv/bin/python -m pytest -q
+.venv/bin/python -m ruff check src scripts tests
+.venv/bin/python scripts/verificar_estrutura.py
+.venv/bin/python scripts/verificar_rota_real.py entregas/etapa_2026-10-28_rota_real --fontes /home/mhc/motorhome_referencias_tarefas/rota-litoral-fontes-02
+```
+Os CSV de viagem estão comprimidos em`.csv.gz`; o verificador abre ambos os
+formatos e confere hashes dos CSV descomprimidos. Não carregar todos no contexto.
+Ler JSON/MD pequenos; preservar caches de fontes e resultados. Rede pública
+pode retornar429: o coletor tem espera/reuso de cache. No terminal atual, shell
+normal falhou com`bwrap: loopback: Failed RTM_NEWADDR`; chamada com
+`sandbox_permissions=require_escalated` funcionou para leitura autorizada.
 
 ## Nova etapa28/10 — prioridade
 
@@ -60,8 +106,9 @@ Logo/pintura externa foram pedidos **depois da parte técnica**; não antecipar.
 Worktree exclusiva: `/home/mhc/motorhome_solar_codex_tarefas`, branch
 `hub/tarefas-motorhome-com-codex`. Outra conversa usa
 `/home/mhc/motorhome_solar_codex`: **não editar/copiar alterações dela**.
-Último commit técnico **`9742cd5`**, árvore limpa antes desta nota;
-anteriores `0cec31e` (freios), `d975212` (cabos/radiador).
+Último commit técnico **`5eca6c0`**, confirmado30/10; árvore limpa antes desta
+atualização documental. Base anterior`fd8ae1e`/`9742cd5`; freios`0cec31e`,
+cabos/radiador`d975212`.
 Push autorizado **quando pronto** para `https://github.com/MHC-CodeSmith/STF_MotorHome.git`;
 sem remote/push até aqui. Não enviar mensagens a terceiros nem repetir credenciais.
 
