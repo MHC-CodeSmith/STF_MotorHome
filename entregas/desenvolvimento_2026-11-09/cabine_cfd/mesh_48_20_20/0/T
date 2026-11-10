@@ -1,0 +1,2 @@
+FoamFile {version 2.0; format ascii; class volScalarField; object T;}
+dimensions [0 0 0 1 0 0 0]; internalField uniform 322.2284838742058; boundaryField {front {type fixedValue; value uniform 300.6010588299367;} rear {type fixedValue; value uniform 321.40238959342395;} left {type fixedValue; value uniform 323.5344492907692;} right {type fixedValue; value uniform 323.9364011439748;} roof {type fixedValue; value uniform 332.56338636844976;} floor {type fixedValue; value uniform 325.9849120209982;}}

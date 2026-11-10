@@ -1,0 +1,186 @@
+{
+  "status": "BOMBA_PUBLICADA_CIRCUITO_CONDICIONADO",
+  "revision": "hidraulica-0.1",
+  "generated_utc": "2026-11-09T21:34:55.061038+00:00",
+  "operating_point": {
+    "flow_m3_s": 0.0005308498214128647,
+    "flow_l_min": 31.850989284771885,
+    "mass_flow_kg_s": 0.557392312483508,
+    "pump_pressure_pa": 71625.7450267194,
+    "current_a": 8.0,
+    "electric_power_w": 96.0,
+    "hydraulic_power_w": 38.022513955997375,
+    "pump_electrohydraulic_efficiency": 0.396067853708306,
+    "pressure_residual_pa": 1.4551915228366852e-11,
+    "system": {
+      "total_pa": 71625.74502671939,
+      "tubos_pa": 11163.846125617285,
+      "singularidades_pa": 11992.035243322003,
+      "componentes_pa": 48469.86365778011,
+      "re": 23656.464472846037,
+      "f_darcy": 0.024825024052157925
+    }
+  },
+  "pressure_reading_sensitivity": [
+    {
+      "flow_m3_s": 0.0005230362118555829,
+      "flow_l_min": 31.382172711334977,
+      "mass_flow_kg_s": 0.5491880224483621,
+      "pump_pressure_pa": 69571.61309056135,
+      "current_a": 8.0,
+      "electric_power_w": 96.0,
+      "hydraulic_power_w": 36.388472963569484,
+      "pump_electrohydraulic_efficiency": 0.37904659337051544,
+      "pressure_residual_pa": 1.4551915228366852e-11,
+      "system": {
+        "total_pa": 69571.61309056134,
+        "tubos_pa": 10876.49952743058,
+        "singularidades_pa": 11641.610390225791,
+        "componentes_pa": 47053.503172904966,
+        "re": 23308.263589205235,
+        "f_darcy": 0.024914077835972267
+      }
+    },
+    {
+      "flow_m3_s": 0.0005385469126815094,
+      "flow_l_min": 32.31281476089056,
+      "mass_flow_kg_s": 0.5654742583155848,
+      "pump_pressure_pa": 73678.09695782649,
+      "current_a": 8.0,
+      "electric_power_w": 96.0,
+      "hydraulic_power_w": 39.67911164888639,
+      "pump_electrohydraulic_efficiency": 0.4133240796758999,
+      "pressure_residual_pa": -4.3655745685100555e-11,
+      "system": {
+        "total_pa": 73678.09695782654,
+        "tubos_pa": 11450.144290258422,
+        "singularidades_pa": 12342.314996257057,
+        "componentes_pa": 49885.63767131106,
+        "re": 23999.472907239633,
+        "f_darcy": 0.024739052695232196
+      }
+    }
+  ],
+  "thermal_equilibria": [
+    {
+      "combined_efficiency_assumed": 0.85,
+      "motor_inverter_loss_w": 36176.4705882353,
+      "pump_heat_assumed_w": 96.0,
+      "radiator_load_w": 36272.4705882353,
+      "hot_inlet_k": 364.505176526822,
+      "coolant_outlet_k": 345.91223436901873,
+      "air_outlet_k": 334.2061337855221,
+      "coolant_rise_k": 18.5929421578033,
+      "field_heat_residual_to_load_w": 0.34246837814862374
+    },
+    {
+      "combined_efficiency_assumed": 0.9,
+      "motor_inverter_loss_w": 22777.77777777779,
+      "pump_heat_assumed_w": 96.0,
+      "radiator_load_w": 22873.77777777779,
+      "hot_inlet_k": 339.9942289059855,
+      "coolant_outlet_k": 328.2693361634821,
+      "air_outlet_k": 320.88735365584273,
+      "coolant_rise_k": 11.724892742503423,
+      "field_heat_residual_to_load_w": 0.21596393769141287
+    },
+    {
+      "combined_efficiency_assumed": 0.95,
+      "motor_inverter_loss_w": 10789.473684210514,
+      "pump_heat_assumed_w": 96.0,
+      "radiator_load_w": 10885.473684210514,
+      "hot_inlet_k": 318.06338103471063,
+      "coolant_outlet_k": 312.48358513747553,
+      "air_outlet_k": 308.970550381919,
+      "coolant_rise_k": 5.579795897235098,
+      "field_heat_residual_to_load_w": 0.10277575411055295
+    }
+  ],
+  "effectiveness": 0.5433808735471839,
+  "pump_source": {
+    "model": "Bosch PCE2-XL 039202453G",
+    "url": "https://www.bosch-ibusiness.com/en-2/products/product-categories/auxiliary-pumps-and-valves/pce-039202453g/pce-039202453g.pdf",
+    "accessed": "2026-10-26",
+    "pdf_sha256": "7110a9250eda65f382b00ea7b1fe83f4d754cbcd8e351cef7883820aea2633b9",
+    "page": 1,
+    "voltage_v": 12,
+    "mass_kg": 0.46,
+    "medium_published": "Water/Glycol 50/50",
+    "curve_method": "Leitura visual aproximada da curva azul pressão e vermelha corrente; não curva nominal ponto a ponto fornecida por Bosch.",
+    "pressure_reading_uncertainty_pa": 3000,
+    "current_reading_uncertainty_a": 0.2,
+    "curve_l_h_kpa_a": [
+      [
+        0,
+        92,
+        4.3
+      ],
+      [
+        250,
+        94,
+        4.95
+      ],
+      [
+        500,
+        95,
+        5.6
+      ],
+      [
+        750,
+        94.5,
+        6.2
+      ],
+      [
+        1000,
+        94,
+        6.9
+      ],
+      [
+        1250,
+        92.5,
+        7.65
+      ],
+      [
+        1500,
+        85.5,
+        8
+      ],
+      [
+        1750,
+        77,
+        8
+      ],
+      [
+        2000,
+        68.5,
+        8
+      ],
+      [
+        2250,
+        58.5,
+        8
+      ],
+      [
+        2500,
+        50,
+        8
+      ]
+    ]
+  },
+  "limits": [
+    "Curva a12V; PWM não foi convertido automaticamente em razão de rotação.",
+    "Coeficientes de perdas de camisas/radiador são hipóteses quadráticas; não fichas OEM.",
+    {
+      "Circuito fechado": "altura geométrica não é carga estática líquida; pressão de enchimento não é pressão diferencial."
+    },
+    "UA e vazão de ar assumidos; sem curva do ventilador/ensaio do núcleo.",
+    "Confirmar temperatura da curva, viscosidade, cavitação/NPSH, conectores, proteção elétrica e compatibilidade química.",
+    "Modelo não modifica circuito OEM nem orçamento de massa aprovado."
+  ],
+  "inputs_sha256": {
+    "config/hidraulica_proposta.yaml": "0c6dc989cdcf6487b51efa71b0b75e44bfb2f981bf5a03de1bc256f9ce8e9972",
+    "/home/mhc/motorhome_solar_codex_tarefas/scripts/calcular_hidraulica.py": "79b26fe21db736167938c71ceec2c40620978a8d74a636aed99156b524c7995a",
+    "src/motorhome/hidraulica.py": "39053d195cb81dc15c23df755a54b46ad2f08818677c9426e4fcdc95e1b09901",
+    "src/motorhome/radiador_cruzado.py": "d390f45f8a74f2a3169798005430f6e4c9bcb631fd65a3f07ce602b4918921be"
+  }
+}

@@ -1,3 +1,5 @@
+> Estado atual: [execução técnica02](EXECUCAO_TECNICA02.md), fonte1.1.0-execucao02. O baseline pósDEC061 abaixo permanece histórico; etapa técnica completa ainda aberta.
+
 # Revisão dos35itens — baseline pósDEC061
 
 35 trabalhos iniciados; **0 aprovações humanas finais**. CAD/CFD e resultados anteriores são evidência histórica, não configuração reconciliada automaticamente. Os arquivos por item foram inventariados no JSON desta etapa.

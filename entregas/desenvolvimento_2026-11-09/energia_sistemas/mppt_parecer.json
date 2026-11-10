@@ -1,0 +1,20 @@
+{
+  "controller_reference": "Victron SmartSolar150/60-Tr, candidato provisório para estudo compartilhado somente serviços48V",
+  "isc_total_a": 36.480000000000004,
+  "isc_limit_a": 50,
+  "cold_voc_v": 135.40815,
+  "voc_limit_v": 150,
+  "coefficient_status": "estimado",
+  "voltage_current_screen_pass": true,
+  "approved_topology": false,
+  "rejected_250_60_document_conflict_a": [
+    35,
+    60
+  ],
+  "low_voltage_190w_to_48v_demonstrated": false,
+  "other_checks": [
+    "I–V reais/bypass/proteção contra retorno e conexão portátil não demonstrados.",
+    "Saída únicaMPPT não pode alimentar simultaneamente serviços48V eHV.",
+    "Aprovado estudo compartilhado; rastreadores separados apenas comparador."
+  ]
+}

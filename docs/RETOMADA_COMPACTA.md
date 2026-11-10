@@ -1,3 +1,40 @@
+# Retomada ativa — execução técnica02,09/11/2026
+
+**Pedido atual:** executar autonomamente todo desenvolvimento técnico dos35itens sobDEC001–061; sem novas aprovações individuais e sem relatório acadêmico/slides. **Etapa completa ainda aberta**, não confundir este checkpoint com conclusão. Não esperar revisão do usuário para continuar frentes executáveis.
+
+- Worktree exclusiva `/home/mhc/motorhome_solar_codex_tarefas`, branch `hub/tarefas-motorhome-com-codex`. Partida técnica29defc4;2ce7e81era só handoff. Nunca editar a outra worktree. Push paraorigin/main já autorizado na sessão. Registro61 intacto, mesmoSHA anotado abaixo.
+- Primeiro ler `AGENTS.md`, `docs/EXECUCAO_TECNICA02.md`, `docs/REVISAO_TECNICA_EXECUCAO02.md`. Parâmetros **1.1.0-execucao02** em `config/parametros_globais.yaml`; seção development contém geometrias/posições/materiais/hipóteses. Lista únicaA01–A16 mantida em `docs/APROVACOES_FINAIS_PENDENTES.md`.
+- **Novos resultados:** `entregas/desenvolvimento_2026-11-09/`,~135MB/676saídas hashadas+manifesto/QA.2layouts+2tetosSTEP/GLB,162massas/CG/eixos,164dinâmicas,12FEMtrilhos,CFDcabine3D3malhas+4transientes,36IVmismatch,32replays+1008gradeI29,36aceleraçõeshipotéticas,54bateriatérmica,24freios2D,radiador2D/caboHVreferência reexecutados.
+- LayoutA cama fixa: **3973.02552776kg**, margem276.9745kg até4250antesinterfaceDC/buffer não instalados. CGx2.01669/y.001262/z.927898m; eixos1987.31/1985.72kg **condicionados** aCGbase/posições estimados. LimitesOEMeixos desconhecidos. AABBsemcolisões entre equipamentos/rodas estimadas; corredor.454m/porta lavagem.59m. Bconversíveltemreserva.474m<.48m e84kgportáteiselevados; não recomendado sem rever.
+- **700W auxiliares de tração estimados**, separados dos serviços7.2288254kWh/d. Serviço3US5000/14.4kWh/119.1kg;48h exige4/5módulos conforme reserva. `consumo_plano(...,aux_traction_kw=...)` novo opcional mantémdefault0para reproduzirhistórico. Faixa0/300/700/1500W muda ótimo: grade1008melhor700W20km/h20–04h,290.875/292.8854dias;0W10km/h216.84375dias;1500W30km/h346.84375dias. **Só melhor grade, mínimoDC1kW hipotético, não global/físico**. FonteSãoCarlos21junho repetida; ambasSOC100%;≤8h/d;plano;semrecargaexterna. Portáteis45°Norte fixos por parada nos melhores casos. Água/sanitária nos replays por demanda diária agregada, fontes por parada hipotéticas; cronologia fina/locais não comprovados.
+- I27Jensen+min e(v) sem recargaHV:20.6904km/h;100→30%=351.701km/16.998h;80→30%=251.215km/12.142h. Não condução segura17h nem otimização solar. I28limitador90:0–100nãoalcançável;9.23–14.19s0–90sóenvelope de hipóteses de redução/aderência, não curvaOEM.
+- CFDcabine: SIMPLE2500iterações **não convergiu/rejeitado**. PIMPLE300s apósrestart,2400/8100/19200células,dtmax.1/.05médiaúltimofino50.3203°C,max53.0744°C,estrat3.2827K.Δmédiaentre2malhas.104709K/meiopasso.0005106K. Balançofaces250–300serromáx.0482% trocaabsoluta. Campos/dicionários/logs reais conservados. NãoCHT/CADOEM/transientematinal3D/y+validado;redeantiga49.0785°Cnoon preservada. HashYAMLcompleto retirado doCFD porqueevoluiuduranteexecução;extração física+dicionários usados+hashredeorigem conservados.
+- Aero diagnóstico efetivo y+corpo31.733–2123.142,médio516.551 no166212células;Cdcontinuanãoindependente7.07%variação. Não novaCFDaeroequipada. Host tinha2.45GBRAMdisponível/7.2GBswapusados; evitar malha volumosa sem avaliarrecursos. `scripts/diagnosticar_yplus.py` reproduzsemalterarcasooriginal via --caso-cacheNOVO.
+- MPPT: **150/60-Tr candidato provisório**somente serviços48V:50AIsc/60Asaída/145Voperacional;Isc36.48A/coldVoc135.408Vpassamtriagem;IV/proteções/BMSainda não demonstrados.250/60rejeitadoprovisoriamenteconflitoficha35A/manual60A. GenasunGVB8boostrejeitadopara190WpIsc9.17>8A. Meta1540Wpfixos mantida; só1350Wpcomcaminho48Vcreditados;1600Wpportátilsóparado. Nenhuma transferência de energia armazenada entre bancos/buffer novo.
+- **QA:**208testes passaram,Ruff/estrutura35/7/auditoria passaram;QA90controles,140entradas/676saídas porhash. `output/*execucao02*`. STEP4arquivos reimportados sólidos positivos. Verificadoratual `scripts/verificar_desenvolvimento.py`; executar sem--registrar para conferência. Registro61SHA intacto. `conciliar_dec061.py`agora recusa1.1 antesdealterarmanifestohistórico: reproduzirbaseline no29defc4; não refrescarhashesantigos.
+
+```bash
+PYTHONPATH=src .venv/bin/python scripts/desenvolver_integracao.py
+PYTHONPATH=src .venv/bin/python scripts/desenvolver_energia_sistemas.py
+PYTHONPATH=src .venv/bin/python scripts/desenvolver_mecanica_termica.py
+PYTHONPATH=src .venv/bin/python scripts/integrar_freios_massa.py
+PYTHONPATH=src .venv/bin/python scripts/otimizar_grade_missao.py
+PYTHONPATH=src .venv/bin/python scripts/registrar_execucao02.py
+PYTHONPATH=src .venv/bin/python scripts/verificar_desenvolvimento.py
+PYTHONPATH=src .venv/bin/python -m pytest -q
+ruff check src scripts tests
+```
+
+CFDusaOpenFOAM2412no cache referido abaixo; scripts `desenvolver_cabine_cfd.py`/`refinar_cabine_transiente.py` exigemdestinosnovospara não sobrescrevercampos. Verificação porfaces: `scripts/verificar_campos_cabine.py`. Manifestonovoéregistrado com--registrar só após alterações deliberadas. Não rodarconsolidadoresantigos que sobrescrevamlistaA01–A16.
+
+**Próxima execução do agente:** detalharfixações/rotasCAD e proteção/comandoSOC; refinar aeroequipado/camadas com limites de recursos; confrontarcotas comcarroceriaimportada; completarI25despachotemporal começandocomenergiasolardodia emvezdesótetoenergético. Integração térmica atualécaixaequivalente, nãoCADOEMequipado. Não repetirpesquisaDCindefinidamente: mínimo/protocolo/autorizaçãoOEMnão demonstrados após fontesVenema/Sungrow; conservarcontrole e seguiroutrositens. Eixos/pressões/mapas/redutor/óleoOEM,HVAC220V/curvas33°C,custoBRLinstalado ehardwaredeproteção/controlepermanecemlacunas,não aprovados.
+
+Ambiente: terminalcomrequire_escalated,defaultbwrapfalha. Houveumtimeoutautoreviewresolvidoporúnicoretry; nenhum bloqueio de permissão restante. Nada enviado a terceiros/comprado/instalado;nenhum ensaio físico/homologação. Esta nota éhandoff para continuaçãoautônoma, não nova lista detarefas para usuário.
+
+---
+
+## Histórico — estado anterior à execução02
+
 # Retomada — pós-DEC061, 09/11/2026
 
 **Estado:** execução solicitada concluída e publicada; próximo trabalho depende de evidências técnicas, não de perguntas genéricas. 35/35 itens iniciados, **0 aprovações humanas finais**. Usuário permite seleção técnica provisória (DEC061), preservando decisões anteriores e lista única de aprovações.

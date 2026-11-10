@@ -12,17 +12,17 @@ def _positive(value, name, zero=False):
         raise ValueError(f'{name}: valor finito positivo obrigatório')
 
 
-def consumo_plano(velocidade_kmh, massa_kg, cd, area_m2, crr, rho, eficiencia):
+def consumo_plano(velocidade_kmh, massa_kg, cd, area_m2, crr, rho, eficiencia, *, aux_traction_kw=0.):
     """Consumo exclusivo da tração; não inclui cargas habitáveis ou rampas."""
     for name, value in locals().copy().items():
-        _positive(value, name)
+        _positive(value, name, zero=name == 'aux_traction_kw')
     if eficiencia > 1:
         raise ValueError('Eficiência maior que um')
     v = velocidade_kmh/3.6
     aero = .5*rho*cd*area_m2*v*v
     rolling = crr*massa_kg*9.80665
     rodas = (aero+rolling)*v/1000
-    bateria = rodas/eficiencia
+    bateria = rodas/eficiencia+aux_traction_kw
     return {'aerodinamica_n': aero, 'rolamento_n': rolling, 'rodas_kw': rodas,
             'bateria_kw': bateria, 'kwh_km': bateria/velocidade_kmh,
             'km_kwh': velocidade_kmh/bateria}

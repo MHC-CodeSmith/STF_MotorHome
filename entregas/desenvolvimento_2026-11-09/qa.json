@@ -1,0 +1,393 @@
+{
+  "status": "PASSOU",
+  "checks": [
+    {
+      "check": "Registro61 original preservado",
+      "pass": true
+    },
+    {
+      "check": "61 decisões presentes",
+      "pass": true
+    },
+    {
+      "check": "B e bancos independentes; interface não demonstrada",
+      "pass": true
+    },
+    {
+      "check": "220V60Hz",
+      "pass": true
+    },
+    {
+      "check": "A_fixa: massa e momentos independentes",
+      "pass": true
+    },
+    {
+      "check": "A_fixa: reações conservam massa",
+      "pass": true
+    },
+    {
+      "check": "A_fixa: não inventa limite eixo",
+      "pass": true
+    },
+    {
+      "check": "B_conversivel_noite: massa e momentos independentes",
+      "pass": true
+    },
+    {
+      "check": "B_conversivel_noite: reações conservam massa",
+      "pass": true
+    },
+    {
+      "check": "B_conversivel_noite: não inventa limite eixo",
+      "pass": true
+    },
+    {
+      "check": "A: caixas/equipamentos/cotas sem interseção na geometria estimada",
+      "pass": true
+    },
+    {
+      "check": "A: reserva de abertura lavadora",
+      "pass": true
+    },
+    {
+      "check": "Massa fonte única = CAD/inventário",
+      "pass": true
+    },
+    {
+      "check": "A_fixa.step: STEP reimporta sólidos positivos",
+      "pass": true
+    },
+    {
+      "check": "B_conversivel_noite.step: STEP reimporta sólidos positivos",
+      "pass": true
+    },
+    {
+      "check": "JA3_Victron190_longitudinal.step: STEP reimporta sólidos positivos",
+      "pass": true
+    },
+    {
+      "check": "JA3_Victron190_transversal.step: STEP reimporta sólidos positivos",
+      "pass": true
+    },
+    {
+      "check": "FEM versus solução analítica e forças",
+      "pass": true
+    },
+    {
+      "check": "Água: conservação e capacidades",
+      "pass": true
+    },
+    {
+      "check": "Sem vento/gradiente não inventa renovação de ar",
+      "pass": true
+    },
+    {
+      "check": "I27 SOC30% e balanço exato",
+      "pass": true
+    },
+    {
+      "check": "I27 tempo livre≤24h otimizado em ambas condições iniciais",
+      "pass": true
+    },
+    {
+      "check": "I29 fixo_08_16_3973.026_40_0.1_sem_interface: conservação e estado físico",
+      "pass": true
+    },
+    {
+      "check": "I29 fixo_08_16_3973.026_40_0.1_direta_hipotese: conservação e estado físico",
+      "pass": true
+    },
+    {
+      "check": "I29 fixo_08_16_3973.026_40_0.2_sem_interface: conservação e estado físico",
+      "pass": true
+    },
+    {
+      "check": "I29 fixo_08_16_3973.026_40_0.2_direta_hipotese: conservação e estado físico",
+      "pass": true
+    },
+    {
+      "check": "I29 fixo_08_16_3973.026_80_0.1_sem_interface: conservação e estado físico",
+      "pass": true
+    },
+    {
+      "check": "I29 fixo_08_16_3973.026_80_0.1_direta_hipotese: conservação e estado físico",
+      "pass": true
+    },
+    {
+      "check": "I29 fixo_08_16_3973.026_80_0.2_sem_interface: conservação e estado físico",
+      "pass": true
+    },
+    {
+      "check": "I29 fixo_08_16_3973.026_80_0.2_direta_hipotese: conservação e estado físico",
+      "pass": true
+    },
+    {
+      "check": "I29 fixo_08_16_4250.000_40_0.1_sem_interface: conservação e estado físico",
+      "pass": true
+    },
+    {
+      "check": "I29 fixo_08_16_4250.000_40_0.1_direta_hipotese: conservação e estado físico",
+      "pass": true
+    },
+    {
+      "check": "I29 fixo_08_16_4250.000_40_0.2_sem_interface: conservação e estado físico",
+      "pass": true
+    },
+    {
+      "check": "I29 fixo_08_16_4250.000_40_0.2_direta_hipotese: conservação e estado físico",
+      "pass": true
+    },
+    {
+      "check": "I29 fixo_08_16_4250.000_80_0.1_sem_interface: conservação e estado físico",
+      "pass": true
+    },
+    {
+      "check": "I29 fixo_08_16_4250.000_80_0.1_direta_hipotese: conservação e estado físico",
+      "pass": true
+    },
+    {
+      "check": "I29 fixo_08_16_4250.000_80_0.2_sem_interface: conservação e estado físico",
+      "pass": true
+    },
+    {
+      "check": "I29 fixo_08_16_4250.000_80_0.2_direta_hipotese: conservação e estado físico",
+      "pass": true
+    },
+    {
+      "check": "I29 alternativo_00_08_3973.026_40_0.1_sem_interface: conservação e estado físico",
+      "pass": true
+    },
+    {
+      "check": "I29 alternativo_00_08_3973.026_40_0.1_direta_hipotese: conservação e estado físico",
+      "pass": true
+    },
+    {
+      "check": "I29 alternativo_00_08_3973.026_40_0.2_sem_interface: conservação e estado físico",
+      "pass": true
+    },
+    {
+      "check": "I29 alternativo_00_08_3973.026_40_0.2_direta_hipotese: conservação e estado físico",
+      "pass": true
+    },
+    {
+      "check": "I29 alternativo_00_08_3973.026_80_0.1_sem_interface: conservação e estado físico",
+      "pass": true
+    },
+    {
+      "check": "I29 alternativo_00_08_3973.026_80_0.1_direta_hipotese: conservação e estado físico",
+      "pass": true
+    },
+    {
+      "check": "I29 alternativo_00_08_3973.026_80_0.2_sem_interface: conservação e estado físico",
+      "pass": true
+    },
+    {
+      "check": "I29 alternativo_00_08_3973.026_80_0.2_direta_hipotese: conservação e estado físico",
+      "pass": true
+    },
+    {
+      "check": "I29 alternativo_00_08_4250.000_40_0.1_sem_interface: conservação e estado físico",
+      "pass": true
+    },
+    {
+      "check": "I29 alternativo_00_08_4250.000_40_0.1_direta_hipotese: conservação e estado físico",
+      "pass": true
+    },
+    {
+      "check": "I29 alternativo_00_08_4250.000_40_0.2_sem_interface: conservação e estado físico",
+      "pass": true
+    },
+    {
+      "check": "I29 alternativo_00_08_4250.000_40_0.2_direta_hipotese: conservação e estado físico",
+      "pass": true
+    },
+    {
+      "check": "I29 alternativo_00_08_4250.000_80_0.1_sem_interface: conservação e estado físico",
+      "pass": true
+    },
+    {
+      "check": "I29 alternativo_00_08_4250.000_80_0.1_direta_hipotese: conservação e estado físico",
+      "pass": true
+    },
+    {
+      "check": "I29 alternativo_00_08_4250.000_80_0.2_sem_interface: conservação e estado físico",
+      "pass": true
+    },
+    {
+      "check": "I29 alternativo_00_08_4250.000_80_0.2_direta_hipotese: conservação e estado físico",
+      "pass": true
+    },
+    {
+      "check": "Grade1008 sem alegar ótimo global",
+      "pass": true
+    },
+    {
+      "check": "melhor_reservas[0.1, 0.2]_aux0W.csv.gz: ≤8h por dia",
+      "pass": true
+    },
+    {
+      "check": "melhor_reservas[0.1, 0.2]_aux0W.csv.gz: SOCs físicos",
+      "pass": true
+    },
+    {
+      "check": "melhor_reservas[0.1, 0.2]_aux0W.csv.gz: DC estacionária",
+      "pass": true
+    },
+    {
+      "check": "melhor_reservas[0.2, 0.3]_aux1500W.csv.gz: ≤8h por dia",
+      "pass": true
+    },
+    {
+      "check": "melhor_reservas[0.2, 0.3]_aux1500W.csv.gz: SOCs físicos",
+      "pass": true
+    },
+    {
+      "check": "melhor_reservas[0.2, 0.3]_aux1500W.csv.gz: DC estacionária",
+      "pass": true
+    },
+    {
+      "check": "melhor_reservas[0.1, 0.2]_aux700W.csv.gz: ≤8h por dia",
+      "pass": true
+    },
+    {
+      "check": "melhor_reservas[0.1, 0.2]_aux700W.csv.gz: SOCs físicos",
+      "pass": true
+    },
+    {
+      "check": "melhor_reservas[0.1, 0.2]_aux700W.csv.gz: DC estacionária",
+      "pass": true
+    },
+    {
+      "check": "melhor_reservas[0.2, 0.3]_aux0W.csv.gz: ≤8h por dia",
+      "pass": true
+    },
+    {
+      "check": "melhor_reservas[0.2, 0.3]_aux0W.csv.gz: SOCs físicos",
+      "pass": true
+    },
+    {
+      "check": "melhor_reservas[0.2, 0.3]_aux0W.csv.gz: DC estacionária",
+      "pass": true
+    },
+    {
+      "check": "melhor_reservas[0.1, 0.2]_aux300W.csv.gz: ≤8h por dia",
+      "pass": true
+    },
+    {
+      "check": "melhor_reservas[0.1, 0.2]_aux300W.csv.gz: SOCs físicos",
+      "pass": true
+    },
+    {
+      "check": "melhor_reservas[0.1, 0.2]_aux300W.csv.gz: DC estacionária",
+      "pass": true
+    },
+    {
+      "check": "melhor_reservas[0.2, 0.3]_aux300W.csv.gz: ≤8h por dia",
+      "pass": true
+    },
+    {
+      "check": "melhor_reservas[0.2, 0.3]_aux300W.csv.gz: SOCs físicos",
+      "pass": true
+    },
+    {
+      "check": "melhor_reservas[0.2, 0.3]_aux300W.csv.gz: DC estacionária",
+      "pass": true
+    },
+    {
+      "check": "melhor_reservas[0.2, 0.3]_aux700W.csv.gz: ≤8h por dia",
+      "pass": true
+    },
+    {
+      "check": "melhor_reservas[0.2, 0.3]_aux700W.csv.gz: SOCs físicos",
+      "pass": true
+    },
+    {
+      "check": "melhor_reservas[0.2, 0.3]_aux700W.csv.gz: DC estacionária",
+      "pass": true
+    },
+    {
+      "check": "melhor_reservas[0.1, 0.2]_aux1500W.csv.gz: ≤8h por dia",
+      "pass": true
+    },
+    {
+      "check": "melhor_reservas[0.1, 0.2]_aux1500W.csv.gz: SOCs físicos",
+      "pass": true
+    },
+    {
+      "check": "melhor_reservas[0.1, 0.2]_aux1500W.csv.gz: DC estacionária",
+      "pass": true
+    },
+    {
+      "check": "Replays sanitários independentes de recarga elétrica",
+      "pass": true
+    },
+    {
+      "check": "Freios mecânica/térmica conservativos",
+      "pass": true
+    },
+    {
+      "check": "CFD: sensibilidade numérica da média dentro do critério de estudo",
+      "pass": true
+    },
+    {
+      "check": "CFD: balanço independente de faces/armazenamento <0.2%",
+      "pass": true
+    },
+    {
+      "check": "CFD: não promover verificação numérica a validação física",
+      "pass": true
+    },
+    {
+      "check": "mesh_24_10_10_dt0.1: campo3D finito",
+      "pass": true
+    },
+    {
+      "check": "mesh_36_15_15_dt0.05: campo3D finito",
+      "pass": true
+    },
+    {
+      "check": "mesh_48_20_20_dt0.1: campo3D finito",
+      "pass": true
+    },
+    {
+      "check": "mesh_36_15_15_dt0.1: campo3D finito",
+      "pass": true
+    },
+    {
+      "check": "Bateria54casos conserva calor/energia",
+      "pass": true
+    },
+    {
+      "check": "35 itens revisados, zero aprovações inferidas",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "cad_reimport": [
+    {
+      "path": "entregas/desenvolvimento_2026-11-09/integracao/A_fixa.step",
+      "solid_count": 27,
+      "volume_m3": 1.7357842019999992
+    },
+    {
+      "path": "entregas/desenvolvimento_2026-11-09/integracao/B_conversivel_noite.step",
+      "solid_count": 29,
+      "volume_m3": 1.6973146019999996
+    },
+    {
+      "path": "entregas/desenvolvimento_2026-11-09/integracao/JA3_Victron190_longitudinal.step",
+      "solid_count": 4,
+      "volume_m3": 0.20958911999999866
+    },
+    {
+      "path": "entregas/desenvolvimento_2026-11-09/integracao/JA3_Victron190_transversal.step",
+      "solid_count": 4,
+      "volume_m3": 0.20958911999999863
+    }
+  ],
+  "input_hashes": 140,
+  "output_hashes": 676,
+  "stage_complete": false,
+  "final_human_approved": 0,
+  "physical_mission_demonstrated": false
+}

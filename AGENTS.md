@@ -1,6 +1,6 @@
-# Baseline ativo após DEC-061
+# Execução técnica02 ativa
 
-Leia integralmente `docs/decisoes_motorhome_2026-10-28.md` e depois `docs/INTEGRACAO_POS_DEC061.md`. O arquivo canônico continua `config/parametros_globais.yaml`, revisão1.0.0-pos-DEC061, agora com unidade, fonte, confiança e status por parâmetro. `config/registro_cenarios.yaml` distingue entradas históricas e modelos de referência reutilizáveis. Não use os replays AC/EVSE anteriores como arquitetura B. A execução ativa é `scripts/conciliar_dec061.py`; quatro runners antigos exigem `--historico`. O status inicial scaffold descrito abaixo é histórico.
+Leia o registro integral das61decisões e `docs/EXECUCAO_TECNICA02.md`. Fonte única: `config/parametros_globais.yaml`, revisão1.1.0-execucao02. CAD/massa/CG e auxiliares de tração estimados integram os novos modelos. Revisão35atual: `docs/REVISAO_TECNICA_EXECUCAO02.md`. Baseline29defc4 e seus manifestos são históricos; não atualizar seus hashes para mascarar mudança de entradas. Nenhuma aprovação humana final ou interfaceDCfísica demonstrada.
 
 # Instruções gerais para Codex / agentes
 

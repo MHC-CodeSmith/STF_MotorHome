@@ -21,6 +21,16 @@ def test_energia_por_distancia_independente_da_conversao_de_tempo():
     assert r['bateria_kw']/r['rodas_kw'] == pytest.approx(1/.8)
 
 
+def test_auxiliar_tracao_e_potencia_nao_energia_por_km_constante():
+    a = consumo_plano(10, 1000, .5, 3, .01, 1.1, .9)
+    b = consumo_plano(10, 1000, .5, 3, .01, 1.1, .9, aux_traction_kw=.7)
+    assert b['rodas_kw'] == a['rodas_kw']
+    assert b['kwh_km']-a['kwh_km'] == pytest.approx(.7/10)
+    assert b['bateria_kw']-a['bateria_kw'] == pytest.approx(.7)
+    with pytest.raises(ValueError):
+        consumo_plano(10, 1000, .5, 3, .01, 1.1, .9, aux_traction_kw=-1)
+
+
 @pytest.mark.parametrize('reserve,expected', [(.2, 4), (.3, 5)])
 def test_bateria_autonomia_sem_multiplicar_reserva_por_dod(reserve, expected):
     r = dimensionar_modulos(7.5, 2, reserve, 4.8, .95)

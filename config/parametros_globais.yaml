@@ -1,13 +1,13 @@
-revision: 1.0.0-pos-DEC061
+revision: 1.1.0-execucao02
 updated: '2026-11-09'
 project:
   vehicle_baseline_approved: false
 canonical: true
 historical_commit: 2ef84f67c3aa820633b0565e92c0a23ea810302b
 decision_record: docs/decisoes_motorhome_2026-10-28.md
-policy: Única fonte ativa pósDEC061; outros config/*_proposta são entradas históricas,
-  não parâmetros aprovados. Valores comerciais provisórios não equivalem a produto
-  veicular validado.
+policy: Fonte única ativa; revisão1.1 integra geometria/massa/CG e auxiliares de tração
+  estimados. Baseline29defc4 permanece histórico reproduzível naquele commit. Nenhum
+  componente ou interface recebe aprovação final por esta revisão.
 units_policy: SI nos cálculos; unidades práticas kWh/km/h/L/EUR explicitadas e convertidas;
   SOC do serviço nominal, tração útil.
 sources:
@@ -120,6 +120,28 @@ sources:
     version: BOILERB3REV003A
     evidence: B31505S15L500W220Vac±10%,7kg,600kPa máximo. Uso náutico;60Hz/uso veicular
       e operação só resistência sem ligação ao arrefecimentoOEM devem ser confirmados.
+  openfoam_boussinesq:
+    url: https://api.openfoam.com/2312/solvers_2heatTransfer_2buoyantBoussinesqSimpleFoam_2readTransportProperties_8H_source.html
+    kind: documentacao_solver
+    accessed: '2026-11-09'
+  mppt250_60:
+    url: https://www.victronenergy.com/media/pg/Manual_SmartSolar_MPPT_150-60_up_to_250-70/en/technical-specifications.html
+    kind: fabricante
+    accessed: '2026-11-09'
+    other_document: https://www.victronenergy.com/upload/documents/Datasheet-SmartSolar-charge-controller-MPPT-250-60-and-250-70-EN.pdf
+    conflict: 'Isc: ficha35A versus manual60A; hardware/revisão a confirmar;35A conservador.'
+  genasun_boost_rejected:
+    url: https://sunforgellc.com/wp-content/uploads/2024/03/GVB-8-WP_%4012AWG_Manual-rev.7-2024_AP.pdf
+    accessed: '2026-11-09'
+    kind: fabricante
+    evidence: MáximoIsc8A; painel190W9.17A rejeitado. 15A inputcurrent não substitui
+      limiteIsc8A.
+  mppt150_60:
+    url: https://www.victronenergy.com/media/pg/Manual_SmartSolar_MPPT_150-60_up_to_250-70/en/technical-specifications.html
+    kind: fabricante
+    accessed: '2026-11-09'
+    evidence: Seção9.1:150/60Isc50A,saída60A,48V3440W,Voc150Vabsoluto145Voperação,3kg;
+      configuração/IV/BMS/proteções pendentes.
 parameters:
   architecture:
     value: B
@@ -132,7 +154,7 @@ parameters:
     owner: P2
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   stored_transfer_allowed:
@@ -144,7 +166,7 @@ parameters:
     owner: P2
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   oem_hv_modification_allowed:
@@ -158,7 +180,7 @@ parameters:
     owner: P2
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   dc_interface_demonstrated:
@@ -172,7 +194,7 @@ parameters:
     owner: P2
     status: nao_demonstrado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Ausência de comprovação; não é prova universal de impossibilidade
   dc_min_power_kw:
@@ -185,7 +207,7 @@ parameters:
     owner: P2
     status: nao_demonstrado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   dc_min_current_a:
@@ -198,7 +220,7 @@ parameters:
     owner: P2
     status: nao_demonstrado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   dc_voltage_window_v:
@@ -211,7 +233,7 @@ parameters:
     owner: P2
     status: nao_demonstrado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   dc_protocol:
@@ -224,7 +246,7 @@ parameters:
     owner: P2
     status: nao_demonstrado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   dc_oem_authorization:
@@ -237,7 +259,7 @@ parameters:
     owner: P2
     status: nao_demonstrado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   dc_charger_model:
@@ -250,7 +272,7 @@ parameters:
     owner: P2
     status: nao_demonstrado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   buffer_installed:
@@ -262,7 +284,7 @@ parameters:
     owner: P2
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Somente comparação; energia inicial do buffer de estudo=0
   vehicle_geometry:
@@ -274,7 +296,7 @@ parameters:
     owner: P3
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   vehicle_variant:
@@ -288,7 +310,7 @@ parameters:
     owner: P1
     status: provisorio
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Recomendação de trabalho; sem homologação/importação brasileira demonstrada
   oem_pbt_kg:
@@ -303,7 +325,7 @@ parameters:
     owner: P4
     status: provisorio
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Dado documentado da candidata SK; não aprovação da variante
   oem_tare_kg:
@@ -318,7 +340,7 @@ parameters:
     owner: P4
     status: provisorio
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Dado documentado da candidata SK; não aprovação da variante
   wheelbase_m:
@@ -333,7 +355,7 @@ parameters:
     owner: P4
     status: provisorio
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Dado documentado da candidata SK; não aprovação da variante
   front_track_m:
@@ -348,7 +370,7 @@ parameters:
     owner: P4
     status: provisorio
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Dado documentado da candidata SK; não aprovação da variante
   rear_track_m:
@@ -363,7 +385,7 @@ parameters:
     owner: P4
     status: provisorio
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Dado documentado da candidata SK; não aprovação da variante
   traction_nominal_kwh:
@@ -378,7 +400,7 @@ parameters:
     owner: P4
     status: provisorio
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Dado documentado da candidata SK; não aprovação da variante
   traction_usable_kwh:
@@ -393,7 +415,7 @@ parameters:
     owner: P4
     status: provisorio
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Dado documentado da candidata SK; não aprovação da variante
   traction_voltage_v:
@@ -408,7 +430,7 @@ parameters:
     owner: P4
     status: provisorio
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Dado documentado da candidata SK; não aprovação da variante
   motor_peak_kw:
@@ -423,7 +445,7 @@ parameters:
     owner: P4
     status: provisorio
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Dado documentado da candidata SK; não aprovação da variante
   motor_peak_nm:
@@ -438,7 +460,7 @@ parameters:
     owner: P4
     status: provisorio
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Dado documentado da candidata SK; não aprovação da variante
   speed_limit_kmh:
@@ -453,7 +475,7 @@ parameters:
     owner: P4
     status: provisorio
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Dado documentado da candidata SK; não aprovação da variante
   vehicle_price_eur_ex_vat:
@@ -468,7 +490,7 @@ parameters:
     owner: P4
     status: provisorio
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Dado documentado da candidata SK; não aprovação da variante
   axle_front_limit_kg:
@@ -484,7 +506,7 @@ parameters:
     owner: P1
     status: nao_demonstrado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   axle_rear_limit_kg:
@@ -500,11 +522,11 @@ parameters:
     owner: P1
     status: nao_demonstrado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   assembled_typical_mass_kg:
-    value: null
+    value: 3973.02552776
     unit: kg
     source: hyp
     decisions:
@@ -514,11 +536,12 @@ parameters:
     - DEC-059
     - DEC-060
     owner: P1
-    status: nao_demonstrado
+    status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
-    note: ''
+    note: Resultado doinventárioCAD+reservas estimadas execução02, layoutA; não pesagem
+      nem conformidade eixos. Reproduzir scripts/desenvolver_integracao.py; baseCGestimado.
   cg_xyz_m:
     value: null
     unit: m
@@ -532,7 +555,7 @@ parameters:
     owner: P1
     status: nao_demonstrado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   oem_tyre_pressure:
@@ -548,7 +571,7 @@ parameters:
     owner: P1
     status: nao_demonstrado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   motor_map:
@@ -564,7 +587,7 @@ parameters:
     owner: P4
     status: nao_demonstrado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   reduction_ratio:
@@ -580,7 +603,7 @@ parameters:
     owner: P1
     status: nao_demonstrado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   mass_study_kg:
@@ -595,7 +618,7 @@ parameters:
     owner: P1
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: 3500 é ponto de sensibilidade, NÃO massa típica montada;4250 tetoPBT candidato,
       não prova dos eixos
@@ -612,7 +635,7 @@ parameters:
     owner: P3
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Envelope observado nos pilotos, não intervalo de confiança/erro validado;delta7.07%
   area_m2:
@@ -625,7 +648,7 @@ parameters:
     owner: P3
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Geometria autoral não final
   crr_range:
@@ -641,7 +664,7 @@ parameters:
     owner: P4
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Faixa anterior mantida, pneusOEM sem alteração
   eta_traction_range:
@@ -657,7 +680,7 @@ parameters:
     owner: P4
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Sem mapaOEM; constante apenas para sensibilidade
   rho_range:
@@ -673,7 +696,7 @@ parameters:
     owner: P4
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Faixa de densidade em altitude; central1.1 do CFD
   area_multiplier_range:
@@ -689,7 +712,7 @@ parameters:
     owner: P4
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Sensibilidade de5%, não erro medido de área
   roof_target_wp:
@@ -702,7 +725,7 @@ parameters:
     owner: P5
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   portable_wp:
@@ -715,7 +738,7 @@ parameters:
     owner: P5
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   portable_only_parked:
@@ -728,7 +751,7 @@ parameters:
     owner: P5
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   portable_fixed_per_stop:
@@ -740,7 +763,7 @@ parameters:
     owner: P5
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   ac_voltage_v:
@@ -752,7 +775,7 @@ parameters:
     owner: P2
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   ac_frequency_hz:
@@ -764,7 +787,7 @@ parameters:
     owner: P2
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   service_bus_v:
@@ -777,7 +800,7 @@ parameters:
     owner: P2
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   occupants_kg:
@@ -791,7 +814,7 @@ parameters:
     owner: P1
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   baggage_kg:
@@ -803,7 +826,7 @@ parameters:
     owner: P1
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   water_clean_l:
@@ -816,7 +839,7 @@ parameters:
     owner: P6
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   water_grey_l:
@@ -829,7 +852,7 @@ parameters:
     owner: P6
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   cassette_l:
@@ -842,7 +865,7 @@ parameters:
     owner: P6
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   extra_black_tank:
@@ -854,7 +877,7 @@ parameters:
     owner: P6
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   trip_km:
@@ -866,7 +889,7 @@ parameters:
     owner: P5
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   trip_flat:
@@ -878,7 +901,7 @@ parameters:
     owner: P5
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   trip_initial_soc:
@@ -892,7 +915,7 @@ parameters:
     owner: P5
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   trip_max_driving_h:
@@ -904,7 +927,7 @@ parameters:
     owner: P5
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   trip_external_charge:
@@ -917,7 +940,7 @@ parameters:
     owner: P5
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   trip_reserve_pairs:
@@ -933,7 +956,7 @@ parameters:
     owner: P5
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   item27_initial_soc:
@@ -947,7 +970,7 @@ parameters:
     owner: P5
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   item27_final_soc:
@@ -959,7 +982,7 @@ parameters:
     owner: P5
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   consumption_speeds_kmh:
@@ -974,7 +997,7 @@ parameters:
     owner: P4
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   ambient_c:
@@ -986,7 +1009,7 @@ parameters:
     owner: P6
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   rh_percent:
@@ -998,7 +1021,7 @@ parameters:
     owner: P6
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   wind_m_s:
@@ -1010,7 +1033,7 @@ parameters:
     owner: P5
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   reference_day:
@@ -1022,7 +1045,7 @@ parameters:
     owner: P5
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Ano2026 é convenção computacional, não requisito do professor
   item31_occupants:
@@ -1034,7 +1057,7 @@ parameters:
     owner: P6
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   item31_ac_w:
@@ -1046,7 +1069,7 @@ parameters:
     owner: P6
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   item32_outside_c:
@@ -1058,7 +1081,7 @@ parameters:
     owner: P6
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   item32_inside_c:
@@ -1070,7 +1093,7 @@ parameters:
     owner: P6
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   item32_occupants:
@@ -1084,7 +1107,7 @@ parameters:
     owner: P6
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   brake_speeds_ms:
@@ -1098,7 +1121,7 @@ parameters:
     owner: P1
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   brake_duration_s:
@@ -1110,7 +1133,7 @@ parameters:
     owner: P1
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   battery_thermal_test_kw:
@@ -1124,7 +1147,7 @@ parameters:
     owner: P7
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   latitude_deg:
@@ -1136,7 +1159,7 @@ parameters:
     owner: P5
     status: provisorio
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   longitude_deg:
@@ -1148,7 +1171,7 @@ parameters:
     owner: P5
     status: provisorio
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   altitude_m:
@@ -1160,7 +1183,7 @@ parameters:
     owner: P5
     status: provisorio
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   load_method:
@@ -1172,7 +1195,7 @@ parameters:
     owner: P6
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   ventilation:
@@ -1184,7 +1207,7 @@ parameters:
     owner: P6
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   hvac_location:
@@ -1196,7 +1219,7 @@ parameters:
     owner: P6
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   monitoring:
@@ -1208,7 +1231,7 @@ parameters:
     owner: P6
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   load_shedding:
@@ -1220,7 +1243,7 @@ parameters:
     owner: P6
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   fridge_type:
@@ -1232,7 +1255,7 @@ parameters:
     owner: P6
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   cooktop_type:
@@ -1244,7 +1267,7 @@ parameters:
     owner: P6
     status: aprovado
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   service_shed_soc_thresholds:
@@ -1258,7 +1281,7 @@ parameters:
     owner: P2
     status: nao_demonstrado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   shared_mppt_model:
@@ -1272,7 +1295,7 @@ parameters:
     owner: P2
     status: nao_demonstrado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   secondary_dc_bus_v:
@@ -1286,7 +1309,7 @@ parameters:
     owner: P2
     status: nao_demonstrado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   eta_inverter:
@@ -1302,7 +1325,7 @@ parameters:
     owner: P2
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Rendimento constante de estudo, não pico96%; vazio somado conservadoramente
       sem já estar na eta
@@ -1319,7 +1342,7 @@ parameters:
     owner: P2
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Hipótese da cadeia externa completa; não dado real de carregador
   eta_buffer:
@@ -1335,7 +1358,7 @@ parameters:
     owner: P2
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Uma carga; descarga/perdasDC separadas; sem hardware selecionado
   pv_gamma:
@@ -1351,7 +1374,7 @@ parameters:
     owner: P2
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: JA450 referência; arranjo1540W agregado de estudo não catálogo único
   pv_other_loss:
@@ -1367,7 +1390,7 @@ parameters:
     owner: P2
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Perdas adicionais; não inclui etaDC
   pv_faiman_u0:
@@ -1383,7 +1406,7 @@ parameters:
     owner: P2
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Montagem não calibrada
   pv_faiman_u1:
@@ -1399,7 +1422,7 @@ parameters:
     owner: P2
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Faiman referência do modelo
   pv_albedo:
@@ -1415,7 +1438,7 @@ parameters:
     owner: P2
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Sensibilidade futura
   pv_setup_h:
@@ -1431,7 +1454,7 @@ parameters:
     owner: P2
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Montagem por parada
   pv_teardown_h:
@@ -1447,7 +1470,7 @@ parameters:
     owner: P2
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Desmontagem por parada
   cable_min_voltage_v:
@@ -1463,7 +1486,7 @@ parameters:
     owner: P2
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Limite de estudo baseado no manualUS5000; verificar revisão e BMS
   cable_eta:
@@ -1479,7 +1502,7 @@ parameters:
     owner: P2
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: EntradaDC calculada porW/(V eta)
   cable_loop_m:
@@ -1495,7 +1518,7 @@ parameters:
     owner: P2
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Ida+retorno; rotaCAD não fechada
   cable_k_copper:
@@ -1511,7 +1534,7 @@ parameters:
     owner: P2
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Feixe homogeneizado estimado
   cable_k_insulation:
@@ -1527,7 +1550,7 @@ parameters:
     owner: P2
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Material representativo não homologado
   cable_alpha:
@@ -1543,7 +1566,7 @@ parameters:
     owner: P2
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Cobre linearizado
   cable_rho20:
@@ -1559,7 +1582,7 @@ parameters:
     owner: P2
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Cobre nominal, não resistência máxima de cabo comercial
   cable_insulation_m:
@@ -1575,7 +1598,7 @@ parameters:
     owner: P2
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Espessura estimada
   dc_min_sweep_kw:
@@ -1593,7 +1616,7 @@ parameters:
     owner: P2
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Varredura matemática; nenhum ponto atribuído aoOEM
   buffer_study_kwh:
@@ -1608,7 +1631,7 @@ parameters:
     owner: P2
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Capacidade exclusiva de estudo, inicia vazia, massa/custo desconhecidos;
       não instalação aprovada
@@ -1623,7 +1646,7 @@ parameters:
     owner: P2
     status: provisorio
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   module_service_mass_kg:
@@ -1636,7 +1659,7 @@ parameters:
     owner: P1
     status: provisorio
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   module_service_dod:
@@ -1648,7 +1671,7 @@ parameters:
     owner: P2
     status: provisorio
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   module_service_dimensions_m:
@@ -1663,7 +1686,7 @@ parameters:
     owner: P3
     status: provisorio
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   service_module_model:
@@ -1676,7 +1699,7 @@ parameters:
     owner: P2
     status: provisorio
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: BMS e modularidade documentados; uso móvel/vibração/fixações/garantia ainda
       não demonstrados
@@ -1690,7 +1713,7 @@ parameters:
     owner: P2
     status: provisorio
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   inverter_idle_w:
@@ -1703,7 +1726,7 @@ parameters:
     owner: P5
     status: provisorio
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   inverter_continuous_w:
@@ -1718,7 +1741,7 @@ parameters:
     owner: P2
     status: provisorio
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: 25/40degC respectivamente; não5000W contínuos
   fridge_model:
@@ -1731,7 +1754,7 @@ parameters:
     owner: P6
     status: provisorio
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   fridge_mass_kg:
@@ -1743,7 +1766,7 @@ parameters:
     owner: P1
     status: provisorio
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   fridge_dimensions_m:
@@ -1758,7 +1781,7 @@ parameters:
     owner: P3
     status: provisorio
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ''
   fridge_kwh_month:
@@ -1771,7 +1794,7 @@ parameters:
     owner: P6
     status: provisorio
     confidence: alta
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Converter por30dias; condições de ensaio não equivalem a uso veicular; testar×1–2
   service_modules_provisional:
@@ -1785,7 +1808,7 @@ parameters:
     owner: P2
     status: provisorio
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Banco provisório14.4kWh:base24h com ambas reservas20/30%;48h ainda comparação4/5módulos.
       Não é aprovação de uso veicular.
@@ -1799,7 +1822,7 @@ parameters:
     owner: P3
     status: provisorio
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Aproveitar CAD existente; conversível ainda precisa estudo cotado comparável
   roof_arrangement_provisional:
@@ -1812,7 +1835,7 @@ parameters:
     owner: P3
     status: provisorio
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: '1540Wp nominais: módulo190W não alimenta48V com MPPTbuck; não creditar190W
       à tração/48V sem circuito demonstrado'
@@ -1827,7 +1850,7 @@ parameters:
     owner: P5
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Caso realista de estudo da string3JA; meta1540Wp INALTERADA;190W sem rota
       de serviço48Vdemonstrada
@@ -1840,7 +1863,7 @@ parameters:
     owner: P1
     status: nao_demonstrado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: PontosOEM/subestruturas/FEA pendentes
   cost_installed_total_brl:
@@ -1852,7 +1875,7 @@ parameters:
     owner: P1
     status: nao_demonstrado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Não somarEUR/USD/BRL nem converter sem câmbio/frete/tributos
   dc_distribution_provisional_v:
@@ -1865,7 +1888,7 @@ parameters:
     owner: P2
     status: provisorio
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Recomendação por catálogo12V existente;24V segue comparação, não tensão
       final
@@ -1879,7 +1902,7 @@ parameters:
     owner: P6
     status: provisorio
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: AFArmaflex candidato já modelado; avaliar fogo/umidade/uso automotivo
   boiler_commercial_model:
@@ -1892,7 +1915,7 @@ parameters:
     owner: P6
     status: nao_demonstrado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: CandidatoQuickB31505Sdocumentado; seleção funcional220V60Hz/veicular ainda
       condicionada.
@@ -1906,7 +1929,7 @@ parameters:
     owner: P6
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Estimativa duas pessoas40Lbanho+20Lpia/cozinha/higiene; não inclui lavanderia
   drying_energy_cycle_range_kwh:
@@ -1922,7 +1945,7 @@ parameters:
     owner: P6
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Faixa exploratória sem medição do modeloLG; não usar zero para ausência
       de dados
@@ -1935,7 +1958,7 @@ parameters:
     owner: P2
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Carga comum comparativa, não soma de equipamentos reais
   lv_cable_loop_study_m:
@@ -1947,7 +1970,7 @@ parameters:
     owner: P2
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Comprimento ida+retorno hipotético
   lv_cable_section_study_mm2:
@@ -1959,7 +1982,7 @@ parameters:
     owner: P2
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Caso comparativo, não bitola homologada
   regen_power_study_kw:
@@ -1975,7 +1998,7 @@ parameters:
     owner: P4
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Limites de potência no evento; somente sensibilidade, nunca curvaOEM
   lateral_cg_height_sweep_m:
@@ -1991,7 +2014,7 @@ parameters:
     owner: P1
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Faixa hipotética sem CG extraído do CAD
   lateral_cg_offset_sweep_m:
@@ -2006,7 +2029,7 @@ parameters:
     owner: P1
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Faixa hipotética de assimetria
   pendencia_dec004:
@@ -2018,7 +2041,7 @@ parameters:
     owner: P6
     status: nao_demonstrado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Consumo moderado revisto inclui boiler e secagem; picos ainda incompletos
   pendencia_dec010:
@@ -2030,7 +2053,7 @@ parameters:
     owner: P6
     status: nao_demonstrado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: FreshWell2700W vs maiorWebasto3500W; maior rejeitado50Hz/teto
   pendencia_dec011:
@@ -2042,7 +2065,7 @@ parameters:
     owner: P5
     status: nao_demonstrado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Comparação08–16 vs00–08 é parcial; antiga agendaACnão válida;ótimo global
       não demonstrado
@@ -2055,7 +2078,7 @@ parameters:
     owner: P2
     status: nao_demonstrado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: AlocaçõesfixasA/B/flexível comparativas; comutação física não demonstrada
   pendencia_dec035:
@@ -2067,7 +2090,7 @@ parameters:
     owner: P1
     status: nao_demonstrado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Fonteúnica/matrizes/proveniência M1M2M3;0aprovações finais
   eta_lv:
@@ -2080,7 +2103,7 @@ parameters:
     owner: P2
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Rendimento assumido48→baixa tensão; não curva comercial
   eta_service_charge:
@@ -2093,7 +2116,7 @@ parameters:
     owner: P2
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: ConversãoFV→serviços assumida; geraçãojá desconta perdasPV, sem duplicar
   portable_gamma:
@@ -2106,7 +2129,7 @@ parameters:
     owner: P5
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: CoeficienteEcoFlow de referência histórica; não dadoJA
   mission_hypothetical_min_kw:
@@ -2118,7 +2141,7 @@ parameters:
     owner: P2
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Exclusivamente hipótese explícita, nunca mínimoOEM
   mission_hypothetical_buffer_kwh:
@@ -2130,7 +2153,7 @@ parameters:
     owner: P2
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Buffer dedicado hipotético, inicia vazio
   time_step_minutes:
@@ -2143,7 +2166,7 @@ parameters:
     owner: P5
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Resolução do replay; chegada arredondada ao intervalo
   potable_pump_model:
@@ -2156,7 +2179,7 @@ parameters:
     owner: P6
     status: provisorio
     confidence: media
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Seleção provisória com manualRV; não confundir com bombaBoschdoarrefecimento
   potable_pump_curve:
@@ -2186,7 +2209,7 @@ parameters:
     owner: P6
     status: provisorio
     confidence: media
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Tabela típica a12V; dados não fornecidos como curva24V
   potable_pump_mass_kg:
@@ -2198,7 +2221,7 @@ parameters:
     owner: P6
     status: provisorio
     confidence: media
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Massa aproximada fabricante
   potable_pipe_lengths_m:
@@ -2210,7 +2233,7 @@ parameters:
     owner: P6
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Comprimento crítico hipotético; conferirCAD
   potable_pipe_diameters_m:
@@ -2224,7 +2247,7 @@ parameters:
     owner: P6
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Comparação diâmetro interno10/13mm; material/espessura/proteção a selecionar
   potable_minor_k:
@@ -2236,7 +2259,7 @@ parameters:
     owner: P6
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Perdas locais assumidas
   potable_height_m:
@@ -2248,7 +2271,7 @@ parameters:
     owner: P6
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Cota geométrica do trecho crítico
   potable_fixture_design_lpm:
@@ -2260,7 +2283,7 @@ parameters:
     owner: P6
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Demanda hipotética de ducha única
   potable_fixture_pressure_pa:
@@ -2272,7 +2295,7 @@ parameters:
     owner: P6
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Resistência de aparelho modeladaquadrática; não ficha de ducha
   potable_density_kg_m3:
@@ -2284,7 +2307,7 @@ parameters:
     owner: P6
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Água25C aproximada
   potable_viscosity_pa_s:
@@ -2296,7 +2319,7 @@ parameters:
     owner: P6
     status: estimado
     confidence: baixa
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Água25C aproximada
   boiler_candidate_model:
@@ -2309,7 +2332,7 @@ parameters:
     owner: P6
     status: provisorio
     confidence: media
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Candidato elétrico220V500W; frequência e instalação veicular não demonstradas
   boiler_candidate_empty_mass_kg:
@@ -2321,7 +2344,7 @@ parameters:
     owner: P6
     status: provisorio
     confidence: media
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Massa vazia;água integra100L
   boiler_candidate_l:
@@ -2333,7 +2356,7 @@ parameters:
     owner: P6
     status: provisorio
     confidence: media
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Volume útil indicado no manual
   boiler_candidate_power_w:
@@ -2345,9 +2368,23 @@ parameters:
     owner: P6
     status: provisorio
     confidence: media
-    version: 1.0.0-pos-DEC061
+    version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Elemento resistivo; não assumir autorização para conectar arrefecimentoOEM
+  traction_aux_assumed_w:
+    value: 700
+    unit: W
+    source: hyp
+    decisions:
+    - DEC-032
+    - DEC-037
+    owner: P4
+    status: estimado
+    confidence: baixa
+    version: 1.1.0-execucao02
+    reference_date: '2026-11-09'
+    note: Potência fixa de auxiliares de tração SOMENTE em movimento; hipótese700W,
+      sensibilidade0/300/700/1500W; não carga habitável nem dadoOEM.
 loads:
 - id: geladeira
   energy_ac_or_dc_kwh_day:
@@ -2484,7 +2521,7 @@ bom_components:
   source: oem_sk
   scope: veiculo
   status: provisorio
-  version: 1.0.0-pos-DEC061
+  version: 1.1.0-execucao02
   reference_date: '2026-11-09'
   confidence: media
   dimensions_m: null
@@ -2502,7 +2539,7 @@ bom_components:
   source: history
   scope: conversao
   status: provisorio
-  version: 1.0.0-pos-DEC061
+  version: 1.1.0-execucao02
   reference_date: '2026-11-09'
   confidence: media
   dimensions_m: null
@@ -2517,7 +2554,7 @@ bom_components:
   source: history
   scope: conversao
   status: condicionado_sem_caminho48V
-  version: 1.0.0-pos-DEC061
+  version: 1.1.0-execucao02
   reference_date: '2026-11-09'
   confidence: media
   dimensions_m: null
@@ -2532,7 +2569,7 @@ bom_components:
   source: history
   scope: conversao
   status: provisorio_so_parado
-  version: 1.0.0-pos-DEC061
+  version: 1.1.0-execucao02
   reference_date: '2026-11-09'
   confidence: media
   dimensions_m: null
@@ -2544,7 +2581,7 @@ bom_components:
   source: pylon
   scope: conversao
   status: provisorio_uso_veicular_nao_demonstrado
-  version: 1.0.0-pos-DEC061
+  version: 1.1.0-execucao02
   reference_date: '2026-11-09'
   confidence: media
   dimensions_m: null
@@ -2561,7 +2598,7 @@ bom_components:
   source: multi
   scope: conversao
   status: provisorio
-  version: 1.0.0-pos-DEC061
+  version: 1.1.0-execucao02
   reference_date: '2026-11-09'
   confidence: media
   dimensions_m: null
@@ -2575,7 +2612,7 @@ bom_components:
   source: fridge
   scope: conversao
   status: provisorio_retencao_e_partida_pendentes
-  version: 1.0.0-pos-DEC061
+  version: 1.1.0-execucao02
   reference_date: '2026-11-09'
   confidence: media
   dimensions_m: null
@@ -2592,7 +2629,7 @@ bom_components:
   source: cooktop
   scope: conversao
   status: provisorio
-  version: 1.0.0-pos-DEC061
+  version: 1.1.0-execucao02
   reference_date: '2026-11-09'
   confidence: media
   dimensions_m: null
@@ -2608,7 +2645,7 @@ bom_components:
   source: washer
   scope: conversao
   status: provisorio_secagem_estimada
-  version: 1.0.0-pos-DEC061
+  version: 1.1.0-execucao02
   reference_date: '2026-11-09'
   confidence: media
   dimensions_m: null
@@ -2623,7 +2660,7 @@ bom_components:
   source: freshwell
   scope: conversao
   status: condicionado_nao_selecao_final
-  version: 1.0.0-pos-DEC061
+  version: 1.1.0-execucao02
   reference_date: '2026-11-09'
   confidence: media
   dimensions_m: null
@@ -2638,7 +2675,7 @@ bom_components:
   source: history
   scope: conversao
   status: provisorio
-  version: 1.0.0-pos-DEC061
+  version: 1.1.0-execucao02
   reference_date: '2026-11-09'
   confidence: media
   dimensions_m: null
@@ -2651,7 +2688,7 @@ bom_components:
   source: quick_boiler
   scope: conversao
   status: candidato_60Hz_veicular_pendentes
-  version: 1.0.0-pos-DEC061
+  version: 1.1.0-execucao02
   reference_date: '2026-11-09'
   confidence: media
   dimensions_m: null
@@ -2666,7 +2703,7 @@ bom_components:
   source: potable_pump
   scope: conversao
   status: provisorio
-  version: 1.0.0-pos-DEC061
+  version: 1.1.0-execucao02
   reference_date: '2026-11-09'
   confidence: media
   dimensions_m: null
@@ -2683,7 +2720,7 @@ bom_components:
   source: hyp
   scope: conversao
   status: nao_demonstrado
-  version: 1.0.0-pos-DEC061
+  version: 1.1.0-execucao02
   reference_date: '2026-11-09'
   confidence: baixa
   dimensions_m: null
@@ -2698,7 +2735,7 @@ bom_components:
   source: hyp
   scope: condicional
   status: nao_demonstrado
-  version: 1.0.0-pos-DEC061
+  version: 1.1.0-execucao02
   reference_date: '2026-11-09'
   confidence: baixa
   dimensions_m: null
@@ -2713,7 +2750,7 @@ bom_components:
   source: hyp
   scope: alternativa_nao_instalada
   status: nao_aprovado
-  version: 1.0.0-pos-DEC061
+  version: 1.1.0-execucao02
   reference_date: '2026-11-09'
   confidence: baixa
   dimensions_m: null
@@ -2728,7 +2765,7 @@ bom_components:
   source: history
   scope: conversao
   status: em_comparacao
-  version: 1.0.0-pos-DEC061
+  version: 1.1.0-execucao02
   reference_date: '2026-11-09'
   confidence: baixa
   dimensions_m: null
@@ -2743,7 +2780,7 @@ bom_components:
   source: hyp
   scope: conversao
   status: dimensionamento_pendente
-  version: 1.0.0-pos-DEC061
+  version: 1.1.0-execucao02
   reference_date: '2026-11-09'
   confidence: baixa
   dimensions_m: null
@@ -2758,7 +2795,7 @@ bom_components:
   source: hyp
   scope: conversao
   status: cotacao_e_massa_pendentes
-  version: 1.0.0-pos-DEC061
+  version: 1.1.0-execucao02
   reference_date: '2026-11-09'
   confidence: baixa
   dimensions_m: null
@@ -2773,7 +2810,7 @@ bom_components:
   source: hyp
   scope: conversao
   status: cotacao_e_massa_pendentes
-  version: 1.0.0-pos-DEC061
+  version: 1.1.0-execucao02
   reference_date: '2026-11-09'
   confidence: baixa
   dimensions_m: null
@@ -2788,7 +2825,7 @@ bom_components:
   source: hyp
   scope: conversao
   status: layout_comparativo_pendente
-  version: 1.0.0-pos-DEC061
+  version: 1.1.0-execucao02
   reference_date: '2026-11-09'
   confidence: baixa
   dimensions_m: null
@@ -2803,7 +2840,7 @@ bom_components:
   source: history
   scope: conversao
   status: area_e_custo_pendentes
-  version: 1.0.0-pos-DEC061
+  version: 1.1.0-execucao02
   reference_date: '2026-11-09'
   confidence: baixa
   dimensions_m: null
@@ -2818,7 +2855,7 @@ bom_components:
   source: hyp
   scope: conversao
   status: FEA_ancoragens_pendentes
-  version: 1.0.0-pos-DEC061
+  version: 1.1.0-execucao02
   reference_date: '2026-11-09'
   confidence: baixa
   dimensions_m: null
@@ -2833,7 +2870,7 @@ bom_components:
   source: hyp
   scope: instalacao
   status: cotacao_pendente
-  version: 1.0.0-pos-DEC061
+  version: 1.1.0-execucao02
   reference_date: '2026-11-09'
   confidence: baixa
   dimensions_m: null
@@ -2848,7 +2885,7 @@ bom_components:
   source: hyp
   scope: engenharia
   status: cotacao_pendente
-  version: 1.0.0-pos-DEC061
+  version: 1.1.0-execucao02
   reference_date: '2026-11-09'
   confidence: baixa
   dimensions_m: null
@@ -2863,10 +2900,779 @@ bom_components:
   source: hyp
   scope: encargos
   status: cotacao_pendente
-  version: 1.0.0-pos-DEC061
+  version: 1.1.0-execucao02
   reference_date: '2026-11-09'
   confidence: baixa
   dimensions_m: null
   installed_price_brl: null
   unit_reference_price: null
   price_currency: BRL
+development:
+  revision: execucao-02
+  status: provisorio_estimado_nao_validado
+  source: hyp
+  owner: P1-P7
+  date: '2026-11-09'
+  confidence: baixa
+  units: SI salvo unidades explícitas nas chaves
+  cabin_cfd:
+    dimensions_m:
+    - 4.805
+    - 1.87
+    - 1.932
+    meshes:
+    - - 24
+      - 10
+      - 10
+    - - 36
+      - 15
+      - 15
+    - - 48
+      - 20
+      - 20
+    nu_m2_s: 1.7e-05
+    beta_1_k: 0.0031
+    source: OpenFOAM hotRoom; contorno congelado fonte rede_transiente com ganho vidros
+      difuso por área; parâmetros só hipóteses.
+  geometry:
+    cargo_outer_m:
+    - 3.705
+    - 1.87
+    - 1.932
+    lining_each_side_m: 0.038
+    floor_z_global_m: 0.68
+    rear_plane_from_front_axle_m: 4.48
+    wheel_arch_boxes:
+    - id: caixa_roda_esquerda
+      position_m:
+      - 0.65
+      - 0
+      - 0
+      dimensions_m:
+      - 0.85
+      - 0.224
+      - 0.35
+    - id: caixa_roda_direita
+      position_m:
+      - 0.65
+      - 1.57
+      - 0
+      dimensions_m:
+      - 0.85
+      - 0.224
+      - 0.35
+    note: Caixas de roda/posição do eixo dianteiro e piso estimados; largura entre
+      caixas OEM1.422m, restante CAD equivalente.
+  mass_assumptions:
+    base_rear_fraction:
+    - 0.35
+    - 0.42
+    - 0.5
+    base_cg_height_m:
+    - 0.65
+    - 0.78
+    - 0.9
+    base_y_m: 0
+    estimated_mass_factor:
+    - 0.8
+    - 1
+    - 1.2
+    water_states_l:
+    - - 100
+      - 0
+      - 0
+    - - 50
+      - 40
+      - 10
+    - - 10
+      - 70
+      - 20
+    occupants_kg:
+    - 80
+    - 80
+    baggage_kg: 60
+    water_density_kg_l: 1
+  materials:
+    plywood_density_kg_m3: 550
+    foam_density_kg_m3: 60
+    steel_density_kg_m3: 7850
+    polyethylene_density_kg_m3: 950
+    steel_E_pa: 210000000000.0
+    steel_yield_pa: 235000000.0
+    note: Estimativas representativas, não material ensaiado; E/yield e densidades
+      com sensibilidade.
+  structure:
+    beam_length_m: 0.65
+    beam_outer_side_m: 0.04
+    beam_wall_m: 0.003
+    number_rails: 2
+    battery_payload_kg: 119.1
+    vertical_load_factors:
+    - 1
+    - 3
+    - 5
+    elements:
+    - 4
+    - 8
+    - 16
+    - 32
+    anchor_count: 4
+    fastener_core_area_m2: 3.66e-05
+    fastener_shear_allowance_pa: 120000000.0
+    note: 5g é caso hipotético de transporte, não requisito homologação; viga1D não
+      verifica chapa, solda, flambagem local ou apoioOEM.
+  ventilation_study:
+    opening_free_area_m2:
+    - 0.005
+    - 0.01
+    - 0.02
+    - 0.04
+    vertical_separation_m: 1.2
+    delta_temperature_k:
+    - 0
+    - 2
+    - 5
+    - 8
+    discharge_coefficient: 0.6
+    co2_generation_l_h_person: 18
+    outside_co2_ppm: 420
+    target_co2_ppm: 1000
+    vapour_kg_h:
+    - 0.08
+    - 0.2
+    - 0.6
+    note: Fontes metabólicas e metaCO2 hipóteses de engenharia; não certificação sanitária.
+  mass_allowances:
+  - id: suportes_eletricos
+    mass_kg: 15
+    cg_local_m:
+    - 0.65
+    - 1.1
+    - 0.35
+    note: Reserva15kg inclui MPPT3kg, conversorLV1.5kg estimado e suportes10.5kg;
+      não adicionar novamente essas massas.
+  - id: hidraulica_acessorios
+    mass_kg: 12
+    cg_local_m:
+    - 1.3
+    - 0.7
+    - 0.25
+  - id: cabos_protecoes_controle
+    mass_kg: 15
+    cg_local_m:
+    - 1.1
+    - 0.8
+    - 0.5
+  - id: fixacoes_solares
+    mass_kg: 15
+    cg_local_m:
+    - 1.9
+    - 0.9
+    - 2.0
+  - id: boiler_dutos_e_grelhas
+    mass_kg: 8
+    cg_local_m:
+    - 1.3
+    - 0.3
+    - 0.3
+  - id: janelas_protecao_solar
+    mass_kg: 16
+    cg_local_m:
+    - 2.0
+    - 0.9
+    - 1.25
+  - id: consumiveis_alimentos
+    mass_kg: 25
+    cg_local_m:
+    - 1.6
+    - 0.8
+    - 0.7
+  roof_candidates:
+  - id: JA3_Victron190_transversal
+    main_count: 3
+    main_dimensions_m:
+    - 1.134
+    - 1.762
+    - 0.03
+    main_start_m:
+    - 0.1
+    - 0.03
+    - 2.0
+    gap_m: 0.03
+    extra_position_m:
+    - 3.592
+    - 0.15
+    - 2.0
+    extra_dimensions_m:
+    - 0.668
+    - 1.485
+    - 0.03
+    extra_power_wp: 190
+  - id: JA3_Victron190_longitudinal
+    main_count: 3
+    main_dimensions_m:
+    - 1.134
+    - 1.762
+    - 0.03
+    main_start_m:
+    - 0.1
+    - 0.03
+    - 2.0
+    gap_m: 0.03
+    extra_position_m:
+    - 3.592
+    - 0.56
+    - 2.0
+    extra_dimensions_m:
+    - 1.485
+    - 0.668
+    - 0.03
+    extra_power_wp: 190
+  roof_assumed_envelope_m:
+  - 4.3
+  - 1.82
+  roof_note: Inclui teto de cabine estimado; CADOEM da curvatura/ancoragens não disponível.
+    Meta1540Wp mantida; caminho190W→48V continua não demonstrado.
+  pv_shared_study:
+    roof_series: 3
+    roof_voc_v: 39.3
+    roof_vmp_v: 32.82
+    roof_imp_a: 13.711151736745887
+    roof_isc_a: 14.48
+    portable_series: 2
+    portable_parallel: 2
+    portable_voc_v: 48
+    portable_vmp_v: 41
+    portable_imp_a: 9.8
+    portable_isc_a: 11
+    cold_c: -20
+    hot_c: 85
+    beta_voc_per_k: -0.0033
+    beta_vmp_per_k: -0.004
+    controller_voc_max_v: 150
+    controller_operating_max_v: 145
+    controller_isc_max_a: 50
+    controller_charge_a: 60
+    battery_charge_v: 53.2
+    shared_controller_model: Victron SmartSolar150/60-Tr, candidato provisório para
+      estudo compartilhado somente serviços48V
+    roof_low_voltage_w: 190
+    note: 150/60:50AIsc,60Asaída,3440Wnominais48V,145Voperação/150Vabsoluto no manual
+      fabricante consultado. Stringsheterogêneas ainda dependemIV/proteção contra
+      retorno/conexão segura.190WbaixoV não incluído.250/60 permanece comparador rejeitado
+      provisoriamente por conflito35/60A.
+    documented_isc_values_a:
+    - 35
+    - 60
+    controller_model_rejected: 'SmartSolar250/60: conflito documentalIsc35/60A; sem
+      confirmação da revisão não liberar36.48A.'
+  layout_equipment:
+    A_fixa:
+    - id: geladeira_AC
+      position_m:
+      - 3.1
+      - 0.02
+      - 0.02
+      dimensions_m:
+      - 0.45
+      - 0.472
+      - 0.86
+      mass_kg: 20.8
+      kind: equipamento
+      estimated: false
+    - id: cassete
+      position_m:
+      - 2.1
+      - 1.234
+      - 0.04
+      dimensions_m:
+      - 0.427
+      - 0.383
+      - 0.414
+      mass_kg: 4
+      kind: equipamento
+      estimated: false
+    - id: cooktop_armazenado
+      position_m:
+      - 2.72
+      - 0.08
+      - 0.72
+      dimensions_m:
+      - 0.358
+      - 0.28
+      - 0.062
+      mass_kg: 2.3
+      kind: equipamento
+      estimated: false
+    - id: boiler
+      position_m:
+      - 0.6
+      - 0.65
+      - 0.4
+      dimensions_m:
+      - 0.4
+      - 0.4
+      - 0.4
+      mass_kg: 7
+      kind: equipamento
+      estimated: true
+    - id: bomba
+      position_m:
+      - 1.2
+      - 1.32
+      - 0.38
+      dimensions_m:
+      - 0.2
+      - 0.12
+      - 0.12
+      mass_kg: 2.3
+      kind: equipamento
+      estimated: true
+    - id: inversor
+      position_m:
+      - 0.61
+      - 1.2
+      - 0.38
+      dimensions_m:
+      - 0.565
+      - 0.328
+      - 0.148
+      mass_kg: 30
+      kind: equipamento
+      estimated: true
+    - id: tanque_limpa
+      position_m:
+      - 0.05
+      - 0.65
+      - 0.03
+      dimensions_m:
+      - 0.8
+      - 0.5
+      - 0.25
+      mass_kg: 4.2
+      kind: equipamento
+      estimated: true
+    - id: tanque_cinza
+      position_m:
+      - 0.3
+      - 0.8
+      - -0.3
+      dimensions_m:
+      - 0.7
+      - 0.5
+      - 0.2
+      mass_kg: 3.8
+      kind: equipamento
+      estimated: true
+    - id: portatil_bolsa_1
+      position_m:
+      - 0.05
+      - 0.27
+      - 0.04
+      dimensions_m:
+      - 1.1
+      - 0.065
+      - 0.65
+      mass_kg: 21
+      kind: equipamento
+      estimated: true
+    - id: portatil_bolsa_2
+      position_m:
+      - 0.05
+      - 0.34
+      - 0.04
+      dimensions_m:
+      - 1.1
+      - 0.065
+      - 0.65
+      mass_kg: 21
+      kind: equipamento
+      estimated: true
+    - id: portatil_bolsa_3
+      position_m:
+      - 0.05
+      - 0.41000000000000003
+      - 0.04
+      dimensions_m:
+      - 1.1
+      - 0.065
+      - 0.65
+      mass_kg: 21
+      kind: equipamento
+      estimated: true
+    - id: portatil_bolsa_4
+      position_m:
+      - 0.05
+      - 0.48000000000000004
+      - 0.04
+      dimensions_m:
+      - 1.1
+      - 0.065
+      - 0.65
+      mass_kg: 21
+      kind: equipamento
+      estimated: true
+    - id: US5000_1
+      position_m:
+      - 0.06
+      - 1.33
+      - 0.04
+      dimensions_m:
+      - 0.442
+      - 0.42
+      - 0.161
+      mass_kg: 39.7
+      kind: equipamento
+      estimated: false
+    - id: US5000_2
+      position_m:
+      - 0.06
+      - 1.33
+      - 0.21100000000000002
+      dimensions_m:
+      - 0.442
+      - 0.42
+      - 0.161
+      mass_kg: 39.7
+      kind: equipamento
+      estimated: false
+    - id: US5000_3
+      position_m:
+      - 0.06
+      - 1.33
+      - 0.382
+      dimensions_m:
+      - 0.442
+      - 0.42
+      - 0.161
+      mass_kg: 39.7
+      kind: equipamento
+      estimated: false
+    - id: lava_seca
+      position_m:
+      - 1.32
+      - 0.45
+      - 0.02
+      dimensions_m:
+      - 0.62
+      - 0.6
+      - 0.85
+      mass_kg: 73
+      kind: equipamento
+      estimated: false
+    - id: hvac
+      position_m:
+      - 0.9
+      - 0.65
+      - 0.03
+      dimensions_m:
+      - 0.4
+      - 0.628
+      - 0.286
+      mass_kg: 21
+      kind: equipamento
+      estimated: false
+    - id: cama_colchao
+      position_m:
+      - 0.02
+      - 0.02
+      - 1.01
+      dimensions_m:
+      - 1.95
+      - 1.35
+      - 0.12
+      mass_kg: 12
+      kind: equipamento
+      estimated: true
+    B_conversivel_noite:
+    - id: geladeira_AC
+      position_m:
+      - 3.1
+      - 0.02
+      - 0.02
+      dimensions_m:
+      - 0.45
+      - 0.472
+      - 0.86
+      mass_kg: 20.8
+      kind: equipamento
+      estimated: false
+    - id: cassete
+      position_m:
+      - 2.1
+      - 1.234
+      - 0.04
+      dimensions_m:
+      - 0.427
+      - 0.383
+      - 0.414
+      mass_kg: 4
+      kind: equipamento
+      estimated: false
+    - id: cooktop_armazenado
+      position_m:
+      - 2.72
+      - 0.08
+      - 0.72
+      dimensions_m:
+      - 0.358
+      - 0.28
+      - 0.062
+      mass_kg: 2.3
+      kind: equipamento
+      estimated: false
+    - id: boiler
+      position_m:
+      - 1.35
+      - 0.65
+      - 0.03
+      dimensions_m:
+      - 0.4
+      - 0.4
+      - 0.4
+      mass_kg: 7
+      kind: equipamento
+      estimated: true
+    - id: bomba
+      position_m:
+      - 1.2
+      - 1.32
+      - 0.38
+      dimensions_m:
+      - 0.2
+      - 0.12
+      - 0.12
+      mass_kg: 2.3
+      kind: equipamento
+      estimated: true
+    - id: inversor
+      position_m:
+      - 0.61
+      - 1.2
+      - 0.38
+      dimensions_m:
+      - 0.565
+      - 0.328
+      - 0.148
+      mass_kg: 30
+      kind: equipamento
+      estimated: true
+    - id: tanque_limpa
+      position_m:
+      - 0.05
+      - 0.65
+      - 0.03
+      dimensions_m:
+      - 0.8
+      - 0.5
+      - 0.25
+      mass_kg: 4.2
+      kind: equipamento
+      estimated: true
+    - id: tanque_cinza
+      position_m:
+      - 0.3
+      - 0.8
+      - -0.3
+      dimensions_m:
+      - 0.7
+      - 0.5
+      - 0.2
+      mass_kg: 3.8
+      kind: equipamento
+      estimated: true
+    - id: portatil_bolsa_1
+      position_m:
+      - 0.05
+      - 0.27
+      - 1.12
+      dimensions_m:
+      - 1.1
+      - 0.065
+      - 0.65
+      mass_kg: 21
+      kind: equipamento
+      estimated: true
+    - id: portatil_bolsa_2
+      position_m:
+      - 0.05
+      - 0.34
+      - 1.12
+      dimensions_m:
+      - 1.1
+      - 0.065
+      - 0.65
+      mass_kg: 21
+      kind: equipamento
+      estimated: true
+    - id: portatil_bolsa_3
+      position_m:
+      - 0.05
+      - 0.41000000000000003
+      - 1.12
+      dimensions_m:
+      - 1.1
+      - 0.065
+      - 0.65
+      mass_kg: 21
+      kind: equipamento
+      estimated: true
+    - id: portatil_bolsa_4
+      position_m:
+      - 0.05
+      - 0.48000000000000004
+      - 1.12
+      dimensions_m:
+      - 1.1
+      - 0.065
+      - 0.65
+      mass_kg: 21
+      kind: equipamento
+      estimated: true
+    - id: US5000_1
+      position_m:
+      - 0.06
+      - 1.33
+      - 0.04
+      dimensions_m:
+      - 0.442
+      - 0.42
+      - 0.161
+      mass_kg: 39.7
+      kind: equipamento
+      estimated: false
+    - id: US5000_2
+      position_m:
+      - 0.06
+      - 1.33
+      - 0.21100000000000002
+      dimensions_m:
+      - 0.442
+      - 0.42
+      - 0.161
+      mass_kg: 39.7
+      kind: equipamento
+      estimated: false
+    - id: US5000_3
+      position_m:
+      - 0.06
+      - 1.33
+      - 0.382
+      dimensions_m:
+      - 0.442
+      - 0.42
+      - 0.161
+      mass_kg: 39.7
+      kind: equipamento
+      estimated: false
+    - id: lava_seca
+      position_m:
+      - 2.02
+      - 0.0
+      - 0.02
+      dimensions_m:
+      - 0.62
+      - 0.6
+      - 0.85
+      mass_kg: 73
+      kind: equipamento
+      estimated: false
+    - id: hvac
+      position_m:
+      - 0.9
+      - 0.65
+      - 0.03
+      dimensions_m:
+      - 0.4
+      - 0.628
+      - 0.286
+      mass_kg: 21
+      kind: equipamento
+      estimated: false
+    - id: cama_conversivel_colchao
+      position_m:
+      - 0.02
+      - 0.02
+      - 0.6
+      dimensions_m:
+      - 1.95
+      - 1.35
+      - 0.1
+      mass_kg: 12
+      kind: equipamento
+      estimated: true
+  layout_equipment_note: Posições e envelopes autoraisprovisórios; massas comerciais
+    rastreadas noBOM; estimatedfalse da massa não valida envelope/posição.
+  performance_envelope:
+    gear_ratio:
+    - 8
+    - 10
+    - 12
+    wheel_radius_m: 0.37211
+    gear_efficiency:
+    - 0.95
+    - 0.97
+    - 0.99
+    tyre_friction_mu:
+    - 0.6
+    - 0.8
+    peak_motor_w: 205000
+    peak_torque_nm: 410
+    speed_limit_kmh: 90
+    max_time_s: 120
+    note: Envelope torque constante/potencia constante é hipótese de cálculo; relação
+      e raio não dados homologados da variante; não curvaOEM.
+  thermal_sweep:
+    mass_kg:
+    - 500
+    - 650
+    - 800
+    battery_coolant_ua_w_k:
+    - 125
+    - 250
+    - 500
+    cooler_ambient_ua_w_k:
+    - 250
+    - 500
+    - 1000
+    powers_w:
+    - 20000
+    - 80000
+    note: Sensibilidades estimadas; massa pack apenas no modelo térmico, nunca adicionada
+      à tara.
+  mission_grid:
+    start_hours:
+    - 0
+    - 4
+    - 8
+    - 12
+    - 16
+    - 20
+    driving_window_hours:
+    - 2
+    - 4
+    - 8
+    speed_kmh:
+    - 10
+    - 20
+    - 30
+    - 40
+    - 60
+    - 80
+    - 90
+    reserves:
+    - - 0.1
+      - 0.2
+    - - 0.2
+      - 0.3
+    max_days: 1500
+    mode: direta_hipotese
+    hypothetical_min_dc_kw: 1
+    note: Busca exaustiva na grade especificada, não ótimo global contínuo e sem interfaceDC
+      demonstrada. Potência fixaOEM estimada em movimento,0/300/700/1500W; não confundir
+      com serviços.
+    auxiliary_sweep_w:
+    - 0
+    - 300
+    - 700
+    - 1500

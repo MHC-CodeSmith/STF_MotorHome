@@ -1,0 +1,51 @@
+{
+  "returncode": 0,
+  "time": "179",
+  "source_case": "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-02",
+  "patches": {
+    "ground": {
+      "min": 78.336113,
+      "max": 14746.522,
+      "average": 2042.7968
+    },
+    "aurora": {
+      "min": 31.733258,
+      "max": 2123.1421,
+      "average": 516.55079
+    }
+  },
+  "inputs_sha256": {
+    "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-02/constant/turbulenceProperties": "799f1a8d64f7f7ed3062acb01885e506ff37dadb83361882967d47de46c6880a",
+    "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-02/constant/transportProperties": "f13b5b1a2ce2d6c3bdc87e320bdd0f6c567acba58322baed10a9cf0597b8a428",
+    "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-02/constant/polyMesh/cellLevel": "d1822f8cb8547706830432008e98c90366c0705731fa08b255a516a85e83d1d8",
+    "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-02/constant/polyMesh/boundary": "87918cc4e0aab37aaba49652aaa7f6ec4b8d19de9ea271d28f81dd719253b0b8",
+    "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-02/constant/polyMesh/level0Edge": "1ca478c30bca863d670f7bc4df84c155307b0ac6d90fc21036a33fe71d1e8a8a",
+    "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-02/constant/polyMesh/pointLevel": "20a9730eff05d25c711d8341e8a48aa5f4a312f237ecd8681867c69031e0b6bf",
+    "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-02/constant/polyMesh/neighbour": "933c051a4da09c712d5e104cdd26b03eefb06d72a2b69b5206bf20bfcb774be9",
+    "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-02/constant/polyMesh/surfaceIndex": "9ec0ce2dcf68913258df7f0d8ecba489192b13c4662cc67e9e9df3ba0d136001",
+    "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-02/constant/polyMesh/cellZones": "0a1ae85b868235be40517ee2a6113a9501c5415c905a5ecbbb0e0679f61442d5",
+    "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-02/constant/polyMesh/pointZones": "bf8707b8f7790afbe530d4d8bc58ea13ccfa9214923baa41092bed1f719caf60",
+    "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-02/constant/polyMesh/owner": "d4f92178dafd8406003da65fd460e5e554cbe0ffeefab6d86246a35c2fac8144",
+    "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-02/constant/polyMesh/faces": "0a9156085dd1d84bf35f0150849c1c5c511087a7ce710cd538caee5a77738dbe",
+    "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-02/constant/polyMesh/faceZones": "68d5715ea9b4d426cc6d425639c036a4b8f0fd4b0e2c826b1d0cb8c22149f0ec",
+    "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-02/constant/polyMesh/points": "1243c440a0e11a0c5f783fce59cd44488e169de762a8dd52a3460c4fb749d566",
+    "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-02/constant/triSurface/aurora.stl": "61a781c82a40a360ff92fc88978c4d87406ef7afdb49e9d6a77115d17d09c8ab",
+    "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-02/system/snappyHexMeshDict": "7bcffc3854bc1074a0f920d8d991cd204f08e6c13fab617536fb4d6916b4c33e",
+    "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-02/system/fvSchemes": "46fe9737f3c3c7285aa0ad96d038228e7a1e0a640e6e779663169724371ca6ae",
+    "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-02/system/blockMeshDict": "3eb384f50e775cbd99e8081db0efe8f5221ae18461b1e2a84aef5fd8e0def349",
+    "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-02/system/controlDict": "b5a13d2dd6cf8801c4ddb1babff847a22203ebe2eaccb72464a3867ba5d32de5",
+    "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-02/system/fvSolution": "93bf665f8dfc2a8a86e6677104e7766950fabc4ea858b4cf43e74f92f2b5e577",
+    "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-02/179/omega": "9405403f4d53aa09b66b5099b34c467e9ba707b371da528d6894b430778bd31e",
+    "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-02/179/nut": "32d7e4dedafc3c13ef00c6ba2117af44e7ab1517e70df6f0442b2092b498a5a7",
+    "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-02/179/p": "23a76f7ffa9c9303786b02e5f73d6fce6e186715cc811221df808d0208fb4372",
+    "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-02/179/phi": "93e6509e3fd7970476a82cc7a744675d6d725764ec2222731799fcac6bc246ef",
+    "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-02/179/U": "661010ceea6a863938205b337be8c9227ed3b8b82dc103fec944fa979cf7def7",
+    "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-02/179/k": "4dc3d9b3a160a6603217161b21b1c8f875110ef889e865c588c80f4d416fe99a",
+    "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-02/179/uniform/time": "aefbd0fe7fb70f10189419b5cf610594193abbd19ed440e633f718b795c88c09",
+    "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-02/179/uniform/cumulativeContErr": "7ce3d65cc4ea4e436d8fb28738caedb77e208ec68945826efe6b01eb2c28634b",
+    "/home/mhc/motorhome_referencias_tarefas/cfd-aurora-refino-semcamadas-02/179/uniform/functionObjects/functionObjectProperties": "68cbd323198c37617007a521bd599b08b4654bbb11f5000b182a84d00daa3396"
+  },
+  "independent_mesh": false,
+  "physical_validation": false,
+  "note": "Pós-processamento de campos existentes, não nova simulação de geometria equipada."
+}

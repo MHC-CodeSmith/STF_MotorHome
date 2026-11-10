@@ -1,3 +1,5 @@
+# ATIVO: revisão1.1.0-execucao02; scripts/desenvolver_*.py, integrar_freios_massa.py, otimizar_grade_missao.py; verificar_desenvolvimento.py.
+# Bloco abaixo é registro do baseline29defc4; preservar como histórico.
 revision: 1.0.0-pos-DEC061
 active_shared_parameters: config/parametros_globais.yaml
 active_runner: scripts/conciliar_dec061.py

@@ -1,0 +1,7 @@
+mass_kg,regen_hypothesis_kw,front_dynamic_kg,rear_dynamic_kg,front_mu_demand_upper_bound,rear_mu_demand_upper_bound,note
+3973.02552776,0,2359.9745692017786,1613.0509585582213,0.48067483754651735,0.30139346983953325,"Repartição70/30estimada; sem dadosABS/pneus/limites regeneração. Valor inclui força total, conservador frente às resistências."
+3973.02552776,40,2359.9745692017786,1613.0509585582213,0.48067483754651735,0.30139346983953325,"Repartição70/30estimada; sem dadosABS/pneus/limites regeneração. Valor inclui força total, conservador frente às resistências."
+3973.02552776,80,2359.9745692017786,1613.0509585582213,0.48067483754651735,0.30139346983953325,"Repartição70/30estimada; sem dadosABS/pneus/limites regeneração. Valor inclui força total, conservador frente às resistências."
+4250.0,0,2524.497224854841,1725.502775145159,0.4806748375465174,0.30139346983953325,"Repartição70/30estimada; sem dadosABS/pneus/limites regeneração. Valor inclui força total, conservador frente às resistências."
+4250.0,40,2524.497224854841,1725.502775145159,0.4806748375465174,0.30139346983953325,"Repartição70/30estimada; sem dadosABS/pneus/limites regeneração. Valor inclui força total, conservador frente às resistências."
+4250.0,80,2524.497224854841,1725.502775145159,0.4806748375465174,0.30139346983953325,"Repartição70/30estimada; sem dadosABS/pneus/limites regeneração. Valor inclui força total, conservador frente às resistências."

@@ -1,0 +1,61 @@
+{
+  "dc_i_a": 569.4444444444445,
+  "mesh": [
+    {
+      "nr_por_material": 8,
+      "ntheta": 32,
+      "celulas": 512,
+      "joule_w_m": 41.26078912946248,
+      "removido_w_m": 41.26078912854828,
+      "residuo_w_m": 9.141984946836601e-10,
+      "residuo_max_celula_w_m": 1.128682338563669e-10,
+      "temperatura_media_feixe_k": 377.5634832699201,
+      "temperatura_max_k": 377.5751783769556,
+      "variacao_angular_superficie_k": 5.349548393811062
+    },
+    {
+      "nr_por_material": 16,
+      "ntheta": 64,
+      "celulas": 2048,
+      "joule_w_m": 41.26075589767069,
+      "removido_w_m": 41.260755891012664,
+      "residuo_w_m": 6.658027018602297e-09,
+      "residuo_max_celula_w_m": 2.9860984063039e-10,
+      "temperatura_media_feixe_k": 377.5632103440211,
+      "temperatura_max_k": 377.57493207391343,
+      "variacao_angular_superficie_k": 5.368610405887409
+    },
+    {
+      "nr_por_material": 32,
+      "ntheta": 128,
+      "celulas": 8192,
+      "joule_w_m": 41.260747514577474,
+      "removido_w_m": 41.26074753380621,
+      "residuo_w_m": -1.922873593684926e-08,
+      "residuo_max_celula_w_m": 6.610520140450885e-10,
+      "temperatura_media_feixe_k": 377.5631414953937,
+      "temperatura_max_k": 377.57486305990693,
+      "variacao_angular_superficie_k": 5.373374408039695
+    }
+  ],
+  "verification": {
+    "radial_max_error_k": [
+      0.0006205839524682233,
+      0.00017345147051628373,
+      4.794092717474996e-05
+    ],
+    "harmonic_2d_rms_error_k": [
+      0.00538766392038257,
+      0.0013497271347338688,
+      0.00033759161494702525
+    ],
+    "radial_observed_orders": [
+      1.8390943192427258,
+      1.8552023557928767
+    ],
+    "harmonic_observed_orders": [
+      1.9969920822651168,
+      1.9993168006439739
+    ]
+  }
+}

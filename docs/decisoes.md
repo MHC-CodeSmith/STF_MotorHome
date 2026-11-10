@@ -91,3 +91,8 @@ O usuário autorizou execução técnica provisória e preservação das61decis�
 `config/parametros_globais.yaml` foi migrado do scaffold0.0.0 para1.0.0-pos-DEC061, com registros por parâmetro e proveniência. O estado anterior é recuperável no commit `2ef84f67c3aa820633b0565e92c0a23ea810302b`; não é substituído no histórico. Alteração deliberada afeta os35itens: arquiteturaB, independência dos bancos,220V60Hz, consumo diário simplificado,100%SOC inicial nos dois bancos da missão,7000kmplano, equipamentos e seleções provisórias.
 
 `config/servicos_proposta.yaml` é agora explicitamente histórico e não descreve caminho via banco auxiliar como proposta vigente. Os runners antigos de interface/agenda/rota/viagem exigem `--historico`; o novo runner lê exclusivamente parâmetros compartilhados da fonte canônica. Os resultados anteriores não tiveram seus hashes ou números reescritos. Modelo de freios foi estendido para receber potência de atrito já descontadas resistências e recuperação, preservando a API anterior. A conferência atual está em `docs/INTEGRACAO_POS_DEC061.md`; nenhuma aprovação humana foi acrescentada.
+
+
+## Execução técnica02 — revisão1.1.0,09/11/2026
+
+DEC001–061 preservadas. Sob DEC061, layoutA provisório, massa3973.0255kg estimada, inventário/CG/eixos hipotéticos, FEMtrilhos, CFDcabine3D, grade1008missões, auxiliares de tração700W e sensibilidade0/300/700/1500W. Fontes/limites e reprodução em `EXECUCAO_TECNICA02.md`. Não altera deliberações;0aprovações finais. Baseline29defc4 preservado, executor conciliar antigo bloqueia revisão1.1 para impedir atualização indevida de evidências históricas.

@@ -1,0 +1,6 @@
+{
+  "guard_passed": true,
+  "returncode": 1,
+  "historical_manifest_unchanged": true,
+  "stderr": "Traceback (most recent call last):\n  File \"/home/mhc/motorhome_solar_codex_tarefas/scripts/conciliar_dec061.py\", line 401, in <module>\n    main()\n  File \"/home/mhc/motorhome_solar_codex_tarefas/scripts/conciliar_dec061.py\", line 73, in main\n    raise ValueError('Executor do baseline29defc4; revis\u00e3o atual: scripts/desenvolver_*.py e scripts/verificar_desenvolvimento.py. Reproduzir o baseline no commit29defc4.')\nValueError: Executor do baseline29defc4; revis\u00e3o atual: scripts/desenvolver_*.py e scripts/verificar_desenvolvimento.py. Reproduzir o baseline no commit29defc4.\n"
+}

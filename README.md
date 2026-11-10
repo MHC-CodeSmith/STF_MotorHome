@@ -1,3 +1,5 @@
+> Estado atual: [execução técnica02](docs/EXECUCAO_TECNICA02.md), fonte1.1.0-execucao02. O baseline pósDEC061 abaixo permanece histórico; etapa técnica completa ainda aberta.
+
 # Execução atual — conciliação DEC-001 a DEC-061
 
 [Integração e resultados atuais](docs/INTEGRACAO_POS_DEC061.md) · [35itens](docs/REVISAO_35_ITENS.md) · [61decisões rastreadas](docs/MATRIZ_DECISOES_61.md) · [aprovações finais pendentes](docs/APROVACOES_FINAIS_PENDENTES.md).

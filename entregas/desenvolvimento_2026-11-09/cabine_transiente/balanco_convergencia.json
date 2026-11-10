@@ -1,0 +1,176 @@
+{
+  "cases": [
+    {
+      "mesh": [
+        24,
+        10,
+        10
+      ],
+      "dt_max_s": 0.1,
+      "heat_faces": [
+        {
+          "time_s": 250.0,
+          "mean_k": 323.70935025865543,
+          "flux_w": {
+            "front": -43.2718675614288,
+            "rear": -3.918867471498353,
+            "left": -0.1913247975712457,
+            "right": 1.7113309857034038,
+            "roof": 22.046246309099452,
+            "floor": 18.691637241020842
+          },
+          "net_w": -4.932845294674699
+        },
+        {
+          "time_s": 300.0,
+          "mean_k": 323.6962277063625,
+          "flux_w": {
+            "front": -43.74979665641035,
+            "rear": -3.92196335840053,
+            "left": -0.14383700758217827,
+            "right": 1.77242943102714,
+            "roof": 22.133982881164503,
+            "floor": 18.845443875756086
+          },
+          "net_w": -5.063740834445333
+        }
+      ],
+      "stored_energy_change_j": -252.0873765312295,
+      "integrated_boundary_heat_j": -249.91465322800082,
+      "balance_residual_j": 2.172723303228679,
+      "relative_to_absolute_boundary_transfer": 0.000481760228005012,
+      "quadrature": "trapézio de snapshots250/300s; não integração exata dos passos internos"
+    },
+    {
+      "mesh": [
+        36,
+        15,
+        15
+      ],
+      "dt_max_s": 0.1,
+      "heat_faces": [
+        {
+          "time_s": 250.0,
+          "mean_k": 323.5885425834633,
+          "flux_w": {
+            "front": -55.95454788033172,
+            "rear": -4.789139891344391,
+            "left": 0.43841946396203546,
+            "right": 2.733672418770232,
+            "roof": 26.193962244128063,
+            "floor": 26.116587726356467
+          },
+          "net_w": -5.26104591845931
+        },
+        {
+          "time_s": 300.0,
+          "mean_k": 323.57501055185634,
+          "flux_w": {
+            "front": -56.446268208244334,
+            "rear": -4.802395340287344,
+            "left": 0.5079850543119149,
+            "right": 2.8226865611633274,
+            "roof": 26.41782049954216,
+            "floor": 26.37047384499249
+          },
+          "net_w": -5.129697588521787
+        }
+      ],
+      "stored_energy_change_j": -259.9535723532616,
+      "integrated_boundary_heat_j": -259.7685876745274,
+      "balance_residual_j": 0.18498467873422442,
+      "relative_to_absolute_boundary_transfer": 3.1676277831920596e-05,
+      "quadrature": "trapézio de snapshots250/300s; não integração exata dos passos internos"
+    },
+    {
+      "mesh": [
+        48,
+        20,
+        20
+      ],
+      "dt_max_s": 0.1,
+      "heat_faces": [
+        {
+          "time_s": 250.0,
+          "mean_k": 323.4767109225433,
+          "flux_w": {
+            "front": -66.9469646952873,
+            "rear": -5.436830211532506,
+            "left": 1.0546764905245414,
+            "right": 3.735013601085658,
+            "roof": 32.521726668330665,
+            "floor": 32.5496702643586
+          },
+          "net_w": -2.5227078825203444
+        },
+        {
+          "time_s": 300.0,
+          "mean_k": 323.4703016165454,
+          "flux_w": {
+            "front": -67.24241054908059,
+            "rear": -5.451542056596182,
+            "left": 1.0997046245152982,
+            "right": 3.790946830406045,
+            "roof": 32.65252113127323,
+            "floor": 32.711708993551696
+          },
+          "net_w": -2.439071025930499
+        }
+      ],
+      "stored_energy_change_j": -123.12430526724837,
+      "integrated_boundary_heat_j": -124.04447271127108,
+      "balance_residual_j": -0.9201674440227094,
+      "relative_to_absolute_boundary_transfer": 0.00012905858608002285,
+      "quadrature": "trapézio de snapshots250/300s; não integração exata dos passos internos"
+    },
+    {
+      "mesh": [
+        36,
+        15,
+        15
+      ],
+      "dt_max_s": 0.05,
+      "heat_faces": [
+        {
+          "time_s": 250.0,
+          "mean_k": 323.58897692085725,
+          "flux_w": {
+            "front": -55.95081258990216,
+            "rear": -4.795679024254381,
+            "left": 0.437182914625889,
+            "right": 2.733237729721772,
+            "roof": 26.195163462699796,
+            "floor": 26.152069901985843
+          },
+          "net_w": -5.228837605123245
+        },
+        {
+          "time_s": 300.0,
+          "mean_k": 323.5755211492178,
+          "flux_w": {
+            "front": -56.44428657544767,
+            "rear": -4.809501996128465,
+            "left": 0.5061825832728285,
+            "right": 2.8215984108548064,
+            "roof": 26.41944218281652,
+            "floor": 26.407624190548315
+          },
+          "net_w": -5.098941204083664
+        }
+      ],
+      "stored_energy_change_j": -258.4886000882179,
+      "integrated_boundary_heat_j": -258.1944702301727,
+      "balance_residual_j": 0.294129858045153,
+      "relative_to_absolute_boundary_transfer": 5.034901473397092e-05,
+      "quadrature": "trapézio de snapshots250/300s; não integração exata dos passos internos"
+    }
+  ],
+  "finest_mesh_mean_delta_k": 0.1047089353109314,
+  "half_step_mean_delta_k": 0.0005105973614831782,
+  "acceptable_physical_result": false,
+  "notes": [
+    "Balanço utiliza o mesmo fluxo discreto e Cp/rho constantes assumidos.",
+    "Independência de máximo/estratificação e funções de parede não demonstradas.",
+    "SIMPLE não convergiu; transiente fornece evolução e diagnóstico, não contorno validado."
+  ]
+}

@@ -69,6 +69,8 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
     master = ROOT/'config/parametros_globais.yaml'
     cfg = yaml.safe_load(master.read_text())
+    if cfg['revision'] != '1.0.0-pos-DEC061':
+        raise ValueError('Executor do baseline29defc4; revisão atual: scripts/desenvolver_*.py e scripts/verificar_desenvolvimento.py. Reproduzir o baseline no commit29defc4.')
     params = cfg['parameters']
     p = {k: v['value'] for k, v in params.items()}
     decision_path = ROOT/cfg['decision_record']

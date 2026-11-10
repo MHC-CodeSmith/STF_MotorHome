@@ -1,0 +1,56 @@
+{
+  "operating_point": {
+    "flow_m3_s": 0.0005308498214128647,
+    "flow_l_min": 31.850989284771885,
+    "mass_flow_kg_s": 0.557392312483508,
+    "pump_pressure_pa": 71625.7450267194,
+    "current_a": 8.0,
+    "electric_power_w": 96.0,
+    "hydraulic_power_w": 38.022513955997375,
+    "pump_electrohydraulic_efficiency": 0.396067853708306,
+    "pressure_residual_pa": 1.4551915228366852e-11,
+    "system": {
+      "total_pa": 71625.74502671939,
+      "tubos_pa": 11163.846125617285,
+      "singularidades_pa": 11992.035243322003,
+      "componentes_pa": 48469.86365778011,
+      "re": 23656.464472846037,
+      "f_darcy": 0.024825024052157925
+    }
+  },
+  "thermal_equilibria": [
+    {
+      "combined_efficiency_assumed": 0.85,
+      "motor_inverter_loss_w": 36176.4705882353,
+      "pump_heat_assumed_w": 96.0,
+      "radiator_load_w": 36272.4705882353,
+      "hot_inlet_k": 364.505176526822,
+      "coolant_outlet_k": 345.91223436901873,
+      "air_outlet_k": 334.2061337855221,
+      "coolant_rise_k": 18.5929421578033,
+      "field_heat_residual_to_load_w": 0.34246837814862374
+    },
+    {
+      "combined_efficiency_assumed": 0.9,
+      "motor_inverter_loss_w": 22777.77777777779,
+      "pump_heat_assumed_w": 96.0,
+      "radiator_load_w": 22873.77777777779,
+      "hot_inlet_k": 339.9942289059855,
+      "coolant_outlet_k": 328.2693361634821,
+      "air_outlet_k": 320.88735365584273,
+      "coolant_rise_k": 11.724892742503423,
+      "field_heat_residual_to_load_w": 0.21596393769141287
+    },
+    {
+      "combined_efficiency_assumed": 0.95,
+      "motor_inverter_loss_w": 10789.473684210514,
+      "pump_heat_assumed_w": 96.0,
+      "radiator_load_w": 10885.473684210514,
+      "hot_inlet_k": 318.06338103471063,
+      "coolant_outlet_k": 312.48358513747553,
+      "air_outlet_k": 308.970550381919,
+      "coolant_rise_k": 5.579795897235098,
+      "field_heat_residual_to_load_w": 0.10277575411055295
+    }
+  ]
+}
