@@ -5,7 +5,7 @@
 ## Workspace / Git / leitura
 
 - Exclusivo `/home/mhc/motorhome_solar_codex_tarefas`,branch `hub/tarefas-motorhome-com-codex`. Não editar `/home/mhc/motorhome_solar_codex`.
-- Antes desta rodadaHEAD/main`a0f86f3`,técnico`c509c4b`;base solicitada`29defc4`,não resetar. Push `git push origin HEAD:main` já autorizado;originSSH`git@github.com:MHC-CodeSmith/STF_MotorHome.git`.
+- Commit técnico desta rodada **`60541a0`**;anteriorHEAD/main`a0f86f3`,técnico`c509c4b`;base solicitada`29defc4`,não resetar. Push `git push origin HEAD:main` já autorizado;originSSH`git@github.com:MHC-CodeSmith/STF_MotorHome.git`.
 - LerAGENTS,fim`EXECUCAO_TECNICA02.md`,`REVISAO_TECNICA_EXECUCAO02.md`,`PROTECOES_SERVICOS_MODELO.md`. `BLOQUEIOS_POS_DEC061.md`/`PLANO_EXECUCAO_POS_DEC061.md` agora conciliados,sem comandos históricos indevidos. Única lista finalA01–A16:`APROVACOES_FINAIS_PENDENTES.md`.
 - Fonte única **`config/parametros_globais.yaml` revisão1.1.1-execucao1540**,base1350Wp preservada. Sobreposição **`development.integrated_scenarios.maxeon1540_independente`**,selecionada por`MOTORHOME_SCENARIO`;`motorhome.cenarios` geraJSONresolvido/snapshotshashados/entradaspor executor,que são saídas,não fonteeditável. Não alterarYAML durante pipeline.
 
@@ -52,3 +52,5 @@ Pipeline17estágios/logs/JSON17returncodes0;**último `output/pipeline1540_verif
 Bloqueiosreais:faltaautorização/mínimos/protocoloDCOEM,ancoragens/eixos/pressões/mapas/redutor/óleoOEM,partidasHVAC,fusívelI²t/impedância/PE-DR/ampacidade,atuadorescomissionados,mediçãoCAD/teto/curvatura/contato/fadiga/CHTreal,instalação/custoBRL. Não preencherporinvenção/nemconsideraraprovaçãohumanacompleta. Avançarapenasproblema concretamenteexecutável,nãorepetirpesquisaDCindefinidamenteouvoltar aplanosgenéricos. Nenhum equipamento comprado/instalado/ensaiofísico/contatoterceiro.
 
 Ambiente:shellgeralmente`require_escalated`porbwrap,semrejeiçãopendente. PYTHONPATHsrc/.venvPython;Ruffglobal. OpenFOAM2412patch260127em`/home/mhc/motorhome_referencias_tarefas/software/openfoam2412-local/usr/lib/openfoam/openfoam2412`. RAMúltima2,7GB/swap7,2GB;CFDexige novosdestinos. Webvia`mcp__codex_apps__search_service_web_run`. Históricoantigo`RETOMADA_HISTORICO_ATE_2026-11-10.md`;númerosdesta nota prevalecem.
+
+**Publicação desta rodada:** commit60541a0 é local. Revisão automática rejeitou pushHEAD:main por não encontrar autorização explícita no contexto confiável. Não repetir push/contornar. Completar verificações locais e pedir aprovação apenas para publicação remota;nenhum bloqueio aos estudos locais.
