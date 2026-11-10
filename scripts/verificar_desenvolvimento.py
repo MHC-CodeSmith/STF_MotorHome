@@ -66,6 +66,41 @@ def main():
     missions=json.loads((OUT/'energia_sistemas/I29_missoes_massas_integradas.json').read_text())
     for row in missions:
         check(abs(row['energy_residual_kwh'])<1e-6 and not row['physical_mission_demonstrated'] and row['external_electric_energy_kwh']==0,f'I29 {row["id"]}: conservação e estado físico')
+        # Independent power equation catches accidental omission of fixed
+        # traction auxiliaries at the model-to-mission integration boundary.
+        speed=row['speed_kmh'];v=speed/3.6
+        wheel=(.5*params['rho_range'][1]*params['cd_range'][1]*params['area_m2']*v*v+params['crr_range'][1]*row['mass_kg']*9.80665)*v/1000
+        expected=(wheel/params['eta_traction_range'][1]+params['traction_aux_assumed_w']/1000)/speed
+        check(abs(row['kwh_km']-expected)<1e-10 and abs(row['totals']['traction_used_kwh']-row['distance_km']*expected)<1e-6,f'I29 {row["id"]}: auxiliares de tração efetivamente consumidos')
+    dispatch=json.loads((OUT/'despacho_i25/resumo.json').read_text())
+    check(dispatch['cases_milp']==630 and not dispatch['interface_demonstrated'],'I25:630alocações sem inferir interface física')
+    check(dispatch['configuration_sha256']==sha(ROOT/'config/parametros_globais.yaml'),'I25: configuração efetivamente executada')
+    for path in (OUT/'despacho_i25').glob('perfil_*.csv'):
+        f=pd.read_csv(path);dt=float(f.start_h.iloc[1]-f.start_h.iloc[0])
+        minimum=float(re.search(r'_min([0-9.]+)kW',path.name)[1])
+        on=f.fv_traction_kwh>1e-7
+        check((f.loc[on,'parked_for_charge']).all() and (f.loc[on,'driving_h']==0).all(),f'{path.name}: somente DC estacionária')
+        check((f.loc[on,'fv_traction_kwh']>=minimum*dt-1e-6).all(),f'{path.name}: mínimoDC respeitado')
+        check(f.solar_credit_start_kwh.iloc[0]==0 and f.solar_credit_end_kwh.min()>-1e-6,f'{path.name}: não consome tração inicial')
+        check(np.max(np.abs(f.pv_kw*dt-f.fv_traction_kwh-f.fv_services_kwh-f.fv_curtailed_kwh))<1e-6 and f.fv_curtailed_kwh.min()>-1e-6,f'{path.name}: FV sem dupla contagem')
+        check(np.max(np.abs(f.solar_credit_end_kwh-f.solar_credit_start_kwh-f.hv_received_kwh+f.traction_used_kwh))<1e-6,f'{path.name}: balanço do crédito solar')
+        check(abs(f.service_end_kwh.iloc[-1]-f.service_start_kwh.iloc[0])<1e-6,f'{path.name}: serviços cíclicos')
+        load=sum(x['energy_ac_or_dc_kwh_day']['base']/(params['eta_inverter'] if x['side']=='AC' else params['eta_lv']) for x in c['loads'])+params['inverter_idle_w']*24/1000
+        if 'servicos0_' in path.name:load=0.
+        check(np.max(np.abs(f.service_end_kwh-f.service_start_kwh-params['eta_service_charge']*f.fv_services_kwh+load/len(f)))<1e-6,f'{path.name}: energia de serviços verificada independentemente')
+    chronology=pd.read_csv(OUT/'otimizacao_grade/sanitaria_cronologia.csv')
+    check(chronology.balance_residual_l.abs().max()<1e-7 and chronology.clean_l.between(0,100).all() and chronology.grey_l.between(0,70).all() and chronology.black_l.between(0,20).all(),'Cronologia hídrica: conservação e capacidades')
+    for scenario,events in chronology.groupby('scenario'):
+        source=pd.read_csv(OUT/f'otimizacao_grade/melhor_reservas{scenario}.csv.gz')
+        ok=True
+        for day,group in events.groupby('day'):
+            ordered=group.sort_values('start_h')
+            ok &= bool((ordered.start_h.to_numpy()[1:]>=ordered.end_h.to_numpy()[:-1]-1e-9).all())
+            part=source[source.day==day]
+            for row in group.itertuples():
+                overlap=part[(part.hour_end>row.start_h+1e-9)&(part.hour_end-.25<row.end_h-1e-9)]
+                ok &= len(overlap)>0 and bool((overlap.driving_h_interval==0).all())
+        check(ok,f'{scenario}: água sem sobreposição/condução, conferida contra replay')
     grid=json.loads((OUT/'otimizacao_grade/resumo.json').read_text())
     check(grid['cases']==1008 and grid['energy_residual_max_kwh']<1e-6 and not grid['global_optimality_proven'],'Grade1008 sem alegar ótimo global')
     for path in (OUT/'otimizacao_grade').glob('melhor_*.csv.gz'):

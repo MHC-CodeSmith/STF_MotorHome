@@ -56,3 +56,36 @@ Ainda há trabalho executável no detalhamento de fixações/rotasCAD, proteçã
 ## Verificação do checkpoint
 
 208testes passaram;Ruff passou;estrutura35/7 passou;auditoria sem erros estruturais. QAintegrado:90controles físicos/integração,140entradas e676saídas por hash;STEP reimportados com volumes positivos. Campos da cabine e vistas deCAD inspecionados visualmente. O verificador foi reexecutado sem--registrar para conferir o manifesto. A guarda do executor antigo recusou revisão1.1 antes de alterar o manifesto histórico.
+
+## Continuação técnica — 10/11/2026
+
+I25 agora tem despacho temporal reproduzível, além do antigo teto de energia (preservado e identificado como tal). `scripts/desenvolver_despacho_i25.py` executou **630 MILP**:35partidas entre06–23h×3mínimosDC×2tratamentos de serviços×3passos30/15/5min. Cada janela admite uma parada inicial e condução posterior até24h; ângulo portátil fixo escolhido entre24orientações pela energia da parada. O MILP maximiza energia solar destinada à tração, com perdas, mínimoDC, energia/capacidade do banco de serviços e condição cíclica. Não transfere energia entre bancos. A grade de partidas e orientação por colheita FV não provam ótimo global de políticas com várias paradas. Não há limite8h importado doI29.
+
+O crédito solar da tração inicia **zero**, sobre SOCbase30% que não pode ser gasto; só a geração do próprio dia financia a condução. Comparador com serviços parte/termina7,2kWh no banco14,4kWh, sem consumo líquido da energia inicial. Portáteis são retirados antes da partida e não voltam a operar naquele dia, mesmo que a condução termine antes24h. Mínimos0/1/3kW na **entrada FV da cadeiaDC** são hipóteses, assim como rendimento90%; não são mínimosOEM ou evidência de carregador existente.
+
+|I25,passo5min|40km/h|80km/h|
+|---|---:|---:|
+|Só tração,mínimoDC1kW|48,0743km|26,6488km|
+|Serviços cíclicos7,22883kWh/d,mínimoDC1kW|24,1633km|13,3943km|
+|MínimoDC3kW|0km|0km|
+
+No caso1kW/sótração, a melhor partida da grade foi16h30; com serviços,18h30. Diferença15→5min≤0,04076km nos casos40/80;30→5min chega0,88036km por sensibilidade ao limiar de potência. Sem interface demonstrada, o controle de autonomia solar da tração continua **0km**. Resultados estão em `entregas/desenvolvimento_2026-11-09/despacho_i25/`:resumo,curva10–90km/h,partidas,36perfis completos e sensibilidade de passo. A figura foi inspecionada visualmente.
+
+**Correção de integração:** os32replays de `energia_sistemas/I29_missoes_massas_integradas.json` omitiam o auxiliar de tração na chamada a `consumo_plano`, embora a grade1008 já o incluísse. Corrigida a chamada para700W;32casos reexecutados, com consumo e potência auxiliar registrados por cenário. Exemplo3973kg:0,22502767kWh/km a40km/h; controle reserva10% agora391,9518km. A grade1008 não mudou e não precisou reexecução. Resultados anteriores estão no históricoGit9e70fd7; não foram promovidos a medições.
+
+**Água:** `scripts/detalhar_paradas_hidricas.py` gerou9.572eventos nos8melhoresreplays, com tomada de água em lotes distribuídos pela janela estacionária. Reabastecimento/descarte15min precede o uso quando necessário; os horários são distintos, não coincidem com condução nem com montagem/recolhimentoFV. Consumo-base60L/dia, lavanderia68,8L semanal; último dia proporcional à duração. Conservação erro máximo≈9,1e−13L;capacidades100/70/20 respeitadas. Arquivos `otimizacao_grade/sanitaria_cronologia*.{csv,json}`. É uma escala hídrica condicional, não disponibilidade geográfica de instalações nem duração validada dos ciclos; energia continua médiaDEC046, sem recargaexterna e sem reexecutar missão elétrica. O CSV sanitário diário anterior permanece histórico de agregação, não escala detalhada.
+
+Novos parâmetros de estudo estão nas seções `development.daily_dispatch` e `development.water_chronology` da fonte única, com fontehyp,responsável,data,versão,confiança/status. As61decisões permanecem intactas. Testes novos usam casos analíticos de alocação/perdas/mínimoDC/energia inicial e agenda hídrica; a QA confere o consumo dos32replays por equação independente e confronta os eventos com os perfis efetivos de condução.
+
+```bash
+PYTHONPATH=src .venv/bin/python scripts/desenvolver_despacho_i25.py
+PYTHONPATH=src .venv/bin/python scripts/desenvolver_energia_sistemas.py
+PYTHONPATH=src .venv/bin/python scripts/detalhar_paradas_hidricas.py
+PYTHONPATH=src .venv/bin/python scripts/registrar_execucao02.py
+PYTHONPATH=src .venv/bin/python scripts/verificar_desenvolvimento.py --registrar
+PYTHONPATH=src .venv/bin/python scripts/verificar_desenvolvimento.py
+PYTHONPATH=src .venv/bin/python -m pytest -q
+ruff check src scripts tests
+```
+
+216testes passaram;Ruff passou. A contagem vigente de verificações integradas/hashes está em `qa.json`. A etapa completa continua aberta: próxima frente executável é proteção/comandoSOC/fixações, seguida de integração geométricaCFD. InterfaceDC permanece não demonstrada; nenhum equipamento comprado/instalado e nenhuma aprovação final inferida.

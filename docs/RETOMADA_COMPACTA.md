@@ -1,3 +1,15 @@
+# Continuação10/11/2026 — ler antes do checkpoint09/11
+
+- Desenvolvimento continua aberto;sem relatório/slides/aprovações individuais. Workspace/branch/restrições abaixo permanecem.
+- **ImplementadoI25temporal:** `src/motorhome/despacho_diario.py`, `scripts/desenvolver_despacho_i25.py`;630MILP,30/15/5min,uma parada inicial+carga,condução depois. Crédito solarHVinicial0 sobreSOCbase30% intocável;serviçoscomparador inicial=final7.2kWh. Sem energia armazenada entre bancos. MínimosDC0/1/3kW entrada são hipóteses.
+- I25a5min,1kW: sótração40/80=48.0743/26.6488km;comserviços=24.1633/13.3943km;3kW não inicia,0km. Δ15→5min≤.04076km. `entregas/desenvolvimento_2026-11-09/despacho_i25/` contém curva/perfis/resumo/convergência. Sem interface física:controle0km.
+- **Bug corrigido:**32replaysI29 de `desenvolver_energia_sistemas.py` omitiam700Waux;corrigidos/reexecutados. Grade1008 já incluíaaux,não reexecutar. Exemplo3973kg40km/h=.225027672kWh/km,controle10%391.9518km. Resultados anteriores noGit9e70fd7.
+- **Água:** `scripts/detalhar_paradas_hidricas.py`;9572eventos/8replays em `otimizacao_grade/sanitaria_cronologia*`;refill/disposal antesuso,sem sobreposição/condução/montagemFV,erro≈9.1e−13L. Postos geográficos e ciclos reais não comprovados;energia médiaDEC046 preservada.
+- YAML1.1 acrescido `development.daily_dispatch`/`water_chronology` com metadados;registro61intacto. Revisão35eQAintegradas atualizadas;216testes/Ruff passaram. QA/hash atuais em `qa.json`/`manifesto.json`;não regenerar manifestos históricos.
+- Reprodução/comandos/limites completos no fim de `docs/EXECUCAO_TECNICA02.md`. Próxima frente:proteções/comandoSOC/fixações;CFDgeometria/camadas conformeRAM. Não repetir pesquisaDC já delimitada.
+
+---
+
 # Retomada rápida — motorhome,09/11/2026
 
 **Objetivo ainda em execução:** desenvolver tecnicamente os35itens sobDEC001–061. Continuar autonomamente; não esperar aprovação individual, não preparar relatório/slides e não declarar a etapa completa.35itens revisados;0aprovações humanas finais.

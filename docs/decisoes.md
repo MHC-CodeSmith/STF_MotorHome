@@ -96,3 +96,7 @@ O usuário autorizou execução técnica provisória e preservação das61decis�
 ## Execução técnica02 — revisão1.1.0,09/11/2026
 
 DEC001–061 preservadas. Sob DEC061, layoutA provisório, massa3973.0255kg estimada, inventário/CG/eixos hipotéticos, FEMtrilhos, CFDcabine3D, grade1008missões, auxiliares de tração700W e sensibilidade0/300/700/1500W. Fontes/limites e reprodução em `EXECUCAO_TECNICA02.md`. Não altera deliberações;0aprovações finais. Baseline29defc4 preservado, executor conciliar antigo bloqueia revisão1.1 para impedir atualização indevida de evidências históricas.
+
+### 10/11/2026 — parâmetros de despachoI25 e cronologia hídrica
+
+Sem alterar DEC001–061: adicionadas hipóteses `development.daily_dispatch` e `development.water_chronology` na fonte única1.1.0-execucao02. Registram grade/contornos para o despachoI25 só com solar do próprio dia e detalhamento hídrico das melhores missões. Corrigida omissão dos700W de auxiliares de tração em32replays;grade1008 já correta. Fontes/métodos/limites e comandos em `EXECUCAO_TECNICA02.md`;hardwareDC/proteções continua não demonstrado. Nenhuma escolha final ou alteração da meta1540Wp.

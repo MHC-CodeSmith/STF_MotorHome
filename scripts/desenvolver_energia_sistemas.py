@@ -123,7 +123,7 @@ def main():
         sol=pd.read_csv(source)
         driving=sol.planned_driving.astype(str).str.lower().eq('true').tolist()
         for m,speed,reserve,mode in itertools.product([mass,4250],[40,80],[(.1,.2),(.2,.3)],['sem_interface','direta_hipotese']):
-            kwh_km=consumo_plano(speed,m,*params)['kwh_km']
+            kwh_km=consumo_plano(speed,m,*params,aux_traction_kw=p['traction_aux_assumed_w']/1000)['kwh_km']
             r=simular_missao(sol.roof_kw.tolist(),sol.portable_kw.tolist(),driving,
                 speed_kmh=speed,kwh_km=kwh_km,service_kwh_day=service_day,
                 traction_capacity_kwh=p['traction_usable_kwh'],service_capacity_kwh=14.4,
@@ -132,7 +132,7 @@ def main():
             profile=r.pop('trace');r.pop('daily')
             ident=f'{name}_{m:.3f}_{speed}_{reserve[0]}_{mode}'
             pd.DataFrame(profile).to_csv(out/f'missao_{ident}.csv.gz',index=False,compression='gzip')
-            missions.append(dict(id=ident,mass_kg=m,speed_kmh=speed,reserve_traction=reserve[0],reserve_service=reserve[1],**r))
+            missions.append(dict(id=ident,mass_kg=m,speed_kmh=speed,auxiliary_traction_w_assumed=p['traction_aux_assumed_w'],kwh_km=kwh_km,reserve_traction=reserve[0],reserve_service=reserve[1],**r))
     (out/'I29_missoes_massas_integradas.json').write_text(json.dumps(missions,indent=2,ensure_ascii=False)+'\n')
     print(json.dumps({'service_kwh_day':service_day,'mass_kg':mass,'daily':daily,'mission_count':len(missions)},ensure_ascii=False))
 
