@@ -2,7 +2,7 @@
 
 **Objetivo aberto:** executar os 35 itens sob DEC-001–061 até o limite técnico demonstrável. O usuário pediu continuar até o fim, com escolhas provisórias autônomas; não devolver apenas planos, pedir aprovações individuais ou preparar relatório/slides. **35 revisados, zero aprovações humanas; etapa integral não concluída.**
 
-## Continuação vigente após d525780 — prevalece sobre números anteriores
+## Continuação vigente — commit técnico c509c4b — prevalece sobre números anteriores
 
 - **Fixações:** `redimensionar_fixacoes.py`/`protecoes.grupo_parafusos_espacial`:378alternativas,54geometrias×216cargas;18interfaces locais selecionadas,maxutilização0,97135. Não são furaçõesOEM;orientação/furação reais,inversor de parede,contato/prying/fadiga continuam abertos. Campo3D real em `verificar_chapas_3d.py`:9casos,4malhas+tira inversor0,75mm;últimas variações1,547%/1,817%<critério2%. Tensões de engaste não convergidas.18chapas perfuradasSTEP,55,7511kg brutos;baseline preservado. Sensibilidadeadição integral4029,77663kg/margem220,22337kg/+14,1745kWh tração nos7000km.
 - **Solar:** `comparar_teto_maxeon.py`,novo `teto_maxeon/`:2Maxeon380+2Maxeon390=1540Wp/76kg,4caixasSTEP/GLB4,294×1,690m com20mmgaps/25mmpontas. Envelopeestimado4,30×1,82,deixa6mm extras,sem curvatura/ancoragens/estoque comprovados.2S2P misto:Vocfrio171,4776V,150V incompatível;250/60 só teto passa13,9626A<35A conservador. Compartilhado2S2Pportátil35,9626A falha;4S24,9626A passa triagem limitada,mas72I–Vestimadasperdem0,657–27,272%,não validar topologia. A11 prefere provisoriamente essa alternativa para próxima integração;**modelos-base continuam1350Wp/massa3974,02553kg/MPPT150-60**. Não reexecutar missões como1540Wp sem integrar configuração/controlador/curvatura/massa.

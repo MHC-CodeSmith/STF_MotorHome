@@ -14,7 +14,7 @@ E       assert array([7.    ..., 0.        ]) == approx([7 ± 7... 0 ± 1.0e-12]
 E         comparison failed. Mismatched elements: 1 / 4:
 E         Max absolute difference: 0.000907894736841719
 E         Max relative difference: 0.00015133868940688533
-E         Index | Obtained          | Expected   
+E         Index | Obtained          | Expected
 E         1     | 5.999092105263158 | 6 ± 6.0e-06
 
 tests/test_teto_maxeon.py:11: AssertionError
