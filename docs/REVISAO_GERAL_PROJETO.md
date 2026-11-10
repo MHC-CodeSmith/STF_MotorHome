@@ -240,6 +240,10 @@ Para 700 W de auxiliares estimados: 10/20% resultou em 20,4 km/h e 242,8854167 d
 
 A varredura inicial do novo script carregou por engano o cenário padrão de 1.350 Wp. Esse artefato foi removido antes de uso; a execução final define explicitamente `MOTORHOME_SCENARIO=maxeon1540_independente` e grava o cenário/hash de configuração no resumo e na entrada por executor.
 
+Uma busca subsequente permitiu variar também a hora de partida, mantendo janela diária de condução em 8 h e os demais pressupostos. `scripts/otimizar_janela_missao.py --densa` avaliou 3.936 combinações na grade de partida 2 h/velocidade 2 km/h e 1.332 pontos de refinamento local (partida 0,5 h/velocidade 0,2 km/h), totalizando 5.268. O resultado está em `entregas/integrado_maxeon1540/otimizacao_janela_missao_densa/`; a grade reduzida anterior, em `.../otimizacao_janela_missao/`, contém 648 pontos e é preservada separadamente.
+
+Com 700 W de auxiliares estimados e interface DC hipotética: reserva 10/20% encontrou 20,8 km/h, partida 18:00 e 242,802083 dias; reserva 20/30% encontrou 20,0 km/h, partida 18:00 e 244,802083 dias. A janela permanece 8 h; o passo temporal do balanço é 15 min. Erro máximo de energia na busca densa: 2,89×10⁻⁸ kWh. Em 0 W, o melhor ponto da faixa fica no limite inferior de 10 km/h, devendo ser lido como resultado condicionado à borda, não como ótimo interior. A busca é finita com refinamento local, não prova ótimo global, e não reotimiza todas as dimensões continuamente. As diferenças de aproximadamente 2 h frente ao refinamento anterior de janela fixa vêm da partida variável. Nada demonstra viabilidade física, compatibilidade DC/OEM ou logística de paradas.
+
 ## Atualização técnica posterior — envelope de cargas por eixo
 
 Para aprofundar o item 14 sem inventar limites OEM, `scripts/resumir_envelope_eixos.py` pós-processa a grade fatorial existente (2 layouts × 3 fatores de massa × 3 frações traseiras OEM assumidas × 3 alturas CG assumidas × 3 distribuições de água = 162 casos). A saída reproduzível está em `entregas/integrado_maxeon1540/integracao/envelope_cargas_eixos/`.
