@@ -1,0 +1,380 @@
+{
+  "source": "entregas/integrado_maxeon1540/integracao/massa_cg_eixos_sensibilidade.csv",
+  "scenario": "maxeon1540_independente",
+  "method": "envelope_fatorial_finito; sem interpretação probabilística",
+  "cases": 162,
+  "factor_levels": {
+    "layout": [
+      "A_fixa",
+      "B_conversivel_noite"
+    ],
+    "estimated_mass_factor": [
+      "0.8",
+      "1",
+      "1.2"
+    ],
+    "oem_rear_fraction_assumed": [
+      "0.35",
+      "0.42",
+      "0.5"
+    ],
+    "oem_cg_height_assumed_m": [
+      "0.65",
+      "0.78",
+      "0.9"
+    ],
+    "water_clean_grey_black_l": [
+      "[10, 70, 20]",
+      "[100, 0, 0]",
+      "[50, 40, 10]"
+    ]
+  },
+  "limits": {
+    "pbt_kg": 4250.0,
+    "axle_ratings_kg": null,
+    "base_axle_distribution_source": "OEM indisponível; frações traseiras 0,35/0,42/0,50 são hipóteses",
+    "physical_validation": false
+  },
+  "by_layout": {
+    "A_fixa": {
+      "cases": 81,
+      "envelope": {
+        "mass_kg": {
+          "min": 3866.460422208,
+          "min_case": {
+            "estimated_mass_factor": "0.8",
+            "oem_rear_fraction_assumed": "0.35",
+            "oem_cg_height_assumed_m": "0.65",
+            "water_clean_grey_black_l": "[100, 0, 0]"
+          },
+          "max": 4086.590633312,
+          "max_case": {
+            "estimated_mass_factor": "1.2",
+            "oem_rear_fraction_assumed": "0.35",
+            "oem_cg_height_assumed_m": "0.65",
+            "water_clean_grey_black_l": "[100, 0, 0]"
+          }
+        },
+        "cg_x_m": {
+          "min": 1.7725333426684016,
+          "min_case": {
+            "estimated_mass_factor": "0.8",
+            "oem_rear_fraction_assumed": "0.35",
+            "oem_cg_height_assumed_m": "0.65",
+            "water_clean_grey_black_l": "[10, 70, 20]"
+          },
+          "max": 2.265293249401026,
+          "max_case": {
+            "estimated_mass_factor": "1.2",
+            "oem_rear_fraction_assumed": "0.5",
+            "oem_cg_height_assumed_m": "0.65",
+            "water_clean_grey_black_l": "[100, 0, 0]"
+          }
+        },
+        "cg_y_m": {
+          "min": 0.000451572287411719,
+          "min_case": {
+            "estimated_mass_factor": "1.2",
+            "oem_rear_fraction_assumed": "0.35",
+            "oem_cg_height_assumed_m": "0.65",
+            "water_clean_grey_black_l": "[100, 0, 0]"
+          },
+          "max": 0.010058310825225323,
+          "max_case": {
+            "estimated_mass_factor": "0.8",
+            "oem_rear_fraction_assumed": "0.35",
+            "oem_cg_height_assumed_m": "0.65",
+            "water_clean_grey_black_l": "[10, 70, 20]"
+          }
+        },
+        "cg_z_m": {
+          "min": 0.8191975169192695,
+          "min_case": {
+            "estimated_mass_factor": "0.8",
+            "oem_rear_fraction_assumed": "0.35",
+            "oem_cg_height_assumed_m": "0.65",
+            "water_clean_grey_black_l": "[10, 70, 20]"
+          },
+          "max": 1.0232205928882652,
+          "max_case": {
+            "estimated_mass_factor": "1.2",
+            "oem_rear_fraction_assumed": "0.35",
+            "oem_cg_height_assumed_m": "0.9",
+            "water_clean_grey_black_l": "[100, 0, 0]"
+          }
+        },
+        "front_kg": {
+          "min": 1737.1921405546113,
+          "min_case": {
+            "estimated_mass_factor": "0.8",
+            "oem_rear_fraction_assumed": "0.5",
+            "oem_cg_height_assumed_m": "0.65",
+            "water_clean_grey_black_l": "[100, 0, 0]"
+          },
+          "max": 2223.106451228447,
+          "max_case": {
+            "estimated_mass_factor": "1.2",
+            "oem_rear_fraction_assumed": "0.35",
+            "oem_cg_height_assumed_m": "0.65",
+            "water_clean_grey_black_l": "[10, 70, 20]"
+          }
+        },
+        "rear_kg": {
+          "min": 1698.4956670313318,
+          "min_case": {
+            "estimated_mass_factor": "0.8",
+            "oem_rear_fraction_assumed": "0.35",
+            "oem_cg_height_assumed_m": "0.65",
+            "water_clean_grey_black_l": "[10, 70, 20]"
+          },
+          "max": 2294.25679670561,
+          "max_case": {
+            "estimated_mass_factor": "1.2",
+            "oem_rear_fraction_assumed": "0.5",
+            "oem_cg_height_assumed_m": "0.65",
+            "water_clean_grey_black_l": "[100, 0, 0]"
+          }
+        },
+        "pbt_margin_kg": {
+          "min": 163.40936668799986,
+          "min_case": {
+            "estimated_mass_factor": "1.2",
+            "oem_rear_fraction_assumed": "0.35",
+            "oem_cg_height_assumed_m": "0.65",
+            "water_clean_grey_black_l": "[100, 0, 0]"
+          },
+          "max": 383.5395777919998,
+          "max_case": {
+            "estimated_mass_factor": "0.8",
+            "oem_rear_fraction_assumed": "0.35",
+            "oem_cg_height_assumed_m": "0.65",
+            "water_clean_grey_black_l": "[100, 0, 0]"
+          }
+        },
+        "geometric_ay_g": {
+          "min": 0.8742478737527444,
+          "min_case": {
+            "estimated_mass_factor": "1.2",
+            "oem_rear_fraction_assumed": "0.35",
+            "oem_cg_height_assumed_m": "0.9",
+            "water_clean_grey_black_l": "[100, 0, 0]"
+          },
+          "max": 1.0802543597821772,
+          "max_case": {
+            "estimated_mass_factor": "0.8",
+            "oem_rear_fraction_assumed": "0.35",
+            "oem_cg_height_assumed_m": "0.65",
+            "water_clean_grey_black_l": "[10, 70, 20]"
+          }
+        }
+      },
+      "main_effect_variance_shares": {
+        "front_kg": {
+          "layout": 0.0,
+          "estimated_mass_factor": 0.017025318461742538,
+          "oem_rear_fraction_assumed": 0.9821297168293305,
+          "oem_cg_height_assumed_m": 0.0,
+          "water_clean_grey_black_l": 0.0008449647089256246,
+          "interactions_and_residual": 1.3322676295501878e-15
+        },
+        "rear_kg": {
+          "layout": 0.0,
+          "estimated_mass_factor": 0.13424419422153505,
+          "oem_rear_fraction_assumed": 0.8650116023761087,
+          "oem_cg_height_assumed_m": 0.0,
+          "water_clean_grey_black_l": 0.0007442034023556598,
+          "interactions_and_residual": 5.551115123125783e-16
+        },
+        "cg_x_m": {
+          "layout": 0.0,
+          "estimated_mass_factor": 0.01678668226833216,
+          "oem_rear_fraction_assumed": 0.9818662844275791,
+          "oem_cg_height_assumed_m": 0.0,
+          "water_clean_grey_black_l": 0.0008447380677000472,
+          "interactions_and_residual": 0.0005022952363887834
+        },
+        "cg_z_m": {
+          "layout": 0.0,
+          "estimated_mass_factor": 0.015539330110299536,
+          "oem_rear_fraction_assumed": 0.0,
+          "oem_cg_height_assumed_m": 0.982670988860993,
+          "water_clean_grey_black_l": 0.0012867485561929037,
+          "interactions_and_residual": 0.000502932472514539
+        }
+      },
+      "pbt_all_grid_cases_below_4250kg": true,
+      "minimum_grid_pbt_margin_kg": 163.40936668799986,
+      "axle_compliance": "indeterminada; limites OEM por eixo ausentes"
+    },
+    "B_conversivel_noite": {
+      "cases": 81,
+      "envelope": {
+        "mass_kg": {
+          "min": 3879.099798208,
+          "min_case": {
+            "estimated_mass_factor": "0.8",
+            "oem_rear_fraction_assumed": "0.35",
+            "oem_cg_height_assumed_m": "0.65",
+            "water_clean_grey_black_l": "[100, 0, 0]"
+          },
+          "max": 4105.549697312,
+          "max_case": {
+            "estimated_mass_factor": "1.2",
+            "oem_rear_fraction_assumed": "0.35",
+            "oem_cg_height_assumed_m": "0.65",
+            "water_clean_grey_black_l": "[100, 0, 0]"
+          }
+        },
+        "cg_x_m": {
+          "min": 1.761141965202182,
+          "min_case": {
+            "estimated_mass_factor": "0.8",
+            "oem_rear_fraction_assumed": "0.35",
+            "oem_cg_height_assumed_m": "0.65",
+            "water_clean_grey_black_l": "[10, 70, 20]"
+          },
+          "max": 2.2530964169800356,
+          "max_case": {
+            "estimated_mass_factor": "1.2",
+            "oem_rear_fraction_assumed": "0.5",
+            "oem_cg_height_assumed_m": "0.65",
+            "water_clean_grey_black_l": "[100, 0, 0]"
+          }
+        },
+        "cg_y_m": {
+          "min": -0.007259305797592221,
+          "min_case": {
+            "estimated_mass_factor": "1.2",
+            "oem_rear_fraction_assumed": "0.35",
+            "oem_cg_height_assumed_m": "0.65",
+            "water_clean_grey_black_l": "[100, 0, 0]"
+          },
+          "max": 0.0017635121228796993,
+          "max_case": {
+            "estimated_mass_factor": "0.8",
+            "oem_rear_fraction_assumed": "0.35",
+            "oem_cg_height_assumed_m": "0.65",
+            "water_clean_grey_black_l": "[10, 70, 20]"
+          }
+        },
+        "cg_z_m": {
+          "min": 0.8338547997083479,
+          "min_case": {
+            "estimated_mass_factor": "0.8",
+            "oem_rear_fraction_assumed": "0.35",
+            "oem_cg_height_assumed_m": "0.65",
+            "water_clean_grey_black_l": "[10, 70, 20]"
+          },
+          "max": 1.043051678494809,
+          "max_case": {
+            "estimated_mass_factor": "1.2",
+            "oem_rear_fraction_assumed": "0.35",
+            "oem_cg_height_assumed_m": "0.9",
+            "water_clean_grey_black_l": "[100, 0, 0]"
+          }
+        },
+        "front_kg": {
+          "min": 1756.1597878408566,
+          "min_case": {
+            "estimated_mass_factor": "0.8",
+            "oem_rear_fraction_assumed": "0.5",
+            "oem_cg_height_assumed_m": "0.65",
+            "water_clean_grey_black_l": "[100, 0, 0]"
+          },
+          "max": 2242.902407907505,
+          "max_case": {
+            "estimated_mass_factor": "1.2",
+            "oem_rear_fraction_assumed": "0.35",
+            "oem_cg_height_assumed_m": "0.65",
+            "water_clean_grey_black_l": "[10, 70, 20]"
+          }
+        },
+        "rear_kg": {
+          "min": 1693.0967637748263,
+          "min_case": {
+            "estimated_mass_factor": "0.8",
+            "oem_rear_fraction_assumed": "0.35",
+            "oem_cg_height_assumed_m": "0.65",
+            "water_clean_grey_black_l": "[10, 70, 20]"
+          },
+          "max": 2292.490535996812,
+          "max_case": {
+            "estimated_mass_factor": "1.2",
+            "oem_rear_fraction_assumed": "0.5",
+            "oem_cg_height_assumed_m": "0.65",
+            "water_clean_grey_black_l": "[100, 0, 0]"
+          }
+        },
+        "pbt_margin_kg": {
+          "min": 144.4503026880002,
+          "min_case": {
+            "estimated_mass_factor": "1.2",
+            "oem_rear_fraction_assumed": "0.35",
+            "oem_cg_height_assumed_m": "0.65",
+            "water_clean_grey_black_l": "[100, 0, 0]"
+          },
+          "max": 370.9002017920002,
+          "max_case": {
+            "estimated_mass_factor": "0.8",
+            "oem_rear_fraction_assumed": "0.35",
+            "oem_cg_height_assumed_m": "0.65",
+            "water_clean_grey_black_l": "[100, 0, 0]"
+          }
+        },
+        "geometric_ay_g": {
+          "min": 0.8510994349613387,
+          "min_case": {
+            "estimated_mass_factor": "1.2",
+            "oem_rear_fraction_assumed": "0.35",
+            "oem_cg_height_assumed_m": "0.9",
+            "water_clean_grey_black_l": "[100, 0, 0]"
+          },
+          "max": 1.0712134632906616,
+          "max_case": {
+            "estimated_mass_factor": "0.8",
+            "oem_rear_fraction_assumed": "0.35",
+            "oem_cg_height_assumed_m": "0.65",
+            "water_clean_grey_black_l": "[10, 70, 20]"
+          }
+        }
+      },
+      "main_effect_variance_shares": {
+        "front_kg": {
+          "layout": 0.0,
+          "estimated_mass_factor": 0.018110171565513467,
+          "oem_rear_fraction_assumed": 0.9811636353097767,
+          "oem_cg_height_assumed_m": 0.0,
+          "water_clean_grey_black_l": 0.0007261931247094955,
+          "interactions_and_residual": 3.3306690738754696e-16
+        },
+        "rear_kg": {
+          "layout": 0.0,
+          "estimated_mass_factor": 0.14072612344744376,
+          "oem_rear_fraction_assumed": 0.8586383686133513,
+          "oem_cg_height_assumed_m": 1.5184764402063539e-30,
+          "water_clean_grey_black_l": 0.0006355079392052177,
+          "interactions_and_residual": 0.0
+        },
+        "cg_x_m": {
+          "layout": 0.0,
+          "estimated_mass_factor": 0.018051596500964773,
+          "oem_rear_fraction_assumed": 0.9806958772314867,
+          "oem_cg_height_assumed_m": 0.0,
+          "water_clean_grey_black_l": 0.0007258469207856498,
+          "interactions_and_residual": 0.0005266793467628705
+        },
+        "cg_z_m": {
+          "layout": 0.0,
+          "estimated_mass_factor": 0.02571299641579347,
+          "oem_rear_fraction_assumed": 2.3528851083751274e-30,
+          "oem_cg_height_assumed_m": 0.9726649760634436,
+          "water_clean_grey_black_l": 0.0010994574541687533,
+          "interactions_and_residual": 0.0005225700665941746
+        }
+      },
+      "pbt_all_grid_cases_below_4250kg": true,
+      "minimum_grid_pbt_margin_kg": 144.4503026880002,
+      "axle_compliance": "indeterminada; limites OEM por eixo ausentes"
+    }
+  }
+}
