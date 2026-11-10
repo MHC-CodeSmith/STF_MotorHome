@@ -42,17 +42,17 @@ Já aprovados anteriormente e preservados: arquitetura B como direção, bancos 
 - **Opções:** 24 h ×48 h; reservas20%×30%; candidatoantigo10.24kWh×US5000modular.
 - **Recomendação provisória:** 3 × US5000/14,4 kWh como banco provisório24 h; base48 h comparar4/5módulos.
 - **Justificativa e fonte:** 3módulos cobrem consumo-base em ambas reservas; massa119,1 kg; 48 h amplia massa/volume. [pylon](https://en.pylontech.com.cn/products/c23/134.html).
-- **Impactos e incertezas:** Uso veicular, vibração, fixação, BMS e compatibilidade ainda não demonstrados. Caso alto de consumo requer mais capacidade.
+- **Impactos e incertezas:** Uso veicular/vibração seguem não demonstrados; integraçãoUS5000–Victron requerGX/CAN-BMS/DVCC;novo candidatoMultiPlusII GX trazGX evisor incorporados,sem gateway externo. Cabeamento/firmware/partidas/uso móvel não ensaiados. Caso alto de consumo requer mais capacidade.
 - **Dependências:** B06; A05/A06/A07/A08/A09.
 - **Aprovação necessária:** revisão técnica das evidências e aprovação humana final da escolha; enquanto houver bloqueio, não liberar instalação, homologação ou conclusão física.
 
 ## A05 — Inversor de serviços
 
 - **Estado / responsável:** provisorio_condicionado; P2.
-- **Opções:** MultiPlusII48/5000/70-50 × Inverter Smart48/5000.
-- **Recomendação provisória:** MultiPlusII ajustado220 V / 60 Hz provisoriamente.
-- **Justificativa e fonte:** Preserva candidato existente; ambos4000W25°C/3700W40°C e ajustáveis210–245V50/60Hz. Smartdispensa carregadorAC. [multi](https://www.victronenergy.com/media/pg/MultiPlus-II_230V/en/technical-specifications-mp-ii-230v.html).
-- **Impactos e incertezas:** Vazio18Wvs20W; massas30vs28kg; eficiênciasmáximasnão são curvas. EntradaACnão usada na missão; partidas/proteções pendentes.
+- **Opções:** MultiPlusII48/5000/70-50 × Inverter Smart48/5000 × MultiPlusII GX48/5000.
+- **Recomendação provisória:** MultiPlusII GX48/5000 ajustado220 V / 60 Hz provisoriamente,paraBMS-CAN evisor comerciais integrados;sem central própria.
+- **Justificativa e fonte:** GX documenta4000/3700W,5000VA,18Wvazio,31kg e565×323×148mm;210–245V e50/60Hz configuráveis. IntegraGX/BMS-CAN/visor;Smart sozinho não satisfaz integraçãoPylontech documentada. [multi](https://www.victronenergy.com/media/pg/MultiPlus-II_GX/en/technical-specifications-mp-ii-gx-230v.html).
+- **Impactos e incertezas:** GX31kg versus30kgregular/28kgSmart;18Wvazio deGX preserva energia de serviços. Eficiênciasmáximasnão são curvas. EntradaACnão usada na missão; partidas/proteções pendentes.
 - **Dependências:** B06; A04/A06/A07/A08/A09.
 - **Aprovação necessária:** revisão técnica das evidências e aprovação humana final da escolha; enquanto houver bloqueio, não liberar instalação, homologação ou conclusão física.
 
@@ -101,8 +101,8 @@ Já aprovados anteriormente e preservados: arquitetura B como direção, bancos 
 - **Estado / responsável:** provisorio_com_comparacao_incompleta; P3/P6/P1.
 - **Opções:** Cama fixa existente × conversível; isolamento32mm × espessuras alternativas.
 - **Recomendação provisória:** LayoutA de cama fixa selecionado provisoriamente; massa3973,03kg, corredor0,454m e reserva da porta0,59m. ComparadorB não recomendado sem corrigir acesso/84kg elevados. Fixações e geometriaOEM continuam condicionadas.
-- **Justificativa e fonte:** AproveitaCAD preexistente; não afirma que cama conversível foi comparada emCAD. `config/parametros_globais.yaml:sources.history`.
-- **Impactos e incertezas:** Folgas, ergonomia, compartimentos, áreas, vidros, fogo/umidade, manutenção e segundoestudo faltam.
+- **Justificativa e fonte:** Doislayouts foram comparados emCAD;A atualizado com inversor vertical,comparadorB ainda falha acesso/orientação e portáteis altos. `config/parametros_globais.yaml:sources.history`.
+- **Impactos e incertezas:** Comparação geométrica executada;faltam geometriasOEM/vidros/fogo/umidade e validação de manutenção. InversorAvertical565mm e rotas de reserva atualizados.
 - **Dependências:** B08/B09; A04/A06/A07/A08/A09.
 - **Aprovação necessária:** revisão técnica das evidências e aprovação humana final da escolha; enquanto houver bloqueio, não liberar instalação, homologação ou conclusão física.
 
@@ -112,7 +112,7 @@ Já aprovados anteriormente e preservados: arquitetura B como direção, bancos 
 - **Opções:** 3JA450+190Wcabine × novo arranjo comercial1.540 Wp comprovável.
 - **Recomendação provisória:** Preferir estudar arranjoJA3+190W transversal; alternativo190Wlongitudinal excede envelope estimado. Meta1540Wp mantida; apenas1350Wp têm caminho48Vprincipal creditado. Não congelar instalação.
 - **Justificativa e fonte:** 190Wdebaixa tensão ainda sem caminho48 V; não reduzir silenciosamente a meta. `config/parametros_globais.yaml:sources.history`.
-- **Impactos e incertezas:** Falta duasocupações/ancoragens/sombras; BOMconta massa190Wmasreplaynão promete aproveitamento48 V.
+- **Impactos e incertezas:** Duasocupações avaliadas;ancoragens/curvatura/sombras reais faltam; BOMconta massa190Wmasreplaynão promete aproveitamento48 V.
 - **Dependências:** B05/B09; A03/A06/A10.
 - **Aprovação necessária:** revisão técnica das evidências e aprovação humana final da escolha; enquanto houver bloqueio, não liberar instalação, homologação ou conclusão física.
 
@@ -150,9 +150,9 @@ Já aprovados anteriormente e preservados: arquitetura B como direção, bancos 
 
 - **Estado / responsável:** nao_demonstrado; P2/P6/P7.
 - **Opções:** Indicadores comerciais e atuadores documentados × integração a definir.
-- **Recomendação provisória:** Manter monitoramento básico comercial e shedding automático como requisitos, sem central própria.
+- **Recomendação provisória:** Manter monitoramento básico comercial,sem central própria. Máquina de estados/falhas e256combinações de simultaneidade simuladas;GX exigido pela combinaçãoUS5000/Victron é incorporado no novo inversorGX candidato;nenhumgateway/central externa própria. ConectorCANtipoA/firmware/DVCC eatuadores seguem a validar.
 - **Justificativa e fonte:** DEC047/056 já aprovadas; implementação e patamares ainda dependemBMS e hardware. [multi](https://www.victronenergy.com/media/pg/MultiPlus-II_230V/en/technical-specifications-mp-ii-230v.html).
-- **Impactos e incertezas:** Circuitos, DR/PE, curto, fusíveis, contatores, falhas e plano de ensaios ainda precisam memorial; nenhum ensaio físico realizado.
+- **Impactos e incertezas:** 324casosDC/144faltas calculados;JLLN200/80A candidatos125VDC20kA,mas56faltas hipotéticas excedem20kA. CurvasI²t/seletividade/impedância real/contatores/DR-PE permanecem não demonstrados. PatamaresSOCnull;nenhum ensaio físico.
 - **Dependências:** B06; A04/A05/A12.
 - **Aprovação necessária:** revisão técnica das evidências e aprovação humana final da escolha; enquanto houver bloqueio, não liberar instalação, homologação ou conclusão física.
 

@@ -1,5 +1,6 @@
 revision: integracao-eletrica-0.1
-status: ESTUDO_DE_INTEGRACAO_COM_ENVELOPES_OEM_ESTIMADOS
+status: HISTORICO_NAO_BASELINE_DEC061
+active_source: config/parametros_globais.yaml
 coordinate_system: global_X_frente_Z_cima_metros
 alignment_assumed: {rear_x_m: 0, cargo_width_m: 0, floor_z_m: 0}
 policy: Geometria autoral de integração. Dimensões OEM de tração não disponíveis; não usar envelopes como desenho de fabricação ou modelo térmico validado.

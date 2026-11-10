@@ -1,7 +1,7 @@
 {
   "scope": "Busca exaustiva na grade especificada, não ótimo global contínuo e sem interfaceDC demonstrada. Potência fixaOEM estimada em movimento,0/300/700/1500W; não confundir com serviços.",
   "cases": 1008,
-  "mass_kg": 3973.02552776,
+  "mass_kg": 3974.02552776,
   "service_kwh_day": 7.228825396825397,
   "best_by_reserve": {
     "[0.1, 0.2]_aux0W": {
@@ -23,20 +23,20 @@
       "initial_energy_kwh": 112.4,
       "soc_initial_traction": 1.0,
       "soc_initial_service": 1.0,
-      "soc_final_traction": 0.1437225608529741,
+      "soc_final_traction": 0.14114303386889443,
       "soc_final_service": 0.9361196250496728,
       "buffer_final_kwh": 0.0,
-      "energy_residual_kwh": 7.956373337947298e-10,
+      "energy_residual_kwh": 7.549374458903912e-10,
       "external_electric_energy_kwh": 0.0,
       "totals": {
         "pv_kwh": 2962.2206146169783,
-        "traction_solar_kwh": 953.8729436270575,
+        "traction_solar_kwh": 953.8743964640945,
         "service_solar_kwh": 1566.6057297433886,
         "loss_kwh": 188.46307994342482,
-        "curtailed_kwh": 253.2788613029777,
-        "traction_used_kwh": 1037.7881326634335,
+        "curtailed_kwh": 253.27740846594065,
+        "traction_used_kwh": 1038.0423791449507,
         "service_used_kwh": 1567.5256071420401,
-        "driving_h": 700.0
+        "driving_h": 699.9999999999931
       },
       "physical_mission_demonstrated": false
     },
@@ -59,10 +59,10 @@
       "initial_energy_kwh": 112.4,
       "soc_initial_traction": 1.0,
       "soc_initial_service": 1.0,
-      "soc_final_traction": 0.10861501034193892,
+      "soc_final_traction": 0.10602065849015205,
       "soc_final_service": 0.9152028848968214,
       "buffer_final_kwh": 0.0,
-      "energy_residual_kwh": 1.183138920168858e-09,
+      "energy_residual_kwh": 1.1849579095724039e-09,
       "external_electric_energy_kwh": 0.0,
       "totals": {
         "pv_kwh": 3535.5536368008934,
@@ -70,9 +70,9 @@
         "service_solar_kwh": 1870.216396409951,
         "loss_kwh": 224.92283278968756,
         "curtailed_kwh": 302.0008897409111,
-        "traction_used_kwh": 1225.7692468466378,
+        "traction_used_kwh": 1226.0234933281106,
         "service_used_kwh": 1871.4374748664497,
-        "driving_h": 349.9999999999982
+        "driving_h": 349.9999999999989
       },
       "physical_mission_demonstrated": false
     },
@@ -95,10 +95,10 @@
       "initial_energy_kwh": 112.4,
       "soc_initial_traction": 1.0,
       "soc_initial_service": 1.0,
-      "soc_final_traction": 0.11306357530963115,
+      "soc_final_traction": 0.11046922345783722,
       "soc_final_service": 0.9204320699350343,
       "buffer_final_kwh": 0.0,
-      "energy_residual_kwh": 1.5126033758861013e-09,
+      "energy_residual_kwh": 1.521243575552944e-09,
       "external_electric_energy_kwh": 0.0,
       "totals": {
         "pv_kwh": 3972.378796560067,
@@ -106,9 +106,9 @@
         "service_solar_kwh": 2101.538809108276,
         "loss_kwh": 252.70169210112584,
         "curtailed_kwh": 339.28881812342064,
-        "traction_used_kwh": 1365.769246846636,
+        "traction_used_kwh": 1366.023493328103,
         "service_used_kwh": 2102.684587299964,
-        "driving_h": 349.99999999999795
+        "driving_h": 349.99999999999665
       },
       "physical_mission_demonstrated": false
     },
@@ -131,10 +131,10 @@
       "initial_energy_kwh": 112.4,
       "soc_initial_traction": 1.0,
       "soc_initial_service": 1.0,
-      "soc_final_traction": 0.13817655408523177,
+      "soc_final_traction": 0.1355822022336127,
       "soc_final_service": 0.9361196250496728,
       "buffer_final_kwh": 0.0,
-      "energy_residual_kwh": 2.2142785383039154e-09,
+      "energy_residual_kwh": 2.1906316760578193e-09,
       "external_electric_energy_kwh": 0.0,
       "totals": {
         "pv_kwh": 4736.822826138748,
@@ -142,9 +142,9 @@
         "service_solar_kwh": 2506.3530313302954,
         "loss_kwh": 301.31469589614284,
         "curtailed_kwh": 404.5426927928124,
-        "traction_used_kwh": 1609.0711038185837,
+        "traction_used_kwh": 1609.325350300066,
         "service_used_kwh": 2507.2729087279254,
-        "driving_h": 233.33333333333354
+        "driving_h": 233.33333333333306
       },
       "physical_mission_demonstrated": false
     },
@@ -167,20 +167,20 @@
       "initial_energy_kwh": 112.4,
       "soc_initial_traction": 1.0,
       "soc_initial_service": 1.0,
-      "soc_final_traction": 0.2332863104491697,
+      "soc_final_traction": 0.2307067834651036,
       "soc_final_service": 0.9204320699350343,
       "buffer_final_kwh": 0.0,
-      "energy_residual_kwh": 8.162714948412031e-10,
+      "energy_residual_kwh": 7.617018127348274e-10,
       "external_electric_energy_kwh": 0.0,
       "totals": {
         "pv_kwh": 2989.5221871019266,
-        "traction_solar_kwh": 962.6501910874844,
+        "traction_solar_kwh": 962.6516439245214,
         "service_solar_kwh": 1581.0633805370344,
         "loss_kwh": 190.1992586503897,
-        "curtailed_kwh": 255.6093568268846,
-        "traction_used_kwh": 1037.7881326634338,
+        "curtailed_kwh": 255.60790398984756,
+        "traction_used_kwh": 1038.0423791449634,
         "service_used_kwh": 1582.2091587293196,
-        "driving_h": 700.0
+        "driving_h": 699.9999999999985
       },
       "physical_mission_demonstrated": false
     },
@@ -203,10 +203,10 @@
       "initial_energy_kwh": 112.4,
       "soc_initial_traction": 1.0,
       "soc_initial_service": 1.0,
-      "soc_final_traction": 0.24296063473623764,
+      "soc_final_traction": 0.240366282884447,
       "soc_final_service": 0.9361196250496728,
       "buffer_final_kwh": 0.0,
-      "energy_residual_kwh": 1.2097416401957162e-09,
+      "energy_residual_kwh": 1.2120153769501485e-09,
       "external_electric_energy_kwh": 0.0,
       "totals": {
         "pv_kwh": 3576.505995528316,
@@ -214,9 +214,9 @@
         "service_solar_kwh": 1891.9028726004196,
         "loss_kwh": 227.5271008501349,
         "curtailed_kwh": 305.49663302677135,
-        "traction_used_kwh": 1225.7692468466407,
+        "traction_used_kwh": 1226.023493328114,
         "service_used_kwh": 1892.8227499986926,
-        "driving_h": 350.00000000000097
+        "driving_h": 349.99999999999903
       },
       "physical_mission_demonstrated": false
     },
@@ -239,10 +239,10 @@
       "initial_energy_kwh": 112.4,
       "soc_initial_traction": 1.0,
       "soc_initial_service": 1.0,
-      "soc_final_traction": 0.20262732490582624,
+      "soc_final_traction": 0.20003297305405815,
       "soc_final_service": 0.9152028848968214,
       "buffer_final_kwh": 0.0,
-      "energy_residual_kwh": 1.5321575119742192e-09,
+      "energy_residual_kwh": 1.5371597328339703e-09,
       "external_electric_energy_kwh": 0.0,
       "totals": {
         "pv_kwh": 3999.680369045015,
@@ -250,9 +250,9 @@
         "service_solar_kwh": 2115.9964599019195,
         "loss_kwh": 254.43787080809074,
         "curtailed_kwh": 341.6193136473275,
-        "traction_used_kwh": 1365.7692468466362,
+        "traction_used_kwh": 1366.0234933281042,
         "service_used_kwh": 2117.217538358143,
-        "driving_h": 349.999999999998
+        "driving_h": 350.00000000000074
       },
       "physical_mission_demonstrated": false
     },
@@ -270,15 +270,15 @@
       "mode": "direta_hipotese",
       "allocation": "flexivel",
       "distance_km": 7000.0,
-      "elapsed_days": 348.84375,
+      "elapsed_days": 348.8541666666667,
       "elapsed_resolution_h": 0.25,
       "initial_energy_kwh": 112.4,
       "soc_initial_traction": 1.0,
       "soc_initial_service": 1.0,
-      "soc_final_traction": 0.22774030368142945,
-      "soc_final_service": 0.9361196250496728,
+      "soc_final_traction": 0.22514595182983865,
+      "soc_final_service": 0.9308904400114599,
       "buffer_final_kwh": 0.0,
-      "energy_residual_kwh": 2.236561158497352e-09,
+      "energy_residual_kwh": 2.217007022409234e-09,
       "external_electric_energy_kwh": 0.0,
       "totals": {
         "pv_kwh": 4764.124398623701,
@@ -286,9 +286,9 @@
         "service_solar_kwh": 2520.810682123939,
         "loss_kwh": 303.05087460310773,
         "curtailed_kwh": 406.8731883167192,
-        "traction_used_kwh": 1609.071103818587,
-        "service_used_kwh": 2521.7305595215544,
-        "driving_h": 233.3333333333336
+        "traction_used_kwh": 1609.325350300063,
+        "service_used_kwh": 2521.8058597861045,
+        "driving_h": 233.33333333333263
       },
       "physical_mission_demonstrated": false
     }

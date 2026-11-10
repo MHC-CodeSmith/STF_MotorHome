@@ -1,0 +1,6 @@
+FoamFile {version 2.0; format ascii; class volScalarField; object omega;}
+dimensions [0 0 -1 0 0 0 0]; internalField uniform 4.96904;
+boundaryField {inlet {type fixedValue; value uniform 4.96904;}
+outlet {type zeroGradient;} ground {type omegaWallFunction; value uniform 4.96904;}
+"aurora.*" {type omegaWallFunction; value uniform 4.96904;}
+sides {type symmetry;} top {type symmetryPlane;}}

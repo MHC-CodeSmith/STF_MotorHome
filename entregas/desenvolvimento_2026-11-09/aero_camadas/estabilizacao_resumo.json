@@ -1,0 +1,8 @@
+{
+  "returncode": -8,
+  "converged": false,
+  "last_cd_diagnostic": 1.8751837e+23,
+  "validated_cd": null,
+  "physical_validation": false,
+  "method": "PCG/DIC pressão,2correções nãoortogonais,p.1/U,k,omega.25;mesma malha fina178298células."
+}

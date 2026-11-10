@@ -142,6 +142,40 @@ sources:
     accessed: '2026-11-09'
     evidence: Seção9.1:150/60Isc50A,saída60A,48V3440W,Voc150Vabsoluto145Voperação,3kg;
       configuração/IV/BMS/proteções pendentes.
+  multi_install:
+    url: https://www.victronenergy.com/media/pg/MultiPlus-II_230V/en/installation.html
+    kind: fabricante
+    accessed: '2026-11-10'
+    evidence: 48/5000 recomenda200A/70mm2 até5m;PEchassi e reléN-PE;DRtipoA admitido.
+  mppt_install:
+    url: https://www.victronenergy.com/media/pg/Manual_SmartSolar_MPPT_150-60_up_to_250-70/en/installation.html
+    kind: fabricante
+    accessed: '2026-11-10'
+    evidence: Fusível lado bateria70–80A para150/60;conferir cabo/instalação.
+  pylon_victron:
+    url: https://www.victronenergy.com/live/battery_compatibility:pylontech_phantom
+    kind: fabricante_integrador
+    accessed: '2026-11-10'
+    evidence: CombinaçãoUS5000/Victron exigeGXcomCAN-BMS eDVCC;uso móvel não comprovado.
+  littelfuse_jlln:
+    url: https://www.littelfuse.com/assetdocs/jlln-datasheet?assetguid=3a7bc9bf-d932-4401-bdc7-b39f302195cf
+    kind: fabricante
+    accessed: '2026-11-10'
+    version: Revisão08/06/2025, páginas2–3
+    evidence: JLLN70–1200A125VDC;35–1200Ainterrupção20kADC;JLLN200/JLLN080catalogados.
+  multi_gx:
+    url: https://www.victronenergy.com/media/pg/MultiPlus-II_GX/en/technical-specifications-mp-ii-gx-230v.html
+    config_url: https://www.victronenergy.com/media/pg/MultiPlus-II_GX/en/configuration.html
+    features_url: https://www.victronenergy.com/media/pg/MultiPlus-II_GX/en/product-description.html
+    kind: fabricante
+    accessed: '2026-11-10'
+    evidence: 48/5000GX31kg,565x323x148mm,4000/3700W,18Wvazio;GX evisor integrados,BMS-CAN500kbps,VE.Direct;saída210–245V/50ou60Hzconfiguráveis.
+  victron_price_2026q2:
+    url: https://latam.victronenergy.com/wp-content/uploads/2026/04/Pricelist-Victron-2026-Q2-USD-C.pdf
+    kind: tabela_lista_fabricante_nao_cotacao_instalada
+    accessed: '2026-11-10'
+    version: 2026-Q2 USD C
+    evidence: PMP482506000GX1093USD,página3;SCC115060211SmartSolar150/60-Tr393USD,página14;semVAT. Dimensões tabela divergem do manual,não substituem envelopeCAD.
 parameters:
   architecture:
     value: B
@@ -526,7 +560,7 @@ parameters:
     reference_date: '2026-11-09'
     note: ''
   assembled_typical_mass_kg:
-    value: 3973.02552776
+    value: 3974.02552776
     unit: kg
     source: hyp
     decisions:
@@ -1704,9 +1738,9 @@ parameters:
     note: BMS e modularidade documentados; uso móvel/vibração/fixações/garantia ainda
       não demonstrados
   inverter_model:
-    value: MultiPlus-II 48/5000/70-50 230V ajustado220V60Hz
+    value: MultiPlus-II GX 48/5000/70-50 230V ajustado220V60Hz
     unit: categoria
-    source: multi
+    source: multi_gx
     decisions:
     - DEC-053
     - DEC-061
@@ -2593,9 +2627,9 @@ bom_components:
   quantity_parameter: service_modules_provisional
 - id: inversor_servicos
   quantity: 1
-  unit_mass_kg: 30
+  unit_mass_kg: 31
   owner: P2
-  source: multi
+  source: multi_gx
   scope: conversao
   status: provisorio
   version: 1.1.0-execucao02
@@ -2603,9 +2637,13 @@ bom_components:
   confidence: media
   dimensions_m: null
   installed_price_brl: null
-  unit_reference_price: null
-  price_currency: BRL
+  unit_reference_price: 1093
+  price_currency: USD
   model_parameter: inverter_model
+  price_source: victron_price_2026q2
+  part_number: PMP482506000
+  price_status: lista_2026Q2_exVAT_nao_cotacao_atual
+
 - id: geladeira
   quantity: 1
   owner: P6
@@ -2713,11 +2751,11 @@ bom_components:
   model_parameter: potable_pump_model
   mass_parameter: potable_pump_mass_kg
 - id: mppt
-  model: 'Controlador compartilhado: modelo/topologia não selecionados'
-  quantity: null
-  unit_mass_kg: null
+  model: 'Victron SmartSolar MPPT150/60-Tr'
+  quantity: 1
+  unit_mass_kg: 3
   owner: P2
-  source: hyp
+  source: mppt150_60
   scope: conversao
   status: nao_demonstrado
   version: 1.1.0-execucao02
@@ -2725,8 +2763,13 @@ bom_components:
   confidence: baixa
   dimensions_m: null
   installed_price_brl: null
-  unit_reference_price: null
-  price_currency: BRL
+  unit_reference_price: 393
+  price_currency: USD
+  price_source: victron_price_2026q2
+  part_number: SCC115060211
+  price_status: lista_2026Q2_exVAT_nao_cotacao_atual
+  mass_accounted_in: development.mass_allowances.suportes_eletricos
+
 - id: interface_dc
   model: CarregadorDC externo autorizadoOEM ainda não encontrado
   quantity: null
@@ -3231,13 +3274,13 @@ development:
     - id: inversor
       position_m:
       - 0.61
-      - 1.2
-      - 0.38
+      - 1.4
+      - 0.28
       dimensions_m:
-      - 0.565
-      - 0.328
+      - 0.323
       - 0.148
-      mass_kg: 30
+      - 0.565
+      mass_kg: 31
       kind: equipamento
       estimated: true
     - id: tanque_limpa
@@ -3452,9 +3495,9 @@ development:
       - 0.38
       dimensions_m:
       - 0.565
-      - 0.328
+      - 0.323
       - 0.148
-      mass_kg: 30
+      mass_kg: 31
       kind: equipamento
       estimated: true
     - id: tanque_limpa
@@ -3711,3 +3754,96 @@ development:
     laundry_water_l: 68.8
     note: Mesmos consumos de estudo anteriores;15min por tomada de água e15min logística.
       Não são duração comprovada de ciclo nem disponibilidade geográfica de postos.
+  electrical_detail:
+    version: 1.0.0-protecao-servicos
+    reference_date: '2026-11-10'
+    owner: P2
+    source: hyp
+    status: provisorio_nao_validado
+    confidence: baixa
+    battery_voltage_sweep_v: [43.5, 48, 53.5]
+    copper_temperature_c: [20, 40, 90]
+    sections_mm2: [70, 95, 120]
+    loop_lengths_m: [0.4, 4, 10]
+    powers_ac_w: [500, 2000, 3700, 4000]
+    module_fault_resistance_ohm: [0.001, 0.005, 0.02, 0.05]
+    copper_density_kg_m3: 8960
+    copper_cp_j_kgk: 385
+    fuse_main: {model: Littelfuse JLLN200, current_a: 200, dc_voltage_v: 125, dc_breaking_a: 20000, source: littelfuse_jlln}
+    fuse_mppt: {model: Littelfuse JLLN080, current_a: 80, dc_voltage_v: 125, dc_breaking_a: 20000, source: littelfuse_jlln}
+    main_fuse_requirement_a: 200
+    mppt_fuse_range_a: [70, 80]
+    sources: [multi_install, mppt_install, pylon_victron, littelfuse_jlln]
+    soc_thresholds: null
+    hardware_control_demonstrated: false
+    recovery_hold_s_test: 30
+    load_scenarios:
+    - {id: geladeira, priority: 0, w: 160.6, va: 160.6, large: false, shed_at_stage: 3, status: estimativa_unidade_pf1_nao_partida_medida}
+    - {id: tomadas, priority: 1, w: 300, va: 375, large: false, shed_at_stage: 2, status: hipotese}
+    - {id: cooktop, priority: 2, w: 2000, va: 2000, large: true, shed_at_stage: 1, status: nominal_resistiva_equivalente_nao_transitorio}
+    - {id: boiler, priority: 3, w: 500, va: 500, large: true, shed_at_stage: 1, status: nominal_candidato}
+    - {id: hvac, priority: 4, w: 989, va: 989, large: true, shed_at_stage: 1, status: estimativa_230Vx4.3A_pf1_nao_partida}
+    - {id: lavagem, priority: 5, w: null, va: null, large: true, shed_at_stage: 1, status: pico_desconhecido_recusar_comando}
+    note: Triagem independente de ampacidade normativa e coordenação tempo-corrente.
+      Resistência interna não inclui intervenção BMS e não é dadoPylontech.
+      PatamaresSOC operacionais continuamnull; estágios são entradas abstratas para ensaios lógicos.
+      Recuperação30s é ensaio de lógica, não ajuste certificado de equipamentos.
+  mounting_detail:
+    version: 1.0.0-grupo-fixacoes
+    reference_date: '2026-11-10'
+    source: hyp
+    owner: P1
+    status: estimado
+    confidence: baixa
+    gravity_m_s2: 9.80665
+    accelerations_g: [1, 3, 5]
+    bolt_group_xy_m: [[-0.08, -0.05], [0.08, -0.05], [0.08, 0.05], [-0.08, 0.05]]
+    in_plane_eccentricity_m: [0, 0.1, 0.25]
+    plate_thickness_m: [0.002, 0.003, 0.004]
+    bolt_diameter_m: 0.008
+    conservative_thread_area_m2: 0.0000366
+    assumed_bolt_yield_pa: 640000000
+    assumed_plate_yield_pa: 235000000
+    safety_factor: 2
+    note: Grupo elástico em chapa rígida; propriedades hipotéticas equivalentes a parafuso8.8,
+      sem atribuir fabricante/ensaio. Sem pre-carga/atrito/prying/fadiga/arrancamentoOEM.
+      1/3/5g são sensibilidades, não requisitos homologatórios. Não autoriza perfuração da van.
+  aero_layer_retry:
+    version: 1.0.0-camadas-aero
+    reference_date: '2026-11-10'
+    owner: P3
+    source: hyp
+    status: ensaio_numerico_nao_validado
+    confidence: baixa
+    source_cases: [cfd-aurora-piloto-03, cfd-aurora-refino-semcamadas-01, cfd-aurora-refino-semcamadas-02]
+    expansion_ratio: 1.2
+    final_layer_m: 0.002
+    min_layer_m: 0.0002
+    max_iterations: 600
+    mesh_timeout_s: 180
+    solver_timeout_s: 300
+    note: Retrial somente camadas a partir malhas existentes; mesma geometria piloto sem equipamentos.
+      Limites de tempo/recursos não são critérios de convergência física. Não promoveCd.
+  installation_routes:
+    version: 1.0.0-rotas-layoutA
+    reference_date: '2026-11-10'
+    owner: P2-P3-P6
+    source: hyp
+    status: estimado
+    confidence: baixa
+    inverter_clearance_m: 0.1
+    cable_radius_m: 0.007
+    pipe_radius_m: 0.0065
+    service_cable_points_m: [[0.512, 1.65, 0.50], [0.56, 1.70, 0.50], [0.56, 1.70, 0.26], [0.774, 1.70, 0.26], [0.774, 1.50, 0.26], [0.774, 1.50, 0.28]]
+    cable_return_offset_m: [0.025, 0, 0]
+    slack_fraction: 0.2
+    potable_routes:
+    - id: tanque_bomba
+      points_m: [[0.86, 0.90, 0.155], [0.88, 1.15, 0.35], [1.2, 1.15, 0.35], [1.2, 1.38, 0.35], [1.2, 1.38, 0.44]]
+    - id: bomba_boiler
+      points_m: [[1.2, 1.38, 0.35], [1.2, 1.15, 0.35], [0.8, 1.15, 0.35], [0.8, 0.85, 0.35], [0.8, 0.85, 0.4]]
+    - id: principal_pia
+      points_m: [[1.2, 1.15, 0.35], [3.0, 1.15, 0.35], [3.0, 1.15, 0.95], [3.0, 0.3, 0.95]]
+    note: Rotas de reserva autorais;terminais,conexões,drenos,raios de curvatura e passagens reais não validados.
+      Envelope inversor vertical=.328x.148x.565m;folga100mm é reserva de projeto, não homologação.
+      Tubos fora da região dos cabos48V;trajeto não equivale a instalação física conforme.

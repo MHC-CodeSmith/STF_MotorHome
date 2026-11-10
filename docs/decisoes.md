@@ -100,3 +100,15 @@ DEC001–061 preservadas. Sob DEC061, layoutA provisório, massa3973.0255kg esti
 ### 10/11/2026 — parâmetros de despachoI25 e cronologia hídrica
 
 Sem alterar DEC001–061: adicionadas hipóteses `development.daily_dispatch` e `development.water_chronology` na fonte única1.1.0-execucao02. Registram grade/contornos para o despachoI25 só com solar do próprio dia e detalhamento hídrico das melhores missões. Corrigida omissão dos700W de auxiliares de tração em32replays;grade1008 já correta. Fontes/métodos/limites e comandos em `EXECUCAO_TECNICA02.md`;hardwareDC/proteções continua não demonstrado. Nenhuma escolha final ou alteração da meta1540Wp.
+
+### 10/11/2026 — proteções, fixações, orientação do inversor e camadasCFD
+
+Sem alterar registroDEC001–061: fonte única recebe electrical_detail,mounting_detail,installation_routes,aero_layer_retry e4fontesprimárias. Corrigida orientação vertical do inversorA e posição para evitarHVAC;CG/eixos/freios reexecutados. Massa total não mudou. 324DC/144faltas/256simultaneidades/648grupos de fixação calculados;limitesSOCnull,apoioOEM/I²t e hardware não demonstrados. DependênciaUS5000–Victron deGX/CAN-BMS/DVCC registradaA04/A15,sem inclusãoautomática de central. Tentativas3malhas+retryfino comcamadas rejeitadas;Cd anterior não promovido. Detalhes em EXECUCAO_TECNICA02 ePROTECOES_SERVICOS_MODELO. Configuração elétrica antiga recebe indicação histórica e executores exigem--historico.
+
+### 10/11/2026 — alternativa compatível à dependênciaGX
+
+DEC061 autoriza selecionar provisoriamente MultiPlus-II GX48/5000/70-50:GX/visor/BMS-CAN já incorporados ao produto comercial,semcentral própria ou gatewayexterno,conformeDEC056. Modelo regular eInverterSmart permanecem comparadores;sem alegar hardwareconfigurado/ensaiado. Fonte oficialmulti_gx adicionada:220V/60Hzconfiguráveis,31kg565×323×148mm,4000/3700W,18Wvazio. Fonte única/BOM/CAD atualizados,+1kg(massa3974,02553kg). Reexecutados modelos dependentes,incluindo grade1008;as61decisõesoriginais permanecem intactas. CabosCANtipoA/DVCC/firmware/atuadores devem ser conferidos;limiaresSOC continuamnull.
+
+### 10/11/2026 — BOM coerente e preços por moeda
+
+LinhaMPPT corrigida de"modelo não selecionado"para150/60-Tr provisório,1unidade/3kg jánareserva. ListaVictron2026Q2,semVAT,documentaPMP482506000GX1093USD/SCC115060211393USD. Não confundirUSD1486com orçamento instaladoBRL;veículoEUR50990 e cooktopBRL439histórico permanecem separados. Nenhum câmbio/tributo/frete inventado. EnvelopeCAD usa manualGX,divergência milimétrica da tabela de preços registrada antesde congelamento.

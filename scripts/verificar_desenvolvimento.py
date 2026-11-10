@@ -48,7 +48,7 @@ def main():
     gmsh.initialize();gmsh.option.setNumber('General.Terminal',0)
     cad=[]
     try:
-        for path in sorted((OUT/'integracao').glob('*.step')):
+        for path in sorted([*(OUT/'integracao').glob('*.step'),*(OUT/'rotas_instalacoes').glob('*.step')]):
             gmsh.clear();gmsh.model.add(path.stem);gmsh.model.occ.importShapes(str(path));gmsh.model.occ.synchronize()
             volumes=[gmsh.model.occ.getMass(3,tag) for dim,tag in gmsh.model.getEntities(3)]
             check(len(volumes)>0 and min(volumes)>0,f'{path.name}: STEP reimporta sólidos positivos')
@@ -102,6 +102,7 @@ def main():
                 ok &= len(overlap)>0 and bool((overlap.driving_h_interval==0).all())
         check(ok,f'{scenario}: água sem sobreposição/condução, conferida contra replay')
     grid=json.loads((OUT/'otimizacao_grade/resumo.json').read_text())
+    check(abs(grid['mass_kg']-params['assembled_typical_mass_kg'])<1e-8,'Grade1008 usa massa atualCAD/GX')
     check(grid['cases']==1008 and grid['energy_residual_max_kwh']<1e-6 and not grid['global_optimality_proven'],'Grade1008 sem alegar ótimo global')
     for path in (OUT/'otimizacao_grade').glob('melhor_*.csv.gz'):
         profile=pd.read_csv(path)
@@ -121,6 +122,31 @@ def main():
         check(np.isfinite(field['temperature_c']).all() and np.isfinite(field['velocity_m_s']).all(),f'{path.parent.name}: campo3D finito')
     thermal=pd.read_csv(OUT/'mecanica_termica/I34_54sensibilidades.csv')
     check(thermal.thermal_residual_j.abs().max()<1e-3 and thermal.electrical_residual_j.abs().max()<1e-3,'Bateria54casos conserva calor/energia')
+    bom=json.loads((OUT/'bom_atual/resumo.json').read_text())
+    check(bom['known_subtotals_by_currency']=={'EUR':50990,'USD':1486,'BRL':439} and bom['installed_total_brl'] is None,'BOM: separa moedas e não inventa orçamento instalado')
+    inv=next(x for x in c['development']['layout_equipment']['A_fixa'] if x['id']=='inversor')
+    check('GX' in params['inverter_model'] and inv['mass_kg']==31 and inv['dimensions_m']==[.323,.148,.565],'SeleçãoGX refletida no CAD/massa sem gateway externo')
+    protections=json.loads((OUT/'protecoes_fixacoes/resumo.json').read_text())
+    check(protections['electrical_cases']==324 and protections['fault_cases']==144 and protections['mounting_cases']==648,'Triagem elétrica/fixações efetivamente executada')
+    check(protections['soc_thresholds'] is None and not protections['hardware_control_demonstrated'],'Não inventa limiaresSOC/hardware de controle')
+    wires=pd.read_csv(OUT/'protecoes_fixacoes/circuitos_dc.csv')
+    check(wires.energy_residual_w.abs().max()<1e-8 and np.max(np.abs(wires.load_voltage_v*wires.current_a-wires.power_ac_w/params['eta_inverter']))<1e-8,'Circuito de potência constante: balanço independente')
+    faults=pd.read_csv(OUT/'protecoes_fixacoes/faltas_prospectivas.csv')
+    check((~faults.breaking_screen_pass).sum()==56 and faults.actual_fuse_clearing_i2t_a2s.isna().all(),'Faltas: não promove fusível20kA nem inventaI²t real')
+    mounts=pd.read_csv(OUT/'protecoes_fixacoes/fixacoes_grupos_parafusos.csv')
+    check(mounts.force_residual_n.abs().max()<1e-8 and mounts.moment_residual_nm.abs().max()<1e-8,'Grupos de parafusos conservam força/momento')
+    check((mounts.plate_utilization>1).sum()==10 and not mounts.oem_anchorage_verified.any(),'Chapas insuficientes explicitamente identificadas,apoioOEM não comprovado')
+    ctrl=pd.read_csv(OUT/'protecoes_fixacoes/gerenciamento_falhas.csv')
+    check((ctrl.loc[~ctrl.bms_allow | ~ctrl.telemetry_valid | ~ctrl.actuator_ok,'stage']==3).all(),'Falhas BMS/medida/atuador comandamOFF')
+    peak=pd.read_csv(OUT/'protecoes_fixacoes/simultaneidade_256.csv')
+    check(len(peak)==256 and peak.w.max()<=min(params['inverter_continuous_w']) and peak.va.max()<=5000,'SimultaneidadeW/VA respeitada nos cenários de estudo')
+    routes=json.loads((OUT/'rotas_instalacoes/resumo.json').read_text())
+    check(routes['vertical_height_565mm'] and not routes['service_envelope_collisions'],'Inversor vertical e envelope de acesso livre')
+    check({x['part'] for x in routes['route_equipment_aabb_contacts']}<={'inversor','bomba','boiler'},'Rotas: contatos apenas em terminais conceituais listados')
+    aero=json.loads((OUT/'aero_camadas/resumo.json').read_text())
+    retry=json.loads((OUT/'aero_camadas/estabilizacao_resumo.json').read_text())
+    check(len(aero['cases'])==3 and aero['validated_cd'] is None and not retry['converged'],'TentativasCFD rejeitadas sem promoverCd')
+    check(aero['cases'][-1]['added_layer_cells']>0 and not aero['cases'][-1]['solver_converged'],'Malha fina com camadas não confundida com solução física convergida')
     review=json.loads((OUT/'revisao_35_itens.json').read_text())
     check(len(review['items'])==35 and sum(r['human_approval_recorded'] for r in review['items'])==0,'35 itens revisados, zero aprovações inferidas')
     if args.registrar:
@@ -135,7 +161,7 @@ def main():
                     'solar_fixo_08_16.csv','solar_alternativo_00_08.csv']]
         outputs=[path for path in OUT.rglob('*') if path.is_file() and path.name not in ['manifesto.json','qa.json']]
         outputs += [ROOT/f'docs/{name}' for name in
-                    ['EXECUCAO_TECNICA02.md','REVISAO_TECNICA_EXECUCAO02.md','APROVACOES_FINAIS_PENDENTES.md']]
+                    ['EXECUCAO_TECNICA02.md','REVISAO_TECNICA_EXECUCAO02.md','APROVACOES_FINAIS_PENDENTES.md','PROTECOES_SERVICOS_MODELO.md']]
         manifest={'baseline_parent':'29defc4','inputs_sha256':{str(f.relative_to(ROOT)):sha(f) for f in inputs},
                   'outputs_sha256':{str(f.relative_to(ROOT)):sha(f) for f in outputs},'physical_validation':False,
                   'software':{'python':platform.python_version(),'numpy':np.__version__,

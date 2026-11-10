@@ -1,0 +1,37 @@
+[32;1m
+*******************************************************************
+******        Statistics on Transfer (Write)                 ******[0m
+[32;1m
+*******************************************************************
+******        Transfer Mode = 0  I.E.  As Is       ******[0m
+[32;1m******        Transferring Shape, ShapeType = 0                      ******[0m
+[32;1m** WorkSession : Sending all data[0m
+[32;1m Step File Name : /home/mhc/motorhome_solar_codex_tarefas/entregas/desenvolvimento_2026-11-09/integracao/A_fixa.step(9551 ents)  Write  Done[0m
+[32;1m
+*******************************************************************
+******        Statistics on Transfer (Write)                 ******[0m
+[32;1m
+*******************************************************************
+******        Transfer Mode = 0  I.E.  As Is       ******[0m
+[32;1m******        Transferring Shape, ShapeType = 0                      ******[0m
+[32;1m** WorkSession : Sending all data[0m
+[32;1m Step File Name : /home/mhc/motorhome_solar_codex_tarefas/entregas/desenvolvimento_2026-11-09/integracao/B_conversivel_noite.step(10257 ents)  Write  Done[0m
+[32;1m
+*******************************************************************
+******        Statistics on Transfer (Write)                 ******[0m
+[32;1m
+*******************************************************************
+******        Transfer Mode = 0  I.E.  As Is       ******[0m
+[32;1m******        Transferring Shape, ShapeType = 0                      ******[0m
+[32;1m** WorkSession : Sending all data[0m
+[32;1m Step File Name : /home/mhc/motorhome_solar_codex_tarefas/entregas/desenvolvimento_2026-11-09/integracao/JA3_Victron190_transversal.step(1432 ents)  Write  Done[0m
+[32;1m
+*******************************************************************
+******        Statistics on Transfer (Write)                 ******[0m
+[32;1m
+*******************************************************************
+******        Transfer Mode = 0  I.E.  As Is       ******[0m
+[32;1m******        Transferring Shape, ShapeType = 0                      ******[0m
+[32;1m** WorkSession : Sending all data[0m
+[32;1m Step File Name : /home/mhc/motorhome_solar_codex_tarefas/entregas/desenvolvimento_2026-11-09/integracao/JA3_Victron190_longitudinal.step(1432 ents)  Write  Done[0m
+{"layouts": {"A_fixa": {"nominal": {"layout": "A_fixa", "estimated_mass_factor": 1, "oem_rear_fraction_assumed": 0.42, "oem_cg_height_assumed_m": 0.78, "water_clean_grey_black_l": "[100, 0, 0]", "mass_kg": 3973.02552776, "cg_x_m": 2.0175846567259965, "cg_y_m": 0.0020925427843116093, "cg_z_m": 0.9287177261115178, "front_kg": 1986.4294074156926, "rear_kg": 1986.5961203443073, "pbt_margin_kg": 276.97447224000007, "axle_compliance": null, "geometric_ay_g": 0.9614411700250789}, "equipment_collisions": [], "wheel_arch_collisions_assumed_geometry": [], "outside_envelope": [], "washer_door_service_clearance_m": 0.5899999999999999, "washer_door_required_extension_m": 0.4800000000000001, "aisle_front_m": 0.45399999999999996, "geometry_status": "ESTUDO_DE_ENVELOPES_NAO_VALIDADO", "selection": "A_provisorio_espaco_manutencao_verificar", "axle_limits_documented": false}, "B_conversivel_noite": {"nominal": {"layout": "B_conversivel_noite", "estimated_mass_factor": 1, "oem_rear_fraction_assumed": 0.42, "oem_cg_height_assumed_m": 0.78, "water_clean_grey_black_l": "[100, 0, 0]", "mass_kg": 3988.82474776, "cg_x_m": 2.0083686634234876, "cg_y_m": -0.0058533031848820635, "cg_z_m": 0.947288232260945, "front_kg": 2003.439214354974, "rear_kg": 1985.3855334050259, "pbt_margin_kg": 261.1752522400002, "axle_compliance": null, "geometric_ay_g": 0.9386231840893268}, "equipment_collisions": [], "wheel_arch_collisions_assumed_geometry": [], "outside_envelope": [], "washer_door_service_clearance_m": 0.4740000000000001, "washer_door_required_extension_m": 0.4800000000000001, "aisle_front_m": 0.45399999999999996, "geometry_status": "ESTUDO_DE_ENVELOPES_NAO_VALIDADO", "selection": "comparador_conversivel", "axle_limits_documented": false}}, "mass_scenarios": 162, "FEA_cases": 12}

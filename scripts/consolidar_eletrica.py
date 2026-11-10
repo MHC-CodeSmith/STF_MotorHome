@@ -10,9 +10,12 @@ from pathlib import Path
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument('--historico', action='store_true', help='Reproduz somente configuração elétrica antiga, não baseline DEC061')
     for name in ['cad', 'viewer', 'calculo', 'fontes', 'interior', 'solar']:
         p.add_argument('--'+name, type=Path, required=True)
     a = p.parse_args()
+    if not a.historico:
+        p.error('Configuração elétrica histórica; use --historico para reprodução. Baseline atual: parametros_globais.yaml e detalhar_rotas_cad.py.')
     root = Path(__file__).resolve().parents[1]
     delivery = root/'entregas/parcial_2026-10-24'
     qa = json.loads((a.viewer/'qa/qa.json').read_text())

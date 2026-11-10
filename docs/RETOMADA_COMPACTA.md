@@ -1,3 +1,29 @@
+# Estado mais recente — GX integrado,10/11/2026
+
+- **AutonomiaDEC061 ativa,desenvolvimento integral NÃO concluído.** Nenhuma nova aprovação perguntada;sem relatório/slides. Estado anterior91be8af preservado;consultarGit para próximoHEAD.
+- Depois da dependênciaGX,foi selecionado provisoriamente **MultiPlus-II GX48/5000/70-50,PMP482506000**,comGX/visor/BMS-CAN incorporados.Sem central própria ougatewayexterno;manual admite220V/60Hz,31kg565×323×148mm,4000/3700W,18Wvazio. CANtipoA/DVCC/firmware/partidas/atuadores ainda não ensaiados. Fontemulti_gx noYAML;A05/A15 atualizadas.
+- **NúmerosATUAIS:** massa3974.02552776kg,margem275.97447224kg;CGx2.018029021/y.002237209/z.928796684m;eixos1986.491737/1987.533791kg. InversorAverticalem[.61,1.40,.28],semcolisão/acesso100mm reservado. Amboslayoutsagora31kgnoinversor;Bnãoévalidado.
+- Reexecutados integração162casos/FEM12/CAD/dinâmica,energia32replays/I27/I25,36envelopes/54térmicos,24freios,648fixações,rotas,**grade1008**+água. Grade700Wmantém290.875/292.8854167dias;1500Wreservas20/30agora348.8541667dias. I25a5min/1kW:48.06652/26.64640km sótração;24.15936/13.39311comserviços. Todoscondicionais,semótimoglobal/interfaceOEM.
+- Dados32missõescontêm16perfisatuaismassa3974e16PBT4250.16perfis3973anterioresretiradosdoativo;bytesnoGit91be8af,listaemoutput/perfis_massa_anterior_apos_gx_20261110.json. Não recrear esse mix antigo.
+- `scripts/consolidar_bom_atual.py`→bom_atual/26linhasJSON/CSV. Preçoslistaoficial2026Q2semVAT:GX1093USD+150/60-Tr393USD=1486USD,veículo50990EUR e439BRLcooktophistóricoseparados. InstaladaBRLnull. Fontevictron_price_2026q2;dimensõestabelapreço diferemmilímetrosdomanual,registrado,nãomudouCAD. MPPT3kgjánare serva15kg,nãoduplicar.
+- **QA PASSOU:**227testes,Ruff;153entradas/919saídashashadas,modelo35itens/0aprovações. Verqa.jsonparacontagemdoscontroles. RodarconferênciaSEM--registrar;manifestoshistóricosnãoatualizar. NovaQA incluiGXnaCAD/massa,BOMmoedasseparadas,gradecommassaatual,proteções/fixações/rotas eCFDrejeitado.
+- CFDcamadas3malhas+retryfinoacabaram,semprocessopendente;duas0camadas,fina178298diverge−8ambosGAMGePCG/DIC. Não usarCddivergente,mesmalhaporrepetiçãooualegarcarroequipado. Campos/logsdicionários≈99MBemrepo.
+- Checkpointdetalhadoao fimEXECUCAO_TECNICA02;PROTECOES_SERVICOS_MODELO;e revisão35atual. Principaislimitesaindareais:interfaceDCexternaautorizada,apoios/eixos/pneus/mapasOEM,CFDequipado/CHT,partidasHVAC220V,drenagem/chapariareal,coordenaçãoI²teatuadores. ContinuarfrentessolúveissemretrocederàarquiteturaA.
+
+---
+
+# Atualização posterior10/11 — proteções/CAD/CFD
+
+- Código novo: `motorhome/protecoes.py`;executores `desenvolver_protecoes_fixacoes.py`, `detalhar_rotas_cad.py`, `refinar_camadas_aerodinamica.py`, `estabilizar_aero_fina.py`. Resultados na entrega09/11 subpastasprotecoes_fixacoes,rotas_instalacoes,aero_camadas. Ler fim deEXECUCAO_TECNICA02 ePROTECOES_SERVICOS_MODELO.
+- 324DC/144faltas/256simultaneidades/6históricos de falha/648fixações. FusíveisJLLN200/080,125VDC20kA sócandidatos:56faltas hipotéticas excedem20kA. I²t real/impedância/BMS/hardware não demonstrados;patamaresSOCnull. 10casoschapa2/3/4mm excedem esmagamento;apoioOEM não simulado.
+- **Nova dependência documental:** US5000+Victron exigeGX/CAN-BMS/DVCC. RegistradaA04/A15 sobDEC056;nenhumgateway/central adicionado automaticamente.
+- **CADcorrigido:** MultiPlusA estava deitado;agora328×148×565mm vertical,posição[.61,1.40,.28]m,reserva100mm sem colisões. CGatualx2.017584657/y.002092543/z.928717726m;eixos1986.4294/1986.5961kg;massa3973.02553igual. Integração/freios24reexecutados. B ainda orientação/acessoinsuficiente. NovoSTEP/GLBrotas5trechos de sistema,laçocabos1.783946m/70mm²,perda5.8636Wa4kW/43.5V/90°C;terminais/passagensreais não comprovados.
+- **CFDtentadoeencerrado:** camadas solicitadas3malhas;menores29527/63668retêm0camadas,fina178298(+12086)diverge−8em23iterações. RetryPCG/DIC+relaxaçõestambémdiverge. Todosrejeitados,validated_cdnull;NÃO usarCd4e24 nem alegar carroequipado.≈99MBdemalhas/campos/logs/dicionários emrepo. Não repetir mesma malha/solver;novo avanço exige remalhamento/parede/geometria melhor.
+- 3executores antigos adicionais exigem--historico:gerar_cad_eletrico,calcular_integracao_eletrica,consolidar_eletrica;helperconstruir continuaimportável.Configantiga marcadaHISTORICO.227testes/Ruff passaram. QA/manifesto precisam estar atualizados após todososarquivos;consultar estadoGit eqa.json antesretomar.
+- Nenhuma etapa inteira/homologação/aprovaçãofinal declarada. Próxima frente geométrica/CHT precisa preservar limites deRAM(~2.5GBdisponível,swap7.3GBusado);preços/apoios/eixosOEM/partidasHVACcontinuamsem dados. Execuçãoautônoma continuaautorizada;sem relatórioacadêmico/slides/agora.
+
+---
+
 # Continuação10/11/2026 — ler antes do checkpoint09/11
 
 - Desenvolvimento continua aberto;sem relatório/slides/aprovações individuais. Workspace/branch/restrições abaixo permanecem.

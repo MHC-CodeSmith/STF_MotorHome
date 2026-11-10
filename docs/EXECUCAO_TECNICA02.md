@@ -89,3 +89,43 @@ ruff check src scripts tests
 ```
 
 216testes passaram;Ruff passou. A contagem vigente de verificações integradas/hashes está em `qa.json`. A etapa completa continua aberta: próxima frente executável é proteção/comandoSOC/fixações, seguida de integração geométricaCFD. InterfaceDC permanece não demonstrada; nenhum equipamento comprado/instalado e nenhuma aprovação final inferida.
+
+## Continuação elétrica, fixações e CFD — 10/11/2026
+
+Implementados `src/motorhome/protecoes.py`, `scripts/desenvolver_protecoes_fixacoes.py`, `scripts/detalhar_rotas_cad.py`, `scripts/refinar_camadas_aerodinamica.py` e `scripts/estabilizar_aero_fina.py`. Métodos,fontes e limites elétricos no [modelo de proteções](PROTECOES_SERVICOS_MODELO.md). As pesquisas primárias acrescentadas aoYAML incluem integração oficialPylontech–Victron, manuaisMultiPlus/MPPT e fichaLittelfuseJLLN2025. **A combinaçãoUS5000–Victron documentada requerGX/CAN-BMS/DVCC**;hardware adicional ainda não incorporado automaticamente sobDEC056. Não assumir que oBMS integrado sozinho fecha essa integração.
+
+Resultados em `protecoes_fixacoes/`:324casosDC,144faltas,256combinações de simultaneidade,6históricos de falha e648casos de grupo de parafusos. CorrenteDC10,384–102,936A;resíduo de potência≤1,24e−12W. Fusíveis candidatosJLLN200/JLLN080,125VDC20kA;56casos hipotéticos excedem interrupção20kA,semI²t real/impedância do banco/coordenação demonstrados. LimiaresSOC continuamnull;máquina de estados recebe estágio abstrato e travaOFF por falha,sem alegar atuador instalado. Picos comerciais desconhecidos são recusados em vez de preenchidos como dados. Chapa2/3/4mm tem10casos de esmagamento>limite de estudo;máximautilização2,236 versus0,622 nos parafusos. AncoragemOEM/fadiga/prying/tração não simulados sem geometria/dados.
+
+**Erro geométrico corrigido:** o inversor no layoutA estava deitado565×328×148mm. Agora328×148×565mm, posição local[0,61;1,40;0,28]m,com100mm de reserva de acesso de estudo sem colisões. A primeira rotação testada colidia com oHVAC;reposicionamento eliminou a colisão antes da entrega. ReexecutadosCAD,massa/CG/eixos,162sensibilidades e24casos de freios dependentes da alturaCG. Massa mantém3973,02553kg; **CG atualizado** x2,01758466/y0,00209254/z0,92871773m;reações1986,4294/1986,5961kg. ValoresCG/eixos anteriores neste documento são do estado pré-correção. LimitesOEM por eixo continuamnão documentados.
+
+NovoCAD `rotas_instalacoes/layoutA_rotas_reserva.{step,glb}` eJSON:2cabos48V+3rotas potáveis. Laço estimado1,783946m com20%folga;70mm²/90°C/4000W/43,5V resultam102,306A,queda0,13176% e5,86363W. ContatosAABB apenas nos terminaisconceituais de inversor/bomba/boiler,explicitamente listados;terminalreal/curvatura/chaparia/painéis de mobiliário/passagensnão comprovados. Esses trajetos são reservas, não instalação liberada. Custos/massas de cabos/proteções permanecem cobertos por reservas anteriores,sem dupla soma ou orçamento comercial fictício. O comparadorB ainda precisa corrigir orientação/acesso.
+
+**Aero efetivamente executado:**3casos novos a partir das malhas existentes,solicitando3camadas absolutas,final2mm/expansão1,2. Duas menores29527/63668 não conservaram células de camada;resíduosSIMPLE convergiram,mas são rejeitadas como estudo novo de camadas. Fina passa `checkMesh`,178298células (+12086),porém diverge em23iterações/saída−8;Cd4e24 é lixo numérico, **não resultado físico**. Segunda tentativa independente comPCG/DIC,2correções nãoortogonais e relaxaçõesp0,1/U,k,omega0,25 também diverge. Dados/dicionários/malhas/logs e campos escritos estão em `aero_camadas/`,≈99MB. `validated_cd:null` e nenhum desses números substitui faixaCd anterior. A geometria ainda é piloto,não carro equipado;convergência/parede/independência continuamabertas. Não repetir essa mesma malha/solver como se fosse nova validação.
+
+Protegidos mais3executores históricos com`--historico`: `gerar_cad_eletrico.py`, `calcular_integracao_eletrica.py`, `consolidar_eletrica.py`;config antiga marcadaHISTORICO,sem apagar seusdados. Assim2NG/AGM12V/MPPTs antigos não voltam a ser confundidos combaselineUS5000/150-60. Oshelpers geométricos continuamreutilizáveis.3testes verificam rejeiçãoantescriararquivos.
+
+Reprodução adicional:
+
+```bash
+PYTHONPATH=src .venv/bin/python scripts/desenvolver_integracao.py
+PYTHONPATH=src .venv/bin/python scripts/integrar_freios_massa.py
+PYTHONPATH=src .venv/bin/python scripts/desenvolver_protecoes_fixacoes.py
+PYTHONPATH=src .venv/bin/python scripts/detalhar_rotas_cad.py
+# Os dois executoresCFD exigem destinos ausentes; preservar diretórios entregues.
+PYTHONPATH=src .venv/bin/python scripts/refinar_camadas_aerodinamica.py
+PYTHONPATH=src .venv/bin/python scripts/estabilizar_aero_fina.py
+```
+
+Última suíte227testes passou;Ruff passou. A reexecuçãoI25 após atualização doYAML preserva números e registra configuração efetiva. A revisão35,lista únicaA01–A16 eQA foram atualizadas;nenhuma decisãooriginal,aprovação final ou viabilidade física foi inferida. A etapa técnica completa continuaaberta,com camposCFDrejeitados segregados e dependências físicas explicitadas.
+
+## Integração final deste checkpoint — varianteGX e BOM
+
+A dependência deGX foi tratada por alternativa comercial **integrada ao inversor**,sem central própria ou gatewayexterno:seleção provisóriaMultiPlus-II GX48/5000/70-50,PMP482506000.220V/60Hz configuráveis,31kg565×323×148mm,4000/3700W e18Wvazio constam no manual. A saídaBMS-CAN500kbps serve aoUS5000;MPPT150/60 deveusarVE.Direct,não ligar comoVE.Can nessa porta. CANtipoA,DVCC/firmwares/limites epartidas continuam a configurar/ensaiar. Essa seleção substitui o candidato regular nas saídas atuais e está consolidadaA05/A15,sobDEC061/056.
+
+**Parâmetros atuais que prevalecem sobre os parágrafos anteriores:**massa3974,02552776kg,margem275,97447224kg,CGx2,018029021/y0,002237209/z0,928796684m e eixos1986,491737/1987,533791kg. CGbase/instalação e limitesOEM seguem condicionados. ReexecutadosCAD,inventário,massas/dinâmica,FEM12casos,energia,I27/I29,36envelopes/54térmicos,24freios,648fixações e rotas. Os16perfis antigos da massa3973,026kg foram retirados do diretórioativo;bytes preservados noGit91be8af e lista de retirada em `output/perfis_massa_anterior_apos_gx_20261110.json`. Perfis4250kg e demaisresultados atualizados permanecem identificados.
+
+A grade1008 foi reexecutada com a nova massa;melhores700Wmantêm290,875/292,8854167dias na resolução15min,por reservas. Sensibilidade1500W/reserva20/30 passa348,8541667dias. Cronologiahídrica foi regenerada:9572eventos e erro≤9,1e−13L. I25a5min/1kWhipotético agora48,06652/26,64640km,sótração40/80;comserviços24,15936/13,39311km. Não extrapolar essas casas decimais como precisão física ou operação segura de estrada.
+
+`consolidar_bom_atual.py` resolve26linhas canônicas e exportaJSON/CSV em `bom_atual/`. Preços primários de listaVictron2026Q2USD C,semVAT:GX1093USD,MPPT150/60-Tr393USD,subtotal1486USD. Mantém50990EUR do veículoSK e439BRL histórico do cooktop **separados**,sem total convertido. Todas as linhas de preço instalado seguemnull;frete,tributos,montagem e disponibilidade não inventados. O catálogo de preços tem envelope ligeiramente diferente do manualGX;CAD mantém565×323×148mm do manual,com medição antes de congelar. MPPT3kg já integra a reserva15kg;BOMnão duplica essa massa.
+
+Nenhuma seleção técnica provisória é aprovação humana ou comprovação da missão. Permanecem limitações reais de interfaceDC,apoios/eixosOEM,partidasHVAC eCFDequipado/CHT. Não declarar a etapa integral concluída. Comandos executados e hashes estão nos logs20261110 e no manifestoQA atualizado.

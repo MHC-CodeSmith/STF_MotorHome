@@ -70,6 +70,10 @@
       "pass": true
     },
     {
+      "check": "layoutA_rotas_reserva.step: STEP reimporta sólidos positivos",
+      "pass": true
+    },
+    {
       "check": "FEM versus solução analítica e forças",
       "pass": true
     },
@@ -90,67 +94,67 @@
       "pass": true
     },
     {
-      "check": "I29 fixo_08_16_3973.026_40_0.1_sem_interface: conservação e estado físico",
+      "check": "I29 fixo_08_16_3974.026_40_0.1_sem_interface: conservação e estado físico",
       "pass": true
     },
     {
-      "check": "I29 fixo_08_16_3973.026_40_0.1_sem_interface: auxiliares de tração efetivamente consumidos",
+      "check": "I29 fixo_08_16_3974.026_40_0.1_sem_interface: auxiliares de tração efetivamente consumidos",
       "pass": true
     },
     {
-      "check": "I29 fixo_08_16_3973.026_40_0.1_direta_hipotese: conservação e estado físico",
+      "check": "I29 fixo_08_16_3974.026_40_0.1_direta_hipotese: conservação e estado físico",
       "pass": true
     },
     {
-      "check": "I29 fixo_08_16_3973.026_40_0.1_direta_hipotese: auxiliares de tração efetivamente consumidos",
+      "check": "I29 fixo_08_16_3974.026_40_0.1_direta_hipotese: auxiliares de tração efetivamente consumidos",
       "pass": true
     },
     {
-      "check": "I29 fixo_08_16_3973.026_40_0.2_sem_interface: conservação e estado físico",
+      "check": "I29 fixo_08_16_3974.026_40_0.2_sem_interface: conservação e estado físico",
       "pass": true
     },
     {
-      "check": "I29 fixo_08_16_3973.026_40_0.2_sem_interface: auxiliares de tração efetivamente consumidos",
+      "check": "I29 fixo_08_16_3974.026_40_0.2_sem_interface: auxiliares de tração efetivamente consumidos",
       "pass": true
     },
     {
-      "check": "I29 fixo_08_16_3973.026_40_0.2_direta_hipotese: conservação e estado físico",
+      "check": "I29 fixo_08_16_3974.026_40_0.2_direta_hipotese: conservação e estado físico",
       "pass": true
     },
     {
-      "check": "I29 fixo_08_16_3973.026_40_0.2_direta_hipotese: auxiliares de tração efetivamente consumidos",
+      "check": "I29 fixo_08_16_3974.026_40_0.2_direta_hipotese: auxiliares de tração efetivamente consumidos",
       "pass": true
     },
     {
-      "check": "I29 fixo_08_16_3973.026_80_0.1_sem_interface: conservação e estado físico",
+      "check": "I29 fixo_08_16_3974.026_80_0.1_sem_interface: conservação e estado físico",
       "pass": true
     },
     {
-      "check": "I29 fixo_08_16_3973.026_80_0.1_sem_interface: auxiliares de tração efetivamente consumidos",
+      "check": "I29 fixo_08_16_3974.026_80_0.1_sem_interface: auxiliares de tração efetivamente consumidos",
       "pass": true
     },
     {
-      "check": "I29 fixo_08_16_3973.026_80_0.1_direta_hipotese: conservação e estado físico",
+      "check": "I29 fixo_08_16_3974.026_80_0.1_direta_hipotese: conservação e estado físico",
       "pass": true
     },
     {
-      "check": "I29 fixo_08_16_3973.026_80_0.1_direta_hipotese: auxiliares de tração efetivamente consumidos",
+      "check": "I29 fixo_08_16_3974.026_80_0.1_direta_hipotese: auxiliares de tração efetivamente consumidos",
       "pass": true
     },
     {
-      "check": "I29 fixo_08_16_3973.026_80_0.2_sem_interface: conservação e estado físico",
+      "check": "I29 fixo_08_16_3974.026_80_0.2_sem_interface: conservação e estado físico",
       "pass": true
     },
     {
-      "check": "I29 fixo_08_16_3973.026_80_0.2_sem_interface: auxiliares de tração efetivamente consumidos",
+      "check": "I29 fixo_08_16_3974.026_80_0.2_sem_interface: auxiliares de tração efetivamente consumidos",
       "pass": true
     },
     {
-      "check": "I29 fixo_08_16_3973.026_80_0.2_direta_hipotese: conservação e estado físico",
+      "check": "I29 fixo_08_16_3974.026_80_0.2_direta_hipotese: conservação e estado físico",
       "pass": true
     },
     {
-      "check": "I29 fixo_08_16_3973.026_80_0.2_direta_hipotese: auxiliares de tração efetivamente consumidos",
+      "check": "I29 fixo_08_16_3974.026_80_0.2_direta_hipotese: auxiliares de tração efetivamente consumidos",
       "pass": true
     },
     {
@@ -218,67 +222,67 @@
       "pass": true
     },
     {
-      "check": "I29 alternativo_00_08_3973.026_40_0.1_sem_interface: conservação e estado físico",
+      "check": "I29 alternativo_00_08_3974.026_40_0.1_sem_interface: conservação e estado físico",
       "pass": true
     },
     {
-      "check": "I29 alternativo_00_08_3973.026_40_0.1_sem_interface: auxiliares de tração efetivamente consumidos",
+      "check": "I29 alternativo_00_08_3974.026_40_0.1_sem_interface: auxiliares de tração efetivamente consumidos",
       "pass": true
     },
     {
-      "check": "I29 alternativo_00_08_3973.026_40_0.1_direta_hipotese: conservação e estado físico",
+      "check": "I29 alternativo_00_08_3974.026_40_0.1_direta_hipotese: conservação e estado físico",
       "pass": true
     },
     {
-      "check": "I29 alternativo_00_08_3973.026_40_0.1_direta_hipotese: auxiliares de tração efetivamente consumidos",
+      "check": "I29 alternativo_00_08_3974.026_40_0.1_direta_hipotese: auxiliares de tração efetivamente consumidos",
       "pass": true
     },
     {
-      "check": "I29 alternativo_00_08_3973.026_40_0.2_sem_interface: conservação e estado físico",
+      "check": "I29 alternativo_00_08_3974.026_40_0.2_sem_interface: conservação e estado físico",
       "pass": true
     },
     {
-      "check": "I29 alternativo_00_08_3973.026_40_0.2_sem_interface: auxiliares de tração efetivamente consumidos",
+      "check": "I29 alternativo_00_08_3974.026_40_0.2_sem_interface: auxiliares de tração efetivamente consumidos",
       "pass": true
     },
     {
-      "check": "I29 alternativo_00_08_3973.026_40_0.2_direta_hipotese: conservação e estado físico",
+      "check": "I29 alternativo_00_08_3974.026_40_0.2_direta_hipotese: conservação e estado físico",
       "pass": true
     },
     {
-      "check": "I29 alternativo_00_08_3973.026_40_0.2_direta_hipotese: auxiliares de tração efetivamente consumidos",
+      "check": "I29 alternativo_00_08_3974.026_40_0.2_direta_hipotese: auxiliares de tração efetivamente consumidos",
       "pass": true
     },
     {
-      "check": "I29 alternativo_00_08_3973.026_80_0.1_sem_interface: conservação e estado físico",
+      "check": "I29 alternativo_00_08_3974.026_80_0.1_sem_interface: conservação e estado físico",
       "pass": true
     },
     {
-      "check": "I29 alternativo_00_08_3973.026_80_0.1_sem_interface: auxiliares de tração efetivamente consumidos",
+      "check": "I29 alternativo_00_08_3974.026_80_0.1_sem_interface: auxiliares de tração efetivamente consumidos",
       "pass": true
     },
     {
-      "check": "I29 alternativo_00_08_3973.026_80_0.1_direta_hipotese: conservação e estado físico",
+      "check": "I29 alternativo_00_08_3974.026_80_0.1_direta_hipotese: conservação e estado físico",
       "pass": true
     },
     {
-      "check": "I29 alternativo_00_08_3973.026_80_0.1_direta_hipotese: auxiliares de tração efetivamente consumidos",
+      "check": "I29 alternativo_00_08_3974.026_80_0.1_direta_hipotese: auxiliares de tração efetivamente consumidos",
       "pass": true
     },
     {
-      "check": "I29 alternativo_00_08_3973.026_80_0.2_sem_interface: conservação e estado físico",
+      "check": "I29 alternativo_00_08_3974.026_80_0.2_sem_interface: conservação e estado físico",
       "pass": true
     },
     {
-      "check": "I29 alternativo_00_08_3973.026_80_0.2_sem_interface: auxiliares de tração efetivamente consumidos",
+      "check": "I29 alternativo_00_08_3974.026_80_0.2_sem_interface: auxiliares de tração efetivamente consumidos",
       "pass": true
     },
     {
-      "check": "I29 alternativo_00_08_3973.026_80_0.2_direta_hipotese: conservação e estado físico",
+      "check": "I29 alternativo_00_08_3974.026_80_0.2_direta_hipotese: conservação e estado físico",
       "pass": true
     },
     {
-      "check": "I29 alternativo_00_08_3973.026_80_0.2_direta_hipotese: auxiliares de tração efetivamente consumidos",
+      "check": "I29 alternativo_00_08_3974.026_80_0.2_direta_hipotese: auxiliares de tração efetivamente consumidos",
       "pass": true
     },
     {
@@ -1398,6 +1402,10 @@
       "pass": true
     },
     {
+      "check": "Grade1008 usa massa atualCAD/GX",
+      "pass": true
+    },
+    {
       "check": "Grade1008 sem alegar ótimo global",
       "pass": true
     },
@@ -1538,6 +1546,62 @@
       "pass": true
     },
     {
+      "check": "BOM: separa moedas e não inventa orçamento instalado",
+      "pass": true
+    },
+    {
+      "check": "SeleçãoGX refletida no CAD/massa sem gateway externo",
+      "pass": true
+    },
+    {
+      "check": "Triagem elétrica/fixações efetivamente executada",
+      "pass": true
+    },
+    {
+      "check": "Não inventa limiaresSOC/hardware de controle",
+      "pass": true
+    },
+    {
+      "check": "Circuito de potência constante: balanço independente",
+      "pass": true
+    },
+    {
+      "check": "Faltas: não promove fusível20kA nem inventaI²t real",
+      "pass": true
+    },
+    {
+      "check": "Grupos de parafusos conservam força/momento",
+      "pass": true
+    },
+    {
+      "check": "Chapas insuficientes explicitamente identificadas,apoioOEM não comprovado",
+      "pass": true
+    },
+    {
+      "check": "Falhas BMS/medida/atuador comandamOFF",
+      "pass": true
+    },
+    {
+      "check": "SimultaneidadeW/VA respeitada nos cenários de estudo",
+      "pass": true
+    },
+    {
+      "check": "Inversor vertical e envelope de acesso livre",
+      "pass": true
+    },
+    {
+      "check": "Rotas: contatos apenas em terminais conceituais listados",
+      "pass": true
+    },
+    {
+      "check": "TentativasCFD rejeitadas sem promoverCd",
+      "pass": true
+    },
+    {
+      "check": "Malha fina com camadas não confundida com solução física convergida",
+      "pass": true
+    },
+    {
       "check": "35 itens revisados, zero aprovações inferidas",
       "pass": true
     }
@@ -1547,12 +1611,12 @@
     {
       "path": "entregas/desenvolvimento_2026-11-09/integracao/A_fixa.step",
       "solid_count": 27,
-      "volume_m3": 1.7357842019999992
+      "volume_m3": 1.7353661019999993
     },
     {
       "path": "entregas/desenvolvimento_2026-11-09/integracao/B_conversivel_noite.step",
       "solid_count": 29,
-      "volume_m3": 1.6973146019999996
+      "volume_m3": 1.6968965019999998
     },
     {
       "path": "entregas/desenvolvimento_2026-11-09/integracao/JA3_Victron190_longitudinal.step",
@@ -1563,10 +1627,15 @@
       "path": "entregas/desenvolvimento_2026-11-09/integracao/JA3_Victron190_transversal.step",
       "solid_count": 4,
       "volume_m3": 0.20958911999999863
+    },
+    {
+      "path": "entregas/desenvolvimento_2026-11-09/rotas_instalacoes/layoutA_rotas_reserva.step",
+      "solid_count": 40,
+      "volume_m3": 1.640131915211295
     }
   ],
-  "input_hashes": 145,
-  "output_hashes": 719,
+  "input_hashes": 153,
+  "output_hashes": 919,
   "stage_complete": false,
   "final_human_approved": 0,
   "physical_mission_demonstrated": false

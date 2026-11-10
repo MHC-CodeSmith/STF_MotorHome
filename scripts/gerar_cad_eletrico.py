@@ -111,9 +111,12 @@ def construir(c):
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument('--historico', action='store_true', help='Reproduz somente configuração elétrica antiga, não baseline DEC061')
     p.add_argument('--config', type=Path, default=Path('config/instalacoes_eletricas_proposta.yaml'))
     p.add_argument('--destino', type=Path, required=True)
     args = p.parse_args()
+    if not args.historico:
+        p.error('Configuração elétrica histórica; use --historico para reprodução. Baseline atual: parametros_globais.yaml e detalhar_rotas_cad.py.')
     c = yaml.safe_load(args.config.read_text())
     args.destino.mkdir(parents=True, exist_ok=False)
     m = construir(c)

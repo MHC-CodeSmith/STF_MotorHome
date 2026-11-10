@@ -4,7 +4,7 @@ A_fixa,cassete,4,"[2.1665000000000005, 0.5285, 0.927]",False,canonical_bom
 A_fixa,cooktop_armazenado,2.3,"[1.5810000000000004, -0.677, 1.431]",False,canonical_bom
 A_fixa,boiler,7,"[3.6800000000000006, -0.04699999999999993, 1.2800000000000002]",True,hyp
 A_fixa,bomba,2.3,"[3.1800000000000006, 0.4830000000000001, 1.12]",True,hyp
-A_fixa,inversor,30,"[3.5875000000000004, 0.46699999999999986, 1.1340000000000001]",True,hyp
+A_fixa,inversor,31,"[3.7085000000000004, 0.577, 1.2425000000000002]",True,hyp
 A_fixa,tanque_limpa,4.2,"[4.03, 0.0030000000000000027, 0.8350000000000001]",True,hyp
 A_fixa,tanque_cinza,3.8,"[3.8300000000000005, 0.15300000000000002, 0.4800000000000001]",True,hyp
 A_fixa,portatil_bolsa_1,21,"[3.8800000000000003, -0.5945, 1.045]",True,hyp
@@ -51,7 +51,7 @@ B_conversivel_noite,cassete,4,"[2.1665000000000005, 0.5285, 0.927]",False,canoni
 B_conversivel_noite,cooktop_armazenado,2.3,"[1.5810000000000004, -0.677, 1.431]",False,canonical_bom
 B_conversivel_noite,boiler,7,"[2.9300000000000006, -0.04699999999999993, 0.91]",True,hyp
 B_conversivel_noite,bomba,2.3,"[3.1800000000000006, 0.4830000000000001, 1.12]",True,hyp
-B_conversivel_noite,inversor,30,"[3.5875000000000004, 0.46699999999999986, 1.1340000000000001]",True,hyp
+B_conversivel_noite,inversor,31,"[3.5875000000000004, 0.4644999999999999, 1.1340000000000001]",True,hyp
 B_conversivel_noite,tanque_limpa,4.2,"[4.03, 0.0030000000000000027, 0.8350000000000001]",True,hyp
 B_conversivel_noite,tanque_cinza,3.8,"[3.8300000000000005, 0.15300000000000002, 0.4800000000000001]",True,hyp
 B_conversivel_noite,portatil_bolsa_1,21,"[3.8800000000000003, -0.5945, 2.125]",True,hyp

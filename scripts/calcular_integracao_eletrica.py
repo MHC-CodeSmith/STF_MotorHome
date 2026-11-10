@@ -15,9 +15,12 @@ from motorhome.integracao_eletrica import analisar
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument('--historico', action='store_true', help='Reproduz somente configuração elétrica antiga, não baseline DEC061')
     p.add_argument('--destino', type=Path, required=True)
     p.add_argument('--solar', type=Path, default=Path('entregas/parcial_2026-10-24/resumo_expansao_solar.json'))
     a = p.parse_args()
+    if not a.historico:
+        p.error('Configuração elétrica histórica; use --historico para reprodução. Baseline atual: parametros_globais.yaml e detalhar_rotas_cad.py.')
     paths = [Path('config')/name for name in ['instalacoes_eletricas_proposta.yaml', 'equipamentos_interior.yaml']]
     e, i = [yaml.safe_load(path.read_text()) for path in paths]
     budget_path = Path('entregas/parcial_2026-10-24/orcamento_massa_parcial.json')
