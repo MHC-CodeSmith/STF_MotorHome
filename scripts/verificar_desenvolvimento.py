@@ -147,6 +147,9 @@ def main():
     retry=json.loads((OUT/'aero_camadas/estabilizacao_resumo.json').read_text())
     check(len(aero['cases'])==3 and aero['validated_cd'] is None and not retry['converged'],'TentativasCFD rejeitadas sem promoverCd')
     check(aero['cases'][-1]['added_layer_cells']>0 and not aero['cases'][-1]['solver_converged'],'Malha fina com camadas não confundida com solução física convergida')
+    hvac=json.loads((OUT/'hvac_revisao/resumo.json').read_text())
+    check(hvac['thermal_cases']==72 and hvac['electrical_cases']==12 and hvac['nominal_va_at220v60hz']==1364,'HVAC: revisão elétrica60Hz e sensibilidades executadas')
+    check(hvac['fuse_conflict_open'] and not hvac['actual_purchased_variant_confirmed'] and not hvac['capacity_at_33outside_25inside_demonstrated'],'HVAC: revisão documental não equivale a placa/curva/fusível validado')
     review=json.loads((OUT/'revisao_35_itens.json').read_text())
     check(len(review['items'])==35 and sum(r['human_approval_recorded'] for r in review['items'])==0,'35 itens revisados, zero aprovações inferidas')
     if args.registrar:

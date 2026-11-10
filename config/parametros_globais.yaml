@@ -176,6 +176,15 @@ sources:
     accessed: '2026-11-10'
     version: 2026-Q2 USD C
     evidence: PMP482506000GX1093USD,página3;SCC115060211SmartSolar150/60-Tr393USD,página14;semVAT. Dimensões tabela divergem do manual,não substituem envelopeCAD.
+  freshwell_manual_2018:
+    url: https://www.jacksonsleisure.com/content/pdf/dometic/dometic-freshwell-3000-manual.pdf
+    primary_indexed_url: https://media.dometic.com/externalassets/dometic-freshwell-3000-_9105306670_98740.pdf
+    kind: manual_fabricante_em_espelho_distribuidor
+    accessed: '2026-11-10'
+    version: FreshWell3000-O-16s,12/12/2018,página29
+    sha256: 12246bf2a261161a4b1778780fa59a8ba06edda53ba8670765d1b96f6265680b
+    bytes: 8039424
+    evidence: FW3000admite220–240V50/60Hz;refrigeração5.1/6.2A,2700WISO5151,21kg. Manualtambémindicafusível5A,conflitantecom6.2A. SKU/placa de aquisição a confirmar;nãomisturarrev230V4.3A.
 parameters:
   architecture:
     value: B
@@ -2691,11 +2700,11 @@ bom_components:
   unit_reference_price: null
   price_currency: BRL
 - id: hvac
-  model: FreshWell3000 — candidato sem220V confirmado
+  model: FreshWellFW3000 manualO16s2018 — candidato220–240V50/60Hz,placa a confirmar
   quantity: 1
   unit_mass_kg: 21
   owner: P6
-  source: freshwell
+  source: freshwell_manual_2018
   scope: conversao
   status: condicionado_nao_selecao_final
   version: 1.1.0-execucao02
@@ -3782,7 +3791,7 @@ development:
     - {id: tomadas, priority: 1, w: 300, va: 375, large: false, shed_at_stage: 2, status: hipotese}
     - {id: cooktop, priority: 2, w: 2000, va: 2000, large: true, shed_at_stage: 1, status: nominal_resistiva_equivalente_nao_transitorio}
     - {id: boiler, priority: 3, w: 500, va: 500, large: true, shed_at_stage: 1, status: nominal_candidato}
-    - {id: hvac, priority: 4, w: 989, va: 989, large: true, shed_at_stage: 1, status: estimativa_230Vx4.3A_pf1_nao_partida}
+    - {id: hvac, priority: 4, w: 1364, va: 1364, large: true, shed_at_stage: 1, status: teto_estudo_220Vx6.2A_pf1_manual2018_nao_partida}
     - {id: lavagem, priority: 5, w: null, va: null, large: true, shed_at_stage: 1, status: pico_desconhecido_recusar_comando}
     note: Triagem independente de ampacidade normativa e coordenação tempo-corrente.
       Resistência interna não inclui intervenção BMS e não é dadoPylontech.
@@ -3847,3 +3856,22 @@ development:
     note: Rotas de reserva autorais;terminais,conexões,drenos,raios de curvatura e passagens reais não validados.
       Envelope inversor vertical=.328x.148x.565m;folga100mm é reserva de projeto, não homologação.
       Tubos fora da região dos cabos48V;trajeto não equivale a instalação física conforme.
+  hvac_revision_study:
+    version: 1.0.0-FW3000-rev2018
+    reference_date: '2026-11-10'
+    owner: P6-P2
+    source: freshwell_manual_2018
+    status: condicionado_placa_revisao_nao_confirmada
+    confidence: media
+    nameplate_cooling_w: 2700
+    input_range_v: [220, 240]
+    input_hz: [50, 60]
+    nominal_cooling_a_at_50_60hz: [5.1, 6.2]
+    fuse_in_manual_a: 5
+    capacity_fraction_sweep: [0.7, 0.85, 1]
+    solar_gain_factor_sweep: [0.8, 1, 1.3, 1.6]
+    envelope_conduction_factor_sweep: [0.8, 1, 1.3]
+    electrical_pf_sweep: [0.7, 0.85, 1]
+    starting_current_multiplier_sweep: [1, 2, 4, 6]
+    document_conflict: 5Afusívelmanualversus6.2Anominal60Hz;verificarrevisão/curva,sem escolher5A automaticamente.
+    note: MaiorcapacidadeWebasto3.5kW50Hzteto járejeitada. UB11/15Coleman115Vpublicados comoalternativas,sócomadaptação/layoutsujeitosvalidação,não selecionados.

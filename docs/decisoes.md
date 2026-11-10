@@ -112,3 +112,7 @@ DEC061 autoriza selecionar provisoriamente MultiPlus-II GX48/5000/70-50:GX/visor
 ### 10/11/2026 — BOM coerente e preços por moeda
 
 LinhaMPPT corrigida de"modelo não selecionado"para150/60-Tr provisório,1unidade/3kg jánareserva. ListaVictron2026Q2,semVAT,documentaPMP482506000GX1093USD/SCC115060211393USD. Não confundirUSD1486com orçamento instaladoBRL;veículoEUR50990 e cooktopBRL439histórico permanecem separados. Nenhum câmbio/tributo/frete inventado. EnvelopeCAD usa manualGX,divergência milimétrica da tabela de preços registrada antesde congelamento.
+
+### 10/11/2026 — revisão elétrica FreshWell2018
+
+Fontefreshwell_manual_2018 adicionada comhash/página/revisão/espelho. ManualFW3000admite220–240V50/60Hz;seleção provisória dessa revisão substitui bloqueio genérico220V,sem confirmarSKU/placa ou suficiência33°C. Corrente nominal60Hz6.2A usada na triagem1364VA,pf1estimado;4.3Adeoutrarevisão não misturado.72casos térmicos/12elétricos e256combinaçõesP2 reexecutados;energia diária3kWh permanece hipóteseDEC046,massa21kginalterada. Fusível5Amanual versus6.2A nominal exigecoordenação;nenhuma proteção foi liberada. OriginaisDEC001–061 intactos.

@@ -1602,6 +1602,14 @@
       "pass": true
     },
     {
+      "check": "HVAC: revisão elétrica60Hz e sensibilidades executadas",
+      "pass": true
+    },
+    {
+      "check": "HVAC: revisão documental não equivale a placa/curva/fusível validado",
+      "pass": true
+    },
+    {
       "check": "35 itens revisados, zero aprovações inferidas",
       "pass": true
     }
@@ -1634,8 +1642,8 @@
       "volume_m3": 1.640131915211295
     }
   ],
-  "input_hashes": 153,
-  "output_hashes": 919,
+  "input_hashes": 154,
+  "output_hashes": 922,
   "stage_complete": false,
   "final_human_approved": 0,
   "physical_mission_demonstrated": false

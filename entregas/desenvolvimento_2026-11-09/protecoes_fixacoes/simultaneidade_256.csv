@@ -7,11 +7,11 @@ lavagem,0,0.0,0.0,,"[{""id"": ""lavagem"", ""reason"": ""pico_nao_documentado""}
 lavagem,1,0.0,0.0,,"[{""id"": ""lavagem"", ""reason"": ""estagio_SOC_BMS""}]"
 lavagem,2,0.0,0.0,,"[{""id"": ""lavagem"", ""reason"": ""estagio_SOC_BMS""}]"
 lavagem,3,0.0,0.0,,"[{""id"": ""lavagem"", ""reason"": ""estagio_SOC_BMS""}]"
-hvac,0,989.0,989.0,hvac,[]
+hvac,0,1364.0,1364.0,hvac,[]
 hvac,1,0.0,0.0,,"[{""id"": ""hvac"", ""reason"": ""estagio_SOC_BMS""}]"
 hvac,2,0.0,0.0,,"[{""id"": ""hvac"", ""reason"": ""estagio_SOC_BMS""}]"
 hvac,3,0.0,0.0,,"[{""id"": ""hvac"", ""reason"": ""estagio_SOC_BMS""}]"
-"hvac,lavagem",0,989.0,989.0,hvac,"[{""id"": ""lavagem"", ""reason"": ""pico_nao_documentado""}]"
+"hvac,lavagem",0,1364.0,1364.0,hvac,"[{""id"": ""lavagem"", ""reason"": ""pico_nao_documentado""}]"
 "hvac,lavagem",1,0.0,0.0,,"[{""id"": ""hvac"", ""reason"": ""estagio_SOC_BMS""}, {""id"": ""lavagem"", ""reason"": ""estagio_SOC_BMS""}]"
 "hvac,lavagem",2,0.0,0.0,,"[{""id"": ""hvac"", ""reason"": ""estagio_SOC_BMS""}, {""id"": ""lavagem"", ""reason"": ""estagio_SOC_BMS""}]"
 "hvac,lavagem",3,0.0,0.0,,"[{""id"": ""hvac"", ""reason"": ""estagio_SOC_BMS""}, {""id"": ""lavagem"", ""reason"": ""estagio_SOC_BMS""}]"
@@ -71,11 +71,11 @@ tomadas,3,0.0,0.0,,"[{""id"": ""tomadas"", ""reason"": ""estagio_SOC_BMS""}]"
 "tomadas,lavagem",1,300.0,375.0,tomadas,"[{""id"": ""lavagem"", ""reason"": ""estagio_SOC_BMS""}]"
 "tomadas,lavagem",2,0.0,0.0,,"[{""id"": ""tomadas"", ""reason"": ""estagio_SOC_BMS""}, {""id"": ""lavagem"", ""reason"": ""estagio_SOC_BMS""}]"
 "tomadas,lavagem",3,0.0,0.0,,"[{""id"": ""tomadas"", ""reason"": ""estagio_SOC_BMS""}, {""id"": ""lavagem"", ""reason"": ""estagio_SOC_BMS""}]"
-"tomadas,hvac",0,1289.0,1364.0,"tomadas,hvac",[]
+"tomadas,hvac",0,1664.0,1739.0,"tomadas,hvac",[]
 "tomadas,hvac",1,300.0,375.0,tomadas,"[{""id"": ""hvac"", ""reason"": ""estagio_SOC_BMS""}]"
 "tomadas,hvac",2,0.0,0.0,,"[{""id"": ""tomadas"", ""reason"": ""estagio_SOC_BMS""}, {""id"": ""hvac"", ""reason"": ""estagio_SOC_BMS""}]"
 "tomadas,hvac",3,0.0,0.0,,"[{""id"": ""tomadas"", ""reason"": ""estagio_SOC_BMS""}, {""id"": ""hvac"", ""reason"": ""estagio_SOC_BMS""}]"
-"tomadas,hvac,lavagem",0,1289.0,1364.0,"tomadas,hvac","[{""id"": ""lavagem"", ""reason"": ""pico_nao_documentado""}]"
+"tomadas,hvac,lavagem",0,1664.0,1739.0,"tomadas,hvac","[{""id"": ""lavagem"", ""reason"": ""pico_nao_documentado""}]"
 "tomadas,hvac,lavagem",1,300.0,375.0,tomadas,"[{""id"": ""hvac"", ""reason"": ""estagio_SOC_BMS""}, {""id"": ""lavagem"", ""reason"": ""estagio_SOC_BMS""}]"
 "tomadas,hvac,lavagem",2,0.0,0.0,,"[{""id"": ""tomadas"", ""reason"": ""estagio_SOC_BMS""}, {""id"": ""hvac"", ""reason"": ""estagio_SOC_BMS""}, {""id"": ""lavagem"", ""reason"": ""estagio_SOC_BMS""}]"
 "tomadas,hvac,lavagem",3,0.0,0.0,,"[{""id"": ""tomadas"", ""reason"": ""estagio_SOC_BMS""}, {""id"": ""hvac"", ""reason"": ""estagio_SOC_BMS""}, {""id"": ""lavagem"", ""reason"": ""estagio_SOC_BMS""}]"
@@ -135,11 +135,11 @@ geladeira,3,0.0,0.0,,"[{""id"": ""geladeira"", ""reason"": ""estagio_SOC_BMS""}]
 "geladeira,lavagem",1,160.6,160.6,geladeira,"[{""id"": ""lavagem"", ""reason"": ""estagio_SOC_BMS""}]"
 "geladeira,lavagem",2,160.6,160.6,geladeira,"[{""id"": ""lavagem"", ""reason"": ""estagio_SOC_BMS""}]"
 "geladeira,lavagem",3,0.0,0.0,,"[{""id"": ""geladeira"", ""reason"": ""estagio_SOC_BMS""}, {""id"": ""lavagem"", ""reason"": ""estagio_SOC_BMS""}]"
-"geladeira,hvac",0,1149.6,1149.6,"geladeira,hvac",[]
+"geladeira,hvac",0,1524.6,1524.6,"geladeira,hvac",[]
 "geladeira,hvac",1,160.6,160.6,geladeira,"[{""id"": ""hvac"", ""reason"": ""estagio_SOC_BMS""}]"
 "geladeira,hvac",2,160.6,160.6,geladeira,"[{""id"": ""hvac"", ""reason"": ""estagio_SOC_BMS""}]"
 "geladeira,hvac",3,0.0,0.0,,"[{""id"": ""geladeira"", ""reason"": ""estagio_SOC_BMS""}, {""id"": ""hvac"", ""reason"": ""estagio_SOC_BMS""}]"
-"geladeira,hvac,lavagem",0,1149.6,1149.6,"geladeira,hvac","[{""id"": ""lavagem"", ""reason"": ""pico_nao_documentado""}]"
+"geladeira,hvac,lavagem",0,1524.6,1524.6,"geladeira,hvac","[{""id"": ""lavagem"", ""reason"": ""pico_nao_documentado""}]"
 "geladeira,hvac,lavagem",1,160.6,160.6,geladeira,"[{""id"": ""hvac"", ""reason"": ""estagio_SOC_BMS""}, {""id"": ""lavagem"", ""reason"": ""estagio_SOC_BMS""}]"
 "geladeira,hvac,lavagem",2,160.6,160.6,geladeira,"[{""id"": ""hvac"", ""reason"": ""estagio_SOC_BMS""}, {""id"": ""lavagem"", ""reason"": ""estagio_SOC_BMS""}]"
 "geladeira,hvac,lavagem",3,0.0,0.0,,"[{""id"": ""geladeira"", ""reason"": ""estagio_SOC_BMS""}, {""id"": ""hvac"", ""reason"": ""estagio_SOC_BMS""}, {""id"": ""lavagem"", ""reason"": ""estagio_SOC_BMS""}]"
@@ -199,11 +199,11 @@ geladeira,3,0.0,0.0,,"[{""id"": ""geladeira"", ""reason"": ""estagio_SOC_BMS""}]
 "geladeira,tomadas,lavagem",1,460.6,535.6,"geladeira,tomadas","[{""id"": ""lavagem"", ""reason"": ""estagio_SOC_BMS""}]"
 "geladeira,tomadas,lavagem",2,160.6,160.6,geladeira,"[{""id"": ""tomadas"", ""reason"": ""estagio_SOC_BMS""}, {""id"": ""lavagem"", ""reason"": ""estagio_SOC_BMS""}]"
 "geladeira,tomadas,lavagem",3,0.0,0.0,,"[{""id"": ""geladeira"", ""reason"": ""estagio_SOC_BMS""}, {""id"": ""tomadas"", ""reason"": ""estagio_SOC_BMS""}, {""id"": ""lavagem"", ""reason"": ""estagio_SOC_BMS""}]"
-"geladeira,tomadas,hvac",0,1449.6,1524.6,"geladeira,tomadas,hvac",[]
+"geladeira,tomadas,hvac",0,1824.6,1899.6,"geladeira,tomadas,hvac",[]
 "geladeira,tomadas,hvac",1,460.6,535.6,"geladeira,tomadas","[{""id"": ""hvac"", ""reason"": ""estagio_SOC_BMS""}]"
 "geladeira,tomadas,hvac",2,160.6,160.6,geladeira,"[{""id"": ""tomadas"", ""reason"": ""estagio_SOC_BMS""}, {""id"": ""hvac"", ""reason"": ""estagio_SOC_BMS""}]"
 "geladeira,tomadas,hvac",3,0.0,0.0,,"[{""id"": ""geladeira"", ""reason"": ""estagio_SOC_BMS""}, {""id"": ""tomadas"", ""reason"": ""estagio_SOC_BMS""}, {""id"": ""hvac"", ""reason"": ""estagio_SOC_BMS""}]"
-"geladeira,tomadas,hvac,lavagem",0,1449.6,1524.6,"geladeira,tomadas,hvac","[{""id"": ""lavagem"", ""reason"": ""pico_nao_documentado""}]"
+"geladeira,tomadas,hvac,lavagem",0,1824.6,1899.6,"geladeira,tomadas,hvac","[{""id"": ""lavagem"", ""reason"": ""pico_nao_documentado""}]"
 "geladeira,tomadas,hvac,lavagem",1,460.6,535.6,"geladeira,tomadas","[{""id"": ""hvac"", ""reason"": ""estagio_SOC_BMS""}, {""id"": ""lavagem"", ""reason"": ""estagio_SOC_BMS""}]"
 "geladeira,tomadas,hvac,lavagem",2,160.6,160.6,geladeira,"[{""id"": ""tomadas"", ""reason"": ""estagio_SOC_BMS""}, {""id"": ""hvac"", ""reason"": ""estagio_SOC_BMS""}, {""id"": ""lavagem"", ""reason"": ""estagio_SOC_BMS""}]"
 "geladeira,tomadas,hvac,lavagem",3,0.0,0.0,,"[{""id"": ""geladeira"", ""reason"": ""estagio_SOC_BMS""}, {""id"": ""tomadas"", ""reason"": ""estagio_SOC_BMS""}, {""id"": ""hvac"", ""reason"": ""estagio_SOC_BMS""}, {""id"": ""lavagem"", ""reason"": ""estagio_SOC_BMS""}]"

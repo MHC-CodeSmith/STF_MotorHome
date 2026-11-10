@@ -116,7 +116,7 @@
       "requirement": "A/C, aquecimento e ventilação",
       "status": "calculado_condicionado",
       "executed_or_reviewed": "Vazão natural,CO2 e vapor48cenários, sem ventilador novo.",
-      "remaining_limit": "Vento0 e ΔT0 geram0vazão; ventilação não garantida. FreshWell220V/curva33°C ainda não comprovados.",
+      "remaining_limit": "Vento0 e ΔT0 geram0vazão; ventilação não garantida. ManualFW3000rev2018 admite220–240V50/60Hz;placa adquirida/curva33°C epartidas pendentes.",
       "evidence": "entregas/desenvolvimento_2026-11-09/integracao/ventilacao_natural_co2_umidade.csv",
       "historical_inventory": "equipe/P6_interior_cabine/I11_hvac_e_ventilacao_interna",
       "human_approval_recorded": false
@@ -345,10 +345,10 @@
       "item": 32,
       "owner": "P6",
       "requirement": "Potência A/C: 33 °C externo, 25 °C interno, passageiro, permanente",
-      "status": "carga_calculada_condicionada",
-      "executed_or_reviewed": "Caso33→25°C,1ocupante2.516kWtérmico;2p2.646kW preservados.",
-      "remaining_limit": "CapacidadeFreshWell230Vnão prova220V;solar/pontes térmicas/ventilação e capacidade em33°C não validados.",
-      "evidence": "entregas/desenvolvimento_2026-11-09/cabine_transiente/resumo.json",
+      "status": "carga_e_revisao_comercial_verificadas",
+      "executed_or_reviewed": "72sensibilidadescapacidade/envelope/solar e12elétricas;manualFW3000rev2018220–240V50/60Hzconferido.",
+      "remaining_limit": "Margem nominal1p184W/2p54W não valida33°C;SKU/placa,partida e fusível5A versus6.2A precisam confirmação.",
+      "evidence": "entregas/desenvolvimento_2026-11-09/hvac_revisao/resumo.json",
       "historical_inventory": "equipe/P6_interior_cabine/I32_potencia_termica_de_a_c",
       "human_approval_recorded": false
     },

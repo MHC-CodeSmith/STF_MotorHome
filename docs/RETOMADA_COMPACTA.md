@@ -1,3 +1,14 @@
+# HVAC posteriormente conferido —10/11/2026
+
+- CheckpointGX já publicado em **6656858**. Depois continuou pesquisaHVAC;novos arquivos emhvac_revisao/ e`comparar_hvac_revisoes.py`.
+- ManualfabricanteFW3000-O16s12/12/2018,espelhoJacksons,8,039,424bytes,SHA25612246bf2a261161a4b1778780fa59a8ba06edda53ba8670765d1b96f6265680b. Cache `/home/mhc/motorhome_referencias_tarefas/freshwell-conferencia-20261110/`;p29renderizada/conferida,p4dimensões. Declara220–240V50/60Hz,2700Wtérmicos,6.2Anominais60Hz,21kg. Fontefreshwell_manual_2018noYAML. PDFprimário76MBnãoentrouweb;download403;espelhooriginalhashado/nãoinventaracessoprimário.
+- **Lacuna220Vgenérica superada paraesta revisão**,não confirmaSKU/placa:produtoatual6675temHTML1758/2700Winconsistente,nãomisturar. Manual2018indica5Afusívelversus6.2Anominal60Hz;coordenação/revisãopendente. Corrente não é partida/Wativos.
+- 72casostérmicos+12elétricos novos;P2triagemHVACagora1364VA=220×6.2,pf1estimado(989VAretirado). Margemnominal184.102W1p/54.102W2p;capacidade33°C/25°Cnãovalidada. Média3kWh/dcontinuaestimadaindependente,massa21kgigual;grade1008nãoalterada. BOM/A06/revisão32atualizadas,I25reexecutadoparaúltimoYAML/hash.
+- **QAatual:**227testes/Ruffpassaram;403controles,154entradas/922saídashashadas. `stage_complete:false`;35revisados/0aprovações. ConferirSEM--registrar. Nenhumprocessocientíficopendente.
+- Trabalhointegralnãoencerrado;continuarsobDEC061semperguntaropçõesrotineiras.Nãoinstalar/comprar/nemafirmarinterfaceDCouaprovacaofísica. DocumentoEXECUCAO_TECNICA02temtodasasfases/métodos/limitações;listaúnicaA01–A16preservada.
+
+---
+
 # Estado mais recente — GX integrado,10/11/2026
 
 - **AutonomiaDEC061 ativa,desenvolvimento integral NÃO concluído.** Nenhuma nova aprovação perguntada;sem relatório/slides. Estado anterior91be8af preservado;consultarGit para próximoHEAD.

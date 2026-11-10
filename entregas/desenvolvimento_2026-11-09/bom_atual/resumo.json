@@ -195,11 +195,11 @@
     },
     {
       "id": "hvac",
-      "model": "FreshWell3000 — candidato sem220V confirmado",
+      "model": "FreshWellFW3000 manualO16s2018 — candidato220–240V50/60Hz,placa a confirmar",
       "quantity": 1,
       "unit_mass_kg": 21,
       "owner": "P6",
-      "source": "freshwell",
+      "source": "freshwell_manual_2018",
       "scope": "conversao",
       "status": "condicionado_nao_selecao_final",
       "version": "1.1.0-execucao02",
@@ -210,7 +210,7 @@
       "unit_reference_price": null,
       "price_currency": "BRL",
       "known_reference_line_total": null,
-      "reference_url": "https://www.dometic.com/externalassets/dometic-freshwell-3000-_104014.pdf",
+      "reference_url": "https://www.jacksonsleisure.com/content/pdf/dometic/dometic-freshwell-3000-manual.pdf",
       "is_installed_quote": false
     },
     {

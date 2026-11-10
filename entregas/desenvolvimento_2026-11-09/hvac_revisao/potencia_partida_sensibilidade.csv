@@ -1,0 +1,13 @@
+power_factor_assumed,current_multiplier_assumed,current_a_assumed,apparent_va_assumed,active_w_assumed,within_inverter_continuous_w_va,measured_start_current,transient_compatibility_demonstrated
+0.7,1,6.2,1364.0,954.8,True,False,False
+0.7,2,12.4,2728.0,1909.6,True,False,False
+0.7,4,24.8,5456.0,3819.2,False,False,False
+0.7,6,37.2,8184.000000000001,5728.8,False,False,False
+0.85,1,6.2,1364.0,1159.3999999999999,True,False,False
+0.85,2,12.4,2728.0,2318.7999999999997,True,False,False
+0.85,4,24.8,5456.0,4637.599999999999,False,False,False
+0.85,6,37.2,8184.000000000001,6956.400000000001,False,False,False
+1.0,1,6.2,1364.0,1364.0,True,False,False
+1.0,2,12.4,2728.0,2728.0,True,False,False
+1.0,4,24.8,5456.0,5456.0,False,False,False
+1.0,6,37.2,8184.000000000001,8184.000000000001,False,False,False

@@ -58,11 +58,11 @@ Já aprovados anteriormente e preservados: arquitetura B como direção, bancos 
 
 ## A06 — Climatização
 
-- **Estado / responsável:** nao_demonstrado; P6/P2/P3.
+- **Estado / responsável:** documentado_por_revisao_condicionado; P6/P2/P3.
 - **Opções:** FreshWell 3000/2.7kWsob banco × CoolTopTrail35/3.5kWde teto × outra compatível.
-- **Recomendação provisória:** Não congelar modelo. FreshWell segue referência dimensional; Webasto50Hz/teto rejeitado para baseline.
-- **Justificativa e fonte:** Comparação comercial maior foi feita, mas nenhuma compatibilidade220 V / 60 Hz sob banco demonstrada. [freshwell](https://www.dometic.com/externalassets/dometic-freshwell-3000-_104014.pdf).
-- **Impactos e incertezas:** Carga térmica1/2p e margens calculadas por rede equivalente; faltamcurvas33°C, dutos, picos e alimentação220V.
+- **Recomendação provisória:** FreshWellFW3000 da revisãoO16s2018 selecionado provisoriamente para estudo220–240V50/60Hz;correspondência deSKU/placa antes aquisição. Webasto50Hz/teto rejeitado.
+- **Justificativa e fonte:** ManualDometic2018/p29,espelhoJacksons,documenta220–240V50/60Hz,6.2Anominais60Hz e2700WISO5151;variante exata adquirida não confirmada. [freshwell](https://www.jacksonsleisure.com/content/pdf/dometic/dometic-freshwell-3000-manual.pdf).
+- **Impactos e incertezas:** Carga térmica1/2p e margens calculadas por rede equivalente; 72sensibilidades executadas;faltamcurvas33°C,dutos,partida,SKU/placa e coordenaçãofusível5A do manual versus6.2Anominais. Não usar4.3A de outra revisão.
 - **Dependências:** B07/B08; A04/A05/A10/A11.
 - **Aprovação necessária:** revisão técnica das evidências e aprovação humana final da escolha; enquanto houver bloqueio, não liberar instalação, homologação ou conclusão física.
 
