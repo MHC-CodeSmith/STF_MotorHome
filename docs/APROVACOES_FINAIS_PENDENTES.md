@@ -130,7 +130,7 @@ Já aprovados anteriormente e preservados: arquitetura B como direção, bancos 
 
 - **Estado / responsável:** em_comparacao; P5/P2/P4.
 - **Opções:** 08–16 × horário alternativo00–08 × otimização futura; 10/20×20/30.
-- **Recomendação provisória:** Usar melhor política da grade1008 apenas como hipótese:20–04h,20km/h paraauxiliartração700W estimado;290,875/292,885dias conforme reservas. Não declarar ótimo global, operação rodoviária recomendada ou sessãoDCreal.
+- **Recomendação provisória:** Usar melhor política da grade1008 apenas como hipótese:20–04h,20km/h paraauxiliartração700W estimado;243,84375/244,88542dias conforme reservas no cenário integrado1540Wp. Os290,875/292,885dias pertencem à comparação anterior1350Wp. Não declarar ótimo global, operação rodoviária recomendada ou sessãoDCreal.
 - **Justificativa e fonte:** Novos replays coerentes permitem avaliar tendências; horárioalternativo não é políticaotimizadademonstrada. `config/parametros_globais.yaml:sources.hyp`.
 - **Impactos e incertezas:** Dias, soc e conclusão mudam com consumo, interface e clima; somente hipóteses de dia-tipo idealizado.
 - **Dependências:** B01/B04; A02/A03/A04/A11.

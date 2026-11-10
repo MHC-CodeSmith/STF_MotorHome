@@ -1,5 +1,13 @@
 # Retomada — motorhome solar, 10/11/2026
 
+## Atualização da revisão geral — 10/11/2026
+
+- Pedido atual atendido documentalmente em **`docs/REVISAO_GERAL_PROJETO.md`** (35 pareceres individuais, resultados, limites, evidências e referência à lista única A01–A16). Não declarar projeto fechado: OEM/instalação/DC, CFD e otimização têm lacunas técnicas além da aprovação humana.
+- Correção feita em `docs/APROVACOES_FINAIS_PENDENTES.md`, A13: cenário1540Wp **243,84375/244,88542 dias**; 290,875/292,885 dias pertenciam ao1350Wp. Nenhum parâmetro, resultado de solver ou DEC original alterado.
+- **21 novos recálculos/conferências JS passaram**, registro `entregas/revisao_geral_2026-11-10/verificacoes_documentais.json`. Documento relido e idêntico ao texto escrito; contém35linhas de itens. Conferência adicional em lote das referências foi interrompida por demora e não é apresentada como concluída.
+- **Ambiente mudou:** terminal normal falhou em bwrap/RTM_NEWADDR; execução ampliada não foi executada porque a revisão automática falhou com permissão de rede revogada. Não contornar com outro shell. Leituras/escritas locais funcionaram. Os244testes,422+331controles e17comandos são registros anteriores, NÃO reexecutados nesta revisão.
+- **Integridade pendente conhecida:** A13 alterou documento coberto por manifesto antigo. Não mascarar: restaurar terminal, regenerar manifesto pelo procedimento documentado e verificar novamente. Novos arquivos/revisões locais sem commit/push nesta sessão; último HEAD registrado3f684d9, não conferido por Git agora. Bloqueio anterior de push continua; pedido de revisão não é autorização de publicação.
+
 **Objetivo aberto:** executar os 35 itens sob DEC-001–061 com autonomia provisória. O usuário insiste em continuar até terminar; não pedir escolhas individuais, preparar ABNT/slides/envio ou declarar hardware validado por simulação. **Cadeia computacional reproduzida; projeto físico e aprovação humana não concluídos.**
 
 ## Local e publicação
@@ -50,3 +58,5 @@ Remanescentes: interfaceDCautorizada/mínimos/protocolo;dadosOEM/eixos/ancoragen
 Ambiente: shell geralmente `require_escalated` por falha bwrap;essa execução local é permitida,**a rejeição pendente é do push**. Python `.venv`/PYTHONPATHsrc,Ruff global. OpenFOAM2412 em `/home/mhc/motorhome_referencias_tarefas/software/openfoam2412-local/usr/lib/openfoam/openfoam2412`;RAM~2,7GB disponível/swap7,2GB,usar destinosCFD novos. Web `mcp__codex_apps__search_service_web_run`.
 
 Fontes/hash/PDFs renderizados e números anteriores: **`docs/RETOMADA_DETALHADA_INTEGRACAO1540_2026-11-10.md`**. Registro61 original SHA256 `1e082c4961a57b865f008fa1daadd37e696bdb060f22c922596715096c793969` intocado. Detalhe anterior contém alegação antiga de push autorizado;prevalece o bloqueio explícito desta nota.
+
+- Continuidade 10/11: shell, Python, `.venv` e Ruff restabelecidos. 244 testes/Ruff/verificador integrado passaram; QA desenvolvimento passou após `--registrar` legítimo do hash A13. Adicionado refinamento local I29 (`scripts/refinar_velocidade_missao.py`, 796 pontos) sob janela 20–04h: 700W, 10/20% chega condicional em242,885d a20,4km/h; 20/30% em244,885d a19,8km/h. Hipótese DC permanece e nenhum ótimo global é alegado. Ver `docs/REVISAO_GERAL_PROJETO.md`.
