@@ -90,3 +90,34 @@ def alocar_picos(loads,stage,limit_w,limit_va):
         else:
             accepted.append(load['id']);watts+=power;va+=apparent;large+=bool(load.get('large'))
     return {'accepted':accepted,'rejected':rejected,'w':watts,'va':va}
+
+
+def grupo_parafusos_espacial(force_n, moment_nm, coordinates_m):
+    """Interface rígida com molas iguais nas três direções em cada apoio.
+
+    Resolve seis equilíbrios por energia elástica mínima. Força normal
+    negativa é reação compressiva do apoio, não tração negativa no parafuso.
+    Não modela contato unilateral, rigidez real de chapa, pré-carga ou prying.
+    Coordenadas referidas ao centro geométrico; momentos devem usar essa origem.
+    """
+    xyz=np.asarray(coordinates_m,dtype=float)
+    force=np.asarray(force_n,dtype=float);moment=np.asarray(moment_nm,dtype=float)
+    if xyz.ndim!=2 or xyz.shape[1]!=3 or len(xyz)<3 or force.shape!=(3,) or moment.shape!=(3,):
+        raise ValueError('Interface espacial inválida')
+    if not all(np.isfinite(x).all() for x in [xyz,force,moment]):
+        raise ValueError('Dados não finitos')
+    xyz=xyz-xyz.mean(axis=0)
+    operators=[]
+    for x,y,z in xyz:
+        cross=np.array([[0,-z,y],[z,0,-x],[-y,x,0]])
+        operators.append(np.column_stack((np.eye(3),-cross)))
+    b=np.vstack(operators);matrix=b.T@b
+    if np.linalg.matrix_rank(matrix)<6:raise ValueError('Interface degenerada')
+    displacement=np.linalg.solve(matrix,np.r_[force,moment])
+    reactions=(b@displacement).reshape(-1,3)
+    return {'components_n':reactions.tolist(),
+            'bolt_tension_n':np.maximum(reactions[:,2],0).tolist(),
+            'support_compression_n':np.maximum(-reactions[:,2],0).tolist(),
+            'bolt_shear_n':np.linalg.norm(reactions[:,:2],axis=1).tolist(),
+            'force_residual_n':(reactions.sum(axis=0)-force).tolist(),
+            'moment_residual_nm':(np.cross(xyz,reactions).sum(axis=0)-moment).tolist()}

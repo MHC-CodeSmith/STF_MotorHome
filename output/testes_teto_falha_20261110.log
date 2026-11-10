@@ -1,0 +1,23 @@
+........................................................................ [ 31%]
+........................................................................ [ 62%]
+........................................................................ [ 93%]
+..............F.                                                         [100%]
+=================================== FAILURES ===================================
+_____________ test_serie_identica_conserva_corrente_e_soma_tensao ______________
+
+    def test_serie_identica_conserva_corrente_e_soma_tensao():
+        model={'vmp_v':60.,'imp_a':6.,'voc_v':75.,'isc_a':7.}
+        g={'alpha_isc_per_k':.00058,'beta_voc_per_k':-.00236,'beta_vmp_assumed_per_k':-.004}
+        v=np.array([0.,120.,150.,160.])
+>       assert series_iv(v,[model,model],25,1,g)==pytest.approx([7,6,0,0])
+E       assert array([7.    ..., 0.        ]) == approx([7 ± 7... 0 ± 1.0e-12])
+E         comparison failed. Mismatched elements: 1 / 4:
+E         Max absolute difference: 0.000907894736841719
+E         Max relative difference: 0.00015133868940688533
+E         Index | Obtained          | Expected   
+E         1     | 5.999092105263158 | 6 ± 6.0e-06
+
+tests/test_teto_maxeon.py:11: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_teto_maxeon.py::test_serie_identica_conserva_corrente_e_soma_tensao
+1 failed, 231 passed in 3.65s

@@ -1,0 +1,113 @@
+{
+  "configuration_sha256": "7bfcf45cd3341f372c07f2065dc61c9dd8fcb6191b3ea70a8cd4ebdca72ecdcd",
+  "nominal_wp": 1540,
+  "module_mass_kg": 76,
+  "required_length_including_margins_m": 4.294,
+  "length_remaining_m": 0.006000000000000227,
+  "width_remaining_m": 0.13000000000000012,
+  "fits_assumed_flat_rectangle": true,
+  "positions": [
+    {
+      "model": "SPR-MAX3-380-COM",
+      "position_m": [
+        0.025,
+        0.06500000000000006,
+        2
+      ],
+      "dimensions_m": [
+        1.046,
+        1.69,
+        0.04
+      ]
+    },
+    {
+      "model": "SPR-MAX3-390-COM",
+      "position_m": [
+        1.091,
+        0.06500000000000006,
+        2
+      ],
+      "dimensions_m": [
+        1.046,
+        1.69,
+        0.04
+      ]
+    },
+    {
+      "model": "SPR-MAX3-380-COM",
+      "position_m": [
+        2.157,
+        0.06500000000000006,
+        2
+      ],
+      "dimensions_m": [
+        1.046,
+        1.69,
+        0.04
+      ]
+    },
+    {
+      "model": "SPR-MAX3-390-COM",
+      "position_m": [
+        3.2230000000000003,
+        0.06500000000000006,
+        2
+      ],
+      "dimensions_m": [
+        1.046,
+        1.69,
+        0.04
+      ]
+    }
+  ],
+  "pair_cold_voc_tolerance_v": 171.477593,
+  "roof_hot_isc_tolerance_a": 13.962556399999999,
+  "controller_150v_compatible": false,
+  "controller_250v_roof_only_screen_pass": true,
+  "shared_screen": [
+    {
+      "portable_series": 2,
+      "portable_parallel": 2,
+      "roof_hot_isc_plus_portable_stc_a": 35.9625564,
+      "isc_portable_hot_unknown": true,
+      "max_cold_voc_v": 171.477593,
+      "conservative_35a_screen_pass": false,
+      "shared_topology_demonstrated": false
+    },
+    {
+      "portable_series": 4,
+      "portable_parallel": 1,
+      "roof_hot_isc_plus_portable_stc_a": 24.962556399999997,
+      "isc_portable_hot_unknown": true,
+      "max_cold_voc_v": 220.512,
+      "conservative_35a_screen_pass": true,
+      "shared_topology_demonstrated": false
+    }
+  ],
+  "mismatch_cases": 72,
+  "mismatch_range_percent": [
+    0.6572641707705218,
+    27.272429510026996
+  ],
+  "source": {
+    "url": "https://sunpower.maxeon.com/int/sites/default/files/2022-05/sp_max3_104c_com_380-400_dc_ds_en_a4_544454.pdf",
+    "mirror": "https://solsol.eu/file/view/1080/sunpower-spr-max3-400wp-com_en.pdf",
+    "kind": "ficha_fabricante_espelho",
+    "accessed": "2026-11-10",
+    "version": "544454 REV A A4_EN abril2022 pagina2",
+    "sha256": "d6c76ef9231cb1621d8401a46fbef617724e6bc6ea873bb3f4658261fef75757",
+    "evidence": "PDF923002bytes extraído e página2 renderizada/conferida;download primário falhouTLS. Dois380+dois390W,19kgcada,1690x1046x40mm;estoque/uso veicular não demonstrados."
+  },
+  "baseline_updated": false,
+  "installed_geometry_validated": false,
+  "dc_traction_demonstrated": false,
+  "shared_mppt_approved": false,
+  "limits": [
+    "Folga longitudinal final6mm é adicional às duas margens25mm,sem tolerâncias OEM/suportes/aberturas.",
+    "2S2P misto380+390 evita inferir modelo385W não documentado;curvasIV ainda estimadas.",
+    "CoeficienteVmp e potência portátil por temperatura são hipóteses,não curvasOEM.",
+    "76kg são apenas módulos;suportes e custos/estoque/compatibilidade veicular não demonstrados.",
+    "250/60 limita35A por conflito documental;2S2P portátil falha triagem conservadora.4S reduz corrente mas amplia mismatch e requer proteções reais.",
+    "Apenas estudo comparativo;missões ainda usam1350Wp e massa anterior;nenhumaenergia creditada aHV por esta comparação."
+  ]
+}

@@ -100,7 +100,7 @@ Já aprovados anteriormente e preservados: arquitetura B como direção, bancos 
 
 - **Estado / responsável:** provisorio_com_comparacao_incompleta; P3/P6/P1.
 - **Opções:** Cama fixa existente × conversível; isolamento32mm × espessuras alternativas.
-- **Recomendação provisória:** LayoutA de cama fixa selecionado provisoriamente; massa3973,03kg, corredor0,454m e reserva da porta0,59m. ComparadorB não recomendado sem corrigir acesso/84kg elevados. Fixações e geometriaOEM continuam condicionadas.
+- **Recomendação provisória:** LayoutA de cama fixa selecionado provisoriamente; massa3974,03kg, corredor0,454m e reserva da porta0,59m. ComparadorB não recomendado sem corrigir acesso/84kg elevados. Fixações e geometriaOEM continuam condicionadas.
 - **Justificativa e fonte:** Doislayouts foram comparados emCAD;A atualizado com inversor vertical,comparadorB ainda falha acesso/orientação e portáteis altos. `config/parametros_globais.yaml:sources.history`.
 - **Impactos e incertezas:** Comparação geométrica executada;faltam geometriasOEM/vidros/fogo/umidade e validação de manutenção. InversorAvertical565mm e rotas de reserva atualizados.
 - **Dependências:** B08/B09; A04/A06/A07/A08/A09.
@@ -109,10 +109,10 @@ Já aprovados anteriormente e preservados: arquitetura B como direção, bancos 
 ## A11 — Módulos e ocupação do teto
 
 - **Estado / responsável:** condicionado_nao_validado; P3/P2/P5/P1.
-- **Opções:** 3JA450+190Wcabine × novo arranjo comercial1.540 Wp comprovável.
-- **Recomendação provisória:** Preferir estudar arranjoJA3+190W transversal; alternativo190Wlongitudinal excede envelope estimado. Meta1540Wp mantida; apenas1350Wp têm caminho48Vprincipal creditado. Não congelar instalação.
-- **Justificativa e fonte:** 190Wdebaixa tensão ainda sem caminho48 V; não reduzir silenciosamente a meta. `config/parametros_globais.yaml:sources.history`.
-- **Impactos e incertezas:** Duasocupações avaliadas;ancoragens/curvatura/sombras reais faltam; BOMconta massa190Wmasreplaynão promete aproveitamento48 V.
+- **Opções:** 3JA450+190Wcabine × 2SPR-MAX3-380-COM+2SPR-MAX3-390-COM.
+- **Recomendação provisória:** Alternativa preferida para próxima integração:2Maxeon380+2Maxeon390,total1540Wp/76kg,sem módulo190W de baixa tensão. Cabe no retângulo estimado com6mm extras,mas instalação/estoque/proteções pendentes. Base energética mantém1350Wp até integrar controlador/massa/curvatura.
+- **Justificativa e fonte:** FichaMaxeon544454revA/2022 conferida,fonte única sources.maxeon3_2022;CADteto_maxeon e72comparações I–V estimadas. Meta1540Wp preservada.
+- **Impactos e incertezas:** 150V incompatível comVocfrio171,48V;250/60 apenas triagem telhado13,96A. Comportáteis2S2P chega35,96A>35A conservador;4S fica24,96A mas mismatch/curvas reais permanecem abertos. Não háMPPT compartilhado aprovado.
 - **Dependências:** B05/B09; A03/A06/A10.
 - **Aprovação necessária:** revisão técnica das evidências e aprovação humana final da escolha; enquanto houver bloqueio, não liberar instalação, homologação ou conclusão física.
 
@@ -142,7 +142,7 @@ Já aprovados anteriormente e preservados: arquitetura B como direção, bancos 
 - **Opções:** FaixaCd × Cdconvergido; massatípica ×PBT; modelostérmicosrepresentativos ×dadosOEM.
 - **Recomendação provisória:** Adotar provisoriamente faixas deCd/Crr e verificação numérica. CFD3Dcabine+FEMtrilhos executados; média50,32°C é complemento condicionado. y+aerodinâmicomédio516,6 não sustenta Cd definitivo. Nenhuma validação física inferida.
 - **Justificativa e fonte:** 3 malhas não independentes; campostérmicos reais não validam seusparâmetros; 100km/hnãoatingívelna4250. `config/parametros_globais.yaml:sources.cfd`.
-- **Impactos e incertezas:** ExigeCAD/massa, eixos, FEA, CFD 3Dcabine, curvasmotor, propriedadescabos/freios/bateria e revisão cruzada.
+- **Impactos e incertezas:** 378alternativas de interfaces e9FEM3D locais executados;18chapas somam55,751kg brutos de comparação. Adição integral4029,777kg;substituição líquida e apoiosOEM não demonstrados. Refinamento do deslocamento1,547%inversor/1,817%tanque;sem tensão de engaste convergida. ExigeCAD/massa,eixos,CFDequipado e revisão cruzada.
 - **Dependências:** B03/B08/B09/B11; libera resultados finais poritem.
 - **Aprovação necessária:** revisão técnica das evidências e aprovação humana final da escolha; enquanto houver bloqueio, não liberar instalação, homologação ou conclusão física.
 

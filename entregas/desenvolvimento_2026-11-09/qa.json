@@ -54,6 +54,10 @@
       "pass": true
     },
     {
+      "check": "chapas_locais_condicionais.step: STEP reimporta sólidos positivos",
+      "pass": true
+    },
+    {
       "check": "A_fixa.step: STEP reimporta sólidos positivos",
       "pass": true
     },
@@ -71,6 +75,10 @@
     },
     {
       "check": "layoutA_rotas_reserva.step: STEP reimporta sólidos positivos",
+      "pass": true
+    },
+    {
+      "check": "alternativa1540_plana.step: STEP reimporta sólidos positivos",
       "pass": true
     },
     {
@@ -1578,6 +1586,42 @@
       "pass": true
     },
     {
+      "check": "378alternativas e18interfaces locais,sem liberar carroceria",
+      "pass": true
+    },
+    {
+      "check": "Fixações: configuração efetivamente executada",
+      "pass": true
+    },
+    {
+      "check": "Interfaces selecionadas satisfazem somente os critérios explícitos do modelo",
+      "pass": true
+    },
+    {
+      "check": "Elasticidade3D:9casos e equilíbrio independente",
+      "pass": true
+    },
+    {
+      "check": "Elasticidade3D: energia elástica e sem promover picos de engaste",
+      "pass": true
+    },
+    {
+      "check": "Refinamento do deslocamento das duas tiras satisfaz critério de estudo2%",
+      "pass": true
+    },
+    {
+      "check": "Volume STEP perfurado corresponde à massa de chapa",
+      "pass": true
+    },
+    {
+      "check": "Massa adicional conservadora e reações coerentes,sem alterar baseline",
+      "pass": true
+    },
+    {
+      "check": "Adição de chapas não inventa conformidade de eixos",
+      "pass": true
+    },
+    {
       "check": "Falhas BMS/medida/atuador comandamOFF",
       "pass": true
     },
@@ -1610,12 +1654,37 @@
       "pass": true
     },
     {
+      "check": "1540Wp Maxeon cabe só no retângulo estimado,não instalação validada",
+      "pass": true
+    },
+    {
+      "check": "TetoMaxeon:configuração efetivamente executada",
+      "pass": true
+    },
+    {
+      "check": "Teto:limitesDC sem aprovar MPPTcompartilhado",
+      "pass": true
+    },
+    {
+      "check": "MPPT:72comparações e compartilhamento não cria energia",
+      "pass": true
+    },
+    {
+      "check": "Ficha2022 rastreada;comparação não altera silenciosamente missões1350Wp",
+      "pass": true
+    },
+    {
       "check": "35 itens revisados, zero aprovações inferidas",
       "pass": true
     }
   ],
   "errors": [],
   "cad_reimport": [
+    {
+      "path": "entregas/desenvolvimento_2026-11-09/fixacoes_redimensionadas/chapas_locais_condicionais.step",
+      "solid_count": 18,
+      "volume_m3": 0.007102050889061251
+    },
     {
       "path": "entregas/desenvolvimento_2026-11-09/integracao/A_fixa.step",
       "solid_count": 27,
@@ -1640,10 +1709,15 @@
       "path": "entregas/desenvolvimento_2026-11-09/rotas_instalacoes/layoutA_rotas_reserva.step",
       "solid_count": 40,
       "volume_m3": 1.640131915211295
+    },
+    {
+      "path": "entregas/desenvolvimento_2026-11-09/teto_maxeon/alternativa1540_plana.step",
+      "solid_count": 4,
+      "volume_m3": 0.2828384000000002
     }
   ],
-  "input_hashes": 154,
-  "output_hashes": 922,
+  "input_hashes": 159,
+  "output_hashes": 996,
   "stage_complete": false,
   "final_human_approved": 0,
   "physical_mission_demonstrated": false

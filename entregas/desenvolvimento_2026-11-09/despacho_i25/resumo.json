@@ -1,6 +1,6 @@
 {
   "cases_milp": 630,
-  "configuration_sha256": "48303e89220f827a8a6a6e32825b401b02f6ceeb58f52672553ef21453d528aa",
+  "configuration_sha256": "7bfcf45cd3341f372c07f2065dc61c9dd8fcb6191b3ea70a8cd4ebdca72ecdcd",
   "best_40_80_finest": [
     {
       "step_min": 5,

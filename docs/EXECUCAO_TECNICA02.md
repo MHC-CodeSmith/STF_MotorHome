@@ -137,3 +137,44 @@ A pesquisa continuou após ocheckpointGX e localizou manualDometic **FreshWell30
 Omesmomanualindicafusível5A,abaixo dos6,2Anominais60Hz:abrir questão de coordenação/curva/revisão,sem escolher5A automaticamente nem declarar impossibilidade sem curva.6,2A×220V=1364VA não são watts ativos nem corrente de partida. TriagemP2corrigida de989VA deoutrarevisão para1364VA de estudo,pf1estimado;256combinações reexecutadas. A energia média3kWh/dia continua hipóteseDEC046,separada da potência;por isso não há nova alteração das missões/massas.
 
 `comparar_hvac_revisoes.py` executou72combinações de ocupantes1/2,ganhos solares0,8/1/1,3/1,6,condução0,8/1/1,3 ecapacidade70/85/100%nominal;12cenáriosPF/partidas hipotéticas. Carga-base continua2515,898/2645,898W;nominal2700deixa184,102/54,102W. Essa margem pequena não comprova suficiência33°C/25°C nemcurva em60Hz. Dados completos em `hvac_revisao/`. Webasto3,5kW/teto50Hz já foi comparado/rejeitado;ColemanUB11/UB15primário115V não foi adaptado ou instalado e não teve capacidadeBTU inferida pelo nome. Não são opções220V aprovadas. A06eitem32agora distinguem revisão elétrica documentada de placa/instalação/térmica ainda condicionadas.
+
+
+## Interfaces espaciais, chapas e impacto de massa — continuação10/11/2026
+
+Executados `redimensionar_fixacoes.py` e `verificar_chapas_3d.py`. Métodos e limites detalhados em [proteções/fixações](PROTECOES_SERVICOS_MODELO.md). Novo solver de grupo espacial verifica6equilíbrios e distingue tração do parafuso/compressão do apoio.378alternativas,54envelopes×216cargas e18seleções locais condicionais,utilização máxima0,97135. O estudo antigo648casos com10falhas não foi apagado. CADSTEP com18chapas perfuradas reimportáveis em mosaico,sem atribuir pontos de ancoragemOEM.
+
+Elasticidade3D real em9casos de tira local,4malhas por componente e quinta0,75mm no inversor:deslocamento final varia1,547%inversor/1,817%tanque. Ambos satisfazem critério de estudo2%;picos de engaste não são tensões convergidas. Equilíbrio e energia conferidos independentemente;campos/malhas/tensores emNPZ. Não é modelo da chapa perfurada inteira ou carroceria. FixaçõesOEM/prying/contato/fadiga/estrutura da cama ocupada continuam delimitados.
+
+Chapas somam55,7511kg **brutos de comparação**. Como suportes existentes são reservas agregadas, não foi inventada substituição líquida. Sensibilidade conservadora com adição integral:4029,77663kg,margem220,22337kg,eixos1993,1696/2036,6070kg;consumo40/80=0,227089/0,408010kWh/km(+14,1745kWh nos7000km). Massa-base3974,02553kg e missões existentes não foram alteradas;limitesOEM por eixo desconhecidos. Água do boiler15L verificada localmente sem somar massa hídrica global.
+
+Corrigidas referências desatualizadas3973kg na revisão35/A10 para3974kg. Fonte única recebe `development.mounting_redesign`,com metadados/hipóteses;DEC001–061 intocadas. I25 reexecutado630casos para vincular a configuração vigente,sem mudar entradas energéticas. Nenhuma aprovação humana ou instalação física inferida.
+
+```bash
+PYTHONPATH=src .venv/bin/python scripts/redimensionar_fixacoes.py
+PYTHONPATH=src .venv/bin/python scripts/verificar_chapas_3d.py
+PYTHONPATH=src .venv/bin/python scripts/desenvolver_despacho_i25.py
+PYTHONPATH=src .venv/bin/python scripts/registrar_execucao02.py
+PYTHONPATH=src .venv/bin/python -m pytest -q
+ruff check src scripts tests
+PYTHONPATH=src .venv/bin/python scripts/verificar_desenvolvimento.py --registrar
+PYTHONPATH=src .venv/bin/python scripts/verificar_desenvolvimento.py
+```
+
+230testes passaram,Ruff passou;QA integrada incorporaCAD perfurado,energia/elastostática3D,massa eproveniência. Etapa técnica integral continua aberta;próximas frentes são orientação/furação real das interfaces,contato/ancoragemOEM,carroceria equipadaCFD e compatibilidades documentais já delimitadas.
+
+
+## Alternativa comercial de teto1540Wp — continuação10/11/2026
+
+Pesquisa primária localizou a fichaMaxeon544454revA/abril2022 paraSPR-MAX3-380-COM e390-COM. PDF original espelhado emSolSol:923002bytes,SHA256d6c76ef9231cb1621d8401a46fbef617724e6bc6ea873bb3f4658261fef75757;extraído/renderizado e página2 conferida. AURLprimária indexada consta emsources.maxeon3_2022;download primário falhouTLS,não foi simulado acesso. Cache em `/home/mhc/motorhome_referencias_tarefas/maxeon-conferencia-20261110/`.
+
+Implementado `comparar_teto_maxeon.py`,entradasdevelopment.roof_maxeon_comparison.2módulos380+2módulos390,total1540Wp/76kg;cada1,046×1,690×0,040m disposto transversalmente. Com20mm entre módulos e25mm em cada ponta,comprimento4,294m/cabine+teto estimados4,30m,sobra6mm extras;largura1,69m/envelope1,82m. CADSTEP/GLB com4corpos é arranjo plano,depen­dente de curvatura/tolerâncias/apoios/manutenção/estoque. Não se inventou SKU385W nem se reduziu a meta solar.
+
+Duasstrings mistas380+390 iguais2S2P:Vocfrio com tolerância3%=171,4776V eIscquente13,9626A. **150V incompatível**;250/60 pode ser comparador para teto sozinho usando35A conservador do conflito documental. Portáteis2S2P somadosjá35,9626A mesmo usandoIscportátilSTC,não demonstram compatibilidade35A.4Sportáteis reduz a24,9626A,mas amplia mismatch e precisa validar limites térmicos/proteções.72comparações comI–V reduzidas estimadas,não curvas medidas:perdas0,657–27,272%;não usar superioridade energética como aprovação elétrica. Uma saídaMPPT não conecta bancos de armazenamento.
+
+A11 registra alternativa preferida provisória para integração posterior,sem instalar ou mudar silenciosamente massa-base/replays1350Wp/MPPT150-60. Mantêm-se comparaçãoDEC054,meta1540Wp e interfaceDCexterna não demonstrada. Campos numéricos/CAD/JSON em `teto_maxeon/`. Novos testes verificam correntes/tensões de strings idênticas e efeito térmico;QA confere72comparações,limites eproveniência.
+
+```bash
+PYTHONPATH=src .venv/bin/python scripts/comparar_teto_maxeon.py
+```
+
+Teste analítico de strings idênticas detectou amostragem que omitia o cantoMPP (corrente5,99909 em vez6A). Corrigida a interpolação para incluir cadaImp exato;teste original preservado,72comparações reexecutadas. Falha inicial documentada emoutput/testes_teto_falha_20261110.log. Suíte final232testes/Ruff passaram.

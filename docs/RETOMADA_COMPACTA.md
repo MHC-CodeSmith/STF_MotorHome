@@ -2,6 +2,14 @@
 
 **Objetivo aberto:** executar os 35 itens sob DEC-001–061 até o limite técnico demonstrável. O usuário pediu continuar até o fim, com escolhas provisórias autônomas; não devolver apenas planos, pedir aprovações individuais ou preparar relatório/slides. **35 revisados, zero aprovações humanas; etapa integral não concluída.**
 
+## Continuação vigente após d525780 — prevalece sobre números anteriores
+
+- **Fixações:** `redimensionar_fixacoes.py`/`protecoes.grupo_parafusos_espacial`:378alternativas,54geometrias×216cargas;18interfaces locais selecionadas,maxutilização0,97135. Não são furaçõesOEM;orientação/furação reais,inversor de parede,contato/prying/fadiga continuam abertos. Campo3D real em `verificar_chapas_3d.py`:9casos,4malhas+tira inversor0,75mm;últimas variações1,547%/1,817%<critério2%. Tensões de engaste não convergidas.18chapas perfuradasSTEP,55,7511kg brutos;baseline preservado. Sensibilidadeadição integral4029,77663kg/margem220,22337kg/+14,1745kWh tração nos7000km.
+- **Solar:** `comparar_teto_maxeon.py`,novo `teto_maxeon/`:2Maxeon380+2Maxeon390=1540Wp/76kg,4caixasSTEP/GLB4,294×1,690m com20mmgaps/25mmpontas. Envelopeestimado4,30×1,82,deixa6mm extras,sem curvatura/ancoragens/estoque comprovados.2S2P misto:Vocfrio171,4776V,150V incompatível;250/60 só teto passa13,9626A<35A conservador. Compartilhado2S2Pportátil35,9626A falha;4S24,9626A passa triagem limitada,mas72I–Vestimadasperdem0,657–27,272%,não validar topologia. A11 prefere provisoriamente essa alternativa para próxima integração;**modelos-base continuam1350Wp/massa3974,02553kg/MPPT150-60**. Não reexecutar missões como1540Wp sem integrar configuração/controlador/curvatura/massa.
+- FichaMaxeon original544454revA/abril2022,espelhoSolSol923002bytes/SHA256`d6c76ef9231cb1621d8401a46fbef617724e6bc6ea873bb3f4658261fef75757`,p2renderizada/conferida;cache `/home/mhc/motorhome_referencias_tarefas/maxeon-conferencia-20261110/`. URLs/dados emsources.maxeon3_2022. PrimáriodownloadTLSfalhou,não fingir acesso. Teste detectou/corrigiu gradeIV que omitiaMPP;falha inicial emoutput/testes_teto_falha_20261110.log,teste não relaxado.
+- **QA finalPASSOU:232testes,Ruff,419controles,159entradas/996saídas hashadas,7STEP reimportados;estrutura35/7,auditoria0erros.** Logsoutput/*fixacoes*20261110*,chapas3d_20261110.log,teto_maxeon_20261110.log. Stagecompletefalse/human0/missionfalse;nenhum processo pendente. Novosdados emdevelopment.mounting_redesign/roof_maxeon_comparison. Detalhes nofimEXECUCAO_TECNICA02 ePROTECOES_SERVICOS_MODELO. Baseline antigo e61decisões preservados.
+- Próxima integração executável:configurar alternativaMaxeon como cenário completo com controladorcompatível e massa/CG/energia próprios;verificar teto/apoios reais e orientar grupos locais ao plano de montagem. CFD equipado/contatoOEM/coordenação elétrica continuam abertos. Não retornar à pesquisaDC repetitiva ou preparar relatóriofinal.
+
 ## Workspace e leitura
 
 - Exclusivo: `/home/mhc/motorhome_solar_codex_tarefas`, branch `hub/tarefas-motorhome-com-codex`. Não editar a outra worktree `/home/mhc/motorhome_solar_codex`.
@@ -33,7 +41,7 @@ Registro61 original intocado: SHA256 **`1e082c4961a57b865f008fa1daadd37e696bdb06
 
 ## Reprodução e cuidados
 
-**Última QA: PASSOU,227testes,Ruff,403controles,154entradas/922saídas hashadas;estrutura35/7 e auditoria sem erros.** Nenhum processo científico pendente. Nesta condensação não foram reexecutadas simulações.
+**QA anterior ao redimensionamento/tetoMaxeon:227testes/403controles;QA vigente no topo.** Nenhum processo científico pendente. Nesta condensação não foram reexecutadas simulações.
 
 ```bash
 PYTHONPATH=src .venv/bin/python scripts/verificar_desenvolvimento.py

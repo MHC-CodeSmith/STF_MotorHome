@@ -130,6 +130,15 @@ sources:
     accessed: '2026-11-09'
     other_document: https://www.victronenergy.com/upload/documents/Datasheet-SmartSolar-charge-controller-MPPT-250-60-and-250-70-EN.pdf
     conflict: 'Isc: ficha35A versus manual60A; hardware/revisão a confirmar;35A conservador.'
+  maxeon3_2022:
+    url: https://sunpower.maxeon.com/int/sites/default/files/2022-05/sp_max3_104c_com_380-400_dc_ds_en_a4_544454.pdf
+    mirror: https://solsol.eu/file/view/1080/sunpower-spr-max3-400wp-com_en.pdf
+    kind: ficha_fabricante_espelho
+    accessed: '2026-11-10'
+    version: 544454 REV A A4_EN abril2022 pagina2
+    sha256: d6c76ef9231cb1621d8401a46fbef617724e6bc6ea873bb3f4658261fef75757
+    evidence: PDF923002bytes extraído e página2 renderizada/conferida;download primário falhouTLS.
+      Dois380+dois390W,19kgcada,1690x1046x40mm;estoque/uso veicular não demonstrados.
   genasun_boost_rejected:
     url: https://sunforgellc.com/wp-content/uploads/2024/03/GVB-8-WP_%4012AWG_Manual-rev.7-2024_AP.pdf
     accessed: '2026-11-09'
@@ -3817,6 +3826,62 @@ development:
     note: Grupo elástico em chapa rígida; propriedades hipotéticas equivalentes a parafuso8.8,
       sem atribuir fabricante/ensaio. Sem pre-carga/atrito/prying/fadiga/arrancamentoOEM.
       1/3/5g são sensibilidades, não requisitos homologatórios. Não autoriza perfuração da van.
+  roof_maxeon_comparison:
+    version: 1.0.0-alternativa1540
+    reference_date: '2026-11-10'
+    source: maxeon3_2022
+    owner: P2-P3-P5
+    status: provisorio_estudo_comparativo_nao_baseline
+    confidence: media_dados_baixa_instalacao
+    module_dimensions_m: [1.046, 1.690, 0.040]
+    module_mass_kg: 19
+    gap_m: 0.020
+    end_margin_m: 0.025
+    beta_voc_per_k: -0.00236
+    alpha_isc_per_k: 0.00058
+    gamma_power_per_k: -0.0027
+    beta_vmp_assumed_per_k: -0.004
+    voc_isc_positive_tolerance: 0.03
+    models:
+    - {id: SPR-MAX3-380-COM, power_wp: 380, vmp_v: 63.1, imp_a: 6.02, voc_v: 75.2, isc_a: 6.54}
+    - {id: SPR-MAX3-390-COM, power_wp: 390, vmp_v: 64.5, imp_a: 6.05, voc_v: 75.3, isc_a: 6.55}
+    module_order: [0, 1, 0, 1]
+    controller_reference: SmartSolar250/60 comparador com35AIsc conservador
+    controller_voltage_absolute_v: 250
+    controller_isc_conservative_a: 35
+    note: CoeficientesVoc/Isc/P e tolerâncias3% de ficha;betaVmp é hipótese de sensibilidade.
+      Duas strings mistas iguais2S2P;nenhumconversor190W necessário. Envelope4.30x1.82m
+      inclui cabine estimada;folga não comprova curvatura/ancoragem. Estudo compartilhado
+      continua obrigatório,sem ligar bancos. Não muda massa/energia-base até integração.
+  mounting_redesign:
+    version: 1.0.0-interface-espacial
+    reference_date: '2026-11-10'
+    owner: P1-P3
+    source: hyp
+    status: estimado_comparacao_nao_instalado
+    confidence: baixa
+    group_spans_xy_m: [[0.16, 0.10], [0.24, 0.16], [0.32, 0.20]]
+    thickness_candidates_m: [0.004, 0.006, 0.008, 0.010, 0.012, 0.016, 0.020]
+    cg_height_above_mount_m: [0.15, 0.35, 0.60]
+    in_plane_offset_m: [0.0, 0.10, 0.25]
+    vertical_accelerations_g: [-1, 1]
+    edge_distance_m: 0.020
+    hole_diameter_m: 0.009
+    tributary_strip_width_m: 0.040
+    local_flange_lever_m: 0.015
+    steel_density_kg_m3: 7850
+    solid_verification:
+      components: [inversor, tanque_limpa]
+      mesh_sizes_m: [0.004, 0.0025, 0.0015, 0.0010]
+      extra_mesh_sizes_m: {inversor: [0.00075]}
+      displacement_relative_change_criterion: 0.02
+      young_pa: 210000000000
+      poisson: 0.30
+    note: Comparação de submontagens, não ancoragemOEM. AlturaCG e aceleração vertical
+      são hipóteses de sensibilidade, não cotas de instalação ou requisitos homologatórios.
+      Apoios elásticos iguais com reação compressiva, sem contato não linear/prying/fadiga.
+      Massa de chapa separada, não acrescentada automaticamente à conversão; suporte antigo
+      tem massa agregada sem geometria que permita calcular substituição líquida.
   aero_layer_retry:
     version: 1.0.0-camadas-aero
     reference_date: '2026-11-10'

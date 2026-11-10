@@ -116,3 +116,13 @@ LinhaMPPT corrigida de"modelo não selecionado"para150/60-Tr provisório,1unidad
 ### 10/11/2026 — revisão elétrica FreshWell2018
 
 Fontefreshwell_manual_2018 adicionada comhash/página/revisão/espelho. ManualFW3000admite220–240V50/60Hz;seleção provisória dessa revisão substitui bloqueio genérico220V,sem confirmarSKU/placa ou suficiência33°C. Corrente nominal60Hz6.2A usada na triagem1364VA,pf1estimado;4.3Adeoutrarevisão não misturado.72casos térmicos/12elétricos e256combinaçõesP2 reexecutados;energia diária3kWh permanece hipóteseDEC046,massa21kginalterada. Fusível5Amanual versus6.2A nominal exigecoordenação;nenhuma proteção foi liberada. OriginaisDEC001–061 intactos.
+
+
+### 10/11/2026 — interfaces espaciais e chapas de comparação
+
+Sem alterarDEC001–061,fonte única recebe development.mounting_redesign:378alternativas,216casos por geometria,18seleções de interfaces locais e9FEM3D de tiras. Critérios/limites emPROTECOES_SERVICOS_MODELO.md. Chapa55,7511kg brutos permanece cenário separado;adição integral4029,77663kg,margemPBT220,22337kg. Substituição líquida/apoiosOEM não demonstrados,portanto baseline3974,02553kg inalterado. LimiaresSOC e interfaceDC continuam não demonstrados;nenhum item humano aprovado.
+
+
+### 10/11/2026 — alternativaMaxeon1540Wp documentada
+
+Fonte primária indexada e ficha original espelhada544454revA/2022 conferida,registradasources.maxeon3_2022. Development.roof_maxeon_comparison compara2×380+2×390Wp e72cenáriosMPPT. A11prefere provisoriamente esta alternativa para futura integração,sem alterar cenário-base1350Wp/massa/MPPT150-60. Envelope de teto ainda estimado e alternativa exigeclasse250V;compartilhamento não validado. DEC001–061 preservadas.
