@@ -21,3 +21,11 @@ Fontes externas candidatas ficam em `fontes_externas/catalogo.csv`; citar apenas
 ## Avanço de 26/10/2026 — radiador cruzado
 
 Método/casos, hipóteses, fontes e convergência em [cabos e radiador](../../../docs/CABOS_E_RADIADOR_2D.md). Resultados reproduzíveis em [resumo](resultados/resumo_radiador.json); o requisito continua parcial e sem aprovação humana.
+
+<!-- execucao-integrada:inicio -->
+Fontes específicas da execução (não representam aprovação da instalação):
+
+- `hyp`: hipotese_engenharia; consulta/revisão: 2026-11-09. Origem: hipotese_engenharia.
+
+Evidência técnica: `entregas/desenvolvimento_2026-11-09/arrefecimento/resumo_hidraulica.json`. Condições/hipóteses constam no YAML;valoresOEM não publicados permanecem desconhecidos.
+<!-- execucao-integrada:fim -->

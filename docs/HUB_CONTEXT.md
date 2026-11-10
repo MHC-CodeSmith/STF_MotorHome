@@ -1,3 +1,5 @@
+> Execução atual: cenário integrado1540Wp reproduzido,fonte única em `config/parametros_globais.yaml:development.integrated_scenarios`. Consultar `REVISAO_TECNICA_EXECUCAO02.md`,`PLANO_EXECUCAO_POS_DEC061.md` e `BLOQUEIOS_POS_DEC061.md` antes dos apontamentos históricos abaixo. Sem aprovação humana,homologação ou interfaceDCOEM demonstrada.
+
 > Estado atual: [execução técnica02](EXECUCAO_TECNICA02.md), fonte1.1.0-execucao02. O baseline pósDEC061 abaixo permanece histórico; etapa técnica completa ainda aberta.
 
 # Estado pós-DEC061

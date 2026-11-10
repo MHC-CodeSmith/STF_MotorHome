@@ -4,13 +4,23 @@
 Apresentar potência máxima, eficiência e curvas torque/potência versus RPM.
 
 ## Equações e hipóteses
-A preencher com equações corretas e citações. Não inventar dados.
+P=T·ω; F_roda=T·i·η_red/r; F_roda≤P·η_red/v.
 
 ## Entradas e unidades
 Dependências diretas: I15 (P1).
 
 ## Modelo / procedimento
-Descrever método, condição de contorno e critérios de convergência (se aplicável).
+205kW/410Nm são picos documentados,sem mapaOEM. Envelopes de engenharia não são curvas do fabricante.
 
 ## Limitações
-Identificar aproximações e sensibilidade das entradas.
+Envelope não é curvaOEM; eficiência/RPM/mapas reais e potência contínua faltam.
+
+<!-- execucao-integrada:inicio -->
+Método técnico integrado: P=T·ω; F_roda=T·i·η_red/r; F_roda≤P·η_red/v.
+
+205kW/410Nm são picos documentados,sem mapaOEM. Envelopes de engenharia não são curvas do fabricante.
+
+Escopo: Envelope não é curvaOEM; eficiência/RPM/mapas reais e potência contínua faltam.
+
+Fonte dos parâmetros: `config/parametros_globais.yaml`;dadoOEM,hipótese e resultado mantêm status próprios. Simulação não é aprovação humana.
+<!-- execucao-integrada:fim -->

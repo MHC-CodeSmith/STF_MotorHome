@@ -42,9 +42,10 @@ A_fixa,ferragens_estrutura_cama,12,"[3.4800000000000004, -0.09699999999999998, 1
 A_fixa,bagagens,60,"[3.4800000000000004, -0.09699999999999998, 1.1800000000000002]",False,DEC008
 A_fixa,ocupante1,80,"[0.2, -0.45, 1.15]",False,DEC008_massa_posicao_estimada
 A_fixa,ocupante2,80,"[0.2, 0.45, 1.15]",False,DEC008_massa_posicao_estimada
-A_fixa,agua0,100,"[4.03, 0.0030000000000000027, 0.8350000000000001]",,
+A_fixa,agua0,85,"[4.03, 0.0030000000000000027, 0.8350000000000001]",,
 A_fixa,agua1,0,"[3.8300000000000005, 0.15300000000000002, 0.4800000000000001]",,
 A_fixa,agua2,0,"[2.1665000000000005, 0.5285, 0.927]",,
+A_fixa,agua_boiler,15,"[3.6800000000000006, -0.04699999999999993, 1.2800000000000002]",True,agua_ja_incluida_no_total_limpa_DEC017
 A_fixa,base_oem,2790,"[1.6947, 0, 0.78]",,
 B_conversivel_noite,geladeira_AC,20.8,"[1.1550000000000002, -0.641, 1.1300000000000001]",False,canonical_bom
 B_conversivel_noite,cassete,4,"[2.1665000000000005, 0.5285, 0.927]",False,canonical_bom
@@ -91,7 +92,8 @@ B_conversivel_noite,ferragens_estrutura_cama,20,"[3.4800000000000004, -0.0969999
 B_conversivel_noite,bagagens,60,"[3.4800000000000004, -0.09699999999999998, 1.1800000000000002]",False,DEC008
 B_conversivel_noite,ocupante1,80,"[0.2, -0.45, 1.15]",False,DEC008_massa_posicao_estimada
 B_conversivel_noite,ocupante2,80,"[0.2, 0.45, 1.15]",False,DEC008_massa_posicao_estimada
-B_conversivel_noite,agua0,100,"[4.03, 0.0030000000000000027, 0.8350000000000001]",,
+B_conversivel_noite,agua0,85,"[4.03, 0.0030000000000000027, 0.8350000000000001]",,
 B_conversivel_noite,agua1,0,"[3.8300000000000005, 0.15300000000000002, 0.4800000000000001]",,
 B_conversivel_noite,agua2,0,"[2.1665000000000005, 0.5285, 0.927]",,
+B_conversivel_noite,agua_boiler,15,"[2.9300000000000006, -0.04699999999999993, 0.91]",True,agua_ja_incluida_no_total_limpa_DEC017
 B_conversivel_noite,base_oem,2790,"[1.6947, 0, 0.78]",,

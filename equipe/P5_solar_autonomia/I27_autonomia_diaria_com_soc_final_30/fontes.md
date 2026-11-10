@@ -13,3 +13,12 @@ p20 conferida27/10; candidatoEVSE50/60Hz, não evidência de aceitaçãoOBCMY25.
 Hashes/registro no [dossiê da interface](../../../docs/INTERFACE_CARGA_2026-10-27.md).
 
 Fontes externas candidatas ficam em `fontes_externas/catalogo.csv`; citar apenas as realmente utilizadas.
+
+<!-- execucao-integrada:inicio -->
+Fontes específicas da execução (não representam aprovação da instalação):
+
+- `oem_sk`: https://www.fiat.sk/content/dam/fiat2023/sk/cenniky/2026/03/e_Ducato_pricelist_dodavka_200326.pdf; consulta/revisão: 2026-03-20. Origem: fabricante.
+- `hyp`: hipotese_engenharia; consulta/revisão: 2026-11-09. Origem: hipotese_engenharia.
+
+Evidência técnica: `entregas/integrado_maxeon1540/energia_sistemas/I27_autonomia_otima_modelo_sem_HV.csv`. Condições/hipóteses constam no YAML;valoresOEM não publicados permanecem desconhecidos.
+<!-- execucao-integrada:fim -->

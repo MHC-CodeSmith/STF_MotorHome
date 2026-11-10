@@ -17,30 +17,51 @@ ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'entregas/desenvolvimento_2026-11-09/fixacoes_redimensionadas'
 
 
-def solve(length,width,thickness,force,young,poisson,size,dest):
+def shape_gradients(barycentric,corner_gradients,order=1):
+    if order==1:return corner_gradients
+    # GmshTet10 order, read from installedAPI getElementProperties(11).
+    edges=[(0,1),(1,2),(2,0),(0,3),(2,3),(1,3)]
+    l=np.array(barycentric);grad=np.zeros((3,10))
+    grad[:,:4]=corner_gradients*(4*l-1)
+    for index,(a,b) in enumerate(edges,start=4):
+        grad[:,index]=4*(l[a]*corner_gradients[:,b]+l[b]*corner_gradients[:,a])
+    return grad
+
+
+def strain_operator(grad):
+    b=np.zeros((6,3*grad.shape[1]))
+    for i,(dx,dy,dz) in enumerate(grad.T):
+        b[:,3*i:3*i+3]=[[dx,0,0],[0,dy,0],[0,0,dz],[dy,dx,0],[0,dz,dy],[dz,0,dx]]
+    return b
+
+
+def solve(length,width,thickness,force,young,poisson,size,dest,order=1):
     gmsh.initialize()
     try:
         gmsh.option.setNumber('General.Terminal',0);gmsh.model.add('tira3d')
         gmsh.model.occ.addBox(0,0,0,length,width,thickness);gmsh.model.occ.synchronize()
         gmsh.option.setNumber('Mesh.MeshSizeMin',size);gmsh.option.setNumber('Mesh.MeshSizeMax',size)
         gmsh.model.mesh.generate(3)
+        if order==2:gmsh.model.mesh.setOrder(2)
         tags,xyz,_=gmsh.model.mesh.getNodes();xyz=np.array(xyz).reshape(-1,3)
         lookup={int(tag):i for i,tag in enumerate(tags)}
-        _,conn=gmsh.model.mesh.getElementsByType(4);cells=np.array([lookup[int(t)] for t in conn]).reshape(-1,4)
-        _,tri=gmsh.model.mesh.getElementsByType(2);tri=np.array([lookup[int(t)] for t in tri]).reshape(-1,3)
+        _,conn=gmsh.model.mesh.getElementsByType(4 if order==1 else 11);cells=np.array([lookup[int(t)] for t in conn]).reshape(-1,4 if order==1 else 10)
+        _,tri=gmsh.model.mesh.getElementsByType(2 if order==1 else 9);tri=np.array([lookup[int(t)] for t in tri]).reshape(-1,3 if order==1 else 6)
     finally:gmsh.finalize()
     lam=young*poisson/((1+poisson)*(1-2*poisson));mu=young/(2*(1+poisson))
     d=np.zeros((6,6));d[:3,:3]=lam;d[:3,:3]+=2*mu*np.eye(3);d[3:,3:]=mu*np.eye(3)
-    rows=np.empty((len(cells),144),dtype=np.int32);cols=np.empty_like(rows)
-    values=np.empty((len(cells),144));element_data=[]
+    ndof=3*cells.shape[1]
+    rows=np.empty((len(cells),ndof**2),dtype=np.int32);cols=np.empty_like(rows)
+    values=np.empty_like(rows,dtype=float);element_data=[]
+    gauss=[np.full(4,.25)] if order==1 else [np.roll([.5854101966249685,.1381966011250105,.1381966011250105,.1381966011250105],i) for i in range(4)]
     for index,cell in enumerate(cells):
-        points=xyz[cell];a=np.column_stack((np.ones(4),points));volume=abs(np.linalg.det(a))/6
-        grad=np.linalg.inv(a)[1:,:];b=np.zeros((6,12))
-        for i in range(4):
-            dx,dy,dz=grad[:,i];j=3*i
-            b[:,j:j+3]=[[dx,0,0],[0,dy,0],[0,0,dz],[dy,dx,0],[0,dz,dy],[dz,0,dx]]
-        dofs=(cell[:,None]*3+np.arange(3)).ravel();ke=volume*b.T@d@b
-        rows[index]=np.repeat(dofs,12);cols[index]=np.tile(dofs,12);values[index]=ke.ravel()
+        points=xyz[cell[:4]];a=np.column_stack((np.ones(4),points));volume=abs(np.linalg.det(a))/6
+        grad=np.linalg.inv(a)[1:,:];ke=np.zeros((ndof,ndof))
+        for point in gauss:
+            b=strain_operator(shape_gradients(point,grad,order));ke+=volume/len(gauss)*b.T@d@b
+        b=strain_operator(shape_gradients(np.full(4,.25),grad,order))
+        dofs=(cell[:,None]*3+np.arange(3)).ravel()
+        rows[index]=np.repeat(dofs,ndof);cols[index]=np.tile(dofs,ndof);values[index]=ke.ravel()
         element_data.append((dofs,b,volume))
     matrix=coo_matrix((values.ravel(),(rows.ravel(),cols.ravel())),shape=(len(xyz)*3,)*2).tocsr();load=np.zeros(len(xyz)*3)
     tip_area=0
@@ -48,7 +69,7 @@ def solve(length,width,thickness,force,young,poisson,size,dest):
         p=xyz[face]
         if not np.allclose(p[:,0],length,atol=1e-10,rtol=0):continue
         area=np.linalg.norm(np.cross(p[1]-p[0],p[2]-p[0]))/2;tip_area+=area
-        load[3*face+2]+=area*force/(width*thickness)/3
+        load[3*(face if order==1 else face[3:])+2]+=area*force/(width*thickness)/3
     fixed_nodes=np.where(np.abs(xyz[:,0])<1e-10)[0];fixed=(fixed_nodes[:,None]*3+np.arange(3)).ravel()
     free=np.setdiff1d(np.arange(len(load)),fixed);u=np.zeros(len(load));u[free]=spsolve(matrix[free][:,free],load[free])
     residual=matrix@u-load;reaction=np.zeros_like(load);reaction[fixed]=residual[fixed]
@@ -63,7 +84,7 @@ def solve(length,width,thickness,force,young,poisson,size,dest):
     np.savez_compressed(dest,xyz_m=xyz,tetrahedra=cells,displacement_m=u.reshape(-1,3),centers_m=centers,stress_pa=stress,von_mises_pa=vm)
     inertia=width*thickness**3/12;area=width*thickness
     reference=force*length**3/(3*young*inertia)+force*length/((5/6)*mu*area)
-    return {'mesh_size_m':size,'nodes':len(xyz),'elements':len(cells),'tip_area_m2':tip_area,
+    return {'element_order':order,'mesh_size_m':size,'nodes':len(xyz),'elements':len(cells),'tip_area_m2':tip_area,
         'force_n':force,'force_residual_n':float(max(abs(force_error))),'moment_residual_nm':float(max(abs(moment_error))),
         'free_residual_n':float(max(abs(residual[free]))),'volume_m3':sum(volumes),'tip_work_average_m':tip_disp,
         'timoshenko_comparator_m':reference,'strain_energy_j':float(u@matrix@u/2),'external_work_j':float(load@u),

@@ -178,3 +178,51 @@ PYTHONPATH=src .venv/bin/python scripts/comparar_teto_maxeon.py
 ```
 
 Teste analítico de strings idênticas detectou amostragem que omitia o cantoMPP (corrente5,99909 em vez6A). Corrigida a interpolação para incluir cadaImp exato;teste original preservado,72comparações reexecutadas. Falha inicial documentada emoutput/testes_teto_falha_20261110.log. Suíte final232testes/Ruff passaram.
+
+
+## Cadeia integrada1540Wp — execução completa com configuração congelada
+
+Ocenário `development.integrated_scenarios.maxeon1540_independente` na fonte única é resolvido por `motorhome.cenarios`;não é um segundoYAML editável. `MOTORHOME_SCENARIO` seleciona a sobreposição com saídas isoladas. Snapshots porhash e entradas por executor registram os valores efetivamente usados. Ocasobase1350Wp permanece separado. `executar_cenario_integrado.py` executou14comandos sem falhas,congelando a configuração entre etapas. QA independente do cenário passou297controles na primeira cadeia;novas conferências acrescentam controle sem interface.
+
+Configuração de comparaçãoDEC054:2Maxeon380+2Maxeon390=1540Wp,250/60teto e150/60portáteis,ambos com saída de referência de serviços;nenhuma dessas saídas é ligada aoHV. AlocaçãoFV/recargaB são hipóteses energéticas sujeitas a interfaceexternaOEM não demonstrada. Comparação compartilhada72I–V permanece separada,não aprovada. Massa3976,52553kg,CGx2,01780418/y0,00244880/z0,93071369m,eixos1987,96299/1988,56254kg,margemPBT273,47447kg. CGbase,geometria e limites por eixo não validados. DoisMPPTs acrescentam3kg enquanto a troca de módulos reduz0,5kg,sem duplicar reserva.
+
+**Correção física transversal:** a água limpa total100L é agora posicionada85L no tanque e15L no boiler cheio,sem duplicar massa. Isso corrigeCG/eixos/transferência dinâmica sem alterar a massa total ou o consumo plano. ReexecutadosCAD/massas,162sensibilidades,36envelopes e24freios nos dois cenários. Massa-base1350Wp permanece3974,02553kg,mas seuCG/eixos anteriores ficam substituídos pelos arquivos regenerados.
+
+FVfixa gera5,86376kWh/dia no diaidealizadoSãoCarlos21junho/25°C/UR50/vento0;portáteis geram0,37133kWh na política08–16ou8,04051kWh na00–08,com ângulos fixos por parada e logística. Não é meteorologia real ou potência constanteSTC. I25reexecutou630MILP:5min/mínimo1kWhipotético,40/80km/h,crédito solar inicial0;51,4898/28,5493km sótração e27,1869/15,0742km com serviços cíclicos. Mínimo3kW não iniciaDCdireta. I27 mantémSOCfinal30%,100/80% iniciais separados.
+
+Grade1008 para7000km:700Wauxiliar,massa atual e velocidades constantes;melhores da grade243,84375/244,88542dias por reservas10/20×20/30,20km/h na janela20–04,≤8h/dia. Não são mínimos globais ou missãofisicamenteviável. Controle sem interface não recebeFV na tração. Cronologiahídrica8004eventos/8replays,2127reabastecimentos/descartes,erro≤9,1e−13L,apenas estacionado e fora montagemFV;postos reais continuam hipotéticos.
+
+**Incerteza propagada:** `sensibilizar_cenario_integrado.py` executou972pontos(massa,velocidade,Cd,Crr,ρ,η,área),120missões de extremos/alocações/buffer e36ensaiosDCdiários. Serviços7,22883kWh/dia continuam médiaDEC046 com picos separados. Envelope40/80km/h na massa3976,53kg:0,15919–0,30607/0,30186–0,55134kWh/km;extremos de caixa,não intervalo estatístico. Bateria/PBT/teto/cargas coerentes;resíduo energético máximo≈2,11e−8kWh.
+
+**Buffercomercial:**32casos usam umUS5000dedicado,4,8kWhnominais/4,56kWh de crédito acima da reserva constante,39,7kg adicionais;crédito inicial0. Massa4016,22553kg é limite inferior,sem suportes/conversor/cabos desconhecidos. Exemplo40km/h,00–08,reservas10/20:direta1kW327,0104dias;buffer1kW278,0313dias;direta3kW não conclui no horizonte1500dias,buffer3kW279,0104dias. São resultados condicionais,não prova de potência aceita/BMS/OEM. O buffer não integraCAD/BOMbase e não usa a bateria de serviços.
+
+**CFDequipado efetivamente executado:** novo deck equivalente contínuo4,244×1,690×0,040m,gap40mm ao topo do corpo piloto;suportes/gaps entre módulos omitidos. Três malhas101030/128458/217494 passamcheckMesh e convergemSIMPLE,kOmegaSST,piso móvel,80km/h. Cd diagnóstico0,68313391/0,66691895/0,63374383,variação final5,23%. Históricos/forças,y+,campos,dicionários e gráfico extraídos. `validated_cd:null`;refinamento local com resolução do deckfixada não sustentaGCI. SensibilidadeCd ampliada até0,72;central antigo0,62487678 permanece hipótese,não substituição por medição. Aref é referência comum de normalização,sem confundir com área frontal equipada medida.
+
+**Fixações com orientação correta:** inversor usa planovertical e força gravitacional transformada;afastamentoCG vem das dimensõesCAD×fatores1/1,25/1,5,em vez da altura universal anterior.378alternativas/18seleções,utilização máxima0,99361 e33,13793kg brutos de chapas. Sem substituição líquida/ancoragemOEM inferida.11Tet4mostram que o inversor não satisfazia2%(última2,822%);não foi relaxado o critério. NovoTet10/4pontosGauss em3malhas satisfaz0,5504%;tanqueTet4satisfaz1,1443%. Testes verificam partição/gradiente,reprodução afim,translação/rotação rígidas e equilíbrio. Picos de engaste continuam não validados. Massa das chapas é comparação separada,não soma automática ao veículo.
+
+Os35itens receberam índices locais com requisito,método,condições,fontes ehashda evidência. Teorias ainda emtemplate foram preenchidas com equações reais,sem apagar teoria anterior. `validacao.md` mantém aceite humanoPENDENTE. Documentos de bloqueios/plano foram conciliados para não descreverCFD existente como ausente nem mandar rodar o reconciliador histórico incompatível.
+
+```bash
+PYTHONPATH=src .venv/bin/python scripts/executar_cenario_integrado.py --cenario maxeon1540_independente --reexecutar
+PYTHONPATH=src MOTORHOME_SCENARIO=maxeon1540_independente .venv/bin/python scripts/verificar_cenario_integrado.py
+PYTHONPATH=src .venv/bin/python scripts/executar_aero_equipado.py # somente destino novo
+PYTHONPATH=src .venv/bin/python scripts/analisar_aero_equipado.py
+PYTHONPATH=src .venv/bin/python scripts/verificar_chapas_3d.py
+PYTHONPATH=src .venv/bin/python scripts/verificar_chapa_quadratica.py
+PYTHONPATH=src .venv/bin/python scripts/registrar_execucao02.py
+PYTHONPATH=src .venv/bin/python scripts/preencher_metodos_itens.py
+```
+
+Resultados novos em `entregas/integrado_maxeon1540/`,`entregas/aero_equipado1540/` e índices por item.240testes/Ruff passaram antes da conferência final dos manifestos. DEC001–061 seguemintactas. O pacote computacional está reproduzido;validação física e aprovação humana não estão concluídas e permanecem explicitamente bloqueadas emB01–B12/A01–A16. Nenhum relatório acadêmico/slides/envio foi preparado.
+
+## Complementos finais24/48h,prioridades e evidênciaPylon/custo
+
+`simular_prioridades_servicos.py` acrescenta72casos e teste de conservação/limites,sem fixarSOCoperacional doBMS.3módulos podem estender a alimentação simulada para48h retirando cargas:isso não atende o perfil completo,que continua exigindo4/5módulos por reservas20/30%. Consumoextra docontrole0/5/15W é sensibilidade,não equipamento instalado;I29permanece com7,22883kWh/dia completos. MédiasDEC046 preservadas e notas de cada carga corrigidas:explicação doboiler estava indevidamente repetida em todos os aparelhos. Agora3kWh/diaHVACéhipótese de uso,referência comercial2018separada,sem atribuir hábitos ao fabricante.
+
+`comparar_bancos_servicos_cad.py` produz4STEP completos para2/3/4/5US5000,com remoção geométrica dos3originais antes de inserir a alternativa. Todos sem colisõesAABB com sólidos existentes;folgas10mm eprodutoemuso móvel ainda não validados.24h2/3módulos:9,6/14,4kWh;48h4/5:19,2/24kWh.12casos de suporte de banco completo incluem≈4,53kg dos próprios trilhos,sem somá-los novamente à reserva de massa.5módulos/5ghipotético têm esforço de trilho e grupo de4parafusos calculados,masfuração/apoiosOEM/fadiga/contato permanecem bloqueantes.
+
+`conferir_protecao_pylon_documentada.py` documenta dado primárioUSSeries2024:US5000<2000A/1ms. Download276588bytes,SHA2566b85fb621d4f102863e99208e5d3467adc65f376e75d37fbde4ee7ee928bd139,página renderizada e coluna confirmada. Triagem1–5módulos soma teto condicional de corrente entregue,no intervalo declarado;144curtos prospectivos e56>20kA são preservados,sem deduzirI²t de interrupção ou BMSseguro sob falha.
+
+ListaVictron2026Q2USD C,página14renderizada/conferida,PDF2351739bytes/SHA25683275209e603872733eb06ea0761bd65820bf5b93f6068f9e5467b691862cd80:250/60-TrSCC125060221=465USD,3kg,200×250×95mm. BOM1540passaUSD1951(GX1093+150/60 393+250/60 465),mantendoEUR50990eBRL439histórico separados. Sem cotação instalada/frete/impostos. Preços de revendedores dePylon/Maxeon encontrados não tinham identidade/revisão suficiente para fechar compra;valoresnão confiáveis ouplaceholder não foram incorporados.
+
+Revisão da fonte única:1.1.1-execucao1540,data10/11/2026. Cenário temversão/fontes por parâmetro;massas são hipóteses,não dadosMaxeon. Catálogo externo atualizado com fontes/hash;PDFs de fabricantes continuam emcache,sem redistribuição integral. Matriz61agora liga parâmetros e evidências vigentes comhashde seção original;61decisões intocadas. Os35itens têm teoria/método/índice/fontes específicas emsuas pastas,revisão humanaPENDENTE.

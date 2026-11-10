@@ -1,0 +1,14 @@
+{
+  "item": 28,
+  "owner": "P4",
+  "requirement": "Velocidade máxima e 0–100 no plano e sem vento",
+  "model_equations": "m·dv/dt=min(F_torque,F_potência,F_aderência)−F_resistiva.",
+  "method_and_conditions": "Tração dianteira inclui transferência dinâmica de carga. Variante limitada90km/h não atinge100km/h;0–90 hipotético não é mediçãoOEM.",
+  "status": "resposta_limitador_e_sensibilidade",
+  "executed": "0–100inalcançável por limitador90;36envelopes hipotéticos0–90=9.23–14.19s.",
+  "remaining_limit": "Esses tempos não são desempenhoOEM: relação, raio,aderência e envelope não calibrados.",
+  "evidence": "entregas/integrado_maxeon1540/mecanica_termica/I28_envelope_0_90_sensibilidade.csv",
+  "evidence_sha256": "2686c8d40eb7c787153832f7180c8fc95d978227d424f562cb0404d74cd3328d",
+  "human_approval": false,
+  "physical_validation": false
+}

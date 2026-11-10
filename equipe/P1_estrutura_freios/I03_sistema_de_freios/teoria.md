@@ -10,13 +10,23 @@ Os métodos abaixo preservam o histórico; nenhuma aprovação de engenharia foi
 Especificar discos/pinças/materiais e distribuição de frenagem.
 
 ## Equações e hipóteses
-A preencher com equações corretas e citações. Não inventar dados.
+ΔE_c=½m(v0²−vf²); F_desac=m·a; calor de atrito=demanda−resistências−regeneração.
 
 ## Entradas e unidades
 Dependências diretas: I02 (P1), I15 (P1).
 
 ## Modelo / procedimento
-Descrever método, condição de contorno e critérios de convergência (se aplicável).
+Geometria representativa,partição por eixo e limites de aderência separados. Não atribuir frações regenerativas hipotéticas aoOEM.
 
 ## Limitações
-Identificar aproximações e sensibilidade das entradas.
+Brembo/espessura/cubo/pastilha/compatibilidadeMY25 e limitesABS não demonstrados.
+
+<!-- execucao-integrada:inicio -->
+Método técnico integrado: ΔE_c=½m(v0²−vf²); F_desac=m·a; calor de atrito=demanda−resistências−regeneração.
+
+Geometria representativa,partição por eixo e limites de aderência separados. Não atribuir frações regenerativas hipotéticas aoOEM.
+
+Escopo: Brembo/espessura/cubo/pastilha/compatibilidadeMY25 e limitesABS não demonstrados.
+
+Fonte dos parâmetros: `config/parametros_globais.yaml`;dadoOEM,hipótese e resultado mantêm status próprios. Simulação não é aprovação humana.
+<!-- execucao-integrada:fim -->

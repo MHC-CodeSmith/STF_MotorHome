@@ -1,21 +1,21 @@
 {
-  "cases": 9,
+  "cases": 11,
   "convergence": [
     {
       "component": "inversor",
-      "last_relative_displacement_change": 0.015474768115071584,
-      "displacement_refinement_criterion_met": true,
+      "last_relative_displacement_change": 0.02822321743773469,
+      "displacement_refinement_criterion_met": false,
       "peak_stress_validated": false
     },
     {
       "component": "tanque_limpa",
-      "last_relative_displacement_change": 0.018168543794642552,
+      "last_relative_displacement_change": 0.011443134166726553,
       "displacement_refinement_criterion_met": true,
       "peak_stress_validated": false
     }
   ],
-  "max_force_residual_n": 1.2181899933239038e-10,
-  "max_moment_residual_nm": 3.680930560356899e-12,
+  "max_force_residual_n": 2.416982169961557e-10,
+  "max_moment_residual_nm": 3.5969560663318134e-12,
   "physical_validation": false,
   "limits": "Tira3D elástica com engaste ideal;sem furo/contato/prying/carroceria. ComparadorTimoshenko não é soluçãoexata3D. Picos de engaste não promovidos a resistência."
 }

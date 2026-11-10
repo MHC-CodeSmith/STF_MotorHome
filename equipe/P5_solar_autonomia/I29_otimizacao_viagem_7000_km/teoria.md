@@ -37,3 +37,13 @@ O marco7000km é mantido dentro da geometria real7511,282km. A viagem usa
 datas e posições variáveis, sem repetirSãoCarlos21jun. Limites por via são
 hipóteses com perfilOSRM e tetoOEM90km/h. Falha de reserva da política não
 é certificado de inviabilidade global; chegada em céu limpo não prova mínimo de tempo.
+
+<!-- execucao-integrada:inicio -->
+Método técnico integrado: E_inicial+E_FV=E_final+E_tração+E_serviços+E_perdas+E_cortada; SOCs separados.
+
+7000km plano,ambosSOC100%,até8h/dia,sem recarga elétrica externa. DiaSãoCarlos21junho repetido é idealização. Grade não comprova ótimo global ou caminhoDCimplementável.
+
+Escopo: Melhor da grade, não ótimo global; mínimoDC1kW hipotético e fontes sanitárias por parada presumidas.
+
+Fonte dos parâmetros: `config/parametros_globais.yaml`;dadoOEM,hipótese e resultado mantêm status próprios. Simulação não é aprovação humana.
+<!-- execucao-integrada:fim -->

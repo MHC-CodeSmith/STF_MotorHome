@@ -1,0 +1,606 @@
+{
+  "item": 22,
+  "canonical_source": "config/parametros_globais.yaml",
+  "canonical_revision": "1.1.1-execucao1540",
+  "derived_snapshot": "entregas/integrado_maxeon1540/parametros_resolvidos.json",
+  "snapshot_sha256": "5d16a4117d0ce6d4c9b2621a5cedcd427602a36876cd9c6e5e402b83cfa653d4",
+  "values": {
+    "vehicle_variant": {
+      "value": "SK MY25 505.GG1.2",
+      "unit": "categoria",
+      "source": "oem_sk",
+      "decisions": [
+        "DEC-002",
+        "DEC-036",
+        "DEC-061"
+      ],
+      "owner": "P1",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Recomendação de trabalho; sem homologação/importação brasileira demonstrada"
+    },
+    "oem_pbt_kg": {
+      "value": 4250,
+      "unit": "kg",
+      "source": "oem_sk",
+      "decisions": [
+        "DEC-002",
+        "DEC-009",
+        "DEC-036",
+        "DEC-037"
+      ],
+      "owner": "P4",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Dado documentado da candidata SK; não aprovação da variante"
+    },
+    "oem_tare_kg": {
+      "value": 2790,
+      "unit": "kg",
+      "source": "oem_sk",
+      "decisions": [
+        "DEC-002",
+        "DEC-009",
+        "DEC-036",
+        "DEC-037"
+      ],
+      "owner": "P4",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Dado documentado da candidata SK; não aprovação da variante"
+    },
+    "wheelbase_m": {
+      "value": 4.035,
+      "unit": "m",
+      "source": "oem_sk",
+      "decisions": [
+        "DEC-002",
+        "DEC-009",
+        "DEC-036",
+        "DEC-037"
+      ],
+      "owner": "P4",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Dado documentado da candidata SK; não aprovação da variante"
+    },
+    "front_track_m": {
+      "value": 1.81,
+      "unit": "m",
+      "source": "oem_sk",
+      "decisions": [
+        "DEC-002",
+        "DEC-009",
+        "DEC-036",
+        "DEC-037"
+      ],
+      "owner": "P4",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Dado documentado da candidata SK; não aprovação da variante"
+    },
+    "rear_track_m": {
+      "value": 1.79,
+      "unit": "m",
+      "source": "oem_sk",
+      "decisions": [
+        "DEC-002",
+        "DEC-009",
+        "DEC-036",
+        "DEC-037"
+      ],
+      "owner": "P4",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Dado documentado da candidata SK; não aprovação da variante"
+    },
+    "traction_nominal_kwh": {
+      "value": 110,
+      "unit": "kWh",
+      "source": "oem_sk",
+      "decisions": [
+        "DEC-002",
+        "DEC-009",
+        "DEC-036",
+        "DEC-037"
+      ],
+      "owner": "P4",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Dado documentado da candidata SK; não aprovação da variante"
+    },
+    "traction_usable_kwh": {
+      "value": 98,
+      "unit": "kWh",
+      "source": "oem_sk",
+      "decisions": [
+        "DEC-002",
+        "DEC-009",
+        "DEC-036",
+        "DEC-037"
+      ],
+      "owner": "P4",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Dado documentado da candidata SK; não aprovação da variante"
+    },
+    "traction_voltage_v": {
+      "value": 400,
+      "unit": "V",
+      "source": "oem_sk",
+      "decisions": [
+        "DEC-002",
+        "DEC-009",
+        "DEC-036",
+        "DEC-037"
+      ],
+      "owner": "P4",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Dado documentado da candidata SK; não aprovação da variante"
+    },
+    "motor_peak_kw": {
+      "value": 205,
+      "unit": "kW",
+      "source": "oem_sk",
+      "decisions": [
+        "DEC-002",
+        "DEC-009",
+        "DEC-036",
+        "DEC-037"
+      ],
+      "owner": "P4",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Dado documentado da candidata SK; não aprovação da variante"
+    },
+    "motor_peak_nm": {
+      "value": 410,
+      "unit": "N m",
+      "source": "oem_sk",
+      "decisions": [
+        "DEC-002",
+        "DEC-009",
+        "DEC-036",
+        "DEC-037"
+      ],
+      "owner": "P4",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Dado documentado da candidata SK; não aprovação da variante"
+    },
+    "speed_limit_kmh": {
+      "value": 90,
+      "unit": "km/h",
+      "source": "oem_sk",
+      "decisions": [
+        "DEC-002",
+        "DEC-009",
+        "DEC-036",
+        "DEC-037"
+      ],
+      "owner": "P4",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Dado documentado da candidata SK; não aprovação da variante"
+    },
+    "vehicle_price_eur_ex_vat": {
+      "value": 50990,
+      "unit": "EUR",
+      "source": "oem_sk",
+      "decisions": [
+        "DEC-002",
+        "DEC-009",
+        "DEC-036",
+        "DEC-037"
+      ],
+      "owner": "P4",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Dado documentado da candidata SK; não aprovação da variante"
+    },
+    "axle_front_limit_kg": {
+      "value": null,
+      "unit": "kg",
+      "source": "hyp",
+      "decisions": [
+        "DEC-022",
+        "DEC-037",
+        "DEC-058",
+        "DEC-059",
+        "DEC-060"
+      ],
+      "owner": "P1",
+      "status": "nao_demonstrado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "axle_rear_limit_kg": {
+      "value": null,
+      "unit": "kg",
+      "source": "hyp",
+      "decisions": [
+        "DEC-022",
+        "DEC-037",
+        "DEC-058",
+        "DEC-059",
+        "DEC-060"
+      ],
+      "owner": "P1",
+      "status": "nao_demonstrado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "assembled_typical_mass_kg": {
+      "value": 3976.52552776,
+      "unit": "kg",
+      "source": "hyp",
+      "decisions": [
+        "DEC-022",
+        "DEC-037",
+        "DEC-058",
+        "DEC-059",
+        "DEC-060"
+      ],
+      "owner": "P1",
+      "status": "provisorio_cenario",
+      "confidence": "baixa",
+      "version": "1.0.0-maxeon1540-integrado",
+      "reference_date": "2026-11-10",
+      "note": "Cenário maxeon1540_independente;Referência com rastreadores independentes para comparaçãoDEC054;250/60 teto+150/60 portáteis. InterfaceDCtração e alocaçãoFV hipotéticas;nenhuma ligação entre bancos. SharedMPPT continua comparado,não aprovado."
+    },
+    "cg_xyz_m": {
+      "value": null,
+      "unit": "m",
+      "source": "hyp",
+      "decisions": [
+        "DEC-022",
+        "DEC-037",
+        "DEC-058",
+        "DEC-059",
+        "DEC-060"
+      ],
+      "owner": "P1",
+      "status": "nao_demonstrado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "oem_tyre_pressure": {
+      "value": null,
+      "unit": "Pa",
+      "source": "hyp",
+      "decisions": [
+        "DEC-022",
+        "DEC-037",
+        "DEC-058",
+        "DEC-059",
+        "DEC-060"
+      ],
+      "owner": "P1",
+      "status": "nao_demonstrado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "motor_map": {
+      "value": null,
+      "unit": "arquivo",
+      "source": "hyp",
+      "decisions": [
+        "DEC-022",
+        "DEC-037",
+        "DEC-058",
+        "DEC-059",
+        "DEC-060"
+      ],
+      "owner": "P4",
+      "status": "nao_demonstrado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "reduction_ratio": {
+      "value": null,
+      "unit": "1",
+      "source": "hyp",
+      "decisions": [
+        "DEC-022",
+        "DEC-037",
+        "DEC-058",
+        "DEC-059",
+        "DEC-060"
+      ],
+      "owner": "P1",
+      "status": "nao_demonstrado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "mass_study_kg": {
+      "value": [
+        3500,
+        4250
+      ],
+      "unit": "kg",
+      "source": "hyp",
+      "decisions": [
+        "DEC-022",
+        "DEC-032"
+      ],
+      "owner": "P1",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "3500 é ponto de sensibilidade, NÃO massa típica montada;4250 tetoPBT candidato, não prova dos eixos"
+    },
+    "module_service_kwh": {
+      "value": 4.8,
+      "unit": "kWh",
+      "source": "pylon",
+      "decisions": [
+        "DEC-005",
+        "DEC-039",
+        "DEC-061"
+      ],
+      "owner": "P2",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "module_service_mass_kg": {
+      "value": 39.7,
+      "unit": "kg",
+      "source": "pylon",
+      "decisions": [
+        "DEC-039",
+        "DEC-061"
+      ],
+      "owner": "P1",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "service_module_model": {
+      "value": "Pylontech US5000",
+      "unit": "categoria",
+      "source": "pylon",
+      "decisions": [
+        "DEC-039",
+        "DEC-061"
+      ],
+      "owner": "P2",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "BMS e modularidade documentados; uso móvel/vibração/fixações/garantia ainda não demonstrados"
+    },
+    "inverter_model": {
+      "value": "MultiPlus-II GX 48/5000/70-50 230V ajustado220V60Hz",
+      "unit": "categoria",
+      "source": "multi_gx",
+      "decisions": [
+        "DEC-053",
+        "DEC-061"
+      ],
+      "owner": "P2",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "fridge_model": {
+      "value": "Midea MRC10B2 220V60Hz",
+      "unit": "categoria",
+      "source": "fridge",
+      "decisions": [
+        "DEC-050",
+        "DEC-061"
+      ],
+      "owner": "P6",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "service_modules_provisional": {
+      "value": 3,
+      "unit": "modulo",
+      "source": "hyp",
+      "decisions": [
+        "DEC-005",
+        "DEC-039",
+        "DEC-061"
+      ],
+      "owner": "P2",
+      "status": "provisorio",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Banco provisório14.4kWh:base24h com ambas reservas20/30%;48h ainda comparação4/5módulos. Não é aprovação de uso veicular."
+    },
+    "layout_provisional": {
+      "value": "cama_fixa",
+      "unit": "categoria",
+      "source": "hyp",
+      "decisions": [
+        "DEC-030",
+        "DEC-061"
+      ],
+      "owner": "P3",
+      "status": "provisorio",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Aproveitar CAD existente; conversível ainda precisa estudo cotado comparável"
+    },
+    "roof_arrangement_provisional": {
+      "value": "2Maxeon380+2Maxeon390_2S2P_comparador_independente",
+      "unit": "categoria",
+      "source": "hyp",
+      "decisions": [
+        "DEC-031",
+        "DEC-061"
+      ],
+      "owner": "P3",
+      "status": "provisorio_cenario",
+      "confidence": "baixa",
+      "version": "1.0.0-maxeon1540-integrado",
+      "reference_date": "2026-11-10",
+      "note": "Cenário maxeon1540_independente;Referência com rastreadores independentes para comparaçãoDEC054;250/60 teto+150/60 portáteis. InterfaceDCtração e alocaçãoFV hipotéticas;nenhuma ligação entre bancos. SharedMPPT continua comparado,não aprovado."
+    },
+    "dc_distribution_provisional_v": {
+      "value": 12,
+      "unit": "V",
+      "source": "hyp",
+      "decisions": [
+        "DEC-057",
+        "DEC-061"
+      ],
+      "owner": "P2",
+      "status": "provisorio",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Recomendação por catálogo12V existente;24V segue comparação, não tensão final"
+    },
+    "insulation_provisional_m": {
+      "value": 0.032,
+      "unit": "m",
+      "source": "hyp",
+      "decisions": [
+        "DEC-016",
+        "DEC-061"
+      ],
+      "owner": "P6",
+      "status": "provisorio",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "AFArmaflex candidato já modelado; avaliar fogo/umidade/uso automotivo"
+    },
+    "regen_power_study_kw": {
+      "value": [
+        0,
+        40,
+        80
+      ],
+      "unit": "kW",
+      "source": "hyp",
+      "decisions": [
+        "DEC-025",
+        "DEC-037"
+      ],
+      "owner": "P4",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Limites de potência no evento; somente sensibilidade, nunca curvaOEM"
+    },
+    "pendencia_dec035": {
+      "value": null,
+      "unit": "documento",
+      "source": "dec",
+      "decisions": [
+        "DEC-035"
+      ],
+      "owner": "P1",
+      "status": "nao_demonstrado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Fonteúnica/matrizes/proveniência M1M2M3;0aprovações finais"
+    },
+    "time_step_minutes": {
+      "value": 15,
+      "unit": "min",
+      "source": "hyp",
+      "decisions": [
+        "DEC-035",
+        "DEC-038"
+      ],
+      "owner": "P5",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Resolução do replay; chegada arredondada ao intervalo"
+    },
+    "boiler_candidate_model": {
+      "value": "Quick B3 15 05S",
+      "unit": "categoria",
+      "source": "quick_boiler",
+      "decisions": [
+        "DEC-017",
+        "DEC-061"
+      ],
+      "owner": "P6",
+      "status": "provisorio",
+      "confidence": "media",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Candidato elétrico220V500W; frequência e instalação veicular não demonstradas"
+    },
+    "traction_aux_assumed_w": {
+      "value": 700,
+      "unit": "W",
+      "source": "hyp",
+      "decisions": [
+        "DEC-032",
+        "DEC-037"
+      ],
+      "owner": "P4",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Potência fixa de auxiliares de tração SOMENTE em movimento; hipótese700W, sensibilidade0/300/700/1500W; não carga habitável nem dadoOEM."
+    }
+  },
+  "editable_source": false,
+  "physical_validation": false,
+  "note": "Cópia derivada de entradas efetivamente resolvidas;editar apenas fonte canônica e reexecutar. Parâmetros de geometria/loads adicionais no snapshot,sem nova fonte de verdade."
+}

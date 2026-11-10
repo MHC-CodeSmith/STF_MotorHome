@@ -1,0 +1,10 @@
+{
+  "cases": 24,
+  "mass_typical_kg": 3976.52552776,
+  "disc_geometry_oem_verified": false,
+  "material_is_railway_reference": true,
+  "regeneration_accepted_at_pack_proven": false,
+  "initial_speed_108kmh_is_prescribed_component_test": true,
+  "oem_limiter_kmh": 90,
+  "physical_validation": false
+}

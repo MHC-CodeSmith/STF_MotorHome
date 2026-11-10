@@ -10,13 +10,23 @@ Os métodos abaixo preservam o histórico; nenhuma aprovação de engenharia foi
 Distância por energia elétrica da bateria em km/kWh a 40 e 80 km/h; explicitar auxiliares.
 
 ## Equações e hipóteses
-A preencher com equações corretas e citações. Não inventar dados.
+e(v)=P_bat(v)/v emkWh/km; rendimento espacial=1/e(v) emkm/kWh.
 
 ## Entradas e unidades
 Dependências diretas: I21 (P4), I22 (P4), I23 (P2), I13 (P6).
 
 ## Modelo / procedimento
-Descrever método, condição de contorno e critérios de convergência (se aplicável).
+Avaliar40/80km/h constantes,plano,25°C/UR50/vento0,consumo habitável separado. Sensibilidade deCd/Crr/η/massa não equivale a previsão rodoviária.
 
 ## Limitações
-Identificar aproximações e sensibilidade das entradas.
+Eficiência constante e dados de rolamento/aerodinâmica estimados.
+
+<!-- execucao-integrada:inicio -->
+Método técnico integrado: e(v)=P_bat(v)/v emkWh/km; rendimento espacial=1/e(v) emkm/kWh.
+
+Avaliar40/80km/h constantes,plano,25°C/UR50/vento0,consumo habitável separado. Sensibilidade deCd/Crr/η/massa não equivale a previsão rodoviária.
+
+Escopo: Eficiência constante e dados de rolamento/aerodinâmica estimados.
+
+Fonte dos parâmetros: `config/parametros_globais.yaml`;dadoOEM,hipótese e resultado mantêm status próprios. Simulação não é aprovação humana.
+<!-- execucao-integrada:fim -->

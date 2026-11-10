@@ -5,3 +5,14 @@ Adicionar scripts/notebooks originais ou dependências open-source autorizadas. 
 Implementado na raiz: `.venv/bin/python scripts/calcular_integracao_eletrica.py --destino NOVO`.
 Usa PyYAML e configuração/cenários rastreáveis; saída`resumo_integracao_eletrica.json`.
 Modelo de tração e campo térmicoI30 seguem pendentes.
+
+<!-- execucao-integrada:inicio -->
+Reprodução integrada pelo repositório:
+
+```bash
+PYTHONPATH=src .venv/bin/python scripts/executar_cenario_integrado.py --cenario maxeon1540_independente --reexecutar
+PYTHONPATH=src MOTORHOME_SCENARIO=maxeon1540_independente .venv/bin/python scripts/verificar_cenario_integrado.py
+```
+
+CFD e campos específicos preservam comandos em `docs/EXECUCAO_TECNICA02.md`;a cadeia integrada não substitui esses ensaios. Ver arquivos reais de evidência no índice local.
+<!-- execucao-integrada:fim -->

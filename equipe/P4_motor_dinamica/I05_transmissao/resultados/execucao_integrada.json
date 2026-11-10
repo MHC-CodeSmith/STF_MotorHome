@@ -1,0 +1,14 @@
+{
+  "item": 5,
+  "owner": "P4",
+  "requirement": "Transmissão especificada",
+  "model_equations": "n_motor=60·i·v/(2πr); P_perdas=(1−η_red)·P_entrada.",
+  "method_and_conditions": "Relações8/10/12 e eficiências sensibilizadas;redutorOEM permanece intacto. Relação real/óleo/volume não demonstrados.",
+  "status": "modelo_condicionado",
+  "executed": "RedutorOEM preservado; relações8/10/12 e eficiências.95/.97/.99 explicitamente sensibilizadas.",
+  "remaining_limit": "Relação/rotação/óleo real não publicados para varianteSK.",
+  "evidence": "entregas/integrado_maxeon1540/mecanica_termica/I10_I12_balanco_perdas.csv",
+  "evidence_sha256": "acad4d1d700dfd6dcd553c29003c9ca482d8d102833327b0ee4b1c03d2bb2d47",
+  "human_approval": false,
+  "physical_validation": false
+}

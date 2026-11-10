@@ -1,37 +1,31 @@
-# Plano de execução P1–P7 — datas provisórias até02/12/2026 às06h
+# Execução reproduzível P1–P7 — cenário integrado1540Wp
 
-O trabalho já existente deve ser reaproveitado. As datas abaixo são metas de coordenação propostas, não aceites individuais dos integrantes. O prazo final é o do projeto, no fusoAmerica/Sao_Paulo. Os35itens permanecem sem aprovação final.
+O trabalho computacional abaixo já foi executado. Este documento define reprodução e fronteiras entre pacotes;as pendências remanescentes são evidências específicas em [BLOQUEIOS_POS_DEC061.md](BLOQUEIOS_POS_DEC061.md),sem transferir tarefas genéricas ao usuário ou solicitar aprovações individuais.
 
-|Pacote / itens|Entrada e dependência|Ação concreta e saída revisável|Critério de liberação / revisor|
-|---|---|---|---|
-|P1 /1,2,3,14,15,18,24,33|VarianteP4; massa/posiçãoP2/P3/P6/P7|Conferir ficha única e limites por eixo; completar BOM com massas e coordenadas; calcular CG/reação típica e máxima, transferência de água, fixações e FEA crítica; completar custos; revisar novos freios2D.|PBT/eixos/pneus identificados; inventário sem dupla água/OEM; faixas e excessos publicados; P3/P4 revisam.|
-|P2 /6,7,9,23,30|CargasP6; varianteP4; instalaçãoP3|PrioridadeB01: obter requisitos OEM e fichas de equipamentoDC externo; comparar mínimo real com sérieFV. Revisar3módulos24h vs4/5para48h, inversores, MPPT compartilhado,12/24V, seccionamento e proteções. Preparar unifilar e estados/falhas do controle, sem inventar limiaresBMS.|B01 só libera com evidência do conjunto, não eficiência hipotética. I30 tem campos2D reais, mas falta circuito/terminais/proteções. P5/P7 revisam.|
-|P3 /16,17,19|CotasOEM; envelopesP2/P6; massaP1|Conservar CAD existente como configuraçãoA; produzir estudo cotado da cama conversívelB e duas ocupações reais do teto. Atualizar equipamentos/fridge/banco/dutos e armazenamento portátil; extrair áreas/massas/CG. Refinar CFD aerodinâmico e preparar CFD3D térmico da cabine em conjuntoP6.|Não congelar Cd/teto/layout sem malha/contornos e cotas. Registrar discrepância de cabine equivalente versusCAD. P1/P6 revisam.|
-|P4 /4,5,20,21,22,28|MassasP1;Cd/áreaP3|Manter comparação separadaSK3500/SK4250/BRnão documentada. Obter redutor e mapas OEM; usar nova varredura40/80como estimativa. Respeitar90km/h da candidata4250 e não calcular0–100atingível. Limitar regeneração conforme curvas reais quando disponíveis.|Sem mapas, publicar faixas e bloqueio de aceleração, não curvaOEM inventada. P2/P5 revisam.|
-|P5 /8,25,26,27,29|P1massa/P3Cd/P4tração/P2interface/P6cargas|Reexecutar `conciliar_dec061.py` quando qualquer entrada compartilhada mudar; comparar reservas e alocações. Substituir mínimo1kW hipotético por dado real somente apósB01. Estender busca de horários e velocidade com método de otimização e orientação fixa por parada, sem chamar00–08de ótimo.|Conservação/8h/100%SOC/portátilparado sem dupla contagem. Controle sem interface separado; referência7000kmplana,ERA5/7511km em suplemento. P2/P4 revisam.|
-|P6 /11,13,31,32|GeometriaP3; eletricidadeP2|Obter picos/consumo de geladeiraAC/lava-seca/boiler/HVAC compatíveis; substituir faixas por fichas sem omitir secagem. Validar rede potável e água/descarte; natural ventilação/umidade com vento0. Completar sensibilidadeI31/I32 e interfaceCFD3D,1ocupanteprincipal/2complementar.|I31fechado/semocupantes/semAC;I32externa33,interna25. Sem equipamento compatível, manter bloqueio, sem escolher teto automaticamente. P2/P3/P7 revisam.|
-|P7 /10,12,34,35|PackOEM/limitesP2/P4; geometriaP3|Conferir sistema térmicoOEM e lubrificante/redutor. Preservar modelos20/80kW e ponto hidráulico, substituirR/UA/propriedades só por dados identificados; sensibilizar incertezas e integrar auxiliares do sistema correto.|Modelo conceitual não vira circuitoOEM ou proposta de alterarHV. P2/P4 revisam.|
+|Pacote / itens|Integração efetivamente executada|Limite externo de validação|
+|---|---|---|
+|P1/1,2,3,14,15,18,24,33|Identidade/variante de estudo;inventário,CAD/CG/eixos/água85+15L;162sensibilidades;378interfaces,14FEM3D de tiras;freios24casos;BOMpor moeda.|LimitesOEM por eixo/pneu/apoios,material do chassi,ancoragem/fadiga,disco real e orçamento instalado.|
+|P2/6,7,9,23,30|Serviços3US5000/GX;comparação24/48h;324circuitos/144faltas/256picos;estados/falhas;12/24V e rotas;cabos com campos;MPPTs independentes/compartilhado e32buffercomercial.|B01;uso móvel/BMS,partidas,coordenaçãoI²t/PE-DR/ampacidade/atuadores e correnteRMSfaseOEM.|
+|P3/16,17,19|Dois layouts/tetos,CADcomFV e rotas,vistas cotadas;trêsCFDequipados com logs/forças/y+;tentativas numéricas anteriores preservados como rejeitados.|Geometria/curvatura/apoiosOEM,embalagem detalhada e validação aerodinâmica;Cd apenas intervalo condicional.|
+|P4/4,5,20,21,22,28|36envelopes de aceleração;resistências/potência/massas;972pontos de caixa de incerteza;limitador90km/h respeitado.|MapasOEM/relação/óleo/pressões e regeneração reais;0–100inalcançável na variante de estudo.|
+|P5/8,25,26,27,29|FV1540+1600séries próprias;630MILP;I27SOC30%;1008políticas,32replays,120sensibilidades,36DCdiários,32buffercomercial;água8004eventos.|Interface/autorizaçãoDC;políticas finitas não provam ótimo global;dadosERA5/rota7511km permanecem complementares.|
+|P6/11,13,31,32|Consumo médio e simultaneidade separados;água/boiler/ventilação/CO2/umidade;rede matinal+CFD3Dcomplementar;72HVAC+12partidas hipotéticas.|SKU/capacidade/partidasHVAC,uso veicular/instalação hidráulica/renovação de ar e propriedades reais do envelope.|
+|P7/10,12,34,35|Perdas/circuito de referência;54térmicos20/80kW;multinós,bomba/radiador2D,sensibilidade/conservação.|R(SOC,T),UA/vazões/fluido/óleo e componentesOEM reais;não alterar circuitoHV.|
 
-## Marcos de integração
+## Fonte única e comandos válidos
 
-- **M1 — até12/11:** ficha da variante e lacunasOEM; interfaces/cargas/BOM e evidênciasB01; manter bloqueios em vez de congelar compatibilidade sem dados.
-- **M2 — até20/11:** CAD comparativo, massas/eixos, CFD e modelos térmicos consistentes; reexecução da missão somente com mesma revisão. Publicar condição de viabilidade, inclusive resultados negativos.
-- **M3 — até27/11:** reprodução por outro integrante, revisão cruzada dos35itens e fechamento da lista única de aprovações. Aprovação humana final é registrada por item, nunca inferida dos testes.
-- **30/11:** integrar memorial, CAD, referências, anexos e roteiro; conferir limites de arquivos e aderência ao enunciado.
-- **01/12:** reserva para correções e preparo do envio. **02/12 às06h:** entrega. Envio de e-mail não foi executado por este agente.
-
-## Comandos atuais de reprodução
-
-Executar na raiz da worktree; dependências já disponíveis nesta máquina. A versão e hashes de entradas/saídas ficam em `entregas/etapa_pos_dec061/manifesto.json`.
+`config/parametros_globais.yaml` contém o cenário histórico de estudo1350Wp e a sobreposição nomeada `development.integrated_scenarios.maxeon1540_independente`. A sobreposição é resolvida pelo código;`parametros_resolvidos.json` é saída derivada,não uma segunda fonte editável. Os arquivos de entrada por executor e snapshotshashados preservam a proveniência.
 
 ```bash
-PYTHONPATH=src .venv/bin/python scripts/conciliar_dec061.py
-.venv/bin/python scripts/consolidar_pacote_dec061.py
-.venv/bin/python scripts/verificar_pos_dec061.py
+PYTHONPATH=src .venv/bin/python scripts/executar_cenario_integrado.py --cenario maxeon1540_independente --reexecutar
+PYTHONPATH=src MOTORHOME_SCENARIO=maxeon1540_independente .venv/bin/python scripts/verificar_cenario_integrado.py
+PYTHONPATH=src .venv/bin/python scripts/verificar_desenvolvimento.py
 PYTHONPATH=src .venv/bin/python -m pytest -q
 ruff check src scripts tests
-.venv/bin/python scripts/verificar_estrutura.py
-.venv/bin/python scripts/auditar_projeto.py --json
+PYTHONPATH=src .venv/bin/python scripts/verificar_estrutura.py
+PYTHONPATH=src .venv/bin/python scripts/auditar_projeto.py --json
 ```
 
-`calcular_interface_carga.py`, `calcular_agenda_portatil.py`, `construir_viagem_condicionada.py` e `simular_rota_real.py` exigem `--historico`. Esse argumento autoriza reproduzir o método antigo, não o torna compatível comDEC001B. Para reprodução exata de artefatos antigos, usar a revisãoGit indicada no registro de cenários. Não atualizar hashes históricos para fazê-los parecer atuais.
+A cadeia registra17comandos e interrompe por falha ou mudança de configuração durante execução. Reproduzir CFD requer destino novo em `executar_aero_equipado.py`,preservando tentativas/logs;não executar novamente sobre diretório já entregue. Metodologia e comandos especializados constam em `EXECUCAO_TECNICA02.md`.
+
+`conciliar_dec061.py` e consolidadores dobaseline29defc4 são históricos,limitados por revisão/flags;não são comandos atuais de atualização. Não sobrescrever a listaA01–A16 ou hashes antigos. Relatório acadêmico,ABNT,slides e envio não fazem parte desta execução técnica. Entrega02/12/2026 às06h America/Sao_Paulo permanece registrada.

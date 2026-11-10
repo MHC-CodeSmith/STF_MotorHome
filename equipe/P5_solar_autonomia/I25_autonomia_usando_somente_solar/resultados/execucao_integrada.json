@@ -1,0 +1,14 @@
+{
+  "item": 25,
+  "owner": "P5",
+  "requirement": "Autonomia com solar do dia a 40/80 km/h e gráfico versus velocidade",
+  "model_equations": "Crédito_solar(t+Δt)=crédito_solar(t)+E_FV→HV−P_tração·Δt; crédito inicial0.",
+  "method_and_conditions": "MILP de alocação por janela e partidas em grade,40/80km/h;serviços cíclicos separados. Uma sessão hipotética não demonstra interfaceOEM ou ótimo global.",
+  "status": "despacho_temporal_condicional",
+  "executed": "630alocações MILP,grade de partidas,30/15/5min;40/80 e curva10–90km/h,crédito solar inicial zero.",
+  "remaining_limit": "Uma parada+carga seguida de condução;serviços cíclicos separados,mínimosDC hipotéticos,sem provaOEM/ótimo global.",
+  "evidence": "entregas/integrado_maxeon1540/despacho_i25/resumo.json",
+  "evidence_sha256": "f860eefac3d39a0fadda87f8230b41d2aeacc845513692632ace8b7776d2d15b",
+  "human_approval": false,
+  "physical_validation": false
+}

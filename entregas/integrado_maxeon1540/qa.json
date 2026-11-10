@@ -1,0 +1,1334 @@
+{
+  "status": "PASSOU",
+  "checks": [
+    {
+      "label": "A_fixa:massa/momentos independentes",
+      "pass": true
+    },
+    {
+      "label": "A_fixa:100L totais localizados85+15sem duplicar",
+      "pass": true
+    },
+    {
+      "label": "A_fixa:inventário4Maxeon sem painéis antigos",
+      "pass": true
+    },
+    {
+      "label": "B_conversivel_noite:massa/momentos independentes",
+      "pass": true
+    },
+    {
+      "label": "B_conversivel_noite:100L totais localizados85+15sem duplicar",
+      "pass": true
+    },
+    {
+      "label": "B_conversivel_noite:inventário4Maxeon sem painéis antigos",
+      "pass": true
+    },
+    {
+      "label": "Massafonteúnica=CAD",
+      "pass": true
+    },
+    {
+      "label": "PV1540/coeftérmico próprio",
+      "pass": true
+    },
+    {
+      "label": "B/independência sem provaDC",
+      "pass": true
+    },
+    {
+      "label": "220V60Hz",
+      "pass": true
+    },
+    {
+      "label": "solar_fixo_08_16.csv:portátil somente parado",
+      "pass": true
+    },
+    {
+      "label": "solar_alternativo_00_08.csv:portátil somente parado",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_3976.526_40_0.1_sem_interface:consumo físico independente",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_3976.526_40_0.1_sem_interface:controle sem interface não ganha energiaHV",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_3976.526_40_0.1_sem_interface:energia/semrecargaexterna",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_3976.526_40_0.1_direta_hipotese:consumo físico independente",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_3976.526_40_0.1_direta_hipotese:energia/semrecargaexterna",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_3976.526_40_0.2_sem_interface:consumo físico independente",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_3976.526_40_0.2_sem_interface:controle sem interface não ganha energiaHV",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_3976.526_40_0.2_sem_interface:energia/semrecargaexterna",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_3976.526_40_0.2_direta_hipotese:consumo físico independente",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_3976.526_40_0.2_direta_hipotese:energia/semrecargaexterna",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_3976.526_80_0.1_sem_interface:consumo físico independente",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_3976.526_80_0.1_sem_interface:controle sem interface não ganha energiaHV",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_3976.526_80_0.1_sem_interface:energia/semrecargaexterna",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_3976.526_80_0.1_direta_hipotese:consumo físico independente",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_3976.526_80_0.1_direta_hipotese:energia/semrecargaexterna",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_3976.526_80_0.2_sem_interface:consumo físico independente",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_3976.526_80_0.2_sem_interface:controle sem interface não ganha energiaHV",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_3976.526_80_0.2_sem_interface:energia/semrecargaexterna",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_3976.526_80_0.2_direta_hipotese:consumo físico independente",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_3976.526_80_0.2_direta_hipotese:energia/semrecargaexterna",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_4250.000_40_0.1_sem_interface:consumo físico independente",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_4250.000_40_0.1_sem_interface:controle sem interface não ganha energiaHV",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_4250.000_40_0.1_sem_interface:energia/semrecargaexterna",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_4250.000_40_0.1_direta_hipotese:consumo físico independente",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_4250.000_40_0.1_direta_hipotese:energia/semrecargaexterna",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_4250.000_40_0.2_sem_interface:consumo físico independente",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_4250.000_40_0.2_sem_interface:controle sem interface não ganha energiaHV",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_4250.000_40_0.2_sem_interface:energia/semrecargaexterna",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_4250.000_40_0.2_direta_hipotese:consumo físico independente",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_4250.000_40_0.2_direta_hipotese:energia/semrecargaexterna",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_4250.000_80_0.1_sem_interface:consumo físico independente",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_4250.000_80_0.1_sem_interface:controle sem interface não ganha energiaHV",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_4250.000_80_0.1_sem_interface:energia/semrecargaexterna",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_4250.000_80_0.1_direta_hipotese:consumo físico independente",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_4250.000_80_0.1_direta_hipotese:energia/semrecargaexterna",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_4250.000_80_0.2_sem_interface:consumo físico independente",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_4250.000_80_0.2_sem_interface:controle sem interface não ganha energiaHV",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_4250.000_80_0.2_sem_interface:energia/semrecargaexterna",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_4250.000_80_0.2_direta_hipotese:consumo físico independente",
+      "pass": true
+    },
+    {
+      "label": "fixo_08_16_4250.000_80_0.2_direta_hipotese:energia/semrecargaexterna",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_3976.526_40_0.1_sem_interface:consumo físico independente",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_3976.526_40_0.1_sem_interface:controle sem interface não ganha energiaHV",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_3976.526_40_0.1_sem_interface:energia/semrecargaexterna",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_3976.526_40_0.1_direta_hipotese:consumo físico independente",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_3976.526_40_0.1_direta_hipotese:energia/semrecargaexterna",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_3976.526_40_0.2_sem_interface:consumo físico independente",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_3976.526_40_0.2_sem_interface:controle sem interface não ganha energiaHV",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_3976.526_40_0.2_sem_interface:energia/semrecargaexterna",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_3976.526_40_0.2_direta_hipotese:consumo físico independente",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_3976.526_40_0.2_direta_hipotese:energia/semrecargaexterna",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_3976.526_80_0.1_sem_interface:consumo físico independente",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_3976.526_80_0.1_sem_interface:controle sem interface não ganha energiaHV",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_3976.526_80_0.1_sem_interface:energia/semrecargaexterna",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_3976.526_80_0.1_direta_hipotese:consumo físico independente",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_3976.526_80_0.1_direta_hipotese:energia/semrecargaexterna",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_3976.526_80_0.2_sem_interface:consumo físico independente",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_3976.526_80_0.2_sem_interface:controle sem interface não ganha energiaHV",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_3976.526_80_0.2_sem_interface:energia/semrecargaexterna",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_3976.526_80_0.2_direta_hipotese:consumo físico independente",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_3976.526_80_0.2_direta_hipotese:energia/semrecargaexterna",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_4250.000_40_0.1_sem_interface:consumo físico independente",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_4250.000_40_0.1_sem_interface:controle sem interface não ganha energiaHV",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_4250.000_40_0.1_sem_interface:energia/semrecargaexterna",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_4250.000_40_0.1_direta_hipotese:consumo físico independente",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_4250.000_40_0.1_direta_hipotese:energia/semrecargaexterna",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_4250.000_40_0.2_sem_interface:consumo físico independente",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_4250.000_40_0.2_sem_interface:controle sem interface não ganha energiaHV",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_4250.000_40_0.2_sem_interface:energia/semrecargaexterna",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_4250.000_40_0.2_direta_hipotese:consumo físico independente",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_4250.000_40_0.2_direta_hipotese:energia/semrecargaexterna",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_4250.000_80_0.1_sem_interface:consumo físico independente",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_4250.000_80_0.1_sem_interface:controle sem interface não ganha energiaHV",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_4250.000_80_0.1_sem_interface:energia/semrecargaexterna",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_4250.000_80_0.1_direta_hipotese:consumo físico independente",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_4250.000_80_0.1_direta_hipotese:energia/semrecargaexterna",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_4250.000_80_0.2_sem_interface:consumo físico independente",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_4250.000_80_0.2_sem_interface:controle sem interface não ganha energiaHV",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_4250.000_80_0.2_sem_interface:energia/semrecargaexterna",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_4250.000_80_0.2_direta_hipotese:consumo físico independente",
+      "pass": true
+    },
+    {
+      "label": "alternativo_00_08_4250.000_80_0.2_direta_hipotese:energia/semrecargaexterna",
+      "pass": true
+    },
+    {
+      "label": "I27 condição final30%",
+      "pass": true
+    },
+    {
+      "label": "I25 MILP630condicional",
+      "pass": true
+    },
+    {
+      "label": "perfil_15min_servicos1_min1kW_80kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_15min_servicos1_min1kW_80kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_30min_servicos1_min0kW_40kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_30min_servicos1_min0kW_40kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_30min_servicos0_min1kW_40kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_30min_servicos0_min1kW_40kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_30min_servicos0_min3kW_80kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_30min_servicos0_min3kW_80kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_30min_servicos0_min3kW_40kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_30min_servicos0_min3kW_40kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_5min_servicos0_min1kW_40kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_5min_servicos0_min1kW_40kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_15min_servicos1_min0kW_40kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_15min_servicos1_min0kW_40kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_5min_servicos1_min0kW_80kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_5min_servicos1_min0kW_80kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_30min_servicos0_min0kW_80kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_30min_servicos0_min0kW_80kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_15min_servicos0_min1kW_40kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_15min_servicos0_min1kW_40kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_5min_servicos0_min3kW_40kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_5min_servicos0_min3kW_40kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_5min_servicos1_min0kW_40kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_5min_servicos1_min0kW_40kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_30min_servicos1_min0kW_80kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_30min_servicos1_min0kW_80kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_5min_servicos0_min0kW_40kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_5min_servicos0_min0kW_40kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_15min_servicos0_min3kW_40kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_15min_servicos0_min3kW_40kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_5min_servicos0_min1kW_80kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_5min_servicos0_min1kW_80kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_5min_servicos1_min1kW_80kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_5min_servicos1_min1kW_80kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_30min_servicos1_min3kW_80kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_30min_servicos1_min3kW_80kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_15min_servicos0_min3kW_80kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_15min_servicos0_min3kW_80kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_5min_servicos1_min1kW_40kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_5min_servicos1_min1kW_40kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_30min_servicos1_min3kW_40kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_30min_servicos1_min3kW_40kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_15min_servicos0_min0kW_80kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_15min_servicos0_min0kW_80kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_30min_servicos0_min1kW_80kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_30min_servicos0_min1kW_80kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_30min_servicos1_min1kW_80kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_30min_servicos1_min1kW_80kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_15min_servicos1_min3kW_40kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_15min_servicos1_min3kW_40kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_15min_servicos1_min0kW_80kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_15min_servicos1_min0kW_80kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_15min_servicos0_min1kW_80kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_15min_servicos0_min1kW_80kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_5min_servicos0_min0kW_80kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_5min_servicos0_min0kW_80kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_15min_servicos1_min3kW_80kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_15min_servicos1_min3kW_80kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_5min_servicos0_min3kW_80kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_5min_servicos0_min3kW_80kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_30min_servicos0_min0kW_40kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_30min_servicos0_min0kW_40kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_15min_servicos1_min1kW_40kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_15min_servicos1_min1kW_40kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_15min_servicos0_min0kW_40kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_15min_servicos0_min0kW_40kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_30min_servicos1_min1kW_40kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_30min_servicos1_min1kW_40kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_5min_servicos1_min3kW_80kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_5min_servicos1_min3kW_80kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_5min_servicos1_min3kW_40kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_5min_servicos1_min3kW_40kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "Grade1008 massa correta,sem ótimo global",
+      "pass": true
+    },
+    {
+      "label": "melhor_reservas[0.1, 0.2]_aux0W.csv.gz:8h/SOCs físicos",
+      "pass": true
+    },
+    {
+      "label": "melhor_reservas[0.1, 0.2]_aux0W.csv.gz:DCsóparado",
+      "pass": true
+    },
+    {
+      "label": "melhor_reservas[0.2, 0.3]_aux1500W.csv.gz:8h/SOCs físicos",
+      "pass": true
+    },
+    {
+      "label": "melhor_reservas[0.2, 0.3]_aux1500W.csv.gz:DCsóparado",
+      "pass": true
+    },
+    {
+      "label": "melhor_reservas[0.1, 0.2]_aux700W.csv.gz:8h/SOCs físicos",
+      "pass": true
+    },
+    {
+      "label": "melhor_reservas[0.1, 0.2]_aux700W.csv.gz:DCsóparado",
+      "pass": true
+    },
+    {
+      "label": "melhor_reservas[0.2, 0.3]_aux0W.csv.gz:8h/SOCs físicos",
+      "pass": true
+    },
+    {
+      "label": "melhor_reservas[0.2, 0.3]_aux0W.csv.gz:DCsóparado",
+      "pass": true
+    },
+    {
+      "label": "melhor_reservas[0.1, 0.2]_aux300W.csv.gz:8h/SOCs físicos",
+      "pass": true
+    },
+    {
+      "label": "melhor_reservas[0.1, 0.2]_aux300W.csv.gz:DCsóparado",
+      "pass": true
+    },
+    {
+      "label": "melhor_reservas[0.2, 0.3]_aux300W.csv.gz:8h/SOCs físicos",
+      "pass": true
+    },
+    {
+      "label": "melhor_reservas[0.2, 0.3]_aux300W.csv.gz:DCsóparado",
+      "pass": true
+    },
+    {
+      "label": "melhor_reservas[0.2, 0.3]_aux700W.csv.gz:8h/SOCs físicos",
+      "pass": true
+    },
+    {
+      "label": "melhor_reservas[0.2, 0.3]_aux700W.csv.gz:DCsóparado",
+      "pass": true
+    },
+    {
+      "label": "melhor_reservas[0.1, 0.2]_aux1500W.csv.gz:8h/SOCs físicos",
+      "pass": true
+    },
+    {
+      "label": "melhor_reservas[0.1, 0.2]_aux1500W.csv.gz:DCsóparado",
+      "pass": true
+    },
+    {
+      "label": "Água cronológica conserva massa/capacidades",
+      "pass": true
+    },
+    {
+      "label": "[0.1, 0.2]_aux0W:água sem sobreposição,parada e fora montagemFV porreplay",
+      "pass": true
+    },
+    {
+      "label": "[0.1, 0.2]_aux1500W:água sem sobreposição,parada e fora montagemFV porreplay",
+      "pass": true
+    },
+    {
+      "label": "[0.1, 0.2]_aux300W:água sem sobreposição,parada e fora montagemFV porreplay",
+      "pass": true
+    },
+    {
+      "label": "[0.1, 0.2]_aux700W:água sem sobreposição,parada e fora montagemFV porreplay",
+      "pass": true
+    },
+    {
+      "label": "[0.2, 0.3]_aux0W:água sem sobreposição,parada e fora montagemFV porreplay",
+      "pass": true
+    },
+    {
+      "label": "[0.2, 0.3]_aux1500W:água sem sobreposição,parada e fora montagemFV porreplay",
+      "pass": true
+    },
+    {
+      "label": "[0.2, 0.3]_aux300W:água sem sobreposição,parada e fora montagemFV porreplay",
+      "pass": true
+    },
+    {
+      "label": "[0.2, 0.3]_aux700W:água sem sobreposição,parada e fora montagemFV porreplay",
+      "pass": true
+    },
+    {
+      "label": "Freios conserva calor/mecânica",
+      "pass": true
+    },
+    {
+      "label": "Bateria54sensibilidades térmicas",
+      "pass": true
+    },
+    {
+      "label": "972incertezas/120missões/36DC com conservação",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Extremos/buffer:8h/sem afirmarviabilidade",
+      "pass": true
+    },
+    {
+      "label": "Buffer comercial32casos,sem instalação",
+      "pass": true
+    },
+    {
+      "label": "Prioridades72casos:conservação sem patamaresSOC/hardware inventados",
+      "pass": true
+    },
+    {
+      "label": "Gerenciamento não atravessa reserva de comparação",
+      "pass": true
+    },
+    {
+      "label": "Bancos2/3/4/5:CAD comparativo sem colisãoAABB,não homologado",
+      "pass": true
+    },
+    {
+      "label": "Suporte do banco inteiro inclui peso dos trilhos,verificaFEM/estática",
+      "pass": true
+    },
+    {
+      "label": "DadoPylon2000A/1ms não substitui curto prospectivo/I²t real",
+      "pass": true
+    },
+    {
+      "label": "BOM1540 inclui250/60USD465,moedas separadas e sem orçamento instalado",
+      "pass": true
+    },
+    {
+      "label": "JA3_Victron190_longitudinal.step:sólidos válidos reimportados",
+      "pass": true
+    },
+    {
+      "label": "JA3_Victron190_transversal.step:sólidos válidos reimportados",
+      "pass": true
+    },
+    {
+      "label": "B_conversivel_noite.step:sólidos válidos reimportados",
+      "pass": true
+    },
+    {
+      "label": "A_fixa.step:sólidos válidos reimportados",
+      "pass": true
+    },
+    {
+      "label": "layoutA_rotas_reserva.step:sólidos válidos reimportados",
+      "pass": true
+    },
+    {
+      "label": "A_banco_4modulos.step:sólidos válidos reimportados",
+      "pass": true
+    },
+    {
+      "label": "A_banco_5modulos.step:sólidos válidos reimportados",
+      "pass": true
+    },
+    {
+      "label": "A_banco_3modulos.step:sólidos válidos reimportados",
+      "pass": true
+    },
+    {
+      "label": "A_banco_2modulos.step:sólidos válidos reimportados",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "scenario": "maxeon1540_independente",
+  "physical_mission_demonstrated": false,
+  "human_approved": 0,
+  "scope": "Verificação numérica do cenário condicional;sem homologação ou completude físicaOEM."
+}

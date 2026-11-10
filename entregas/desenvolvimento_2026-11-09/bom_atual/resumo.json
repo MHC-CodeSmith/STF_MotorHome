@@ -576,6 +576,6 @@
     "USD1486 refere-se apenas inversorGX+MPPT150/60,lista fabricante2026Q2 semVAT,não cotação vigente/importada.",
     "EUR50990veículo da mesma varianteSK;BRL439cooktop é referência histórica não confirmada,sem somar moedas.",
     "Todosinstalled_price_brl continuamnull;frete/tributos/conversão cambial/montagem não presumidos.",
-    "MPPT3kg já incluído reserva15kg;estaBOM não substitui inventárioCAD ou soma massas duas vezes."
+    "MassasMPPT já incluídas nas reservas;250/60 adicional465USD se presente no cenário,sem impostos/frete. SubtotalUSD varia por cenário."
   ]
 }

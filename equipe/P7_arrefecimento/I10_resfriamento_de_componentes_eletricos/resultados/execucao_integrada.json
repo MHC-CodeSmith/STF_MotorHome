@@ -1,0 +1,14 @@
+{
+  "item": 10,
+  "owner": "P7",
+  "requirement": "Resfriamento de componentes elétricos",
+  "model_equations": "Q̇_perdas=P_entrada−P_saída; m·cp·dT/dt=Q̇_gerada−Q̇_retirada.",
+  "method_and_conditions": "Separar motor,inversor e redutor. UA,vazão/eficiências não calibrados aoOEM devem ser faixas explícitas,sem dupla contagem de perdas.",
+  "status": "modelo_termico_condicionado",
+  "executed": "Balanço separado de perdas motor/inversor/redutor e radiador reexecutados.",
+  "remaining_limit": "η/UA/vazão são hipóteses; não reprodução do circuitoOEM.",
+  "evidence": "entregas/integrado_maxeon1540/mecanica_termica/I10_I12_balanco_perdas.csv",
+  "evidence_sha256": "acad4d1d700dfd6dcd553c29003c9ca482d8d102833327b0ee4b1c03d2bb2d47",
+  "human_approval": false,
+  "physical_validation": false
+}

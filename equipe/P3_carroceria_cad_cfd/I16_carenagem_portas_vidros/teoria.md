@@ -4,13 +4,23 @@
 Geometria e materiais da envoltória, portas, aberturas e vidros.
 
 ## Equações e hipóteses
-A preencher com equações corretas e citações. Não inventar dados.
+Envelope útil=dimensão interna−2·(isolamento+revestimento); colisãoAABB exige sobreposição positiva nos3eixos.
 
 ## Entradas e unidades
 Dependências diretas: I15 (P1).
 
 ## Modelo / procedimento
-Descrever método, condição de contorno e critérios de convergência (se aplicável).
+Carenagem/portas/vidros são envelopes estimados. Não confundir sólidos válidosSTEP com estanqueidade,fixação ou geometriasOEM verificadas.
 
 ## Limitações
-Identificar aproximações e sensibilidade das entradas.
+Passagens/terminais/chapariaOEM e drenagem/estanqueidade ainda não demonstrados.
+
+<!-- execucao-integrada:inicio -->
+Método técnico integrado: Envelope útil=dimensão interna−2·(isolamento+revestimento); colisãoAABB exige sobreposição positiva nos3eixos.
+
+Carenagem/portas/vidros são envelopes estimados. Não confundir sólidos válidosSTEP com estanqueidade,fixação ou geometriasOEM verificadas.
+
+Escopo: Passagens/terminais/chapariaOEM e drenagem/estanqueidade ainda não demonstrados.
+
+Fonte dos parâmetros: `config/parametros_globais.yaml`;dadoOEM,hipótese e resultado mantêm status próprios. Simulação não é aprovação humana.
+<!-- execucao-integrada:fim -->

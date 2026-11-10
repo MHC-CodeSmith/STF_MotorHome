@@ -1,0 +1,23 @@
+{
+  "cases": 3,
+  "all_residual_converged": true,
+  "last_relative_cd_change": 0.052347839031426945,
+  "observed_cd_range": [
+    0.63374383,
+    0.68313391
+  ],
+  "effective_refinement_ratios": [
+    1.083353691957767,
+    1.1918695051367727
+  ],
+  "gci": null,
+  "gci_reason": "Refinamento local diferente na carroceria com resolução de deckfixada;sem família geometricamente similar/assintótica demonstrada.",
+  "wall_model_validation": false,
+  "validated_cd": null,
+  "physical_validation": false,
+  "propagated_sensitivity_range": [
+    0.5806668,
+    0.72
+  ],
+  "reference_area_note": "Aref4.827840375m² permanece a referência comum de normalização;Cd×A inclui força do deck,não confundir com nova área geométrica frontal medida."
+}

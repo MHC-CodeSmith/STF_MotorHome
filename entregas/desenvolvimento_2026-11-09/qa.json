@@ -1598,7 +1598,7 @@
       "pass": true
     },
     {
-      "check": "Elasticidade3D:9casos e equilíbrio independente",
+      "check": "Elasticidade3D:11casos lineares e equilíbrio independente",
       "pass": true
     },
     {
@@ -1606,7 +1606,11 @@
       "pass": true
     },
     {
-      "check": "Refinamento do deslocamento das duas tiras satisfaz critério de estudo2%",
+      "check": "Tira tanqueTet4/inversorTet10 satisfazem critério2%,sem relaxar teste",
+      "pass": true
+    },
+    {
+      "check": "Método linear insuficiente continua identificado",
       "pass": true
     },
     {
@@ -1674,6 +1678,14 @@
       "pass": true
     },
     {
+      "check": "CFDequipado:3malhas convergemresíduos,semCddefinitivo",
+      "pass": true
+    },
+    {
+      "check": "IncertezaCd ampliada,não inventaGCI com refinamento local",
+      "pass": true
+    },
+    {
       "check": "35 itens revisados, zero aprovações inferidas",
       "pass": true
     }
@@ -1683,7 +1695,7 @@
     {
       "path": "entregas/desenvolvimento_2026-11-09/fixacoes_redimensionadas/chapas_locais_condicionais.step",
       "solid_count": 18,
-      "volume_m3": 0.007102050889061251
+      "volume_m3": 0.004221392215328054
     },
     {
       "path": "entregas/desenvolvimento_2026-11-09/integracao/A_fixa.step",
@@ -1716,8 +1728,8 @@
       "volume_m3": 0.2828384000000002
     }
   ],
-  "input_hashes": 159,
-  "output_hashes": 996,
+  "input_hashes": 178,
+  "output_hashes": 1257,
   "stage_complete": false,
   "final_human_approved": 0,
   "physical_mission_demonstrated": false

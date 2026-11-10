@@ -14,14 +14,15 @@ import yaml
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'src'))
+from motorhome.cenarios import carregar_configuracao, diretorio_entregas
 from motorhome.freios_axisimetricos import Pista, resolver
 
 
 def main():
-    out=ROOT/'entregas/desenvolvimento_2026-11-09/freios_integrados';out.mkdir(parents=True,exist_ok=True)
-    c=yaml.safe_load((ROOT/'config/parametros_globais.yaml').read_text());p={k:v['value'] for k,v in c['parameters'].items()}
+    out=diretorio_entregas(ROOT)/'freios_integrados';out.mkdir(parents=True,exist_ok=True)
+    c=carregar_configuracao(ROOT);p={k:v['value'] for k,v in c['parameters'].items()}
     bc=yaml.safe_load((ROOT/'config/freios_proposta.yaml').read_text());b=bc['assumed'];mat=bc['material_reference']
-    typ=json.loads((ROOT/'entregas/desenvolvimento_2026-11-09/integracao/layouts_massas.json').read_text())['layouts']['A_fixa']['nominal']
+    typ=json.loads((diretorio_entregas(ROOT)/'integracao/layouts_massas.json').read_text())['layouts']['A_fixa']['nominal']
     track=Pista(b['inner_ring_radius_m'],bc['reference_component']['diameter_m']/2,
                 b['plate_thickness_m'],b['pad_track_inner_radius_m'],b['pad_track_outer_radius_m'],
                 mat['density_kg_m3'],mat['cp_j_kgk'],mat['conductivity_w_mk'])

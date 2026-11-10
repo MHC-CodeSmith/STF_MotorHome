@@ -23,3 +23,13 @@ Métodos verificados com dados SYNTHETIC; entradas físicas e revisão humana **
 ## Avanço de 26/10/2026 — cabos r–theta
 
 Método/casos, hipóteses, fontes e convergência em [cabos e radiador](../../../docs/CABOS_E_RADIADOR_2D.md). Resultados reproduzíveis em [resumo](resultados/resumo_cabos.json); o requisito continua parcial e sem aprovação humana.
+
+<!-- execucao-integrada:inicio -->
+Método técnico integrado: ρc·∂T/∂t=∇·(k∇T)+J²ρ_el(T); ρ_el(T)=ρ20[1+α(T−20°C)].
+
+Campos multidimensionais de cobre/isolamento e sensibilidade. CorrenteDC calculada não é RMSde fase;cabosHV permanecemOEM sem modificação.
+
+Escopo: Corrente de faseOEM na potência máxima desconhecida;DC569.4A não equivale a RMSde fase.Não modificarcabos.
+
+Fonte dos parâmetros: `config/parametros_globais.yaml`;dadoOEM,hipótese e resultado mantêm status próprios. Simulação não é aprovação humana.
+<!-- execucao-integrada:fim -->

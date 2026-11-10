@@ -1,0 +1,14 @@
+{
+  "item": 13,
+  "owner": "P6",
+  "requirement": "Materiais/equipamentos internos, incluindo assentos, mobiliário, banheiro, eletrônicos, fogão, geladeira, lavadora/secadora",
+  "model_equations": "E_dia=ΣP_i·t_i+ΣE_ciclo·frequência; E_bat=E_AC/η_inv+E_DC/η_DC+E_vazio.",
+  "method_and_conditions": "Método médio diárioDEC046 para duas pessoas;lavanderia ocasional,picos/simultaneidade em análise separada. Prioridades automáticas não fixam SOC/BMS arbitrários.",
+  "status": "CAD_e_inventario_integrados",
+  "executed": "GeladeiraAC e3US5000 substituem envelopes antigos; água14dias e lavanderia68.8L/ciclo incluídas.",
+  "remaining_limit": "256picos,6históricos e72autonomias por orçamento previsto;partidas reais/atuadores e limiaresSOC continuam não demonstrados.",
+  "evidence": "entregas/integrado_maxeon1540/integracao/agua_operacao_14dias.csv",
+  "evidence_sha256": "c9a6e3086d39bf2124bd996e6174337967c769cb53091465792cb182807c636f",
+  "human_approval": false,
+  "physical_validation": false
+}

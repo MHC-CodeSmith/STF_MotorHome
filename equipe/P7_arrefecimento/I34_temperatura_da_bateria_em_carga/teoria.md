@@ -25,3 +25,13 @@ Implementação própria em [sistemas_termicos.py](../../../src/motorhome/sistem
 ## Estado
 
 Métodos verificados com dados SYNTHETIC; entradas físicas e revisão humana **PENDENTES**. O status é desenvolvimento parcial. Consulte a [revisão completa](../../../docs/REVISAO_35_ITENS.md).
+
+<!-- execucao-integrada:inicio -->
+Método técnico integrado: I=P_carga/V; Q̇_Joule=I²R_int; C_b·dT_b/dt=Q̇_Joule−UA(T_b−T_c).
+
+20/80kW são ensaios térmicos, não potência solar. ModeloECM/múltiplos nós é parametrizado,com resistência/massa/troca sensibilizadas e sem curvaOEM inventada.
+
+Escopo: ECM2nós não packOEM calibrado;20/80kW não são FV disponível.
+
+Fonte dos parâmetros: `config/parametros_globais.yaml`;dadoOEM,hipótese e resultado mantêm status próprios. Simulação não é aprovação humana.
+<!-- execucao-integrada:fim -->

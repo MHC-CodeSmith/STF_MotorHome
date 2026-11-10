@@ -1,6 +1,6 @@
 {
   "cases_milp": 630,
-  "configuration_sha256": "7bfcf45cd3341f372c07f2065dc61c9dd8fcb6191b3ea70a8cd4ebdca72ecdcd",
+  "configuration_sha256": "e408c1fda000196eae8449c19d29fa645c4949730212a9629566b10bd58946ac",
   "best_40_80_finest": [
     {
       "step_min": 5,
@@ -252,7 +252,7 @@
   "limits": [
     "Sem dinâmica de handshake/rampas/reinício; aceitação intraintervalo constante média.",
     "Alocação FV flexível conceitual, perdas constantes; chaveamento físico não demonstrado.",
-    "1350Wp fixos creditados; meta1540Wp preservada. Portáteis somente parados com montagem/desmontagem.",
+    "1350Wp fixos de estudo; meta1540Wp preservada. Portáteis somente parados com montagem/desmontagem.",
     "Sem limite8h doI29 imposto aoI25. Velocidade constante idealiza urbano/estrada; não ciclo real.",
     "Controle sem interface tem distância solar de tração0km."
   ]

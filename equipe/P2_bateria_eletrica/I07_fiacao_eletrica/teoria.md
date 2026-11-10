@@ -22,3 +22,13 @@ MultiPlus-II48/5000 para ligaçõesaté5m, não especificação da tração400V.
 Faltam cabo real/isolação/ampacidade/agrupamento/curto-circuito/terminais/proteções
 coordenadas e vibração. RotasCAD não são chicotes com passagens aprovadas. Corrente
 de tração máxima não se obtém simplesmente de205kW/400V sem mapa/perdas e limites reais.
+
+<!-- execucao-integrada:inicio -->
+Método técnico integrado: V_carga=V_fonte−I·R; P_DC=V_carga·I; R=ρ(T)·L/A; P_Joule=I²R.
+
+Resolver a raiz estável da carga de potência constante. Ampacidade instalada,terminais,I²t e corrente prospectiva real exigem dados não substituídos pela queda de tensão.
+
+Escopo: 56faltas hipotéticas excedem20kA;impedância real/I²t/ampacidade/PE-DR/terminais ainda não validados.
+
+Fonte dos parâmetros: `config/parametros_globais.yaml`;dadoOEM,hipótese e resultado mantêm status próprios. Simulação não é aprovação humana.
+<!-- execucao-integrada:fim -->

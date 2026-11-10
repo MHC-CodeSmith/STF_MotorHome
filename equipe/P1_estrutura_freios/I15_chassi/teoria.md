@@ -4,13 +4,23 @@
 Dimensões do chassi, material, massa e compatibilidade com carroceria.
 
 ## Equações e hipóteses
-A preencher com equações corretas e citações. Não inventar dados.
+EI·d⁴u/dx⁴=q; ΣF=F_aplicada; Σ(r×F)=M_aplicado; σ_eq=√(σ_tração²+3τ²).
 
 ## Entradas e unidades
 Dependências diretas: I01 (P1).
 
 ## Modelo / procedimento
-Descrever método, condição de contorno e critérios de convergência (se aplicável).
+ChassiOEM é referência. FEM de trilhos/tiras e grupos de parafusos são modelos locais;sem inventar material/rigidez/ancoragens da carroceria.
 
 ## Limitações
-Identificar aproximações e sensibilidade das entradas.
+Chassi/ancoragensOEM/furação/contato/fadiga não demonstrados;seleções locais não homologam carroceria.
+
+<!-- execucao-integrada:inicio -->
+Método técnico integrado: EI·d⁴u/dx⁴=q; ΣF=F_aplicada; Σ(r×F)=M_aplicado; σ_eq=√(σ_tração²+3τ²).
+
+ChassiOEM é referência. FEM de trilhos/tiras e grupos de parafusos são modelos locais;sem inventar material/rigidez/ancoragens da carroceria.
+
+Escopo: Chassi/ancoragensOEM/furação/contato/fadiga não demonstrados;seleções locais não homologam carroceria.
+
+Fonte dos parâmetros: `config/parametros_globais.yaml`;dadoOEM,hipótese e resultado mantêm status próprios. Simulação não é aprovação humana.
+<!-- execucao-integrada:fim -->

@@ -126,3 +126,9 @@ Sem alterarDEC001–061,fonte única recebe development.mounting_redesign:378alt
 ### 10/11/2026 — alternativaMaxeon1540Wp documentada
 
 Fonte primária indexada e ficha original espelhada544454revA/2022 conferida,registradasources.maxeon3_2022. Development.roof_maxeon_comparison compara2×380+2×390Wp e72cenáriosMPPT. A11prefere provisoriamente esta alternativa para futura integração,sem alterar cenário-base1350Wp/massa/MPPT150-60. Envelope de teto ainda estimado e alternativa exigeclasse250V;compartilhamento não validado. DEC001–061 preservadas.
+
+### 10/11/2026 — revisão1.1.1-execucao1540 e integraçãoP1–P7
+
+Fonte única conservaDEC001–061 e adiciona sobreposição nomeadaMaxeon1540/rastreadores independentes como comparadorDEC054. Cadeia congelada executaCAD/massas/CG/eixos/dinâmica/freios/energia/MILP/grade/água/BOM/sensibilidades/buffer/prioridades e bancos24/48. Arquivosresolvidos são saídas derivadas,snapshotshashados não segundafonte de edição. Água inicial100L agora85tanque+15boiler,corrigindoCGsem massaextra. Planovertical do inversor substitui grupo local sem orientação;Tet10 resolve refinamento de deslocamento sem relaxar2%. CFDequipado3malhas convergem solver mas não independência;limiteCd0,72 é hipótese de sensibilidade,não dadoOEM. Materiais/dados ausentes continuam marcados.
+
+NovofontePylonUSSeries2024declara<2000A/1ms;triagem entregue não substitui curto prospectivo pré-BMS/I²tfusível. Lista primária250/60USD465fecha subtotalUSD1951do cenário,sem custo instaladoBRL. Prioridades72casos são orçamento previsto,não patamaresSOC selecionados;CAD2/3/4/5módulos e suporte inteiro executados. Nenhum buffer/montagemHV/centralprópria foi instalado ou aprovado. Bloqueios específicos e16escolhasfinais preservados. Não há aprovação humana inferida ou missãofisicamente demonstrada.

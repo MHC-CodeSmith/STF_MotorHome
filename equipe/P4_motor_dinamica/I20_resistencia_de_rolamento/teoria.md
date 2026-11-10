@@ -12,3 +12,13 @@ raio e compatibilidade. Rótulo em laboratório não éCr real no asfalto local,
 com temperatura/carga/velocidade variáveis. Grade dinâmica anterior permanece
 sensibilidade, sem alterar parâmetros aprovados.
 [Fontes e dados](../../../docs/MECANICA_ROLAMENTO_E_CUSTOS.md).
+
+<!-- execucao-integrada:inicio -->
+Método técnico integrado: F_rol=Crr·m·g em pista plana; P_rol=F_rol·v.
+
+Crr0,008/0,012/0,016 é caixa de hipóteses,não ensaio de pneusOEM;variar massa e condição de uso mantendo pneus de fábrica.
+
+Escopo: Não apresentar Crr como ensaio dos pneusOEM.
+
+Fonte dos parâmetros: `config/parametros_globais.yaml`;dadoOEM,hipótese e resultado mantêm status próprios. Simulação não é aprovação humana.
+<!-- execucao-integrada:fim -->

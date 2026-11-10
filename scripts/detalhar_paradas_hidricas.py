@@ -10,10 +10,10 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
-import yaml
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'src'))
+from motorhome.cenarios import carregar_configuracao, diretorio_entregas
 from motorhome.desenvolvimento import consumir_agua
 
 
@@ -43,9 +43,9 @@ def agendar_eventos(livre, eventos, state, dt_h=.25, desired_slots=None):
 
 
 def main():
-    out=ROOT/'entregas/desenvolvimento_2026-11-09/otimizacao_grade'
+    out=diretorio_entregas(ROOT)/'otimizacao_grade'
     summary=json.loads((out/'resumo.json').read_text())
-    canonical=yaml.safe_load((ROOT/'config/parametros_globais.yaml').read_text())
+    canonical=carregar_configuracao(ROOT)
     p={k:v['value'] for k,v in canonical['parameters'].items()};g=canonical['development']['water_chronology']
     rows=[]
     for key,best in summary['best_by_reserve'].items():

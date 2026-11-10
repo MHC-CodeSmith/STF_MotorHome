@@ -1,0 +1,14 @@
+{
+  "item": 4,
+  "owner": "P4",
+  "requirement": "Motor: potência máxima, curvas de torque, potência e eficiência por RPM",
+  "model_equations": "P=T·ω; F_roda=T·i·η_red/r; F_roda≤P·η_red/v.",
+  "method_and_conditions": "205kW/410Nm são picos documentados,sem mapaOEM. Envelopes de engenharia não são curvas do fabricante.",
+  "status": "mapas_OEM_incompletos",
+  "executed": "Pico205kW/410Nm conservado;36 envelopes hipotéticos de força/rotação implementados.",
+  "remaining_limit": "Envelope não é curvaOEM; eficiência/RPM/mapas reais e potência contínua faltam.",
+  "evidence": "entregas/integrado_maxeon1540/mecanica_termica/I28_envelope_0_90_sensibilidade.csv",
+  "evidence_sha256": "2686c8d40eb7c787153832f7180c8fc95d978227d424f562cb0404d74cd3328d",
+  "human_approval": false,
+  "physical_validation": false
+}

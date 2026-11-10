@@ -23,3 +23,7 @@ O item só vira **aprovado** quando tiver resultados reproduzíveis, referência
 ## Base elétrica de trabalho
 
 Proposta e fonte OEM conferida em [ARQUITETURA_ELETRICA.md](../../../docs/ARQUITETURA_ELETRICA.md). Dados parciais em [arquitetura_eletrica_proposta.yaml](../../../config/arquitetura_eletrica_proposta.yaml); lacunas permanecem explícitas. Não é aprovação da configuração física final.
+
+<!-- execucao-integrada:inicio -->
+Execução vigente: fonte única `config/parametros_globais.yaml`,cenário `maxeon1540_independente` e índice local `resultados/execucao_integrada.json`. Referências antigas às propostas elétricas permanecem históricas e não autorizam arquitetura48V→OBC,modificaçãoHV ou aprovação final. Critérios/revisão computacional e bloqueios atuais constam em `docs/REVISAO_TECNICA_EXECUCAO02.md`.
+<!-- execucao-integrada:fim -->

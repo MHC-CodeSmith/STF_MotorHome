@@ -1,0 +1,14 @@
+{
+  "item": 1,
+  "owner": "P1",
+  "requirement": "Nome do carro e conceito elétrico solar",
+  "model_equations": "Balanço funcional E_inicial+E_FV=E_final+E_consumida+E_perdas+E_cortada.",
+  "method_and_conditions": "BEV AuroraSolar para2p,arquiteturaB por interfaceDCexternaOEM. Serviços48V independentes;interface física não demonstrada.",
+  "status": "especificado_provisorio",
+  "executed": "Aurora Solar, BEV duas pessoas; E-DucatoSK505.GG1.2 mantido como variante de estudo.",
+  "remaining_limit": "A identidade técnica está definida; homologação da conversão e aprovação humana continuam separadas.",
+  "evidence": "entregas/integrado_maxeon1540/integracao/layouts_massas.json",
+  "evidence_sha256": "8cffed50d1ae28fe995225e8b055d6101bb16ff8d3ce634e5acaf24772e75664",
+  "human_approval": false,
+  "physical_validation": false
+}

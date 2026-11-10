@@ -1,0 +1,14 @@
+{
+  "item": 2,
+  "owner": "P1",
+  "requirement": "Pneus/rodas, inclusive pressão, material, dimensões e peso",
+  "model_equations": "F_rol=Crr·m·g; cargas estáticas N_f+N_r=m·g.",
+  "method_and_conditions": "PneusOEM preservados. Não especificar pressão,medida ou índice de carga sem ficha da varianteSK505.GG1.2;Crr é sensibilidade.",
+  "status": "documentacao_OEM_incompleta",
+  "executed": "Pneus/rodasOEM preservados. Crr sensibilizado sem trocar pneus.",
+  "remaining_limit": "Medida/índices/pressões da varianteSK exata e massa da roda não obtidos; não copiar de UK/NL.",
+  "evidence": "entregas/integrado_maxeon1540/integracao/dinamica_massa_integrada.csv",
+  "evidence_sha256": "3f1463aa2d85bc64177613d91b055cd5a317d8f01706847f32445612e794c1be",
+  "human_approval": false,
+  "physical_validation": false
+}

@@ -1,0 +1,14 @@
+{
+  "item": 31,
+  "owner": "P6",
+  "requirement": "Cabine fechada estacionada ao meio-dia, sem A/C e sem passageiros",
+  "model_equations": "C_i·dT_i/dt=Σ(T_j−T_i)/R_ij+Q_solar,i; noCFD,empuxo≈ρ0gβ(T−T0).",
+  "method_and_conditions": "Cabine fechada,parada,sem pessoas/AC;manhã→meiodia25°Cexternos. CFD3D é complemento de contorno congelado,nãoCHT matinal ou ensaio veicular.",
+  "status": "CFD3D_complementar_executado",
+  "executed": "Rede matinal preservada;3malhas3D RANSkε e4replaysPIMPLE;conservação por faces verificada.",
+  "remaining_limit": "SIMPLErejeitado;CFDtransiente é complemento com contornos congelados,sem CHT/mobiliário/y+convergente.",
+  "evidence": "entregas/desenvolvimento_2026-11-09/cabine_transiente/balanco_convergencia.json",
+  "evidence_sha256": "629b63650e4a3eb2ada8c80920afa228323fdc043617422ff3ca24a930e31b50",
+  "human_approval": false,
+  "physical_validation": false
+}

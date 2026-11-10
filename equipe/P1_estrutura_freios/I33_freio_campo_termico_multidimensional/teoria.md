@@ -28,3 +28,13 @@ Implementação própria em [sistemas_termicos.py](../../../src/motorhome/sistem
 ## Estado
 
 Métodos verificados com dados SYNTHETIC; entradas físicas e revisão humana **PENDENTES**. O status é desenvolvimento parcial. Consulte a [revisão completa](../../../docs/REVISAO_35_ITENS.md).
+
+<!-- execucao-integrada:inicio -->
+Método técnico integrado: ΔE_c=400mJ para30→10m/s; a=−4m/s²; ρcp∂T/∂t=∇·k∇T+Q̇_fricção.
+
+Ensaio5s/inicial25°C,disco2Drz,atrito e regeneração limitada em hipóteses. Subtrair arrasto/rolamento.108km/h é condição prescrita de componente,acima do limitador do veículo.
+
+Escopo: Disco/material/repartição/regenOEM não confirmados;108km/h é ensaio prescrito,acima limitador90.
+
+Fonte dos parâmetros: `config/parametros_globais.yaml`;dadoOEM,hipótese e resultado mantêm status próprios. Simulação não é aprovação humana.
+<!-- execucao-integrada:fim -->

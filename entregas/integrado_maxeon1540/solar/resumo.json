@@ -1,0 +1,31 @@
+{
+  "execution": {
+    "scenario": "maxeon1540_independente",
+    "source_sha256": "e408c1fda000196eae8449c19d29fa645c4949730212a9629566b10bd58946ac",
+    "output_directory": "entregas/integrado_maxeon1540",
+    "physical_validation": false,
+    "note": "Referência com rastreadores independentes para comparaçãoDEC054;250/60 teto+150/60 portáteis. InterfaceDCtração e alocaçãoFV hipotéticas;nenhuma ligação entre bancos. SharedMPPT continua comparado,não aprovado.",
+    "resolved_sha256": "e1ad225b9f76e2acca2e1d720031dbe412c269271d76cf795bd9da3c1562129f"
+  },
+  "policies": [
+    {
+      "policy": "fixo_08_16",
+      "tilt_deg": 75,
+      "azimuth_deg": 270,
+      "roof_kwh_day": 5.863759470035741,
+      "portable_kwh_day": 0.3713285295159656,
+      "portable_only_parked": true
+    },
+    {
+      "policy": "alternativo_00_08",
+      "tilt_deg": 45,
+      "azimuth_deg": 0,
+      "roof_kwh_day": 5.863759470035741,
+      "portable_kwh_day": 8.040509597513303,
+      "portable_only_parked": true
+    }
+  ],
+  "roof_wp": 1540,
+  "gamma_roof_per_k": -0.0027,
+  "conversion_attribution": "geração independente de rastreadores;recargaDC e alocação são hipóteses,sem saídaMPPT48V ligada aoHV"
+}

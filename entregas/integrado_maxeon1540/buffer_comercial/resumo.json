@@ -1,0 +1,14 @@
+{
+  "cases": 32,
+  "buffer_installed": false,
+  "buffer_candidate_source": "parameters.service_module_model/module_service_kwh/module_service_dod/module_service_mass_kg",
+  "dedicated_buffer_does_not_use_service_bank": true,
+  "physical_interface_demonstrated": false,
+  "max_energy_residual_kwh": 2.1982486941851676e-08,
+  "limits": [
+    "Módulo comercial usado como candidato dedicado de estudo;aplicação móvel/BMS/cargaDC e potência não comprovados.",
+    "Estado buffer representa créditoFV acima da reserva mínima constante,não pack comzeroV. Crédito inicia0;reserva constante não alimenta tração.",
+    "Massa adicional inclui módulo39.7kg;suportes,conversores,proteções,cabos e custos extras são desconhecidos. Massa é limite inferior.",
+    "Nenhum armazenamento extra integra CAD/BOMbase ou aquisição;min1/3kW são hipóteses,sem compatibilidadeOEM inferida."
+  ]
+}

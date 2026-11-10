@@ -1,0 +1,14 @@
+{
+  "item": 33,
+  "owner": "P1",
+  "requirement": "Freios: 30→10 m/s em 5 s, início 25 °C e campo multidimensional",
+  "model_equations": "ΔE_c=400mJ para30→10m/s; a=−4m/s²; ρcp∂T/∂t=∇·k∇T+Q̇_fricção.",
+  "method_and_conditions": "Ensaio5s/inicial25°C,disco2Drz,atrito e regeneração limitada em hipóteses. Subtrair arrasto/rolamento.108km/h é condição prescrita de componente,acima do limitador do veículo.",
+  "status": "simulado_com_massa_integrada",
+  "executed": "24casos r-z com3976.53/4250kg,atrito e regen0/40/80kW;resistências subtraídas e carga dinâmica.",
+  "remaining_limit": "Disco/material/repartição/regenOEM não confirmados;108km/h é ensaio prescrito,acima limitador90.",
+  "evidence": "entregas/integrado_maxeon1540/freios_integrados/convergencia.csv",
+  "evidence_sha256": "1e0ea6ffb6cc49f3311246414f994e60caa7cb83352e1830ec7f5224b4a7ef59",
+  "human_approval": false,
+  "physical_validation": false
+}

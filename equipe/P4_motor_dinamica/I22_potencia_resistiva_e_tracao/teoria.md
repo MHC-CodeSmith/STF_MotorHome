@@ -4,13 +4,23 @@
 Curvas de potência versus velocidade, eficiência e envelope de tração disponível.
 
 ## Equações e hipóteses
-A preencher com equações corretas e citações. Não inventar dados.
+P_roda=(F_D+F_rol)·v; P_bat=P_roda/η_tração+P_aux,OEM.
 
 ## Entradas e unidades
 Dependências diretas: I04 (P4), I05 (P4), I21 (P4).
 
 ## Modelo / procedimento
-Descrever método, condição de contorno e critérios de convergência (se aplicável).
+Auxiliar700W de estudo sensibilizado0/300/700/1500W somente em movimento. Serviços habitáveis vêm do banco48V e não entram na tração.
 
 ## Limitações
-Identificar aproximações e sensibilidade das entradas.
+AuxiliaresOEM0/300/700/1500W sensibilizados, não confundidos com serviços.
+
+<!-- execucao-integrada:inicio -->
+Método técnico integrado: P_roda=(F_D+F_rol)·v; P_bat=P_roda/η_tração+P_aux,OEM.
+
+Auxiliar700W de estudo sensibilizado0/300/700/1500W somente em movimento. Serviços habitáveis vêm do banco48V e não entram na tração.
+
+Escopo: AuxiliaresOEM0/300/700/1500W sensibilizados, não confundidos com serviços.
+
+Fonte dos parâmetros: `config/parametros_globais.yaml`;dadoOEM,hipótese e resultado mantêm status próprios. Simulação não é aprovação humana.
+<!-- execucao-integrada:fim -->

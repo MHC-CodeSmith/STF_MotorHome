@@ -142,10 +142,13 @@ def main():
     dimension=pd.read_csv(OUT/'fixacoes_redimensionadas/selecoes.csv')
     check(dimension.max_utilization.max()<=1 and not dimension.oem_verified.any(),'Interfaces selecionadas satisfazem somente os critérios explícitos do modelo')
     solid=pd.read_csv(OUT/'fixacoes_redimensionadas/elasticidade3d_convergencia.csv')
-    check(len(solid)==9 and solid.force_residual_n.max()<1e-6 and solid.moment_residual_nm.max()<1e-7,'Elasticidade3D:9casos e equilíbrio independente')
+    check(len(solid)==11 and solid.force_residual_n.max()<1e-6 and solid.moment_residual_nm.max()<1e-7,'Elasticidade3D:11casos lineares e equilíbrio independente')
     check(np.max(np.abs(2*solid.strain_energy_j-solid.external_work_j))<1e-7 and not solid.peak_stress_validated.any(),'Elasticidade3D: energia elástica e sem promover picos de engaste')
     solid_review=json.loads((OUT/'fixacoes_redimensionadas/elasticidade3d_resumo.json').read_text())
-    check(all(x['displacement_refinement_criterion_met'] for x in solid_review['convergence']),'Refinamento do deslocamento das duas tiras satisfaz critério de estudo2%')
+    quadratic=json.loads((OUT/'fixacoes_redimensionadas/inversor_quadratico_resumo.json').read_text())
+    tank=next(x for x in solid_review['convergence'] if x['component']=='tanque_limpa')
+    check(tank['displacement_refinement_criterion_met'] and quadratic['displacement_refinement_criterion_met'] and quadratic['cases']==3,'Tira tanqueTet4/inversorTet10 satisfazem critério2%,sem relaxar teste')
+    check(not next(x for x in solid_review['convergence'] if x['component']=='inversor')['displacement_refinement_criterion_met'],'Método linear insuficiente continua identificado')
     check(abs(redesign['step_total_volume_m3']*c['development']['mounting_redesign']['steel_density_kg_m3']-redesign['selected_plates_gross_mass_kg'])<1e-7,'Volume STEP perfurado corresponde à massa de chapa')
     sensitivity=pd.read_csv(OUT/'fixacoes_redimensionadas/massa_consumo_cenario_adicao.csv')
     added=sensitivity[sensitivity.scenario!='base']
@@ -172,6 +175,9 @@ def main():
     mismatch=pd.read_csv(OUT/'teto_maxeon/mppt_mismatch_72.csv')
     check(len(mismatch)==72 and (mismatch.shared_w<=mismatch.separate_w+1e-8).all(),'MPPT:72comparações e compartilhamento não cria energia')
     check(roof['source']['sha256']=='d6c76ef9231cb1621d8401a46fbef617724e6bc6ea873bb3f4658261fef75757' and not roof['baseline_updated'],'Ficha2022 rastreada;comparação não altera silenciosamente missões1350Wp')
+    equipped=json.loads((ROOT/'entregas/aero_equipado1540/incerteza_observada.json').read_text())
+    check(equipped['cases']==3 and equipped['all_residual_converged'] and equipped['validated_cd'] is None,'CFDequipado:3malhas convergemresíduos,semCddefinitivo')
+    check(params['cd_range'][2]>=max(equipped['observed_cd_range']) and equipped['gci'] is None,'IncertezaCd ampliada,não inventaGCI com refinamento local')
     review=json.loads((OUT/'revisao_35_itens.json').read_text())
     check(len(review['items'])==35 and sum(r['human_approval_recorded'] for r in review['items'])==0,'35 itens revisados, zero aprovações inferidas')
     if args.registrar:
@@ -187,6 +193,13 @@ def main():
         outputs=[path for path in OUT.rglob('*') if path.is_file() and path.name not in ['manifesto.json','qa.json']]
         outputs += [ROOT/f'docs/{name}' for name in
                     ['EXECUCAO_TECNICA02.md','REVISAO_TECNICA_EXECUCAO02.md','APROVACOES_FINAIS_PENDENTES.md','PROTECOES_SERVICOS_MODELO.md']]
+        outputs += list((ROOT/'entregas/aero_equipado1540').rglob('*'))
+        outputs += [ROOT/'entregas/indice_execucao_35.json',ROOT/'entregas/matriz_decisoes_integrada_61.json']
+        outputs += [ROOT/'docs/MATRIZ_DECISOES_61.md',ROOT/'docs/BLOQUEIOS_POS_DEC061.md',ROOT/'docs/PLANO_EXECUCAO_POS_DEC061.md',ROOT/'docs/SINTESE_DESENVOLVIMENTO_TECNICO.md',ROOT/'fontes_externas/catalogo.csv']
+        outputs += list((ROOT/'equipe').glob('*/I*/resultados/execucao_integrada.json'))
+        outputs += list((ROOT/'equipe').glob('*/I*/teoria.md'))
+        outputs += list((ROOT/'equipe').glob('*/I*/dados/parametros_execucao_integrada.json'))
+        outputs=[f for f in outputs if f.is_file()]
         manifest={'baseline_parent':'29defc4','inputs_sha256':{str(f.relative_to(ROOT)):sha(f) for f in inputs},
                   'outputs_sha256':{str(f.relative_to(ROOT)):sha(f) for f in outputs},'physical_validation':False,
                   'software':{'python':platform.python_version(),'numpy':np.__version__,

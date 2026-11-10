@@ -1,0 +1,14 @@
+{
+  "item": 16,
+  "owner": "P3",
+  "requirement": "Carenagem, portas, aberturas e vidros",
+  "model_equations": "Envelope útil=dimensão interna−2·(isolamento+revestimento); colisãoAABB exige sobreposição positiva nos3eixos.",
+  "method_and_conditions": "Carenagem/portas/vidros são envelopes estimados. Não confundir sólidos válidosSTEP com estanqueidade,fixação ou geometriasOEM verificadas.",
+  "status": "CAD_equivalente_com_rotas",
+  "executed": "NovoCAD inclui rotas reservadas de cabo/água e inversor vertical com envelope de acesso livre.",
+  "remaining_limit": "Passagens/terminais/chapariaOEM e drenagem/estanqueidade ainda não demonstrados.",
+  "evidence": "entregas/integrado_maxeon1540/rotas_instalacoes/layoutA_rotas_reserva.step",
+  "evidence_sha256": "0c8f72910a6065100c7fac13f948744f1b48233fc0053f93973d429099e82540",
+  "human_approval": false,
+  "physical_validation": false
+}

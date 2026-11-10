@@ -23,3 +23,13 @@ A construção7000km repete dias com estados finais compatíveis; não minimiza
 globalmente o tempo. O verificador reabre CSV e confere também o fim da
 condução dentro do passo. Potência mecânica nas rodas é distinta da demanda
 terminal; potência no eixo do motor permanece desconhecida.
+
+<!-- execucao-integrada:inicio -->
+Método técnico integrado: E_utilizável=(SOC_inicial−0,30)E_tração; ∫P(v)dt≤E_utilizável.
+
+Principal100→30%,sensibilidade80→30%. No modelo planoP(v)=a·v+b·v³+P_aux é convexo;Jensen justifica velocidade constante no controle sem reposiçãoHV. Limite8h não é transferido doitem29.
+
+Escopo: Não otimiza política solarDC não comprovada;duração17h é idealização acadêmica,não escala operacional segura.
+
+Fonte dos parâmetros: `config/parametros_globais.yaml`;dadoOEM,hipótese e resultado mantêm status próprios. Simulação não é aprovação humana.
+<!-- execucao-integrada:fim -->

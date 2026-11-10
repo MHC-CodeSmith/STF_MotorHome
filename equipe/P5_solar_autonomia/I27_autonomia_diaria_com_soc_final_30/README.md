@@ -48,3 +48,7 @@ Transferência HV é hipótese, sem integração OEM comprovada.
 Continuação: [interfaceAC discreta e PV12/48V separado](../../../docs/INTERFACE_CARGA_2026-10-27.md).
 O cenário atual usa344,768kmI27 e construção276diasI29; as agendas anteriores
 são comparações preservadas. AceitaçãoOEM e revisão humana continuam pendentes.
+
+<!-- execucao-integrada:inicio -->
+Execução vigente: fonte única `config/parametros_globais.yaml`,cenário `maxeon1540_independente` e índice local `resultados/execucao_integrada.json`. Referências antigas às propostas elétricas permanecem históricas e não autorizam arquitetura48V→OBC,modificaçãoHV ou aprovação final. Critérios/revisão computacional e bloqueios atuais constam em `docs/REVISAO_TECNICA_EXECUCAO02.md`.
+<!-- execucao-integrada:fim -->

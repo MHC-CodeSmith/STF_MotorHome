@@ -1,0 +1,5249 @@
+{
+  "revision": "1.1.1-execucao1540",
+  "updated": "2026-11-10",
+  "project": {
+    "vehicle_baseline_approved": false
+  },
+  "canonical": true,
+  "historical_commit": "2ef84f67c3aa820633b0565e92c0a23ea810302b",
+  "decision_record": "docs/decisoes_motorhome_2026-10-28.md",
+  "policy": "Fonte única ativa; revisão1.1 integra geometria/massa/CG e auxiliares de tração estimados. Baseline29defc4 permanece histórico reproduzível naquele commit. Nenhum componente ou interface recebe aprovação final por esta revisão.",
+  "units_policy": "SI nos cálculos; unidades práticas kWh/km/h/L/EUR explicitadas e convertidas; SOC do serviço nominal, tração útil.",
+  "sources": {
+    "dec": {
+      "path": "docs/decisoes_motorhome_2026-10-28.md",
+      "sha256": "1e082c4961a57b865f008fa1daadd37e696bdb060f22c922596715096c793969",
+      "date": "2026-10-30",
+      "kind": "deliberacao_usuario"
+    },
+    "oem_sk": {
+      "url": "https://www.fiat.sk/content/dam/fiat2023/sk/cenniky/2026/03/e_Ducato_pricelist_dodavka_200326.pdf",
+      "date": "2026-03-20",
+      "kind": "fabricante",
+      "sha256": "e3becec7275a4a13df61aa7fc5e8b0f6eb38ff6c3584d755d5b1bbd5f5e6224f",
+      "evidence": "config/arquitetura_eletrica_proposta.yaml; texto local conferido pp1/3/4/5; limite específico4250 prevalece sobre tabela genérica130"
+    },
+    "cfd": {
+      "path": "entregas/parcial_2026-10-24/comparacao_cfd.json",
+      "kind": "simulacao_nao_validada"
+    },
+    "inmet": {
+      "url": "https://apitempo.inmet.gov.br/estacoes/T",
+      "evidence": "config/solar_proposta.yaml, estação A711; consulta histórica",
+      "kind": "cadastro_publico"
+    },
+    "multi": {
+      "url": "https://www.victronenergy.com/media/pg/MultiPlus-II_230V/en/technical-specifications-mp-ii-230v.html",
+      "configuration_url": "https://www.victronenergy.com/media/pg/MultiPlus-II_230V/en/configuration.html",
+      "kind": "fabricante",
+      "accessed": "2026-11-09",
+      "evidence": "Saída ajustável210–245V,50/60Hz; especificação48/5000; não é curva de eficiência"
+    },
+    "phoenix": {
+      "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-Smart-1600VA-5000VA-EN.pdf",
+      "configuration_url": "https://www.victronenergy.com/media/pg/Inverter_Smart/en/configuration.html",
+      "kind": "fabricante",
+      "accessed": "2026-11-09"
+    },
+    "pylon": {
+      "url": "https://en.pylontech.com.cn/products/c23/134.html",
+      "kind": "fabricante",
+      "accessed": "2026-11-09",
+      "evidence": "Tabela webUS5000:4.8/4.56kWh,39.7kg; não misturar com folhetos antigos38kg. Aplicação residencial: uso veicular não autorizado aqui."
+    },
+    "fridge": {
+      "url": "https://www.midea.com/br/refrigeracao/frigobares/frigobar-branco-93l-midea",
+      "manual_url": "https://www.midea.com/br/wp-content/uploads/2020/01/Manual-do-produto-Frigobar-Midea-93L.pdf",
+      "kind": "fabricante",
+      "accessed": "2026-11-09",
+      "evidence": "MRC10B2; não confundir com sucessorMDRD142FGD303 de18kg"
+    },
+    "cooktop": {
+      "path": "config/equipamentos_interior.yaml",
+      "url": "https://api.electrolux-medialibrary.com/asset/e295c711-5ce0-44d6-8d54-265bb08e664a/E4RM3Q/250717TCLQ/PDF/250717TCLQ.pdf",
+      "kind": "fabricante",
+      "date": "2025-07-17",
+      "evidence": "p17,220V60Hz2kW; referência histórica"
+    },
+    "washer": {
+      "path": "config/equipamentos_interior.yaml",
+      "url": "https://www.lg.com/br/lavanderia/lava-e-seca/cv9011wc4a/",
+      "kind": "fabricante",
+      "evidence": "0.29kWh lavagem fria e68.8L/ciclo; secagem SEM dado comercial"
+    },
+    "freshwell": {
+      "url": "https://www.dometic.com/externalassets/dometic-freshwell-3000-_104014.pdf",
+      "kind": "fabricante",
+      "accessed": "2026-11-09",
+      "evidence": "2700W térmicos230V50/60Hz4.3A;220V e potência ativa não confirmados"
+    },
+    "webasto": {
+      "url": "https://dealers.webasto.com/service/files_content.aspx?Files_FileId=31353",
+      "kind": "fabricante",
+      "accessed": "2026-11-09",
+      "evidence": "CoolTopTrail35:3500W térmicos1300W elétricos220–240V50Hz; teto e50Hz incompatíveis com baseline"
+    },
+    "elgena": {
+      "url": "https://www.elgena.de/products/kb-6",
+      "kind": "fabricante",
+      "accessed": "2026-11-09",
+      "evidence": "KB6 não admite bomba pressurizadora; máximo0.8bar,230V. Não selecionado como compatível."
+    },
+    "venema": {
+      "url": "https://4x4electric.com/charging-technique/",
+      "test_url": "https://4x4electric.com/first-time-solar-charging/",
+      "kind": "relato_primario_outro_veiculo",
+      "accessed": "2026-11-09",
+      "evidence": "Demonstra outra instalação solarDC em2022;30kW é máximo;10kWp é dimensionamento daquela missão, NÃO mínimoOEM"
+    },
+    "sungrow": {
+      "url": "https://uk.sungrowpower.com/upload/file/20221215/EN%20FS%20IDC30E%20DC%20Charger%20Factsheet.pdf",
+      "kind": "fabricante",
+      "accessed": "2026-11-09",
+      "evidence": "IDC30E:entradaAC400V3f50Hz;FAQ mínimo ajustável1kW; não é carregador de entradaFV/DC"
+    },
+    "hyp": {
+      "kind": "hipotese_engenharia",
+      "date": "2026-11-09",
+      "evidence": "Faixas exploratórias não probabilísticas; não são dados ou curvas OEM"
+    },
+    "history": {
+      "commit": "2ef84f67c3aa820633b0565e92c0a23ea810302b",
+      "kind": "historico_repositorio",
+      "evidence": "Valores/simulações anteriores não são baseline aprovado"
+    },
+    "potable_pump": {
+      "url": "https://www.pentair.com/content/dam/extranet/web/nam/shurflo/data-sheets/pds-4008-101-X65.pdf",
+      "kind": "fabricante",
+      "accessed": "2026-11-09",
+      "version": "4008-101-A65[E65] Rev04/16",
+      "pages": [
+        1,
+        2
+      ],
+      "evidence": "Tabela típica a12V; não extrapolar fora de1.9–11.3L/min. Pressostato55psi, bomba intermitente para água fria potávelRV."
+    },
+    "quick_boiler": {
+      "url": "https://www.go2marine.com/Product-Guides/MFR/Quick/208285F.pdf",
+      "kind": "manual_fabricante_espelho_distribuidor",
+      "accessed": "2026-11-09",
+      "version": "BOILERB3REV003A",
+      "evidence": "B31505S15L500W220Vac±10%,7kg,600kPa máximo. Uso náutico;60Hz/uso veicular e operação só resistência sem ligação ao arrefecimentoOEM devem ser confirmados."
+    },
+    "openfoam_boussinesq": {
+      "url": "https://api.openfoam.com/2312/solvers_2heatTransfer_2buoyantBoussinesqSimpleFoam_2readTransportProperties_8H_source.html",
+      "kind": "documentacao_solver",
+      "accessed": "2026-11-09"
+    },
+    "mppt250_60": {
+      "url": "https://www.victronenergy.com/media/pg/Manual_SmartSolar_MPPT_150-60_up_to_250-70/en/technical-specifications.html",
+      "kind": "fabricante",
+      "accessed": "2026-11-09",
+      "other_document": "https://www.victronenergy.com/upload/documents/Datasheet-SmartSolar-charge-controller-MPPT-250-60-and-250-70-EN.pdf",
+      "conflict": "Isc: ficha35A versus manual60A; hardware/revisão a confirmar;35A conservador."
+    },
+    "maxeon3_2022": {
+      "url": "https://sunpower.maxeon.com/int/sites/default/files/2022-05/sp_max3_104c_com_380-400_dc_ds_en_a4_544454.pdf",
+      "mirror": "https://solsol.eu/file/view/1080/sunpower-spr-max3-400wp-com_en.pdf",
+      "kind": "ficha_fabricante_espelho",
+      "accessed": "2026-11-10",
+      "version": "544454 REV A A4_EN abril2022 pagina2",
+      "sha256": "d6c76ef9231cb1621d8401a46fbef617724e6bc6ea873bb3f4658261fef75757",
+      "evidence": "PDF923002bytes extraído e página2 renderizada/conferida;download primário falhouTLS. Dois380+dois390W,19kgcada,1690x1046x40mm;estoque/uso veicular não demonstrados."
+    },
+    "genasun_boost_rejected": {
+      "url": "https://sunforgellc.com/wp-content/uploads/2024/03/GVB-8-WP_%4012AWG_Manual-rev.7-2024_AP.pdf",
+      "accessed": "2026-11-09",
+      "kind": "fabricante",
+      "evidence": "MáximoIsc8A; painel190W9.17A rejeitado. 15A inputcurrent não substitui limiteIsc8A."
+    },
+    "mppt150_60": {
+      "url": "https://www.victronenergy.com/media/pg/Manual_SmartSolar_MPPT_150-60_up_to_250-70/en/technical-specifications.html",
+      "kind": "fabricante",
+      "accessed": "2026-11-09",
+      "evidence": "Seção9.1:150/60Isc50A,saída60A,48V3440W,Voc150Vabsoluto145Voperação,3kg; configuração/IV/BMS/proteções pendentes."
+    },
+    "multi_install": {
+      "url": "https://www.victronenergy.com/media/pg/MultiPlus-II_230V/en/installation.html",
+      "kind": "fabricante",
+      "accessed": "2026-11-10",
+      "evidence": "48/5000 recomenda200A/70mm2 até5m;PEchassi e reléN-PE;DRtipoA admitido."
+    },
+    "mppt_install": {
+      "url": "https://www.victronenergy.com/media/pg/Manual_SmartSolar_MPPT_150-60_up_to_250-70/en/installation.html",
+      "kind": "fabricante",
+      "accessed": "2026-11-10",
+      "evidence": "Fusível lado bateria70–80A para150/60;conferir cabo/instalação."
+    },
+    "pylon_victron": {
+      "url": "https://www.victronenergy.com/live/battery_compatibility:pylontech_phantom",
+      "kind": "fabricante_integrador",
+      "accessed": "2026-11-10",
+      "evidence": "CombinaçãoUS5000/Victron exigeGXcomCAN-BMS eDVCC;uso móvel não comprovado."
+    },
+    "littelfuse_jlln": {
+      "url": "https://www.littelfuse.com/assetdocs/jlln-datasheet?assetguid=3a7bc9bf-d932-4401-bdc7-b39f302195cf",
+      "kind": "fabricante",
+      "accessed": "2026-11-10",
+      "version": "Revisão08/06/2025, páginas2–3",
+      "evidence": "JLLN70–1200A125VDC;35–1200Ainterrupção20kADC;JLLN200/JLLN080catalogados."
+    },
+    "multi_gx": {
+      "url": "https://www.victronenergy.com/media/pg/MultiPlus-II_GX/en/technical-specifications-mp-ii-gx-230v.html",
+      "config_url": "https://www.victronenergy.com/media/pg/MultiPlus-II_GX/en/configuration.html",
+      "features_url": "https://www.victronenergy.com/media/pg/MultiPlus-II_GX/en/product-description.html",
+      "kind": "fabricante",
+      "accessed": "2026-11-10",
+      "evidence": "48/5000GX31kg,565x323x148mm,4000/3700W,18Wvazio;GX evisor integrados,BMS-CAN500kbps,VE.Direct;saída210–245V/50ou60Hzconfiguráveis."
+    },
+    "victron_price_2026q2": {
+      "url": "https://latam.victronenergy.com/wp-content/uploads/2026/04/Pricelist-Victron-2026-Q2-USD-C.pdf",
+      "kind": "tabela_lista_fabricante_nao_cotacao_instalada",
+      "accessed": "2026-11-10",
+      "version": "2026-Q2 USD C",
+      "evidence": "PMP482506000GX1093USD,página3;SCC115060211SmartSolar150/60-Tr393USD,página14;semVAT. Dimensões tabela divergem do manual,não substituem envelopeCAD."
+    },
+    "freshwell_manual_2018": {
+      "url": "https://www.jacksonsleisure.com/content/pdf/dometic/dometic-freshwell-3000-manual.pdf",
+      "primary_indexed_url": "https://media.dometic.com/externalassets/dometic-freshwell-3000-_9105306670_98740.pdf",
+      "kind": "manual_fabricante_em_espelho_distribuidor",
+      "accessed": "2026-11-10",
+      "version": "FreshWell3000-O-16s,12/12/2018,página29",
+      "sha256": "12246bf2a261161a4b1778780fa59a8ba06edda53ba8670765d1b96f6265680b",
+      "bytes": 8039424,
+      "evidence": "FW3000admite220–240V50/60Hz;refrigeração5.1/6.2A,2700WISO5151,21kg. Manualtambémindicafusível5A,conflitantecom6.2A. SKU/placa de aquisição a confirmar;nãomisturarrev230V4.3A."
+    }
+  },
+  "parameters": {
+    "architecture": {
+      "value": "B",
+      "unit": "categoria",
+      "source": "dec",
+      "decisions": [
+        "DEC-001",
+        "DEC-020",
+        "DEC-042"
+      ],
+      "owner": "P2",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "stored_transfer_allowed": {
+      "value": false,
+      "unit": "bool",
+      "source": "dec",
+      "decisions": [
+        "DEC-020"
+      ],
+      "owner": "P2",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "oem_hv_modification_allowed": {
+      "value": false,
+      "unit": "bool",
+      "source": "dec",
+      "decisions": [
+        "DEC-001",
+        "DEC-026",
+        "DEC-040"
+      ],
+      "owner": "P2",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "dc_interface_demonstrated": {
+      "value": false,
+      "unit": "bool",
+      "source": "hyp",
+      "decisions": [
+        "DEC-001",
+        "DEC-029",
+        "DEC-042"
+      ],
+      "owner": "P2",
+      "status": "nao_demonstrado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Ausência de comprovação; não é prova universal de impossibilidade"
+    },
+    "dc_min_power_kw": {
+      "value": null,
+      "unit": "kW",
+      "source": "hyp",
+      "decisions": [
+        "DEC-001",
+        "DEC-042"
+      ],
+      "owner": "P2",
+      "status": "nao_demonstrado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "dc_min_current_a": {
+      "value": null,
+      "unit": "A",
+      "source": "hyp",
+      "decisions": [
+        "DEC-001",
+        "DEC-042"
+      ],
+      "owner": "P2",
+      "status": "nao_demonstrado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "dc_voltage_window_v": {
+      "value": null,
+      "unit": "V",
+      "source": "hyp",
+      "decisions": [
+        "DEC-001",
+        "DEC-042"
+      ],
+      "owner": "P2",
+      "status": "nao_demonstrado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "dc_protocol": {
+      "value": null,
+      "unit": "categoria",
+      "source": "hyp",
+      "decisions": [
+        "DEC-001",
+        "DEC-042"
+      ],
+      "owner": "P2",
+      "status": "nao_demonstrado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "dc_oem_authorization": {
+      "value": null,
+      "unit": "documento",
+      "source": "hyp",
+      "decisions": [
+        "DEC-001",
+        "DEC-042"
+      ],
+      "owner": "P2",
+      "status": "nao_demonstrado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "dc_charger_model": {
+      "value": null,
+      "unit": "categoria",
+      "source": "hyp",
+      "decisions": [
+        "DEC-001",
+        "DEC-042"
+      ],
+      "owner": "P2",
+      "status": "nao_demonstrado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "buffer_installed": {
+      "value": false,
+      "unit": "bool",
+      "source": "dec",
+      "decisions": [
+        "DEC-042"
+      ],
+      "owner": "P2",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Somente comparação; energia inicial do buffer de estudo=0"
+    },
+    "vehicle_geometry": {
+      "value": "Fiat E-Ducato L3H2",
+      "unit": "categoria",
+      "source": "dec",
+      "decisions": [
+        "DEC-002"
+      ],
+      "owner": "P3",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "vehicle_variant": {
+      "value": "SK MY25 505.GG1.2",
+      "unit": "categoria",
+      "source": "oem_sk",
+      "decisions": [
+        "DEC-002",
+        "DEC-036",
+        "DEC-061"
+      ],
+      "owner": "P1",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Recomendação de trabalho; sem homologação/importação brasileira demonstrada"
+    },
+    "oem_pbt_kg": {
+      "value": 4250,
+      "unit": "kg",
+      "source": "oem_sk",
+      "decisions": [
+        "DEC-002",
+        "DEC-009",
+        "DEC-036",
+        "DEC-037"
+      ],
+      "owner": "P4",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Dado documentado da candidata SK; não aprovação da variante"
+    },
+    "oem_tare_kg": {
+      "value": 2790,
+      "unit": "kg",
+      "source": "oem_sk",
+      "decisions": [
+        "DEC-002",
+        "DEC-009",
+        "DEC-036",
+        "DEC-037"
+      ],
+      "owner": "P4",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Dado documentado da candidata SK; não aprovação da variante"
+    },
+    "wheelbase_m": {
+      "value": 4.035,
+      "unit": "m",
+      "source": "oem_sk",
+      "decisions": [
+        "DEC-002",
+        "DEC-009",
+        "DEC-036",
+        "DEC-037"
+      ],
+      "owner": "P4",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Dado documentado da candidata SK; não aprovação da variante"
+    },
+    "front_track_m": {
+      "value": 1.81,
+      "unit": "m",
+      "source": "oem_sk",
+      "decisions": [
+        "DEC-002",
+        "DEC-009",
+        "DEC-036",
+        "DEC-037"
+      ],
+      "owner": "P4",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Dado documentado da candidata SK; não aprovação da variante"
+    },
+    "rear_track_m": {
+      "value": 1.79,
+      "unit": "m",
+      "source": "oem_sk",
+      "decisions": [
+        "DEC-002",
+        "DEC-009",
+        "DEC-036",
+        "DEC-037"
+      ],
+      "owner": "P4",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Dado documentado da candidata SK; não aprovação da variante"
+    },
+    "traction_nominal_kwh": {
+      "value": 110,
+      "unit": "kWh",
+      "source": "oem_sk",
+      "decisions": [
+        "DEC-002",
+        "DEC-009",
+        "DEC-036",
+        "DEC-037"
+      ],
+      "owner": "P4",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Dado documentado da candidata SK; não aprovação da variante"
+    },
+    "traction_usable_kwh": {
+      "value": 98,
+      "unit": "kWh",
+      "source": "oem_sk",
+      "decisions": [
+        "DEC-002",
+        "DEC-009",
+        "DEC-036",
+        "DEC-037"
+      ],
+      "owner": "P4",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Dado documentado da candidata SK; não aprovação da variante"
+    },
+    "traction_voltage_v": {
+      "value": 400,
+      "unit": "V",
+      "source": "oem_sk",
+      "decisions": [
+        "DEC-002",
+        "DEC-009",
+        "DEC-036",
+        "DEC-037"
+      ],
+      "owner": "P4",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Dado documentado da candidata SK; não aprovação da variante"
+    },
+    "motor_peak_kw": {
+      "value": 205,
+      "unit": "kW",
+      "source": "oem_sk",
+      "decisions": [
+        "DEC-002",
+        "DEC-009",
+        "DEC-036",
+        "DEC-037"
+      ],
+      "owner": "P4",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Dado documentado da candidata SK; não aprovação da variante"
+    },
+    "motor_peak_nm": {
+      "value": 410,
+      "unit": "N m",
+      "source": "oem_sk",
+      "decisions": [
+        "DEC-002",
+        "DEC-009",
+        "DEC-036",
+        "DEC-037"
+      ],
+      "owner": "P4",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Dado documentado da candidata SK; não aprovação da variante"
+    },
+    "speed_limit_kmh": {
+      "value": 90,
+      "unit": "km/h",
+      "source": "oem_sk",
+      "decisions": [
+        "DEC-002",
+        "DEC-009",
+        "DEC-036",
+        "DEC-037"
+      ],
+      "owner": "P4",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Dado documentado da candidata SK; não aprovação da variante"
+    },
+    "vehicle_price_eur_ex_vat": {
+      "value": 50990,
+      "unit": "EUR",
+      "source": "oem_sk",
+      "decisions": [
+        "DEC-002",
+        "DEC-009",
+        "DEC-036",
+        "DEC-037"
+      ],
+      "owner": "P4",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Dado documentado da candidata SK; não aprovação da variante"
+    },
+    "axle_front_limit_kg": {
+      "value": null,
+      "unit": "kg",
+      "source": "hyp",
+      "decisions": [
+        "DEC-022",
+        "DEC-037",
+        "DEC-058",
+        "DEC-059",
+        "DEC-060"
+      ],
+      "owner": "P1",
+      "status": "nao_demonstrado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "axle_rear_limit_kg": {
+      "value": null,
+      "unit": "kg",
+      "source": "hyp",
+      "decisions": [
+        "DEC-022",
+        "DEC-037",
+        "DEC-058",
+        "DEC-059",
+        "DEC-060"
+      ],
+      "owner": "P1",
+      "status": "nao_demonstrado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "assembled_typical_mass_kg": {
+      "value": 3976.52552776,
+      "unit": "kg",
+      "source": "hyp",
+      "decisions": [
+        "DEC-022",
+        "DEC-037",
+        "DEC-058",
+        "DEC-059",
+        "DEC-060"
+      ],
+      "owner": "P1",
+      "status": "provisorio_cenario",
+      "confidence": "baixa",
+      "version": "1.0.0-maxeon1540-integrado",
+      "reference_date": "2026-11-10",
+      "note": "Cenário maxeon1540_independente;Referência com rastreadores independentes para comparaçãoDEC054;250/60 teto+150/60 portáteis. InterfaceDCtração e alocaçãoFV hipotéticas;nenhuma ligação entre bancos. SharedMPPT continua comparado,não aprovado."
+    },
+    "cg_xyz_m": {
+      "value": null,
+      "unit": "m",
+      "source": "hyp",
+      "decisions": [
+        "DEC-022",
+        "DEC-037",
+        "DEC-058",
+        "DEC-059",
+        "DEC-060"
+      ],
+      "owner": "P1",
+      "status": "nao_demonstrado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "oem_tyre_pressure": {
+      "value": null,
+      "unit": "Pa",
+      "source": "hyp",
+      "decisions": [
+        "DEC-022",
+        "DEC-037",
+        "DEC-058",
+        "DEC-059",
+        "DEC-060"
+      ],
+      "owner": "P1",
+      "status": "nao_demonstrado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "motor_map": {
+      "value": null,
+      "unit": "arquivo",
+      "source": "hyp",
+      "decisions": [
+        "DEC-022",
+        "DEC-037",
+        "DEC-058",
+        "DEC-059",
+        "DEC-060"
+      ],
+      "owner": "P4",
+      "status": "nao_demonstrado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "reduction_ratio": {
+      "value": null,
+      "unit": "1",
+      "source": "hyp",
+      "decisions": [
+        "DEC-022",
+        "DEC-037",
+        "DEC-058",
+        "DEC-059",
+        "DEC-060"
+      ],
+      "owner": "P1",
+      "status": "nao_demonstrado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "mass_study_kg": {
+      "value": [
+        3500,
+        4250
+      ],
+      "unit": "kg",
+      "source": "hyp",
+      "decisions": [
+        "DEC-022",
+        "DEC-032"
+      ],
+      "owner": "P1",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "3500 é ponto de sensibilidade, NÃO massa típica montada;4250 tetoPBT candidato, não prova dos eixos"
+    },
+    "cd_range": {
+      "value": [
+        0.5806668,
+        0.62487678,
+        0.72
+      ],
+      "unit": "1",
+      "source": "hyp",
+      "decisions": [
+        "DEC-023",
+        "DEC-032"
+      ],
+      "owner": "P3",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.1-execucao1540",
+      "reference_date": "2026-11-10",
+      "note": "Central0.62487678 preservado como hipótese antiga;intervalo superior0.72 de sensibilidade amplia cobertura dosCFD equipados0.683/0.667 ainda não independentes. Não éCdOEM ou valor convergido. Propagar extremos nos resultados condicionais."
+    },
+    "area_m2": {
+      "value": 4.827840375264284,
+      "unit": "m2",
+      "source": "cfd",
+      "decisions": [
+        "DEC-023",
+        "DEC-032"
+      ],
+      "owner": "P3",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Geometria autoral não final"
+    },
+    "crr_range": {
+      "value": [
+        0.008,
+        0.012,
+        0.016
+      ],
+      "unit": "1",
+      "source": "hyp",
+      "decisions": [
+        "DEC-032",
+        "DEC-058"
+      ],
+      "owner": "P4",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Faixa anterior mantida, pneusOEM sem alteração"
+    },
+    "eta_traction_range": {
+      "value": [
+        0.85,
+        0.9,
+        0.95
+      ],
+      "unit": "1",
+      "source": "hyp",
+      "decisions": [
+        "DEC-032",
+        "DEC-058"
+      ],
+      "owner": "P4",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Sem mapaOEM; constante apenas para sensibilidade"
+    },
+    "rho_range": {
+      "value": [
+        1.05,
+        1.1,
+        1.15
+      ],
+      "unit": "kg/m3",
+      "source": "hyp",
+      "decisions": [
+        "DEC-032",
+        "DEC-058"
+      ],
+      "owner": "P4",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Faixa de densidade em altitude; central1.1 do CFD"
+    },
+    "area_multiplier_range": {
+      "value": [
+        0.95,
+        1,
+        1.05
+      ],
+      "unit": "1",
+      "source": "hyp",
+      "decisions": [
+        "DEC-032",
+        "DEC-058"
+      ],
+      "owner": "P4",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Sensibilidade de5%, não erro medido de área"
+    },
+    "roof_target_wp": {
+      "value": 1540,
+      "unit": "Wp",
+      "source": "dec",
+      "decisions": [
+        "DEC-003",
+        "DEC-031"
+      ],
+      "owner": "P5",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "portable_wp": {
+      "value": 1600,
+      "unit": "Wp",
+      "source": "dec",
+      "decisions": [
+        "DEC-003",
+        "DEC-045"
+      ],
+      "owner": "P5",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "portable_only_parked": {
+      "value": true,
+      "unit": "bool",
+      "source": "dec",
+      "decisions": [
+        "DEC-003",
+        "DEC-045"
+      ],
+      "owner": "P5",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "portable_fixed_per_stop": {
+      "value": true,
+      "unit": "bool",
+      "source": "dec",
+      "decisions": [
+        "DEC-045"
+      ],
+      "owner": "P5",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "ac_voltage_v": {
+      "value": 220,
+      "unit": "V",
+      "source": "dec",
+      "decisions": [
+        "DEC-052"
+      ],
+      "owner": "P2",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "ac_frequency_hz": {
+      "value": 60,
+      "unit": "Hz",
+      "source": "dec",
+      "decisions": [
+        "DEC-052"
+      ],
+      "owner": "P2",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "service_bus_v": {
+      "value": 48,
+      "unit": "V",
+      "source": "dec",
+      "decisions": [
+        "DEC-020",
+        "DEC-039"
+      ],
+      "owner": "P2",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "occupants_kg": {
+      "value": [
+        80,
+        80
+      ],
+      "unit": "kg",
+      "source": "dec",
+      "decisions": [
+        "DEC-008"
+      ],
+      "owner": "P1",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "baggage_kg": {
+      "value": 60,
+      "unit": "kg",
+      "source": "dec",
+      "decisions": [
+        "DEC-008"
+      ],
+      "owner": "P1",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "water_clean_l": {
+      "value": 100,
+      "unit": "L",
+      "source": "dec",
+      "decisions": [
+        "DEC-008",
+        "DEC-041"
+      ],
+      "owner": "P6",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "water_grey_l": {
+      "value": 70,
+      "unit": "L",
+      "source": "dec",
+      "decisions": [
+        "DEC-008",
+        "DEC-041"
+      ],
+      "owner": "P6",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "cassette_l": {
+      "value": 20,
+      "unit": "L",
+      "source": "dec",
+      "decisions": [
+        "DEC-018",
+        "DEC-041"
+      ],
+      "owner": "P6",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "extra_black_tank": {
+      "value": false,
+      "unit": "bool",
+      "source": "dec",
+      "decisions": [
+        "DEC-018"
+      ],
+      "owner": "P6",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "trip_km": {
+      "value": 7000,
+      "unit": "km",
+      "source": "dec",
+      "decisions": [
+        "DEC-006"
+      ],
+      "owner": "P5",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "trip_flat": {
+      "value": true,
+      "unit": "bool",
+      "source": "dec",
+      "decisions": [
+        "DEC-043"
+      ],
+      "owner": "P5",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "trip_initial_soc": {
+      "value": [
+        1,
+        1
+      ],
+      "unit": "1",
+      "source": "dec",
+      "decisions": [
+        "DEC-044"
+      ],
+      "owner": "P5",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "trip_max_driving_h": {
+      "value": 8,
+      "unit": "h/dia",
+      "source": "dec",
+      "decisions": [
+        "DEC-006"
+      ],
+      "owner": "P5",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "trip_external_charge": {
+      "value": false,
+      "unit": "bool",
+      "source": "dec",
+      "decisions": [
+        "DEC-006",
+        "DEC-044"
+      ],
+      "owner": "P5",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "trip_reserve_pairs": {
+      "value": [
+        [
+          0.1,
+          0.2
+        ],
+        [
+          0.2,
+          0.3
+        ]
+      ],
+      "unit": "1",
+      "source": "dec",
+      "decisions": [
+        "DEC-013"
+      ],
+      "owner": "P5",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "item27_initial_soc": {
+      "value": [
+        1,
+        0.8
+      ],
+      "unit": "1",
+      "source": "dec",
+      "decisions": [
+        "DEC-014"
+      ],
+      "owner": "P5",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "item27_final_soc": {
+      "value": 0.3,
+      "unit": "1",
+      "source": "dec",
+      "decisions": [
+        "DEC-014"
+      ],
+      "owner": "P5",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "consumption_speeds_kmh": {
+      "value": [
+        40,
+        80
+      ],
+      "unit": "km/h",
+      "source": "dec",
+      "decisions": [
+        "DEC-032",
+        "DEC-043"
+      ],
+      "owner": "P4",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "ambient_c": {
+      "value": 25,
+      "unit": "degC",
+      "source": "dec",
+      "decisions": [
+        "DEC-007"
+      ],
+      "owner": "P6",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "rh_percent": {
+      "value": 50,
+      "unit": "%",
+      "source": "dec",
+      "decisions": [
+        "DEC-007"
+      ],
+      "owner": "P6",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "wind_m_s": {
+      "value": 0,
+      "unit": "m/s",
+      "source": "dec",
+      "decisions": [
+        "DEC-007"
+      ],
+      "owner": "P5",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "reference_day": {
+      "value": "2026-06-21",
+      "unit": "data",
+      "source": "dec",
+      "decisions": [
+        "DEC-007"
+      ],
+      "owner": "P5",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Ano2026 é convenção computacional, não requisito do professor"
+    },
+    "item31_occupants": {
+      "value": 0,
+      "unit": "pessoa",
+      "source": "dec",
+      "decisions": [
+        "DEC-027"
+      ],
+      "owner": "P6",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "item31_ac_w": {
+      "value": 0,
+      "unit": "W",
+      "source": "dec",
+      "decisions": [
+        "DEC-027"
+      ],
+      "owner": "P6",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "item32_outside_c": {
+      "value": 33,
+      "unit": "degC",
+      "source": "dec",
+      "decisions": [
+        "DEC-028"
+      ],
+      "owner": "P6",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "item32_inside_c": {
+      "value": 25,
+      "unit": "degC",
+      "source": "dec",
+      "decisions": [
+        "DEC-028"
+      ],
+      "owner": "P6",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "item32_occupants": {
+      "value": [
+        1,
+        2
+      ],
+      "unit": "pessoa",
+      "source": "dec",
+      "decisions": [
+        "DEC-028"
+      ],
+      "owner": "P6",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "brake_speeds_ms": {
+      "value": [
+        30,
+        10
+      ],
+      "unit": "m/s",
+      "source": "dec",
+      "decisions": [
+        "DEC-025"
+      ],
+      "owner": "P1",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "brake_duration_s": {
+      "value": 5,
+      "unit": "s",
+      "source": "dec",
+      "decisions": [
+        "DEC-025"
+      ],
+      "owner": "P1",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "battery_thermal_test_kw": {
+      "value": [
+        20,
+        80
+      ],
+      "unit": "kW",
+      "source": "dec",
+      "decisions": [
+        "DEC-024"
+      ],
+      "owner": "P7",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "latitude_deg": {
+      "value": -21.98027777,
+      "unit": "deg",
+      "source": "inmet",
+      "decisions": [
+        "DEC-007"
+      ],
+      "owner": "P5",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "longitude_deg": {
+      "value": -47.88388888,
+      "unit": "deg",
+      "source": "inmet",
+      "decisions": [
+        "DEC-007"
+      ],
+      "owner": "P5",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "altitude_m": {
+      "value": 859.29,
+      "unit": "m",
+      "source": "inmet",
+      "decisions": [
+        "DEC-007"
+      ],
+      "owner": "P5",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "load_method": {
+      "value": "media_diaria",
+      "unit": "categoria",
+      "source": "dec",
+      "decisions": [
+        "DEC-046"
+      ],
+      "owner": "P6",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "ventilation": {
+      "value": "natural",
+      "unit": "categoria",
+      "source": "dec",
+      "decisions": [
+        "DEC-049"
+      ],
+      "owner": "P6",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "hvac_location": {
+      "value": "sob_banco",
+      "unit": "categoria",
+      "source": "dec",
+      "decisions": [
+        "DEC-055"
+      ],
+      "owner": "P6",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "monitoring": {
+      "value": "indicadores_comerciais",
+      "unit": "categoria",
+      "source": "dec",
+      "decisions": [
+        "DEC-056"
+      ],
+      "owner": "P6",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "load_shedding": {
+      "value": "automatico_escalonado",
+      "unit": "categoria",
+      "source": "dec",
+      "decisions": [
+        "DEC-047"
+      ],
+      "owner": "P6",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "fridge_type": {
+      "value": "AC_compacta",
+      "unit": "categoria",
+      "source": "dec",
+      "decisions": [
+        "DEC-050"
+      ],
+      "owner": "P6",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "cooktop_type": {
+      "value": "inducao_portatil_1_zona",
+      "unit": "categoria",
+      "source": "dec",
+      "decisions": [
+        "DEC-051"
+      ],
+      "owner": "P6",
+      "status": "aprovado",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "service_shed_soc_thresholds": {
+      "value": null,
+      "unit": "1",
+      "source": "hyp",
+      "decisions": [
+        "DEC-047",
+        "DEC-054",
+        "DEC-057"
+      ],
+      "owner": "P2",
+      "status": "nao_demonstrado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "shared_mppt_model": {
+      "value": null,
+      "unit": "categoria",
+      "source": "hyp",
+      "decisions": [
+        "DEC-047",
+        "DEC-054",
+        "DEC-057"
+      ],
+      "owner": "P2",
+      "status": "nao_demonstrado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "secondary_dc_bus_v": {
+      "value": null,
+      "unit": "V",
+      "source": "hyp",
+      "decisions": [
+        "DEC-047",
+        "DEC-054",
+        "DEC-057"
+      ],
+      "owner": "P2",
+      "status": "nao_demonstrado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "eta_inverter": {
+      "value": 0.9,
+      "unit": "1",
+      "source": "hyp",
+      "decisions": [
+        "DEC-012",
+        "DEC-026",
+        "DEC-038",
+        "DEC-042",
+        "DEC-046"
+      ],
+      "owner": "P2",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Rendimento constante de estudo, não pico96%; vazio somado conservadoramente sem já estar na eta"
+    },
+    "eta_dc": {
+      "value": 0.9,
+      "unit": "1",
+      "source": "hyp",
+      "decisions": [
+        "DEC-012",
+        "DEC-026",
+        "DEC-038",
+        "DEC-042",
+        "DEC-046"
+      ],
+      "owner": "P2",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Hipótese da cadeia externa completa; não dado real de carregador"
+    },
+    "eta_buffer": {
+      "value": 0.95,
+      "unit": "1",
+      "source": "hyp",
+      "decisions": [
+        "DEC-012",
+        "DEC-026",
+        "DEC-038",
+        "DEC-042",
+        "DEC-046"
+      ],
+      "owner": "P2",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Uma carga; descarga/perdasDC separadas; sem hardware selecionado"
+    },
+    "pv_gamma": {
+      "value": -0.0027,
+      "unit": "1/K",
+      "source": "maxeon3_2022",
+      "decisions": [
+        "DEC-012",
+        "DEC-026",
+        "DEC-038",
+        "DEC-042",
+        "DEC-046"
+      ],
+      "owner": "P2",
+      "status": "provisorio_cenario",
+      "confidence": "baixa",
+      "version": "1.0.0-maxeon1540-integrado",
+      "reference_date": "2026-11-10",
+      "note": "Cenário maxeon1540_independente;Referência com rastreadores independentes para comparaçãoDEC054;250/60 teto+150/60 portáteis. InterfaceDCtração e alocaçãoFV hipotéticas;nenhuma ligação entre bancos. SharedMPPT continua comparado,não aprovado."
+    },
+    "pv_other_loss": {
+      "value": 0.1,
+      "unit": "1",
+      "source": "hyp",
+      "decisions": [
+        "DEC-012",
+        "DEC-026",
+        "DEC-038",
+        "DEC-042",
+        "DEC-046"
+      ],
+      "owner": "P2",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Perdas adicionais; não inclui etaDC"
+    },
+    "pv_faiman_u0": {
+      "value": 25,
+      "unit": "W/m2/K",
+      "source": "hyp",
+      "decisions": [
+        "DEC-012",
+        "DEC-026",
+        "DEC-038",
+        "DEC-042",
+        "DEC-046"
+      ],
+      "owner": "P2",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Montagem não calibrada"
+    },
+    "pv_faiman_u1": {
+      "value": 6.84,
+      "unit": "W s/m3/K",
+      "source": "hyp",
+      "decisions": [
+        "DEC-012",
+        "DEC-026",
+        "DEC-038",
+        "DEC-042",
+        "DEC-046"
+      ],
+      "owner": "P2",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Faiman referência do modelo"
+    },
+    "pv_albedo": {
+      "value": 0.2,
+      "unit": "1",
+      "source": "hyp",
+      "decisions": [
+        "DEC-012",
+        "DEC-026",
+        "DEC-038",
+        "DEC-042",
+        "DEC-046"
+      ],
+      "owner": "P2",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Sensibilidade futura"
+    },
+    "pv_setup_h": {
+      "value": 0.5,
+      "unit": "h",
+      "source": "hyp",
+      "decisions": [
+        "DEC-012",
+        "DEC-026",
+        "DEC-038",
+        "DEC-042",
+        "DEC-046"
+      ],
+      "owner": "P2",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Montagem por parada"
+    },
+    "pv_teardown_h": {
+      "value": 0.5,
+      "unit": "h",
+      "source": "hyp",
+      "decisions": [
+        "DEC-012",
+        "DEC-026",
+        "DEC-038",
+        "DEC-042",
+        "DEC-046"
+      ],
+      "owner": "P2",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Desmontagem por parada"
+    },
+    "cable_min_voltage_v": {
+      "value": 43.5,
+      "unit": "V",
+      "source": "hyp",
+      "decisions": [
+        "DEC-012",
+        "DEC-026",
+        "DEC-038",
+        "DEC-042",
+        "DEC-046"
+      ],
+      "owner": "P2",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Limite de estudo baseado no manualUS5000; verificar revisão e BMS"
+    },
+    "cable_eta": {
+      "value": 0.9,
+      "unit": "1",
+      "source": "hyp",
+      "decisions": [
+        "DEC-012",
+        "DEC-026",
+        "DEC-038",
+        "DEC-042",
+        "DEC-046"
+      ],
+      "owner": "P2",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "EntradaDC calculada porW/(V eta)"
+    },
+    "cable_loop_m": {
+      "value": 4,
+      "unit": "m",
+      "source": "hyp",
+      "decisions": [
+        "DEC-012",
+        "DEC-026",
+        "DEC-038",
+        "DEC-042",
+        "DEC-046"
+      ],
+      "owner": "P2",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Ida+retorno; rotaCAD não fechada"
+    },
+    "cable_k_copper": {
+      "value": 200,
+      "unit": "W/m/K",
+      "source": "hyp",
+      "decisions": [
+        "DEC-012",
+        "DEC-026",
+        "DEC-038",
+        "DEC-042",
+        "DEC-046"
+      ],
+      "owner": "P2",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Feixe homogeneizado estimado"
+    },
+    "cable_k_insulation": {
+      "value": 0.2,
+      "unit": "W/m/K",
+      "source": "hyp",
+      "decisions": [
+        "DEC-012",
+        "DEC-026",
+        "DEC-038",
+        "DEC-042",
+        "DEC-046"
+      ],
+      "owner": "P2",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Material representativo não homologado"
+    },
+    "cable_alpha": {
+      "value": 0.00393,
+      "unit": "1/K",
+      "source": "hyp",
+      "decisions": [
+        "DEC-012",
+        "DEC-026",
+        "DEC-038",
+        "DEC-042",
+        "DEC-046"
+      ],
+      "owner": "P2",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Cobre linearizado"
+    },
+    "cable_rho20": {
+      "value": 1.724e-08,
+      "unit": "ohm m",
+      "source": "hyp",
+      "decisions": [
+        "DEC-012",
+        "DEC-026",
+        "DEC-038",
+        "DEC-042",
+        "DEC-046"
+      ],
+      "owner": "P2",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Cobre nominal, não resistência máxima de cabo comercial"
+    },
+    "cable_insulation_m": {
+      "value": 0.002,
+      "unit": "m",
+      "source": "hyp",
+      "decisions": [
+        "DEC-012",
+        "DEC-026",
+        "DEC-038",
+        "DEC-042",
+        "DEC-046"
+      ],
+      "owner": "P2",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Espessura estimada"
+    },
+    "dc_min_sweep_kw": {
+      "value": [
+        0.5,
+        1,
+        2,
+        3,
+        5,
+        10
+      ],
+      "unit": "kW",
+      "source": "hyp",
+      "decisions": [
+        "DEC-042"
+      ],
+      "owner": "P2",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Varredura matemática; nenhum ponto atribuído aoOEM"
+    },
+    "buffer_study_kwh": {
+      "value": [
+        0,
+        2,
+        5
+      ],
+      "unit": "kWh",
+      "source": "hyp",
+      "decisions": [
+        "DEC-042"
+      ],
+      "owner": "P2",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Capacidade exclusiva de estudo, inicia vazia, massa/custo desconhecidos; não instalação aprovada"
+    },
+    "module_service_kwh": {
+      "value": 4.8,
+      "unit": "kWh",
+      "source": "pylon",
+      "decisions": [
+        "DEC-005",
+        "DEC-039",
+        "DEC-061"
+      ],
+      "owner": "P2",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "module_service_mass_kg": {
+      "value": 39.7,
+      "unit": "kg",
+      "source": "pylon",
+      "decisions": [
+        "DEC-039",
+        "DEC-061"
+      ],
+      "owner": "P1",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "module_service_dod": {
+      "value": 0.95,
+      "unit": "1",
+      "source": "pylon",
+      "decisions": [
+        "DEC-039"
+      ],
+      "owner": "P2",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "module_service_dimensions_m": {
+      "value": [
+        0.442,
+        0.42,
+        0.161
+      ],
+      "unit": "m",
+      "source": "pylon",
+      "decisions": [
+        "DEC-039"
+      ],
+      "owner": "P3",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "service_module_model": {
+      "value": "Pylontech US5000",
+      "unit": "categoria",
+      "source": "pylon",
+      "decisions": [
+        "DEC-039",
+        "DEC-061"
+      ],
+      "owner": "P2",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "BMS e modularidade documentados; uso móvel/vibração/fixações/garantia ainda não demonstrados"
+    },
+    "inverter_model": {
+      "value": "MultiPlus-II GX 48/5000/70-50 230V ajustado220V60Hz",
+      "unit": "categoria",
+      "source": "multi_gx",
+      "decisions": [
+        "DEC-053",
+        "DEC-061"
+      ],
+      "owner": "P2",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "inverter_idle_w": {
+      "value": 18,
+      "unit": "W",
+      "source": "multi",
+      "decisions": [
+        "DEC-046",
+        "DEC-053"
+      ],
+      "owner": "P5",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "inverter_continuous_w": {
+      "value": [
+        4000,
+        3700
+      ],
+      "unit": "W",
+      "source": "multi",
+      "decisions": [
+        "DEC-019",
+        "DEC-053"
+      ],
+      "owner": "P2",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "25/40degC respectivamente; não5000W contínuos"
+    },
+    "fridge_model": {
+      "value": "Midea MRC10B2 220V60Hz",
+      "unit": "categoria",
+      "source": "fridge",
+      "decisions": [
+        "DEC-050",
+        "DEC-061"
+      ],
+      "owner": "P6",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "fridge_mass_kg": {
+      "value": 20.8,
+      "unit": "kg",
+      "source": "fridge",
+      "decisions": [
+        "DEC-050"
+      ],
+      "owner": "P1",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "fridge_dimensions_m": {
+      "value": [
+        0.472,
+        0.45,
+        0.86
+      ],
+      "unit": "m",
+      "source": "fridge",
+      "decisions": [
+        "DEC-050"
+      ],
+      "owner": "P3",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": ""
+    },
+    "fridge_kwh_month": {
+      "value": 14.1,
+      "unit": "kWh/mes",
+      "source": "fridge",
+      "decisions": [
+        "DEC-046",
+        "DEC-050"
+      ],
+      "owner": "P6",
+      "status": "provisorio",
+      "confidence": "alta",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Converter por30dias; condições de ensaio não equivalem a uso veicular; testar×1–2"
+    },
+    "service_modules_provisional": {
+      "value": 3,
+      "unit": "modulo",
+      "source": "hyp",
+      "decisions": [
+        "DEC-005",
+        "DEC-039",
+        "DEC-061"
+      ],
+      "owner": "P2",
+      "status": "provisorio",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Banco provisório14.4kWh:base24h com ambas reservas20/30%;48h ainda comparação4/5módulos. Não é aprovação de uso veicular."
+    },
+    "layout_provisional": {
+      "value": "cama_fixa",
+      "unit": "categoria",
+      "source": "hyp",
+      "decisions": [
+        "DEC-030",
+        "DEC-061"
+      ],
+      "owner": "P3",
+      "status": "provisorio",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Aproveitar CAD existente; conversível ainda precisa estudo cotado comparável"
+    },
+    "roof_arrangement_provisional": {
+      "value": "2Maxeon380+2Maxeon390_2S2P_comparador_independente",
+      "unit": "categoria",
+      "source": "hyp",
+      "decisions": [
+        "DEC-031",
+        "DEC-061"
+      ],
+      "owner": "P3",
+      "status": "provisorio_cenario",
+      "confidence": "baixa",
+      "version": "1.0.0-maxeon1540-integrado",
+      "reference_date": "2026-11-10",
+      "note": "Cenário maxeon1540_independente;Referência com rastreadores independentes para comparaçãoDEC054;250/60 teto+150/60 portáteis. InterfaceDCtração e alocaçãoFV hipotéticas;nenhuma ligação entre bancos. SharedMPPT continua comparado,não aprovado."
+    },
+    "roof_power_48v_study_wp": {
+      "value": 1540,
+      "unit": "Wp",
+      "source": "maxeon3_2022",
+      "decisions": [
+        "DEC-003",
+        "DEC-031",
+        "DEC-038"
+      ],
+      "owner": "P5",
+      "status": "provisorio_cenario",
+      "confidence": "baixa",
+      "version": "1.0.0-maxeon1540-integrado",
+      "reference_date": "2026-11-10",
+      "note": "Cenário maxeon1540_independente;Referência com rastreadores independentes para comparaçãoDEC054;250/60 teto+150/60 portáteis. InterfaceDCtração e alocaçãoFV hipotéticas;nenhuma ligação entre bancos. SharedMPPT continua comparado,não aprovado."
+    },
+    "structural_anchor_capacity": {
+      "value": null,
+      "unit": "N",
+      "source": "hyp",
+      "decisions": [
+        "DEC-033"
+      ],
+      "owner": "P1",
+      "status": "nao_demonstrado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "PontosOEM/subestruturas/FEA pendentes"
+    },
+    "cost_installed_total_brl": {
+      "value": null,
+      "unit": "BRL",
+      "source": "hyp",
+      "decisions": [
+        "DEC-034"
+      ],
+      "owner": "P1",
+      "status": "nao_demonstrado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Não somarEUR/USD/BRL nem converter sem câmbio/frete/tributos"
+    },
+    "dc_distribution_provisional_v": {
+      "value": 12,
+      "unit": "V",
+      "source": "hyp",
+      "decisions": [
+        "DEC-057",
+        "DEC-061"
+      ],
+      "owner": "P2",
+      "status": "provisorio",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Recomendação por catálogo12V existente;24V segue comparação, não tensão final"
+    },
+    "insulation_provisional_m": {
+      "value": 0.032,
+      "unit": "m",
+      "source": "hyp",
+      "decisions": [
+        "DEC-016",
+        "DEC-061"
+      ],
+      "owner": "P6",
+      "status": "provisorio",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "AFArmaflex candidato já modelado; avaliar fogo/umidade/uso automotivo"
+    },
+    "boiler_commercial_model": {
+      "value": null,
+      "unit": "categoria",
+      "source": "hyp",
+      "decisions": [
+        "DEC-017",
+        "DEC-048"
+      ],
+      "owner": "P6",
+      "status": "nao_demonstrado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "CandidatoQuickB31505Sdocumentado; seleção funcional220V60Hz/veicular ainda condicionada."
+    },
+    "water_daily_study_l": {
+      "value": 60,
+      "unit": "L/dia",
+      "source": "hyp",
+      "decisions": [
+        "DEC-041",
+        "DEC-048"
+      ],
+      "owner": "P6",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Estimativa duas pessoas40Lbanho+20Lpia/cozinha/higiene; não inclui lavanderia"
+    },
+    "drying_energy_cycle_range_kwh": {
+      "value": [
+        1,
+        2,
+        4
+      ],
+      "unit": "kWh/ciclo",
+      "source": "hyp",
+      "decisions": [
+        "DEC-015",
+        "DEC-046"
+      ],
+      "owner": "P6",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Faixa exploratória sem medição do modeloLG; não usar zero para ausência de dados"
+    },
+    "lv_power_study_w": {
+      "value": 100,
+      "unit": "W",
+      "source": "hyp",
+      "decisions": [
+        "DEC-057"
+      ],
+      "owner": "P2",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Carga comum comparativa, não soma de equipamentos reais"
+    },
+    "lv_cable_loop_study_m": {
+      "value": 10,
+      "unit": "m",
+      "source": "hyp",
+      "decisions": [
+        "DEC-057"
+      ],
+      "owner": "P2",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Comprimento ida+retorno hipotético"
+    },
+    "lv_cable_section_study_mm2": {
+      "value": 2.5,
+      "unit": "mm2",
+      "source": "hyp",
+      "decisions": [
+        "DEC-057"
+      ],
+      "owner": "P2",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Caso comparativo, não bitola homologada"
+    },
+    "regen_power_study_kw": {
+      "value": [
+        0,
+        40,
+        80
+      ],
+      "unit": "kW",
+      "source": "hyp",
+      "decisions": [
+        "DEC-025",
+        "DEC-037"
+      ],
+      "owner": "P4",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Limites de potência no evento; somente sensibilidade, nunca curvaOEM"
+    },
+    "lateral_cg_height_sweep_m": {
+      "value": [
+        0.8,
+        1,
+        1.2,
+        1.4
+      ],
+      "unit": "m",
+      "source": "hyp",
+      "decisions": [
+        "DEC-060"
+      ],
+      "owner": "P1",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Faixa hipotética sem CG extraído do CAD"
+    },
+    "lateral_cg_offset_sweep_m": {
+      "value": [
+        0,
+        0.1,
+        0.2
+      ],
+      "unit": "m",
+      "source": "hyp",
+      "decisions": [
+        "DEC-060"
+      ],
+      "owner": "P1",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Faixa hipotética de assimetria"
+    },
+    "pendencia_dec004": {
+      "value": null,
+      "unit": "documento",
+      "source": "dec",
+      "decisions": [
+        "DEC-004"
+      ],
+      "owner": "P6",
+      "status": "nao_demonstrado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Consumo moderado revisto inclui boiler e secagem; picos ainda incompletos"
+    },
+    "pendencia_dec010": {
+      "value": null,
+      "unit": "documento",
+      "source": "dec",
+      "decisions": [
+        "DEC-010"
+      ],
+      "owner": "P6",
+      "status": "nao_demonstrado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "FreshWell2700W vs maiorWebasto3500W; maior rejeitado50Hz/teto"
+    },
+    "pendencia_dec011": {
+      "value": null,
+      "unit": "documento",
+      "source": "dec",
+      "decisions": [
+        "DEC-011"
+      ],
+      "owner": "P5",
+      "status": "nao_demonstrado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Comparação08–16 vs00–08 é parcial; antiga agendaACnão válida;ótimo global não demonstrado"
+    },
+    "pendencia_dec021": {
+      "value": null,
+      "unit": "documento",
+      "source": "dec",
+      "decisions": [
+        "DEC-021"
+      ],
+      "owner": "P2",
+      "status": "nao_demonstrado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "AlocaçõesfixasA/B/flexível comparativas; comutação física não demonstrada"
+    },
+    "pendencia_dec035": {
+      "value": null,
+      "unit": "documento",
+      "source": "dec",
+      "decisions": [
+        "DEC-035"
+      ],
+      "owner": "P1",
+      "status": "nao_demonstrado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Fonteúnica/matrizes/proveniência M1M2M3;0aprovações finais"
+    },
+    "eta_lv": {
+      "value": 0.9,
+      "unit": "1",
+      "source": "hyp",
+      "decisions": [
+        "DEC-046",
+        "DEC-057"
+      ],
+      "owner": "P2",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Rendimento assumido48→baixa tensão; não curva comercial"
+    },
+    "eta_service_charge": {
+      "value": 0.95,
+      "unit": "1",
+      "source": "hyp",
+      "decisions": [
+        "DEC-021",
+        "DEC-038"
+      ],
+      "owner": "P2",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "ConversãoFV→serviços assumida; geraçãojá desconta perdasPV, sem duplicar"
+    },
+    "portable_gamma": {
+      "value": -0.0039,
+      "unit": "1/K",
+      "source": "hyp",
+      "decisions": [
+        "DEC-038",
+        "DEC-045"
+      ],
+      "owner": "P5",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "CoeficienteEcoFlow de referência histórica; não dadoJA"
+    },
+    "mission_hypothetical_min_kw": {
+      "value": 1.0,
+      "unit": "kW",
+      "source": "hyp",
+      "decisions": [
+        "DEC-042"
+      ],
+      "owner": "P2",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Exclusivamente hipótese explícita, nunca mínimoOEM"
+    },
+    "mission_hypothetical_buffer_kwh": {
+      "value": 2.0,
+      "unit": "kWh",
+      "source": "hyp",
+      "decisions": [
+        "DEC-042"
+      ],
+      "owner": "P2",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Buffer dedicado hipotético, inicia vazio"
+    },
+    "time_step_minutes": {
+      "value": 15,
+      "unit": "min",
+      "source": "hyp",
+      "decisions": [
+        "DEC-035",
+        "DEC-038"
+      ],
+      "owner": "P5",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Resolução do replay; chegada arredondada ao intervalo"
+    },
+    "potable_pump_model": {
+      "value": "Shurflo 4008-101-E65 12V",
+      "unit": "categoria",
+      "source": "potable_pump",
+      "decisions": [
+        "DEC-048",
+        "DEC-057"
+      ],
+      "owner": "P6",
+      "status": "provisorio",
+      "confidence": "media",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Seleção provisória com manualRV; não confundir com bombaBoschdoarrefecimento"
+    },
+    "potable_pump_curve": {
+      "value": [
+        [
+          0,
+          11.3,
+          2.2
+        ],
+        [
+          10,
+          8.3,
+          3.3
+        ],
+        [
+          20,
+          6.8,
+          4.3
+        ],
+        [
+          30,
+          5.7,
+          5.1
+        ],
+        [
+          40,
+          4.5,
+          6
+        ],
+        [
+          50,
+          1.9,
+          6.8
+        ]
+      ],
+      "unit": "[psi,L/min,A]",
+      "source": "potable_pump",
+      "decisions": [
+        "DEC-048"
+      ],
+      "owner": "P6",
+      "status": "provisorio",
+      "confidence": "media",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Tabela típica a12V; dados não fornecidos como curva24V"
+    },
+    "potable_pump_mass_kg": {
+      "value": 2.3,
+      "unit": "kg",
+      "source": "potable_pump",
+      "decisions": [
+        "DEC-048"
+      ],
+      "owner": "P6",
+      "status": "provisorio",
+      "confidence": "media",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Massa aproximada fabricante"
+    },
+    "potable_pipe_lengths_m": {
+      "value": 6,
+      "unit": "m",
+      "source": "hyp",
+      "decisions": [
+        "DEC-048"
+      ],
+      "owner": "P6",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Comprimento crítico hipotético; conferirCAD"
+    },
+    "potable_pipe_diameters_m": {
+      "value": [
+        0.01,
+        0.013
+      ],
+      "unit": "m",
+      "source": "hyp",
+      "decisions": [
+        "DEC-048"
+      ],
+      "owner": "P6",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Comparação diâmetro interno10/13mm; material/espessura/proteção a selecionar"
+    },
+    "potable_minor_k": {
+      "value": 10,
+      "unit": "1",
+      "source": "hyp",
+      "decisions": [
+        "DEC-048"
+      ],
+      "owner": "P6",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Perdas locais assumidas"
+    },
+    "potable_height_m": {
+      "value": 1.5,
+      "unit": "m",
+      "source": "hyp",
+      "decisions": [
+        "DEC-048"
+      ],
+      "owner": "P6",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Cota geométrica do trecho crítico"
+    },
+    "potable_fixture_design_lpm": {
+      "value": 4,
+      "unit": "L/min",
+      "source": "hyp",
+      "decisions": [
+        "DEC-048"
+      ],
+      "owner": "P6",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Demanda hipotética de ducha única"
+    },
+    "potable_fixture_pressure_pa": {
+      "value": 100000,
+      "unit": "Pa",
+      "source": "hyp",
+      "decisions": [
+        "DEC-048"
+      ],
+      "owner": "P6",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Resistência de aparelho modeladaquadrática; não ficha de ducha"
+    },
+    "potable_density_kg_m3": {
+      "value": 997,
+      "unit": "kg/m3",
+      "source": "hyp",
+      "decisions": [
+        "DEC-048"
+      ],
+      "owner": "P6",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Água25C aproximada"
+    },
+    "potable_viscosity_pa_s": {
+      "value": 0.00089,
+      "unit": "Pa s",
+      "source": "hyp",
+      "decisions": [
+        "DEC-048"
+      ],
+      "owner": "P6",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Água25C aproximada"
+    },
+    "boiler_candidate_model": {
+      "value": "Quick B3 15 05S",
+      "unit": "categoria",
+      "source": "quick_boiler",
+      "decisions": [
+        "DEC-017",
+        "DEC-061"
+      ],
+      "owner": "P6",
+      "status": "provisorio",
+      "confidence": "media",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Candidato elétrico220V500W; frequência e instalação veicular não demonstradas"
+    },
+    "boiler_candidate_empty_mass_kg": {
+      "value": 7,
+      "unit": "kg",
+      "source": "quick_boiler",
+      "decisions": [
+        "DEC-017"
+      ],
+      "owner": "P6",
+      "status": "provisorio",
+      "confidence": "media",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Massa vazia;água integra100L"
+    },
+    "boiler_candidate_l": {
+      "value": 15,
+      "unit": "L",
+      "source": "quick_boiler",
+      "decisions": [
+        "DEC-017"
+      ],
+      "owner": "P6",
+      "status": "provisorio",
+      "confidence": "media",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Volume útil indicado no manual"
+    },
+    "boiler_candidate_power_w": {
+      "value": 500,
+      "unit": "W",
+      "source": "quick_boiler",
+      "decisions": [
+        "DEC-017"
+      ],
+      "owner": "P6",
+      "status": "provisorio",
+      "confidence": "media",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Elemento resistivo; não assumir autorização para conectar arrefecimentoOEM"
+    },
+    "traction_aux_assumed_w": {
+      "value": 700,
+      "unit": "W",
+      "source": "hyp",
+      "decisions": [
+        "DEC-032",
+        "DEC-037"
+      ],
+      "owner": "P4",
+      "status": "estimado",
+      "confidence": "baixa",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "note": "Potência fixa de auxiliares de tração SOMENTE em movimento; hipótese700W, sensibilidade0/300/700/1500W; não carga habitável nem dadoOEM."
+    }
+  },
+  "loads": [
+    {
+      "id": "geladeira",
+      "energy_ac_or_dc_kwh_day": {
+        "base": 0.47,
+        "min": 0.47,
+        "max": 0.94
+      },
+      "side": "AC",
+      "source": "fridge",
+      "assumption_status": "estimado",
+      "usage": "Uso moderado hipotético",
+      "peak_w": null,
+      "uncertainty_note": "0.73A de corrente nominal do manual não informa W ativos nem pico de partida;160.6VA=220V×0.73A somente referência aparente.",
+      "rated_current_a": 0.73,
+      "rated_apparent_va_estimate": 160.6
+    },
+    {
+      "id": "inducao",
+      "energy_ac_or_dc_kwh_day": {
+        "base": 1,
+        "min": 0.6,
+        "max": 1.4
+      },
+      "side": "AC",
+      "source": "cooktop",
+      "assumption_status": "estimado",
+      "usage": "Uso moderado hipotético",
+      "peak_w": 2000,
+      "uncertainty_note": "Energia/horas estimadas; preencher consumo e partida comercial ausentes. Boiler:40L/d misturada25→38C,cp4180J/kgK,eficiência.9,espera~.05kWh/d; volume interno está nos100L totais."
+    },
+    {
+      "id": "ar_condicionado",
+      "energy_ac_or_dc_kwh_day": {
+        "base": 3,
+        "min": 1.5,
+        "max": 5.2
+      },
+      "side": "AC",
+      "source": "freshwell",
+      "assumption_status": "estimado",
+      "usage": "Uso moderado hipotético",
+      "peak_w": null,
+      "uncertainty_note": "Energia/horas estimadas; preencher consumo e partida comercial ausentes. Boiler:40L/d misturada25→38C,cp4180J/kgK,eficiência.9,espera~.05kWh/d; volume interno está nos100L totais."
+    },
+    {
+      "id": "boiler",
+      "energy_ac_or_dc_kwh_day": {
+        "base": 0.72,
+        "min": 0.45,
+        "max": 1.25
+      },
+      "side": "AC",
+      "source": "hyp",
+      "assumption_status": "estimado",
+      "usage": "Uso moderado hipotético",
+      "peak_w": null,
+      "uncertainty_note": "Energia/horas estimadas; preencher consumo e partida comercial ausentes. Boiler:40L/d misturada25→38C,cp4180J/kgK,eficiência.9,espera~.05kWh/d; volume interno está nos100L totais."
+    },
+    {
+      "id": "lavagem",
+      "energy_ac_or_dc_kwh_day": {
+        "base": 0.041428571428571426,
+        "min": 0.041428571428571426,
+        "max": 0.041428571428571426
+      },
+      "side": "AC",
+      "source": "washer",
+      "assumption_status": "estimado",
+      "usage": "Uma lavagem+secagem por semana",
+      "peak_w": null,
+      "uncertainty_note": "Energia/horas estimadas; preencher consumo e partida comercial ausentes. Boiler:40L/d misturada25→38C,cp4180J/kgK,eficiência.9,espera~.05kWh/d; volume interno está nos100L totais."
+    },
+    {
+      "id": "secagem",
+      "energy_ac_or_dc_kwh_day": {
+        "base": 0.2857142857142857,
+        "min": 0.14285714285714285,
+        "max": 0.5714285714285714
+      },
+      "side": "AC",
+      "source": "hyp",
+      "assumption_status": "estimado",
+      "usage": "Uma lavagem+secagem por semana",
+      "peak_w": null,
+      "uncertainty_note": "Energia/horas estimadas; preencher consumo e partida comercial ausentes. Boiler:40L/d misturada25→38C,cp4180J/kgK,eficiência.9,espera~.05kWh/d; volume interno está nos100L totais."
+    },
+    {
+      "id": "iluminacao_eletronicos_bombas",
+      "energy_ac_or_dc_kwh_day": {
+        "base": 0.6,
+        "min": 0.35,
+        "max": 0.9
+      },
+      "side": "DC",
+      "source": "hyp",
+      "assumption_status": "estimado",
+      "usage": "Uso moderado hipotético",
+      "peak_w": null,
+      "uncertainty_note": "Energia/horas estimadas; preencher consumo e partida comercial ausentes. Boiler:40L/d misturada25→38C,cp4180J/kgK,eficiência.9,espera~.05kWh/d; volume interno está nos100L totais."
+    }
+  ],
+  "invalidation": {
+    "retired": [
+      "PV→bateria_servicos→inversor→EVSE→OBC→tracao",
+      "geladeiraDC como principal",
+      "230V50Hz serviços como baseline",
+      "SOC80% no item29",
+      "relevo/ERA5 como caso principal",
+      "6JA450 com extensão como configuração decidida"
+    ],
+    "rerun_required": [
+      "massa/CAD/CFD final",
+      "cabine1/2p com materiais finais",
+      "protecoes/curto/picos",
+      "missao com interfaceDCdocumentada"
+    ]
+  },
+  "reference_models": {
+    "freios": {
+      "path": "config/freios_proposta.yaml",
+      "sha256": "815b28c188d20a3f7ab47b00d382d72a3abaea07815f6676424304926423da7f",
+      "status": "modelo_parametrizado_nao_validado",
+      "shared_parameters_override": "parameters desta fonte canônica",
+      "reason": "Reaproveita constitutivas/geométricas anteriores; não habilita fluxos elétricos antigos"
+    },
+    "cabine": {
+      "path": "config/cabine_proposta.yaml",
+      "sha256": "eb593b4adbebb9803bb8782d3f7e9eccd658d71ae3a3c2724e3e41e1a089d207",
+      "status": "modelo_parametrizado_nao_validado",
+      "shared_parameters_override": "parameters desta fonte canônica",
+      "reason": "Reaproveita constitutivas/geométricas anteriores; não habilita fluxos elétricos antigos"
+    },
+    "solar": {
+      "path": "config/solar_proposta.yaml",
+      "sha256": "98dab36ffaad100293a42856ff53377ea15afa2e8856f0007c2fa01eb392e10b",
+      "status": "modelo_parametrizado_nao_validado",
+      "shared_parameters_override": "parameters desta fonte canônica",
+      "reason": "Reaproveita constitutivas/geométricas anteriores; não habilita fluxos elétricos antigos"
+    }
+  },
+  "bom_components": [
+    {
+      "id": "veiculo",
+      "model": "Fiat SK MY25 505.GG1.2",
+      "quantity": 1,
+      "owner": "P1",
+      "source": "oem_sk",
+      "scope": "veiculo",
+      "status": "provisorio",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "confidence": "media",
+      "dimensions_m": null,
+      "installed_price_brl": null,
+      "unit_reference_price": null,
+      "price_currency": "EUR",
+      "mass_parameter": "oem_tare_kg",
+      "price_parameter": "vehicle_price_eur_ex_vat",
+      "price_date": "2026-03-20"
+    },
+    {
+      "id": "pv_portatil",
+      "model": "EcoFlow400W com bolsa/suporte",
+      "quantity": 4,
+      "unit_mass_kg": 21,
+      "owner": "P5",
+      "source": "history",
+      "scope": "conversao",
+      "status": "provisorio_so_parado",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "confidence": "media",
+      "dimensions_m": null,
+      "installed_price_brl": null,
+      "unit_reference_price": null,
+      "price_currency": "BRL"
+    },
+    {
+      "id": "bateria_servicos",
+      "owner": "P2",
+      "source": "pylon",
+      "scope": "conversao",
+      "status": "provisorio_uso_veicular_nao_demonstrado",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "confidence": "media",
+      "dimensions_m": null,
+      "installed_price_brl": null,
+      "unit_reference_price": null,
+      "price_currency": "BRL",
+      "model_parameter": "service_module_model",
+      "mass_parameter": "module_service_mass_kg",
+      "quantity_parameter": "service_modules_provisional"
+    },
+    {
+      "id": "inversor_servicos",
+      "quantity": 1,
+      "unit_mass_kg": 31,
+      "owner": "P2",
+      "source": "multi_gx",
+      "scope": "conversao",
+      "status": "provisorio",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "confidence": "media",
+      "dimensions_m": null,
+      "installed_price_brl": null,
+      "unit_reference_price": 1093,
+      "price_currency": "USD",
+      "model_parameter": "inverter_model",
+      "price_source": "victron_price_2026q2",
+      "part_number": "PMP482506000",
+      "price_status": "lista_2026Q2_exVAT_nao_cotacao_atual"
+    },
+    {
+      "id": "geladeira",
+      "quantity": 1,
+      "owner": "P6",
+      "source": "fridge",
+      "scope": "conversao",
+      "status": "provisorio_retencao_e_partida_pendentes",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "confidence": "media",
+      "dimensions_m": null,
+      "installed_price_brl": null,
+      "unit_reference_price": null,
+      "price_currency": "BRL",
+      "model_parameter": "fridge_model",
+      "mass_parameter": "fridge_mass_kg"
+    },
+    {
+      "id": "cooktop",
+      "model": "Electrolux IE3TP220V60Hz",
+      "quantity": 1,
+      "unit_mass_kg": 2.3,
+      "owner": "P6",
+      "source": "cooktop",
+      "scope": "conversao",
+      "status": "provisorio",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "confidence": "media",
+      "dimensions_m": null,
+      "installed_price_brl": null,
+      "unit_reference_price": 439,
+      "price_currency": "BRL",
+      "price_date": "2026-10-26"
+    },
+    {
+      "id": "lava_seca",
+      "model": "LG CV9011WC4A220V",
+      "quantity": 1,
+      "unit_mass_kg": 73,
+      "owner": "P6",
+      "source": "washer",
+      "scope": "conversao",
+      "status": "provisorio_secagem_estimada",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "confidence": "media",
+      "dimensions_m": null,
+      "installed_price_brl": null,
+      "unit_reference_price": null,
+      "price_currency": "BRL"
+    },
+    {
+      "id": "hvac",
+      "model": "FreshWellFW3000 manualO16s2018 — candidato220–240V50/60Hz,placa a confirmar",
+      "quantity": 1,
+      "unit_mass_kg": 21,
+      "owner": "P6",
+      "source": "freshwell_manual_2018",
+      "scope": "conversao",
+      "status": "condicionado_nao_selecao_final",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "confidence": "media",
+      "dimensions_m": null,
+      "installed_price_brl": null,
+      "unit_reference_price": null,
+      "price_currency": "BRL"
+    },
+    {
+      "id": "cassete",
+      "model": "Thetford PortaPotti36521L, sem tanque negro extra",
+      "quantity": 1,
+      "unit_mass_kg": 4,
+      "owner": "P6",
+      "source": "history",
+      "scope": "conversao",
+      "status": "provisorio",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "confidence": "media",
+      "dimensions_m": null,
+      "installed_price_brl": null,
+      "unit_reference_price": null,
+      "price_currency": "BRL"
+    },
+    {
+      "id": "boiler",
+      "quantity": 1,
+      "owner": "P6",
+      "source": "quick_boiler",
+      "scope": "conversao",
+      "status": "candidato_60Hz_veicular_pendentes",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "confidence": "media",
+      "dimensions_m": null,
+      "installed_price_brl": null,
+      "unit_reference_price": null,
+      "price_currency": "BRL",
+      "model_parameter": "boiler_candidate_model",
+      "mass_parameter": "boiler_candidate_empty_mass_kg"
+    },
+    {
+      "id": "bomba_potavel",
+      "quantity": 1,
+      "owner": "P6",
+      "source": "potable_pump",
+      "scope": "conversao",
+      "status": "provisorio",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "confidence": "media",
+      "dimensions_m": null,
+      "installed_price_brl": null,
+      "unit_reference_price": null,
+      "price_currency": "BRL",
+      "model_parameter": "potable_pump_model",
+      "mass_parameter": "potable_pump_mass_kg"
+    },
+    {
+      "id": "mppt",
+      "model": "Victron SmartSolar MPPT150/60-Tr",
+      "quantity": 1,
+      "unit_mass_kg": 3,
+      "owner": "P2",
+      "source": "mppt150_60",
+      "scope": "conversao",
+      "status": "nao_demonstrado",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "confidence": "baixa",
+      "dimensions_m": null,
+      "installed_price_brl": null,
+      "unit_reference_price": 393,
+      "price_currency": "USD",
+      "price_source": "victron_price_2026q2",
+      "part_number": "SCC115060211",
+      "price_status": "lista_2026Q2_exVAT_nao_cotacao_atual",
+      "mass_accounted_in": "development.mass_allowances.suportes_eletricos"
+    },
+    {
+      "id": "interface_dc",
+      "model": "CarregadorDC externo autorizadoOEM ainda não encontrado",
+      "quantity": null,
+      "unit_mass_kg": null,
+      "owner": "P2",
+      "source": "hyp",
+      "scope": "condicional",
+      "status": "nao_demonstrado",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "confidence": "baixa",
+      "dimensions_m": null,
+      "installed_price_brl": null,
+      "unit_reference_price": null,
+      "price_currency": "BRL"
+    },
+    {
+      "id": "buffer",
+      "model": "Buffer dedicado SOMENTE alternativa comparativa",
+      "quantity": 0,
+      "unit_mass_kg": null,
+      "owner": "P2",
+      "source": "hyp",
+      "scope": "alternativa_nao_instalada",
+      "status": "nao_aprovado",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "confidence": "baixa",
+      "dimensions_m": null,
+      "installed_price_brl": null,
+      "unit_reference_price": null,
+      "price_currency": "BRL"
+    },
+    {
+      "id": "conversor_lv",
+      "model": "Orion48→12 ou48→24, modelo a validar",
+      "quantity": 1,
+      "unit_mass_kg": null,
+      "owner": "P2",
+      "source": "history",
+      "scope": "conversao",
+      "status": "em_comparacao",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "confidence": "baixa",
+      "dimensions_m": null,
+      "installed_price_brl": null,
+      "unit_reference_price": null,
+      "price_currency": "BRL"
+    },
+    {
+      "id": "protecao_controle",
+      "model": "Cabos, fusíveis, chaves, contatores, quadros e controleSOC",
+      "quantity": null,
+      "unit_mass_kg": null,
+      "owner": "P2",
+      "source": "hyp",
+      "scope": "conversao",
+      "status": "dimensionamento_pendente",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "confidence": "baixa",
+      "dimensions_m": null,
+      "installed_price_brl": null,
+      "unit_reference_price": null,
+      "price_currency": "BRL"
+    },
+    {
+      "id": "reservatorios",
+      "model": "Tanques vazios100L/70L; cassete já na linha sanitário",
+      "quantity": null,
+      "unit_mass_kg": null,
+      "owner": "P6",
+      "source": "hyp",
+      "scope": "conversao",
+      "status": "cotacao_e_massa_pendentes",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "confidence": "baixa",
+      "dimensions_m": null,
+      "installed_price_brl": null,
+      "unit_reference_price": null,
+      "price_currency": "BRL"
+    },
+    {
+      "id": "hidraulica",
+      "model": "Tubos, válvulas, filtros, expansão/alívio e drenos",
+      "quantity": null,
+      "unit_mass_kg": null,
+      "owner": "P6",
+      "source": "hyp",
+      "scope": "conversao",
+      "status": "cotacao_e_massa_pendentes",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "confidence": "baixa",
+      "dimensions_m": null,
+      "installed_price_brl": null,
+      "unit_reference_price": null,
+      "price_currency": "BRL"
+    },
+    {
+      "id": "moveis",
+      "model": "Cama, móveis, bancada, assentos e retenção",
+      "quantity": null,
+      "unit_mass_kg": null,
+      "owner": "P3",
+      "source": "hyp",
+      "scope": "conversao",
+      "status": "layout_comparativo_pendente",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "confidence": "baixa",
+      "dimensions_m": null,
+      "installed_price_brl": null,
+      "unit_reference_price": null,
+      "price_currency": "BRL"
+    },
+    {
+      "id": "isolamento",
+      "model": "AFArmaflex32mm e revestimentos/proteções solares",
+      "quantity": null,
+      "unit_mass_kg": null,
+      "owner": "P6",
+      "source": "history",
+      "scope": "conversao",
+      "status": "area_e_custo_pendentes",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "confidence": "baixa",
+      "dimensions_m": null,
+      "installed_price_brl": null,
+      "unit_reference_price": null,
+      "price_currency": "BRL"
+    },
+    {
+      "id": "suportes",
+      "model": "FV, portáteis recolhidos, bateria, tanques e aparelhos",
+      "quantity": null,
+      "unit_mass_kg": null,
+      "owner": "P1",
+      "source": "hyp",
+      "scope": "conversao",
+      "status": "FEA_ancoragens_pendentes",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "confidence": "baixa",
+      "dimensions_m": null,
+      "installed_price_brl": null,
+      "unit_reference_price": null,
+      "price_currency": "BRL"
+    },
+    {
+      "id": "mao_obra",
+      "model": "Fabricação/montagem/acabamento",
+      "quantity": null,
+      "unit_mass_kg": null,
+      "owner": "P1",
+      "source": "hyp",
+      "scope": "instalacao",
+      "status": "cotacao_pendente",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "confidence": "baixa",
+      "dimensions_m": null,
+      "installed_price_brl": null,
+      "unit_reference_price": null,
+      "price_currency": "BRL"
+    },
+    {
+      "id": "engenharia",
+      "model": "CAD/CFD/FEA/projeto/ensaios",
+      "quantity": null,
+      "unit_mass_kg": null,
+      "owner": "P1",
+      "source": "hyp",
+      "scope": "engenharia",
+      "status": "cotacao_pendente",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "confidence": "baixa",
+      "dimensions_m": null,
+      "installed_price_brl": null,
+      "unit_reference_price": null,
+      "price_currency": "BRL"
+    },
+    {
+      "id": "frete_tributos",
+      "model": "Transporte/importação/documentação/tributos",
+      "quantity": null,
+      "unit_mass_kg": null,
+      "owner": "P1",
+      "source": "hyp",
+      "scope": "encargos",
+      "status": "cotacao_pendente",
+      "version": "1.1.0-execucao02",
+      "reference_date": "2026-11-09",
+      "confidence": "baixa",
+      "dimensions_m": null,
+      "installed_price_brl": null,
+      "unit_reference_price": null,
+      "price_currency": "BRL"
+    },
+    {
+      "id": "SPR-MAX3-380-COM",
+      "model": "SPR-MAX3-380-COM",
+      "quantity": 2,
+      "unit_mass_kg": 19,
+      "owner": "P5",
+      "source": "maxeon3_2022",
+      "scope": "conversao",
+      "status": "provisorio_instalacao_nao_validada",
+      "unit_reference_price": null,
+      "installed_price_brl": null,
+      "price_currency": "EUR",
+      "dimensions_m": [
+        1.046,
+        1.69,
+        0.04
+      ]
+    },
+    {
+      "id": "SPR-MAX3-390-COM",
+      "model": "SPR-MAX3-390-COM",
+      "quantity": 2,
+      "unit_mass_kg": 19,
+      "owner": "P5",
+      "source": "maxeon3_2022",
+      "scope": "conversao",
+      "status": "provisorio_instalacao_nao_validada",
+      "unit_reference_price": null,
+      "installed_price_brl": null,
+      "price_currency": "EUR",
+      "dimensions_m": [
+        1.046,
+        1.69,
+        0.04
+      ]
+    },
+    {
+      "id": "mppt_teto_250",
+      "model": "SmartSolar250/60-Tr comparador teto independente",
+      "quantity": 1,
+      "unit_mass_kg": 3,
+      "owner": "P2",
+      "source": "mppt250_60",
+      "scope": "conversao",
+      "status": "provisorio_35A_conservador_nao_HV",
+      "unit_reference_price": null,
+      "installed_price_brl": null,
+      "price_currency": "USD",
+      "mass_accounted_in": "development.mass_allowances.suportes_eletricos"
+    }
+  ],
+  "development": {
+    "revision": "execucao-02",
+    "status": "provisorio_estimado_nao_validado",
+    "source": "hyp",
+    "owner": "P1-P7",
+    "date": "2026-11-09",
+    "confidence": "baixa",
+    "units": "SI salvo unidades explícitas nas chaves",
+    "cabin_cfd": {
+      "dimensions_m": [
+        4.805,
+        1.87,
+        1.932
+      ],
+      "meshes": [
+        [
+          24,
+          10,
+          10
+        ],
+        [
+          36,
+          15,
+          15
+        ],
+        [
+          48,
+          20,
+          20
+        ]
+      ],
+      "nu_m2_s": 1.7e-05,
+      "beta_1_k": 0.0031,
+      "source": "OpenFOAM hotRoom; contorno congelado fonte rede_transiente com ganho vidros difuso por área; parâmetros só hipóteses."
+    },
+    "geometry": {
+      "cargo_outer_m": [
+        3.705,
+        1.87,
+        1.932
+      ],
+      "lining_each_side_m": 0.038,
+      "floor_z_global_m": 0.68,
+      "rear_plane_from_front_axle_m": 4.48,
+      "wheel_arch_boxes": [
+        {
+          "id": "caixa_roda_esquerda",
+          "position_m": [
+            0.65,
+            0,
+            0
+          ],
+          "dimensions_m": [
+            0.85,
+            0.224,
+            0.35
+          ]
+        },
+        {
+          "id": "caixa_roda_direita",
+          "position_m": [
+            0.65,
+            1.57,
+            0
+          ],
+          "dimensions_m": [
+            0.85,
+            0.224,
+            0.35
+          ]
+        }
+      ],
+      "note": "Caixas de roda/posição do eixo dianteiro e piso estimados; largura entre caixas OEM1.422m, restante CAD equivalente."
+    },
+    "mass_assumptions": {
+      "boiler_water_allocation": "Ate15L da água limpa total são localizados no boiler cheio;restante no tanque limpo.Não adiciona água ao total inicial100L.",
+      "base_rear_fraction": [
+        0.35,
+        0.42,
+        0.5
+      ],
+      "base_cg_height_m": [
+        0.65,
+        0.78,
+        0.9
+      ],
+      "base_y_m": 0,
+      "estimated_mass_factor": [
+        0.8,
+        1,
+        1.2
+      ],
+      "water_states_l": [
+        [
+          100,
+          0,
+          0
+        ],
+        [
+          50,
+          40,
+          10
+        ],
+        [
+          10,
+          70,
+          20
+        ]
+      ],
+      "occupants_kg": [
+        80,
+        80
+      ],
+      "baggage_kg": 60,
+      "water_density_kg_l": 1
+    },
+    "materials": {
+      "plywood_density_kg_m3": 550,
+      "foam_density_kg_m3": 60,
+      "steel_density_kg_m3": 7850,
+      "polyethylene_density_kg_m3": 950,
+      "steel_E_pa": 210000000000.0,
+      "steel_yield_pa": 235000000.0,
+      "note": "Estimativas representativas, não material ensaiado; E/yield e densidades com sensibilidade."
+    },
+    "structure": {
+      "beam_length_m": 0.65,
+      "beam_outer_side_m": 0.04,
+      "beam_wall_m": 0.003,
+      "number_rails": 2,
+      "battery_payload_kg": 119.1,
+      "vertical_load_factors": [
+        1,
+        3,
+        5
+      ],
+      "elements": [
+        4,
+        8,
+        16,
+        32
+      ],
+      "anchor_count": 4,
+      "fastener_core_area_m2": 3.66e-05,
+      "fastener_shear_allowance_pa": 120000000.0,
+      "note": "5g é caso hipotético de transporte, não requisito homologação; viga1D não verifica chapa, solda, flambagem local ou apoioOEM."
+    },
+    "ventilation_study": {
+      "opening_free_area_m2": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ],
+      "vertical_separation_m": 1.2,
+      "delta_temperature_k": [
+        0,
+        2,
+        5,
+        8
+      ],
+      "discharge_coefficient": 0.6,
+      "co2_generation_l_h_person": 18,
+      "outside_co2_ppm": 420,
+      "target_co2_ppm": 1000,
+      "vapour_kg_h": [
+        0.08,
+        0.2,
+        0.6
+      ],
+      "note": "Fontes metabólicas e metaCO2 hipóteses de engenharia; não certificação sanitária."
+    },
+    "mass_allowances": [
+      {
+        "id": "suportes_eletricos",
+        "mass_kg": 18,
+        "cg_local_m": [
+          0.65,
+          1.1,
+          0.35
+        ],
+        "note": "Reserva anterior15kg+MPPT250/60 3kg para teto independente;150/60 preservado para portáteis. Diferença de suportes não demonstrada."
+      },
+      {
+        "id": "hidraulica_acessorios",
+        "mass_kg": 12,
+        "cg_local_m": [
+          1.3,
+          0.7,
+          0.25
+        ]
+      },
+      {
+        "id": "cabos_protecoes_controle",
+        "mass_kg": 15,
+        "cg_local_m": [
+          1.1,
+          0.8,
+          0.5
+        ]
+      },
+      {
+        "id": "fixacoes_solares",
+        "mass_kg": 15,
+        "cg_local_m": [
+          1.9,
+          0.9,
+          2.0
+        ]
+      },
+      {
+        "id": "boiler_dutos_e_grelhas",
+        "mass_kg": 8,
+        "cg_local_m": [
+          1.3,
+          0.3,
+          0.3
+        ]
+      },
+      {
+        "id": "janelas_protecao_solar",
+        "mass_kg": 16,
+        "cg_local_m": [
+          2.0,
+          0.9,
+          1.25
+        ]
+      },
+      {
+        "id": "consumiveis_alimentos",
+        "mass_kg": 25,
+        "cg_local_m": [
+          1.6,
+          0.8,
+          0.7
+        ]
+      }
+    ],
+    "roof_candidates": [
+      {
+        "id": "JA3_Victron190_transversal",
+        "main_count": 3,
+        "main_dimensions_m": [
+          1.134,
+          1.762,
+          0.03
+        ],
+        "main_start_m": [
+          0.1,
+          0.03,
+          2.0
+        ],
+        "gap_m": 0.03,
+        "extra_position_m": [
+          3.592,
+          0.15,
+          2.0
+        ],
+        "extra_dimensions_m": [
+          0.668,
+          1.485,
+          0.03
+        ],
+        "extra_power_wp": 190
+      },
+      {
+        "id": "JA3_Victron190_longitudinal",
+        "main_count": 3,
+        "main_dimensions_m": [
+          1.134,
+          1.762,
+          0.03
+        ],
+        "main_start_m": [
+          0.1,
+          0.03,
+          2.0
+        ],
+        "gap_m": 0.03,
+        "extra_position_m": [
+          3.592,
+          0.56,
+          2.0
+        ],
+        "extra_dimensions_m": [
+          1.485,
+          0.668,
+          0.03
+        ],
+        "extra_power_wp": 190
+      }
+    ],
+    "roof_assumed_envelope_m": [
+      4.3,
+      1.82
+    ],
+    "roof_note": "Inclui teto de cabine estimado; CADOEM da curvatura/ancoragens não disponível. Meta1540Wp mantida; caminho190W→48V continua não demonstrado.",
+    "pv_shared_study": {
+      "roof_series": 3,
+      "roof_voc_v": 39.3,
+      "roof_vmp_v": 32.82,
+      "roof_imp_a": 13.711151736745887,
+      "roof_isc_a": 14.48,
+      "portable_series": 2,
+      "portable_parallel": 2,
+      "portable_voc_v": 48,
+      "portable_vmp_v": 41,
+      "portable_imp_a": 9.8,
+      "portable_isc_a": 11,
+      "cold_c": -20,
+      "hot_c": 85,
+      "beta_voc_per_k": -0.0033,
+      "beta_vmp_per_k": -0.004,
+      "controller_voc_max_v": 150,
+      "controller_operating_max_v": 145,
+      "controller_isc_max_a": 50,
+      "controller_charge_a": 60,
+      "battery_charge_v": 53.2,
+      "shared_controller_model": "Victron SmartSolar150/60-Tr, candidato provisório para estudo compartilhado somente serviços48V",
+      "roof_low_voltage_w": 190,
+      "note": "150/60:50AIsc,60Asaída,3440Wnominais48V,145Voperação/150Vabsoluto no manual fabricante consultado. Stringsheterogêneas ainda dependemIV/proteção contra retorno/conexão segura.190WbaixoV não incluído.250/60 permanece comparador rejeitado provisoriamente por conflito35/60A.",
+      "documented_isc_values_a": [
+        35,
+        60
+      ],
+      "controller_model_rejected": "SmartSolar250/60: conflito documentalIsc35/60A; sem confirmação da revisão não liberar36.48A."
+    },
+    "layout_equipment": {
+      "A_fixa": [
+        {
+          "id": "geladeira_AC",
+          "position_m": [
+            3.1,
+            0.02,
+            0.02
+          ],
+          "dimensions_m": [
+            0.45,
+            0.472,
+            0.86
+          ],
+          "mass_kg": 20.8,
+          "kind": "equipamento",
+          "estimated": false
+        },
+        {
+          "id": "cassete",
+          "position_m": [
+            2.1,
+            1.234,
+            0.04
+          ],
+          "dimensions_m": [
+            0.427,
+            0.383,
+            0.414
+          ],
+          "mass_kg": 4,
+          "kind": "equipamento",
+          "estimated": false
+        },
+        {
+          "id": "cooktop_armazenado",
+          "position_m": [
+            2.72,
+            0.08,
+            0.72
+          ],
+          "dimensions_m": [
+            0.358,
+            0.28,
+            0.062
+          ],
+          "mass_kg": 2.3,
+          "kind": "equipamento",
+          "estimated": false
+        },
+        {
+          "id": "boiler",
+          "position_m": [
+            0.6,
+            0.65,
+            0.4
+          ],
+          "dimensions_m": [
+            0.4,
+            0.4,
+            0.4
+          ],
+          "mass_kg": 7,
+          "kind": "equipamento",
+          "estimated": true
+        },
+        {
+          "id": "bomba",
+          "position_m": [
+            1.2,
+            1.32,
+            0.38
+          ],
+          "dimensions_m": [
+            0.2,
+            0.12,
+            0.12
+          ],
+          "mass_kg": 2.3,
+          "kind": "equipamento",
+          "estimated": true
+        },
+        {
+          "id": "inversor",
+          "position_m": [
+            0.61,
+            1.4,
+            0.28
+          ],
+          "dimensions_m": [
+            0.323,
+            0.148,
+            0.565
+          ],
+          "mass_kg": 31,
+          "kind": "equipamento",
+          "estimated": true
+        },
+        {
+          "id": "tanque_limpa",
+          "position_m": [
+            0.05,
+            0.65,
+            0.03
+          ],
+          "dimensions_m": [
+            0.8,
+            0.5,
+            0.25
+          ],
+          "mass_kg": 4.2,
+          "kind": "equipamento",
+          "estimated": true
+        },
+        {
+          "id": "tanque_cinza",
+          "position_m": [
+            0.3,
+            0.8,
+            -0.3
+          ],
+          "dimensions_m": [
+            0.7,
+            0.5,
+            0.2
+          ],
+          "mass_kg": 3.8,
+          "kind": "equipamento",
+          "estimated": true
+        },
+        {
+          "id": "portatil_bolsa_1",
+          "position_m": [
+            0.05,
+            0.27,
+            0.04
+          ],
+          "dimensions_m": [
+            1.1,
+            0.065,
+            0.65
+          ],
+          "mass_kg": 21,
+          "kind": "equipamento",
+          "estimated": true
+        },
+        {
+          "id": "portatil_bolsa_2",
+          "position_m": [
+            0.05,
+            0.34,
+            0.04
+          ],
+          "dimensions_m": [
+            1.1,
+            0.065,
+            0.65
+          ],
+          "mass_kg": 21,
+          "kind": "equipamento",
+          "estimated": true
+        },
+        {
+          "id": "portatil_bolsa_3",
+          "position_m": [
+            0.05,
+            0.41000000000000003,
+            0.04
+          ],
+          "dimensions_m": [
+            1.1,
+            0.065,
+            0.65
+          ],
+          "mass_kg": 21,
+          "kind": "equipamento",
+          "estimated": true
+        },
+        {
+          "id": "portatil_bolsa_4",
+          "position_m": [
+            0.05,
+            0.48000000000000004,
+            0.04
+          ],
+          "dimensions_m": [
+            1.1,
+            0.065,
+            0.65
+          ],
+          "mass_kg": 21,
+          "kind": "equipamento",
+          "estimated": true
+        },
+        {
+          "id": "US5000_1",
+          "position_m": [
+            0.06,
+            1.33,
+            0.04
+          ],
+          "dimensions_m": [
+            0.442,
+            0.42,
+            0.161
+          ],
+          "mass_kg": 39.7,
+          "kind": "equipamento",
+          "estimated": false
+        },
+        {
+          "id": "US5000_2",
+          "position_m": [
+            0.06,
+            1.33,
+            0.21100000000000002
+          ],
+          "dimensions_m": [
+            0.442,
+            0.42,
+            0.161
+          ],
+          "mass_kg": 39.7,
+          "kind": "equipamento",
+          "estimated": false
+        },
+        {
+          "id": "US5000_3",
+          "position_m": [
+            0.06,
+            1.33,
+            0.382
+          ],
+          "dimensions_m": [
+            0.442,
+            0.42,
+            0.161
+          ],
+          "mass_kg": 39.7,
+          "kind": "equipamento",
+          "estimated": false
+        },
+        {
+          "id": "lava_seca",
+          "position_m": [
+            1.32,
+            0.45,
+            0.02
+          ],
+          "dimensions_m": [
+            0.62,
+            0.6,
+            0.85
+          ],
+          "mass_kg": 73,
+          "kind": "equipamento",
+          "estimated": false
+        },
+        {
+          "id": "hvac",
+          "position_m": [
+            0.9,
+            0.65,
+            0.03
+          ],
+          "dimensions_m": [
+            0.4,
+            0.628,
+            0.286
+          ],
+          "mass_kg": 21,
+          "kind": "equipamento",
+          "estimated": false
+        },
+        {
+          "id": "cama_colchao",
+          "position_m": [
+            0.02,
+            0.02,
+            1.01
+          ],
+          "dimensions_m": [
+            1.95,
+            1.35,
+            0.12
+          ],
+          "mass_kg": 12,
+          "kind": "equipamento",
+          "estimated": true
+        }
+      ],
+      "B_conversivel_noite": [
+        {
+          "id": "geladeira_AC",
+          "position_m": [
+            3.1,
+            0.02,
+            0.02
+          ],
+          "dimensions_m": [
+            0.45,
+            0.472,
+            0.86
+          ],
+          "mass_kg": 20.8,
+          "kind": "equipamento",
+          "estimated": false
+        },
+        {
+          "id": "cassete",
+          "position_m": [
+            2.1,
+            1.234,
+            0.04
+          ],
+          "dimensions_m": [
+            0.427,
+            0.383,
+            0.414
+          ],
+          "mass_kg": 4,
+          "kind": "equipamento",
+          "estimated": false
+        },
+        {
+          "id": "cooktop_armazenado",
+          "position_m": [
+            2.72,
+            0.08,
+            0.72
+          ],
+          "dimensions_m": [
+            0.358,
+            0.28,
+            0.062
+          ],
+          "mass_kg": 2.3,
+          "kind": "equipamento",
+          "estimated": false
+        },
+        {
+          "id": "boiler",
+          "position_m": [
+            1.35,
+            0.65,
+            0.03
+          ],
+          "dimensions_m": [
+            0.4,
+            0.4,
+            0.4
+          ],
+          "mass_kg": 7,
+          "kind": "equipamento",
+          "estimated": true
+        },
+        {
+          "id": "bomba",
+          "position_m": [
+            1.2,
+            1.32,
+            0.38
+          ],
+          "dimensions_m": [
+            0.2,
+            0.12,
+            0.12
+          ],
+          "mass_kg": 2.3,
+          "kind": "equipamento",
+          "estimated": true
+        },
+        {
+          "id": "inversor",
+          "position_m": [
+            0.61,
+            1.2,
+            0.38
+          ],
+          "dimensions_m": [
+            0.565,
+            0.323,
+            0.148
+          ],
+          "mass_kg": 31,
+          "kind": "equipamento",
+          "estimated": true
+        },
+        {
+          "id": "tanque_limpa",
+          "position_m": [
+            0.05,
+            0.65,
+            0.03
+          ],
+          "dimensions_m": [
+            0.8,
+            0.5,
+            0.25
+          ],
+          "mass_kg": 4.2,
+          "kind": "equipamento",
+          "estimated": true
+        },
+        {
+          "id": "tanque_cinza",
+          "position_m": [
+            0.3,
+            0.8,
+            -0.3
+          ],
+          "dimensions_m": [
+            0.7,
+            0.5,
+            0.2
+          ],
+          "mass_kg": 3.8,
+          "kind": "equipamento",
+          "estimated": true
+        },
+        {
+          "id": "portatil_bolsa_1",
+          "position_m": [
+            0.05,
+            0.27,
+            1.12
+          ],
+          "dimensions_m": [
+            1.1,
+            0.065,
+            0.65
+          ],
+          "mass_kg": 21,
+          "kind": "equipamento",
+          "estimated": true
+        },
+        {
+          "id": "portatil_bolsa_2",
+          "position_m": [
+            0.05,
+            0.34,
+            1.12
+          ],
+          "dimensions_m": [
+            1.1,
+            0.065,
+            0.65
+          ],
+          "mass_kg": 21,
+          "kind": "equipamento",
+          "estimated": true
+        },
+        {
+          "id": "portatil_bolsa_3",
+          "position_m": [
+            0.05,
+            0.41000000000000003,
+            1.12
+          ],
+          "dimensions_m": [
+            1.1,
+            0.065,
+            0.65
+          ],
+          "mass_kg": 21,
+          "kind": "equipamento",
+          "estimated": true
+        },
+        {
+          "id": "portatil_bolsa_4",
+          "position_m": [
+            0.05,
+            0.48000000000000004,
+            1.12
+          ],
+          "dimensions_m": [
+            1.1,
+            0.065,
+            0.65
+          ],
+          "mass_kg": 21,
+          "kind": "equipamento",
+          "estimated": true
+        },
+        {
+          "id": "US5000_1",
+          "position_m": [
+            0.06,
+            1.33,
+            0.04
+          ],
+          "dimensions_m": [
+            0.442,
+            0.42,
+            0.161
+          ],
+          "mass_kg": 39.7,
+          "kind": "equipamento",
+          "estimated": false
+        },
+        {
+          "id": "US5000_2",
+          "position_m": [
+            0.06,
+            1.33,
+            0.21100000000000002
+          ],
+          "dimensions_m": [
+            0.442,
+            0.42,
+            0.161
+          ],
+          "mass_kg": 39.7,
+          "kind": "equipamento",
+          "estimated": false
+        },
+        {
+          "id": "US5000_3",
+          "position_m": [
+            0.06,
+            1.33,
+            0.382
+          ],
+          "dimensions_m": [
+            0.442,
+            0.42,
+            0.161
+          ],
+          "mass_kg": 39.7,
+          "kind": "equipamento",
+          "estimated": false
+        },
+        {
+          "id": "lava_seca",
+          "position_m": [
+            2.02,
+            0.0,
+            0.02
+          ],
+          "dimensions_m": [
+            0.62,
+            0.6,
+            0.85
+          ],
+          "mass_kg": 73,
+          "kind": "equipamento",
+          "estimated": false
+        },
+        {
+          "id": "hvac",
+          "position_m": [
+            0.9,
+            0.65,
+            0.03
+          ],
+          "dimensions_m": [
+            0.4,
+            0.628,
+            0.286
+          ],
+          "mass_kg": 21,
+          "kind": "equipamento",
+          "estimated": false
+        },
+        {
+          "id": "cama_conversivel_colchao",
+          "position_m": [
+            0.02,
+            0.02,
+            0.6
+          ],
+          "dimensions_m": [
+            1.95,
+            1.35,
+            0.1
+          ],
+          "mass_kg": 12,
+          "kind": "equipamento",
+          "estimated": true
+        }
+      ]
+    },
+    "layout_equipment_note": "Posições e envelopes autoraisprovisórios; massas comerciais rastreadas noBOM; estimatedfalse da massa não valida envelope/posição.",
+    "performance_envelope": {
+      "gear_ratio": [
+        8,
+        10,
+        12
+      ],
+      "wheel_radius_m": 0.37211,
+      "gear_efficiency": [
+        0.95,
+        0.97,
+        0.99
+      ],
+      "tyre_friction_mu": [
+        0.6,
+        0.8
+      ],
+      "peak_motor_w": 205000,
+      "peak_torque_nm": 410,
+      "speed_limit_kmh": 90,
+      "max_time_s": 120,
+      "note": "Envelope torque constante/potencia constante é hipótese de cálculo; relação e raio não dados homologados da variante; não curvaOEM."
+    },
+    "thermal_sweep": {
+      "mass_kg": [
+        500,
+        650,
+        800
+      ],
+      "battery_coolant_ua_w_k": [
+        125,
+        250,
+        500
+      ],
+      "cooler_ambient_ua_w_k": [
+        250,
+        500,
+        1000
+      ],
+      "powers_w": [
+        20000,
+        80000
+      ],
+      "note": "Sensibilidades estimadas; massa pack apenas no modelo térmico, nunca adicionada à tara."
+    },
+    "mission_grid": {
+      "start_hours": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20
+      ],
+      "driving_window_hours": [
+        2,
+        4,
+        8
+      ],
+      "speed_kmh": [
+        10,
+        20,
+        30,
+        40,
+        60,
+        80,
+        90
+      ],
+      "reserves": [
+        [
+          0.1,
+          0.2
+        ],
+        [
+          0.2,
+          0.3
+        ]
+      ],
+      "max_days": 1500,
+      "mode": "direta_hipotese",
+      "hypothetical_min_dc_kw": 1,
+      "note": "Busca exaustiva na grade especificada, não ótimo global contínuo e sem interfaceDC demonstrada. Potência fixaOEM estimada em movimento,0/300/700/1500W; não confundir com serviços.",
+      "auxiliary_sweep_w": [
+        0,
+        300,
+        700,
+        1500
+      ]
+    },
+    "daily_dispatch": {
+      "version": "1.0.0-despacho-I25",
+      "reference_date": "2026-11-10",
+      "source": "hyp",
+      "owner": "P5",
+      "status": "estimado",
+      "confidence": "baixa",
+      "step_minutes": [
+        30,
+        15,
+        5
+      ],
+      "departure_start_h": 6,
+      "departure_end_h": 23,
+      "departure_step_h": 0.5,
+      "hypothetical_dc_min_input_kw": [
+        0,
+        1,
+        3
+      ],
+      "portable_tilt_deg": [
+        0,
+        15,
+        30,
+        45,
+        60,
+        75
+      ],
+      "portable_azimuth_deg": [
+        0,
+        90,
+        180,
+        270
+      ],
+      "service_capacity_kwh": 14.4,
+      "service_initial_fraction": 0.5,
+      "traction_initial_soc_baseline": 0.3,
+      "note": "I25 crédito solar inicial zero sobre SOCbase30%; sem consumo de energia inicial. Uma parada00h até partida, depois condução até24h, sem limite8h transferido deI29. Serviços cíclicos em cenário complementar; cenário tração isolada separado. Mínimos na entrada FV e rendimentos hipotéticos; sem buffer extra/interface demonstrada."
+    },
+    "water_chronology": {
+      "version": "1.0.0-cronologia-hidrica",
+      "reference_date": "2026-11-10",
+      "source": "hyp",
+      "owner": "P6",
+      "status": "estimado",
+      "confidence": "baixa",
+      "daily_base_l": 60,
+      "base_batches": 3,
+      "black_fraction": 0.1,
+      "laundry_every_days": 7,
+      "laundry_water_l": 68.8,
+      "note": "Mesmos consumos de estudo anteriores;15min por tomada de água e15min logística. Não são duração comprovada de ciclo nem disponibilidade geográfica de postos."
+    },
+    "electrical_detail": {
+      "version": "1.0.0-protecao-servicos",
+      "reference_date": "2026-11-10",
+      "owner": "P2",
+      "source": "hyp",
+      "status": "provisorio_nao_validado",
+      "confidence": "baixa",
+      "battery_voltage_sweep_v": [
+        43.5,
+        48,
+        53.5
+      ],
+      "copper_temperature_c": [
+        20,
+        40,
+        90
+      ],
+      "sections_mm2": [
+        70,
+        95,
+        120
+      ],
+      "loop_lengths_m": [
+        0.4,
+        4,
+        10
+      ],
+      "powers_ac_w": [
+        500,
+        2000,
+        3700,
+        4000
+      ],
+      "module_fault_resistance_ohm": [
+        0.001,
+        0.005,
+        0.02,
+        0.05
+      ],
+      "copper_density_kg_m3": 8960,
+      "copper_cp_j_kgk": 385,
+      "fuse_main": {
+        "model": "Littelfuse JLLN200",
+        "current_a": 200,
+        "dc_voltage_v": 125,
+        "dc_breaking_a": 20000,
+        "source": "littelfuse_jlln"
+      },
+      "fuse_mppt": {
+        "model": "Littelfuse JLLN080",
+        "current_a": 80,
+        "dc_voltage_v": 125,
+        "dc_breaking_a": 20000,
+        "source": "littelfuse_jlln"
+      },
+      "main_fuse_requirement_a": 200,
+      "mppt_fuse_range_a": [
+        70,
+        80
+      ],
+      "sources": [
+        "multi_install",
+        "mppt_install",
+        "pylon_victron",
+        "littelfuse_jlln"
+      ],
+      "soc_thresholds": null,
+      "hardware_control_demonstrated": false,
+      "recovery_hold_s_test": 30,
+      "load_scenarios": [
+        {
+          "id": "geladeira",
+          "priority": 0,
+          "w": 160.6,
+          "va": 160.6,
+          "large": false,
+          "shed_at_stage": 3,
+          "status": "estimativa_unidade_pf1_nao_partida_medida"
+        },
+        {
+          "id": "tomadas",
+          "priority": 1,
+          "w": 300,
+          "va": 375,
+          "large": false,
+          "shed_at_stage": 2,
+          "status": "hipotese"
+        },
+        {
+          "id": "cooktop",
+          "priority": 2,
+          "w": 2000,
+          "va": 2000,
+          "large": true,
+          "shed_at_stage": 1,
+          "status": "nominal_resistiva_equivalente_nao_transitorio"
+        },
+        {
+          "id": "boiler",
+          "priority": 3,
+          "w": 500,
+          "va": 500,
+          "large": true,
+          "shed_at_stage": 1,
+          "status": "nominal_candidato"
+        },
+        {
+          "id": "hvac",
+          "priority": 4,
+          "w": 1364,
+          "va": 1364,
+          "large": true,
+          "shed_at_stage": 1,
+          "status": "teto_estudo_220Vx6.2A_pf1_manual2018_nao_partida"
+        },
+        {
+          "id": "lavagem",
+          "priority": 5,
+          "w": null,
+          "va": null,
+          "large": true,
+          "shed_at_stage": 1,
+          "status": "pico_desconhecido_recusar_comando"
+        }
+      ],
+      "note": "Triagem independente de ampacidade normativa e coordenação tempo-corrente. Resistência interna não inclui intervenção BMS e não é dadoPylontech. PatamaresSOC operacionais continuamnull; estágios são entradas abstratas para ensaios lógicos. Recuperação30s é ensaio de lógica, não ajuste certificado de equipamentos."
+    },
+    "mounting_detail": {
+      "version": "1.0.0-grupo-fixacoes",
+      "reference_date": "2026-11-10",
+      "source": "hyp",
+      "owner": "P1",
+      "status": "estimado",
+      "confidence": "baixa",
+      "gravity_m_s2": 9.80665,
+      "accelerations_g": [
+        1,
+        3,
+        5
+      ],
+      "bolt_group_xy_m": [
+        [
+          -0.08,
+          -0.05
+        ],
+        [
+          0.08,
+          -0.05
+        ],
+        [
+          0.08,
+          0.05
+        ],
+        [
+          -0.08,
+          0.05
+        ]
+      ],
+      "in_plane_eccentricity_m": [
+        0,
+        0.1,
+        0.25
+      ],
+      "plate_thickness_m": [
+        0.002,
+        0.003,
+        0.004
+      ],
+      "bolt_diameter_m": 0.008,
+      "conservative_thread_area_m2": 3.66e-05,
+      "assumed_bolt_yield_pa": 640000000,
+      "assumed_plate_yield_pa": 235000000,
+      "safety_factor": 2,
+      "note": "Grupo elástico em chapa rígida; propriedades hipotéticas equivalentes a parafuso8.8, sem atribuir fabricante/ensaio. Sem pre-carga/atrito/prying/fadiga/arrancamentoOEM. 1/3/5g são sensibilidades, não requisitos homologatórios. Não autoriza perfuração da van."
+    },
+    "roof_maxeon_comparison": {
+      "version": "1.0.0-alternativa1540",
+      "reference_date": "2026-11-10",
+      "source": "maxeon3_2022",
+      "owner": "P2-P3-P5",
+      "status": "provisorio_estudo_comparativo_nao_baseline",
+      "confidence": "media_dados_baixa_instalacao",
+      "module_dimensions_m": [
+        1.046,
+        1.69,
+        0.04
+      ],
+      "module_mass_kg": 19,
+      "gap_m": 0.02,
+      "end_margin_m": 0.025,
+      "beta_voc_per_k": -0.00236,
+      "alpha_isc_per_k": 0.00058,
+      "gamma_power_per_k": -0.0027,
+      "beta_vmp_assumed_per_k": -0.004,
+      "voc_isc_positive_tolerance": 0.03,
+      "models": [
+        {
+          "id": "SPR-MAX3-380-COM",
+          "power_wp": 380,
+          "vmp_v": 63.1,
+          "imp_a": 6.02,
+          "voc_v": 75.2,
+          "isc_a": 6.54
+        },
+        {
+          "id": "SPR-MAX3-390-COM",
+          "power_wp": 390,
+          "vmp_v": 64.5,
+          "imp_a": 6.05,
+          "voc_v": 75.3,
+          "isc_a": 6.55
+        }
+      ],
+      "module_order": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "controller_reference": "SmartSolar250/60 comparador com35AIsc conservador",
+      "controller_voltage_absolute_v": 250,
+      "controller_isc_conservative_a": 35,
+      "note": "CoeficientesVoc/Isc/P e tolerâncias3% de ficha;betaVmp é hipótese de sensibilidade. Duas strings mistas iguais2S2P;nenhumconversor190W necessário. Envelope4.30x1.82m inclui cabine estimada;folga não comprova curvatura/ancoragem. Estudo compartilhado continua obrigatório,sem ligar bancos. Não muda massa/energia-base até integração."
+    },
+    "mounting_redesign": {
+      "version": "1.0.0-interface-espacial",
+      "reference_date": "2026-11-10",
+      "owner": "P1-P3",
+      "source": "hyp",
+      "status": "estimado_comparacao_nao_instalado",
+      "confidence": "baixa",
+      "group_spans_xy_m": [
+        [
+          0.16,
+          0.1
+        ],
+        [
+          0.24,
+          0.16
+        ],
+        [
+          0.32,
+          0.2
+        ]
+      ],
+      "thickness_candidates_m": [
+        0.004,
+        0.006,
+        0.008,
+        0.01,
+        0.012,
+        0.016,
+        0.02
+      ],
+      "cg_height_above_mount_m": [
+        0.15,
+        0.35,
+        0.6
+      ],
+      "cg_standoff_factors": [
+        1.0,
+        1.25,
+        1.5
+      ],
+      "component_local_frames": {
+        "inversor": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ]
+      },
+      "active_standoff_rule": "Metade da dimensão normal da caixaCAD vezes fator;inversor em plano vertical,demais apoios horizontais de estudo. FuraçãoOEM desconhecida.",
+      "in_plane_offset_m": [
+        0.0,
+        0.1,
+        0.25
+      ],
+      "vertical_accelerations_g": [
+        -1,
+        1
+      ],
+      "edge_distance_m": 0.02,
+      "hole_diameter_m": 0.009,
+      "tributary_strip_width_m": 0.04,
+      "local_flange_lever_m": 0.015,
+      "steel_density_kg_m3": 7850,
+      "solid_verification": {
+        "components": [
+          "inversor",
+          "tanque_limpa"
+        ],
+        "mesh_sizes_m": [
+          0.004,
+          0.0025,
+          0.0015,
+          0.001
+        ],
+        "extra_mesh_sizes_m": {
+          "inversor": [
+            0.00075,
+            0.0005
+          ],
+          "tanque_limpa": [
+            0.00075
+          ]
+        },
+        "displacement_relative_change_criterion": 0.02,
+        "young_pa": 210000000000,
+        "poisson": 0.3
+      },
+      "note": "Comparação de submontagens, não ancoragemOEM. AlturaCG e aceleração vertical são hipóteses de sensibilidade, não cotas de instalação ou requisitos homologatórios. Apoios elásticos iguais com reação compressiva, sem contato não linear/prying/fadiga. Massa de chapa separada, não acrescentada automaticamente à conversão; suporte antigo tem massa agregada sem geometria que permita calcular substituição líquida."
+    },
+    "equipped_aero_verification": {
+      "version": "1.0.0-aero-cobertura-equivalente",
+      "reference_date": "2026-11-10",
+      "owner": "P3",
+      "source": "hyp",
+      "status": "geometria_equivalente_nao_validada",
+      "confidence": "baixa",
+      "source_cases": [
+        "cfd-aurora-piloto-03",
+        "cfd-aurora-refino-semcamadas-01",
+        "cfd-aurora-refino-semcamadas-02"
+      ],
+      "panel_gap_above_body_m": 0.04,
+      "max_iterations": 1200,
+      "mesh_timeout_s": 240,
+      "solver_timeout_s": 240,
+      "note": "Nova geometria de cobertura equivalente contínua,sem repetir extrusão fina divergente;gaps entre módulos e suportes omitidos.Não implica teto/ancoragensOEM."
+    },
+    "aero_layer_retry": {
+      "version": "1.0.0-camadas-aero",
+      "reference_date": "2026-11-10",
+      "owner": "P3",
+      "source": "hyp",
+      "status": "ensaio_numerico_nao_validado",
+      "confidence": "baixa",
+      "source_cases": [
+        "cfd-aurora-piloto-03",
+        "cfd-aurora-refino-semcamadas-01",
+        "cfd-aurora-refino-semcamadas-02"
+      ],
+      "expansion_ratio": 1.2,
+      "final_layer_m": 0.002,
+      "min_layer_m": 0.0002,
+      "max_iterations": 600,
+      "mesh_timeout_s": 180,
+      "solver_timeout_s": 300,
+      "note": "Retrial somente camadas a partir malhas existentes; mesma geometria piloto sem equipamentos. Limites de tempo/recursos não são critérios de convergência física. Não promoveCd."
+    },
+    "installation_routes": {
+      "version": "1.0.0-rotas-layoutA",
+      "reference_date": "2026-11-10",
+      "owner": "P2-P3-P6",
+      "source": "hyp",
+      "status": "estimado",
+      "confidence": "baixa",
+      "inverter_clearance_m": 0.1,
+      "cable_radius_m": 0.007,
+      "pipe_radius_m": 0.0065,
+      "service_cable_points_m": [
+        [
+          0.512,
+          1.65,
+          0.5
+        ],
+        [
+          0.56,
+          1.7,
+          0.5
+        ],
+        [
+          0.56,
+          1.7,
+          0.26
+        ],
+        [
+          0.774,
+          1.7,
+          0.26
+        ],
+        [
+          0.774,
+          1.5,
+          0.26
+        ],
+        [
+          0.774,
+          1.5,
+          0.28
+        ]
+      ],
+      "cable_return_offset_m": [
+        0.025,
+        0,
+        0
+      ],
+      "slack_fraction": 0.2,
+      "potable_routes": [
+        {
+          "id": "tanque_bomba",
+          "points_m": [
+            [
+              0.86,
+              0.9,
+              0.155
+            ],
+            [
+              0.88,
+              1.15,
+              0.35
+            ],
+            [
+              1.2,
+              1.15,
+              0.35
+            ],
+            [
+              1.2,
+              1.38,
+              0.35
+            ],
+            [
+              1.2,
+              1.38,
+              0.44
+            ]
+          ]
+        },
+        {
+          "id": "bomba_boiler",
+          "points_m": [
+            [
+              1.2,
+              1.38,
+              0.35
+            ],
+            [
+              1.2,
+              1.15,
+              0.35
+            ],
+            [
+              0.8,
+              1.15,
+              0.35
+            ],
+            [
+              0.8,
+              0.85,
+              0.35
+            ],
+            [
+              0.8,
+              0.85,
+              0.4
+            ]
+          ]
+        },
+        {
+          "id": "principal_pia",
+          "points_m": [
+            [
+              1.2,
+              1.15,
+              0.35
+            ],
+            [
+              3.0,
+              1.15,
+              0.35
+            ],
+            [
+              3.0,
+              1.15,
+              0.95
+            ],
+            [
+              3.0,
+              0.3,
+              0.95
+            ]
+          ]
+        }
+      ],
+      "note": "Rotas de reserva autorais;terminais,conexões,drenos,raios de curvatura e passagens reais não validados. Envelope inversor vertical=.328x.148x.565m;folga100mm é reserva de projeto, não homologação. Tubos fora da região dos cabos48V;trajeto não equivale a instalação física conforme."
+    },
+    "hvac_revision_study": {
+      "version": "1.0.0-FW3000-rev2018",
+      "reference_date": "2026-11-10",
+      "owner": "P6-P2",
+      "source": "freshwell_manual_2018",
+      "status": "condicionado_placa_revisao_nao_confirmada",
+      "confidence": "media",
+      "nameplate_cooling_w": 2700,
+      "input_range_v": [
+        220,
+        240
+      ],
+      "input_hz": [
+        50,
+        60
+      ],
+      "nominal_cooling_a_at_50_60hz": [
+        5.1,
+        6.2
+      ],
+      "fuse_in_manual_a": 5,
+      "capacity_fraction_sweep": [
+        0.7,
+        0.85,
+        1
+      ],
+      "solar_gain_factor_sweep": [
+        0.8,
+        1,
+        1.3,
+        1.6
+      ],
+      "envelope_conduction_factor_sweep": [
+        0.8,
+        1,
+        1.3
+      ],
+      "electrical_pf_sweep": [
+        0.7,
+        0.85,
+        1
+      ],
+      "starting_current_multiplier_sweep": [
+        1,
+        2,
+        4,
+        6
+      ],
+      "document_conflict": "5Afusívelmanualversus6.2Anominal60Hz;verificarrevisão/curva,sem escolher5A automaticamente.",
+      "note": "MaiorcapacidadeWebasto3.5kW50Hzteto járejeitada. UB11/15Coleman115Vpublicados comoalternativas,sócomadaptação/layoutsujeitosvalidação,não selecionados."
+    },
+    "integrated_scenarios": {
+      "maxeon1540_independente": {
+        "version": "1.0.0-maxeon1540-integrado",
+        "reference_date": "2026-11-10",
+        "source": "maxeon3_2022",
+        "status": "comparador_condicional_nao_instalado",
+        "owner": "P1-P2-P3-P4-P5",
+        "output_directory": "entregas/integrado_maxeon1540",
+        "note": "Referência com rastreadores independentes para comparaçãoDEC054;250/60 teto+150/60 portáteis. InterfaceDCtração e alocaçãoFV hipotéticas;nenhuma ligação entre bancos. SharedMPPT continua comparado,não aprovado.",
+        "parameter_sources": {
+          "assembled_typical_mass_kg": "hyp",
+          "roof_arrangement_provisional": "hyp"
+        },
+        "parameter_values": {
+          "roof_power_48v_study_wp": 1540,
+          "pv_gamma": -0.0027,
+          "assembled_typical_mass_kg": 3976.52552776,
+          "roof_arrangement_provisional": "2Maxeon380+2Maxeon390_2S2P_comparador_independente"
+        },
+        "allowance_overrides": {
+          "suportes_eletricos": {
+            "mass_kg": 18,
+            "note": "Reserva anterior15kg+MPPT250/60 3kg para teto independente;150/60 preservado para portáteis. Diferença de suportes não demonstrada."
+          }
+        },
+        "roof_inventory": [
+          {
+            "id": "MAXEON_1",
+            "model": "SPR-MAX3-380-COM",
+            "mass_kg": 19,
+            "position_m": [
+              0.025,
+              0.065,
+              2.0
+            ],
+            "dimensions_m": [
+              1.046,
+              1.69,
+              0.04
+            ],
+            "source": "maxeon3_2022"
+          },
+          {
+            "id": "MAXEON_2",
+            "model": "SPR-MAX3-390-COM",
+            "mass_kg": 19,
+            "position_m": [
+              1.091,
+              0.065,
+              2.0
+            ],
+            "dimensions_m": [
+              1.046,
+              1.69,
+              0.04
+            ],
+            "source": "maxeon3_2022"
+          },
+          {
+            "id": "MAXEON_3",
+            "model": "SPR-MAX3-380-COM",
+            "mass_kg": 19,
+            "position_m": [
+              2.157,
+              0.065,
+              2.0
+            ],
+            "dimensions_m": [
+              1.046,
+              1.69,
+              0.04
+            ],
+            "source": "maxeon3_2022"
+          },
+          {
+            "id": "MAXEON_4",
+            "model": "SPR-MAX3-390-COM",
+            "mass_kg": 19,
+            "position_m": [
+              3.2230000000000003,
+              0.065,
+              2.0
+            ],
+            "dimensions_m": [
+              1.046,
+              1.69,
+              0.04
+            ],
+            "source": "maxeon3_2022"
+          }
+        ],
+        "bom_remove_ids": [
+          "pv_teto",
+          "pv_cabine"
+        ],
+        "bom_add": [
+          {
+            "id": "SPR-MAX3-380-COM",
+            "model": "SPR-MAX3-380-COM",
+            "quantity": 2,
+            "unit_mass_kg": 19,
+            "owner": "P5",
+            "source": "maxeon3_2022",
+            "scope": "conversao",
+            "status": "provisorio_instalacao_nao_validada",
+            "unit_reference_price": null,
+            "installed_price_brl": null,
+            "price_currency": "EUR",
+            "dimensions_m": [
+              1.046,
+              1.69,
+              0.04
+            ]
+          },
+          {
+            "id": "SPR-MAX3-390-COM",
+            "model": "SPR-MAX3-390-COM",
+            "quantity": 2,
+            "unit_mass_kg": 19,
+            "owner": "P5",
+            "source": "maxeon3_2022",
+            "scope": "conversao",
+            "status": "provisorio_instalacao_nao_validada",
+            "unit_reference_price": null,
+            "installed_price_brl": null,
+            "price_currency": "EUR",
+            "dimensions_m": [
+              1.046,
+              1.69,
+              0.04
+            ]
+          },
+          {
+            "id": "mppt_teto_250",
+            "model": "SmartSolar250/60-Tr comparador teto independente",
+            "quantity": 1,
+            "unit_mass_kg": 3,
+            "owner": "P2",
+            "source": "mppt250_60",
+            "scope": "conversao",
+            "status": "provisorio_35A_conservador_nao_HV",
+            "unit_reference_price": null,
+            "installed_price_brl": null,
+            "price_currency": "USD",
+            "mass_accounted_in": "development.mass_allowances.suportes_eletricos"
+          }
+        ]
+      }
+    },
+    "selected_roof_inventory": [
+      {
+        "id": "MAXEON_1",
+        "model": "SPR-MAX3-380-COM",
+        "mass_kg": 19,
+        "position_m": [
+          0.025,
+          0.065,
+          2.0
+        ],
+        "dimensions_m": [
+          1.046,
+          1.69,
+          0.04
+        ],
+        "source": "maxeon3_2022"
+      },
+      {
+        "id": "MAXEON_2",
+        "model": "SPR-MAX3-390-COM",
+        "mass_kg": 19,
+        "position_m": [
+          1.091,
+          0.065,
+          2.0
+        ],
+        "dimensions_m": [
+          1.046,
+          1.69,
+          0.04
+        ],
+        "source": "maxeon3_2022"
+      },
+      {
+        "id": "MAXEON_3",
+        "model": "SPR-MAX3-380-COM",
+        "mass_kg": 19,
+        "position_m": [
+          2.157,
+          0.065,
+          2.0
+        ],
+        "dimensions_m": [
+          1.046,
+          1.69,
+          0.04
+        ],
+        "source": "maxeon3_2022"
+      },
+      {
+        "id": "MAXEON_4",
+        "model": "SPR-MAX3-390-COM",
+        "mass_kg": 19,
+        "position_m": [
+          3.2230000000000003,
+          0.065,
+          2.0
+        ],
+        "dimensions_m": [
+          1.046,
+          1.69,
+          0.04
+        ],
+        "source": "maxeon3_2022"
+      }
+    ]
+  },
+  "_execution": {
+    "scenario": "maxeon1540_independente",
+    "source_sha256": "7c61247544453555dd7524539484575ab813155f22a99f2ca80f056f7a8b8848",
+    "output_directory": "entregas/integrado_maxeon1540",
+    "physical_validation": false,
+    "note": "Referência com rastreadores independentes para comparaçãoDEC054;250/60 teto+150/60 portáteis. InterfaceDCtração e alocaçãoFV hipotéticas;nenhuma ligação entre bancos. SharedMPPT continua comparado,não aprovado.",
+    "resolved_sha256": "bd7ae3ab6407f88a30e5e51ecab5d302a92233a36432329884a47c36a1b83952"
+  }
+}

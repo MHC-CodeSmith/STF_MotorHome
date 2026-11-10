@@ -1,0 +1,10 @@
+{
+  "events": 8004,
+  "scenarios": 8,
+  "max_water_residual_l": 9.094947017729282e-13,
+  "refuelling_events": 2127,
+  "all_events_in_stationary_windows": true,
+  "geographical_availability_proven": false,
+  "energy_recomputed": false,
+  "note": "Tomadas de água/logística15min, sequenciais, somente estacionado e fora montagem/recolhimento FV. Base do último dia proporcional à duração. Ciclo/horários de eletrodomésticos não substituem energia média DEC046; postos reais e tempos não comprovados."
+}

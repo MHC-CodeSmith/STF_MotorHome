@@ -1,0 +1,12 @@
+{
+  "cases": 3,
+  "element_order": 2,
+  "gauss_points": 4,
+  "last_relative_displacement_change": 0.005504318504066254,
+  "displacement_refinement_criterion_met": true,
+  "max_force_residual_n": 1.9258550310041755e-10,
+  "max_moment_residual_nm": 3.7285868836889335e-12,
+  "physical_validation": false,
+  "peak_stress_validated": false,
+  "reason": "Tet4 exigia refinamento muito fino para flexão. Tet10 melhora aproximação sem relaxar critério2%;sem validação de contato/ancoragem real."
+}

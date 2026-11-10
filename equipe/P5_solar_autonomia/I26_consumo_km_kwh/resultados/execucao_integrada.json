@@ -1,0 +1,14 @@
+{
+  "item": 26,
+  "owner": "P5",
+  "requirement": "km/kWh da bateria a 40/80 km/h",
+  "model_equations": "e(v)=P_bat(v)/v emkWh/km; rendimento espacial=1/e(v) emkm/kWh.",
+  "method_and_conditions": "Avaliar40/80km/h constantes,plano,25°C/UR50/vento0,consumo habitável separado. Sensibilidade deCd/Crr/η/massa não equivale a previsão rodoviária.",
+  "status": "calculado_condicionado",
+  "executed": "km/kWh40/80 com3976.53kg e700W auxiliares de tração; serviços separados.",
+  "remaining_limit": "Eficiência constante e dados de rolamento/aerodinâmica estimados.",
+  "evidence": "entregas/integrado_maxeon1540/energia_sistemas/I25_I26_autonomia_solar_consumo.csv",
+  "evidence_sha256": "b4ff0b040e4aec78059659a9cc50e0d82630fe3ad254221092ef1b29c9faac8e",
+  "human_approval": false,
+  "physical_validation": false
+}

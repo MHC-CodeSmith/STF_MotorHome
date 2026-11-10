@@ -14,3 +14,13 @@ Preços, fretes, câmbio e tributos de aquisição efetiva, além de mobiliário
 fixações/cabos/tubos/quadros/mão de obra, precisam completar o orçamento.
 [scripts/calcular_bom_e_rolamento.py](../../../scripts/calcular_bom_e_rolamento.py)
 reproduz CSV/JSON comhashes. [Fontes e limitações](../../../docs/MECANICA_ROLAMENTO_E_CUSTOS.md).
+
+<!-- execucao-integrada:inicio -->
+Método técnico integrado: C_ref,moeda=Σq_i·preço_i conhecido; total instalado não existe se faltam linhas/frete/tributos.
+
+BOM separaEUR/USD/BRL,conversão e componentesOEM. Valores de lista não são cotação importada;preços desconhecidos continuamnull.
+
+Escopo: Preços lista semVAT não são cotação instalada;BRL439cooktop é histórico,frete/tributos/câmbio permanecemnull.
+
+Fonte dos parâmetros: `config/parametros_globais.yaml`;dadoOEM,hipótese e resultado mantêm status próprios. Simulação não é aprovação humana.
+<!-- execucao-integrada:fim -->

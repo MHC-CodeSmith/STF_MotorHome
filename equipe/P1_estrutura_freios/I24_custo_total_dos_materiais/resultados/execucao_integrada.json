@@ -1,0 +1,14 @@
+{
+  "item": 24,
+  "owner": "P1",
+  "requirement": "Custo dos materiais em R$, incluindo impostos",
+  "model_equations": "C_ref,moeda=Σq_i·preço_i conhecido; total instalado não existe se faltam linhas/frete/tributos.",
+  "method_and_conditions": "BOM separaEUR/USD/BRL,conversão e componentesOEM. Valores de lista não são cotação importada;preços desconhecidos continuamnull.",
+  "status": "BOM27_rastreada_por_moeda",
+  "executed": "BOMcanônica1540regenerada;GX1093USD+MPPT393USD+250/60USD465=1951USDlista2026Q2;veículoEUR50990 separado.",
+  "remaining_limit": "Preços lista semVAT não são cotação instalada;BRL439cooktop é histórico,frete/tributos/câmbio permanecemnull.",
+  "evidence": "entregas/integrado_maxeon1540/bom_atual/resumo.json",
+  "evidence_sha256": "f3e4f742dea7fbc73a67bd2173bf84b0a7a84c1d219f3c9df6046583f981e4b4",
+  "human_approval": false,
+  "physical_validation": false
+}

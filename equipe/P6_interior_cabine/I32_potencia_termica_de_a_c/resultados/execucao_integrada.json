@@ -1,0 +1,14 @@
+{
+  "item": 32,
+  "owner": "P6",
+  "requirement": "Potência A/C: 33 °C externo, 25 °C interno, passageiro, permanente",
+  "model_equations": "Q̇_AC=Q̇_condução+Q̇_solar+Q̇_metabólica+Q̇_infiltração+Q̇_interna.",
+  "method_and_conditions": "33°Cexternos/25°Cinternos/1ocupante principal,2complementar,regime permanente. kWtérmico não é kWelétrico;6,2A e220V implicam1364VA,FP/partida e capacidade real ainda pendentes.",
+  "status": "carga_e_revisao_comercial_verificadas",
+  "executed": "72sensibilidadescapacidade/envelope/solar e12elétricas;manualFW3000rev2018220–240V50/60Hzconferido.",
+  "remaining_limit": "Margem nominal1p184W/2p54W não valida33°C;SKU/placa,partida e fusível5A versus6.2A precisam confirmação.",
+  "evidence": "entregas/desenvolvimento_2026-11-09/hvac_revisao/resumo.json",
+  "evidence_sha256": "ff78dab883c30c2a63dbd94a3636886bc00bbbc08be92da8b7f515c423ecae10",
+  "human_approval": false,
+  "physical_validation": false
+}

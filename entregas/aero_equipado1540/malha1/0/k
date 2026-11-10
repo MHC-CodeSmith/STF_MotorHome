@@ -1,0 +1,6 @@
+FoamFile {version 2.0; format ascii; class volScalarField; object k;}
+dimensions [0 2 -2 0 0 0 0]; internalField uniform .074074;
+boundaryField {inlet {type fixedValue; value uniform .074074;}
+outlet {type zeroGradient;} ground {type kqRWallFunction; value uniform .074074;}
+"(aurora|pvdeck).*" {type kqRWallFunction; value uniform .074074;}
+sides {type symmetry;} top {type symmetryPlane;}}
