@@ -1,5 +1,7 @@
 # Retomada ativa — execução técnica02,09/11/2026
 
+**Checkpoint técnico publicado nesta execução:** `c7d5f21` (código, casos, campos e QA).
+
 **Pedido atual:** executar autonomamente todo desenvolvimento técnico dos35itens sobDEC001–061; sem novas aprovações individuais e sem relatório acadêmico/slides. **Etapa completa ainda aberta**, não confundir este checkpoint com conclusão. Não esperar revisão do usuário para continuar frentes executáveis.
 
 - Worktree exclusiva `/home/mhc/motorhome_solar_codex_tarefas`, branch `hub/tarefas-motorhome-com-codex`. Partida técnica29defc4;2ce7e81era só handoff. Nunca editar a outra worktree. Push paraorigin/main já autorizado na sessão. Registro61 intacto, mesmoSHA anotado abaixo.
