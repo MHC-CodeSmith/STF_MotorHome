@@ -115,7 +115,7 @@
       "owner": "P6",
       "requirement": "A/C, aquecimento e ventilação",
       "status": "ventilacao_natural_e_mecanica_sensibilizadas",
-      "executed_or_reviewed": "48casos de chaminé natural mais648 sensibilidades de vazão de apoio,potência,CO2 e carga térmica sensível; comparação nominal30m³/h incluída.",
+      "executed_or_reviewed": "48casos de chaminé natural,648 sensibilidades de vazão/potência/CO2/calor sensível e16 casos acoplados às prioridades do banco de serviços; comparação30m³/h incluída.",
       "remaining_limit": "18L/h·pessoa,alvoCO2,pressão/eficiência do ventilador e operação são hipóteses; sem norma demonstrada,umidade latente,SKU,curva elétrica,ruído ou instalação.",
       "evidence": "entregas/integrado_maxeon1540/ventilacao_mecanica_sensibilidade/resumo.json",
       "historical_inventory": "equipe/P6_interior_cabine/I11_hvac_e_ventilacao_interna",

@@ -714,6 +714,10 @@
       "pass": true
     },
     {
+      "label": "I11 ventilação essencial integrada às prioridades de energia:16 casos e balanço fechado",
+      "pass": true
+    },
+    {
       "label": "I21/I22 descida contabilizada como demanda mecânica de frenagem,sem crédito regenerativo",
       "pass": true
     },

@@ -11,6 +11,7 @@ from pathlib import Path
 import pandas as pd
 
 from motorhome.cenarios import carregar_configuracao, diretorio_entregas
+from motorhome.prioridades import simular_servicos_priorizados
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -18,6 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 def main() -> None:
     os.environ["MOTORHOME_SCENARIO"] = "maxeon1540_independente"
     config = carregar_configuracao(ROOT)
+    parameters = {key: value["value"] for key, value in config["parameters"].items()}
     study = config["development"]["ventilation_study"]
     occupants = [1, 2]
     targets_ppm = [800, 1000, 1200]
@@ -73,6 +75,61 @@ def main() -> None:
     output = diretorio_entregas(ROOT) / "ventilacao_mecanica_sensibilidade"
     output.mkdir(parents=True, exist_ok=True)
     frame.to_csv(output / "envelope_ventilacao.csv", index=False)
+
+    # Coupled service-bank check: keep the fallback fan as an essential load in
+    # every priority stage. This remains a forecast model, not BMS logic.
+    service_study = config["development"]["service_energy_priority_study"]
+    service_loads = {
+        load["id"]: load["energy_ac_or_dc_kwh_day"]["base"]
+        / (parameters["eta_inverter"] if load["side"] == "AC" else parameters["eta_lv"])
+        for load in config["loads"]
+    }
+    idle_daily_kwh = parameters["inverter_idle_w"] * 24 / 1000
+    service_daily_by_stage = [
+        sum(service_loads.values()) + idle_daily_kwh,
+        sum(service_loads[item] for item in service_study["stage1_ids"]) + idle_daily_kwh,
+        sum(service_loads[item] for item in service_study["stage2_ids"]) + idle_daily_kwh,
+    ]
+    service_capacity_kwh = (
+        parameters["service_modules_provisional"] * parameters["module_service_kwh"]
+    )
+    priority_rows = []
+    for people, operation_hours, horizon_hours, reserve in itertools.product(
+        occupants, [8, 24], [24, 48], [0.2, 0.3]
+    ):
+        required_flow = people * 18 / 1000 / ((1000 - co2_outside_ppm) * 1e-6)
+        fan_power = required_flow / 3600 * 50 / 0.2
+        fan_energy = fan_power * operation_hours / 1000
+        no_fan = simular_servicos_priorizados(
+            service_capacity_kwh, reserve, horizon_hours, service_daily_by_stage
+        )
+        with_fan = simular_servicos_priorizados(
+            service_capacity_kwh,
+            reserve,
+            horizon_hours,
+            [daily + fan_energy for daily in service_daily_by_stage],
+        )
+        priority_rows.append(
+            {
+                "occupants": people,
+                "fan_operation_h_day_assumed": operation_hours,
+                "horizon_h": horizon_hours,
+                "service_reserve_fraction_sensitivity": reserve,
+                "service_capacity_kwh_assumed": service_capacity_kwh,
+                "fan_flow_m3_h_for_1000ppm_assumption": required_flow,
+                "fan_energy_kwh_day_assumed": fan_energy,
+                "without_fan_hours_supported": no_fan["hours_supported"],
+                "without_fan_final_service_soc": no_fan["soc_final"],
+                "with_fan_hours_supported": with_fan["hours_supported"],
+                "with_fan_horizon_completed": with_fan["horizon_completed"],
+                "with_fan_final_service_soc": with_fan["soc_final"],
+                "with_fan_energy_residual_kwh": with_fan["energy_residual_kwh"],
+                "fan_remains_essential_in_each_priority_stage": True,
+                "hardware_control_demonstrated": False,
+            }
+        )
+    priority_frame = pd.DataFrame(priority_rows)
+    priority_frame.to_csv(output / "integracao_autonomia_servicos.csv", index=False)
     nominal = frame[
         (frame.occupants == 2)
         & (frame.co2_target_study_ppm == 1000)
@@ -106,6 +163,22 @@ def main() -> None:
         "cases": len(frame),
         "co2_balance_model": "well-mixed steady state: Q = occupants * generation / (target - outdoor concentration)",
         "nominal_study_case": nominal_summary,
+        "service_priority_integration": {
+            "cases": len(priority_frame),
+            "model": "existing forecast-priority algorithm with provisional fan energy added to all stages as an essential load",
+            "maximum_energy_balance_residual_kwh": float(
+                priority_frame.with_fan_energy_residual_kwh.abs().max()
+            ),
+            "two_occupants_48h_reserve30_fan24h_final_soc": float(
+                priority_frame[
+                    (priority_frame.occupants == 2)
+                    & (priority_frame.horizon_h == 48)
+                    & (priority_frame.service_reserve_fraction_sensitivity == 0.3)
+                    & (priority_frame.fan_operation_h_day_assumed == 24)
+                ].with_fan_final_service_soc.iloc[0]
+            ),
+            "hardware_actuators_implemented": False,
+        },
         "natural_ventilation_remains_priority": True,
         "mechanical_fallback_selected_or_installed": False,
         "regulatory_minimum_claimed": False,

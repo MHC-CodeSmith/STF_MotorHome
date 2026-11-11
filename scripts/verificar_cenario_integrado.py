@@ -133,6 +133,20 @@ def main():
           abs(vent_nominal.ventilation_sensible_load_estimate_w-expected_ventilation_load)<1e-10 and
           (vent_frame.fan_energy_estimate_kwh_day>=0).all(),
           'I11 balanço estacionário de CO2, potência estimada e carga sensível reproduzidos')
+    priority_vent=pd.read_csv(out/'ventilacao_mecanica_sensibilidade/integracao_autonomia_servicos.csv')
+    pvent=ventilation['service_priority_integration']
+    reference_priority=priority_vent[(priority_vent.occupants==2) &
+        (priority_vent.fan_operation_h_day_assumed==24) &
+        (priority_vent.horizon_h==48) &
+        (priority_vent.service_reserve_fraction_sensitivity==.3)].iloc[0]
+    check(len(priority_vent)==16 and pvent['cases']==16 and
+          pvent['maximum_energy_balance_residual_kwh']<1e-8 and
+          pvent['hardware_actuators_implemented'] is False and
+          reference_priority.with_fan_horizon_completed and
+          abs(reference_priority.with_fan_final_service_soc-
+              pvent['two_occupants_48h_reserve30_fan24h_final_soc'])<1e-12 and
+          (priority_vent.with_fan_energy_residual_kwh.abs()<1e-8).all(),
+          'I11 ventilação essencial integrada às prioridades de energia:16 casos e balanço fechado')
     negative=road_frame[road_frame.wheel_power_signed_kw<0]
     check(len(negative)>0 and (negative.positive_wheel_demand_kw==0).all() and
           (negative.mechanical_braking_demand_kw_no_regen_credit>0).all(),

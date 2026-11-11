@@ -18,6 +18,13 @@
     ],
     "two_occupants_delta8k_sensible_load_w": 166.3448275862069
   },
+  "service_priority_integration": {
+    "cases": 16,
+    "model": "existing forecast-priority algorithm with provisional fan energy added to all stages as an essential load",
+    "maximum_energy_balance_residual_kwh": 1.4921397450962104e-13,
+    "two_occupants_48h_reserve30_fan24h_final_soc": 0.3007228934171546,
+    "hardware_actuators_implemented": false
+  },
   "natural_ventilation_remains_priority": true,
   "mechanical_fallback_selected_or_installed": false,
   "regulatory_minimum_claimed": false,
