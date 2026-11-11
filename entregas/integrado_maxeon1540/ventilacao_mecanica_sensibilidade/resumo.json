@@ -1,0 +1,33 @@
+{
+  "scenario": "maxeon1540_independente",
+  "source_config_sha256": "e408c1fda000196eae8449c19d29fa645c4949730212a9629566b10bd58946ac",
+  "resolved_config_sha256": "e1ad225b9f76e2acca2e1d720031dbe412c269271d76cf795bd9da3c1562129f",
+  "script": "scripts/sensibilizar_ventilacao_mecanica.py",
+  "cases": 648,
+  "co2_balance_model": "well-mixed steady state: Q = occupants * generation / (target - outdoor concentration)",
+  "nominal_study_case": {
+    "two_occupants_target_1000ppm_reference_flow_m3_h": 62.068965517241374,
+    "baseline_30_m3_h_equilibrium_co2_ppm": 1620.0,
+    "fan_power_range_w": [
+      0.24420024420024422,
+      17.54385964912281
+    ],
+    "fan_energy_range_kwh_day": [
+      0.0019536019536019536,
+      0.4210526315789474
+    ],
+    "two_occupants_delta8k_sensible_load_w": 166.3448275862069
+  },
+  "natural_ventilation_remains_priority": true,
+  "mechanical_fallback_selected_or_installed": false,
+  "regulatory_minimum_claimed": false,
+  "physical_validation": false,
+  "limits": [
+    "CO2 targets, generation rates, duct pressure drops, fan efficiencies and operation hours are study sensitivities, not a cited ventilation code or measured design.",
+    "Steady, well-mixed CO2 balance excludes transient cabin concentration and leakage.",
+    "Sensible ventilation load uses fixed air density and heat capacity; latent load is excluded because outdoor humidity and cabin moisture control are unknown.",
+    "No fan, duct, grille, acoustic treatment, electrical protection or installation is selected or approved.",
+    "The 30 m3/h comparison is the existing model input, not a demonstrated installed airflow."
+  ],
+  "configuration_file_sha256": "e408c1fda000196eae8449c19d29fa645c4949730212a9629566b10bd58946ac"
+}

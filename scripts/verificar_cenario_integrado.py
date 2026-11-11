@@ -110,6 +110,29 @@ def main():
     check(abs(grade_reference.total_road_load_n-grade_force)<1e-8 and
           abs(grade_reference.wheel_power_signed_kw-grade_force*40/3.6/1000)<1e-8,
           'I21/I22 aclive/vento reproduzido com rolagem projetada e vento relativo')
+    ventilation=json.loads((out/'ventilacao_mecanica_sensibilidade/resumo.json').read_text())
+    vent_frame=pd.read_csv(out/'ventilacao_mecanica_sensibilidade/envelope_ventilacao.csv')
+    check(ventilation['cases']==648 and len(vent_frame)==648 and
+          ventilation['natural_ventilation_remains_priority'] and
+          not ventilation['mechanical_fallback_selected_or_installed'] and
+          not ventilation['regulatory_minimum_claimed'] and not ventilation['physical_validation'],
+          'I11 fallback mecânico:648 sensibilidades sem seleção ou conformidade normativa')
+    vent_nominal=vent_frame[(vent_frame.occupants==2) &
+        (vent_frame.co2_target_study_ppm==1000) &
+        (vent_frame.co2_generation_l_h_person_assumed==18) &
+        (vent_frame.pressure_drop_assumed_pa==50) &
+        (vent_frame.fan_total_efficiency_assumed==.2) &
+        (vent_frame.indoor_outdoor_delta_k_assumed==8) &
+        (vent_frame.operation_h_day_assumed==24)].iloc[0]
+    required_flow=2*18/1000/((1000-420)*1e-6)
+    expected_fan_power=required_flow/3600*50/.2
+    expected_ventilation_load=1.2*(required_flow/3600)*1005*8
+    check(abs(vent_nominal.required_outdoor_air_m3_h_for_co2_balance-required_flow)<1e-10 and
+          abs(vent_nominal.baseline_flow_30_m3_h_equilibrium_co2_ppm-1620)<1e-10 and
+          abs(vent_nominal.fan_electrical_power_estimate_w-expected_fan_power)<1e-10 and
+          abs(vent_nominal.ventilation_sensible_load_estimate_w-expected_ventilation_load)<1e-10 and
+          (vent_frame.fan_energy_estimate_kwh_day>=0).all(),
+          'I11 balanço estacionário de CO2, potência estimada e carga sensível reproduzidos')
     negative=road_frame[road_frame.wheel_power_signed_kw<0]
     check(len(negative)>0 and (negative.positive_wheel_demand_kw==0).all() and
           (negative.mechanical_braking_demand_kw_no_regen_credit>0).all(),

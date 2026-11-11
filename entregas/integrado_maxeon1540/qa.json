@@ -706,6 +706,14 @@
       "pass": true
     },
     {
+      "label": "I11 fallback mecânico:648 sensibilidades sem seleção ou conformidade normativa",
+      "pass": true
+    },
+    {
+      "label": "I11 balanço estacionário de CO2, potência estimada e carga sensível reproduzidos",
+      "pass": true
+    },
+    {
       "label": "I21/I22 descida contabilizada como demanda mecânica de frenagem,sem crédito regenerativo",
       "pass": true
     },
