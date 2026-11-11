@@ -1,0 +1,14 @@
+{
+  "item": 6,
+  "owner": "P2",
+  "requirement": "Bateria especificada",
+  "model_equations": "E_nom=N_módulos·E_módulo; E_disponível=E_nom·min(DoD,1−SOC_reserva).",
+  "method_and_conditions": "Pack de tração110brutos/98úteis da mesma variante. Serviços3US5000=14,4kWh nominal,uso móvel/BMS/fixação ainda condicionados.",
+  "status": "dimensionado_provisorio",
+  "executed": "Tração98kWh úteis;3US5000=14.4kWh/119.1kg noCAD. Bancos independentes.",
+  "remaining_limit": "Uso móvel, fixação/BMS e corrente/partidas documentais faltam; buffer não instalado.",
+  "evidence": "entregas/integrado_maxeon1540/integracao/inventario_massas.csv",
+  "evidence_sha256": "ab3fb084ed600556c3894931a418218d4dee87095197e3eb9e4d849a3d375beb",
+  "human_approval": false,
+  "physical_validation": false
+}

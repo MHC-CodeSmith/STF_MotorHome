@@ -10,3 +10,11 @@
 
 ## Pendências e correções
 A preencher.
+
+<!-- execucao-integrada:inicio -->
+Revisão computacional registrada no índice `resultados/execucao_integrada.json`.
+
+Limitação remanescente: Preços lista semVAT não são cotação instalada;BRL439cooktop é histórico,frete/tributos/câmbio permanecemnull.
+
+Revisão humana final: **PENDENTE**. Não houve instalação/ensaio físico,homologação ou aceite inferido por este gerador.
+<!-- execucao-integrada:fim -->

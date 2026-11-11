@@ -17,3 +17,11 @@ Fontes externas candidatas ficam em `fontes_externas/catalogo.csv`; citar apenas
 
 Ver [FREIOS_2D.md](../../../docs/FREIOS_2D.md): URLs diretas, acesso alternativo
 EuropePMC após429/desafioPMC, hash do XML e distinção entre fonte e hipótese.
+
+<!-- execucao-integrada:inicio -->
+Fontes específicas da execução (não representam aprovação da instalação):
+
+- `hyp`: hipotese_engenharia; consulta/revisão: 2026-11-09. Origem: hipotese_engenharia.
+
+Evidência técnica: `entregas/integrado_maxeon1540/freios_integrados/convergencia.csv`. Condições/hipóteses constam no YAML;valoresOEM não publicados permanecem desconhecidos.
+<!-- execucao-integrada:fim -->

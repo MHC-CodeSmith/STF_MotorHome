@@ -10,3 +10,11 @@
 
 ## Pendências e correções
 A preencher.
+
+<!-- execucao-integrada:inicio -->
+Revisão computacional registrada no índice `resultados/execucao_integrada.json`.
+
+Limitação remanescente: SIMPLErejeitado;CFDtransiente é complemento com contornos congelados,sem CHT/mobiliário/y+convergente.
+
+Revisão humana final: **PENDENTE**. Não houve instalação/ensaio físico,homologação ou aceite inferido por este gerador.
+<!-- execucao-integrada:fim -->

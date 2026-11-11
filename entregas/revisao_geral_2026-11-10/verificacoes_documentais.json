@@ -1,0 +1,147 @@
+{
+  "scope": "Conferência documental e recálculos escalares em JavaScript sobre arquivos efetivamente lidos; não executa os scripts Python/CFD nem verifica todos os hashes de manifesto.",
+  "source_revision": "1.1.1-execucao1540",
+  "checks": [
+    {
+      "check": "35 IDs únicos de 1 a 35",
+      "pass": true
+    },
+    {
+      "check": "Responsáveis dos 35 itens correspondem à divisão P1–P7",
+      "pass": true
+    },
+    {
+      "check": "Nenhuma aprovação humana inferida",
+      "pass": true
+    },
+    {
+      "check": "Reações estáticas somam a massa total",
+      "pass": true
+    },
+    {
+      "check": "Margem de PBT independente",
+      "pass": true
+    },
+    {
+      "check": "I26 a 40 km/h: força/potência/recíproco independentes",
+      "pass": true,
+      "detail": {
+        "calculated_kwh_km": 0.2251547951806403,
+        "recorded_kwh_km": 0.2251547951806403
+      }
+    },
+    {
+      "check": "I26 a 80 km/h: força/potência/recíproco independentes",
+      "pass": true,
+      "detail": {
+        "calculated_kwh_km": 0.40607591331358794,
+        "recorded_kwh_km": 0.40607591331358794
+      }
+    },
+    {
+      "check": "Missão [0.1, 0.2]_aux0W: balanço agregado, distância/tempo e condições iniciais",
+      "pass": true,
+      "detail": {
+        "balance_residual_kwh": 4.983462531527039e-10
+      }
+    },
+    {
+      "check": "Missão [0.1, 0.2]_aux300W: balanço agregado, distância/tempo e condições iniciais",
+      "pass": true,
+      "detail": {
+        "balance_residual_kwh": 8.816698482405627e-10
+      }
+    },
+    {
+      "check": "Missão [0.1, 0.2]_aux700W: balanço agregado, distância/tempo e condições iniciais",
+      "pass": true,
+      "detail": {
+        "balance_residual_kwh": 1.2187513220851542e-9
+      }
+    },
+    {
+      "check": "Missão [0.1, 0.2]_aux1500W: balanço agregado, distância/tempo e condições iniciais",
+      "pass": true,
+      "detail": {
+        "balance_residual_kwh": 1.6739249986130744e-9
+      }
+    },
+    {
+      "check": "Missão [0.2, 0.3]_aux0W: balanço agregado, distância/tempo e condições iniciais",
+      "pass": true,
+      "detail": {
+        "balance_residual_kwh": 5.244942258286756e-10
+      }
+    },
+    {
+      "check": "Missão [0.2, 0.3]_aux300W: balanço agregado, distância/tempo e condições iniciais",
+      "pass": true,
+      "detail": {
+        "balance_residual_kwh": 9.062262051884318e-10
+      }
+    },
+    {
+      "check": "Missão [0.2, 0.3]_aux700W: balanço agregado, distância/tempo e condições iniciais",
+      "pass": true,
+      "detail": {
+        "balance_residual_kwh": 1.2313705610722536e-9
+      }
+    },
+    {
+      "check": "Missão [0.2, 0.3]_aux1500W: balanço agregado, distância/tempo e condições iniciais",
+      "pass": true,
+      "detail": {
+        "balance_residual_kwh": 1.6917738321353681e-9
+      }
+    },
+    {
+      "check": "Comprimento do arranjo FV com afastamentos",
+      "pass": true
+    },
+    {
+      "check": "Banco 24 h / reserva 0.2: dimensionamento independente",
+      "pass": true,
+      "detail": {
+        "calculated_modules": 2
+      }
+    },
+    {
+      "check": "Banco 24 h / reserva 0.3: dimensionamento independente",
+      "pass": true,
+      "detail": {
+        "calculated_modules": 3
+      }
+    },
+    {
+      "check": "Banco 48 h / reserva 0.2: dimensionamento independente",
+      "pass": true,
+      "detail": {
+        "calculated_modules": 4
+      }
+    },
+    {
+      "check": "Banco 48 h / reserva 0.3: dimensionamento independente",
+      "pass": true,
+      "detail": {
+        "calculated_modules": 5
+      }
+    },
+    {
+      "check": "Valores atuais que corrigem a entrada A13",
+      "pass": true,
+      "detail": {
+        "old_days": [
+          290.875,
+          292.885
+        ],
+        "current_days": [
+          243.84375,
+          244.88541666666666
+        ]
+      }
+    }
+  ],
+  "errors": [],
+  "shell_reexecution_available": false,
+  "physical_validation": false
+}

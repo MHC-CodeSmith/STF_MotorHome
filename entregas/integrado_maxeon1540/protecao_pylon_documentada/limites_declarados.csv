@@ -1,0 +1,6 @@
+modules_parallel,source_current_upper_a_if_each_module_conforms,stated_duration_s,rectangular_i2t_budget_over_stated_interval_only_a2s,main_fuse_dc_breaking_a,current_upper_below_fuse_breaking,waveform_and_restart_behavior_known,prospective_pre_bms_fault_known,fuse_total_clearing_i2t_a2s,coordination_demonstrated
+1,2000,0.001,4000.0,20000,True,False,False,,False
+2,4000,0.001,16000.0,20000,True,False,False,,False
+3,6000,0.001,36000.0,20000,True,False,False,,False
+4,8000,0.001,64000.0,20000,True,False,False,,False
+5,10000,0.001,100000.0,20000,True,False,False,,False

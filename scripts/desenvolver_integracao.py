@@ -16,12 +16,12 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
-import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(ROOT/'src'), str(ROOT/'scripts')]
 from gerar_cad_instalacoes import Modelo
 
+from motorhome.cenarios import carregar_configuracao, diretorio_entregas
 from motorhome.desenvolvimento import (
     caixa_intersecao,
     centro_massa,
@@ -44,11 +44,11 @@ def table(path, rows):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--destino', type=Path, default=ROOT/'entregas/desenvolvimento_2026-11-09/integracao')
+    parser.add_argument('--destino', type=Path, default=diretorio_entregas(ROOT)/'integracao')
     args = parser.parse_args(); out=args.destino
     out.mkdir(parents=True,exist_ok=True)
     canonical = ROOT/'config/parametros_globais.yaml'
-    c=yaml.safe_load(canonical.read_text()); d=c['development']
+    c=carregar_configuracao(ROOT); d=c['development']
     p={k:v['value'] for k,v in c['parameters'].items()}
     geo=d['geometry']; mat=d['materials']; mass=d['mass_assumptions']
     length,width,height=np.array(geo['cargo_outer_m'])-2*geo['lining_each_side_m']
@@ -95,8 +95,14 @@ def main():
         lining_area=2*(length*height+width*height)+length*width
         add('revestimentos',lining_area*.006*mat['plywood_density_kg_m3'],
             [length/2,width/2,height/2],True,'area_equivalente*density_hyp')
-        add('PV_JA3',66,[1.85,width/2,2.0],False,'history_JA450')
-        add('PV190',10.5,[3.926,width/2,2.0],False,'history_Victron190')
+        if 'selected_roof_inventory' in d:
+            for panel in d['selected_roof_inventory']:
+                center=(np.array(panel['position_m'])+np.array(panel['dimensions_m'])/2).tolist()
+                add(panel['id'],panel['mass_kg'],center,False,panel['source'])
+                model.box(panel['id'],'FVfixo',panel['position_m'],panel['dimensions_m'],[30,45,90,255])
+        else:
+            add('PV_JA3',66,[1.85,width/2,2.0],False,'history_JA450')
+            add('PV190',10.5,[3.926,width/2,2.0],False,'history_Victron190')
         for allowance in d['mass_allowances']:
             add(allowance['id'],allowance['mass_kg'],allowance['cg_local_m'],True,'hyp_allowance')
         # Basin/sink, mattress support/fasteners, seats/travel remain OEM except
@@ -115,9 +121,16 @@ def main():
                 mass['estimated_mass_factor'],mass['base_rear_fraction'],
                 mass['base_cg_height_m'],mass['water_states_l']):
             work=[dict(part,mass_kg=part['mass_kg']*(factor if part['estimated'] else 1)) for part in inventory]
-            for j,(volume,local) in enumerate(zip(water,water_positions)):
+            boiler_l=min(p['boiler_candidate_l'],water[0])
+            water_split=[water[0]-boiler_l,*water[1:]]
+            for j,(volume,local) in enumerate(zip(water_split,water_positions)):
                 work.append({'id':f'agua{j}','mass_kg':volume,
                              'cg_m':[geo['rear_plane_from_front_axle_m']-local[0],local[1]-width/2,geo['floor_z_global_m']+local[2]]})
+            boiler=next(part for part in parts if part['id']=='boiler')
+            boiler_pos=np.array(boiler['position_m'])+np.array(boiler['dimensions_m'])/2
+            work.append({'id':'agua_boiler','mass_kg':boiler_l,
+                         'cg_m':[geo['rear_plane_from_front_axle_m']-boiler_pos[0],boiler_pos[1]-width/2,geo['floor_z_global_m']+boiler_pos[2]],
+                         'estimated':True,'source':'agua_ja_incluida_no_total_limpa_DEC017'})
             work.append({'id':'base_oem','mass_kg':p['oem_tare_kg'],
                          'cg_m':[p['wheelbase_m']*rearfrac,0,baseheight]})
             total,cg=centro_massa(work)

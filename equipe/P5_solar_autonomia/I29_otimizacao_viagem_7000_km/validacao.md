@@ -22,3 +22,11 @@ Falta aceitaçãoOEM monofásica60Hz, proteções/faixas de tensão e handshake.
 28/10:[sete casos de rota reabertos](../../../entregas/etapa_2026-10-28_rota_real/qa_rota.json),
 com energia/fontes solares/velocidades/DEM/reservas e8h/calendário conferidos.
 178testes passaram; maior resíduo1,13e−10kWh. Revisão humana permanecePENDENTE.
+
+<!-- execucao-integrada:inicio -->
+Revisão computacional registrada no índice `resultados/execucao_integrada.json`.
+
+Limitação remanescente: Melhor da grade, não ótimo global; mínimoDC1kW hipotético e fontes sanitárias por parada presumidas.
+
+Revisão humana final: **PENDENTE**. Não houve instalação/ensaio físico,homologação ou aceite inferido por este gerador.
+<!-- execucao-integrada:fim -->

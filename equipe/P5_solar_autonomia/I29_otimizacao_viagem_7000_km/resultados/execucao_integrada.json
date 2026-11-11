@@ -1,0 +1,14 @@
+{
+  "item": 29,
+  "owner": "P5",
+  "requirement": "Menor tempo em 7000 km, bateria inicial+solar, até 8 h/dia",
+  "model_equations": "E_inicial+E_FV=E_final+E_tração+E_serviços+E_perdas+E_cortada; SOCs separados.",
+  "method_and_conditions": "7000km plano,ambosSOC100%,até8h/dia,sem recarga elétrica externa. DiaSãoCarlos21junho repetido é idealização. Grade não comprova ótimo global ou caminhoDCimplementável.",
+  "status": "busca_finita_e_replays_executados",
+  "executed": "1008casos1540Wp,32replays,120missões de sensibilidade/alocação e32buffer comercial;água cronológica em8replays.",
+  "remaining_limit": "Melhor da grade, não ótimo global; mínimoDC1kW hipotético e fontes sanitárias por parada presumidas.",
+  "evidence": "entregas/integrado_maxeon1540/otimizacao_grade/resumo.json",
+  "evidence_sha256": "14970507bdf4393bf74e6abce098cfb972fae5ded6284f713ac622d4a1666374",
+  "human_approval": false,
+  "physical_validation": false
+}

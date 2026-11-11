@@ -1,0 +1,22 @@
+[
+  {
+    "id": "JA3_Victron190_transversal",
+    "target_wp": 1540,
+    "outside_assumed_envelope": [],
+    "area_modules_m2": 6.986304,
+    "power_with_demonstrated_48v_string_wp": 1350,
+    "installation_verified": false,
+    "note": "Inclui teto de cabine estimado; CADOEM da curvatura/ancoragens não disponível. Meta1540Wp mantida; caminho190W→48V continua não demonstrado."
+  },
+  {
+    "id": "JA3_Victron190_longitudinal",
+    "target_wp": 1540,
+    "outside_assumed_envelope": [
+      "190W"
+    ],
+    "area_modules_m2": 6.986304,
+    "power_with_demonstrated_48v_string_wp": 1350,
+    "installation_verified": false,
+    "note": "Inclui teto de cabine estimado; CADOEM da curvatura/ancoragens não disponível. Meta1540Wp mantida; caminho190W→48V continua não demonstrado."
+  }
+]

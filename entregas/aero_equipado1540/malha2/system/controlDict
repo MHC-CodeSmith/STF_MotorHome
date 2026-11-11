@@ -1,0 +1,12 @@
+FoamFile {version 2.0; format ascii; class dictionary; object controlDict;}
+
+application simpleFoam; startFrom startTime; startTime 0; stopAt endTime;
+endTime 1200; deltaT 1; writeControl timeStep; writeInterval 200;
+purgeWrite 1; writeFormat binary; writePrecision 8; writeCompression off;
+timeFormat general; timePrecision 6; runTimeModifiable true;
+functions { forces1 {type forceCoeffs; libs ("libforces.so");
+ writeControl timeStep; writeInterval 1; log yes;
+ patches ("(aurora|pvdeck).*"); rho rhoInf; rhoInf 1.1;
+ CofR (0 0 0); liftDir (0 0 1); dragDir (-1 0 0); pitchAxis (0 1 0);
+ magUInf 22.222222; lRef 5.998; Aref 4.827840375264284;
+ } }

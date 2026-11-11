@@ -27,3 +27,7 @@ Consulte a [revisão dos 35 itens](../../../docs/REVISAO_35_ITENS.md). A [carroc
 ## Execução de 24/10/2026
 
 Progresso e limites atualizados em [geometria, CFD, solar e otimização](../../../docs/AVANCO_2026-10-24.md). Artefatos de revisão em [entrega parcial](../../../entregas/parcial_2026-10-24/README.md); não há aprovação final de engenharia.
+
+<!-- execucao-integrada:inicio -->
+Execução vigente: fonte única `config/parametros_globais.yaml`,cenário `maxeon1540_independente` e índice local `resultados/execucao_integrada.json`. Referências antigas às propostas elétricas permanecem históricas e não autorizam arquitetura48V→OBC,modificaçãoHV ou aprovação final. Critérios/revisão computacional e bloqueios atuais constam em `docs/REVISAO_TECNICA_EXECUCAO02.md`.
+<!-- execucao-integrada:fim -->

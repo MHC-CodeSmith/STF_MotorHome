@@ -1,5 +1,5 @@
-revision: 1.1.0-execucao02
-updated: '2026-11-09'
+revision: 1.1.1-execucao1540
+updated: '2026-11-10'
 project:
   vehicle_baseline_approved: false
 canonical: true
@@ -130,6 +130,16 @@ sources:
     accessed: '2026-11-09'
     other_document: https://www.victronenergy.com/upload/documents/Datasheet-SmartSolar-charge-controller-MPPT-250-60-and-250-70-EN.pdf
     conflict: 'Isc: ficha35A versus manual60A; hardware/revisão a confirmar;35A conservador.'
+  pylon_us_series2024:
+    url: https://pylonwebs3.s3.amazonaws.com/upload/2024/09/26/US%20Series_20240926105858A040.pdf
+    manufacturer_page: https://en.pylontech.com.cn/products/c23/134.html
+    kind: ficha_fabricante
+    accessed: '2026-11-10'
+    version: US Series PY240709EN-SD hospedado20240926 pagina1
+    sha256: 6b85fb621d4f102863e99208e5d3467adc65f376e75d37fbde4ee7ee928bd139
+    evidence: ColunaUS5000 renderizada/conferida48V4.8/4.56kWh39.7kg,100A normal,
+      101–120A15min,121–200A15s,shortcurrent-duration<2000A/1ms.
+      Dado não define corrente prospectiva pré-BMS ou I²t fusível/coordenação.
   maxeon3_2022:
     url: https://sunpower.maxeon.com/int/sites/default/files/2022-05/sp_max3_104c_com_380-400_dc_ds_en_a4_544454.pdf
     mirror: https://solsol.eu/file/view/1080/sunpower-spr-max3-400wp-com_en.pdf
@@ -184,7 +194,8 @@ sources:
     kind: tabela_lista_fabricante_nao_cotacao_instalada
     accessed: '2026-11-10'
     version: 2026-Q2 USD C
-    evidence: PMP482506000GX1093USD,página3;SCC115060211SmartSolar150/60-Tr393USD,página14;semVAT. Dimensões tabela divergem do manual,não substituem envelopeCAD.
+    sha256: 83275209e603872733eb06ea0761bd65820bf5b93f6068f9e5467b691862cd80
+    evidence: PMP482506000GX1093USD,página3;SCC115060211SmartSolar150/60-Tr393USD eSCC125060221SmartSolar250/60-Tr465USD,página14;semVAT. Dimensões tabela divergem do manual,não substituem envelopeCAD.
   freshwell_manual_2018:
     url: https://www.jacksonsleisure.com/content/pdf/dometic/dometic-freshwell-3000-manual.pdf
     primary_indexed_url: https://media.dometic.com/externalassets/dometic-freshwell-3000-_9105306670_98740.pdf
@@ -678,18 +689,20 @@ parameters:
     value:
     - 0.5806668
     - 0.62487678
-    - 0.65303585
+    - 0.72
     unit: '1'
-    source: cfd
+    source: hyp
     decisions:
     - DEC-023
     - DEC-032
     owner: P3
     status: estimado
     confidence: baixa
-    version: 1.1.0-execucao02
-    reference_date: '2026-11-09'
-    note: Envelope observado nos pilotos, não intervalo de confiança/erro validado;delta7.07%
+    version: 1.1.1-execucao1540
+    reference_date: '2026-11-10'
+    note: Central0.62487678 preservado como hipótese antiga;intervalo superior0.72 de
+      sensibilidade amplia cobertura dosCFD equipados0.683/0.667 ainda não independentes.
+      Não éCdOEM ou valor convergido. Propagar extremos nos resultados condicionais.
   area_m2:
     value: 4.827840375264284
     unit: m2
@@ -2448,8 +2461,8 @@ loads:
   assumption_status: estimado
   usage: Uso moderado hipotético
   peak_w: null
-  uncertainty_note: 0.73A de corrente nominal do manual não informa W ativos nem pico
-    de partida;160.6VA=220V×0.73A somente referência aparente.
+  uncertainty_note: 0.47kWh/dia é hipótese de consumo/ciclo;temperatura/ventilação
+    reais sensibilizadas.0.73A nominal não define potência ativa ou partida.
   rated_current_a: 0.73
   rated_apparent_va_estimate: 160.6
 - id: inducao
@@ -2462,22 +2475,21 @@ loads:
   assumption_status: estimado
   usage: Uso moderado hipotético
   peak_w: 2000
-  uncertainty_note: Energia/horas estimadas; preencher consumo e partida comercial
-    ausentes. Boiler:40L/d misturada25→38C,cp4180J/kgK,eficiência.9,espera~.05kWh/d;
-    volume interno está nos100L totais.
+  uncertainty_note: Energia diária deriva potência efetiva e tempo de uso estimados;2000Wnominais
+    não comprovam transitórios ou simultaneidade.
 - id: ar_condicionado
   energy_ac_or_dc_kwh_day:
     base: 3
     min: 1.5
     max: 5.2
   side: AC
-  source: freshwell
+  source: hyp
   assumption_status: estimado
   usage: Uso moderado hipotético
   peak_w: null
-  uncertainty_note: Energia/horas estimadas; preencher consumo e partida comercial
-    ausentes. Boiler:40L/d misturada25→38C,cp4180J/kgK,eficiência.9,espera~.05kWh/d;
-    volume interno está nos100L totais.
+  uncertainty_note: 3kWh/dia é hipótese de uso limitado,não2700Wtérmicos. Referência
+    elétrica atual é manual2018,6.2A60Hz;FP/partida/curva33°C permanecem desconhecidos.
+  commercial_reference: freshwell_manual_2018
 - id: boiler
   energy_ac_or_dc_kwh_day:
     base: 0.72
@@ -2488,9 +2500,10 @@ loads:
   assumption_status: estimado
   usage: Uso moderado hipotético
   peak_w: null
-  uncertainty_note: Energia/horas estimadas; preencher consumo e partida comercial
-    ausentes. Boiler:40L/d misturada25→38C,cp4180J/kgK,eficiência.9,espera~.05kWh/d;
-    volume interno está nos100L totais.
+  uncertainty_note: 40L/d misturada25→38°C,cp4180J/kgK,eficiência0.9 eespera0.05kWh/d
+    dão≈0.72kWh/d. Água contida15L faz parte dos100L totais;potência500W não é energia
+    diária.
+  commercial_reference: quick_boiler
 - id: lavagem
   energy_ac_or_dc_kwh_day:
     base: 0.041428571428571426
@@ -2501,9 +2514,8 @@ loads:
   assumption_status: estimado
   usage: Uma lavagem+secagem por semana
   peak_w: null
-  uncertainty_note: Energia/horas estimadas; preencher consumo e partida comercial
-    ausentes. Boiler:40L/d misturada25→38C,cp4180J/kgK,eficiência.9,espera~.05kWh/d;
-    volume interno está nos100L totais.
+  uncertainty_note: 0.29kWh por lavagem/7 é hipótese de cenário para o equipamento2em1;secagem
+    é parcela separada,não outra máquina. Pico não documentado.
 - id: secagem
   energy_ac_or_dc_kwh_day:
     base: 0.2857142857142857
@@ -2514,9 +2526,8 @@ loads:
   assumption_status: estimado
   usage: Uma lavagem+secagem por semana
   peak_w: null
-  uncertainty_note: Energia/horas estimadas; preencher consumo e partida comercial
-    ausentes. Boiler:40L/d misturada25→38C,cp4180J/kgK,eficiência.9,espera~.05kWh/d;
-    volume interno está nos100L totais.
+  uncertainty_note: 2kWh por secagem semanal dividido7 é estimativa;sensibilidade1–4kWh
+    por ciclo. Não atribuir esta energia ao fabricante.
 - id: iluminacao_eletronicos_bombas
   energy_ac_or_dc_kwh_day:
     base: 0.6
@@ -2527,9 +2538,9 @@ loads:
   assumption_status: estimado
   usage: Uso moderado hipotético
   peak_w: null
-  uncertainty_note: Energia/horas estimadas; preencher consumo e partida comercial
-    ausentes. Boiler:40L/d misturada25→38C,cp4180J/kgK,eficiência.9,espera~.05kWh/d;
-    volume interno está nos100L totais.
+  uncertainty_note: 0.6kWh/dia agregaLED,eletrônicos e bombas como hipótese moderada;sem
+    ventilador/exaustor automático. ConsumoGX/inversor18W é contado separadamente,sem
+    duplicação.
 invalidation:
   retired:
   - PV→bateria_servicos→inversor→EVSE→OBC→tracao
@@ -3025,6 +3036,7 @@ development:
     note: Caixas de roda/posição do eixo dianteiro e piso estimados; largura entre
       caixas OEM1.422m, restante CAD equivalente.
   mass_assumptions:
+    boiler_water_allocation: Ate15L da água limpa total são localizados no boiler cheio;restante no tanque limpo.Não adiciona água ao total inicial100L.
     base_rear_fraction:
     - 0.35
     - 0.42
@@ -3853,6 +3865,36 @@ development:
       Duas strings mistas iguais2S2P;nenhumconversor190W necessário. Envelope4.30x1.82m
       inclui cabine estimada;folga não comprova curvatura/ancoragem. Estudo compartilhado
       continua obrigatório,sem ligar bancos. Não muda massa/energia-base até integração.
+  pylon_short_circuit_documented_screen:
+    version: 1.0.0-USseries2024
+    reference_date: '2026-11-10'
+    owner: P2
+    source: pylon_us_series2024
+    status: dado_fabricante_condicionado_revisao_do_produto
+    confidence: media
+    module_short_current_upper_a: 2000
+    stated_duration_s: 0.001
+    normal_module_current_a: 100
+    max_15min_module_current_a: 120
+    peak_15s_module_current_a: 200
+    module_counts: [1, 2, 3, 4, 5]
+    note: Interpretação limitada da tabela de portfólio,ficha não fornece waveform/corrente
+      prospectiva comBMSfalho nemI²t total de abertura do fusível.Não substituir ensaios144faltas.
+      SomaNvezesI é teto condicional de corrente entregue se cada módulo cumprir o limite.
+  service_energy_priority_study:
+    version: 1.0.0-orcamento-prioridades
+    reference_date: '2026-11-10'
+    owner: P2-P6
+    source: hyp
+    status: simulacao_condicional_nao_limiaresSOC
+    confidence: baixa
+    horizons_h: [24, 48]
+    additional_control_w_sweep: [0, 5, 15]
+    stage1_ids: [geladeira, ar_condicionado, iluminacao_eletronicos_bombas]
+    stage2_ids: [geladeira, iluminacao_eletronicos_bombas]
+    note: Recomenda estágios pelo orçamento de energia acima das reservas20/30% de comparação.
+      Não seleciona limiaresSOC para hardware;BMS/atuadores permanecem não demonstrados.
+      Consumo extra de controle é sensibilidade,não especificação comercial,nem mudança do perfil principal da missão.
   mounting_redesign:
     version: 1.0.0-interface-espacial
     reference_date: '2026-11-10'
@@ -3863,6 +3905,10 @@ development:
     group_spans_xy_m: [[0.16, 0.10], [0.24, 0.16], [0.32, 0.20]]
     thickness_candidates_m: [0.004, 0.006, 0.008, 0.010, 0.012, 0.016, 0.020]
     cg_height_above_mount_m: [0.15, 0.35, 0.60]
+    cg_standoff_factors: [1.0, 1.25, 1.5]
+    component_local_frames:
+      inversor: [[1, 0, 0], [0, 0, -1], [0, 1, 0]]
+    active_standoff_rule: Metade da dimensão normal da caixaCAD vezes fator;inversor em plano vertical,demais apoios horizontais de estudo. FuraçãoOEM desconhecida.
     in_plane_offset_m: [0.0, 0.10, 0.25]
     vertical_accelerations_g: [-1, 1]
     edge_distance_m: 0.020
@@ -3873,7 +3919,7 @@ development:
     solid_verification:
       components: [inversor, tanque_limpa]
       mesh_sizes_m: [0.004, 0.0025, 0.0015, 0.0010]
-      extra_mesh_sizes_m: {inversor: [0.00075]}
+      extra_mesh_sizes_m: {inversor: [0.00075, 0.0005], tanque_limpa: [0.00075]}
       displacement_relative_change_criterion: 0.02
       young_pa: 210000000000
       poisson: 0.30
@@ -3882,6 +3928,20 @@ development:
       Apoios elásticos iguais com reação compressiva, sem contato não linear/prying/fadiga.
       Massa de chapa separada, não acrescentada automaticamente à conversão; suporte antigo
       tem massa agregada sem geometria que permita calcular substituição líquida.
+  equipped_aero_verification:
+    version: 1.0.0-aero-cobertura-equivalente
+    reference_date: '2026-11-10'
+    owner: P3
+    source: hyp
+    status: geometria_equivalente_nao_validada
+    confidence: baixa
+    source_cases: [cfd-aurora-piloto-03, cfd-aurora-refino-semcamadas-01, cfd-aurora-refino-semcamadas-02]
+    panel_gap_above_body_m: 0.04
+    max_iterations: 1200
+    mesh_timeout_s: 240
+    solver_timeout_s: 240
+    note: Nova geometria de cobertura equivalente contínua,sem repetir extrusão fina
+      divergente;gaps entre módulos e suportes omitidos.Não implica teto/ancoragensOEM.
   aero_layer_retry:
     version: 1.0.0-camadas-aero
     reference_date: '2026-11-10'
@@ -3940,3 +4000,115 @@ development:
     starting_current_multiplier_sweep: [1, 2, 4, 6]
     document_conflict: 5Afusívelmanualversus6.2Anominal60Hz;verificarrevisão/curva,sem escolher5A automaticamente.
     note: MaiorcapacidadeWebasto3.5kW50Hzteto járejeitada. UB11/15Coleman115Vpublicados comoalternativas,sócomadaptação/layoutsujeitosvalidação,não selecionados.
+
+  integrated_scenarios:
+    maxeon1540_independente:
+      version: 1.0.0-maxeon1540-integrado
+      reference_date: '2026-11-10'
+      source: maxeon3_2022
+      status: comparador_condicional_nao_instalado
+      owner: P1-P2-P3-P4-P5
+      output_directory: entregas/integrado_maxeon1540
+      note: Referência com rastreadores independentes para comparaçãoDEC054;250/60 teto+150/60
+        portáteis. InterfaceDCtração e alocaçãoFV hipotéticas;nenhuma ligação entre
+        bancos. SharedMPPT continua comparado,não aprovado.
+      parameter_sources: {assembled_typical_mass_kg: hyp, roof_arrangement_provisional: hyp}
+      parameter_values:
+        roof_power_48v_study_wp: 1540
+        pv_gamma: -0.0027
+        assembled_typical_mass_kg: 3976.52552776
+        roof_arrangement_provisional: 2Maxeon380+2Maxeon390_2S2P_comparador_independente
+      allowance_overrides:
+        suportes_eletricos:
+          mass_kg: 18
+          note: Reserva anterior15kg+MPPT250/60 3kg para teto independente;150/60 preservado
+            para portáteis. Diferença de suportes não demonstrada.
+      roof_inventory:
+      - id: MAXEON_1
+        model: SPR-MAX3-380-COM
+        mass_kg: 19
+        position_m:
+        - 0.025
+        - 0.065
+        - 2.0
+        dimensions_m: &id001
+        - 1.046
+        - 1.69
+        - 0.04
+        source: maxeon3_2022
+      - id: MAXEON_2
+        model: SPR-MAX3-390-COM
+        mass_kg: 19
+        position_m:
+        - 1.091
+        - 0.065
+        - 2.0
+        dimensions_m: *id001
+        source: maxeon3_2022
+      - id: MAXEON_3
+        model: SPR-MAX3-380-COM
+        mass_kg: 19
+        position_m:
+        - 2.157
+        - 0.065
+        - 2.0
+        dimensions_m: *id001
+        source: maxeon3_2022
+      - id: MAXEON_4
+        model: SPR-MAX3-390-COM
+        mass_kg: 19
+        position_m:
+        - 3.2230000000000003
+        - 0.065
+        - 2.0
+        dimensions_m: *id001
+        source: maxeon3_2022
+      bom_remove_ids:
+      - pv_teto
+      - pv_cabine
+      bom_add:
+      - id: SPR-MAX3-380-COM
+        model: SPR-MAX3-380-COM
+        quantity: 2
+        unit_mass_kg: 19
+        owner: P5
+        source: maxeon3_2022
+        scope: conversao
+        status: provisorio_instalacao_nao_validada
+        unit_reference_price: null
+        installed_price_brl: null
+        price_currency: EUR
+        dimensions_m:
+        - 1.046
+        - 1.69
+        - 0.04
+      - id: SPR-MAX3-390-COM
+        model: SPR-MAX3-390-COM
+        quantity: 2
+        unit_mass_kg: 19
+        owner: P5
+        source: maxeon3_2022
+        scope: conversao
+        status: provisorio_instalacao_nao_validada
+        unit_reference_price: null
+        installed_price_brl: null
+        price_currency: EUR
+        dimensions_m:
+        - 1.046
+        - 1.69
+        - 0.04
+      - id: mppt_teto_250
+        model: SmartSolar250/60-Tr comparador teto independente
+        quantity: 1
+        unit_mass_kg: 3
+        owner: P2
+        source: mppt250_60
+        scope: conversao
+        status: provisorio_35A_conservador_nao_HV
+        unit_reference_price: 465
+        installed_price_brl: null
+        price_currency: USD
+        price_source: victron_price_2026q2
+        part_number: SCC125060221
+        price_status: lista_2026Q2_exVAT_nao_cotacao_atual
+        mass_accounted_in: development.mass_allowances.suportes_eletricos

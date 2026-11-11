@@ -10,3 +10,11 @@
 
 ## Pendências e correções
 A preencher.
+
+<!-- execucao-integrada:inicio -->
+Revisão computacional registrada no índice `resultados/execucao_integrada.json`.
+
+Limitação remanescente: Grau/volume/intervalo de óleo e pontos lubrificados OEM não confirmados; não propor substituição.
+
+Revisão humana final: **PENDENTE**. Não houve instalação/ensaio físico,homologação ou aceite inferido por este gerador.
+<!-- execucao-integrada:fim -->

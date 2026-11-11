@@ -18,3 +18,11 @@ Ver [evidências](../../../docs/AGENDA_PORTATIL_2026-10-27.md).
 Continuação:[replay dos CSV com separação12/48V, perdas por ramo e correntes discretas](../../../docs/INTERFACE_CARGA_2026-10-27.md).
 Seis novos casosSYNTHETIC e172testes totais passaram; não aprovação física.
 Falta aceitaçãoOEM monofásica60Hz, proteções/faixas de tensão e handshake.
+
+<!-- execucao-integrada:inicio -->
+Revisão computacional registrada no índice `resultados/execucao_integrada.json`.
+
+Limitação remanescente: Não otimiza política solarDC não comprovada;duração17h é idealização acadêmica,não escala operacional segura.
+
+Revisão humana final: **PENDENTE**. Não houve instalação/ensaio físico,homologação ou aceite inferido por este gerador.
+<!-- execucao-integrada:fim -->

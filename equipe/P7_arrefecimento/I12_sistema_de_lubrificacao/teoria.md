@@ -10,3 +10,13 @@ Viscosidade/classe, volume de óleo e intervalos do redutor da variante escolhid
 não foram obtidos nas fontes públicas consultadas e permanecem null.
 Sem esses dados não se calcula filme/perda viscosa/temperatura do óleo como
 resultado real. [Pesquisa e limites](../../../docs/MECANICA_ROLAMENTO_E_CUSTOS.md).
+
+<!-- execucao-integrada:inicio -->
+Método técnico integrado: P_calor,red=(1−η_red)P_entrada; fluxo de calor e lubrificação são requisitos distintos.
+
+BEV não usa lubrificação de motor diesel. ÓleoOEM do redutor,grau/volume/intervalo não publicados permanecem desconhecidos;nenhuma substituição proposta.
+
+Escopo: Grau/volume/intervalo de óleo e pontos lubrificados OEM não confirmados; não propor substituição.
+
+Fonte dos parâmetros: `config/parametros_globais.yaml`;dadoOEM,hipótese e resultado mantêm status próprios. Simulação não é aprovação humana.
+<!-- execucao-integrada:fim -->

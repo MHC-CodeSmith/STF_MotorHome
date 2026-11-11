@@ -4,13 +4,23 @@
 Produzir força aerodinâmica e de rolamento versus velocidade; cenário plano e sem vento.
 
 ## Equações e hipóteses
-A preencher com equações corretas e citações. Não inventar dados.
+F_D=½ρ·Cd·A_ref·v_rel².
 
 ## Entradas e unidades
 Dependências diretas: I18 (P1), I19 (P3), I20 (P4).
 
 ## Modelo / procedimento
-Descrever método, condição de contorno e critérios de convergência (se aplicável).
+Vento externo0 implica v_rel=v_veículo. Usar a mesma área de normalização doCFD;limiteCd0,72 é sensibilidade conservadora,não valorOEM.
 
 ## Limitações
-Identificar aproximações e sensibilidade das entradas.
+Cd/Crr/ρ condicionais; pista plana e vento0.
+
+<!-- execucao-integrada:inicio -->
+Método técnico integrado: F_D=½ρ·Cd·A_ref·v_rel².
+
+Vento externo0 implica v_rel=v_veículo. Usar a mesma área de normalização doCFD;limiteCd0,72 é sensibilidade conservadora,não valorOEM.
+
+Escopo: Cd/Crr/ρ condicionais; pista plana e vento0.
+
+Fonte dos parâmetros: `config/parametros_globais.yaml`;dadoOEM,hipótese e resultado mantêm status próprios. Simulação não é aprovação humana.
+<!-- execucao-integrada:fim -->

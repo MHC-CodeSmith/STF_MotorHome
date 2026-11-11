@@ -1,0 +1,1 @@
+[{"policy": "fixo_08_16", "tilt_deg": 75, "azimuth_deg": 270, "roof_kwh_day": 5.863759470035741, "portable_kwh_day": 0.3713285295159656, "portable_only_parked": true}, {"policy": "alternativo_00_08", "tilt_deg": 45, "azimuth_deg": 0, "roof_kwh_day": 5.863759470035741, "portable_kwh_day": 8.040509597513303, "portable_only_parked": true}]

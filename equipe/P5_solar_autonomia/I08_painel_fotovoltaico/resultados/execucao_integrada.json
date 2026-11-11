@@ -1,0 +1,14 @@
+{
+  "item": 8,
+  "owner": "P5",
+  "requirement": "Painéis: área, eficiência e tecnologia",
+  "model_equations": "P_FV≈P_STC·G_POA/1000·[1+γ(T_c−25°C)]·f_perdas; E=ΣP·Δt.",
+  "method_and_conditions": "1540Wp documentados por2×380+2×390 e1600Wp portáteis,somenteparados/ângulos fixos. FamíliaPV e limitesMPPT específicos por cenário;Wp não são kWh.",
+  "status": "alternativa1540_integrada_condicional",
+  "executed": "4Maxeon1540Wp integrados emCAD/massa/séries solares;72comparações MPPT preservadas.",
+  "remaining_limit": "Retângulo estimado/curvatura/ancoragens/estoque não comprovados;rastreadores independentes são comparadorDEC054,compartilhamento não aprovado.",
+  "evidence": "entregas/integrado_maxeon1540/solar/resumo.json",
+  "evidence_sha256": "3e72a2e598203e96f34bcd7fd4bb91aa13bc5e7eab6da34a1bcb8d02ff507c5d",
+  "human_approval": false,
+  "physical_validation": false
+}

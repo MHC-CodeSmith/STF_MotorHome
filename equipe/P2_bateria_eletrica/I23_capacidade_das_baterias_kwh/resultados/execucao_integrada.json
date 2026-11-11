@@ -1,0 +1,14 @@
+{
+  "item": 23,
+  "owner": "P2",
+  "requirement": "Capacidade das baterias em kWh",
+  "model_equations": "N=ceil[E_dia·(autonomia_h/24)/(E_módulo·min(DoD,1−reserva)))].",
+  "method_and_conditions": "Comparar24/48h semSol para ambas reservas. Capacidade nominal não é energia útil;110/98kWh da tração são conceitos distintos.",
+  "status": "bancos_24_48_CAD_suporte_comparados",
+  "executed": "24h2/3módulos e48h4/5 por reservas20/30%;4CADs e12cargas suporte inteiro com peso dos trilhos.",
+  "remaining_limit": "Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.",
+  "evidence": "entregas/integrado_maxeon1540/bancos_24_48_cad/resumo.json",
+  "evidence_sha256": "8b8f3d6291e0ee45028b603d030c20020cc4a5195d00ae80dbc4974ff0e67a82",
+  "human_approval": false,
+  "physical_validation": false
+}

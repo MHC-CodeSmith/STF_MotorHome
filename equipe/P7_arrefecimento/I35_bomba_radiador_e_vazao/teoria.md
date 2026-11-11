@@ -29,3 +29,13 @@ Métodos verificados com dados SYNTHETIC; entradas físicas e revisão humana **
 ## Avanço de 26/10/2026 — radiador cruzado
 
 Método/casos, hipóteses, fontes e convergência em [cabos e radiador](../../../docs/CABOS_E_RADIADOR_2D.md). Resultados reproduzíveis em [resumo](resultados/resumo_radiador.json); o requisito continua parcial e sem aprovação humana.
+
+<!-- execucao-integrada:inicio -->
+Método técnico integrado: Δp_bomba(Q)=Δp_circuito(Q); Q̇_trocado=ṁ·cp·(T_saida−T_entrada).
+
+BombaBosch candidata e radiador2D resolvem circuito conceitual,não seleçãoOEM. Vazões/perdas/temperaturas e potência elétrica são conservadas;rede de glicol não é água potável.
+
+Escopo: Bomba é candidata de modelo,não equipamentoOEM comprovado;curva de perdas/UA/ar ainda estimados.
+
+Fonte dos parâmetros: `config/parametros_globais.yaml`;dadoOEM,hipótese e resultado mantêm status próprios. Simulação não é aprovação humana.
+<!-- execucao-integrada:fim -->

@@ -5,21 +5,21 @@ import sys
 from pathlib import Path
 
 import numpy as np
-import yaml
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path[:0]=[str(ROOT/'src'),str(ROOT/'scripts')]
 from gerar_cad_eletrico import linha
 from gerar_cad_instalacoes import Modelo
 
+from motorhome.cenarios import carregar_configuracao, diretorio_entregas
 from motorhome.desenvolvimento import caixa_intersecao
 from motorhome.protecoes import circuito_dc
 
 
 def main():
-    c=yaml.safe_load((ROOT/'config/parametros_globais.yaml').read_text());p={k:v['value'] for k,v in c['parameters'].items()}
+    c=carregar_configuracao(ROOT);p={k:v['value'] for k,v in c['parameters'].items()}
     g=c['development']['installation_routes'];parts=c['development']['layout_equipment']['A_fixa'];model=Modelo()
-    out=ROOT/'entregas/desenvolvimento_2026-11-09/rotas_instalacoes';out.mkdir(parents=True,exist_ok=True)
+    out=diretorio_entregas(ROOT)/'rotas_instalacoes';out.mkdir(parents=True,exist_ok=True)
     for part in parts:model.box(part['id'],'equipamento',part['position_m'],part['dimensions_m'],[130,155,180,150])
     inv=next(x for x in parts if x['id']=='inversor');clearance=g['inverter_clearance_m']
     lo=np.array(inv['position_m'])-clearance;size=np.array(inv['dimensions_m'])+2*clearance

@@ -26,16 +26,21 @@ def main():
     for part in c['development']['layout_equipment']['A_fixa']:
         water={'tanque_limpa':100,'tanque_cinza':70,'cassete':20,'boiler':params['boiler_candidate_l']}.get(part['id'],0)
         mass=part['mass_kg']+water
+        rotation=np.array(g['component_local_frames'].get(part['id'],np.eye(3)),dtype=float)
+        if not np.allclose(rotation.T@rotation,np.eye(3)) or not np.isclose(np.linalg.det(rotation),1):raise ValueError('Referencial inválido')
+        normal_depth=float(abs(rotation[:,2])@np.array(part['dimensions_m']))
+        heights=[normal_depth/2*factor for factor in g['cg_standoff_factors']]
         for sx,sy in g['group_spans_xy_m']:
             coords=[[x,y,0] for x,y in itertools.product([-sx/2,sx/2],[-sy/2,sy/2])]
             cases=[]
-            for accel,height,offset,vertical,axis,sign in itertools.product(m['accelerations_g'],g['cg_height_above_mount_m'],g['in_plane_offset_m'],g['vertical_accelerations_g'],range(2),[-1,1]):
+            for accel,height,offset,vertical,axis,sign in itertools.product(m['accelerations_g'],heights,g['in_plane_offset_m'],g['vertical_accelerations_g'],range(2),[-1,1]):
                 force=np.array([0.,0.,mass*m['gravity_m_s2']*vertical]);force[axis]=sign*mass*m['gravity_m_s2']*accel
+                force=rotation.T@force
                 arm=np.array([offset if axis==1 else 0,offset if axis==0 else 0,height])
                 moment=np.cross(arm,force)
                 r=grupo_parafusos_espacial(force,moment,coords)
                 shear=np.array(r['bolt_shear_n']);tension=np.array(r['bolt_tension_n'])
-                cases.append({'acceleration_g':accel,'cg_height_m':height,'offset_m':offset,'vertical_g':vertical,'axis':axis,'sign':sign,
+                cases.append({'acceleration_g':accel,'cg_standoff_from_local_plane_m':height,'offset_m':offset,'vertical_g':vertical,'axis':axis,'sign':sign,
                     'force_residual_n':max(abs(x) for x in r['force_residual_n']),
                     'moment_residual_nm':max(abs(x) for x in r['moment_residual_nm']),
                     'max_shear_n':float(shear.max()),'max_tension_n':float(tension.max()),
@@ -90,7 +95,9 @@ def main():
     for row in selected:
         equip=next(x for x in c['development']['layout_equipment']['A_fixa'] if x['id']==row['component'])
         center=np.array(ast.literal_eval(inventory[inventory.id==row['component']].iloc[0].cg_m))
-        center[2]-=equip['dimensions_m'][2]/2+row['thickness_m']/2
+        rotation=np.array(g['component_local_frames'].get(equip['id'],np.eye(3)))
+        normal=rotation[:,2];depth=float(abs(normal)@np.array(equip['dimensions_m']))
+        center-=normal*(depth/2+row['thickness_m']/2)
         added_moment+=row['plate_mass_kg']*center
     added_mass=sum(x['plate_mass_kg'] for x in selected);sensitivity=[]
     for factor in [0,1]:
@@ -115,6 +122,7 @@ def main():
             'Volumes perfurados STEP são corpos de prova locais em mosaico, não pontos OEM ou CAD de instalação.',
             'Massas de chapa são comparação bruta;reserva agregada de suportes não permite substituição líquida.',
             'Reservatórios e boiler15L cheios são casos locais independentes;água do boiler provém dos100L existentes,nenhuma água adicionada ao inventário global.',
+            'Inversor usa plano vertical e transformação de gravidade/esforços;CGnormal deriva caixaCAD,furos e contato reais não verificados.',
             'Não dimensiona soldas/esmagamento de espaçadores/arrancamento da carroceria ou retenção interna do equipamento.',
             'Cama_colchao modela apenas retenção do colchão12kg em movimento;estrutura da cama ocupada precisa caminho de carga próprio.',
             'Combinação de máximos de flexão/cisalhamento da tira é envelope conservador,não tensão pontualFEM;espessura pode ser comparável ao balanço e exige verificação3D.']}

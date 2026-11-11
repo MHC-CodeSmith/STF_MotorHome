@@ -1,0 +1,44 @@
+{
+  "electrical_cases": 324,
+  "fault_cases": 144,
+  "simultaneity_cases": 256,
+  "mounting_cases": 648,
+  "control_histories": 6,
+  "max_circuit_energy_residual_w": 1.2372325386422744e-12,
+  "current_range_a": [
+    10.384331821234602,
+    102.93608033964722
+  ],
+  "prospective_fault_range_a": [
+    2273.9719207408143,
+    160500.0
+  ],
+  "fault_cases_exceeding_20ka": 56,
+  "main_fuse_provisional": {
+    "model": "Littelfuse JLLN200",
+    "current_a": 200,
+    "dc_voltage_v": 125,
+    "dc_breaking_a": 20000,
+    "source": "littelfuse_jlln"
+  },
+  "mppt_fuse_provisional": {
+    "model": "Littelfuse JLLN080",
+    "current_a": 80,
+    "dc_voltage_v": 125,
+    "dc_breaking_a": 20000,
+    "source": "littelfuse_jlln"
+  },
+  "hardware_control_demonstrated": false,
+  "soc_thresholds": null,
+  "coordination_demonstrated": false,
+  "integration_new_dependency": "Selecionado provisoriamente MultiPlus-II GX comGX/visor/BMS-CAN integrados;sem central própria ou gateway externo. CANtipoA/DVCC/firmware epartidas devem ser configurados/ensaiados;hardware não implementado.",
+  "physical_installation_authorized": false,
+  "mounting_limits": "4parafusos iguais por grupo;modelo genérico,sem OEMsuporte/fadiga/prying/tração/arrancamento. Água10/50/100Llimpa,0/40/70Lcinza,0/10/20Lcassete em verificações locais separadas;não soma conteúdos para massa global.",
+  "electrical_limits": [
+    "Resistência interna varrida é hipótese;BMS não limita a corrente prospectiva por premissa.",
+    "Não transferir correntes/PE ou retorno de potência para sistemaHV OEM.",
+    "Cobre90°C/manual não comprova ampacidade instalada;I²t real e curvas seletividade faltam.",
+    "Cenários de potência não validam partidas desconhecidas;gerenciamento lógico não está instalado.",
+    "Fusível200A é recomendação do inversor,não corrente admissível de bateria/terminais."
+  ]
+}

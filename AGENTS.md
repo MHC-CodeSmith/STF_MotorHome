@@ -1,6 +1,10 @@
+# Integração1540Wp reproduzida
+
+Ocenário `maxeon1540_independente` está definido no únicoYAML canônico e foi executado pela cadeia `scripts/executar_cenario_integrado.py`. Resultados em `entregas/integrado_maxeon1540/`,CFDequipado em `entregas/aero_equipado1540/`;base1350Wp preservada como comparação,não misturar entradas/saídas. Usar plano atualizado e revisão35;executores históricos não atualizam o projeto ativo. Aprovação humana e interfaceDC continuam não demonstradas. Não reiniciar pesquisa repetitiva nem preparar relatório/slides agora.
+
 # Execução técnica02 ativa
 
-Leia o registro integral das61decisões e `docs/EXECUCAO_TECNICA02.md`. Fonte única: `config/parametros_globais.yaml`, revisão1.1.0-execucao02. CAD/massa/CG e auxiliares de tração estimados integram os novos modelos. Revisão35atual: `docs/REVISAO_TECNICA_EXECUCAO02.md`. Baseline29defc4 e seus manifestos são históricos; não atualizar seus hashes para mascarar mudança de entradas. Nenhuma aprovação humana final ou interfaceDCfísica demonstrada.
+Leia o registro integral das61decisões e `docs/EXECUCAO_TECNICA02.md`. Fonte única: `config/parametros_globais.yaml`, revisão1.1.1-execucao1540. CAD/massa/CG e auxiliares de tração estimados integram os novos modelos. Revisão35atual: `docs/REVISAO_TECNICA_EXECUCAO02.md`. Baseline29defc4 e seus manifestos são históricos; não atualizar seus hashes para mascarar mudança de entradas. Nenhuma aprovação humana final ou interfaceDCfísica demonstrada.
 
 # Instruções gerais para Codex / agentes
 

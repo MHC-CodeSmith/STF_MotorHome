@@ -25,3 +25,13 @@ inversor não comprova ventilação. Não ligar circuito de água a armário el�
 Auxiliares: bomba candidata96W a12V; ventilador/chiller/controladores ainda sem
 curvas e orçamento fechado. Não duplicar trem de força OEM na massa. Revisão
 P2/P4/P7, limites térmicos e integração física PENDENTES.
+
+<!-- execucao-integrada:inicio -->
+Método técnico integrado: Q̇_perdas=P_entrada−P_saída; m·cp·dT/dt=Q̇_gerada−Q̇_retirada.
+
+Separar motor,inversor e redutor. UA,vazão/eficiências não calibrados aoOEM devem ser faixas explícitas,sem dupla contagem de perdas.
+
+Escopo: η/UA/vazão são hipóteses; não reprodução do circuitoOEM.
+
+Fonte dos parâmetros: `config/parametros_globais.yaml`;dadoOEM,hipótese e resultado mantêm status próprios. Simulação não é aprovação humana.
+<!-- execucao-integrada:fim -->

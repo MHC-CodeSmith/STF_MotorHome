@@ -1,0 +1,14 @@
+{
+  "item": 35,
+  "owner": "P7",
+  "requirement": "Bomba, radiador, vazão em potência máxima do motor; perfis e ponto de operação",
+  "model_equations": "Δp_bomba(Q)=Δp_circuito(Q); Q̇_trocado=ṁ·cp·(T_saida−T_entrada).",
+  "method_and_conditions": "BombaBosch candidata e radiador2D resolvem circuito conceitual,não seleçãoOEM. Vazões/perdas/temperaturas e potência elétrica são conservadas;rede de glicol não é água potável.",
+  "status": "modelo_comercial_condicionado",
+  "executed": "CurvaBosch e radiador2D reexecutados;campos e ponto de operação conservados.",
+  "remaining_limit": "Bomba é candidata de modelo,não equipamentoOEM comprovado;curva de perdas/UA/ar ainda estimados.",
+  "evidence": "entregas/desenvolvimento_2026-11-09/arrefecimento/resumo_hidraulica.json",
+  "evidence_sha256": "50c4d2cfdae8dbb987f1955a5a8ea8c2bb42349ba102ce6ba5829c2dd55d6636",
+  "human_approval": false,
+  "physical_validation": false
+}

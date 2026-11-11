@@ -19,3 +19,13 @@ Implementação própria em [sistemas_termicos.py](../../../src/motorhome/sistem
 ## Estado
 
 Métodos verificados com dados SYNTHETIC; entradas físicas e revisão humana **PENDENTES**. O status é desenvolvimento parcial. Consulte a [revisão completa](../../../docs/REVISAO_35_ITENS.md).
+
+<!-- execucao-integrada:inicio -->
+Método técnico integrado: C_i·dT_i/dt=Σ(T_j−T_i)/R_ij+Q_solar,i; noCFD,empuxo≈ρ0gβ(T−T0).
+
+Cabine fechada,parada,sem pessoas/AC;manhã→meiodia25°Cexternos. CFD3D é complemento de contorno congelado,nãoCHT matinal ou ensaio veicular.
+
+Escopo: SIMPLErejeitado;CFDtransiente é complemento com contornos congelados,sem CHT/mobiliário/y+convergente.
+
+Fonte dos parâmetros: `config/parametros_globais.yaml`;dadoOEM,hipótese e resultado mantêm status próprios. Simulação não é aprovação humana.
+<!-- execucao-integrada:fim -->

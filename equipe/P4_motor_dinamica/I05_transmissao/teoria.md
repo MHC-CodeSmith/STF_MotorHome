@@ -21,3 +21,13 @@ Nenhum câmbio manual de Ducato diesel foi adotado por analogia.
 Limite de90km/h na versão4250kg da fichaSKp3 deve ser preservado.
 [Proveniência e interfaces](../../../docs/FECHAMENTO_TERMICO_E_MISSAO.md).
 Relação, óleo homologado, limites e revisão humana PENDENTES.
+
+<!-- execucao-integrada:inicio -->
+Método técnico integrado: n_motor=60·i·v/(2πr); P_perdas=(1−η_red)·P_entrada.
+
+Relações8/10/12 e eficiências sensibilizadas;redutorOEM permanece intacto. Relação real/óleo/volume não demonstrados.
+
+Escopo: Relação/rotação/óleo real não publicados para varianteSK.
+
+Fonte dos parâmetros: `config/parametros_globais.yaml`;dadoOEM,hipótese e resultado mantêm status próprios. Simulação não é aprovação humana.
+<!-- execucao-integrada:fim -->

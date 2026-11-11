@@ -14,3 +14,13 @@ Conceito, fonte OEM, fluxos e verificação dos requisitos em [arquitetura elét
 
 ## Limitações
 Escolha ainda em desenvolvimento: mapas, integração solar, layout, massa montada, CAD adaptado e revisão humana pendentes. Os picos de motor e a capacidade da bateria não demonstram sozinhos a viabilidade energética da viagem.
+
+<!-- execucao-integrada:inicio -->
+Método técnico integrado: Balanço funcional E_inicial+E_FV=E_final+E_consumida+E_perdas+E_cortada.
+
+BEV AuroraSolar para2p,arquiteturaB por interfaceDCexternaOEM. Serviços48V independentes;interface física não demonstrada.
+
+Escopo: A identidade técnica está definida; homologação da conversão e aprovação humana continuam separadas.
+
+Fonte dos parâmetros: `config/parametros_globais.yaml`;dadoOEM,hipótese e resultado mantêm status próprios. Simulação não é aprovação humana.
+<!-- execucao-integrada:fim -->

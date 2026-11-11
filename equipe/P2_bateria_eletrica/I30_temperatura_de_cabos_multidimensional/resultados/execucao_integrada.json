@@ -1,0 +1,14 @@
+{
+  "item": 30,
+  "owner": "P2",
+  "requirement": "Temperatura nos cabos em potência máxima, campo multidimensional",
+  "model_equations": "ρc·∂T/∂t=∇·(k∇T)+J²ρ_el(T); ρ_el(T)=ρ20[1+α(T−20°C)].",
+  "method_and_conditions": "Campos multidimensionais de cobre/isolamento e sensibilidade. CorrenteDC calculada não é RMSde fase;cabosHV permanecemOEM sem modificação.",
+  "status": "campo_multidimensional_condicionado",
+  "executed": "Camposrθ de serviços e referênciaHV documentada reexecutados;malha/analítica/sensibilidade.",
+  "remaining_limit": "Corrente de faseOEM na potência máxima desconhecida;DC569.4A não equivale a RMSde fase.Não modificarcabos.",
+  "evidence": "entregas/desenvolvimento_2026-11-09/cabos_HV_referencia/resumo_cabos.json",
+  "evidence_sha256": "d20e98a1760fb14b1d20bbd666103247affc400c430fa87e1679d1c8a8ccaf37",
+  "human_approval": false,
+  "physical_validation": false
+}

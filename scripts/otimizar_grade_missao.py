@@ -15,14 +15,15 @@ import yaml
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'src'))
+from motorhome.cenarios import carregar_configuracao, diretorio_entregas
 from motorhome.desenvolvimento import consumir_agua
 from motorhome.reconciliacao import consumo_plano, simular_missao
 from motorhome.solar import simular_dia
 
 
 def main():
-    out=ROOT/'entregas/desenvolvimento_2026-11-09/otimizacao_grade';out.mkdir(parents=True,exist_ok=True)
-    c=yaml.safe_load((ROOT/'config/parametros_globais.yaml').read_text())
+    out=diretorio_entregas(ROOT)/'otimizacao_grade';out.mkdir(parents=True,exist_ok=True)
+    c=carregar_configuracao(ROOT)
     p={k:v['value'] for k,v in c['parameters'].items()};g=c['development']['mission_grid']
     mass=p['assembled_typical_mass_kg'];base=yaml.safe_load((ROOT/'config/solar_proposta.yaml').read_text())
     base['scenario'].update(date=p['reference_day'],latitude_deg=p['latitude_deg'],longitude_deg=p['longitude_deg'],

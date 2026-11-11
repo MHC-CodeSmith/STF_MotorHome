@@ -12,14 +12,15 @@ from scipy.integrate import solve_ivp
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'src'))
 from motorhome.bateria_carga import resolver
+from motorhome.cenarios import carregar_configuracao, diretorio_entregas
 from motorhome.reconciliacao import consumo_plano
 
 
 def main():
-    out=ROOT/'entregas/desenvolvimento_2026-11-09/mecanica_termica';out.mkdir(parents=True,exist_ok=True)
-    c=yaml.safe_load((ROOT/'config/parametros_globais.yaml').read_text());d=c['development']
+    out=diretorio_entregas(ROOT)/'mecanica_termica';out.mkdir(parents=True,exist_ok=True)
+    c=carregar_configuracao(ROOT);d=c['development']
     p={k:v['value'] for k,v in c['parameters'].items()}
-    geometry=json.loads((ROOT/'entregas/desenvolvimento_2026-11-09/integracao/layouts_massas.json').read_text())
+    geometry=json.loads((diretorio_entregas(ROOT)/'integracao/layouts_massas.json').read_text())
     typ=geometry['layouts']['A_fixa']['nominal']; a=d['performance_envelope']
     cases=[]
     for mass,ratio,gear_eta,mu in itertools.product([typ['mass_kg'],4250],a['gear_ratio'],a['gear_efficiency'],a['tyre_friction_mu']):

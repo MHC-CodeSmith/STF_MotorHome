@@ -16,11 +16,11 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import yaml
 from scipy.optimize import brentq
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'src'))
+from motorhome.cenarios import carregar_configuracao, diretorio_entregas
 from motorhome.reconciliacao import consumo_plano, simular_missao
 
 
@@ -31,42 +31,53 @@ def power_curve(voltage,vmp,voc,imp,isc):
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--destino',type=Path,default=ROOT/'entregas/desenvolvimento_2026-11-09/energia_sistemas')
+    parser.add_argument('--destino',type=Path,default=diretorio_entregas(ROOT)/'energia_sistemas')
     args=parser.parse_args();out=args.destino;out.mkdir(parents=True,exist_ok=True)
-    c=yaml.safe_load((ROOT/'config/parametros_globais.yaml').read_text())
+    c=carregar_configuracao(ROOT)
     p={k:v['value'] for k,v in c['parameters'].items()};d=c['development'];s=d['pv_shared_study']
-    integration=json.loads((ROOT/'entregas/desenvolvimento_2026-11-09/integracao/layouts_massas.json').read_text())
+    integration=json.loads((diretorio_entregas(ROOT)/'integracao/layouts_massas.json').read_text())
     mass=integration['layouts']['A_fixa']['nominal']['mass_kg']
     params=[p['cd_range'][1],p['area_m2'],p['crr_range'][1],p['rho_range'][1],p['eta_traction_range'][1]]
     # IV mismatch under independent temperature and irradiance; independent
     # trackers share no battery output with traction. This compares PV harvest.
-    shared=[]
-    for tr,tp,gr,gp in itertools.product([25,65,85],[25,65,85],[.4,1],[.4,1]):
-        vr=s['roof_series']*s['roof_vmp_v']*(1+s['beta_vmp_per_k']*(tr-25))
-        or_=s['roof_series']*s['roof_voc_v']*(1+s['beta_voc_per_k']*(tr-25))
-        vp=s['portable_series']*s['portable_vmp_v']*(1+s['beta_vmp_per_k']*(tp-25))
-        op=s['portable_series']*s['portable_voc_v']*(1+s['beta_voc_per_k']*(tp-25))
-        v=np.linspace(s['battery_charge_v']+1,max(or_,op),10001)
-        pr=power_curve(v,vr,or_,s['roof_imp_a']*gr,s['roof_isc_a']*gr)
-        pp=power_curve(v,vp,op,s['portable_parallel']*s['portable_imp_a']*gp,s['portable_parallel']*s['portable_isc_a']*gp)
-        independent=float(pr.max()+pp.max());combined=pr+pp;best=int(np.argmax(combined))
-        shared.append({'roof_c':tr,'portable_c':tp,'roof_sun_fraction':gr,'portable_sun_fraction':gp,
-                       'separate_trackers_w':independent,'shared_w':float(combined[best]),
-                       'shared_voltage_v':float(v[best]),'mismatch_loss_percent':100*(1-float(combined[best])/independent),
-                       'model':'IV_por_trechos_estimado_nao_datasheet'})
-    pd.DataFrame(shared).to_csv(out/'mppt_compartilhado_mismatch.csv',index=False)
-    isc=s['roof_isc_a']+s['portable_parallel']*s['portable_isc_a']
-    cold=max(s['roof_series']*s['roof_voc_v'],s['portable_series']*s['portable_voc_v'])*(1+s['beta_voc_per_k']*(s['cold_c']-25))
-    electrical={'controller_reference':s['shared_controller_model'],'isc_total_a':isc,'isc_limit_a':s['controller_isc_max_a'],
-                'cold_voc_v':cold,'voc_limit_v':s['controller_voc_max_v'],'coefficient_status':'estimado',
-                'voltage_current_screen_pass':isc<=s['controller_isc_max_a'] and cold<s['controller_operating_max_v'],
-                'approved_topology':False,'rejected_250_60_document_conflict_a':s['documented_isc_values_a'],'low_voltage_190w_to_48v_demonstrated':False,
-                'other_checks':['I–V reais/bypass/proteção contra retorno e conexão portátil não demonstrados.',
-                                'Saída únicaMPPT não pode alimentar simultaneamente serviços48V eHV.',
-                                'Aprovado estudo compartilhado; rastreadores separados apenas comparador.']}
-    (out/'mppt_parecer.json').write_text(json.dumps(electrical,indent=2,ensure_ascii=False)+'\n')
+    if '_execution' not in c:
+        shared=[]
+        for tr,tp,gr,gp in itertools.product([25,65,85],[25,65,85],[.4,1],[.4,1]):
+            vr=s['roof_series']*s['roof_vmp_v']*(1+s['beta_vmp_per_k']*(tr-25))
+            or_=s['roof_series']*s['roof_voc_v']*(1+s['beta_voc_per_k']*(tr-25))
+            vp=s['portable_series']*s['portable_vmp_v']*(1+s['beta_vmp_per_k']*(tp-25))
+            op=s['portable_series']*s['portable_voc_v']*(1+s['beta_voc_per_k']*(tp-25))
+            v=np.linspace(s['battery_charge_v']+1,max(or_,op),10001)
+            pr=power_curve(v,vr,or_,s['roof_imp_a']*gr,s['roof_isc_a']*gr)
+            pp=power_curve(v,vp,op,s['portable_parallel']*s['portable_imp_a']*gp,s['portable_parallel']*s['portable_isc_a']*gp)
+            independent=float(pr.max()+pp.max());combined=pr+pp;best=int(np.argmax(combined))
+            shared.append({'roof_c':tr,'portable_c':tp,'roof_sun_fraction':gr,'portable_sun_fraction':gp,
+                           'separate_trackers_w':independent,'shared_w':float(combined[best]),
+                           'shared_voltage_v':float(v[best]),'mismatch_loss_percent':100*(1-float(combined[best])/independent),
+                           'model':'IV_por_trechos_estimado_nao_datasheet'})
+        pd.DataFrame(shared).to_csv(out/'mppt_compartilhado_mismatch.csv',index=False)
+        isc=s['roof_isc_a']+s['portable_parallel']*s['portable_isc_a']
+        cold=max(s['roof_series']*s['roof_voc_v'],s['portable_series']*s['portable_voc_v'])*(1+s['beta_voc_per_k']*(s['cold_c']-25))
+        electrical={'controller_reference':s['shared_controller_model'],'isc_total_a':isc,'isc_limit_a':s['controller_isc_max_a'],
+                    'cold_voc_v':cold,'voc_limit_v':s['controller_voc_max_v'],'coefficient_status':'estimado',
+                    'voltage_current_screen_pass':isc<=s['controller_isc_max_a'] and cold<s['controller_operating_max_v'],
+                    'approved_topology':False,'rejected_250_60_document_conflict_a':s['documented_isc_values_a'],'low_voltage_190w_to_48v_demonstrated':False,
+                    'other_checks':['I–V reais/bypass/proteção contra retorno e conexão portátil não demonstrados.',
+                                    'Saída únicaMPPT não pode alimentar simultaneamente serviços48V eHV.',
+                                    'Aprovado estudo compartilhado; rastreadores separados apenas comparador.']}
+        (out/'mppt_parecer.json').write_text(json.dumps(electrical,indent=2,ensure_ascii=False)+'\n')
+    else:
+        # The comparator uses independent trackers; do not relabel the old
+        # JA/150V single-tracker calculations as the new Maxeon hardware.
+        source=ROOT/'entregas/desenvolvimento_2026-11-09/teto_maxeon'
+        pd.read_csv(source/'mppt_mismatch_72.csv').to_csv(out/'mppt_compartilhado_mismatch.csv',index=False)
+        electrical={'configuration':c['_execution'],'controller_roof_reference':'250/60 conservador35A',
+            'portable_reference':'150/60 em2S2P','tracker_mode':'independente_somente_comparador_DEC054',
+            'shared_comparison_evidence':str(source.relative_to(ROOT)),'approved_topology':False,
+            'hv_connection_allowed':False,'reference_48v_output_feeds_hv':False}
+        (out/'mppt_parecer.json').write_text(json.dumps(electrical,indent=2,ensure_ascii=False)+'\n')
     # I25 numerical curve: solar availability is an explicit upper bound.
-    solar=pd.read_csv(ROOT/'entregas/etapa_pos_dec061/solar_alternativo_00_08.csv')
+    solar=pd.read_csv((diretorio_entregas(ROOT)/'solar/solar_alternativo_00_08.csv') if '_execution' in c else ROOT/'entregas/etapa_pos_dec061/solar_alternativo_00_08.csv')
     roof=solar.roof_kw.to_numpy();portable=solar.portable_kw.to_numpy();n=len(roof);dt=24/n
     solar_day=float((roof+portable).sum()*dt)
     # Read canonical energy means rather than treating nominal AC capacity as W.
@@ -119,7 +130,7 @@ def main():
     # both reserve pairs. Real DC minimum remains null;1kW only comparison.
     missions=[]
     for name in ['fixo_08_16','alternativo_00_08']:
-        source=ROOT/f'entregas/etapa_pos_dec061/solar_{name}.csv'
+        source=(diretorio_entregas(ROOT)/f'solar/solar_{name}.csv') if '_execution' in c else ROOT/f'entregas/etapa_pos_dec061/solar_{name}.csv'
         sol=pd.read_csv(source)
         driving=sol.planned_driving.astype(str).str.lower().eq('true').tolist()
         for m,speed,reserve,mode in itertools.product([mass,4250],[40,80],[(.1,.2),(.2,.3)],['sem_interface','direta_hipotese']):

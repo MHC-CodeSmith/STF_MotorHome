@@ -20,14 +20,15 @@ import yaml
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'src'))
+from motorhome.cenarios import carregar_configuracao, diretorio_entregas
 from motorhome.despacho_diario import alocar_dia
 from motorhome.reconciliacao import consumo_plano
 from motorhome.solar import simular_dia
 
 
 def main():
-    out=ROOT/'entregas/desenvolvimento_2026-11-09/despacho_i25';out.mkdir(parents=True,exist_ok=True)
-    config_path=ROOT/'config/parametros_globais.yaml';c=yaml.safe_load(config_path.read_text())
+    out=diretorio_entregas(ROOT)/'despacho_i25';out.mkdir(parents=True,exist_ok=True)
+    config_path=ROOT/'config/parametros_globais.yaml';c=carregar_configuracao(ROOT)
     p={k:v['value'] for k,v in c['parameters'].items()};g=c['development']['daily_dispatch']
     base=yaml.safe_load((ROOT/'config/solar_proposta.yaml').read_text())
     base['scenario'].update(date=p['reference_day'],latitude_deg=p['latitude_deg'],longitude_deg=p['longitude_deg'],
@@ -121,7 +122,7 @@ def main():
         'charge_boundary':'SOCbase30% não gasto; crédito solar inicia0. Armazenamento é packOEM, não buffer novo. Mínimos0/1/3kW de entrada são hipóteses, não dadosOEM.',
         'limits':['Sem dinâmica de handshake/rampas/reinício; aceitação intraintervalo constante média.',
                   'Alocação FV flexível conceitual, perdas constantes; chaveamento físico não demonstrado.',
-                  '1350Wp fixos creditados; meta1540Wp preservada. Portáteis somente parados com montagem/desmontagem.',
+                  f'{p["roof_power_48v_study_wp"]}Wp fixos de estudo; meta1540Wp preservada. Portáteis somente parados com montagem/desmontagem.',
                   'Sem limite8h doI29 imposto aoI25. Velocidade constante idealiza urbano/estrada; não ciclo real.',
                   'Controle sem interface tem distância solar de tração0km.']}
     (out/'resumo.json').write_text(json.dumps(summary,indent=2,ensure_ascii=False)+'\n')

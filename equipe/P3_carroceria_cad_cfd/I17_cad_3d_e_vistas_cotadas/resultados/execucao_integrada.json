@@ -1,0 +1,14 @@
+{
+  "item": 17,
+  "owner": "P3",
+  "requirement": "Geometria 3D e três vistas com cotagem principal",
+  "model_equations": "m=Σm_i; r_CG=Σ(m_i r_i)/m; todas as cotasCAD em metros.",
+  "method_and_conditions": "Dois layouts e alternativas de teto;A tem acesso e circulação de estudo,B mantém falha de acesso documentada. Geometria comercial e folgas precisam revisão real.",
+  "status": "CAD_comparativo_executado",
+  "executed": "2layouts e2tetos STEP/GLB;3vistas com escala e cotas;A sem colisõesAABB,com inversor corrigido vertical e acesso100mm de estudo.",
+  "remaining_limit": "B tem acesso de lavagem6mm insuficiente e portáteis altos;A selecionado provisoriamente. Não é CADOEM.",
+  "evidence": "entregas/integrado_maxeon1540/integracao/A_fixa_vistas.png",
+  "evidence_sha256": "96d1b726a49620d9ecba7dee870c2ad13e92177e7d41983108634f5bf8ed07d3",
+  "human_approval": false,
+  "physical_validation": false
+}

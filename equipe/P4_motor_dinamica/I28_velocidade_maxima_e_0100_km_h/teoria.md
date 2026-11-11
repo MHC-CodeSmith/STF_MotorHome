@@ -23,3 +23,13 @@ Essas entradas continuam pendentes; não confundir picos205kW/410Nm com mapa.
 I33 usa30→10m/s por exigência do professor, equivalente108→36km/h;
 é ensaio térmico prescrito, não evento operacional alegado nesta versão limitada.
 [Integração](../../../docs/FECHAMENTO_TERMICO_E_MISSAO.md).
+
+<!-- execucao-integrada:inicio -->
+Método técnico integrado: m·dv/dt=min(F_torque,F_potência,F_aderência)−F_resistiva.
+
+Tração dianteira inclui transferência dinâmica de carga. Variante limitada90km/h não atinge100km/h;0–90 hipotético não é mediçãoOEM.
+
+Escopo: Esses tempos não são desempenhoOEM: relação, raio,aderência e envelope não calibrados.
+
+Fonte dos parâmetros: `config/parametros_globais.yaml`;dadoOEM,hipótese e resultado mantêm status próprios. Simulação não é aprovação humana.
+<!-- execucao-integrada:fim -->

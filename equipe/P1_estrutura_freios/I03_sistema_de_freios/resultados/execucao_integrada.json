@@ -1,0 +1,14 @@
+{
+  "item": 3,
+  "owner": "P1",
+  "requirement": "Sistema de freios especificado",
+  "model_equations": "ΔE_c=½m(v0²−vf²); F_desac=m·a; calor de atrito=demanda−resistências−regeneração.",
+  "method_and_conditions": "Geometria representativa,partição por eixo e limites de aderência separados. Não atribuir frações regenerativas hipotéticas aoOEM.",
+  "status": "modelo_condicionado",
+  "executed": "Disco representativo300mm, partição70/30 e transferência dinâmica calculadas.",
+  "remaining_limit": "Brembo/espessura/cubo/pastilha/compatibilidadeMY25 e limitesABS não demonstrados.",
+  "evidence": "entregas/integrado_maxeon1540/freios_integrados/transferencia_carga_aderencia.csv",
+  "evidence_sha256": "e999ed834a30d77fee43aeaffcdbf1de627d2a012ae059a72e7cb0b4cf5f4b45",
+  "human_approval": false,
+  "physical_validation": false
+}

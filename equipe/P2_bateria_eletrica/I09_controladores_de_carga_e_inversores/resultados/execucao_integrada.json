@@ -1,0 +1,14 @@
+{
+  "item": 9,
+  "owner": "P2",
+  "requirement": "Controladoras e inversores com eficiências",
+  "model_equations": "P_AC≤P_contínua(T); S_AC=V·I; P_AC=S_AC·FP; P_bateria≈P_AC/η+P_vazio.",
+  "method_and_conditions": "220V60Hz configuráveis noGX. Comparador independente250/60teto+150/60portáteis não aprova MPPTcompartilhado nem saída48V paraHV.",
+  "status": "controladores_comparados_condicionalmente",
+  "executed": "InversorGX220/60;comparador250/60teto+150/60portáteis;compartilhado72I–V estimadas.",
+  "remaining_limit": "250/60 usa35A conservador;saídas48V não são interfaceHV. BMS/proteções/comutação e interfaceDC não demonstrados.",
+  "evidence": "entregas/integrado_maxeon1540/energia_sistemas/mppt_parecer.json",
+  "evidence_sha256": "d3ce8db03a4bcc94ae83d5db797eba6ab5c4e2cb91e7b4032838429f17d93d8e",
+  "human_approval": false,
+  "physical_validation": false
+}

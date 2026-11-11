@@ -126,3 +126,19 @@ Sem alterarDEC001–061,fonte única recebe development.mounting_redesign:378alt
 ### 10/11/2026 — alternativaMaxeon1540Wp documentada
 
 Fonte primária indexada e ficha original espelhada544454revA/2022 conferida,registradasources.maxeon3_2022. Development.roof_maxeon_comparison compara2×380+2×390Wp e72cenáriosMPPT. A11prefere provisoriamente esta alternativa para futura integração,sem alterar cenário-base1350Wp/massa/MPPT150-60. Envelope de teto ainda estimado e alternativa exigeclasse250V;compartilhamento não validado. DEC001–061 preservadas.
+
+### 10/11/2026 — revisão1.1.1-execucao1540 e integraçãoP1–P7
+
+Fonte única conservaDEC001–061 e adiciona sobreposição nomeadaMaxeon1540/rastreadores independentes como comparadorDEC054. Cadeia congelada executaCAD/massas/CG/eixos/dinâmica/freios/energia/MILP/grade/água/BOM/sensibilidades/buffer/prioridades e bancos24/48. Arquivosresolvidos são saídas derivadas,snapshotshashados não segundafonte de edição. Água inicial100L agora85tanque+15boiler,corrigindoCGsem massaextra. Planovertical do inversor substitui grupo local sem orientação;Tet10 resolve refinamento de deslocamento sem relaxar2%. CFDequipado3malhas convergem solver mas não independência;limiteCd0,72 é hipótese de sensibilidade,não dadoOEM. Materiais/dados ausentes continuam marcados.
+
+NovofontePylonUSSeries2024declara<2000A/1ms;triagem entregue não substitui curto prospectivo pré-BMS/I²tfusível. Lista primária250/60USD465fecha subtotalUSD1951do cenário,sem custo instaladoBRL. Prioridades72casos são orçamento previsto,não patamaresSOC selecionados;CAD2/3/4/5módulos e suporte inteiro executados. Nenhum buffer/montagemHV/centralprópria foi instalado ou aprovado. Bloqueios específicos e16escolhasfinais preservados. Não há aprovação humana inferida ou missãofisicamente demonstrada.
+
+
+### 11/11/2026 — capacidade HVAC e conflito de ficha oficial
+
+Executado novamente `scripts/comparar_hvac_revisoes.py`: 72 cenários térmicos, 12 elétricos e comparação direta com quatro declarações de capacidade. A página oficial Dometic do FreshWell SKU 9105306675 expõe headline 2700 W/9200 BTU/h e campo estruturado ISO5151 de 1758, com valor adjacente 5998.54 BTU/h; a leitura da unidade do campo estruturado é inferida por conversão e o conflito fica sem resolução. Para as demandas modeladas 2515.90/2645.90 W (1/2 ocupantes), as margens são +184.10/+54.10 W se 2700 W, ou −757.90/−887.90 W se 1758 W. Nenhuma dessas declarações demonstra capacidade nas condições 33/25 °C. FreshJet FJX7 3000 SKU 9600050994 foi adicionado somente como comparador rooftop: 3000 W ISO5151, 36.8 kg e 1090×700 mm; requer revisão de layout, teto, massa e capacidade na condição. Fontes no catálogo CSV e resultados em `entregas/desenvolvimento_2026-11-09/hvac_revisao/comparacao_capacidade_documentada.csv` e `resumo.json`. Parâmetros canônicos e decisões DEC-001–061 não foram alterados; FreshWell não foi substituído. Perguntas acadêmicas para resolver critérios de evidência estão em `docs/PERGUNTAS_PARA_PROFESSOR.md`.
+
+
+### 11/11/2026 — refinamento local adicional de I29
+
+Sem alterar DEC-001–061, `scripts/otimizar_janela_missao.py --refino-extra` avaliou 286 pontos locais (partida em passos de0,1h e velocidade0,1km/h), mais6sensibilidades auxiliares na política selecionada, em torno dos melhores pontos anteriores para auxiliares de tração700W. A malha temporal permanece15min e a busca só cobre a vizinhança de cada candidato. O caso de reservas10/20% selecionou17,9h/20,7km/h e242,802083dias; reservas20/30% selecionou17,9h/20,0km/h e244,802083dias. As durações não melhoraram frente à busca densa; mudanças de partida/velocidade pertencem ao mesmo resultado dentro da resolução temporal. Resíduos máximos nos melhores pontos cerca de1,21e-9kWh. Saída em `entregas/integrado_maxeon1540/otimizacao_janela_missao_refino_extra/`; interfaceDC continua hipotética, resultado não prova ótimo global ou missão física.

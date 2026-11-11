@@ -1,0 +1,14 @@
+{
+  "item": 32,
+  "owner": "P6",
+  "requirement": "Potência A/C: 33 °C externo, 25 °C interno, passageiro, permanente",
+  "model_equations": "Q̇_AC=Q̇_condução+Q̇_solar+Q̇_metabólica+Q̇_infiltração+Q̇_interna.",
+  "method_and_conditions": "33°Cexternos/25°Cinternos/1ocupante principal,2complementar,regime permanente. kWtérmico não é kWelétrico;6,2A e220V implicam1364VA,FP/partida e capacidade real ainda pendentes.",
+  "status": "carga_e_revisao_comercial_verificadas",
+  "executed": "72 sensibilidades térmicas,12 elétricas e comparação de 8 margens (4 declarações × 2 ocupações);conflito de capacidade oficial FreshWell registrado;FreshJet apenas comparador.",
+  "remaining_limit": "Página oficial SKU 9105306675 conflita: headline 2700W contra campo ISO5151 1758 (unidade interpretada pelo valor adjacente 5998.54BTU/h). Margem modelada a 1/2 ocupantes: +184/+54W se2700W ou −758/−888W se1758W. Capacidade a33/25°C,SKU/placa,partida,fusível5A versus6.2A e montagem continuam sem confirmação.",
+  "evidence": "entregas/desenvolvimento_2026-11-09/hvac_revisao/resumo.json",
+  "evidence_sha256": "2b3f732e911979603393ee80e76c7fa44ae2752792086bd3e5d1b1dddde0793b",
+  "human_approval": false,
+  "physical_validation": false
+}

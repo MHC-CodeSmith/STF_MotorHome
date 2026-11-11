@@ -1,0 +1,14 @@
+{
+  "item": 34,
+  "owner": "P7",
+  "requirement": "Temperatura da bateria com cargas 20/80 kW",
+  "model_equations": "I=P_carga/V; Q̇_Joule=I²R_int; C_b·dT_b/dt=Q̇_Joule−UA(T_b−T_c).",
+  "method_and_conditions": "20/80kW são ensaios térmicos, não potência solar. ModeloECM/múltiplos nós é parametrizado,com resistência/massa/troca sensibilizadas e sem curvaOEM inventada.",
+  "status": "simulado_com_sensibilidade",
+  "executed": "54novoscasos20/80kW variando massa/UA/cooler;conservação elétrica/térmica conferida.",
+  "remaining_limit": "ECM2nós não packOEM calibrado;20/80kW não são FV disponível.",
+  "evidence": "entregas/integrado_maxeon1540/mecanica_termica/I34_54sensibilidades.csv",
+  "evidence_sha256": "a8ac1d2887074c99165a7f59700d120f2d659819c9fb5e37cbf5c5d934679ae0",
+  "human_approval": false,
+  "physical_validation": false
+}

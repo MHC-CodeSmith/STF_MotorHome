@@ -10,3 +10,11 @@
 
 ## Pendências e correções
 A preencher.
+
+<!-- execucao-integrada:inicio -->
+Revisão computacional registrada no índice `resultados/execucao_integrada.json`.
+
+Limitação remanescente: Variação final5.23%;GCI não justificável por refinamento local;geometria/parede não validadas,semCddefinitivo.
+
+Revisão humana final: **PENDENTE**. Não houve instalação/ensaio físico,homologação ou aceite inferido por este gerador.
+<!-- execucao-integrada:fim -->

@@ -1,0 +1,11 @@
+{
+  "I28_cases": 36,
+  "I34_cases": 54,
+  "I28_note": "Envelope torque constante/potencia constante é hipótese de cálculo; relação e raio não dados homologados da variante; não curvaOEM.",
+  "thermal_note": "Sensibilidades estimadas; massa pack apenas no modelo térmico, nunca adicionada à tara.",
+  "nominal_geometry_source": "layoutA integração, CGbase hipotético",
+  "motor_maps_oem_available": false,
+  "mechanical_peak_continuous_proven": false,
+  "oem_lubrication_identified": false,
+  "physical_validation": false
+}

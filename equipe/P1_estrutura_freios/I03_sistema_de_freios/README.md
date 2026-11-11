@@ -23,3 +23,7 @@ O item só vira **aprovado** quando tiver resultados reproduzíveis, referência
 ## Avanço de26/10/2026
 
 Ver [integração térmica, operação e missão](../../../docs/FECHAMENTO_TERMICO_E_MISSAO.md).
+
+<!-- execucao-integrada:inicio -->
+Execução vigente: fonte única `config/parametros_globais.yaml`,cenário `maxeon1540_independente` e índice local `resultados/execucao_integrada.json`. Referências antigas às propostas elétricas permanecem históricas e não autorizam arquitetura48V→OBC,modificaçãoHV ou aprovação final. Critérios/revisão computacional e bloqueios atuais constam em `docs/REVISAO_TECNICA_EXECUCAO02.md`.
+<!-- execucao-integrada:fim -->

@@ -1,0 +1,14 @@
+{
+  "item": 20,
+  "owner": "P4",
+  "requirement": "Coeficiente de rolamento Cr",
+  "model_equations": "F_rol=Crr·m·g em pista plana; P_rol=F_rol·v.",
+  "method_and_conditions": "Crr0,008/0,012/0,016 é caixa de hipóteses,não ensaio de pneusOEM;variar massa e condição de uso mantendo pneus de fábrica.",
+  "status": "calculado_com_sensibilidade",
+  "executed": "Crr.008/.012/.016 estimado, propagado ao modelo; sem alterar pneus.",
+  "remaining_limit": "Não apresentar Crr como ensaio dos pneusOEM.",
+  "evidence": "entregas/integrado_maxeon1540/integracao/dinamica_massa_integrada.csv",
+  "evidence_sha256": "3f1463aa2d85bc64177613d91b055cd5a317d8f01706847f32445612e794c1be",
+  "human_approval": false,
+  "physical_validation": false
+}

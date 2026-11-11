@@ -14,3 +14,11 @@ A preencher.
 ## Avanço de 26/10/2026 — cabos r–theta
 
 Método/casos, hipóteses, fontes e convergência em [cabos e radiador](../../../docs/CABOS_E_RADIADOR_2D.md). Resultados reproduzíveis em [resumo](resultados/resumo_cabos.json); o requisito continua parcial e sem aprovação humana.
+
+<!-- execucao-integrada:inicio -->
+Revisão computacional registrada no índice `resultados/execucao_integrada.json`.
+
+Limitação remanescente: Corrente de faseOEM na potência máxima desconhecida;DC569.4A não equivale a RMSde fase.Não modificarcabos.
+
+Revisão humana final: **PENDENTE**. Não houve instalação/ensaio físico,homologação ou aceite inferido por este gerador.
+<!-- execucao-integrada:fim -->

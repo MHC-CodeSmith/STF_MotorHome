@@ -1,0 +1,66 @@
+{
+  "layouts": {
+    "A_fixa": {
+      "nominal": {
+        "layout": "A_fixa",
+        "estimated_mass_factor": 1,
+        "oem_rear_fraction_assumed": 0.42,
+        "oem_cg_height_assumed_m": 0.78,
+        "water_clean_grey_black_l": "[100, 0, 0]",
+        "mass_kg": 3976.52552776,
+        "cg_x_m": 2.0178041834699756,
+        "cg_y_m": 0.0024488025619403804,
+        "cg_z_m": 0.9307136866311227,
+        "front_kg": 1987.9629885805005,
+        "rear_kg": 1988.5625391794995,
+        "pbt_margin_kg": 273.47447224000007,
+        "axle_compliance": null,
+        "geometric_ay_g": 0.9589965316496003
+      },
+      "equipment_collisions": [],
+      "wheel_arch_collisions_assumed_geometry": [],
+      "outside_envelope": [],
+      "washer_door_service_clearance_m": 0.5899999999999999,
+      "washer_door_required_extension_m": 0.4800000000000001,
+      "aisle_front_m": 0.45399999999999996,
+      "geometry_status": "ESTUDO_DE_ENVELOPES_NAO_VALIDADO",
+      "selection": "A_provisorio_espaco_manutencao_verificar",
+      "axle_limits_documented": false
+    },
+    "B_conversivel_noite": {
+      "nominal": {
+        "layout": "B_conversivel_noite",
+        "estimated_mass_factor": 1,
+        "oem_rear_fraction_assumed": 0.42,
+        "oem_cg_height_assumed_m": 0.78,
+        "water_clean_grey_black_l": "[100, 0, 0]",
+        "mass_kg": 3992.32474776,
+        "cg_x_m": 2.0057283996704207,
+        "cg_y_m": -0.005538452404806531,
+        "cg_z_m": 0.9478426689180153,
+        "front_kg": 2007.809474578022,
+        "rear_kg": 1984.5152731819778,
+        "pbt_margin_kg": 257.6752522400002,
+        "axle_compliance": null,
+        "geometric_ay_g": 0.9384063165361977
+      },
+      "equipment_collisions": [],
+      "wheel_arch_collisions_assumed_geometry": [],
+      "outside_envelope": [],
+      "washer_door_service_clearance_m": 0.4740000000000001,
+      "washer_door_required_extension_m": 0.4800000000000001,
+      "aisle_front_m": 0.45399999999999996,
+      "geometry_status": "ESTUDO_DE_ENVELOPES_NAO_VALIDADO",
+      "selection": "comparador_conversivel",
+      "axle_limits_documented": false
+    }
+  },
+  "inner_envelope_m": [
+    3.629,
+    1.794,
+    1.8559999999999999
+  ],
+  "base_cg_and_axles": "OEM não publicados; hipóteses .35/.42/.50 traseiro, z .65/.78/.90m",
+  "pbt_case": "4250kg é teto condicional; não massa máxima admissível sem limites por eixo",
+  "unknown_mass": "InterfaceDC/buffer não instalados; massas adicionais requeridas reduzem margem."
+}

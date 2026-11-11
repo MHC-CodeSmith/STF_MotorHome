@@ -10,13 +10,23 @@ Os métodos abaixo preservam o histórico; nenhuma aprovação de engenharia foi
 Área, eficiência, tecnologia, potência, massa, montagem e configuração.
 
 ## Equações e hipóteses
-A preencher com equações corretas e citações. Não inventar dados.
+P_FV≈P_STC·G_POA/1000·[1+γ(T_c−25°C)]·f_perdas; E=ΣP·Δt.
 
 ## Entradas e unidades
 Dependências diretas: I17 (P3).
 
 ## Modelo / procedimento
-Descrever método, condição de contorno e critérios de convergência (se aplicável).
+1540Wp documentados por2×380+2×390 e1600Wp portáteis,somenteparados/ângulos fixos. FamíliaPV e limitesMPPT específicos por cenário;Wp não são kWh.
 
 ## Limitações
-Identificar aproximações e sensibilidade das entradas.
+Retângulo estimado/curvatura/ancoragens/estoque não comprovados;rastreadores independentes são comparadorDEC054,compartilhamento não aprovado.
+
+<!-- execucao-integrada:inicio -->
+Método técnico integrado: P_FV≈P_STC·G_POA/1000·[1+γ(T_c−25°C)]·f_perdas; E=ΣP·Δt.
+
+1540Wp documentados por2×380+2×390 e1600Wp portáteis,somenteparados/ângulos fixos. FamíliaPV e limitesMPPT específicos por cenário;Wp não são kWh.
+
+Escopo: Retângulo estimado/curvatura/ancoragens/estoque não comprovados;rastreadores independentes são comparadorDEC054,compartilhamento não aprovado.
+
+Fonte dos parâmetros: `config/parametros_globais.yaml`;dadoOEM,hipótese e resultado mantêm status próprios. Simulação não é aprovação humana.
+<!-- execucao-integrada:fim -->

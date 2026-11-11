@@ -19,3 +19,13 @@ Implementação própria em [sistemas_termicos.py](../../../src/motorhome/sistem
 ## Estado
 
 Métodos verificados com dados SYNTHETIC; entradas físicas e revisão humana **PENDENTES**. O status é desenvolvimento parcial. Consulte a [revisão completa](../../../docs/REVISAO_35_ITENS.md).
+
+<!-- execucao-integrada:inicio -->
+Método técnico integrado: Q̇_AC=Q̇_condução+Q̇_solar+Q̇_metabólica+Q̇_infiltração+Q̇_interna.
+
+33°Cexternos/25°Cinternos/1ocupante principal,2complementar,regime permanente. kWtérmico não é kWelétrico;6,2A e220V implicam1364VA,FP/partida e capacidade real ainda pendentes.
+
+Escopo: Margem nominal1p184W/2p54W não valida33°C;SKU/placa,partida e fusível5A versus6.2A precisam confirmação.
+
+Fonte dos parâmetros: `config/parametros_globais.yaml`;dadoOEM,hipótese e resultado mantêm status próprios. Simulação não é aprovação humana.
+<!-- execucao-integrada:fim -->

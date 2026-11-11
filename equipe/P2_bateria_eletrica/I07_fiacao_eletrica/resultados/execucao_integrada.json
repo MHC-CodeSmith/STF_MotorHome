@@ -1,0 +1,14 @@
+{
+  "item": 7,
+  "owner": "P2",
+  "requirement": "Fiação elétrica",
+  "model_equations": "V_carga=V_fonte−I·R; P_DC=V_carga·I; R=ρ(T)·L/A; P_Joule=I²R.",
+  "method_and_conditions": "Resolver a raiz estável da carga de potência constante. Ampacidade instalada,terminais,I²t e corrente prospectiva real exigem dados não substituídos pela queda de tensão.",
+  "status": "triagem_eletrica_e_rotas_executadas",
+  "executed": "324casosDC com queda acoplada à carga;144faltas e cabos70/95/120mm²;rotasCAD de reserva.",
+  "remaining_limit": "56faltas hipotéticas excedem20kA;impedância real/I²t/ampacidade/PE-DR/terminais ainda não validados.",
+  "evidence": "entregas/integrado_maxeon1540/protecoes_fixacoes/resumo.json",
+  "evidence_sha256": "b431cfc3d31c6c021bfdeaf6cb6a3fa623965760d457efff1cc265aabe862315",
+  "human_approval": false,
+  "physical_validation": false
+}

@@ -28,3 +28,16 @@ def test_invariancia_translacao_e_interface_degenerada():
     b=grupo_parafusos_espacial([1,2,3],[4,5,6],np.array(XYZ)+[30,15,8])
     assert np.array(a['components_n'])==pytest.approx(np.array(b['components_n']))
     with pytest.raises(ValueError):grupo_parafusos_espacial([0,0,0],[0,0,0],[[0,0,0],[1,0,0],[2,0,0]])
+
+
+def test_gravidade_em_interface_vertical_produz_cisalhamento_e_binario():
+    # Wall normal -Yglobal; localY points up. A400N load100mm off the wall
+    # requires a40Nm couple, not100N axial tension in every bolt.
+    rotation=np.array([[1,0,0],[0,0,-1],[0,1,0]])
+    force=rotation.T@np.array([0,0,-400])
+    moment=np.cross([0,0,.1],force)
+    coords=[[-.08,-.05,0],[.08,-.05,0],[.08,.05,0],[-.08,.05,0]]
+    r=grupo_parafusos_espacial(force,moment,coords)
+    assert r['bolt_shear_n']==pytest.approx([100]*4)
+    assert sorted(r['bolt_tension_n'])==pytest.approx([0,0,200,200])
+    assert rotation@np.array(r['components_n']).sum(axis=0)==pytest.approx([0,0,-400])

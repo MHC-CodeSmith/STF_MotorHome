@@ -1,0 +1,146 @@
+{
+  "configuration_source_sha256": "54cd697c17ee59aaf5504620a0fe7a9f55f0ba6ac6d2d18022d464896a1cc3c5",
+  "cases": [
+    {
+      "source": "cfd-aurora-piloto-03",
+      "case": "entregas/aero_equipado1540/malha1",
+      "body_stl_sha256": "61a781c82a40a360ff92fc88978c4d87406ef7afdb49e9d6a77115d17d09c8ab",
+      "pvdeck_stl_sha256": "f47eaa636b0fe99278bae5cbf028e7f1b37e7e54d2010d51984436b0cf1a0d0f",
+      "panel_bbox_lo_m": [
+        -3.4572020530700684,
+        -0.845,
+        2.6484270477294922
+      ],
+      "panel_bbox_size_m": [
+        4.244,
+        1.69,
+        0.04
+      ],
+      "validated_cd": null,
+      "block_exit": 0,
+      "snappy_exit": 0,
+      "check_exit": 0,
+      "mesh_ok": true,
+      "cells": 101030,
+      "solver_exit": 0,
+      "solver_converged": true,
+      "last_cd_diagnostic": 0.68313391,
+      "last50_cd_relative_span": 0.0005948980519203368,
+      "finite_cd": true,
+      "yplus": {
+        "ground": [
+          279.13357,
+          15302.195,
+          2623.5483
+        ],
+        "pvdeck": [
+          201.29145,
+          901.59999,
+          512.75158
+        ],
+        "aurora": [
+          97.69429,
+          4499.1765,
+          688.52376
+        ]
+      }
+    },
+    {
+      "source": "cfd-aurora-refino-semcamadas-01",
+      "case": "entregas/aero_equipado1540/malha2",
+      "body_stl_sha256": "61a781c82a40a360ff92fc88978c4d87406ef7afdb49e9d6a77115d17d09c8ab",
+      "pvdeck_stl_sha256": "f47eaa636b0fe99278bae5cbf028e7f1b37e7e54d2010d51984436b0cf1a0d0f",
+      "panel_bbox_lo_m": [
+        -3.4572020530700684,
+        -0.845,
+        2.6484270477294922
+      ],
+      "panel_bbox_size_m": [
+        4.244,
+        1.69,
+        0.04
+      ],
+      "validated_cd": null,
+      "block_exit": 0,
+      "snappy_exit": 0,
+      "check_exit": 0,
+      "mesh_ok": true,
+      "cells": 128458,
+      "solver_exit": 0,
+      "solver_converged": true,
+      "last_cd_diagnostic": 0.66691895,
+      "last50_cd_relative_span": 0.0003518090587609621,
+      "finite_cd": true,
+      "yplus": {
+        "ground": [
+          120.52905,
+          14389.716,
+          2258.2265
+        ],
+        "pvdeck": [
+          214.30113,
+          939.23664,
+          527.18564
+        ],
+        "aurora": [
+          65.732074,
+          3709.6861,
+          700.91952
+        ]
+      }
+    },
+    {
+      "source": "cfd-aurora-refino-semcamadas-02",
+      "case": "entregas/aero_equipado1540/malha3",
+      "body_stl_sha256": "61a781c82a40a360ff92fc88978c4d87406ef7afdb49e9d6a77115d17d09c8ab",
+      "pvdeck_stl_sha256": "f47eaa636b0fe99278bae5cbf028e7f1b37e7e54d2010d51984436b0cf1a0d0f",
+      "panel_bbox_lo_m": [
+        -3.4572020530700684,
+        -0.845,
+        2.6484270477294922
+      ],
+      "panel_bbox_size_m": [
+        4.244,
+        1.69,
+        0.04
+      ],
+      "validated_cd": null,
+      "block_exit": 0,
+      "snappy_exit": 0,
+      "check_exit": 0,
+      "mesh_ok": true,
+      "cells": 217494,
+      "solver_exit": 0,
+      "solver_converged": true,
+      "last_cd_diagnostic": 0.63374383,
+      "last50_cd_relative_span": 0.0003021519905960896,
+      "finite_cd": true,
+      "yplus": {
+        "ground": [
+          78.309307,
+          13627.74,
+          1969.8546
+        ],
+        "pvdeck": [
+          216.70838,
+          954.19632,
+          534.4174
+        ],
+        "aurora": [
+          31.907096,
+          2188.7431,
+          515.33517
+        ]
+      }
+    }
+  ],
+  "validated_cd": null,
+  "physical_validation": false,
+  "global_grid_independence": false,
+  "method": "Mesma geometria piloto;novo deckFV contínuo,parede sem camadas com kOmegaSST/wallfunctions. Não repete malha fina extrudida divergente.",
+  "limits": [
+    "Geometria piloto não é CAD certificadoL3H2;suportes e gaps20mm entre módulos omitidos.",
+    "Gap constante ao topo máximo da carroceria é hipótese;não posição real de ancoragem.",
+    "Parede/y+ e folga painel precisam resolução e incerteza;convergência residual não equivale aCd validado."
+  ]
+}

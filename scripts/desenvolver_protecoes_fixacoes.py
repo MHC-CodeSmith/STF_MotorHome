@@ -6,10 +6,10 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
-import yaml
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'src'))
+from motorhome.cenarios import carregar_configuracao, diretorio_entregas
 from motorhome.protecoes import (
     GerenciadorCargas,
     alocar_picos,
@@ -20,8 +20,8 @@ from motorhome.protecoes import (
 
 
 def main():
-    out=ROOT/'entregas/desenvolvimento_2026-11-09/protecoes_fixacoes';out.mkdir(parents=True,exist_ok=True)
-    c=yaml.safe_load((ROOT/'config/parametros_globais.yaml').read_text());p={k:v['value'] for k,v in c['parameters'].items()}
+    out=diretorio_entregas(ROOT)/'protecoes_fixacoes';out.mkdir(parents=True,exist_ok=True)
+    c=carregar_configuracao(ROOT);p={k:v['value'] for k,v in c['parameters'].items()}
     e=c['development']['electrical_detail'];m=c['development']['mounting_detail']
     rows=[]
     for voltage,temp,area,length,power in itertools.product(e['battery_voltage_sweep_v'],e['copper_temperature_c'],e['sections_mm2'],e['loop_lengths_m'],e['powers_ac_w']):

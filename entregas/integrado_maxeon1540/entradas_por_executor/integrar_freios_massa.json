@@ -1,0 +1,8 @@
+{
+  "scenario": "maxeon1540_independente",
+  "source_sha256": "e408c1fda000196eae8449c19d29fa645c4949730212a9629566b10bd58946ac",
+  "output_directory": "entregas/integrado_maxeon1540",
+  "physical_validation": false,
+  "note": "Referência com rastreadores independentes para comparaçãoDEC054;250/60 teto+150/60 portáteis. InterfaceDCtração e alocaçãoFV hipotéticas;nenhuma ligação entre bancos. SharedMPPT continua comparado,não aprovado.",
+  "resolved_sha256": "e1ad225b9f76e2acca2e1d720031dbe412c269271d76cf795bd9da3c1562129f"
+}

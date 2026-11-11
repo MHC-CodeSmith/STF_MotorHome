@@ -23,6 +23,138 @@
     54.10221542600857
   ],
   "nominal_va_at220v60hz": 1364.0,
+  "manufacturer_capacity_comparison": [
+    {
+      "occupants": 1,
+      "cooling_demand_w_modelled": 2515.8977845739914,
+      "device": "FreshWell FW3000, manual 2018",
+      "capacity_claim_w": 2700.0,
+      "claim": "manual nominal; ISO 5151 per manual",
+      "source": "https://www.jacksonsleisure.com/content/pdf/dometic/dometic-freshwell-3000-manual.pdf",
+      "nominal_margin_w": 184.10221542600857,
+      "nominal_margin_fraction_of_demand": 0.07317555448985857,
+      "capacity_at_33c_outside_25c_inside_demonstrated": false,
+      "physical_installation_demonstrated": false
+    },
+    {
+      "occupants": 1,
+      "cooling_demand_w_modelled": 2515.8977845739914,
+      "device": "FreshWell FW3000 SKU 9105306675, official page headline",
+      "capacity_claim_w": 2700.0,
+      "claim": "headline 2700 W / 9200 BTU/h; conflicts with structured field",
+      "source": "https://www.dometic.com/en/product/dometic-freshwell-3000-9105306675",
+      "nominal_margin_w": 184.10221542600857,
+      "nominal_margin_fraction_of_demand": 0.07317555448985857,
+      "capacity_at_33c_outside_25c_inside_demonstrated": false,
+      "physical_installation_demonstrated": false
+    },
+    {
+      "occupants": 1,
+      "cooling_demand_w_modelled": 2515.8977845739914,
+      "device": "FreshWell FW3000 SKU 9105306675, official page ISO5151 field",
+      "capacity_claim_w": 1758.0,
+      "claim": "structured field 1758; adjacent display 5998.54 BTU/h; unit interpretation follows BTU/h conversion",
+      "source": "https://www.dometic.com/en/product/dometic-freshwell-3000-9105306675",
+      "nominal_margin_w": -757.8977845739914,
+      "nominal_margin_fraction_of_demand": -0.3012434722988254,
+      "capacity_at_33c_outside_25c_inside_demonstrated": false,
+      "physical_installation_demonstrated": false
+    },
+    {
+      "occupants": 1,
+      "cooling_demand_w_modelled": 2515.8977845739914,
+      "device": "FreshJet FJX7 3000 SKU 9600050994, comparator only",
+      "capacity_claim_w": 3000.0,
+      "claim": "official ISO 5151 capacity; rooftop package",
+      "source": "https://www.dometic.com/en/product/dometic-freshjet-fjx7-3000-75",
+      "nominal_margin_w": 484.10221542600857,
+      "nominal_margin_fraction_of_demand": 0.19241728276650952,
+      "capacity_at_33c_outside_25c_inside_demonstrated": false,
+      "physical_installation_demonstrated": false
+    },
+    {
+      "occupants": 2,
+      "cooling_demand_w_modelled": 2645.8977845739914,
+      "device": "FreshWell FW3000, manual 2018",
+      "capacity_claim_w": 2700.0,
+      "claim": "manual nominal; ISO 5151 per manual",
+      "source": "https://www.jacksonsleisure.com/content/pdf/dometic/dometic-freshwell-3000-manual.pdf",
+      "nominal_margin_w": 54.10221542600857,
+      "nominal_margin_fraction_of_demand": 0.020447583327456248,
+      "capacity_at_33c_outside_25c_inside_demonstrated": false,
+      "physical_installation_demonstrated": false
+    },
+    {
+      "occupants": 2,
+      "cooling_demand_w_modelled": 2645.8977845739914,
+      "device": "FreshWell FW3000 SKU 9105306675, official page headline",
+      "capacity_claim_w": 2700.0,
+      "claim": "headline 2700 W / 9200 BTU/h; conflicts with structured field",
+      "source": "https://www.dometic.com/en/product/dometic-freshwell-3000-9105306675",
+      "nominal_margin_w": 54.10221542600857,
+      "nominal_margin_fraction_of_demand": 0.020447583327456248,
+      "capacity_at_33c_outside_25c_inside_demonstrated": false,
+      "physical_installation_demonstrated": false
+    },
+    {
+      "occupants": 2,
+      "cooling_demand_w_modelled": 2645.8977845739914,
+      "device": "FreshWell FW3000 SKU 9105306675, official page ISO5151 field",
+      "capacity_claim_w": 1758.0,
+      "claim": "structured field 1758; adjacent display 5998.54 BTU/h; unit interpretation follows BTU/h conversion",
+      "source": "https://www.dometic.com/en/product/dometic-freshwell-3000-9105306675",
+      "nominal_margin_w": -887.8977845739914,
+      "nominal_margin_fraction_of_demand": -0.3355752401890118,
+      "capacity_at_33c_outside_25c_inside_demonstrated": false,
+      "physical_installation_demonstrated": false
+    },
+    {
+      "occupants": 2,
+      "cooling_demand_w_modelled": 2645.8977845739914,
+      "device": "FreshJet FJX7 3000 SKU 9600050994, comparator only",
+      "capacity_claim_w": 3000.0,
+      "claim": "official ISO 5151 capacity; rooftop package",
+      "source": "https://www.dometic.com/en/product/dometic-freshjet-fjx7-3000-75",
+      "nominal_margin_w": 354.10221542600857,
+      "nominal_margin_fraction_of_demand": 0.13383064814161805,
+      "capacity_at_33c_outside_25c_inside_demonstrated": false,
+      "physical_installation_demonstrated": false
+    }
+  ],
+  "freshwell_document_conflict": {
+    "sku": "9105306675",
+    "model": "FW3000",
+    "official_product_url": "https://www.dometic.com/en/product/dometic-freshwell-3000-9105306675",
+    "page_headline_capacity_w": 2700,
+    "page_structured_iso5151_value": 1758,
+    "page_structured_companion_value": 5998.54,
+    "companion_value_unit_interpreted": "BTU/h",
+    "interpretation": "conflict unresolved; do not select one rating as verified performance",
+    "accessed": "2026-11-11"
+  },
+  "freshjet_fjx7_comparator": {
+    "sku": "9600050994",
+    "model": "FJX7337IHP",
+    "official_product_url": "https://www.dometic.com/en/product/dometic-freshjet-fjx7-3000-75",
+    "cooling_capacity_iso5151_w": 3000,
+    "voltage_v": [
+      220,
+      240
+    ],
+    "frequency_hz": [
+      50,
+      60
+    ],
+    "max_cooling_current_a": 6.77,
+    "max_ac_protection_a": 8,
+    "mass_kg": 36.8,
+    "mass_delta_vs_freshwell_kg": 15.799999999999997,
+    "footprint_m2": 0.763,
+    "roof_panel_estimated_area_m2": 7.256859999999999,
+    "gross_unoccupied_area_in_roof_rectangle_m2": 0.5691400000000009,
+    "status": "comparador; rooftop area conflicts with estimated roof PV envelope; mounting and capacity at design condition unverified",
+    "accessed": "2026-11-11"
+  },
   "fuse_conflict_open": true,
   "daily_hvac_kwh_still_assumed": 3,
   "larger_comparison": "WebastoCoolTopTrail35jácomparado/rejeitado50Hzteto;ColemanUB11/UB15primário115Vnãoaceito220Vsemadaptação/curva/layout. Não inferirBTUpelonome.",
