@@ -33,7 +33,7 @@ Foram lidos os registros de execução, QA, matriz dos 35 itens, inventário de 
 
 **Limitação da sessão que produziu esta revisão (superada em 10/11/2026):** naquela execução, o terminal padrão falhou por erro de sandbox e a execução ampliada não foi autorizada; testes Python, solvers e Git ficaram pendentes naquele momento. Na continuidade posterior, shell e `.venv` voltaram a funcionar: 244 testes, Ruff, verificadores integrado/desenvolvimento, estrutura e auditoria foram reexecutados. A busca de fontes OEM CCS2 não trouxe nova evidência; interface DC segue sem comprovação.
 
-A alteração documental de A13 descrita adiante muda o hash desse documento em relação ao manifesto global antigo. O manifesto foi preservado. Sua atualização e nova conferência ficam explicitamente pendentes; não se deve apresentar o antigo “PASSOU” como nova certificação de integridade da árvore atual.
+Naquela revisão, a alteração documental de A13 ainda não tinha sido registrada no manifesto. Estado atualizado em 11/11/2026: o registro de hashes foi executado pelo verificador oficial, seguido de conferência sem `--registrar`; a verificação atual passou com 181 entradas e 1.258 saídas, sem converter o resultado em validação física.
 
 ## 3. Requisitos obrigatórios preservados
 
@@ -186,7 +186,7 @@ A correção RG-01 não altera código, parâmetros físicos, replays ou registr
 | Alta | HVAC e qualidade do ar | P6, P3, P2 | SKU e capacidade na condição prescrita, dutos/rejeição externa/condensado, partida e proteção; renovação e umidade verificadas |
 | Alta | Requisitos de ótimo e modelos físicos | P5, P3, P4, P6, P7 | Escopo de otimização demonstrado; refinamento/validação proporcionais à finalidade e dados reais para substituir hipóteses críticas |
 | Média | Orçamento instalado | P1 | Cotações dos componentes selecionados, instalação, frete, tributos e conversão monetária documentados |
-| Operacional nesta sessão | Nova reprodução e integridade | Agente executor | Restabelecer o terminal/revisão automática; conferir os manifestos sem mascarar a mudança documental de A13 |
+| Operacional naquela sessão (resolvido em 11/11/2026) | Nova reprodução e integridade | Agente executor | Shell disponível; testes e verificadores reexecutados; hashes atualizados pelos registradores previstos e conferidos em seguida |
 
 Não é necessário reabrir decisões já aprovadas ou pedir escolhas individuais para continuar estudos compatíveis. Também não é possível encerrar esses bloqueios apenas por aprovação do usuário: faltam evidências técnicas específicas.
 
@@ -212,7 +212,7 @@ As recomendações de estudo são: manter a variante SK 505.GG1.2 e o layout A; 
 | Plano de reprodução vigente | [PLANO_EXECUCAO_POS_DEC061.md](PLANO_EXECUCAO_POS_DEC061.md) |
 | Nova conferência documental | [verificacoes_documentais.json](../entregas/revisao_geral_2026-11-10/verificacoes_documentais.json) |
 
-Com o terminal disponível, os comandos de conferência são:
+Comandos reexecutados nesta continuidade (11/11/2026):
 
 ```bash
 PYTHONPATH=src .venv/bin/python -m pytest -q
@@ -221,9 +221,9 @@ MOTORHOME_SCENARIO=maxeon1540_independente PYTHONPATH=src .venv/bin/python scrip
 PYTHONPATH=src .venv/bin/python scripts/verificar_desenvolvimento.py
 ```
 
-Após revisar a correção de A13, a regeneração legítima do manifesto global deve usar o procedimento `--registrar` documentado, seguida de nova execução sem essa opção. Não se deve alterar hashes históricos para simular aprovação. Novas simulações exigem a mesma configuração e destinos de CFD que preservem tentativas anteriores.
+A verificação de 11/11/2026 usou `verificar_cenario_integrado.py --registrar` seguido da conferência sem registro, e o mesmo procedimento para `verificar_desenvolvimento.py`. Não foram alterados hashes históricos nem parâmetros canônicos. As duas conferências passaram; isto registra integridade computacional, não aprovação física.
 
-Os commits técnicos e de checkpoint continuam locais conforme o último estado registrado. **Não houve commit ou push nesta sessão**, pois o terminal não pôde ser utilizado. A autorização pendente de publicação não é suprida por este pedido de revisão. O relatório novo e a correção documental foram escritos localmente pelas ferramentas de arquivo.
+Os commits técnicos e de checkpoint anteriores permanecem no histórico local. As mudanças desta continuidade estão preservadas na árvore de trabalho e não foram commitadas ou enviadas ao remoto; nenhuma sincronização foi iniciada.
 
 ## 10. Decisão de revisão
 
@@ -253,3 +253,19 @@ Na grade finita, as cargas dianteiras abrangem 1.737,2–2.223,1 kg no layout A 
 O resultado reforça que obter distribuição OEM por eixo e pesar o conjunto instalado têm maior valor que refinar mais casas decimais do layout: sem limites admissíveis por eixo, a conformidade permanece indeterminada mesmo quando todos os pontos ficam abaixo do PBT. O modelo não inclui transferência dinâmica de carga, curso/rigidez de suspensão, frenagem/curva real ou certificação.
 
 **Reconciliação de estado documental:** a limitação de terminal da primeira sessão foi superada e a verificação do manifesto já passou após registro deliberado do hash A13, com 179 entradas e 1.257 saídas; as frases anteriores de RG-08/§9 que ainda diziam “pendente” são históricas e não descrevem o estado atual. Os testes e verificações foram reexecutados novamente nesta continuidade: 244 testes, Ruff, verificador integrado e verificador de desenvolvimento passaram. Isso comprova integridade computacional dentro dos controles, não validação física.
+
+
+## Atualização técnica posterior — HVAC e perguntas acadêmicas (11/11/2026)
+
+O executável `scripts/comparar_hvac_revisoes.py` foi rodado novamente: 72 sensibilidades térmicas e 12 sensibilidades elétricas; resultados em `entregas/desenvolvimento_2026-11-09/hvac_revisao/`. A página oficial Dometic do FreshWell SKU 9105306675 mostra simultaneamente headline 2700 W/9200 BTU/h e campo estruturado ISO5151 1758 (ao lado, 5998.54 BTU/h; a unidade desse campo foi interpretada por conversão, não declarada claramente). A divergência não foi resolvida. Para demanda modelada de 2515,90/2645,90 W, a margem nominal fica +184,10/+54,10 W se prevalecer 2700 W, ou −757,90/−887,90 W se 1758 W for a capacidade comparável. São comparações nominais: capacidade efetiva a 33 °C externa/25 °C interna e instalação não foram demonstradas.
+
+O FreshJet FJX7 3000 (3000 W ISO5151, massa 36,8 kg, envelope 1,09×0,70 m) consta apenas como comparador. O retângulo de teto e a área fotovoltaica são aproximações; não se declara incompatibilidade geométrica como fato. Nenhum aparelho foi selecionado ou trocado. As duas fontes primárias foram acrescentadas ao catálogo e a trilha de cálculo está no resumo/CSV HVAC.
+
+A limitação de terminal descrita na primeira versão desta revisão era daquele turno e já foi superada: o shell desta continuidade funciona. O histórico de indisponibilidade permanece apenas como histórico, não como bloqueio atual. As verificações do manifesto e os comandos solicitados serão registrados depois da execução efetiva nesta continuidade; não se reutiliza um PASS antigo como prova nova.
+
+Perguntas técnicas para o professor (I29 e interface DC, eixos, CFD, HVAC e critério de evidência física) foram preparadas em `PERGUNTAS_PARA_PROFESSOR.md`. Não se alteraram DEC-001–DEC-061 nem os parâmetros canônicos.
+
+
+## Atualização I29 — refinamento local extra (11/11/2026)
+
+Foi executado `scripts/otimizar_janela_missao.py --refino-extra`, acrescentando286 pontos locais e6sensibilidades auxiliares próximos/na política dos candidatos de700W com passos de0,1h na partida e0,1km/h na velocidade. Passo energético continua15min. Melhores pontos locais: reservas10/20%,17,9h e20,7km/h,242,802083dias; reservas20/30%,17,9h e20,0km/h,244,802083dias. Não houve redução do tempo frente aos melhores da busca densa; os empates refletem uma função objetivo discretizada pela simulação de15min, portanto velocidade e partida reportadas não devem ser interpretadas com precisão física decimal. Erro energético máximo nos candidatos líderes é aproximadamente1,21×10⁻⁹kWh. Arquivos em `entregas/integrado_maxeon1540/otimizacao_janela_missao_refino_extra/`. Busca local finita, interfaceDC1kW hipotética, sem prova de ótimo global nem viabilidade física.

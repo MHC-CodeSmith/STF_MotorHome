@@ -670,6 +670,18 @@
       "pass": true
     },
     {
+      "label": "I29 refinamento extra:286 pontos locais+6sensibilidades auxiliares,sem alterar passo temporal",
+      "pass": true
+    },
+    {
+      "label": "I29 refinamento extra preserva duração e conserva energia;sem ótimo global",
+      "pass": true
+    },
+    {
+      "label": "I29 refinamento permanece condicionado e hipotético",
+      "pass": true
+    },
+    {
       "label": "melhor_reservas[0.1, 0.2]_aux0W.csv.gz:8h/SOCs físicos",
       "pass": true
     },

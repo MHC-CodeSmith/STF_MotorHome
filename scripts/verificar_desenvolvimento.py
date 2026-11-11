@@ -168,6 +168,11 @@ def main():
     hvac=json.loads((OUT/'hvac_revisao/resumo.json').read_text())
     check(hvac['thermal_cases']==72 and hvac['electrical_cases']==12 and hvac['nominal_va_at220v60hz']==1364,'HVAC: revisão elétrica60Hz e sensibilidades executadas')
     check(hvac['fuse_conflict_open'] and not hvac['actual_purchased_variant_confirmed'] and not hvac['capacity_at_33outside_25inside_demonstrated'],'HVAC: revisão documental não equivale a placa/curva/fusível validado')
+    capacity=pd.read_csv(OUT/'hvac_revisao/comparacao_capacidade_documentada.csv')
+    check(len(capacity)==8 and (capacity.capacity_at_33c_outside_25c_inside_demonstrated==False).all(),'HVAC: oito comparações nominais sem alegar capacidade na condição')
+    conflict=hvac['freshwell_document_conflict']
+    check(conflict['page_headline_capacity_w']==2700 and conflict['page_structured_iso5151_value']==1758 and hvac.get('freshjet_fjx7_comparator',{}).get('mass_kg')==36.8,'HVAC: conflito da fonte oficial preservado e comparador não selecionado')
+    check(round(float(capacity.query('occupants==2 and capacity_claim_w==1758').nominal_margin_w.iloc[0]))==-888,'HVAC: cenário conservador expõe margem negativa sem aprovar seleção')
     roof=json.loads((OUT/'teto_maxeon/resumo.json').read_text())
     check(roof['nominal_wp']==1540 and roof['fits_assumed_flat_rectangle'] and not roof['installed_geometry_validated'],'1540Wp Maxeon cabe só no retângulo estimado,não instalação validada')
     check(roof['configuration_sha256']==sha(ROOT/'config/parametros_globais.yaml'),'TetoMaxeon:configuração efetivamente executada')

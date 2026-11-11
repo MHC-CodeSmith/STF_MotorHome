@@ -39,3 +39,9 @@ Checkpoint de desenvolvimento, sem aprovação humana final. Modelos condicionad
 |33/P1|simulado_com_massa_integrada: 24casos r-z com3976.53/4250kg,atrito e regen0/40/80kW;resistências subtraídas e carga dinâmica.|Disco/material/repartição/regenOEM não confirmados;108km/h é ensaio prescrito,acima limitador90.|[arquivo](../entregas/integrado_maxeon1540/freios_integrados/convergencia.csv)|
 |34/P7|simulado_com_sensibilidade: 54novoscasos20/80kW variando massa/UA/cooler;conservação elétrica/térmica conferida.|ECM2nós não packOEM calibrado;20/80kW não são FV disponível.|[arquivo](../entregas/integrado_maxeon1540/mecanica_termica/I34_54sensibilidades.csv)|
 |35/P7|modelo_comercial_condicionado: CurvaBosch e radiador2D reexecutados;campos e ponto de operação conservados.|Bomba é candidata de modelo,não equipamentoOEM comprovado;curva de perdas/UA/ar ainda estimados.|[arquivo](../entregas/desenvolvimento_2026-11-09/arrefecimento/resumo_hidraulica.json)|
+
+
+|32/P6 atualização 11/11|Reexecução compara 72 casos térmicos,12 elétricos e4 declarações de capacidade; conflito oficial FW3000 2700/1758 W registrado, comparador FJX7 3000 W.|Margens condicionais FreshWell +184/+54 W a2700 W, −758/−888 W a1758 W; capacidade a33/25, variante comprada e montagem seguem não demonstradas.|[comparação CSV](../entregas/desenvolvimento_2026-11-09/hvac_revisao/comparacao_capacidade_documentada.csv) · [resumo](../entregas/desenvolvimento_2026-11-09/hvac_revisao/resumo.json)|
+
+
+|29/P5 atualização 11/11|Refino extra de286 pontos locais+6sensibilidades auxiliares, partida0,1h/velocidade0,1km/h, mantendo passo15min; tempos líderes preservados em242,802083/244,802083dias.|Resultado finito/local, plateaus por resolução temporal; interface DC1kW hipotética, sem ótimo global ou viabilidade física.|[resumo](../entregas/integrado_maxeon1540/otimizacao_janela_missao_refino_extra/resumo.json)|

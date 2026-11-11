@@ -1658,6 +1658,18 @@
       "pass": true
     },
     {
+      "check": "HVAC: oito comparações nominais sem alegar capacidade na condição",
+      "pass": true
+    },
+    {
+      "check": "HVAC: conflito da fonte oficial preservado e comparador não selecionado",
+      "pass": true
+    },
+    {
+      "check": "HVAC: cenário conservador expõe margem negativa sem aprovar seleção",
+      "pass": true
+    },
+    {
       "check": "1540Wp Maxeon cabe só no retângulo estimado,não instalação validada",
       "pass": true
     },
@@ -1729,7 +1741,7 @@
     }
   ],
   "input_hashes": 181,
-  "output_hashes": 1257,
+  "output_hashes": 1258,
   "stage_complete": false,
   "final_human_approved": 0,
   "physical_mission_demonstrated": false

@@ -61,6 +61,7 @@ def main() -> None:
     service_day = ac / params["eta_inverter"] + dc / params["eta_lv"] + params["inverter_idle_w"] * 24 / 1000
 
     dense = "--densa" in sys.argv[1:]
+    extra_refinement = "--refino-extra" in sys.argv[1:]
     cache: dict[float, tuple[np.ndarray, np.ndarray, int, int]] = {}
 
     def schedule(start: float) -> tuple[np.ndarray, np.ndarray, int, int]:
@@ -104,23 +105,31 @@ def main() -> None:
     best_coarse: dict[tuple[float, float, int], dict] = {}
     coarse_starts = np.arange(0, 24, 2.0 if dense else 3.0)
     coarse_speeds = np.arange(10, 90.0001, 2.0 if dense else 4.0)
+    prior_best = {}
+    if extra_refinement:
+        prior = json.loads((diretorio_entregas(ROOT) / "otimizacao_janela_missao_densa" / "resumo.json").read_text())
+        prior_best = {(row["reserve_traction"], row["reserve_service"]): row for row in prior["best_by_reserve_and_auxiliary"] if row["auxiliary_traction_w_assumed"] == 700}
+        optimized_aux = [700]
     # Optimize at the documented central auxiliary estimate; evaluate the
     # other auxiliary values as sensitivities at the selected policies.
     aux_central = min(grid["auxiliary_sweep_w"], key=lambda value: abs(value - 700))
     optimized_aux = grid["auxiliary_sweep_w"] if dense else [aux_central]
-    for reserve, aux_w in itertools.product(grid["reserves"], optimized_aux):
-        key = (reserve[0], reserve[1], aux_w)
-        group = [evaluate(start, speed, reserve, aux_w) for start in coarse_starts for speed in coarse_speeds]
-        cases.extend(group)
-        feasible = [row for row in group if row["status"] == "chegada_condicional"]
-        if feasible:
-            best_coarse[key] = min(feasible, key=lambda row: (row["elapsed_days"], row["speed_kmh"]))
+    if extra_refinement:
+        best_coarse = {(rt, rs, 700): row for (rt, rs), row in prior_best.items()}
+    else:
+        for reserve, aux_w in itertools.product(grid["reserves"], optimized_aux):
+            key = (reserve[0], reserve[1], aux_w)
+            group = [evaluate(start, speed, reserve, aux_w) for start in coarse_starts for speed in coarse_speeds]
+            cases.extend(group)
+            feasible = [row for row in group if row["status"] == "chegada_condicional"]
+            if feasible:
+                best_coarse[key] = min(feasible, key=lambda row: (row["elapsed_days"], row["speed_kmh"]))
 
     refined_cases = 0
     for (rt, rs, aux_w), center in best_coarse.items():
         reserve = (rt, rs)
-        start_radius, start_step = (2.0, 0.5) if dense else (3.0, 0.75)
-        speed_radius, speed_step = (2.0, 0.2) if dense else (4.0, 0.5)
+        start_radius, start_step = (0.5, 0.1) if extra_refinement else ((2.0, 0.5) if dense else (3.0, 0.75))
+        speed_radius, speed_step = (0.6, 0.1) if extra_refinement else ((2.0, 0.2) if dense else (4.0, 0.5))
         start_values = np.arange(center["start_hour"] - start_radius, center["start_hour"] + start_radius + 1e-9, start_step)
         speed_values = np.arange(max(10, center["speed_kmh"] - speed_radius), min(90, center["speed_kmh"] + speed_radius) + 1e-9, speed_step)
         refined = [evaluate(start, speed, reserve, aux_w) for start in start_values for speed in speed_values]
@@ -140,7 +149,8 @@ def main() -> None:
                     cases.append(evaluate(selected["start_hour"], selected["speed_kmh"], (rt, rs), aux_w))
 
     frame = pd.DataFrame(cases)
-    output = diretorio_entregas(ROOT) / ("otimizacao_janela_missao_densa" if dense else "otimizacao_janela_missao")
+    output_name = "otimizacao_janela_missao_refino_extra" if extra_refinement else ("otimizacao_janela_missao_densa" if dense else "otimizacao_janela_missao")
+    output = diretorio_entregas(ROOT) / output_name
     output.mkdir(parents=True, exist_ok=True)
     frame.to_csv(output / "varredura_janela_velocidade.csv", index=False)
     feasible = frame[(frame.status == "chegada_condicional") & frame.auxiliary_traction_w_assumed.isin(optimized_aux)]
@@ -153,11 +163,11 @@ def main() -> None:
         "source_config_sha256": config["_execution"]["source_sha256"],
         "resolved_config_sha256": config["_execution"]["resolved_sha256"],
         "script": "scripts/otimizar_janela_missao.py",
-        "method": "grade partida 2h/velocidade 2kmh; refinamento local partida 0,5h/velocidade 0,2kmh" if dense else "grade partida 3h/velocidade 4kmh; refinamento local partida 0,75h/velocidade 0,5kmh; sensitividades auxiliares avaliadas na política central",
+        "method": "refinamento adicional local em partida 0,1h e velocidade 0,1km/h, centrado nos melhores pontos prévios de 700W; malha temporal permanece 15min" if extra_refinement else ("grade partida 2h/velocidade 2kmh; refinamento local partida 0,5h/velocidade 0,2kmh" if dense else "grade partida 3h/velocidade 4kmh; refinamento local partida 0,75h/velocidade 0,5kmh; sensitividades auxiliares avaliadas na política central"),
         "time_step_h": dt,
         "driving_window_h": 8,
         "auxiliary_traction_w_optimized": optimized_aux,
-        "coarse_cases": len(coarse_starts) * len(coarse_speeds) * len(grid["reserves"]) * len(optimized_aux),
+        "coarse_cases": 0 if extra_refinement else len(coarse_starts) * len(coarse_speeds) * len(grid["reserves"]) * len(optimized_aux),
         "refined_cases": refined_cases,
         "rows_total": len(frame),
         "hypothetical_dc_interface": True,

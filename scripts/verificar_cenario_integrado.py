@@ -54,6 +54,11 @@ def main():
         check((f.loc[on,'driving_h']==0).all() and np.max(abs(f.pv_kw*dt-f.fv_traction_kwh-f.fv_services_kwh-f.fv_curtailed_kwh))<1e-6 and f.fv_curtailed_kwh.min()>-1e-6,f'{path.name}:sem recarga emmovimento/sem dupla contagem')
         check(f.solar_credit_start_kwh.iloc[0]==0 and f.solar_credit_end_kwh.min()>-1e-6 and abs(f.service_end_kwh.iloc[-1]-f.service_start_kwh.iloc[0])<1e-6,f'{path.name}:solar inicial0/serviços cíclicos')
     grid=json.loads((out/'otimizacao_grade/resumo.json').read_text());check(grid['cases']==1008 and abs(grid['mass_kg']-p['assembled_typical_mass_kg'])<1e-8 and not grid['global_optimality_proven'],'Grade1008 massa correta,sem ótimo global')
+    extra=json.loads((out/'otimizacao_janela_missao_refino_extra/resumo.json').read_text())
+    extra_best=sorted(extra['best_by_reserve_and_auxiliary'],key=lambda row:row['reserve_traction'])
+    check(extra['rows_total']==292 and extra['coarse_cases']==0 and extra['refined_cases']==286 and len(extra['auxiliary_sensitivities_at_selected_policy'])==6 and extra['time_step_h']==0.25,'I29 refinamento extra:286 pontos locais+6sensibilidades auxiliares,sem alterar passo temporal')
+    check([round(row['elapsed_days'],6) for row in extra_best]==[242.802083,244.802083] and max(abs(row['energy_residual_kwh']) for row in extra_best)<1e-8,'I29 refinamento extra preserva duração e conserva energia;sem ótimo global')
+    check(extra['hypothetical_dc_interface'] and not extra['physical_mission_demonstrated'] and not extra['global_optimum_claimed'],'I29 refinamento permanece condicionado e hipotético')
     for path in (out/'otimizacao_grade').glob('melhor_*.csv.gz'):
         f=pd.read_csv(path);check(f.driving_h_interval.groupby(f.day).sum().max()<=8+1e-9 and f.soc_service.between(0,1+1e-9).all() and f.soc_traction.between(0,1+1e-9).all(),f'{path.name}:8h/SOCs físicos')
         check((f.loc[f.driving_h_interval>0,'traction_solar_kwh_interval']==0).all(),f'{path.name}:DCsóparado')

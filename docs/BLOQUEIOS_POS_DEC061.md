@@ -18,3 +18,6 @@ CódigosB01–B12 preservados. Métodos e cálculos disponíveis foram executado
 |B12/P2 — orçamento instalado|P1|**Não demonstrado comercialmente.** BOMcanônica gera27linhas no cenário1540Wp. Preços conhecidos por moeda separados;250/60 tem465USDlista primária;subtotalUSD1951. Módulos/instalação/frete/tributos/câmbio faltam. Nenhum totalBRL fechado,nem motor/packOEM duplicados.|
 
 A matriz dos35itens liga cada limitação à evidência real. Estes bloqueios não apagam o desenvolvimento computacional;impedem aprovação física,homologação,compras ou declaração irrestrita de viabilidade.
+
+
+**Atualização B07 — 11/11/2026:** reexecução da comparação e da tabela de capacidades documentadas encontra conflito não resolvido na própria página oficial do FreshWell FW3000 SKU 9105306675: headline 2700 W/9200 BTU/h contra campo ISO5151 1758 (valor adjacente 5998.54 BTU/h, unidade interpretada por conversão). O FreshJet FJX7 3000 foi acrescentado como comparador rooftop, não selecionado. Ver `entregas/desenvolvimento_2026-11-09/hvac_revisao/comparacao_capacidade_documentada.csv`; nenhum parâmetro de HVAC ou equipamento aprovado foi alterado.
