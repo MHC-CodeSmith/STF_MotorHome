@@ -99,8 +99,10 @@ Na grade de 1.008 políticas do item 29, com 700 W de auxiliares de tração est
 
 | Reserva tração / serviços | Dias condicionais | Política na grade |
 |---|---:|---|
-| 10% / 20% | 243,84375 | 20 km/h, janela 20:00–04:00, até 8 h/dia |
-| 20% / 30% | 244,88542 | Mesma velocidade e janela |
+| 10% / 20% | 243,84375 | Grade histórica de 1.008 políticas; 20 km/h, janela 20:00–04:00 |
+| 20% / 30% | 244,88542 | Grade histórica de 1.008 políticas; mesma velocidade e janela |
+
+Atualização posterior: a busca densa de 5.268 pontos encontrou 242,802083/244,802083 dias com partidas variáveis; o refino local extra não melhorou esses tempos. A tabela acima preserva os valores históricos para rastreabilidade.
 
 A resolução temporal é de 15 min; as casas decimais identificam o modelo, não precisão física. Esses resultados **não são mínimo global, previsão de viagem real ou recomendação de operação rodoviária**. A energia inicial é 112,4 kWh e deve ser distinguida da geração durante o percurso.
 
