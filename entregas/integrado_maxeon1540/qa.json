@@ -682,6 +682,18 @@
       "pass": true
     },
     {
+      "label": "I29 resolução temporal: 98 políticas locais em cada passo de15/5/1min",
+      "pass": true
+    },
+    {
+      "label": "I29 resolução temporal: balanço fechado e interface física não inferida",
+      "pass": true
+    },
+    {
+      "label": "I29 comparação15/5/1min reproduz sensibilidade temporal local sem ótimo global",
+      "pass": true
+    },
+    {
       "label": "melhor_reservas[0.1, 0.2]_aux0W.csv.gz:8h/SOCs físicos",
       "pass": true
     },

@@ -59,6 +59,23 @@ def main():
     check(extra['rows_total']==292 and extra['coarse_cases']==0 and extra['refined_cases']==286 and len(extra['auxiliary_sensitivities_at_selected_policy'])==6 and extra['time_step_h']==0.25,'I29 refinamento extra:286 pontos locais+6sensibilidades auxiliares,sem alterar passo temporal')
     check([round(row['elapsed_days'],6) for row in extra_best]==[242.802083,244.802083] and max(abs(row['energy_residual_kwh']) for row in extra_best)<1e-8,'I29 refinamento extra preserva duração e conserva energia;sem ótimo global')
     check(extra['hypothetical_dc_interface'] and not extra['physical_mission_demonstrated'] and not extra['global_optimum_claimed'],'I29 refinamento permanece condicionado e hipotético')
+    temporal=json.loads((out/'otimizacao_resolucao_temporal/resumo.json').read_text())
+    temporal_cases=json.loads((out/'otimizacao_resolucao_temporal/candidatos.json').read_text())
+    counts={step:sum(row['time_step_min']==step for row in temporal_cases) for step in (15,5,1)}
+    check(temporal['candidate_count']==294 and counts=={15:98,5:98,1:98},
+          'I29 resolução temporal: 98 políticas locais em cada passo de15/5/1min')
+    check(temporal['max_abs_energy_residual_kwh']<1e-8 and
+          max(abs(row['energy_residual_kwh']) for row in temporal_cases)<1e-8 and
+          all(row['mode']=='direta_hipotese' and not row['physical_mission_demonstrated']
+              for row in temporal_cases),
+          'I29 resolução temporal: balanço fechado e interface física não inferida')
+    temporal_leaders=temporal['best_local_by_resolution_and_reserve']
+    check(len(temporal_leaders)==6 and
+          [round(row['elapsed_days'],6) for row in temporal_leaders]==
+          [242.802083,244.802083,248.763889,250.760417,248.784028,250.779861] and
+          temporal['hypothetical_dc_interface'] and not temporal['physical_mission_demonstrated'] and
+          not temporal['global_optimum_claimed'],
+          'I29 comparação15/5/1min reproduz sensibilidade temporal local sem ótimo global')
     for path in (out/'otimizacao_grade').glob('melhor_*.csv.gz'):
         f=pd.read_csv(path);check(f.driving_h_interval.groupby(f.day).sum().max()<=8+1e-9 and f.soc_service.between(0,1+1e-9).all() and f.soc_traction.between(0,1+1e-9).all(),f'{path.name}:8h/SOCs físicos')
         check((f.loc[f.driving_h_interval>0,'traction_solar_kwh_interval']==0).all(),f'{path.name}:DCsóparado')

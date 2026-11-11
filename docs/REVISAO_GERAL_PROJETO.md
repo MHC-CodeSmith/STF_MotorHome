@@ -271,3 +271,15 @@ Perguntas técnicas para o professor (I29 e interface DC, eixos, CFD, HVAC e cri
 ## Atualização I29 — refinamento local extra (11/11/2026)
 
 Foi executado `scripts/otimizar_janela_missao.py --refino-extra`, acrescentando286 pontos locais e6sensibilidades auxiliares próximos/na política dos candidatos de700W com passos de0,1h na partida e0,1km/h na velocidade. Passo energético continua15min. Melhores pontos locais: reservas10/20%,17,9h e20,7km/h,242,802083dias; reservas20/30%,17,9h e20,0km/h,244,802083dias. Não houve redução do tempo frente aos melhores da busca densa; os empates refletem uma função objetivo discretizada pela simulação de15min, portanto velocidade e partida reportadas não devem ser interpretadas com precisão física decimal. Erro energético máximo nos candidatos líderes é aproximadamente1,21×10⁻⁹kWh. Arquivos em `entregas/integrado_maxeon1540/otimizacao_janela_missao_refino_extra/`. Busca local finita, interfaceDC1kW hipotética, sem prova de ótimo global nem viabilidade física.
+
+## I29 — sensibilidade à resolução temporal (11/11/2026)
+
+Foi criado `scripts/refinar_resolucao_missao.py` para reavaliar uma vizinhança de partida/velocidade a passos de 15, 5 e 1 minuto. Foram avaliadas 294 combinações locais: 98 por resolução, com partida 17,5–19,0 h, velocidade 19,6–20,8 km/h, reservas 10/20% ou 20/30% e auxiliares de tração assumidos de 700 W. Saídas reproduzíveis: `entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/{resumo.json,candidatos.json}`.
+
+| Passo | Reserva 10/20% | Reserva 20/30% |
+|---|---|---|
+| 15 min | 242,802083 d; 18:00; 20,8 km/h | 244,802083 d; 18:00; 20,0 km/h |
+| 5 min | 248,763889 d; 17:45; 20,6 km/h | 250,760417 d; 17:45; 20,4 km/h |
+| 1 min | 248,784028 d; 17:45; 20,8 km/h | 250,779861 d; 17:45; 20,6 km/h |
+
+O resultado local de 1 min fica a aproximadamente 29 min do de 5 min, enquanto os tempos de 15 min são cerca de 6 dias menores. A mudança revela sensibilidade material à forma como o limiar mínimo de 1 kW é aplicado por intervalo e impede interpretar o resultado de 15 min como estável em resolução temporal. O balanço energético máximo observado foi `7,40×10⁻⁹ kWh`. Esta é uma comparação finita local, limitada às faixas indicadas; não prova ótimo global. As três resoluções mantêm arquitetura B, interface DC hipotética, e nenhuma viabilidade física/OEM é inferida. A verificação dedicada agora confere os 294 casos, os seis líderes, os balanços e esses limites.
