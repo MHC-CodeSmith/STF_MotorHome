@@ -718,6 +718,14 @@
       "pass": true
     },
     {
+      "label": "I11/I32 margem HVAC recalculada com carga psicrométrica incremental sem alegar capacidade real",
+      "pass": true
+    },
+    {
+      "label": "I32 ventilação altera a margem do caso de dois ocupantes; conflito de capacidade permanece explícito",
+      "pass": true
+    },
+    {
       "label": "I21/I22 descida contabilizada como demanda mecânica de frenagem,sem crédito regenerativo",
       "pass": true
     },

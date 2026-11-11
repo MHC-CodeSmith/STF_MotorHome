@@ -9,7 +9,10 @@ import os
 from pathlib import Path
 
 import pandas as pd
+import pvlib
+import yaml
 
+from motorhome.cabine import umidade_especifica
 from motorhome.cenarios import carregar_configuracao, diretorio_entregas
 from motorhome.prioridades import simular_servicos_priorizados
 
@@ -155,6 +158,53 @@ def main() -> None:
             .ventilation_sensible_load_estimate_w.iloc[0]
         ),
     }
+    cabin_config = yaml.safe_load((ROOT / "config/cabine_proposta.yaml").read_text())
+    solar_config = yaml.safe_load((ROOT / "config/solar_proposta.yaml").read_text())
+    cabin_assumptions = cabin_config["assumptions"]
+    pressure_pa = float(pvlib.atmosphere.alt2pres(solar_config["scenario"]["altitude_m"]))
+    outside_rh = solar_config["scenario"]["relative_humidity_percent"] / 100
+    outside_w = umidade_especifica(33, outside_rh, pressure_pa)
+    inside_w = umidade_especifica(25, cabin_assumptions["inside_rh_fraction"], pressure_pa)
+    pressure_vapor = pressure_pa * outside_w / (0.621945 + outside_w)
+    dry_air_density = (pressure_pa - pressure_vapor) / (287.05 * (33 + 273.15))
+    baseline_hvac_flow = cabin_assumptions["i32_fresh_air_m3_h"]
+
+    def moist_air_load(flow_m3_h: float) -> tuple[float, float]:
+        dry_mass_flow = dry_air_density * flow_m3_h / 3600
+        sensible = dry_mass_flow * (cabin_assumptions["air_cp_j_kgk"] + 1860 * outside_w) * 8
+        latent = (
+            dry_mass_flow
+            * cabin_assumptions["vaporization_j_kg"]
+            * max(0, outside_w - inside_w)
+        )
+        return sensible, latent
+
+    baseline_sensible, baseline_latent = moist_air_load(baseline_hvac_flow)
+    hvac_summary = json.loads(
+        (ROOT / "entregas/desenvolvimento_2026-11-09/hvac_revisao/resumo.json").read_text()
+    )
+    hvac_margin_rows = []
+    for people in occupants:
+        flow = people * 18 / 1000 / ((1000 - co2_outside_ppm) * 1e-6)
+        new_sensible, new_latent = moist_air_load(flow)
+        delta_sensible = new_sensible - baseline_sensible
+        delta_latent = new_latent - baseline_latent
+        base_demand = hvac_summary["base_1_2_occupants_required_w"][people - 1]
+        total_demand = base_demand + delta_sensible + delta_latent
+        hvac_margin_rows.append(
+            {
+                "occupants": people,
+                "baseline_hvac_flow_m3_h": baseline_hvac_flow,
+                "co2_balance_flow_m3_h": flow,
+                "baseline_hvac_demand_w_at_30m3h": base_demand,
+                "ventilation_sensible_increment_w": delta_sensible,
+                "ventilation_latent_increment_w": delta_latent,
+                "updated_hvac_demand_w": total_demand,
+                "margin_w_at_2700w_capacity_claim": 2700 - total_demand,
+                "margin_w_at_1758w_capacity_claim": 1758 - total_demand,
+                "capacity_at_design_conditions_demonstrated": False,
+            }
+        )
     summary = {
         "scenario": config["_execution"]["scenario"],
         "source_config_sha256": config["_execution"]["source_sha256"],
@@ -163,6 +213,19 @@ def main() -> None:
         "cases": len(frame),
         "co2_balance_model": "well-mixed steady state: Q = occupants * generation / (target - outdoor concentration)",
         "nominal_study_case": nominal_summary,
+        "hvac_ventilation_coupling": {
+            "source_hvac_case": "existing I32 model at 30 m3/h, 33 C outdoors, 25 C indoors, 50% RH assumption",
+            "humidity_model": "existing Buck-based project psychrometric function; outdoor RH from solar scenario and indoor RH from I32 assumptions",
+            "design_flow_occupant_cases": hvac_margin_rows,
+            "capacity_claims_w": {"manual_and_headline": 2700, "official_structured_field": 1758},
+            "source_config_sha256": hashlib.sha256(
+                (ROOT / "config/cabine_proposta.yaml").read_bytes()
+            ).hexdigest(),
+            "solar_scenario_config_sha256": hashlib.sha256(
+                (ROOT / "config/solar_proposta.yaml").read_bytes()
+            ).hexdigest(),
+            "capacity_at_33c_25c_demonstrated": False,
+        },
         "service_priority_integration": {
             "cases": len(priority_frame),
             "model": "existing forecast-priority algorithm with provisional fan energy added to all stages as an essential load",

@@ -147,6 +147,23 @@ def main():
               pvent['two_occupants_48h_reserve30_fan24h_final_soc'])<1e-12 and
           (priority_vent.with_fan_energy_residual_kwh.abs()<1e-8).all(),
           'I11 ventilação essencial integrada às prioridades de energia:16 casos e balanço fechado')
+    hvac_vent=ventilation['hvac_ventilation_coupling']
+    two_people_hvac=hvac_vent['design_flow_occupant_cases'][1]
+    check(hvac_vent['capacity_at_33c_25c_demonstrated'] is False and
+          abs(two_people_hvac['co2_balance_flow_m3_h']-required_flow)<1e-10 and
+          abs(two_people_hvac['updated_hvac_demand_w']-
+              (two_people_hvac['baseline_hvac_demand_w_at_30m3h']+
+               two_people_hvac['ventilation_sensible_increment_w']+
+               two_people_hvac['ventilation_latent_increment_w']))<1e-8 and
+          abs(two_people_hvac['margin_w_at_2700w_capacity_claim']-
+              (2700-two_people_hvac['updated_hvac_demand_w']))<1e-8 and
+          abs(two_people_hvac['margin_w_at_1758w_capacity_claim']-
+              (1758-two_people_hvac['updated_hvac_demand_w']))<1e-8,
+          'I11/I32 margem HVAC recalculada com carga psicrométrica incremental sem alegar capacidade real')
+    check(abs(two_people_hvac['updated_hvac_demand_w']-2867.3401980189237)<1e-6 and
+          two_people_hvac['margin_w_at_2700w_capacity_claim']<0 and
+          hvac_vent['design_flow_occupant_cases'][0]['margin_w_at_2700w_capacity_claim']>0,
+          'I32 ventilação altera a margem do caso de dois ocupantes; conflito de capacidade permanece explícito')
     negative=road_frame[road_frame.wheel_power_signed_kw<0]
     check(len(negative)>0 and (negative.positive_wheel_demand_kw==0).all() and
           (negative.mechanical_braking_demand_kw_no_regen_credit>0).all(),
@@ -192,7 +209,10 @@ def main():
             vols=[gmsh.model.occ.getMass(3,t) for d,t in gmsh.model.getEntities(3)];check(bool(vols) and min(vols)>0,f'{path.name}:sólidos válidos reimportados')
     finally:gmsh.finalize()
     if args.registrar:
-        inputs=[ROOT/'config/parametros_globais.yaml',ROOT/c['decision_record'],*list((ROOT/'src/motorhome').glob('*.py')),*list((ROOT/'scripts').glob('*.py')),*list((ROOT/'tests').glob('*.py'))]
+        inputs=[ROOT/'config/parametros_globais.yaml',ROOT/c['decision_record'],
+                ROOT/'config/cabine_proposta.yaml',ROOT/'config/solar_proposta.yaml',
+                ROOT/'entregas/desenvolvimento_2026-11-09/hvac_revisao/resumo.json',
+                *list((ROOT/'src/motorhome').glob('*.py')),*list((ROOT/'scripts').glob('*.py')),*list((ROOT/'tests').glob('*.py'))]
         outputs=[f for f in out.rglob('*') if f.is_file() and f.name not in ['manifesto.json','qa.json','execucao_pipeline.json','verificar_cenario_integrado.log']]
         manifest={'inputs':{str(f.relative_to(ROOT)):sha(f) for f in inputs},'outputs':{str(f.relative_to(ROOT)):sha(f) for f in outputs},'physical_validation':False}
         (out/'manifesto.json').write_text(json.dumps(manifest,indent=2,ensure_ascii=False)+'\n')

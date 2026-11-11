@@ -18,6 +18,43 @@
     ],
     "two_occupants_delta8k_sensible_load_w": 166.3448275862069
   },
+  "hvac_ventilation_coupling": {
+    "source_hvac_case": "existing I32 model at 30 m3/h, 33 C outdoors, 25 C indoors, 50% RH assumption",
+    "humidity_model": "existing Buck-based project psychrometric function; outdoor RH from solar scenario and indoor RH from I32 assumptions",
+    "design_flow_occupant_cases": [
+      {
+        "occupants": 1,
+        "baseline_hvac_flow_m3_h": 30,
+        "co2_balance_flow_m3_h": 31.034482758620687,
+        "baseline_hvac_demand_w_at_30m3h": 2515.8977845739914,
+        "ventilation_sensible_increment_w": 2.415702960874569,
+        "ventilation_latent_increment_w": 4.72760069863935,
+        "updated_hvac_demand_w": 2523.0410882335054,
+        "margin_w_at_2700w_capacity_claim": 176.95891176649457,
+        "margin_w_at_1758w_capacity_claim": -765.0410882335054,
+        "capacity_at_design_conditions_demonstrated": false
+      },
+      {
+        "occupants": 2,
+        "baseline_hvac_flow_m3_h": 30,
+        "co2_balance_flow_m3_h": 62.068965517241374,
+        "baseline_hvac_demand_w_at_30m3h": 2645.8977845739914,
+        "ventilation_sensible_increment_w": 74.88679178711178,
+        "ventilation_latent_increment_w": 146.55562165782058,
+        "updated_hvac_demand_w": 2867.3401980189237,
+        "margin_w_at_2700w_capacity_claim": -167.34019801892373,
+        "margin_w_at_1758w_capacity_claim": -1109.3401980189237,
+        "capacity_at_design_conditions_demonstrated": false
+      }
+    ],
+    "capacity_claims_w": {
+      "manual_and_headline": 2700,
+      "official_structured_field": 1758
+    },
+    "source_config_sha256": "eb593b4adbebb9803bb8782d3f7e9eccd658d71ae3a3c2724e3e41e1a089d207",
+    "solar_scenario_config_sha256": "98dab36ffaad100293a42856ff53377ea15afa2e8856f0007c2fa01eb392e10b",
+    "capacity_at_33c_25c_demonstrated": false
+  },
   "service_priority_integration": {
     "cases": 16,
     "model": "existing forecast-priority algorithm with provisional fan energy added to all stages as an essential load",
