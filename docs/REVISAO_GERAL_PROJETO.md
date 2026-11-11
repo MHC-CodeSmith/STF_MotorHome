@@ -102,7 +102,7 @@ Na grade de 1.008 políticas do item 29, com 700 W de auxiliares de tração est
 | 10% / 20% | 243,84375 | Grade histórica de 1.008 políticas; 20 km/h, janela 20:00–04:00 |
 | 20% / 30% | 244,88542 | Grade histórica de 1.008 políticas; mesma velocidade e janela |
 
-Atualização posterior: a busca densa de 5.268 pontos encontrou 242,802083/244,802083 dias com partidas variáveis; o refino local extra não melhorou esses tempos. A tabela acima preserva os valores históricos para rastreabilidade.
+Atualização posterior: o refinamento de velocidade com janela fixa 20:00–04:00 percorreu 796 pontos e encontrou 242,885417 dias a 20,4 km/h (reserva 10/20%) e 244,885417 dias a 19,8 km/h (20/30%); essa resolução substitui a leitura simplificada de 20 km/h da grade histórica para esse comparador, sem trocar o resultado histórico. A busca densa distinta de 5.268 pontos, com partidas variáveis, encontrou 242,802083/244,802083 dias; o refino local extra não melhorou esses tempos. A análise posterior de 294 políticas a 15/5/1 min encontrou 242,802083/244,802083; 248,763889/250,760417; e 248,784028/250,779861 dias, respectivamente. As diferentes buscas e métodos ficam lado a lado para rastreabilidade: são resultados de grades finitas, locais e condicionais à interface DC de 1 kW hipotética, sem ótimo global ou viabilidade física demonstrada.
 
 A resolução temporal é de 15 min; as casas decimais identificam o modelo, não precisão física. Esses resultados **não são mínimo global, previsão de viagem real ou recomendação de operação rodoviária**. A energia inicial é 112,4 kWh e deve ser distinguida da geração durante o percurso.
 
@@ -144,7 +144,7 @@ A cronologia hídrica registra 8.004 eventos em oito replays, com 2.127 abasteci
 | 16 / P3 | Carroceria, portas e vidros | **CAD de envelopes** | Reservas geométricas e rotas, incluindo posição vertical do inversor. Geometria OEM, passagens, drenagem, estanqueidade e folgas reais faltam. [Evidência](../entregas/integrado_maxeon1540/rotas_instalacoes/layoutA_rotas_reserva.step). |
 | 17 / P3 | CAD 3D e vistas | **Comparação executada** | Dois layouts, alternativas de teto e vistas cotadas. Layout B falha por 6 mm no acesso da lavadora; CAD A não é instalação certificada. [Evidência](../entregas/integrado_maxeon1540/integracao/A_fixa_vistas.png). |
 | 18 / P1 | Massa com passageiros | **Calculado, não pesado** | 3.976,53 kg estimados; água total distribuída em 85 L no tanque e 15 L no boiler. CG de base e posições estimados; margens por eixo não comprovadas. [Evidência](../entregas/integrado_maxeon1540/integracao/inventario_massas.csv). |
-| 19 / P3 | Cd e área frontal | **CFD com incerteza** | Três novas malhas equipadas, resíduos convergidos e históricos de forças. Variação final de Cd de 5,23%; sem independência de malha, GCI defensável ou Cd definitivo. [Evidência](../entregas/aero_equipado1540/incerteza_observada.json). |
+| 19 / P3 | Cd e área frontal | **CFD com incerteza** | Malha adicional de 1.034.158 células passou `checkMesh`; SIMPLE paralelo chegou a 394 iterações, Cd diagnóstico 0,60058 e faixa relativa de 0,0175% nas últimas 50. O limite de 900 s encerrou antes de satisfazer `residualControl` (Uy inicial 4,65e-5; p 1,22e-4); não houve cálculo de y+. Isso mostra estabilidade de coeficiente no trecho final, não convergência formal. As malhas anteriores variam Cd em 5,23%; não há independência, GCI defensável ou Cd definitivo. [Evidência](../entregas/aero_equipado1540/malha_adicional_1/resumo.json). |
 | 20 / P4 | Rolamento | **Sensibilidade calculada** | Crr de 0,008 / 0,012 / 0,016 propagado ao consumo. Não representa ensaio dos pneus da variante escolhida. [Evidência](../entregas/integrado_maxeon1540/integracao/dinamica_massa_integrada.csv). |
 | 21 / P4 | Forças resistivas | **Calculado sob hipóteses** | Arrasto e rolamento em 164 pontos, dois layouts e duas massas. Cd, Crr e densidade condicionados; plano e vento nulo. [Evidência](../entregas/integrado_maxeon1540/integracao/dinamica_massa_integrada.csv). |
 | 22 / P4 | Potência versus velocidade | **Calculado sob hipóteses** | Potência nas rodas e na bateria; auxiliares de tração separados. 700 W de auxiliares são estimados, com sensibilidade de 0–1.500 W. [Evidência](../entregas/integrado_maxeon1540/integracao/dinamica_massa_integrada.csv). |
@@ -225,7 +225,7 @@ PYTHONPATH=src .venv/bin/python scripts/verificar_desenvolvimento.py
 
 A verificação de 11/11/2026 usou `verificar_cenario_integrado.py --registrar` seguido da conferência sem registro, e o mesmo procedimento para `verificar_desenvolvimento.py`. Não foram alterados hashes históricos nem parâmetros canônicos. As duas conferências passaram; isto registra integridade computacional, não aprovação física.
 
-Os commits técnicos e de checkpoint anteriores permanecem no histórico local. As mudanças desta continuidade estão preservadas na árvore de trabalho e não foram commitadas ou enviadas ao remoto; nenhuma sincronização foi iniciada.
+**Estado deste checkpoint documental (substituído pela continuação de 11/11):** na revisão anterior, as alterações ainda não estavam commitadas nem sincronizadas. O estado posterior e verificável da implementação, testes e Git está registrado no fim de `docs/RETOMADA_COMPACTA.md`.
 
 ## 10. Decisão de revisão
 
@@ -263,7 +263,7 @@ O executável `scripts/comparar_hvac_revisoes.py` foi rodado novamente: 72 sensi
 
 O FreshJet FJX7 3000 (3000 W ISO5151, massa 36,8 kg, envelope 1,09×0,70 m) consta apenas como comparador. O retângulo de teto e a área fotovoltaica são aproximações; não se declara incompatibilidade geométrica como fato. Nenhum aparelho foi selecionado ou trocado. As duas fontes primárias foram acrescentadas ao catálogo e a trilha de cálculo está no resumo/CSV HVAC.
 
-A limitação de terminal descrita na primeira versão desta revisão era daquele turno e já foi superada: o shell desta continuidade funciona. O histórico de indisponibilidade permanece apenas como histórico, não como bloqueio atual. As verificações do manifesto e os comandos solicitados serão registrados depois da execução efetiva nesta continuidade; não se reutiliza um PASS antigo como prova nova.
+A limitação de terminal descrita na primeira versão desta revisão era daquele turno e já foi superada: o shell desta continuidade funciona. O histórico de indisponibilidade permanece apenas como histórico, não como bloqueio atual. Nesta continuidade, pytest (244), Ruff, os dois verificadores e `git diff --check` foram executados; os manifestos foram atualizados pelo `--registrar` oficial e as conferências sem registro passaram. QA de desenvolvimento: 185 entradas e 1.297 saídas; missão física não demonstrada e etapa técnica continua aberta.
 
 Perguntas técnicas para o professor (I29 e interface DC, eixos, CFD, HVAC e critério de evidência física) foram preparadas em `PERGUNTAS_PARA_PROFESSOR.md`. Não se alteraram DEC-001–DEC-061 nem os parâmetros canônicos.
 
@@ -283,3 +283,11 @@ Foi criado `scripts/refinar_resolucao_missao.py` para reavaliar uma vizinhança 
 | 1 min | 248,784028 d; 17:45; 20,8 km/h | 250,779861 d; 17:45; 20,6 km/h |
 
 O resultado local de 1 min fica a aproximadamente 29 min do de 5 min, enquanto os tempos de 15 min são cerca de 6 dias menores. A mudança revela sensibilidade material à forma como o limiar mínimo de 1 kW é aplicado por intervalo e impede interpretar o resultado de 15 min como estável em resolução temporal. O balanço energético máximo observado foi `7,40×10⁻⁹ kWh`. Esta é uma comparação finita local, limitada às faixas indicadas; não prova ótimo global. As três resoluções mantêm arquitetura B, interface DC hipotética, e nenhuma viabilidade física/OEM é inferida. A verificação dedicada agora confere os 294 casos, os seis líderes, os balanços e esses limites.
+
+## Itens 21/22 — força resistiva com rampa e vento (11/11/2026)
+
+O novo `scripts/sensibilizar_resistencias_rota.py` expande o modelo de velocidade constante para rolamento, componente gravitacional da rampa e arrasto pelo vento relativo ao veículo. A grade contém **8.100 casos** (massa típica do cenário e PBT; 10/20/40/60/80/90 km/h; declives e aclives de 3/6%; vento longitudinal de −10 a +10 m/s; três valores cada de Crr, Cd e densidade do ar). Usa eficiência agregada central de 0,90 e auxiliares de tração estimados em 700 W. Não altera a missão I29 plana nem os parâmetros canônicos.
+
+Para massa típica do cenário (3.976,526 kg), 40 km/h, Crr=0,012, Cd=0,62487678, densidade=1,10 kg/m³, eficiência=0,90 e auxiliares=700 W, o consumo estimado é 0,2252 kWh/km em plano; 3% e 6% de aclive isolados elevam-no a aproximadamente 0,5860 e 0,9458 kWh/km. A força de rolamento é projetada pela inclinação (`Crr·m·g·cos(θ)`). Em plano, vento frontal de 5 e 10 m/s resulta em 0,2949 e 0,3902 kWh/km. O maior pedido mecânico positivo da grade é 140,258 kW nas rodas (PBT, 90 km/h, 6% aclive, 10 m/s de vento frontal, resistências altas); isso não é comparação direta com potência de eixo do motor. O extremo de descida/vento de cauda gera 45,806 kW de demanda mecânica de frenagem; nenhuma regeneração é creditada.
+
+Saídas: `entregas/integrado_maxeon1540/dinamica_resistiva_sensibilidade/envelope_grade_vento.csv` e `resumo.json`. A grade é análise de sensibilidade, não distribuição de rota nem previsão de alcance. Não inclui aceleração, mapas OEM, curva contínua, limites de pneus/eixos, transientes térmicos ou calibração; vento, rampa e coeficientes são hipóteses explicitamente enumeradas.

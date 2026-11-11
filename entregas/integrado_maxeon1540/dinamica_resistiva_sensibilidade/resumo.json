@@ -1,0 +1,131 @@
+{
+  "scenario": "maxeon1540_independente",
+  "source_config_sha256": "e408c1fda000196eae8449c19d29fa645c4949730212a9629566b10bd58946ac",
+  "resolved_config_sha256": "e1ad225b9f76e2acca2e1d720031dbe412c269271d76cf795bd9da3c1562129f",
+  "script": "scripts/sensibilizar_resistencias_rota.py",
+  "method": "equilíbrio longitudinal em velocidade constante: rolamento + gravidade da rampa + arrasto relativo ao ar; sem mapas OEM e sem crédito de regeneração",
+  "cases": 8100,
+  "mass_kg": [
+    3976.52552776,
+    4250
+  ],
+  "speed_kmh": [
+    10,
+    20,
+    40,
+    60,
+    80,
+    90
+  ],
+  "grade_percent": [
+    -6,
+    -3,
+    0,
+    3,
+    6
+  ],
+  "headwind_m_s_positive_headwind": [
+    -10,
+    -5,
+    0,
+    5,
+    10
+  ],
+  "crr_assumed": [
+    0.008,
+    0.012,
+    0.016
+  ],
+  "cd_assumed": [
+    0.5806668,
+    0.62487678,
+    0.72
+  ],
+  "air_density_kg_m3": [
+    1.05,
+    1.1,
+    1.15
+  ],
+  "traction_efficiency_assumed": 0.9,
+  "traction_auxiliary_kw_assumed": 0.7,
+  "max_positive_wheel_demand": {
+    "mass_kg": 4250.0,
+    "speed_kmh": 90.0,
+    "grade_percent": 6.0,
+    "headwind_m_s": 10.0,
+    "crr_assumed": 0.016,
+    "cd_assumed": 0.72,
+    "air_density_kg_m3": 1.15,
+    "traction_efficiency_assumed": 0.9,
+    "traction_auxiliary_kw_assumed": 0.7,
+    "rolling_force_n": 665.6550972495145,
+    "grade_force_n": 2496.206614685679,
+    "aerodynamic_force_n": 2448.4392463152817,
+    "relative_air_speed_m_s": 35.0,
+    "total_road_load_n": 5610.300958250476,
+    "wheel_power_signed_kw": 140.2575239562619,
+    "positive_wheel_demand_kw": 140.2575239562619,
+    "mechanical_braking_demand_kw_no_regen_credit": 0.0,
+    "estimated_battery_demand_kw_no_regen_credit": 156.54169328473543,
+    "estimated_battery_kwh_per_km_no_regen_credit": 1.7393521476081715
+  },
+  "max_signed_braking_demand_without_regen": {
+    "mass_kg": 4250.0,
+    "speed_kmh": 90.0,
+    "grade_percent": -6.0,
+    "headwind_m_s": -10.0,
+    "crr_assumed": 0.008,
+    "cd_assumed": 0.5806668,
+    "air_density_kg_m3": 1.05,
+    "traction_efficiency_assumed": 0.9,
+    "traction_auxiliary_kw_assumed": 0.7,
+    "rolling_force_n": 332.82754862475724,
+    "grade_force_n": -2496.206614685679,
+    "aerodynamic_force_n": 331.1476821783323,
+    "relative_air_speed_m_s": 15.0,
+    "total_road_load_n": -1832.2313838825899,
+    "wheel_power_signed_kw": -45.80578459706474,
+    "positive_wheel_demand_kw": 0.0,
+    "mechanical_braking_demand_kw_no_regen_credit": 45.80578459706474,
+    "estimated_battery_demand_kw_no_regen_credit": 0.7,
+    "estimated_battery_kwh_per_km_no_regen_credit": 0.0077777777777777776
+  },
+  "flat_reference_mass_kg": 3976.52552776,
+  "flat_reference_kwh_per_km_by_speed": [
+    {
+      "speed_kmh": 10,
+      "estimated_battery_kwh_per_km_no_regen_credit": 0.2183825707640942
+    },
+    {
+      "speed_kmh": 20,
+      "estimated_battery_kwh_per_km_no_regen_credit": 0.1952370156474034
+    },
+    {
+      "speed_kmh": 40,
+      "estimated_battery_kwh_per_km_no_regen_credit": 0.2251547951806403
+    },
+    {
+      "speed_kmh": 60,
+      "estimated_battery_kwh_per_km_no_regen_credit": 0.29835109440270186
+    },
+    {
+      "speed_kmh": 80,
+      "estimated_battery_kwh_per_km_no_regen_credit": 0.40607591331358794
+    },
+    {
+      "speed_kmh": 90,
+      "estimated_battery_kwh_per_km_no_regen_credit": 0.47227887876345137
+    }
+  ],
+  "road_grade_or_wind_is_approved_mission_input": false,
+  "oem_motor_map_used": false,
+  "physical_validation": false,
+  "limits": [
+    "Grade, wind, Crr, Cd, density, and efficiency are explicit sensitivities, not measured conditions.",
+    "Constant-speed model omits transient acceleration, tire limits, shifting, and thermal derating.",
+    "Negative wheel power is reported as braking demand; no regenerative energy is credited.",
+    "The combined traction efficiency and auxiliary draw do not substitute for motor/inverter maps.",
+    "OEM continuous power, reduction ratio, and axle limits are unavailable; no performance approval is implied."
+  ],
+  "configuration_file_sha256": "e408c1fda000196eae8449c19d29fa645c4949730212a9629566b10bd58946ac"
+}

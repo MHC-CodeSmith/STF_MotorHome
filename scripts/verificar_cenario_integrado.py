@@ -3,6 +3,7 @@ import argparse
 import ast
 import hashlib
 import json
+import math
 import sys
 from pathlib import Path
 
@@ -76,6 +77,43 @@ def main():
           temporal['hypothetical_dc_interface'] and not temporal['physical_mission_demonstrated'] and
           not temporal['global_optimum_claimed'],
           'I29 comparação15/5/1min reproduz sensibilidade temporal local sem ótimo global')
+    road=json.loads((out/'dinamica_resistiva_sensibilidade/resumo.json').read_text())
+    road_frame=pd.read_csv(out/'dinamica_resistiva_sensibilidade/envelope_grade_vento.csv')
+    check(road['cases']==8100 and len(road_frame)==8100 and not road['oem_motor_map_used'] and
+          not road['road_grade_or_wind_is_approved_mission_input'] and not road['physical_validation'],
+          'I21/I22 envelope grade/vento:8100 sensibilidades sem mapa OEM ou missão aprovada')
+    flat_reference=road_frame[(road_frame.mass_kg==p['assembled_typical_mass_kg']) &
+        (road_frame.speed_kmh==40) & (road_frame.grade_percent==0) &
+        (road_frame.headwind_m_s==0) & (road_frame.crr_assumed==p['crr_range'][1]) &
+        (road_frame.cd_assumed==p['cd_range'][1]) &
+        (road_frame.air_density_kg_m3==p['rho_range'][1])].iloc[0]
+    speed=40/3.6
+    force=(p['crr_range'][1]*p['assembled_typical_mass_kg']*9.80665+
+           .5*p['rho_range'][1]*p['cd_range'][1]*p['area_m2']*speed**2)
+    wheel_kw=force*speed/1000
+    expected_kwh_km=(wheel_kw/p['eta_traction_range'][1]+
+                     p['traction_aux_assumed_w']/1000)/40
+    check(abs(flat_reference.total_road_load_n-force)<1e-8 and
+          abs(flat_reference.wheel_power_signed_kw-wheel_kw)<1e-8 and
+          abs(flat_reference.estimated_battery_kwh_per_km_no_regen_credit-expected_kwh_km)<1e-10,
+          'I21/I22 ponto plano reproduzido independentemente')
+    grade_reference=road_frame[(road_frame.mass_kg==p['assembled_typical_mass_kg']) &
+        (road_frame.speed_kmh==40) & (road_frame.grade_percent==6) &
+        (road_frame.headwind_m_s==5) & (road_frame.crr_assumed==p['crr_range'][1]) &
+        (road_frame.cd_assumed==p['cd_range'][1]) &
+        (road_frame.air_density_kg_m3==p['rho_range'][1])].iloc[0]
+    angle=math.atan(.06)
+    relative_speed=40/3.6+5
+    grade_force=(p['crr_range'][1]*p['assembled_typical_mass_kg']*9.80665*math.cos(angle)+
+        p['assembled_typical_mass_kg']*9.80665*math.sin(angle)+
+        .5*p['rho_range'][1]*p['cd_range'][1]*p['area_m2']*relative_speed**2)
+    check(abs(grade_reference.total_road_load_n-grade_force)<1e-8 and
+          abs(grade_reference.wheel_power_signed_kw-grade_force*40/3.6/1000)<1e-8,
+          'I21/I22 aclive/vento reproduzido com rolagem projetada e vento relativo')
+    negative=road_frame[road_frame.wheel_power_signed_kw<0]
+    check(len(negative)>0 and (negative.positive_wheel_demand_kw==0).all() and
+          (negative.mechanical_braking_demand_kw_no_regen_credit>0).all(),
+          'I21/I22 descida contabilizada como demanda mecânica de frenagem,sem crédito regenerativo')
     for path in (out/'otimizacao_grade').glob('melhor_*.csv.gz'):
         f=pd.read_csv(path);check(f.driving_h_interval.groupby(f.day).sum().max()<=8+1e-9 and f.soc_service.between(0,1+1e-9).all() and f.soc_traction.between(0,1+1e-9).all(),f'{path.name}:8h/SOCs físicos')
         check((f.loc[f.driving_h_interval>0,'traction_solar_kwh_interval']==0).all(),f'{path.name}:DCsóparado')

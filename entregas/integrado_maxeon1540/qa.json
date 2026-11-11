@@ -694,6 +694,22 @@
       "pass": true
     },
     {
+      "label": "I21/I22 envelope grade/vento:8100 sensibilidades sem mapa OEM ou missão aprovada",
+      "pass": true
+    },
+    {
+      "label": "I21/I22 ponto plano reproduzido independentemente",
+      "pass": true
+    },
+    {
+      "label": "I21/I22 aclive/vento reproduzido com rolagem projetada e vento relativo",
+      "pass": true
+    },
+    {
+      "label": "I21/I22 descida contabilizada como demanda mecânica de frenagem,sem crédito regenerativo",
+      "pass": true
+    },
+    {
       "label": "melhor_reservas[0.1, 0.2]_aux0W.csv.gz:8h/SOCs físicos",
       "pass": true
     },
