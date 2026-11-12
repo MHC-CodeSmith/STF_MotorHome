@@ -1,5 +1,12 @@
 # Retomada vigente — motorhome solar, 12/11/2026
 
+## Estado corrente para nova sessão
+
+- Último HEAD: `262b05ad077ca42997f5b480121814e634c03e99`; local, `origin/main` e `origin/hub/tarefas-motorhome-com-codex` coincidem, worktree limpa. CI verde no HEAD em `43304164448` (main) e `43304163497` (branch); artefatos de QA e JUnit publicados.
+- Alterações técnicas desta continuação: integração trapezoidal compatível com NumPy 1.24–2.4 em `src/motorhome/solar.py`/`scripts/calcular_agenda_portatil.py`; teste irregular de 5 Wh; CSV de envelope de eixos agora escreve LF; manifestos re-registrados e sem diferenças cross-platform. Commits: `0605d04`, `6a2bb05`, `262b05a`.
+- QA local: `PYTHONPATH=src .venv/bin/python -m pytest -q` (**270 passed**); `ruff check src scripts tests`; `MOTORHOME_SCENARIO=maxeon1540_independente PYTHONPATH=src .venv/bin/python scripts/verificar_cenario_integrado.py`; `PYTHONPATH=src .venv/bin/python scripts/verificar_desenvolvimento.py` (**195 inputs/1,467 outputs**); demonstração térmica sintética; estrutura35/7. Todos passaram. Auditoria tem 0 erros estruturais e avisos conhecidos; não representa aprovação.
+- Não alterar DEC-001–061 nem converter parâmetros `null` em dados confirmados. Arquitetura B permanece hipotética: evidência/autorização OEM DC, limite por eixo e CG medido, curto/I²t/PE-DR reais, SKU e ensaios HVAC/térmicos, CFD independente/validado, ensaios físicos, custos instalados e respostas humanas/professor permanecem externos. Sem missão física demonstrada ou aprovação de fabricante. Não preparar relatório acadêmico/slides.
+
 ## Correção posterior ao checkpoint — compatibilidade NumPy em CI
 
 - GitHub Actions nos commits `fa5f551` falhou em 3 testes solares: o runner Python 3.11 instalou NumPy 2.4, que já não expõe `np.trapz`; o ambiente local NumPy 1.26 ocultava o problema. Substituídos os usos em `src/motorhome/solar.py` e `scripts/calcular_agenda_portatil.py` por integração trapezoidal composta explícita, preservando unidades/intervalos. Adicionado teste de tempos irregulares com integral analítica de 5 Wh em `tests/test_solar.py`.
@@ -7,7 +14,7 @@
 - **CI remota verde** no commit `6a2bb05`: workflows `43303767584` (`main`) e `43303767415` (branch de trabalho) passaram integralmente com NumPy2.4.6, 270 testes, estrutura, Ruff, ambos verificadores/manifests e demonstração térmica sintética. Artifacts JUnit e QA/manifests publicados por ambas as execuções; links diretos: [main](https://github.com/MHC-CodeSmith/STF_MotorHome/actions/runs/43303767584) e [branch](https://github.com/MHC-CodeSmith/STF_MotorHome/actions/runs/43303767415). Nenhuma dessas verificações declara validação física.
 - Manifestos oficiais registrados após as alterações: integrado 175 entradas/358 saídas; desenvolvimento 195 entradas/1.467 saídas. Verificação sem `--registrar` passou para ambos.
 - QA local final: **270 testes**, Ruff, estrutura35/7, verificadores integrado/desenvolvimento e demonstração térmica sintética passaram; auditoria sem erros estruturais (mantém avisos conhecidos: 134 parâmetros ausentes, variante sem aprovação e possível restrição I28→I33). Missão física continua não demonstrada.
-- A execução GitHub em `fa5f551` foi reprovada apenas pelos 3 casos `np.trapz` (266 passaram); o novo commit ainda precisa de uma execução remota para demonstrar compatibilidade NumPy 2.4. Resultado dessa CI deve ser acrescentado aqui após terminar.
+- Histórico: a execução GitHub em `fa5f551` foi reprovada pelos 3 casos `np.trapz` (266 passaram); correção comprovada nas execuções verdes anotadas acima.
 
 ## Estado em uma página
 
