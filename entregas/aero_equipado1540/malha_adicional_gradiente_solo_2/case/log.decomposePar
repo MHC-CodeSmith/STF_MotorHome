@@ -1,0 +1,99 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2412                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _b8cf4d35-20260127 OPENFOAM=2412 patch=260127 version=2412
+Arch   : "LSB;label=32;scalar=64"
+Exec   : /home/mhc/motorhome_referencias_tarefas/software/openfoam2412-local/usr/lib/openfoam/openfoam2412/platforms/linux64GccDPInt32Opt/bin/decomposePar -force -case /home/mhc/motorhome_solar_codex_tarefas/entregas/aero_equipado1540/malha_adicional_gradiente_solo_2/case
+Date   : Nov 11 2026
+Time   : 21:21:08
+Host   : mhc-lenovo
+PID    : 456376
+--> FOAM Warning :
+    From Foam::fileName Foam::cwd_L()
+    in file POSIX.C at line 552
+    PWD is not the cwd() - reverting to physical description
+I/O    : uncollated
+Case   : /home/mhc/motorhome_solar_codex_tarefas/entregas/aero_equipado1540/malha_adicional_gradiente_solo_2/case
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+
+
+Decomposing mesh
+
+Create mesh
+
+Calculating distribution of cells
+Decomposition method simple [4] (region region0)
+
+Finished decomposition in 0.26 s
+
+Calculating original mesh data
+
+Distributing cells to processors
+
+Distributing faces to processors
+
+Distributing points to processors
+
+Constructing processor meshes
+Reading hexRef8 data : cellLevel
+Reading hexRef8 data : pointLevel
+Reading hexRef8 data : level0Edge
+
+Processor 0
+    Number of cells = 185822
+    Number of points = 250095
+    Number of faces shared with processor 1 = 4212
+    Number of processor patches = 1
+    Number of processor faces = 4212
+    Number of boundary faces = 59439
+
+Processor 1
+    Number of cells = 185822
+    Number of points = 249333
+    Number of faces shared with processor 0 = 4212
+    Number of faces shared with processor 2 = 3501
+    Number of processor patches = 2
+    Number of processor faces = 7713
+    Number of boundary faces = 59425
+
+Processor 2
+    Number of cells = 185821
+    Number of points = 251720
+    Number of faces shared with processor 1 = 3501
+    Number of faces shared with processor 3 = 4162
+    Number of processor patches = 2
+    Number of processor faces = 7663
+    Number of boundary faces = 60307
+
+Processor 3
+    Number of cells = 185821
+    Number of points = 256645
+    Number of faces shared with processor 2 = 4162
+    Number of processor patches = 1
+    Number of processor faces = 4162
+    Number of boundary faces = 56320
+
+Number of processor faces = 11875
+Max number of cells = 185822 (0.00026907543% above average 185821.5)
+Max number of processor patches = 2 (33.333333% above average 1.5)
+Max number of faces between processors = 7713 (29.903158% above average 5937.5)
+
+Time = 0
+
+Processor 0: field transfer
+Processor 1: field transfer
+Processor 2: field transfer
+Processor 3: field transfer
+
+End

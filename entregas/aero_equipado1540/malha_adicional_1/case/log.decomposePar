@@ -9,9 +9,9 @@ Build  : _b8cf4d35-20260127 OPENFOAM=2412 patch=260127 version=2412
 Arch   : "LSB;label=32;scalar=64"
 Exec   : /home/mhc/motorhome_referencias_tarefas/software/openfoam2412-local/usr/lib/openfoam/openfoam2412/platforms/linux64GccDPInt32Opt/bin/decomposePar -force -case /home/mhc/motorhome_solar_codex_tarefas/entregas/aero_equipado1540/malha_adicional_1/case
 Date   : Nov 11 2026
-Time   : 14:26:33
+Time   : 15:32:16
 Host   : mhc-lenovo
-PID    : 339208
+PID    : 375660
 --> FOAM Warning :
     From Foam::fileName Foam::cwd_L()
     in file POSIX.C at line 552
@@ -35,7 +35,7 @@ Create mesh
 Calculating distribution of cells
 Decomposition method simple [4] (region region0)
 
-Finished decomposition in 0.37 s
+Finished decomposition in 0.39 s
 
 Calculating original mesh data
 

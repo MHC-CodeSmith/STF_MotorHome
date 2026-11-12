@@ -6,6 +6,7 @@ locally fixed, so this case alone cannot establish a formal GCI/grid family.
 
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 import re
@@ -34,11 +35,20 @@ def run(command: list[str], case: Path, env: dict[str, str], timeout_s: int, log
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output-name", default="malha_adicional_1")
+    parser.add_argument("--add-wall-layers", action="store_true",
+                        help="test three prism layers on ground, body, and PV deck walls")
+    parser.add_argument("--ground-grading-factor", type=float, default=1.0,
+                        help="block-mesh expansion from the ground plane toward the roof")
+    parser.add_argument("--mesh-only", action="store_true",
+                        help="stop after checkMesh so the parallel solver can be run separately")
+    args = parser.parse_args()
     raw = yaml.safe_load((ROOT / "config/parametros_globais.yaml").read_text())
     verification = raw["development"]["equipped_aero_verification"]
     roof = raw["development"]["roof_maxeon_comparison"]
     source = CACHE / SOURCE_NAME
-    out = ROOT / "entregas/aero_equipado1540/malha_adicional_1"
+    out = ROOT / "entregas/aero_equipado1540" / args.output_name
     out.mkdir(parents=True, exist_ok=False)
     case = out / "case"
     case.mkdir()
@@ -56,6 +66,14 @@ def main() -> None:
     if "(55 20 10)" not in block_text:
         raise ValueError("Base block mesh differs from the source audited for this refinement")
     block.write_text(block_text.replace("(55 20 10)", "(66 24 12)"))
+    if args.ground_grading_factor != 1.0:
+        block_text = block.read_text()
+        if "simpleGrading (1 1 1)" not in block_text:
+            raise ValueError("Unexpected base block grading")
+        block.write_text(block_text.replace(
+            "simpleGrading (1 1 1)",
+            f"simpleGrading (1 1 {args.ground_grading_factor:g})",
+        ))
     snappy = case / "system/snappyHexMeshDict"
     text = snappy.read_text()
     text = text.replace("maxLocalCells 400000; maxGlobalCells 400000;",
@@ -65,6 +83,9 @@ def main() -> None:
         raise ValueError("Could not set the intended finer surface refinement")
     text = text.replace("geometry {", "geometry {pvdeck.stl {type triSurfaceMesh; name pvdeck;}")
     text = text.replace("refinementSurfaces {", "refinementSurfaces {pvdeck {level (5 6); patchInfo {type wall;}}")
+    if args.add_wall_layers:
+        text = text.replace("addLayers false;", "addLayers true;")
+        text = text.replace("layers {};", "layers {ground {nSurfaceLayers 3;} aurora {nSurfaceLayers 3;} pvdeck {nSurfaceLayers 3;}}")
     snappy.write_text(text)
 
     body = trimesh.load(case / "constant/triSurface/aurora.stl")
@@ -93,6 +114,10 @@ def main() -> None:
         "source_snappy_sha256": hashlib.sha256((source / "system/snappyHexMeshDict").read_bytes()).hexdigest(),
         "block_mesh_dimensions": [66, 24, 12],
         "surface_levels_body_deck": [5, 6],
+        "wall_layers_requested": 3 if args.add_wall_layers else 0,
+        "wall_layer_patches": ["ground", "aurora", "pvdeck"] if args.add_wall_layers else [],
+        "ground_grading_factor": args.ground_grading_factor,
+        "mesh_only": args.mesh_only,
         "wake_refinement_changed": False,
         "grid_independence_claimed": False,
         "validated_cd": None,
@@ -110,7 +135,7 @@ def main() -> None:
         match = re.search(r"cells:\s+(\d+)", mesh_log)
         result["cell_count"] = int(match.group(1)) if match else None
         result["mesh_ok"] = "Mesh OK." in mesh_log
-        if result["mesh_ok"]:
+        if result["mesh_ok"] and not args.mesh_only:
             result["solver_exit"] = run(["simpleFoam"], case, env, solver_timeout,
                                          "log.simpleFoam")
             log = (case / "log.simpleFoam").read_text(errors="replace")

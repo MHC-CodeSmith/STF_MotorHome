@@ -1,6 +1,8 @@
 {
   "status": "AUDITORIA_TECNICA_PARCIAL_NAO_APROVACAO_FISICA",
-  "generated_utc": "2026-10-26T14:19:37.946508+00:00",
+  "delivery_snapshot_date": "2026-10-24",
+  "active_validation": "scripts/verificar_cenario_integrado.py and scripts/verificar_desenvolvimento.py",
+  "generated_utc": "2026-11-12T01:49:19.910848+00:00",
   "errors": [],
   "items_checked": 35,
   "delivery_hashes_checked": 124,
@@ -57,8 +59,10 @@
     },
     {
       "file": "manifesto_visualizador.json",
-      "status": "entradas_conferidas",
-      "changed_inputs": []
+      "status": "historico_ou_desatualizado",
+      "changed_inputs": [
+        "config/instalacoes_eletricas_proposta.yaml"
+      ]
     },
     {
       "file": "openfoam2412_instalacao.json",
@@ -97,8 +101,10 @@
     },
     {
       "file": "resumo_bom_rolamento.json",
-      "status": "entradas_conferidas",
-      "changed_inputs": []
+      "status": "historico_ou_desatualizado",
+      "changed_inputs": [
+        "config/instalacoes_eletricas_proposta.yaml"
+      ]
     },
     {
       "file": "resumo_cabine.json",
@@ -122,8 +128,10 @@
     },
     {
       "file": "resumo_freios.json",
-      "status": "entradas_conferidas",
-      "changed_inputs": []
+      "status": "historico_ou_desatualizado",
+      "changed_inputs": [
+        "src/motorhome/freios_axisimetricos.py"
+      ]
     },
     {
       "file": "resumo_hidraulica.json",
@@ -132,8 +140,10 @@
     },
     {
       "file": "resumo_integracao_eletrica.json",
-      "status": "entradas_conferidas",
-      "changed_inputs": []
+      "status": "historico_ou_desatualizado",
+      "changed_inputs": [
+        "config/instalacoes_eletricas_proposta.yaml"
+      ]
     },
     {
       "file": "resumo_layout.json",
@@ -162,8 +172,10 @@
     },
     {
       "file": "resumo_solar_portatil.json",
-      "status": "entradas_conferidas",
-      "changed_inputs": []
+      "status": "historico_ou_desatualizado",
+      "changed_inputs": [
+        "config/instalacoes_eletricas_proposta.yaml"
+      ]
     },
     {
       "file": "resumo_viagem_7000km.json",

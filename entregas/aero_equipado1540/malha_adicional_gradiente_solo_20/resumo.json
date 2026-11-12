@@ -1,0 +1,26 @@
+{
+  "source_case": "cfd-aurora-refino-semcamadas-02",
+  "source_snappy_sha256": "7bcffc3854bc1074a0f920d8d991cd204f08e6c13fab617536fb4d6916b4c33e",
+  "block_mesh_dimensions": [
+    66,
+    24,
+    12
+  ],
+  "surface_levels_body_deck": [
+    5,
+    6
+  ],
+  "wall_layers_requested": 0,
+  "wall_layer_patches": [],
+  "ground_grading_factor": 20.0,
+  "mesh_only": true,
+  "wake_refinement_changed": false,
+  "grid_independence_claimed": false,
+  "validated_cd": null,
+  "physical_validation": false,
+  "block_mesh_exit": 0,
+  "snappy_exit": 0,
+  "check_mesh_exit": 0,
+  "cell_count": 364037,
+  "mesh_ok": false
+}

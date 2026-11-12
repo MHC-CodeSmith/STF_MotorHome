@@ -1,0 +1,6 @@
+case,cells,mesh_ok,solver_converged,solver_exit,last_completed_iteration,solver_seconds,cd_diagnostic,cd_last50_relative_span,uy_initial_residual,p_initial_residual,global_continuity_error,ground_yplus_mean,pvdeck_yplus_mean,body_yplus_mean,validated_cd,physical_validation
+malha_adicional_1,1034158,True,False,0,1200,4270.581246656991,0.60051043,0.00010269895802611995,2.8337554e-05,5.5552204e-05,-1.6544167e-09,1381.1596,265.9484,265.87342,,False
+malha_adicional_gradiente_solo_2,743286,True,False,0,1800,4418.990501429995,0.64286538,0.0001900011683251686,6.7790472e-05,0.00011452636,-3.5005786e-08,1145.8939,228.56937,262.33783,,False
+malha_adicional_gradiente_solo_4,510281,True,True,0,505,700.917372003998,0.70046995,0.00011800104536651027,9.9873441e-06,2.2371177e-05,3.0990127e-09,913.47514,254.75023,261.38973,,False
+malha_adicional_gradiente_solo_20,364037,False,,,,,,,,,,,,,,False
+malha_adicional_parede_1,,,,,,,,,,,,,,,,False

@@ -1,0 +1,100 @@
+{
+  "source_case": "cfd-aurora-refino-semcamadas-02",
+  "source_snappy_sha256": "7bcffc3854bc1074a0f920d8d991cd204f08e6c13fab617536fb4d6916b4c33e",
+  "block_mesh_dimensions": [
+    66,
+    24,
+    12
+  ],
+  "surface_levels_body_deck": [
+    5,
+    6
+  ],
+  "wall_layers_requested": 0,
+  "wall_layer_patches": [],
+  "ground_grading_factor": 4.0,
+  "mesh_only": true,
+  "wake_refinement_changed": false,
+  "grid_independence_claimed": false,
+  "validated_cd": null,
+  "physical_validation": false,
+  "block_mesh_exit": 0,
+  "snappy_exit": 0,
+  "check_mesh_exit": 0,
+  "cell_count": 510281,
+  "mesh_ok": true,
+  "parallel_decompose_exit": 0,
+  "parallel_decompose_seconds": 1.4665030309988651,
+  "parallel_subdomains": 4,
+  "parallel_decomposition": "simple (4,1,1)",
+  "parallel_solver_exit": 0,
+  "parallel_solver_seconds": 700.917372003998,
+  "parallel_solver_converged": true,
+  "parallel_iterations_with_cd": 505,
+  "last_cd_diagnostic": 0.70046995,
+  "last50_cd_relative_span": 0.00011800104536651027,
+  "finite_coefficients": true,
+  "parallel_timeout_reached": false,
+  "parallel_last_completed_iteration": 505,
+  "parallel_residual_control_met": true,
+  "processor_checkpoint_retained": true,
+  "parallel_solver_configuration_history": [
+    {
+      "consistent": "yes",
+      "residual_control": {
+        "p": "1e-4",
+        "U": "1e-5"
+      },
+      "relaxation_factors": {
+        "fields": {
+          "p": ".3"
+        },
+        "equations": {
+          "U": ".7",
+          "k": ".7",
+          "omega": ".7"
+        }
+      }
+    }
+  ],
+  "parallel_last_completed_initial_residuals": {
+    "Ux": 4.9555276e-07,
+    "Uy": 9.9873441e-06,
+    "Uz": 1.4398922e-06,
+    "p": 2.2371177e-05,
+    "omega": 1.7034764e-07,
+    "k": 1.2701165e-06
+  },
+  "parallel_last_completed_final_residuals": {
+    "Ux": 3.1466966e-08,
+    "Uy": 5.7880753e-07,
+    "Uz": 8.1802656e-08,
+    "p": 7.7790304e-07,
+    "omega": 3.2444396e-08,
+    "k": 7.2430635e-08
+  },
+  "parallel_last_completed_global_continuity_error": 3.0990127e-09,
+  "parallel_nonconvergence_reason": null,
+  "parallel_latest_common_saved_time": 505,
+  "parallel_yplus_exit": 0,
+  "parallel_yplus_diagnostic_only": true,
+  "parallel_yplus_convergence_claim": false,
+  "parallel_yplus_at_saved_iteration": 505,
+  "yplus_summary": {
+    "ground": [
+      28.384884,
+      4962.7485,
+      913.47514
+    ],
+    "pvdeck": [
+      54.585532,
+      1058.9569,
+      254.75023
+    ],
+    "aurora": [
+      2.090958,
+      1705.1832,
+      261.38973
+    ]
+  }
+}
