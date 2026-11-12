@@ -224,6 +224,25 @@ def main():
         .5*p['rho_range'][1]*p['cd_range'][1]*p['area_m2']*climb_speed**2)
     check(abs(min(climb_tire,climb_power)-climb_demand)<1e-5,
           'Subida condicional: ponto selecionado reproduz força de pneu/potência versus resistência')
+    alias_path=out/'otimizacao_resolucao_temporal/aliasing_limiar_dc'
+    alias_summary=json.loads((alias_path/'resumo.json').read_text())
+    alias_daily=pd.read_csv(alias_path/'resumo_por_data_passo.csv')
+    alias_intervals=pd.read_csv(alias_path/'intervalos.csv')
+    alias_one_min=alias_daily[alias_daily.step_min==1]
+    alias_coarse=alias_daily[alias_daily.step_min>1]
+    check(len(alias_daily)==20 and len(alias_intervals)==5056 and
+          alias_summary['intervals_non_driving']==5056 and
+          alias_summary['dates']==['2026-03-20','2026-06-21','2026-09-22','2026-12-21'] and
+          alias_summary['steps_min']==[1,5,15,30,60] and
+          not alias_summary['linear_1min_curve_is_physical_truth'] and
+          not alias_summary['physical_charger_behavior_demonstrated'] and
+          not alias_summary['physical_mission_demonstrated'] and
+          (alias_path/'aliasing_limiar_dc.png').is_file(),
+          'I29 limiar DC:5056 intervalos/20 comparações,hipóteses e limites físicos explícitos')
+    check(alias_one_min.relative_difference_current_percent.abs().max()<.1 and
+          alias_coarse.relative_difference_current_percent.abs().max()<5.3 and
+          abs(alias_daily.difference_current_minus_reference_kwh.abs().max()-0.4309193346602749)<1e-8,
+          'I29 limiar DC:regra média aproxima referência linear em1min e erro sazonal coarsestep quantificado')
     battery=pd.read_csv(out/'mecanica_termica/I34_54sensibilidades.csv');check(len(battery)==54 and battery.thermal_residual_j.abs().max()<1e-3,'Bateria54sensibilidades térmicas')
     sensitivity=json.loads((out/'sensibilidades/resumo.json').read_text());check(sensitivity['traction_cases']==972 and sensitivity['mission_cases']==120 and sensitivity['dc_daily_cases']==36 and sensitivity['max_energy_residual_kwh']<1e-6,'972incertezas/120missões/36DC com conservação')
     for r in json.loads((out/'sensibilidades/missoes_120_comparacoes.json').read_text()):check(r['max_daily_driving_h']<=8+1e-9 and not r['physical_mission_demonstrated'],'Extremos/buffer:8h/sem afirmarviabilidade')

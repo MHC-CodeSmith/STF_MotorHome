@@ -850,6 +850,14 @@
       "pass": true
     },
     {
+      "label": "I29 limiar DC:5056 intervalos/20 comparações,hipóteses e limites físicos explícitos",
+      "pass": true
+    },
+    {
+      "label": "I29 limiar DC:regra média aproxima referência linear em1min e erro sazonal coarsestep quantificado",
+      "pass": true
+    },
+    {
       "label": "Bateria54sensibilidades térmicas",
       "pass": true
     },

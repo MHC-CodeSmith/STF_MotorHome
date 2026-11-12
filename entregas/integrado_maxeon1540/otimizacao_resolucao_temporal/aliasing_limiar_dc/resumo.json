@@ -1,0 +1,246 @@
+{
+  "scenario": "maxeon1540_independente",
+  "source_config_sha256": "e408c1fda000196eae8449c19d29fa645c4949730212a9629566b10bd58946ac",
+  "resolved_config_sha256": "e1ad225b9f76e2acca2e1d720031dbe412c269271d76cf795bd9da3c1562129f",
+  "script": "scripts/analisar_aliasing_limiar_dc.py",
+  "dates": [
+    "2026-03-20",
+    "2026-06-21",
+    "2026-09-22",
+    "2026-12-21"
+  ],
+  "steps_min": [
+    1,
+    5,
+    15,
+    30,
+    60
+  ],
+  "drive_start_h_assumed": 18.0,
+  "drive_window_h_assumed": 8.0,
+  "roof_wp_assumed": 1540,
+  "portable_wp_assumed": 1600,
+  "portable_tilt_deg_assumed": 45.0,
+  "portable_azimuth_deg_assumed": 0.0,
+  "service_kwh_day_assumed": 7.228825396825397,
+  "service_load_uniform_kw_assumed": 0.3012010582010582,
+  "minimum_dc_output_kw_hypothetical": 1.0,
+  "dc_efficiency_assumed": 0.9,
+  "intervals_non_driving": 5056,
+  "method": "the current all-or-zero per-interval minimum-power gate compared with threshold-crossing integration over linearly interpolated 1-minute clear-sky PV endpoints",
+  "linear_1min_curve_is_physical_truth": false,
+  "physical_charger_behavior_demonstrated": false,
+  "physical_mission_demonstrated": false,
+  "global_optimum_claimed": false,
+  "limits": [
+    "Minimum DC output is hypothetical and has no OEM authorization.",
+    "Clear-sky modeled PV is not measured weather; clouds and shade are absent.",
+    "The study applies the existing 18:00-02:00 driving window and 45-degree portable-panel hypothesis.",
+    "The service load is spread uniformly over 24 hours; real timing and battery state coupling are not represented in this diagnostic.",
+    "The piecewise-linear reference is an integration benchmark from a 1-minute model profile, not observed charger response or a physical upper/lower bound.",
+    "No mission duration is recalculated; results diagnose numerical threshold sensitivity only."
+  ],
+  "configuration_file_sha256": "e408c1fda000196eae8449c19d29fa645c4949730212a9629566b10bd58946ac",
+  "daily_results": [
+    {
+      "date": "2026-03-20",
+      "step_min": 1,
+      "intervals": 960,
+      "existing_interval_gate_dc_kwh": 11.349951297902228,
+      "piecewise_linear_threshold_reference_dc_kwh": 11.359706743664278,
+      "difference_current_minus_reference_kwh": -0.009755445762049675,
+      "relative_difference_current_percent": -0.08587761975009295,
+      "reference_1min_profile_energy_kwh": 17.817408190549347
+    },
+    {
+      "date": "2026-03-20",
+      "step_min": 5,
+      "intervals": 192,
+      "existing_interval_gate_dc_kwh": 11.315648649158684,
+      "piecewise_linear_threshold_reference_dc_kwh": 11.359706743664278,
+      "difference_current_minus_reference_kwh": -0.04405809450559417,
+      "relative_difference_current_percent": -0.38784535111495705,
+      "reference_1min_profile_energy_kwh": 17.81712576048433
+    },
+    {
+      "date": "2026-03-20",
+      "step_min": 15,
+      "intervals": 64,
+      "existing_interval_gate_dc_kwh": 11.308927493134323,
+      "piecewise_linear_threshold_reference_dc_kwh": 11.359706743664278,
+      "difference_current_minus_reference_kwh": -0.05077925052995447,
+      "relative_difference_current_percent": -0.44701198433908435,
+      "reference_1min_profile_energy_kwh": 17.814775651498028
+    },
+    {
+      "date": "2026-03-20",
+      "step_min": 30,
+      "intervals": 32,
+      "existing_interval_gate_dc_kwh": 11.277520770345898,
+      "piecewise_linear_threshold_reference_dc_kwh": 11.359706743664278,
+      "difference_current_minus_reference_kwh": -0.08218597331837962,
+      "relative_difference_current_percent": -0.7234867516647623,
+      "reference_1min_profile_energy_kwh": 17.805458011506317
+    },
+    {
+      "date": "2026-03-20",
+      "step_min": 60,
+      "intervals": 16,
+      "existing_interval_gate_dc_kwh": 11.213461034088022,
+      "piecewise_linear_threshold_reference_dc_kwh": 11.359706743664278,
+      "difference_current_minus_reference_kwh": -0.14624570957625593,
+      "relative_difference_current_percent": -1.287407438205414,
+      "reference_1min_profile_energy_kwh": 17.658774738183777
+    },
+    {
+      "date": "2026-06-21",
+      "step_min": 1,
+      "intervals": 960,
+      "existing_interval_gate_dc_kwh": 8.331570605074486,
+      "piecewise_linear_threshold_reference_dc_kwh": 8.329559521568807,
+      "difference_current_minus_reference_kwh": 0.002011083505678357,
+      "relative_difference_current_percent": 0.02414393582842884,
+      "reference_1min_profile_energy_kwh": 14.410379374888818
+    },
+    {
+      "date": "2026-06-21",
+      "step_min": 5,
+      "intervals": 192,
+      "existing_interval_gate_dc_kwh": 8.347656087688959,
+      "piecewise_linear_threshold_reference_dc_kwh": 8.329559521568807,
+      "difference_current_minus_reference_kwh": 0.018096566120151536,
+      "relative_difference_current_percent": 0.21725717996602045,
+      "reference_1min_profile_energy_kwh": 14.41030097397156
+    },
+    {
+      "date": "2026-06-21",
+      "step_min": 15,
+      "intervals": 64,
+      "existing_interval_gate_dc_kwh": 8.425719022128915,
+      "piecewise_linear_threshold_reference_dc_kwh": 8.329559521568807,
+      "difference_current_minus_reference_kwh": 0.09615950056010725,
+      "relative_difference_current_percent": 1.154436801983454,
+      "reference_1min_profile_energy_kwh": 14.409739864907571
+    },
+    {
+      "date": "2026-06-21",
+      "step_min": 30,
+      "intervals": 32,
+      "existing_interval_gate_dc_kwh": 7.8986401869085325,
+      "piecewise_linear_threshold_reference_dc_kwh": 8.329559521568807,
+      "difference_current_minus_reference_kwh": -0.4309193346602749,
+      "relative_difference_current_percent": -5.173374817052926,
+      "reference_1min_profile_energy_kwh": 14.405029861967082
+    },
+    {
+      "date": "2026-06-21",
+      "step_min": 60,
+      "intervals": 16,
+      "existing_interval_gate_dc_kwh": 8.337567689595762,
+      "piecewise_linear_threshold_reference_dc_kwh": 8.329559521568807,
+      "difference_current_minus_reference_kwh": 0.008008168026954365,
+      "relative_difference_current_percent": 0.09614155473909249,
+      "reference_1min_profile_energy_kwh": 14.299581827563038
+    },
+    {
+      "date": "2026-09-22",
+      "step_min": 1,
+      "intervals": 960,
+      "existing_interval_gate_dc_kwh": 11.358661813326627,
+      "piecewise_linear_threshold_reference_dc_kwh": 11.35161026875413,
+      "difference_current_minus_reference_kwh": 0.007051544572497903,
+      "relative_difference_current_percent": 0.06211933290123278,
+      "reference_1min_profile_energy_kwh": 17.86214727367381
+    },
+    {
+      "date": "2026-09-22",
+      "step_min": 5,
+      "intervals": 192,
+      "existing_interval_gate_dc_kwh": 11.374266525315932,
+      "piecewise_linear_threshold_reference_dc_kwh": 11.35161026875413,
+      "difference_current_minus_reference_kwh": 0.02265625656180248,
+      "relative_difference_current_percent": 0.1995862791745498,
+      "reference_1min_profile_energy_kwh": 17.861967597539323
+    },
+    {
+      "date": "2026-09-22",
+      "step_min": 15,
+      "intervals": 64,
+      "existing_interval_gate_dc_kwh": 11.283764928553516,
+      "piecewise_linear_threshold_reference_dc_kwh": 11.35161026875413,
+      "difference_current_minus_reference_kwh": -0.06784534020061272,
+      "relative_difference_current_percent": -0.5976715073398916,
+      "reference_1min_profile_energy_kwh": 17.860499874523807
+    },
+    {
+      "date": "2026-09-22",
+      "step_min": 30,
+      "intervals": 32,
+      "existing_interval_gate_dc_kwh": 11.26794144509244,
+      "piecewise_linear_threshold_reference_dc_kwh": 11.35161026875413,
+      "difference_current_minus_reference_kwh": -0.08366882366168937,
+      "relative_difference_current_percent": -0.7370656821437216,
+      "reference_1min_profile_energy_kwh": 17.856811534803096
+    },
+    {
+      "date": "2026-09-22",
+      "step_min": 60,
+      "intervals": 16,
+      "existing_interval_gate_dc_kwh": 11.114454791973246,
+      "piecewise_linear_threshold_reference_dc_kwh": 11.35161026875413,
+      "difference_current_minus_reference_kwh": -0.23715547678088278,
+      "relative_difference_current_percent": -2.0891791663572614,
+      "reference_1min_profile_energy_kwh": 17.752040317638528
+    },
+    {
+      "date": "2026-12-21",
+      "step_min": 1,
+      "intervals": 960,
+      "existing_interval_gate_dc_kwh": 11.421713660464206,
+      "piecewise_linear_threshold_reference_dc_kwh": 11.419814895667733,
+      "difference_current_minus_reference_kwh": 0.001898764796473884,
+      "relative_difference_current_percent": 0.016626931467989093,
+      "reference_1min_profile_energy_kwh": 18.366753820932882
+    },
+    {
+      "date": "2026-12-21",
+      "step_min": 5,
+      "intervals": 192,
+      "existing_interval_gate_dc_kwh": 11.387739057782596,
+      "piecewise_linear_threshold_reference_dc_kwh": 11.419814895667733,
+      "difference_current_minus_reference_kwh": -0.03207583788513624,
+      "relative_difference_current_percent": -0.280878789876924,
+      "reference_1min_profile_energy_kwh": 18.366646717438563
+    },
+    {
+      "date": "2026-12-21",
+      "step_min": 15,
+      "intervals": 64,
+      "existing_interval_gate_dc_kwh": 11.465845066162064,
+      "piecewise_linear_threshold_reference_dc_kwh": 11.419814895667733,
+      "difference_current_minus_reference_kwh": 0.04603017049433156,
+      "relative_difference_current_percent": 0.40307282486508383,
+      "reference_1min_profile_energy_kwh": 18.36519589343682
+    },
+    {
+      "date": "2026-12-21",
+      "step_min": 30,
+      "intervals": 32,
+      "existing_interval_gate_dc_kwh": 11.6865943203141,
+      "piecewise_linear_threshold_reference_dc_kwh": 11.419814895667733,
+      "difference_current_minus_reference_kwh": 0.2667794246463675,
+      "relative_difference_current_percent": 2.336109885174882,
+      "reference_1min_profile_energy_kwh": 18.357968316559052
+    },
+    {
+      "date": "2026-12-21",
+      "step_min": 60,
+      "intervals": 16,
+      "existing_interval_gate_dc_kwh": 11.086906919542864,
+      "piecewise_linear_threshold_reference_dc_kwh": 11.419814895667733,
+      "difference_current_minus_reference_kwh": -0.33290797612486855,
+      "relative_difference_current_percent": -2.9151783909488924,
+      "reference_1min_profile_energy_kwh": 18.242770650221367
+    }
+  ]
+}
