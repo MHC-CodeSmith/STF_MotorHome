@@ -103,7 +103,7 @@ def main() -> None:
 
     (OUT / "resumo.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     with (OUT / "casos.csv").open("w", newline="", encoding="utf-8") as stream:
-        writer = csv.DictWriter(stream, fieldnames=envelope_rows[0].keys())
+        writer = csv.DictWriter(stream, fieldnames=envelope_rows[0].keys(), lineterminator="\n")
         writer.writeheader()
         writer.writerows(envelope_rows)
     print(json.dumps({"cases": len(rows), "output": str(OUT.relative_to(ROOT)), "by_layout": {name: data["envelope"] for name, data in by_layout.items()}}, ensure_ascii=False))
