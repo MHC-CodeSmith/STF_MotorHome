@@ -1,3 +1,5 @@
+from math import atan, cos, sin
+
 import pytest
 
 from scripts.calcular_limite_aderencia_dianteira import front_drive_traction_limit
@@ -17,6 +19,14 @@ def test_six_percent_grade_holding_depends_on_front_adhesion():
     assert poor["acceleration_limit_g"] < 0.0
     assert adequate["can_hold_grade_at_zero_acceleration"] is True
     assert adequate["acceleration_limit_g"] > 0.0
+
+
+def test_grade_load_transfer_reduces_front_normal_reaction():
+    result = front_drive_traction_limit(1000.0, 2.0, 0.5, 4.0, 0.5, 6.0)
+    theta = atan(0.06)
+    expected = (0.5 * (0.5 * cos(theta) - 0.5 * sin(theta) / 4.0) - sin(theta)) / (1.0 + 0.5 * 0.5 / 4.0)
+    assert result["acceleration_limit_g"] == pytest.approx(expected)
+    assert result["force_balance_residual_n"] == pytest.approx(0.0, abs=1e-9)
 
 
 @pytest.mark.parametrize("values", [

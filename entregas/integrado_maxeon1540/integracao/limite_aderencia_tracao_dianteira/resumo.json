@@ -16,7 +16,7 @@
     0.0,
     6.0
   ],
-  "equation_acceleration_g": "(mu*cos(theta)*(L-xcg)/L - sin(theta))/(1+mu*zcg/L), theta=atan(grade_percent/100)",
+  "equation_acceleration_g": "(mu*(cos(theta)*(L-xcg)/L - zcg*sin(theta)/L) - sin(theta))/(1+mu*zcg/L), theta=atan(grade_percent/100)",
   "ignored": [
     "motor torque map",
     "gear reduction",
@@ -32,11 +32,11 @@
     "mu=0.2;grade=-6%": {
       "cases": 162,
       "acceleration_limit_g_range": [
-        0.1403352137931684,
-        0.16555414880210817
+        0.1432261651803167,
+        0.1679313118871574
       ],
       "cases_unable_to_hold_grade": 0,
-      "max_abs_force_balance_residual_n": 2.7284841053187847e-12
+      "max_abs_force_balance_residual_n": 1.8189894035458565e-12
     },
     "mu=0.2;grade=0%": {
       "cases": 162,
@@ -50,17 +50,17 @@
     "mu=0.2;grade=6%": {
       "cases": 162,
       "acceleration_limit_g_range": [
-        0.026332535111571558,
-        0.050523893516313215
+        0.02344158372442326,
+        0.048146730431263995
       ],
       "cases_unable_to_hold_grade": 0,
-      "max_abs_force_balance_residual_n": 2.0463630789890885e-12
+      "max_abs_force_balance_residual_n": 1.5916157281026244e-12
     },
     "mu=0.3;grade=-6%": {
       "cases": 162,
       "acceleration_limit_g_range": [
-        0.17771311832669268,
-        0.2153009437333507
+        0.18194735388157665,
+        0.21879730201963388
       ],
       "cases_unable_to_hold_grade": 0,
       "max_abs_force_balance_residual_n": 2.7284841053187847e-12
@@ -77,8 +77,8 @@
     "mu=0.3;grade=6%": {
       "cases": 162,
       "acceleration_limit_g_range": [
-        0.06639700798056714,
-        0.10250907885002365
+        0.06216277242568322,
+        0.0990127205637405
       ],
       "cases_unable_to_hold_grade": 0,
       "max_abs_force_balance_residual_n": 1.8189894035458565e-12
@@ -86,8 +86,8 @@
     "mu=0.5;grade=-6%": {
       "cases": 162,
       "acceleration_limit_g_range": [
-        0.24742175961677673,
-        0.3092039297969218
+        0.2541611787919824,
+        0.3148129020019337
       ],
       "cases_unable_to_hold_grade": 0,
       "max_abs_force_balance_residual_n": 5.4569682106375694e-12
@@ -104,20 +104,20 @@
     "mu=0.5;grade=6%": {
       "cases": 162,
       "acceleration_limit_g_range": [
-        0.1411160165112946,
-        0.20063729275105222
+        0.13437659733608898,
+        0.19502832054604033
       ],
       "cases_unable_to_hold_grade": 0,
-      "max_abs_force_balance_residual_n": 2.7284841053187847e-12
+      "max_abs_force_balance_residual_n": 3.637978807091713e-12
     },
     "mu=0.7;grade=-6%": {
       "cases": 162,
       "acceleration_limit_g_range": [
-        0.31112547580373323,
-        0.39632565849866636
+        0.3201542740773074,
+        0.4038946810108581
       ],
       "cases_unable_to_hold_grade": 0,
-      "max_abs_force_balance_residual_n": 5.4569682106375694e-12
+      "max_abs_force_balance_residual_n": 7.275957614183426e-12
     },
     "mu=0.7;grade=0%": {
       "cases": 162,
@@ -131,8 +131,8 @@
     "mu=0.7;grade=6%": {
       "cases": 162,
       "acceleration_limit_g_range": [
-        0.20939849089498805,
-        0.2916791220671566
+        0.20036969262141394,
+        0.28411009955496475
       ],
       "cases_unable_to_hold_grade": 0,
       "max_abs_force_balance_residual_n": 5.4569682106375694e-12
@@ -140,11 +140,11 @@
     "mu=0.9;grade=-6%": {
       "cases": 162,
       "acceleration_limit_g_range": [
-        0.3695681517329779,
-        0.47737509904783954
+        0.38069725825752554,
+        0.486767558528196
       ],
       "cases_unable_to_hold_grade": 0,
-      "max_abs_force_balance_residual_n": 1.0913936421275139e-11
+      "max_abs_force_balance_residual_n": 7.275957614183426e-12
     },
     "mu=0.9;grade=0%": {
       "cases": 162,
@@ -158,8 +158,8 @@
     "mu=0.9;grade=6%": {
       "cases": 162,
       "acceleration_limit_g_range": [
-        0.2720417833261797,
-        0.37637543655265904
+        0.2609126768016321,
+        0.36698297707230265
       ],
       "cases_unable_to_hold_grade": 0,
       "max_abs_force_balance_residual_n": 7.275957614183426e-12

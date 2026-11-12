@@ -32,11 +32,16 @@ def front_drive_traction_limit(mass_kg: float, cg_x_m: float, cg_z_m: float,
         raise ValueError("Longitudinal CG must lie between axles")
     theta = atan(grade_percent / 100.0)
     front_static_fraction = (wheelbase_m - cg_x_m) / wheelbase_m
-    numerator = mu * cos(theta) * front_static_fraction - sin(theta)
+    grade_load_transfer = cg_z_m * sin(theta) / wheelbase_m
+    numerator = (
+        mu * (cos(theta) * front_static_fraction - grade_load_transfer)
+        - sin(theta)
+    )
     acceleration_g = numerator / (1.0 + mu * cg_z_m / wheelbase_m)
     can_hold_grade = numerator >= 0
     front_normal_n = mass_kg * G * (
-        cos(theta) * front_static_fraction - acceleration_g * cg_z_m / wheelbase_m
+        cos(theta) * front_static_fraction
+        - cg_z_m * (sin(theta) + acceleration_g) / wheelbase_m
     )
     tire_force_n = mu * front_normal_n
     gravity_along_grade_n = mass_kg * G * sin(theta)
@@ -112,7 +117,7 @@ def main() -> None:
         "mu_values": MU_GRID,
         "mu_scope": "dimensionless sensitivities only; not measured Continental tire-road coefficients",
         "grade_percent_values": GRADE_GRID_PERCENT,
-        "equation_acceleration_g": "(mu*cos(theta)*(L-xcg)/L - sin(theta))/(1+mu*zcg/L), theta=atan(grade_percent/100)",
+        "equation_acceleration_g": "(mu*(cos(theta)*(L-xcg)/L - zcg*sin(theta)/L) - sin(theta))/(1+mu*zcg/L), theta=atan(grade_percent/100)",
         "ignored": ["motor torque map", "gear reduction", "inverter limits", "tire transient behavior", "suspension compliance", "aerodynamic drag", "rolling resistance"],
         "physical_validation": False,
         "oem_acceleration_prediction": False,
