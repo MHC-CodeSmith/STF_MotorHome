@@ -75,7 +75,7 @@ def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     fields = list(rows[0])
     with (OUT / "casos.csv").open("w", newline="", encoding="utf-8") as stream:
-        writer = csv.DictWriter(stream, fieldnames=fields)
+        writer = csv.DictWriter(stream, fieldnames=fields, lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 

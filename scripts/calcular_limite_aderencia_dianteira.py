@@ -9,6 +9,11 @@ import json
 from math import atan, cos, isfinite, sin
 from pathlib import Path
 
+import matplotlib
+
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+import numpy as np
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -91,7 +96,7 @@ def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     fields = list(rows[0])
     with (OUT / "casos.csv").open("w", newline="", encoding="utf-8") as stream:
-        writer = csv.DictWriter(stream, fieldnames=fields)
+        writer = csv.DictWriter(stream, fieldnames=fields, lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 
@@ -124,7 +129,48 @@ def main() -> None:
         "by_condition": by_condition,
     }
     (OUT / "resumo.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps({"cases": len(rows), "by_condition": by_condition}, ensure_ascii=False))
+
+    colors = {-6.0: "#4C72B0", 0.0: "#555555", 6.0: "#DD8452"}
+    labels = {-6.0: "Declive 6%", 0.0: "Piso nivelado", 6.0: "Aclive 6%"}
+    fig, axes = plt.subplots(1, 3, figsize=(12, 4.8), sharex=True, sharey=True, layout="constrained")
+    for ax, grade in zip(axes, GRADE_GRID_PERCENT):
+        medians, lows, highs = [], [], []
+        for mu in MU_GRID:
+            values = np.array([
+                float(r["acceleration_limit_g"]) for r in rows
+                if r["mu_sensitivity"] == mu and r["grade_percent"] == grade
+            ])
+            medians.append(float(np.median(values)))
+            lows.append(float(values.min()))
+            highs.append(float(values.max()))
+        color = colors[grade]
+        ax.fill_between(MU_GRID, lows, highs, color=color, alpha=0.18, linewidth=0,
+                        label="Envelope dos 162 casos")
+        ax.plot(MU_GRID, medians, color=color, marker="o", linewidth=2,
+                label="Mediana dos casos")
+        ax.set_title(labels[grade])
+        ax.set_xlabel("μ hipotético (sensibilidade)")
+        ax.set_xticks(MU_GRID)
+        ax.grid(axis="y", alpha=0.25)
+        ax.spines["top"].set_visible(False)
+        ax.spines["right"].set_visible(False)
+        ax.legend(frameon=False, fontsize=8)
+    axes[0].set_ylabel("Teto de aceleração por aderência [g]")
+    fig.suptitle("Tração dianteira: limite de aderência, não desempenho previsto", fontsize=13, weight="bold")
+    fig.text(0.5, -0.015,
+             "162 envelopes hipotéticos de massa/CG; μ não medido; sem limite de torque/potência, pneus transientes ou validação física.",
+             ha="center", fontsize=8)
+    fig.savefig(OUT / "envelope_aderencia.png", dpi=180, bbox_inches="tight")
+    plt.close(fig)
+
+    print(json.dumps({
+        "cases": len(rows),
+        "flat_mu_0_2_g_range": by_condition["mu=0.2;grade=0%"]["acceleration_limit_g_range"],
+        "flat_mu_0_9_g_range": by_condition["mu=0.9;grade=0%"]["acceleration_limit_g_range"],
+        "uphill_6pct_cases_unable_to_hold": sum(v["cases_unable_to_hold_grade"] for k, v in by_condition.items() if "grade=6%" in k),
+        "max_force_residual_n": max(v["max_abs_force_balance_residual_n"] for v in by_condition.values()),
+        "plot": str((OUT / "envelope_aderencia.png").relative_to(ROOT)),
+    }, ensure_ascii=False))
 
 
 if __name__ == "__main__":
