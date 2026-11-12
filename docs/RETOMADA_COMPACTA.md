@@ -1,5 +1,12 @@
 # Retomada vigente — motorhome solar, 12/11/2026
 
+## Correção posterior ao checkpoint — compatibilidade NumPy em CI
+
+- GitHub Actions nos commits `fa5f551` falhou em 3 testes solares: o runner Python 3.11 instalou NumPy 2.4, que já não expõe `np.trapz`; o ambiente local NumPy 1.26 ocultava o problema. Substituídos os usos em `src/motorhome/solar.py` e `scripts/calcular_agenda_portatil.py` por integração trapezoidal composta explícita, preservando unidades/intervalos. Adicionado teste de tempos irregulares com integral analítica de 5 Wh em `tests/test_solar.py`.
+- Manifestos oficiais registrados após as alterações: integrado 175 entradas/358 saídas; desenvolvimento 195 entradas/1.467 saídas. Verificação sem `--registrar` passou para ambos.
+- QA local final: **270 testes**, Ruff, estrutura35/7, verificadores integrado/desenvolvimento e demonstração térmica sintética passaram; auditoria sem erros estruturais (mantém avisos conhecidos: 134 parâmetros ausentes, variante sem aprovação e possível restrição I28→I33). Missão física continua não demonstrada.
+- A execução GitHub em `fa5f551` foi reprovada apenas pelos 3 casos `np.trapz` (266 passaram); o novo commit ainda precisa de uma execução remota para demonstrar compatibilidade NumPy 2.4. Resultado dessa CI deve ser acrescentado aqui após terminar.
+
 ## Estado em uma página
 
 - **Verificabilidade GitHub (12/11):** `.github/workflows/ci.yml` agora roda estrutura/auditoria, Ruff, suíte, verificadores integrados e demonstração térmica sintética; publica XML de testes, QA/manifests e resumos I29 como artifact da execução. Corrigida a demonstração `scripts/demonstrar_frente_termica.py` para ler o requisito em `config/freios_proposta.yaml:official` (antes buscava chave inexistente `special_cases` no YAML global). Para o prescrito30→10m/s em5s, a derivação independente é400J/kg,80W/kg,−4m/s² e100m sob desaceleração constante; isso é energia cinética translacional por massa, não calor medido de disco nem validação veicular. Passos do workflow foram reproduzidos localmente: pytest269, Ruff local0.16.9, verificadores e demonstração passaram. Primeira execução remota revelou que Ruff0.17.5 no runner acusa um `noqa` obsoleto aceito pela versão local; removido e versão remota fixada em0.17.5. XML JUnit e pacote de evidências agora são artifacts separados, com caminhos internos legíveis. Runner GitHub revelou falta de `libGLU.so.1` nos testes que importam Gmsh; workflow agora instala explicitamente `libglu1-mesa` (runtime usado também pelo verificador CAD).

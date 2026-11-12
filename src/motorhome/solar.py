@@ -52,4 +52,8 @@ def integrar_kwh(series):
     p = series.to_numpy(dtype=float)
     if (np.diff(seconds) <= 0).any() or not np.isfinite(p).all() or (p < 0).any():
         raise ValueError('Potências não negativas finitas e tempos crescentes obrigatórios')
-    return float(np.trapz(p, seconds)/3_600_000)
+    # NumPy 2.4 removed ``trapz``. Keep support for the project's full NumPy
+    # range (>=1.24) by evaluating the composite trapezoid directly.
+    intervals = np.diff(seconds)
+    energy_ws = np.sum((p[:-1] + p[1:]) * intervals * 0.5, dtype=np.float64)
+    return float(energy_ws/3_600_000)

@@ -19,6 +19,16 @@ def test_integral_analitica_potencia_constante():
     assert integrar_kwh(pd.Series([1000., 1000., 1000.], index=time)) == 1.
 
 
+def test_integral_tempos_irregulares_usa_intervalos_reais():
+    time = pd.DatetimeIndex([
+        '2026-06-21T00:00:00-03:00',
+        '2026-06-21T01:00:00-03:00',
+        '2026-06-21T03:00:00-03:00',
+    ])
+    # 0→2 W over 1 h gives 1 Wh; 2 W over the next 2 h gives 4 Wh.
+    assert integrar_kwh(pd.Series([0., 2., 2.], index=time)) == pytest.approx(.005)
+
+
 def test_solar_limites_horizonte_simetria_quantidade_e_conversao(config):
     r = simular_dia(config, 5)
     assert len(r) == 289

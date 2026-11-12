@@ -36,7 +36,9 @@ def load_solar(path, column, step_minutes):
     # Trapézios por intervalo preservam a integral do perfil original, sem usar
     # sol de outro horário no estado aberto. A meia-noite final não vira novo dia.
     values = raw[column].to_numpy()/1000
-    return pd.Series([float(np.trapz(values[i:i+step_minutes+1], dx=1)/step_minutes)
+    return pd.Series([float(np.sum((values[i:i+step_minutes]
+                                    + values[i+1:i+step_minutes+1]) * 0.5)
+                            / step_minutes)
                       for i in range(0, 1440, step_minutes)], index=index[:-1:step_minutes])
 
 
