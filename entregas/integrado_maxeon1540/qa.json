@@ -842,6 +842,14 @@
       "pass": true
     },
     {
+      "label": "Subida condicional:65610 casos/equilíbrio/figura sem alegar desempenho contínuo OEM",
+      "pass": true
+    },
+    {
+      "label": "Subida condicional: ponto selecionado reproduz força de pneu/potência versus resistência",
+      "pass": true
+    },
+    {
       "label": "Bateria54sensibilidades térmicas",
       "pass": true
     },

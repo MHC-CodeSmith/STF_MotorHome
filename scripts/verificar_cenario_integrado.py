@@ -199,6 +199,31 @@ def main():
           not traction_summary['physical_validation'] and not traction_summary['oem_acceleration_prediction'] and
           (out/'integracao/limite_aderencia_tracao_dianteira/envelope_aderencia.png').is_file(),
           'Aderência dianteira:2430 casos/equilíbrio/figura,sem prever aceleração OEM')
+    climb_path=out/'integracao/envelope_subida_condicional'
+    climb=pd.read_csv(climb_path/'casos.csv')
+    climb_summary=json.loads((climb_path/'resumo.json').read_text())
+    check(len(climb)==65610 and climb_summary['source_mass_cg_cases']==162 and
+          climb.force_balance_residual_n_at_limit.abs().max()<1e-6 and
+          not climb_summary['maximum_grade_represents_continuous_oem_performance'] and
+          not climb_summary['global_optimum_claimed'] and not climb_summary['physical_validation'] and
+          (climb_path/'envelope_subida.png').is_file(),
+          'Subida condicional:65610 casos/equilíbrio/figura sem alegar desempenho contínuo OEM')
+    climb_reference=climb[(climb.speed_kmh==60) & (climb.mu_assumed==.5) &
+        (climb.headwind_m_s==0) & (climb.crr_assumed==.012) &
+        (climb.drivetrain_efficiency_assumed==.9)].iloc[0]
+    climb_ratio=climb_reference.maximum_grade_percent_in_model/100
+    climb_angle=math.atan(climb_ratio)
+    climb_speed=60/3.6
+    climb_normal=climb_reference.mass_kg*9.80665*(
+        math.cos(climb_angle)*(p['wheelbase_m']-climb_reference.cg_x_m)/p['wheelbase_m']-
+        climb_reference.cg_z_m*math.sin(climb_angle)/p['wheelbase_m'])
+    climb_tire=.5*max(0,climb_normal)
+    climb_power=.9*p['motor_peak_kw']*1000/climb_speed
+    climb_demand=(.012*climb_reference.mass_kg*9.80665*math.cos(climb_angle)+
+        climb_reference.mass_kg*9.80665*math.sin(climb_angle)+
+        .5*p['rho_range'][1]*p['cd_range'][1]*p['area_m2']*climb_speed**2)
+    check(abs(min(climb_tire,climb_power)-climb_demand)<1e-5,
+          'Subida condicional: ponto selecionado reproduz força de pneu/potência versus resistência')
     battery=pd.read_csv(out/'mecanica_termica/I34_54sensibilidades.csv');check(len(battery)==54 and battery.thermal_residual_j.abs().max()<1e-3,'Bateria54sensibilidades térmicas')
     sensitivity=json.loads((out/'sensibilidades/resumo.json').read_text());check(sensitivity['traction_cases']==972 and sensitivity['mission_cases']==120 and sensitivity['dc_daily_cases']==36 and sensitivity['max_energy_residual_kwh']<1e-6,'972incertezas/120missões/36DC com conservação')
     for r in json.loads((out/'sensibilidades/missoes_120_comparacoes.json').read_text()):check(r['max_daily_driving_h']<=8+1e-9 and not r['physical_mission_demonstrated'],'Extremos/buffer:8h/sem afirmarviabilidade')

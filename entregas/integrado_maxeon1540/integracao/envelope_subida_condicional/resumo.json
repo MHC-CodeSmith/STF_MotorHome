@@ -1,0 +1,246 @@
+{
+  "scenario": "maxeon1540_independente",
+  "source_config_sha256": "e408c1fda000196eae8449c19d29fa645c4949730212a9629566b10bd58946ac",
+  "resolved_config_sha256": "e1ad225b9f76e2acca2e1d720031dbe412c269271d76cf795bd9da3c1562129f",
+  "source_mass_cg_cases": 162,
+  "cases": 65610,
+  "speeds_kmh": [
+    20,
+    40,
+    60,
+    80,
+    90
+  ],
+  "mu_sensitivities": [
+    0.3,
+    0.5,
+    0.7
+  ],
+  "headwind_m_s": [
+    -10.0,
+    0.0,
+    10.0
+  ],
+  "crr_sensitivities": [
+    0.008,
+    0.012,
+    0.016
+  ],
+  "drivetrain_efficiency_sensitivities": [
+    0.85,
+    0.9,
+    0.95
+  ],
+  "cd_central_assumed": 0.62487678,
+  "rho_central_assumed_kg_m3": 1.1,
+  "peak_power_kw_used_as_ceiling": 205,
+  "method": "steady longitudinal equilibrium; max grade by bisection; usable wheel force=min(eta*published peak power/v, mu*static front axle normal load on grade)",
+  "maximum_grade_represents_continuous_oem_performance": false,
+  "global_optimum_claimed": false,
+  "physical_validation": false,
+  "grouped_by_speed_mu": [
+    {
+      "speed_kmh": 20,
+      "mu_assumed": 0.3,
+      "grade_percent_in_model_range": [
+        9.805093584984839,
+        15.247845850655695
+      ],
+      "grade_percent_in_model_median": 12.690902775029958,
+      "cases_level_infeasible": 0,
+      "cases_capped": 0,
+      "power_limited_fraction": 0.0,
+      "max_abs_force_residual_n": 4.547473508864641e-12
+    },
+    {
+      "speed_kmh": 20,
+      "mu_assumed": 0.5,
+      "grade_percent_in_model_range": [
+        17.13979253523655,
+        24.893298335284786
+      ],
+      "grade_percent_in_model_median": 21.17398575058114,
+      "cases_level_infeasible": 0,
+      "cases_capped": 0,
+      "power_limited_fraction": 0.0,
+      "max_abs_force_residual_n": 5.4569682106375694e-12
+    },
+    {
+      "speed_kmh": 20,
+      "mu_assumed": 0.7,
+      "grade_percent_in_model_range": [
+        23.839547840336035,
+        33.842668383681925
+      ],
+      "grade_percent_in_model_median": 28.957612247579245,
+      "cases_level_infeasible": 0,
+      "cases_capped": 0,
+      "power_limited_fraction": 0.0,
+      "max_abs_force_residual_n": 7.275957614183426e-12
+    },
+    {
+      "speed_kmh": 40,
+      "mu_assumed": 0.3,
+      "grade_percent_in_model_range": [
+        9.018836451137124,
+        15.160651849077993
+      ],
+      "grade_percent_in_model_median": 12.269752954889361,
+      "cases_level_infeasible": 0,
+      "cases_capped": 0,
+      "power_limited_fraction": 0.0,
+      "max_abs_force_residual_n": 3.637978807091713e-12
+    },
+    {
+      "speed_kmh": 40,
+      "mu_assumed": 0.5,
+      "grade_percent_in_model_range": [
+        16.3824434020672,
+        24.80779791565007
+      ],
+      "grade_percent_in_model_median": 20.865701396080453,
+      "cases_level_infeasible": 0,
+      "cases_capped": 0,
+      "power_limited_fraction": 0.0,
+      "max_abs_force_residual_n": 5.4569682106375694e-12
+    },
+    {
+      "speed_kmh": 40,
+      "mu_assumed": 0.7,
+      "grade_percent_in_model_range": [
+        23.105857178116874,
+        33.758240473039436
+      ],
+      "grade_percent_in_model_median": 28.628046396309664,
+      "cases_level_infeasible": 0,
+      "cases_capped": 0,
+      "power_limited_fraction": 0.0,
+      "max_abs_force_residual_n": 9.094947017729282e-12
+    },
+    {
+      "speed_kmh": 60,
+      "mu_assumed": 0.3,
+      "grade_percent_in_model_range": [
+        7.995798446561481,
+        14.98120549329705
+      ],
+      "grade_percent_in_model_median": 11.545787590159915,
+      "cases_level_infeasible": 0,
+      "cases_capped": 0,
+      "power_limited_fraction": 0.0,
+      "max_abs_force_residual_n": 4.547473508864641e-12
+    },
+    {
+      "speed_kmh": 60,
+      "mu_assumed": 0.5,
+      "grade_percent_in_model_range": [
+        15.39818007108426,
+        24.63187496653994
+      ],
+      "grade_percent_in_model_median": 20.29435032686497,
+      "cases_level_infeasible": 0,
+      "cases_capped": 0,
+      "power_limited_fraction": 0.0,
+      "max_abs_force_residual_n": 5.4569682106375694e-12
+    },
+    {
+      "speed_kmh": 60,
+      "mu_assumed": 0.7,
+      "grade_percent_in_model_range": [
+        21.987301753848698,
+        31.286575831260176
+      ],
+      "grade_percent_in_model_median": 25.733304649109822,
+      "cases_level_infeasible": 0,
+      "cases_capped": 0,
+      "power_limited_fraction": 0.6186556927297668,
+      "max_abs_force_residual_n": 7.275957614183426e-12
+    },
+    {
+      "speed_kmh": 80,
+      "mu_assumed": 0.3,
+      "grade_percent_in_model_range": [
+        6.736706791835914,
+        14.54579406660656
+      ],
+      "grade_percent_in_model_median": 10.6854051721984,
+      "cases_level_infeasible": 0,
+      "cases_capped": 0,
+      "power_limited_fraction": 0.0,
+      "max_abs_force_residual_n": 3.637978807091713e-12
+    },
+    {
+      "speed_kmh": 80,
+      "mu_assumed": 0.5,
+      "grade_percent_in_model_range": [
+        13.73961180230533,
+        22.206368017838756
+      ],
+      "grade_percent_in_model_median": 17.59326867849759,
+      "cases_level_infeasible": 0,
+      "cases_capped": 0,
+      "power_limited_fraction": 0.680612711476909,
+      "max_abs_force_residual_n": 3.637978807091713e-12
+    },
+    {
+      "speed_kmh": 80,
+      "mu_assumed": 0.7,
+      "grade_percent_in_model_range": [
+        13.73961180230533,
+        22.206368017838756
+      ],
+      "grade_percent_in_model_median": 18.062074459205753,
+      "cases_level_infeasible": 0,
+      "cases_capped": 0,
+      "power_limited_fraction": 1.0,
+      "max_abs_force_residual_n": 1.8189894035458565e-12
+    },
+    {
+      "speed_kmh": 90,
+      "mu_assumed": 0.3,
+      "grade_percent_in_model_range": [
+        6.018783559292595,
+        14.23237057635891
+      ],
+      "grade_percent_in_model_median": 10.229386232604444,
+      "cases_level_infeasible": 0,
+      "cases_capped": 0,
+      "power_limited_fraction": 0.0,
+      "max_abs_force_residual_n": 3.637978807091713e-12
+    },
+    {
+      "speed_kmh": 90,
+      "mu_assumed": 0.5,
+      "grade_percent_in_model_range": [
+        10.73378213293087,
+        19.11438600516621
+      ],
+      "grade_percent_in_model_median": 15.160346137213615,
+      "cases_level_infeasible": 0,
+      "cases_capped": 0,
+      "power_limited_fraction": 0.9711934156378601,
+      "max_abs_force_residual_n": 2.7284841053187847e-12
+    },
+    {
+      "speed_kmh": 90,
+      "mu_assumed": 0.7,
+      "grade_percent_in_model_range": [
+        10.73378213293087,
+        19.11438600516621
+      ],
+      "grade_percent_in_model_median": 15.160346137213615,
+      "cases_level_infeasible": 0,
+      "cases_capped": 0,
+      "power_limited_fraction": 1.0,
+      "max_abs_force_residual_n": 1.8189894035458565e-12
+    }
+  ],
+  "limits": [
+    "205 kW is used only as a documented peak-power ceiling for the study candidate; no continuous rating, map, torque-speed curve, or variant approval is inferred.",
+    "Drivetrain efficiency, tire-road friction, rolling resistance, grade, and wind are sensitivities; Cd and air density use their central hypotheses here.",
+    "Front-axle normal load is quasi-static with grade only; suspension, pitch transients, tire dynamics, and load variation are omitted.",
+    "No gear ratio, motor speed limit, thermal derating, battery power limit, or startability at zero speed is modeled.",
+    "This numerical envelope is not an OEM performance claim, road test, legal gradeability, or proof of sustained climbing."
+  ],
+  "configuration_file_sha256": "e408c1fda000196eae8449c19d29fa645c4949730212a9629566b10bd58946ac"
+}

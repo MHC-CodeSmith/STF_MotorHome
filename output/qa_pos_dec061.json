@@ -1,6 +1,16 @@
 {
-  "status": "PASSOU",
-  "errors": [],
+  "status": "FALHOU",
+  "errors": [
+    "Entrada alterada:config/parametros_globais.yaml",
+    "Entrada alterada:scripts/conciliar_dec061.py",
+    "Entrada alterada:src/motorhome/reconciliacao.py",
+    "BOM/documentos com fonte canônica desatualizada",
+    "Documento alterado:docs/APROVACOES_FINAIS_PENDENTES.md",
+    "Documento alterado:docs/BLOQUEIOS_POS_DEC061.md",
+    "Documento alterado:docs/PLANO_EXECUCAO_POS_DEC061.md",
+    "Documento alterado:docs/MATRIZ_DECISOES_61.md",
+    "Documento alterado:docs/REVISAO_35_ITENS.md"
+  ],
   "decisions": 61,
   "items": 35,
   "mission_cases": 56,
