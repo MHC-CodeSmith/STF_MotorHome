@@ -1,8 +1,9 @@
 # Revisão geral do projeto motorhome elétrico solar
 
-**Documento técnico para revisão do usuário — SEM0571/USP**  
-**Referência:** resultados de 10/11/2026; fonte única de parâmetros `1.1.1-execucao1540`.  
-**Cenário principal revisado:** `maxeon1540_independente`.  
+**Documento técnico para revisão do usuário — SEM0571/USP**
+**Referência:** resultados de 10/11/2026; fonte única de parâmetros `1.1.1-execucao1540`.
+**Cenário principal revisado:** `maxeon1540_independente`.
+**Atualização de rastreabilidade (12/11/2026):** o refinamento fixo de 796 pontos e a reclassificação contextual I28→I33 foram incorporados após a revisão inicial; ver seções I29 e dependências abaixo.
 **Base de código registrada:** commit técnico local `60541a0`; checkpoint documental `3f684d9`. Este documento e a correção A13 são posteriores a esses commits.
 
 ## 1. Parecer geral
@@ -14,6 +15,10 @@ Os **35 itens foram trabalhados e possuem evidências**; a cadeia integrada regi
 O principal bloqueio é a **interface externa DC compatível e autorizada para receber energia solar na tração**. A arquitetura B está escolhida, mas não há demonstração de equipamento, tensão/corrente mínimas, protocolo, isolamento e operação com a potência FV variável. Um balanço de kWh favorável ou um buffer não resolve essa lacuna.
 
 Este documento não é relatório acadêmico final, memorial de homologação ou certificado. Seu objetivo é permitir a revisão técnica do desenvolvimento já realizado e evitar aprovar hipóteses como se fossem evidências físicas.
+
+## 1.1 Dependência do cálculo térmico de freios
+
+A auditoria da relação I28→I33 foi concluída: o resultado de velocidade/aceleração do veículo (I28) não é dado de entrada para o ensaio prescrito de frenagem do componente I33, que parte da condição 30→10 m/s em 5 s e utiliza massa de I18 e parâmetros de freio de I03. I28 continua útil para contextualizar o limitador nominal de 90 km/h. Por isso, a aresta foi retirada do DAG de dependências de dados e registrada como interface `contextual_nao_bloqueante` em `metadata/interfaces_contextuais.csv`; auditor, documentação e teste dedicado acompanham a classificação. O ponto de 108 km/h permanece como condição acadêmica do ensaio de componente, não como desempenho atribuído ao veículo.
 
 ## 2. O que esta revisão conferiu e o que não pôde reexecutar
 

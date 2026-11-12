@@ -218,3 +218,8 @@ Os [dez trabalhos](PLANO_10_TRABALHOS.md) especificam donos P1–P7, interfaces,
 ## Arquivos concomitantes preservados
 
 Durante a execução apareceram `docs/revisao_apostila.md` e `docs/referencias_complementares.md`, não criados por este worker e fora da lista de arquivos editáveis desta tarefa. Foram lidos e preservados sem alterações. Suas alegações de inspeção visual e novas referências não são evidência produzida por esta auditoria nem foram incorporadas aos números do catálogo. O mapa desta tarefa continua delimitando sua leitura textual e pendências visuais.
+
+
+## Atualização de classificação — 12/11/2026
+
+Esta auditoria é um registro histórico do estado inicial. A antiga aresta I28→I33 foi reavaliada: I33 recebe do enunciado a condição de frenagem (30→10 m/s em 5 s) e usa dados I03/I18; I28 fornece apenas contexto operacional do limitador nominal de 90 km/h. Portanto, I28→I33 foi removida das dependências de dados e mantida como interface `contextual_nao_bloqueante` em `metadata/interfaces_contextuais.csv`. A aresta Mermaid e o alarme da auditoria estrutural foram ajustados; não houve alteração das 61 decisões nem dos resultados físicos. A condição de 108 km/h segue sendo ensaio acadêmico de componente, sem afirmação de desempenho do veículo.

@@ -270,6 +270,7 @@ def main():
         inputs=[ROOT/'config/parametros_globais.yaml',ROOT/c['decision_record'],
                 ROOT/'config/cabine_proposta.yaml',ROOT/'config/solar_proposta.yaml',
                 ROOT/'entregas/desenvolvimento_2026-11-09/hvac_revisao/resumo.json',
+                ROOT/'metadata/interfaces_contextuais.csv',
                 *list((ROOT/'src/motorhome').glob('*.py')),*list((ROOT/'scripts').glob('*.py')),*list((ROOT/'tests').glob('*.py'))]
         outputs=[f for f in out.rglob('*') if f.is_file() and f.name not in ['manifesto.json','qa.json','execucao_pipeline.json','verificar_cenario_integrado.log']]
         manifest={'inputs':{str(f.relative_to(ROOT)):sha(f) for f in inputs},'outputs':{str(f.relative_to(ROOT)):sha(f) for f in outputs},'physical_validation':False}

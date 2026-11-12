@@ -1,8 +1,8 @@
 # Item 33 — Freio: campo térmico multidimensional
 
-**Responsável:** P1 — Estrutura, freios, massa e custos  
-**Enunciado / tarefa:** Frenagem de 30m/s para 10m/s em 5s, 25°C inicial; calcular energia e campo térmico 2D/3D.  
-**Depende de:** I03 (P1), I18 (P1), I28 (P4)  
+**Responsável:** P1 — Estrutura, freios, massa e custos
+**Enunciado / tarefa:** Frenagem de 30m/s para 10m/s em 5s, 25°C inicial; calcular energia e campo térmico 2D/3D.
+**Depende de:** I03 (P1), I18 (P1)
 **Status:** Em desenvolvimento — artefatos parciais; revisão humana pendente.
 
 ## Entrega mínima
@@ -20,8 +20,12 @@ Entradas oficiais em `config/parametros_globais.yaml`; cada atualização releva
 ## Aceite
 O item só vira **aprovado** quando tiver resultados reproduzíveis, referências e uma revisão por outro integrante.
 
-## Alerta de auditoria — 22/10/2026
-A aresta I28→I33 foi preservada para revisão P1/P4: a frenagem prescrita no enunciado p. 2 (30→10 m/s em 5 s) permite iniciar o método sem esperar o resultado 0–100. Possível sobre-restrição de integração, não requisito adicional do docente.
+## Registro histórico de auditoria — 22/10/2026
+O registro abaixo é histórico e foi superado pela reclassificação documentada em 12/11/2026 na seção “Interface contextual com I28”. A antiga aresta I28→I33 foi então removida do DAG de dependências de dados e preservada como relação contextual não bloqueante.
+
+## Interface contextual com I28
+
+I28 informa o limitador operacional nominal de 90 km/h para contextualizar a interpretação do ensaio do componente. Não é entrada necessária ao cálculo prescrito em I33 (30→10 m/s em 5 s, 25 °C): a energia cinética e a distribuição térmica são calculadas com massa de I18 e parâmetros de freio de I03. O início e a análise matemática de I33, portanto, não aguardam o resultado de aceleração/velocidade de I28. A condição de 108 km/h continua identificada como ensaio de componente especificado no trabalho acadêmico, acima do limitador, sem alegação de que o veículo atinja essa velocidade. A relação está registrada como contexto não bloqueante em `metadata/interfaces_contextuais.csv`.
 
 ## Revisão desta frente — 23/10/2026
 

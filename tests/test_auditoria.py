@@ -27,6 +27,8 @@ def project(tmp_path):
             rows.append({'numero': str(number), 'pessoa': owner, 'dependencias': '',
                          'pasta': folder, 'status': 'nao_iniciado'})
     (tmp_path / 'metadata').mkdir()
+    (tmp_path / 'metadata/interfaces_contextuais.csv').write_text(
+        'origem,destino,tipo,descricao\n28,33,contextual_nao_bloqueante,contexto de teste\n')
     (tmp_path / 'config').mkdir()
     (tmp_path / 'docs/fontes_recebidas').mkdir(parents=True)
     (tmp_path / 'docs/fluxograma_dependencias.mmd').write_text('flowchart TD\n')
@@ -102,3 +104,18 @@ def test_diagnoses_defects(project, mutation, diagnostic):
 
 def test_nested_nulls():
     assert module.missing_values({'a': [None, {'b': None}], 'c': 0}) == ['a[0]', 'a[1].b']
+
+
+def test_contextual_interface_is_not_a_hard_dependency(project):
+    root, rows = project
+    rows[rows.index(next(row for row in rows if row['numero'] == '33'))]['dependencias'] = '3;18'
+    (root / 'equipe/P1_sintetico/I33_sintetico/README.md').write_text(
+        '**Responsável:** P1\n**Depende de:** I03, I18\n')
+    save(root, rows)
+    (root / 'docs/fluxograma_dependencias.mmd').write_text(
+        'flowchart TD\nI03 --> I33\nI18 --> I33\n')
+    result = module.audit(root, booklet=root / 'apostila-ausente.pdf')
+    assert result['erros'] == []
+    assert any(x['origem'] == 28 and x['destino'] == 33 and
+               x['tipo'] == 'contextual_nao_bloqueante' for x in result['interfaces_contextuais'])
+    assert not any('sobre-restri' in warning for warning in result['avisos'])

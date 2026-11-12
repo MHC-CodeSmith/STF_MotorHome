@@ -186,7 +186,8 @@ def main():
     review=json.loads((OUT/'revisao_35_itens.json').read_text())
     check(len(review['items'])==35 and sum(r['human_approval_recorded'] for r in review['items'])==0,'35 itens revisados, zero aprovações inferidas')
     if args.registrar:
-        inputs=[ROOT/'config/parametros_globais.yaml',ROOT/c['decision_record'],ROOT/'metadata/itens.csv']
+        inputs=[ROOT/'config/parametros_globais.yaml',ROOT/c['decision_record'],ROOT/'metadata/itens.csv',
+                ROOT/'metadata/interfaces_contextuais.csv']
         inputs+=list((ROOT/'src/motorhome').glob('*.py'))
         inputs+=list((ROOT/'tests').glob('*.py'))+[ROOT/'pyproject.toml']
         inputs+=list((ROOT/'scripts').glob('*.py'))

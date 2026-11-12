@@ -130,8 +130,26 @@ def audit(root, booklet=BOOKLET):
     if not parameters.get('project', {}).get('vehicle_baseline_approved'):
         warnings.append('Variante/configuração integrada sem aprovação final'
                         if parameters.get('canonical') else 'Veículo-base sem aprovação')
+    contextual = []
+    context_path = root / 'metadata/interfaces_contextuais.csv'
+    if context_path.is_file():
+        with context_path.open(encoding='utf-8', newline='') as stream:
+            for row in csv.DictReader(stream):
+                try:
+                    source, target = int(row['origem']), int(row['destino'])
+                except (KeyError, ValueError):
+                    errors.append('Interface contextual com ID inválido')
+                    continue
+                if source not in graph or target not in graph:
+                    errors.append(f'Interface contextual inexistente: I{source:02} -> I{target:02}')
+                if (source, target) in expected_edges:
+                    errors.append(f'Interface contextual duplicada como dependência: I{source:02} -> I{target:02}')
+                if row.get('tipo') != 'contextual_nao_bloqueante' or not row.get('descricao', '').strip():
+                    errors.append(f'Interface contextual sem tipo/justificativa: I{source:02} -> I{target:02}')
+                contextual.append({'origem': source, 'destino': target, 'tipo': row.get('tipo'),
+                                   'descricao': row.get('descricao', '')})
     if 28 in graph.get(33, []):
-        warnings.append('I28 -> I33: possível sobre-restrição; revisar com P1/P4')
+        warnings.append('I28 -> I33 está marcado como dependência de dados; revisar classificação contextual')
     inventory = [{'path': str(root / 'docs/fontes_recebidas' / name),
                   'exists': (root / 'docs/fontes_recebidas' / name).is_file()} for name in PDFS]
     inventory.append({'path': str(booklet), 'exists': Path(booklet).is_file()})
@@ -140,7 +158,8 @@ def audit(root, booklet=BOOKLET):
             warnings.append(f"Documento local ausente: {doc['path']}")
     return {'erros': errors, 'avisos': warnings, 'contagens': dict(sorted(counts.items())),
             'itens': sorted(states, key=lambda x: x['id']), 'parametros_null': missing,
-            'documentos_locais': inventory, 'aprovacao_engenharia': False}
+            'documentos_locais': inventory, 'interfaces_contextuais': contextual,
+            'aprovacao_engenharia': False}
 
 
 def main():

@@ -1,6 +1,6 @@
 # Dependências entre os 35 itens
 
-Cada pasta de item lista entradas diretas. Dependências de implementação são **DAG de dados finais**, mas muitas equipes podem iniciar cálculos com estimativas **rotuladas como provisórias**. Retroalimentações de projeto (ex.: P5 solicita bateria maior a P2) são decisões/iterações, não dependências circulares silenciosas.
+Cada pasta de item lista entradas diretas necessárias aos dados finais. Dependências de implementação são **DAG de dados finais**, mas muitas equipes podem iniciar cálculos com estimativas **rotuladas como provisórias**. Relações úteis para interpretar resultados, sem bloquear o cálculo consumidor, ficam em `metadata/interfaces_contextuais.csv`; não são arestas do DAG. Retroalimentações de projeto (ex.: P5 solicita bateria maior a P2) são decisões/iterações, não dependências circulares silenciosas.
 
 ## Interfaces prioritárias
 - Todos → P1: massas, quantidade e custos dos componentes para itens 18 e 24.
@@ -21,4 +21,6 @@ Requisitos/veículo-base → chassi/carroceria/equipamentos → CAD/massa → Cd
 - Item 35 (arrefecimento): P7, depende perdas de motor.
 - Itens 31/32: P6, dependem da geometria, materiais e carga solar.
 
-Veja a versão legível automaticamente no grafo Mermaid `docs/fluxograma_dependencias.mmd` e tabela `metadata/itens.csv`.
+I28→I33 é uma interface contextual não bloqueante: o limite operacional de I28 (90 km/h) contextualiza o ensaio do componente, enquanto o cálculo prescrito de I33 usa o teste 30→10 m/s em 5 s e os dados de freio/massa I03/I18. A condição de 108 km/h é ensaio acadêmico de componente e não desempenho afirmado do veículo.
+
+Veja o DAG legível em `docs/fluxograma_dependencias.mmd`, as arestas de dados em `metadata/itens.csv` e as interfaces contextuais em `metadata/interfaces_contextuais.csv`.
