@@ -1,0 +1,168 @@
+{
+  "method": "quasi_static_front_axle_adhesion_limit; grade equilibrium; no torque/power cap",
+  "source_cases": 162,
+  "cases": 2430,
+  "drive_axle": "front; published for the studied SK MY25 reference sheet",
+  "mu_values": [
+    0.2,
+    0.3,
+    0.5,
+    0.7,
+    0.9
+  ],
+  "mu_scope": "dimensionless sensitivities only; not measured Continental tire-road coefficients",
+  "grade_percent_values": [
+    -6.0,
+    0.0,
+    6.0
+  ],
+  "equation_acceleration_g": "(mu*cos(theta)*(L-xcg)/L - sin(theta))/(1+mu*zcg/L), theta=atan(grade_percent/100)",
+  "ignored": [
+    "motor torque map",
+    "gear reduction",
+    "inverter limits",
+    "tire transient behavior",
+    "suspension compliance",
+    "aerodynamic drag",
+    "rolling resistance"
+  ],
+  "physical_validation": false,
+  "oem_acceleration_prediction": false,
+  "by_condition": {
+    "mu=0.2;grade=-6%": {
+      "cases": 162,
+      "acceleration_limit_g_range": [
+        0.1403352137931684,
+        0.16555414880210817
+      ],
+      "cases_unable_to_hold_grade": 0,
+      "max_abs_force_balance_residual_n": 2.7284841053187847e-12
+    },
+    "mu=0.2;grade=0%": {
+      "cases": 162,
+      "acceleration_limit_g_range": [
+        0.08348374066796384,
+        0.10823331668841771
+      ],
+      "cases_unable_to_hold_grade": 0,
+      "max_abs_force_balance_residual_n": 1.3642420526593924e-12
+    },
+    "mu=0.2;grade=6%": {
+      "cases": 162,
+      "acceleration_limit_g_range": [
+        0.026332535111571558,
+        0.050523893516313215
+      ],
+      "cases_unable_to_hold_grade": 0,
+      "max_abs_force_balance_residual_n": 2.0463630789890885e-12
+    },
+    "mu=0.3;grade=-6%": {
+      "cases": 162,
+      "acceleration_limit_g_range": [
+        0.17771311832669268,
+        0.2153009437333507
+      ],
+      "cases_unable_to_hold_grade": 0,
+      "max_abs_force_balance_residual_n": 2.7284841053187847e-12
+    },
+    "mu=0.3;grade=0%": {
+      "cases": 162,
+      "acceleration_limit_g_range": [
+        0.12227456489321793,
+        0.15919078334822098
+      ],
+      "cases_unable_to_hold_grade": 0,
+      "max_abs_force_balance_residual_n": 2.7284841053187847e-12
+    },
+    "mu=0.3;grade=6%": {
+      "cases": 162,
+      "acceleration_limit_g_range": [
+        0.06639700798056714,
+        0.10250907885002365
+      ],
+      "cases_unable_to_hold_grade": 0,
+      "max_abs_force_balance_residual_n": 1.8189894035458565e-12
+    },
+    "mu=0.5;grade=-6%": {
+      "cases": 162,
+      "acceleration_limit_g_range": [
+        0.24742175961677673,
+        0.3092039297969218
+      ],
+      "cases_unable_to_hold_grade": 0,
+      "max_abs_force_balance_residual_n": 5.4569682106375694e-12
+    },
+    "mu=0.5;grade=0%": {
+      "cases": 162,
+      "acceleration_limit_g_range": [
+        0.19461825791216897,
+        0.25537905614457007
+      ],
+      "cases_unable_to_hold_grade": 0,
+      "max_abs_force_balance_residual_n": 1.8189894035458565e-12
+    },
+    "mu=0.5;grade=6%": {
+      "cases": 162,
+      "acceleration_limit_g_range": [
+        0.1411160165112946,
+        0.20063729275105222
+      ],
+      "cases_unable_to_hold_grade": 0,
+      "max_abs_force_balance_residual_n": 2.7284841053187847e-12
+    },
+    "mu=0.7;grade=-6%": {
+      "cases": 162,
+      "acceleration_limit_g_range": [
+        0.31112547580373323,
+        0.39632565849866636
+      ],
+      "cases_unable_to_hold_grade": 0,
+      "max_abs_force_balance_residual_n": 5.4569682106375694e-12
+    },
+    "mu=0.7;grade=0%": {
+      "cases": 162,
+      "acceleration_limit_g_range": [
+        0.2607300340521971,
+        0.3446210383024081
+      ],
+      "cases_unable_to_hold_grade": 0,
+      "max_abs_force_balance_residual_n": 5.4569682106375694e-12
+    },
+    "mu=0.7;grade=6%": {
+      "cases": 162,
+      "acceleration_limit_g_range": [
+        0.20939849089498805,
+        0.2916791220671566
+      ],
+      "cases_unable_to_hold_grade": 0,
+      "max_abs_force_balance_residual_n": 5.4569682106375694e-12
+    },
+    "mu=0.9;grade=-6%": {
+      "cases": 162,
+      "acceleration_limit_g_range": [
+        0.3695681517329779,
+        0.47737509904783954
+      ],
+      "cases_unable_to_hold_grade": 0,
+      "max_abs_force_balance_residual_n": 1.0913936421275139e-11
+    },
+    "mu=0.9;grade=0%": {
+      "cases": 162,
+      "acceleration_limit_g_range": [
+        0.32138189770045245,
+        0.4276429529863305
+      ],
+      "cases_unable_to_hold_grade": 0,
+      "max_abs_force_balance_residual_n": 5.4569682106375694e-12
+    },
+    "mu=0.9;grade=6%": {
+      "cases": 162,
+      "acceleration_limit_g_range": [
+        0.2720417833261797,
+        0.37637543655265904
+      ],
+      "cases_unable_to_hold_grade": 0,
+      "max_abs_force_balance_residual_n": 7.275957614183426e-12
+    }
+  }
+}

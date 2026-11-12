@@ -838,6 +838,10 @@
       "pass": true
     },
     {
+      "label": "Aderência dianteira:2430 casos/equilíbrio,sem prever aceleração OEM",
+      "pass": true
+    },
+    {
       "label": "Bateria54sensibilidades térmicas",
       "pass": true
     },

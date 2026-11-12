@@ -191,6 +191,12 @@ def main():
           axle_braking.axle_sum_error_kg.abs().max()<1e-9 and
           not axle_summary['physical_validation'] and axle_summary['oem_compliance'].startswith('indeterminate'),
           'Envelope frenagem de eixos:972 casos/conservação,sem conformidade OEM')
+    traction=pd.read_csv(out/'integracao/limite_aderencia_tracao_dianteira/casos.csv')
+    traction_summary=json.loads((out/'integracao/limite_aderencia_tracao_dianteira/resumo.json').read_text())
+    check(len(traction)==2430 and traction_summary['source_cases']==162 and
+          traction.force_balance_residual_n.abs().max()<1e-8 and
+          not traction_summary['physical_validation'] and not traction_summary['oem_acceleration_prediction'],
+          'Aderência dianteira:2430 casos/equilíbrio,sem prever aceleração OEM')
     battery=pd.read_csv(out/'mecanica_termica/I34_54sensibilidades.csv');check(len(battery)==54 and battery.thermal_residual_j.abs().max()<1e-3,'Bateria54sensibilidades térmicas')
     sensitivity=json.loads((out/'sensibilidades/resumo.json').read_text());check(sensitivity['traction_cases']==972 and sensitivity['mission_cases']==120 and sensitivity['dc_daily_cases']==36 and sensitivity['max_energy_residual_kwh']<1e-6,'972incertezas/120missões/36DC com conservação')
     for r in json.loads((out/'sensibilidades/missoes_120_comparacoes.json').read_text()):check(r['max_daily_driving_h']<=8+1e-9 and not r['physical_mission_demonstrated'],'Extremos/buffer:8h/sem afirmarviabilidade')
