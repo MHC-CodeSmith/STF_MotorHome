@@ -16,9 +16,10 @@
 
 ## Reproduzir as verificações
 
-Com Python 3.11 ou mais recente e dependências de desenvolvimento/modelagem instaladas:
+Em Ubuntu/Debian, instale a biblioteca de execução do Gmsh; depois use Python3.11 ou mais recente e as dependências de desenvolvimento/modelagem:
 
 ```bash
+sudo apt-get update && sudo apt-get install -y libglu1-mesa
 python -m pip install -e '.[dev,thermal,cad,solar,optimization]'
 python scripts/verificar_estrutura.py
 python scripts/auditar_projeto.py
