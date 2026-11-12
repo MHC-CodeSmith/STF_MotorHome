@@ -8,7 +8,12 @@ import csv
 import json
 from math import isfinite
 from pathlib import Path
+from statistics import median
 
+import matplotlib
+
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -104,7 +109,40 @@ def main() -> None:
         "by_deceleration": by_deceleration,
     }
     (OUT / "resumo.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps({"cases": len(rows), "by_deceleration": by_deceleration}, ensure_ascii=False))
+
+    fig, axes = plt.subplots(1, 2, figsize=(10.5, 4.8), sharex=True, sharey=True, layout="constrained")
+    for ax, column, color, title, comparator, comparator_label in (
+        (axes[0], "front_dynamic_kg", "#4C72B0", "Eixo dianteiro", 2100.0, "Comparador estático publicado: 2.100 kg"),
+        (axes[1], "rear_dynamic_kg", "#DD8452", "Eixo traseiro", 2400.0, "Comparador estático publicado: 2.400 kg"),
+    ):
+        medians, lows, highs = [], [], []
+        for decel_g in DECEL_G:
+            values = [float(r[column]) for r in rows if r["deceleration_g"] == decel_g]
+            medians.append(median(values))
+            lows.append(min(values))
+            highs.append(max(values))
+        ax.fill_between(DECEL_G, lows, highs, color=color, alpha=0.18, linewidth=0,
+                        label="Faixa dos 162 casos")
+        ax.plot(DECEL_G, medians, color=color, marker="o", linewidth=2,
+                label="Mediana dos casos")
+        ax.axhline(comparator, color="#222222", linestyle="--", linewidth=1.3,
+                   label=comparator_label)
+        ax.set_title(title)
+        ax.set_xlabel("Desaceleração assumida [g]")
+        ax.set_xticks(DECEL_G)
+        ax.grid(axis="y", alpha=0.25)
+        ax.spines["top"].set_visible(False)
+        ax.spines["right"].set_visible(False)
+        ax.legend(frameon=False, fontsize=7.5, loc="best")
+    axes[0].set_ylabel("Reação normal equivalente [kg]")
+    fig.suptitle("Transferência longitudinal: envelope quase estático, não homologação", fontsize=12, weight="bold")
+    fig.text(0.5, -0.015,
+             "Piso nivelado; CG/massas hipotéticos. Linhas tracejadas são comparadores estáticos de UK/Polônia, não limites dinâmicos nem da variante SK MY25.",
+             ha="center", fontsize=8)
+    fig.savefig(OUT / "envelope_frenagem.png", dpi=180, bbox_inches="tight")
+    plt.close(fig)
+    print(json.dumps({"cases": len(rows), "deceleration_levels": len(DECEL_G),
+                      "plot": str((OUT / "envelope_frenagem.png").relative_to(ROOT))}, ensure_ascii=False))
 
 
 if __name__ == "__main__":

@@ -189,8 +189,9 @@ def main():
     axle_summary=json.loads((out/'integracao/envelope_frenagem_eixos/resumo.json').read_text())
     check(len(axle_braking)==972 and axle_summary['source_cases']==162 and
           axle_braking.axle_sum_error_kg.abs().max()<1e-9 and
-          not axle_summary['physical_validation'] and axle_summary['oem_compliance'].startswith('indeterminate'),
-          'Envelope frenagem de eixos:972 casos/conservação,sem conformidade OEM')
+          not axle_summary['physical_validation'] and axle_summary['oem_compliance'].startswith('indeterminate') and
+          (out/'integracao/envelope_frenagem_eixos/envelope_frenagem.png').is_file(),
+          'Envelope frenagem de eixos:972 casos/conservação/figura,sem conformidade OEM')
     traction=pd.read_csv(out/'integracao/limite_aderencia_tracao_dianteira/casos.csv')
     traction_summary=json.loads((out/'integracao/limite_aderencia_tracao_dianteira/resumo.json').read_text())
     check(len(traction)==2430 and traction_summary['source_cases']==162 and
