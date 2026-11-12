@@ -89,7 +89,7 @@
     "scripts/calcular_cabos_tracao.py": "aff17ed0b6daeeea66cc7faa717382d90f4ec3085fdb2561bd21319e80f8c966",
     "scripts/verificar_cenario_integrado.py": "b08719ea6f97d67f935a3c86f6a012959521dc8d8ed9e2feda91a391cf13490f",
     "scripts/gerar_revisao_35_atual.py": "970c39ab34c8c933a540eaa057bbd6407173e988b857780652d49e19f5620f85",
-    "scripts/demonstrar_frente_termica.py": "cecaca51b4980d4409b99aac7a151e5a76538c5c3f7baad130ea2721f82baffa",
+    "scripts/demonstrar_frente_termica.py": "465abe08c75badd9a2d738535f7974eff0e37da33c0cd723fee33c886123660c",
     "scripts/preencher_metodos_itens.py": "50d821d5410c0e8a2837a29e6614b02e49420f6272b30b927f5b31dbce42384b",
     "scripts/verificar_agenda_portatil.py": "ff3263212c54596d47860274846064db4ec1d6fec6e9a072381049beb784d87f",
     "scripts/integrar_freios_massa.py": "5ca347d34e638a2a742ddf86243a91a7a30f658778e2f5d08a21189d38d8fbd2",

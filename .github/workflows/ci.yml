@@ -1,5 +1,7 @@
-name: Estrutura e modelos
+name: Estrutura, modelos e evidências
 on: [push, pull_request]
+permissions:
+  contents: read
 jobs:
   checks:
     runs-on: ubuntu-latest
@@ -8,8 +10,39 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          cache: pip
       - run: python -m pip install -e '.[dev,thermal,cad,solar,optimization]'
-      - run: python scripts/verificar_estrutura.py
-      - run: python scripts/auditar_projeto.py
-      - run: python -m pytest tests -q
-      - run: python scripts/demonstrar_frente_termica.py --sintetico --destino /tmp/motorhome-thermal
+      - name: Verificar estrutura dos 35 itens
+        run: python scripts/verificar_estrutura.py
+      - name: Auditar organização do projeto
+        run: python scripts/auditar_projeto.py
+      - name: Verificar estilo
+        run: ruff check src scripts tests
+      - name: Executar testes
+        run: python -m pytest tests -q --junitxml=/tmp/pytest.xml
+      - name: Conferir cenário integrado e manifesto (somente leitura)
+        env:
+          PYTHONPATH: src
+          MOTORHOME_SCENARIO: maxeon1540_independente
+        run: python scripts/verificar_cenario_integrado.py
+      - name: Conferir desenvolvimento e manifesto (somente leitura)
+        env:
+          PYTHONPATH: src
+        run: python scripts/verificar_desenvolvimento.py
+      - name: Rodar demonstração térmica sintética
+        run: python scripts/demonstrar_frente_termica.py --sintetico --destino /tmp/motorhome-thermal
+      - name: Publicar pacote de evidências da execução
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: evidencias-${{ github.sha }}
+          retention-days: 30
+          if-no-files-found: warn
+          path: |
+            /tmp/pytest.xml
+            entregas/integrado_maxeon1540/qa.json
+            entregas/integrado_maxeon1540/manifesto.json
+            entregas/integrado_maxeon1540/otimizacao_refinada_velocidade/resumo.json
+            entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/aliasing_limiar_dc/resumo.json
+            entregas/desenvolvimento_2026-11-09/qa.json
+            entregas/desenvolvimento_2026-11-09/manifesto.json

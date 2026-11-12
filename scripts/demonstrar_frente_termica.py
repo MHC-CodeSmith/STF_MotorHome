@@ -155,14 +155,17 @@ def main():
     (out/'resumo_SYNTHETIC.json').write_text(json.dumps(resumo, indent=2, ensure_ascii=False))
     # Derivação do requisito fica SEPARADA das entradas e resultados sintéticos.
     import yaml
-    config = yaml.safe_load((ROOT/'config/parametros_globais.yaml').read_text())
-    c = config['special_cases']
-    prescrito = frenagem_especifica(c['braking_initial_speed_m_per_s'],
-                                   c['braking_final_speed_m_per_s'], c['braking_duration_s'])
+    braking_config_path = ROOT/'config/freios_proposta.yaml'
+    braking_config = yaml.safe_load(braking_config_path.read_text())
+    c = braking_config['official']
+    prescrito = frenagem_especifica(c['initial_speed_m_s'],
+                                   c['final_speed_m_s'], c['braking_duration_s'])
     (out/'frenagem_prescrita_por_kg.json').write_text(json.dumps({
         'tipo': 'derivacao_do_enunciado_sem_massa_do_veiculo',
-        'fonte': 'enunciado 2026 p.2 I33 e config/parametros_globais.yaml',
-        'config_sha256': resumo['config_projeto_sha256'], 'data_utc': resumo['data_utc'],
+        'fonte': 'config/freios_proposta.yaml:official; requisito I33 documentado em docs/FREIOS_2D.md',
+        'config_path': str(braking_config_path.relative_to(ROOT)),
+        'config_sha256': hashlib.sha256(braking_config_path.read_bytes()).hexdigest(),
+        'data_utc': resumo['data_utc'],
         'script': resumo['script'], 'resultados': prescrito,
         'limite': 'energia translacional removida; não é calor atribuído aos discos'}, indent=2))
     print(f'Verificação SYNTHETIC gerada em {out}; ordem mínima {min(ordens):.3f}; sem aprovação de engenharia.')

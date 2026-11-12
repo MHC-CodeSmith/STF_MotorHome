@@ -1,4 +1,46 @@
-> Estado atual: [execução técnica02](docs/EXECUCAO_TECNICA02.md), fonte1.1.0-execucao02. O baseline pósDEC061 abaixo permanece histórico; etapa técnica completa ainda aberta.
+# STF Motorhome Solar — status verificável
+
+[![CI — estrutura, modelos e evidências](https://github.com/MHC-CodeSmith/STF_MotorHome/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/MHC-CodeSmith/STF_MotorHome/actions/workflows/ci.yml)
+
+**Estado do estudo em 12/11/2026:** desenvolvimento computacional dos 35 itens, preservando as 61 decisões. Os resultados são cálculos, simulações ou sensibilidades sob as hipóteses indicadas em cada evidência. O projeto **não está validado fisicamente**: há zero aprovações humanas finais, e a missão solar não foi demonstrada. Arquitetura B (interface DC externa para tração) continua hipótese sem comprovação de compatibilidade ou autorização OEM.
+
+## Revisão rápida
+
+- [Retomada compacta e QA mais recente](docs/RETOMADA_COMPACTA.md)
+- [Revisão técnica dos 35 itens, métodos e resultados](docs/REVISAO_GERAL_PROJETO.md)
+- [Estados resumidos por item](docs/REVISAO_TECNICA_EXECUCAO02.md)
+- [Bloqueios por dependência externa ou humana](docs/BLOQUEIOS_POS_DEC061.md)
+- [Decisões DEC-001 a DEC-061](docs/MATRIZ_DECISOES_61.md)
+- [Fontes e dados OEM do E-Ducato](docs/DADOS_OEM_EDUCATO_FONTES.md)
+- [Escolhas provisórias e aprovações finais pendentes](docs/APROVACOES_FINAIS_PENDENTES.md)
+
+## Reproduzir as verificações
+
+Com Python 3.11 ou mais recente e dependências de desenvolvimento/modelagem instaladas:
+
+```bash
+python -m pip install -e '.[dev,thermal,cad,solar,optimization]'
+python scripts/verificar_estrutura.py
+python scripts/auditar_projeto.py
+ruff check src scripts tests
+PYTHONPATH=src python -m pytest tests -q
+MOTORHOME_SCENARIO=maxeon1540_independente PYTHONPATH=src python scripts/verificar_cenario_integrado.py
+PYTHONPATH=src python scripts/verificar_desenvolvimento.py
+```
+
+Os dois últimos verificadores são somente leitura sem `--registrar`: conferem resultados e hashes publicados. O GitHub Actions executa esses comandos em `push` e `pull_request` e anexa os relatórios QA, manifests e resumos I29 à execução. Um CI verde confirma estrutura, software, consistência numérica e integridade dos arquivos sob as hipóteses registradas; **não certifica instalação, segurança, conformidade OEM, convergência física ou viabilidade da missão**.
+
+## Resultados condicionais recentes
+
+- I29 compara buscas finitas distintas e preserva as saídas em `entregas/integrado_maxeon1540/otimizacao_*`; não declara ótimo global.
+- O diagnóstico do limiar DC tem código reproduzível em `scripts/analisar_aliasing_limiar_dc.py`, teste próprio e saídas CSV/JSON/PNG em `entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/aliasing_limiar_dc/`. O limiar de 1 kW é hipotético, não especificação de carregador.
+- CFD, balanços de massa/eixos, circuitos, HVAC e arrefecimento têm limites, entradas assumidas e evidências listadas na revisão técnica e nos bloqueios. Valores ausentes permanecem lacunas ou sensibilidades explícitas; não são preenchidos como especificações OEM.
+
+---
+
+## Histórico e documentação legada
+
+Os textos abaixo preservam instruções e estados antigos. Para o estado vigente, use os documentos de revisão rápida acima; datas/status antigos são históricos.
 
 # Execução atual — conciliação DEC-001 a DEC-061
 
