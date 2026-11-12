@@ -1,4 +1,17 @@
-# Retomada — motorhome solar, 10/11/2026
+# Retomada vigente — motorhome solar, 11/11/2026
+
+- **Objetivo/regras:** continuar desenvolvimento técnico dos35 itens e preservar DEC-001–061. Não preparar relatório acadêmico/slides. Cenário ativo `maxeon1540_independente`, YAML `1.1.1-execucao1540`; arquitetura B é apenas hipótese. Não modificar HV/BMS nem usar banco auxiliar para tração. DEC-061 permite escolhas provisórias rastreadas, sem alegar aprovação.
+- **Estado:** trabalho computacional autônomo concluído com os dados disponíveis; fechamento físico e aprovação humana continuam abertos. Nenhuma missão física/OEM foi validada. Ver 35 estados em `docs/REVISAO_TECNICA_EXECUCAO02.md`, bloqueios em `docs/BLOQUEIOS_POS_DEC061.md`, decisões em `docs/MATRIZ_DECISOES_61.md`.
+- **CFD P3 mais recente:** grading2, 743.286 células, `checkMesh` OK, solver até passo1.800/4.418,99s, mas `residualControl` falhou (Uy inicial6,779e-5; p1,145e-4). Cd diagnóstico0,64286538; y+ médio solo/teto/carroceria1.145,9/228,6/262,3. Grading4 converge formalmente (Cd0,70046995); malha1 1.034.158 células não (Cd0,60051043). Diferenças grading2/malha1 7,05%, grading4/malha1 16,65%; malhas não aninhadas, sem GCI/independência/Cd validado. Ver `entregas/aero_equipado1540/comparacao_malhas_adicionais.{csv,json}` e `scripts/analisar_malhas_aero_adicionais.py`.
+- **I29:** melhores buscas finitas em torno de244,802dias (reserva20/30%); grid 796 pontos 242,885/244,885 dias. InterfaceDC1kW é hipotética; nenhum ótimo global ou viabilidade física.
+- **QA vigente:** 244 testes passaram; Ruff passou; integrado PASSOU; desenvolvimento PASSOU (187 hashes de entrada/1.467 de saída), mas `stage_complete:false`; auditoria35 sem erros, `all_35_finished:false`; zero aprovação humana; missão física false. Comandos: `PYTHONPATH=src .venv/bin/python -m pytest -q`; `ruff check src scripts tests`; `MOTORHOME_SCENARIO=maxeon1540_independente PYTHONPATH=src .venv/bin/python scripts/verificar_cenario_integrado.py`; `PYTHONPATH=src .venv/bin/python scripts/verificar_desenvolvimento.py`.
+- **Git:** `origin=git@github.com:MHC-CodeSmith/STF_MotorHome.git`; work branch `hub/tarefas-motorhome-com-codex`. Antes desta nota, HEAD local, `origin/main` e `origin/hub/tarefas-motorhome-com-codex` coincidiam em `87ef3deba857afca23661e481a44760eb6327b7a` e a árvore estava limpa. Autorização explícita para sincronizar ambas as refs permanece; faça `git fetch`/`status` antes de novas alterações.
+- **Dependências externas/humanas:** interface DC OEM E-Ducato MY25 (mínimos/protocolo/isolamento/autorização); limites por eixo, pesagem, geometria/ancoragens; curto prospectivo/I²t/ampacidade/PE-DR; SKU/curvas/partida HVAC e ensaio33/25°C; circuito térmico OEM; testes físicos/instalação/cotações; revisão humana e interpretação do professor. Não repetir buscas OEM sem evidência nova.
+
+## Histórico de retomadas anteriores
+
+O texto abaixo preserva checkpoints anteriores; use-o como histórico, não como estado corrente.
+
 
 ## Atualização da revisão geral — 10/11/2026
 
