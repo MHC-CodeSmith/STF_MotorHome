@@ -28,7 +28,7 @@ MOTORHOME_SCENARIO=maxeon1540_independente PYTHONPATH=src python scripts/verific
 PYTHONPATH=src python scripts/verificar_desenvolvimento.py
 ```
 
-Os dois últimos verificadores são somente leitura sem `--registrar`: conferem resultados e hashes publicados. O GitHub Actions executa esses comandos em `push` e `pull_request` e anexa os relatórios QA, manifests e resumos I29 à execução. Um CI verde confirma estrutura, software, consistência numérica e integridade dos arquivos sob as hipóteses registradas; **não certifica instalação, segurança, conformidade OEM, convergência física ou viabilidade da missão**.
+Os dois últimos verificadores são somente leitura sem `--registrar`: conferem resultados e hashes publicados. O GitHub Actions executa esses comandos em `push` e `pull_request`, com Ruff fixado em0.17.5, e anexa os relatórios QA, manifests, resumos I29 e JUnit à execução. Um CI verde confirma estrutura, software, consistência numérica e integridade dos arquivos sob as hipóteses registradas; **não certifica instalação, segurança, conformidade OEM, convergência física ou viabilidade da missão**.
 
 ## Resultados condicionais recentes
 

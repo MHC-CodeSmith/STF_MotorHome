@@ -87,6 +87,6 @@ def test_lacunas_sobreposicao_e_datas_sem_fuso_rejeitadas():
         with pytest.raises(ValueError, match='contínua'):
             verificar([trecho(), trecho(hora=hora)])
     with pytest.raises(ValueError, match='fuso'):
-        Intervalo(datetime(2026, 1, 1), datetime(2026, 1, 2), 1, 1, 1, 'SYNTHETIC')  # noqa: DTZ001 - teste de rejeição
+        Intervalo(datetime.fromisoformat('2026-01-01'), datetime.fromisoformat('2026-01-02'), 1, 1, 1, 'SYNTHETIC')
     with pytest.raises(ValueError, match='juntos'):
         verificar([trecho()], alvo_soc_final=.3)

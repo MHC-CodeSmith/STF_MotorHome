@@ -138,7 +138,7 @@
     "scripts/executar_openfoam.py": "6dd98c1beb0c499899aa70023468a23b721516a49591432c81d8bc2cce486f99",
     "tests/test_freios_axisimetricos.py": "e561be942565dfcb2b96eab8935d8175514cbe6434265bdf5896f71440e99534",
     "tests/test_bateria_carga.py": "2071c570e9c73c02a4ce7c1def957c617812cd279b0e77e96752032b30e82276",
-    "tests/test_agenda_energia.py": "6fc61a2a6056ff5cceb451f7fee447b756767a8220311745a3f7616a684f7b34",
+    "tests/test_agenda_energia.py": "f9197a864720aabd1c8c405e078b2b94774580ecef11f5db95ee95355baaceb9",
     "tests/test_ocupacao.py": "e4d2ff4d6abdfd5c513a562023ab578a4633f80cfa89a35f325a5fcdd63a6ebf",
     "tests/test_envelope_frenagem_eixos.py": "3449deab7ec12cece9993e2960b5cc20698aa1ef1c74914ce6b4493b9d04abbc",
     "tests/test_guardas_eletricas.py": "e67612b21d802373ce24c5f037c0dac09e01f216d94c60edfe89605d557774b7",
