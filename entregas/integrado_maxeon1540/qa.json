@@ -834,6 +834,10 @@
       "pass": true
     },
     {
+      "label": "Envelope frenagem de eixos:972 casos/conservação,sem conformidade OEM",
+      "pass": true
+    },
+    {
       "label": "Bateria54sensibilidades térmicas",
       "pass": true
     },

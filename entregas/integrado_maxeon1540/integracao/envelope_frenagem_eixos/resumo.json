@@ -1,0 +1,108 @@
+{
+  "method": "quasi_static_longitudinal_load_transfer; level_ground; no suspension or tire dynamics",
+  "source_cases": 162,
+  "cases": 972,
+  "wheelbase_m": 4.035,
+  "deceleration_grid_g": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5
+  ],
+  "equation_transfer_kg": "mass_kg * deceleration_g * cg_z_m / wheelbase_m; deceleration_g is a multiple of g",
+  "axle_rating_comparators_kg": {
+    "front": 2100.0,
+    "rear": 2400.0
+  },
+  "comparator_scope": "UK MY25.5 L3 listing only; not verified for studied Slovakia MY25 vehicle",
+  "physical_validation": false,
+  "oem_compliance": "indeterminate; exact variant axle limits and dynamic brake data unavailable",
+  "by_deceleration": {
+    "0.0": {
+      "cases": 162,
+      "front_load_range_kg": [
+        1737.1921405546111,
+        2242.902407907505
+      ],
+      "rear_load_range_kg": [
+        1693.0967637748263,
+        2294.25679670561
+      ],
+      "above_front_comparator_cases": 54,
+      "above_rear_comparator_cases": 0,
+      "max_abs_axle_sum_error_kg": 4.547473508864641e-13
+    },
+    "0.1": {
+      "cases": 162,
+      "front_load_range_kg": [
+        1816.3155551057741,
+        2348.4517388350177
+      ],
+      "rear_load_range_kg": [
+        1595.6468013142703,
+        2207.9127151514804
+      ],
+      "above_front_comparator_cases": 79,
+      "above_rear_comparator_cases": 0,
+      "max_abs_axle_sum_error_kg": 4.547473508864641e-13
+    },
+    "0.2": {
+      "cases": 162,
+      "front_load_range_kg": [
+        1895.438969656937,
+        2454.0010697625307
+      ],
+      "rear_load_range_kg": [
+        1498.1968388537148,
+        2121.5686335973505
+      ],
+      "above_front_comparator_cases": 108,
+      "above_rear_comparator_cases": 0,
+      "max_abs_axle_sum_error_kg": 0.0
+    },
+    "0.3": {
+      "cases": 162,
+      "front_load_range_kg": [
+        1974.5623842081,
+        2559.5504006900433
+      ],
+      "rear_load_range_kg": [
+        1400.7468763931593,
+        2035.2245520432211
+      ],
+      "above_front_comparator_cases": 118,
+      "above_rear_comparator_cases": 0,
+      "max_abs_axle_sum_error_kg": 0.0
+    },
+    "0.4": {
+      "cases": 162,
+      "front_load_range_kg": [
+        2053.685798759263,
+        2665.099731617556
+      ],
+      "rear_load_range_kg": [
+        1303.2969139326033,
+        1948.8804704890913
+      ],
+      "above_front_comparator_cases": 152,
+      "above_rear_comparator_cases": 0,
+      "max_abs_axle_sum_error_kg": 0.0
+    },
+    "0.5": {
+      "cases": 162,
+      "front_load_range_kg": [
+        2132.8092133104255,
+        2770.649062545069
+      ],
+      "rear_load_range_kg": [
+        1205.8469514720477,
+        1862.5363889349615
+      ],
+      "above_front_comparator_cases": 162,
+      "above_rear_comparator_cases": 0,
+      "max_abs_axle_sum_error_kg": 0.0
+    }
+  }
+}
