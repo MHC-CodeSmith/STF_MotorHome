@@ -1,4 +1,13 @@
-# Retomada vigente — motorhome solar, 12/11/2026
+# Retomada vigente — motorhome solar, 13/11/2026
+
+## Execução reproduzida — 13/11/2026
+
+- `scripts/executar_cenario_integrado.py --cenario maxeon1540_independente --reexecutar`: **17/17 etapas com retorno 0**, incluindo otimização finita I29 e verificador integrado; registro em `entregas/integrado_maxeon1540/execucao_pipeline.json`, logs em `entregas/integrado_maxeon1540/logs/20261113T063016Z/`.
+- Verificações após a reexecução: 273 testes, Ruff, verificador integrado e verificador de desenvolvimento passaram. Manifesto integrado e de desenvolvimento conferem; desenvolvimento: 196 hashes de entrada / 1.467 de saída, `stage_complete:false`, zero aprovações humanas e missão física não demonstrada.
+- Conferência de reprodutibilidade: os CSVs comprimidos regenerados têm conteúdo descomprimido idêntico ao commit anterior; arquivos STEP têm mesmo tamanho e geometria exportada, com diferenças de metadado temporal do Open CASCADE. Resultados de missão/massa e as 61 decisões não mudaram. A regeneração documenta uma nova execução, não uma melhoria de desempenho.
+- Estado de conclusão: desenvolvimento offline possível executado; encerramento do projeto físico ainda depende dos bloqueios B01–B12 e escolhas humanas A01–A16 abaixo. Arquitetura B DC segue hipótese, sem prova de autorização OEM/viabilidade; nenhuma validação física ou do fabricante é alegada. Não preparar relatório acadêmico/slides.
+
+---
 
 ## Estado corrente para nova sessão
 

@@ -4,11 +4,11 @@
   "requirement": "A/C, aquecimento e ventilação",
   "model_equations": "Q_v=Cd·A_eff·√(2gH·|ΔT|/T); 1/A_eff²=1/A_baixa²+1/A_alta².",
   "method_and_conditions": "Ventilação natural prioritária. Com vento0 eΔT0,modelo produz vazão0. CO2/vapor usam balanços de geração e renovação,sem prometer salubridade.",
-  "status": "calculado_condicionado",
-  "executed": "Vazão natural,CO2 e vapor48cenários, sem ventilador novo.",
-  "remaining_limit": "Vento0 e ΔT0 geram0vazão; ventilação não garantida. ManualFW3000rev2018 admite220–240V50/60Hz;placa adquirida/curva33°C epartidas pendentes.",
-  "evidence": "entregas/integrado_maxeon1540/integracao/ventilacao_natural_co2_umidade.csv",
-  "evidence_sha256": "22c48ec161a041b999785cd6073aea97d32178ad1698fabeae9e2c5bed13eebd",
+  "status": "ventilacao_natural_e_mecanica_sensibilizadas",
+  "executed": "48casos de chaminé natural,648 sensibilidades de vazão/potência/CO2/calor sensível e16 casos acoplados às prioridades do banco de serviços; comparação30m³/h incluída.",
+  "remaining_limit": "18L/h·pessoa,alvoCO2,pressão/eficiência do ventilador e operação são hipóteses; sem norma demonstrada,umidade latente,SKU,curva elétrica,ruído ou instalação.",
+  "evidence": "entregas/integrado_maxeon1540/ventilacao_mecanica_sensibilidade/resumo.json",
+  "evidence_sha256": "79abbdd37283d2e599ff878fcd543c02865fb01f7a8afe903bd63d4ef030cd5a",
   "human_approval": false,
   "physical_validation": false
 }

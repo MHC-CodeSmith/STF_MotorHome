@@ -26,7 +26,7 @@ com energia/fontes solares/velocidades/DEM/reservas e8h/calendário conferidos.
 <!-- execucao-integrada:inicio -->
 Revisão computacional registrada no índice `resultados/execucao_integrada.json`.
 
-Limitação remanescente: Melhor da grade, não ótimo global; mínimoDC1kW hipotético e fontes sanitárias por parada presumidas.
+Limitação remanescente: Diferença≈6d mostra interação do mínimoDC1kW hipotético com passo temporal; comparações finitas, sem ótimo global, interface autorizada ou viabilidade física.
 
 Revisão humana final: **PENDENTE**. Não houve instalação/ensaio físico,homologação ou aceite inferido por este gerador.
 <!-- execucao-integrada:fim -->

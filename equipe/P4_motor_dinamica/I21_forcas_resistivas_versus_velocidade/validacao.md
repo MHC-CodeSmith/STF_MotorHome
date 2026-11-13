@@ -14,7 +14,7 @@ A preencher.
 <!-- execucao-integrada:inicio -->
 Revisão computacional registrada no índice `resultados/execucao_integrada.json`.
 
-Limitação remanescente: Cd/Crr/ρ condicionais; pista plana e vento0.
+Limitação remanescente: Rampa/vento e coeficientes são hipóteses, não rota medida; sem aceleração, mapas OEM ou limites de pneus/eixos.
 
 Revisão humana final: **PENDENTE**. Não houve instalação/ensaio físico,homologação ou aceite inferido por este gerador.
 <!-- execucao-integrada:fim -->

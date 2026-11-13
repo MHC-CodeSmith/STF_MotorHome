@@ -12,5 +12,5 @@ Fontes específicas da execução (não representam aprovação da instalação)
 - `cfd`: entregas/parcial_2026-10-24/comparacao_cfd.json; consulta/revisão: ver YAML. Origem: simulacao_nao_validada.
 - `hyp`: hipotese_engenharia; consulta/revisão: 2026-11-09. Origem: hipotese_engenharia.
 
-Evidência técnica: `entregas/integrado_maxeon1540/integracao/dinamica_massa_integrada.csv`. Condições/hipóteses constam no YAML;valoresOEM não publicados permanecem desconhecidos.
+Evidência técnica: `entregas/integrado_maxeon1540/dinamica_resistiva_sensibilidade/resumo.json`. Condições/hipóteses constam no YAML;valoresOEM não publicados permanecem desconhecidos.
 <!-- execucao-integrada:fim -->

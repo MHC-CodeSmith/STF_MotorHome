@@ -18,5 +18,5 @@ Fontes específicas da execução (não representam aprovação da instalação)
 - `freshwell_manual_2018`: https://www.jacksonsleisure.com/content/pdf/dometic/dometic-freshwell-3000-manual.pdf; consulta/revisão: 2026-11-10. Origem: manual_fabricante_em_espelho_distribuidor.
 - `webasto`: https://dealers.webasto.com/service/files_content.aspx?Files_FileId=31353; consulta/revisão: 2026-11-09. Origem: fabricante.
 
-Evidência técnica: `entregas/desenvolvimento_2026-11-09/hvac_revisao/resumo.json`. Condições/hipóteses constam no YAML;valoresOEM não publicados permanecem desconhecidos.
+Evidência técnica: `entregas/integrado_maxeon1540/ventilacao_mecanica_sensibilidade/resumo.json`. Condições/hipóteses constam no YAML;valoresOEM não publicados permanecem desconhecidos.
 <!-- execucao-integrada:fim -->

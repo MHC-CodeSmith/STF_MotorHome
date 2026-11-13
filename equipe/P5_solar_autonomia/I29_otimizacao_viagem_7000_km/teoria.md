@@ -43,7 +43,7 @@ Método técnico integrado: E_inicial+E_FV=E_final+E_tração+E_serviços+E_perd
 
 7000km plano,ambosSOC100%,até8h/dia,sem recarga elétrica externa. DiaSãoCarlos21junho repetido é idealização. Grade não comprova ótimo global ou caminhoDCimplementável.
 
-Escopo: Melhor da grade, não ótimo global; mínimoDC1kW hipotético e fontes sanitárias por parada presumidas.
+Escopo: Diferença≈6d mostra interação do mínimoDC1kW hipotético com passo temporal; comparações finitas, sem ótimo global, interface autorizada ou viabilidade física.
 
 Fonte dos parâmetros: `config/parametros_globais.yaml`;dadoOEM,hipótese e resultado mantêm status próprios. Simulação não é aprovação humana.
 <!-- execucao-integrada:fim -->

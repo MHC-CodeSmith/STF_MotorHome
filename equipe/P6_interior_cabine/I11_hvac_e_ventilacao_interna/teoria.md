@@ -20,7 +20,7 @@ Método técnico integrado: Q_v=Cd·A_eff·√(2gH·|ΔT|/T); 1/A_eff²=1/A_baix
 
 Ventilação natural prioritária. Com vento0 eΔT0,modelo produz vazão0. CO2/vapor usam balanços de geração e renovação,sem prometer salubridade.
 
-Escopo: Vento0 e ΔT0 geram0vazão; ventilação não garantida. ManualFW3000rev2018 admite220–240V50/60Hz;placa adquirida/curva33°C epartidas pendentes.
+Escopo: 18L/h·pessoa,alvoCO2,pressão/eficiência do ventilador e operação são hipóteses; sem norma demonstrada,umidade latente,SKU,curva elétrica,ruído ou instalação.
 
 Fonte dos parâmetros: `config/parametros_globais.yaml`;dadoOEM,hipótese e resultado mantêm status próprios. Simulação não é aprovação humana.
 <!-- execucao-integrada:fim -->

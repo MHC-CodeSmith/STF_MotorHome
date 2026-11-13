@@ -4,11 +4,11 @@
   "requirement": "Menor tempo em 7000 km, bateria inicial+solar, até 8 h/dia",
   "model_equations": "E_inicial+E_FV=E_final+E_tração+E_serviços+E_perdas+E_cortada; SOCs separados.",
   "method_and_conditions": "7000km plano,ambosSOC100%,até8h/dia,sem recarga elétrica externa. DiaSãoCarlos21junho repetido é idealização. Grade não comprova ótimo global ou caminhoDCimplementável.",
-  "status": "busca_finita_e_replays_executados",
-  "executed": "1008casos1540Wp,32replays,120missões de sensibilidade/alocação e32buffer comercial;água cronológica em8replays.",
-  "remaining_limit": "Melhor da grade, não ótimo global; mínimoDC1kW hipotético e fontes sanitárias por parada presumidas.",
-  "evidence": "entregas/integrado_maxeon1540/otimizacao_grade/resumo.json",
-  "evidence_sha256": "14970507bdf4393bf74e6abce098cfb972fae5ded6284f713ac622d4a1666374",
+  "status": "busca_finita_com_sensibilidade_temporal",
+  "executed": "Grade1008, busca densa5268, refinamentos e294 políticas locais a15/5/1min; líderes 10/20%:242,802/248,764/248,784d e20/30%:244,802/250,760/250,780d.",
+  "remaining_limit": "Diferença≈6d mostra interação do mínimoDC1kW hipotético com passo temporal; comparações finitas, sem ótimo global, interface autorizada ou viabilidade física.",
+  "evidence": "entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/resumo.json",
+  "evidence_sha256": "9b467832dc6ed5f586a6b82b39c9c68b9883e6c33f24825f773c21a6d912d453",
   "human_approval": false,
   "physical_validation": false
 }

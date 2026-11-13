@@ -64,7 +64,7 @@
       "item": 11,
       "owner": "P6",
       "path": "equipe/P6_interior_cabine/I11_hvac_e_ventilacao_interna/resultados/execucao_integrada.json",
-      "evidence_sha256": "22c48ec161a041b999785cd6073aea97d32178ad1698fabeae9e2c5bed13eebd"
+      "evidence_sha256": "79abbdd37283d2e599ff878fcd543c02865fb01f7a8afe903bd63d4ef030cd5a"
     },
     {
       "item": 12,
@@ -112,7 +112,7 @@
       "item": 19,
       "owner": "P3",
       "path": "equipe/P3_carroceria_cad_cfd/I19_coeficiente_de_arrasto_e_cfd/resultados/execucao_integrada.json",
-      "evidence_sha256": "e3d4d231551d55e11748f02d473db8ae45e7de87b7bdd91bdcf139ed06d5899b"
+      "evidence_sha256": "34564c4ea1b17ff743cb8b54639e5d2a751708d73334115eb008a61504500d68"
     },
     {
       "item": 20,
@@ -124,13 +124,13 @@
       "item": 21,
       "owner": "P4",
       "path": "equipe/P4_motor_dinamica/I21_forcas_resistivas_versus_velocidade/resultados/execucao_integrada.json",
-      "evidence_sha256": "3f1463aa2d85bc64177613d91b055cd5a317d8f01706847f32445612e794c1be"
+      "evidence_sha256": "d7da5498671db2ad474af7cc77811b5e67dcc7ea9e5af680f07eeb3aeb4f59ac"
     },
     {
       "item": 22,
       "owner": "P4",
       "path": "equipe/P4_motor_dinamica/I22_potencia_resistiva_e_tracao/resultados/execucao_integrada.json",
-      "evidence_sha256": "3f1463aa2d85bc64177613d91b055cd5a317d8f01706847f32445612e794c1be"
+      "evidence_sha256": "d7da5498671db2ad474af7cc77811b5e67dcc7ea9e5af680f07eeb3aeb4f59ac"
     },
     {
       "item": 23,
@@ -172,7 +172,7 @@
       "item": 29,
       "owner": "P5",
       "path": "equipe/P5_solar_autonomia/I29_otimizacao_viagem_7000_km/resultados/execucao_integrada.json",
-      "evidence_sha256": "14970507bdf4393bf74e6abce098cfb972fae5ded6284f713ac622d4a1666374"
+      "evidence_sha256": "9b467832dc6ed5f586a6b82b39c9c68b9883e6c33f24825f773c21a6d912d453"
     },
     {
       "item": 30,
@@ -190,7 +190,7 @@
       "item": 32,
       "owner": "P6",
       "path": "equipe/P6_interior_cabine/I32_potencia_termica_de_a_c/resultados/execucao_integrada.json",
-      "evidence_sha256": "2b3f732e911979603393ee80e76c7fa44ae2752792086bd3e5d1b1dddde0793b"
+      "evidence_sha256": "79abbdd37283d2e599ff878fcd543c02865fb01f7a8afe903bd63d4ef030cd5a"
     },
     {
       "item": 33,

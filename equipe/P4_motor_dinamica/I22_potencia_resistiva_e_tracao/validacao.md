@@ -14,7 +14,7 @@ A preencher.
 <!-- execucao-integrada:inicio -->
 Revisão computacional registrada no índice `resultados/execucao_integrada.json`.
 
-Limitação remanescente: AuxiliaresOEM0/300/700/1500W sensibilizados, não confundidos com serviços.
+Limitação remanescente: Eficiência0,90 e auxiliares700W estimados; potência na roda não é mapa/potência contínua do motor, sem validação OEM ou física.
 
 Revisão humana final: **PENDENTE**. Não houve instalação/ensaio físico,homologação ou aceite inferido por este gerador.
 <!-- execucao-integrada:fim -->

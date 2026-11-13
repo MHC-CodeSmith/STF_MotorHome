@@ -20,7 +20,7 @@ Método técnico integrado: P_roda=(F_D+F_rol)·v; P_bat=P_roda/η_tração+P_au
 
 Auxiliar700W de estudo sensibilizado0/300/700/1500W somente em movimento. Serviços habitáveis vêm do banco48V e não entram na tração.
 
-Escopo: AuxiliaresOEM0/300/700/1500W sensibilizados, não confundidos com serviços.
+Escopo: Eficiência0,90 e auxiliares700W estimados; potência na roda não é mapa/potência contínua do motor, sem validação OEM ou física.
 
 Fonte dos parâmetros: `config/parametros_globais.yaml`;dadoOEM,hipótese e resultado mantêm status próprios. Simulação não é aprovação humana.
 <!-- execucao-integrada:fim -->

@@ -14,7 +14,7 @@ A preencher.
 <!-- execucao-integrada:inicio -->
 Revisão computacional registrada no índice `resultados/execucao_integrada.json`.
 
-Limitação remanescente: Margem nominal1p184W/2p54W não valida33°C;SKU/placa,partida e fusível5A versus6.2A precisam confirmação.
+Limitação remanescente: Fluxo/CO2/UR são hipóteses;capacidade sob33/25°C ainda não demonstrada; conflito da fonte,SKU/placa,partida e fusível5A versus6.2A pendentes.
 
 Revisão humana final: **PENDENTE**. Não houve instalação/ensaio físico,homologação ou aceite inferido por este gerador.
 <!-- execucao-integrada:fim -->

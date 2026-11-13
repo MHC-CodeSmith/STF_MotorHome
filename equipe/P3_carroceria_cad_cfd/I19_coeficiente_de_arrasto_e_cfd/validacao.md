@@ -14,7 +14,7 @@ A preencher.
 <!-- execucao-integrada:inicio -->
 Revisão computacional registrada no índice `resultados/execucao_integrada.json`.
 
-Limitação remanescente: Variação final5.23%;GCI não justificável por refinamento local;geometria/parede não validadas,semCddefinitivo.
+Limitação remanescente: Malhas não aninhadas e Cd difere7.05% (grading2/base) e16.65% (grading4/base); y+ médio solo1146/913 e p inicial1.15e-4 no grading2. Sem GCI, independência, parede adequada ou validação física.
 
 Revisão humana final: **PENDENTE**. Não houve instalação/ensaio físico,homologação ou aceite inferido por este gerador.
 <!-- execucao-integrada:fim -->

@@ -4,11 +4,11 @@
   "requirement": "Cd e área frontal com CFD",
   "model_equations": "∇·U=0; ρ(U·∇)U=−∇p+∇·τ_eff; Cd=F_D/(½ρA_refU_ref²).",
   "method_and_conditions": "RANS kOmegaSST com piso móvel e parede,3malhas equipadas. Relatar resíduos,histórico de força,y+ e variação de malha. GCI requer hipóteses não demonstradas;Cd permanece faixa condicional.",
-  "status": "CFD_equipado_com_incerteza",
-  "executed": "3novasmalhas101030/128458/217494 convergem resíduos;Cd0.6831/0.6669/0.6337;faixa de sensibilidade ampliada até0.72.",
-  "remaining_limit": "Variação final5.23%;GCI não justificável por refinamento local;geometria/parede não validadas,semCddefinitivo.",
-  "evidence": "entregas/aero_equipado1540/incerteza_observada.json",
-  "evidence_sha256": "e3d4d231551d55e11748f02d473db8ae45e7de87b7bdd91bdcf139ed06d5899b",
+  "status": "CFD_malhas_adicionais_sem_independencia",
+  "executed": "Caso1,034,158células sem residualControl; grading2 com743,286células até1800 e grading4 com510,281células converge residualControl em505; Cd diagnóstico0.60051/0.64287/0.70047.",
+  "remaining_limit": "Malhas não aninhadas e Cd difere7.05% (grading2/base) e16.65% (grading4/base); y+ médio solo1146/913 e p inicial1.15e-4 no grading2. Sem GCI, independência, parede adequada ou validação física.",
+  "evidence": "entregas/aero_equipado1540/comparacao_malhas_adicionais.json",
+  "evidence_sha256": "34564c4ea1b17ff743cb8b54639e5d2a751708d73334115eb008a61504500d68",
   "human_approval": false,
   "physical_validation": false
 }

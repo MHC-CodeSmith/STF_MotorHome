@@ -4,11 +4,11 @@
   "requirement": "Potência resistiva e tração versus velocidade",
   "model_equations": "P_roda=(F_D+F_rol)·v; P_bat=P_roda/η_tração+P_aux,OEM.",
   "method_and_conditions": "Auxiliar700W de estudo sensibilizado0/300/700/1500W somente em movimento. Serviços habitáveis vêm do banco48V e não entram na tração.",
-  "status": "calculado_com_sensibilidade",
-  "executed": "Potência nas rodas e bateria separadas;700W de auxiliares de tração hipotéticos.",
-  "remaining_limit": "AuxiliaresOEM0/300/700/1500W sensibilizados, não confundidos com serviços.",
-  "evidence": "entregas/integrado_maxeon1540/integracao/dinamica_massa_integrada.csv",
-  "evidence_sha256": "3f1463aa2d85bc64177613d91b055cd5a317d8f01706847f32445612e794c1be",
+  "status": "potencia_roda_com_sensibilidade",
+  "executed": "Potência mecânica assinada nas rodas e demanda de bateria a velocidade constante; ponto plano40km/h reproduzido, aclive e vento avaliados sem creditar regeneração.",
+  "remaining_limit": "Eficiência0,90 e auxiliares700W estimados; potência na roda não é mapa/potência contínua do motor, sem validação OEM ou física.",
+  "evidence": "entregas/integrado_maxeon1540/dinamica_resistiva_sensibilidade/resumo.json",
+  "evidence_sha256": "d7da5498671db2ad474af7cc77811b5e67dcc7ea9e5af680f07eeb3aeb4f59ac",
   "human_approval": false,
   "physical_validation": false
 }

@@ -3,11 +3,11 @@
 **Ainda não há resultados validados.** Gerar por script e registrar data, cenário, hash/versão e responsável. Separar provisórios de aprovados.
 
 <!-- execucao-integrada:inicio -->
-Execução integrada: `entregas/aero_equipado1540/incerteza_observada.json`.
+Execução integrada: `entregas/aero_equipado1540/comparacao_malhas_adicionais.json`.
 
-3novasmalhas101030/128458/217494 convergem resíduos;Cd0.6831/0.6669/0.6337;faixa de sensibilidade ampliada até0.72.
+Caso1,034,158células sem residualControl; grading2 com743,286células até1800 e grading4 com510,281células converge residualControl em505; Cd diagnóstico0.60051/0.64287/0.70047.
 
-Limite: Variação final5.23%;GCI não justificável por refinamento local;geometria/parede não validadas,semCddefinitivo.
+Limite: Malhas não aninhadas e Cd difere7.05% (grading2/base) e16.65% (grading4/base); y+ médio solo1146/913 e p inicial1.15e-4 no grading2. Sem GCI, independência, parede adequada ou validação física.
 
-Índice local: `execucao_integrada.json`;SHA256da evidência: `e3d4d231551d55e11748f02d473db8ae45e7de87b7bdd91bdcf139ed06d5899b`. Não aprovado fisicamente.
+Índice local: `execucao_integrada.json`;SHA256da evidência: `34564c4ea1b17ff743cb8b54639e5d2a751708d73334115eb008a61504500d68`. Não aprovado fisicamente.
 <!-- execucao-integrada:fim -->

@@ -25,7 +25,7 @@ Método técnico integrado: Q̇_AC=Q̇_condução+Q̇_solar+Q̇_metabólica+Q̇_
 
 33°Cexternos/25°Cinternos/1ocupante principal,2complementar,regime permanente. kWtérmico não é kWelétrico;6,2A e220V implicam1364VA,FP/partida e capacidade real ainda pendentes.
 
-Escopo: Margem nominal1p184W/2p54W não valida33°C;SKU/placa,partida e fusível5A versus6.2A precisam confirmação.
+Escopo: Fluxo/CO2/UR são hipóteses;capacidade sob33/25°C ainda não demonstrada; conflito da fonte,SKU/placa,partida e fusível5A versus6.2A pendentes.
 
 Fonte dos parâmetros: `config/parametros_globais.yaml`;dadoOEM,hipótese e resultado mantêm status próprios. Simulação não é aprovação humana.
 <!-- execucao-integrada:fim -->

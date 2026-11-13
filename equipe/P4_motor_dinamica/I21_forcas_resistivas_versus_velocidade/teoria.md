@@ -20,7 +20,7 @@ Método técnico integrado: F_D=½ρ·Cd·A_ref·v_rel².
 
 Vento externo0 implica v_rel=v_veículo. Usar a mesma área de normalização doCFD;limiteCd0,72 é sensibilidade conservadora,não valorOEM.
 
-Escopo: Cd/Crr/ρ condicionais; pista plana e vento0.
+Escopo: Rampa/vento e coeficientes são hipóteses, não rota medida; sem aceleração, mapas OEM ou limites de pneus/eixos.
 
 Fonte dos parâmetros: `config/parametros_globais.yaml`;dadoOEM,hipótese e resultado mantêm status próprios. Simulação não é aprovação humana.
 <!-- execucao-integrada:fim -->
