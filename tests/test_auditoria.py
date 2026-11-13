@@ -119,3 +119,19 @@ def test_contextual_interface_is_not_a_hard_dependency(project):
     assert any(x['origem'] == 28 and x['destino'] == 33 and
                x['tipo'] == 'contextual_nao_bloqueante' for x in result['interfaces_contextuais'])
     assert not any('sobre-restri' in warning for warning in result['avisos'])
+
+
+def test_contextual_interface_metadata_is_required(project):
+    root, _ = project
+    (root / 'metadata/interfaces_contextuais.csv').unlink()
+    assert 'Arquivo metadata/interfaces_contextuais.csv ausente' in \
+        '\n'.join(module.audit(root)['erros'])
+
+
+def test_duplicate_contextual_interface_is_rejected(project):
+    root, _ = project
+    path = root / 'metadata/interfaces_contextuais.csv'
+    path.write_text(path.read_text() +
+                    '28,33,contextual_nao_bloqueante,duplicada\n')
+    assert 'Interface contextual duplicada: I28 -> I33' in \
+        '\n'.join(module.audit(root)['erros'])

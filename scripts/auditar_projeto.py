@@ -132,7 +132,10 @@ def audit(root, booklet=BOOKLET):
                         if parameters.get('canonical') else 'Veículo-base sem aprovação')
     contextual = []
     context_path = root / 'metadata/interfaces_contextuais.csv'
-    if context_path.is_file():
+    if not context_path.is_file():
+        errors.append('Arquivo metadata/interfaces_contextuais.csv ausente')
+    else:
+        contextual_pairs = set()
         with context_path.open(encoding='utf-8', newline='') as stream:
             for row in csv.DictReader(stream):
                 try:
@@ -140,9 +143,15 @@ def audit(root, booklet=BOOKLET):
                 except (KeyError, ValueError):
                     errors.append('Interface contextual com ID inválido')
                     continue
+                pair = (source, target)
+                if pair in contextual_pairs:
+                    errors.append(f'Interface contextual duplicada: I{source:02} -> I{target:02}')
+                contextual_pairs.add(pair)
+                if source == target:
+                    errors.append(f'Interface contextual autorreferente: I{source:02}')
                 if source not in graph or target not in graph:
                     errors.append(f'Interface contextual inexistente: I{source:02} -> I{target:02}')
-                if (source, target) in expected_edges:
+                if pair in expected_edges:
                     errors.append(f'Interface contextual duplicada como dependência: I{source:02} -> I{target:02}')
                 if row.get('tipo') != 'contextual_nao_bloqueante' or not row.get('descricao', '').strip():
                     errors.append(f'Interface contextual sem tipo/justificativa: I{source:02} -> I{target:02}')
