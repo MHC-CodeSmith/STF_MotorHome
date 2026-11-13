@@ -2,6 +2,7 @@
 
 ## Estado corrente para nova sessão
 
+- Estado Git ao preparar esta nota: `89d1d3e3e0cc33dd210e1b3bb38499af97c3b38a` em `main` e `hub/tarefas-motorhome-com-codex`; árvore limpa. O endpoint GitHub de status combinado retornou zero checks para esse SHA (sem conclusão de CI disponível).
 - QA desta continuação: **273 testes**, Ruff, auditoria e `git diff --check` passaram. Os manifestos foram registrados pelas rotinas oficiais e verificados: integrado 176 entradas/358 saídas; desenvolvimento 196/1.467. Auditoria: zero erros; permanecem 134 parâmetros nulos e baseline sem aprovação.
 - Alterações publicadas em `main` e `hub/tarefas-motorhome-com-codex`, commit `09f17aeeb2c43abf9a194b8b8aa43b6c0d9d452a`; ambas as refs locais/remotas coincidiram após push. A CLI `gh` não está instalada, então o estado da CI remota deste SHA não foi consultado.
 - Auditoria endurecida: `metadata/interfaces_contextuais.csv` passou a ser obrigatória; IDs ausentes, autorrelações e pares duplicados geram erro estrutural. Dois testes cobrem ausência/duplicação; manifestos re-registrados e verificados (176/358 e 196/1.467).
