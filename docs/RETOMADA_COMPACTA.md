@@ -9,11 +9,11 @@
 
 ---
 
-## Estado corrente para nova sessão
+## Checkpoints técnicos anteriores — histórico, não estado vigente
 
-- Estado Git ao preparar esta nota: `89d1d3e3e0cc33dd210e1b3bb38499af97c3b38a` em `main` e `hub/tarefas-motorhome-com-codex`; árvore limpa. O endpoint GitHub de status combinado retornou zero checks para esse SHA (sem conclusão de CI disponível).
+- **Estado Git vigente (13/11/2026):** execução técnica commit `79c6a1deed39746a678e56807b03a409fb2b6a54`, enviada para `main` e `hub/tarefas-motorhome-com-codex`; ambos os workflows Actions passaram: [main](https://github.com/MHC-CodeSmith/STF_MotorHome/actions/runs/43380584673), [branch](https://github.com/MHC-CodeSmith/STF_MotorHome/actions/runs/43380584474). A atualização deste checkpoint pode criar um commit documental posterior.
 - QA desta continuação: **273 testes**, Ruff, auditoria e `git diff --check` passaram. Os manifestos foram registrados pelas rotinas oficiais e verificados: integrado 176 entradas/358 saídas; desenvolvimento 196/1.467. Auditoria: zero erros; permanecem 134 parâmetros nulos e baseline sem aprovação.
-- Alterações publicadas em `main` e `hub/tarefas-motorhome-com-codex`, commit `09f17aeeb2c43abf9a194b8b8aa43b6c0d9d452a`; ambas as refs locais/remotas coincidiram após push. A CLI `gh` não está instalada, então o estado da CI remota deste SHA não foi consultado.
+- Histórico: commits `09f17ae`, `89d1d3e` e `23dabed` antecedem a reexecução registrada no commit técnico `79c6a1d`; o estado e CI vigentes constam acima.
 - Auditoria endurecida: `metadata/interfaces_contextuais.csv` passou a ser obrigatória; IDs ausentes, autorrelações e pares duplicados geram erro estrutural. Dois testes cobrem ausência/duplicação; manifestos re-registrados e verificados (176/358 e 196/1.467).
 - **Continuação 12/11 (base `5b224c0`):** I28→I33 reclassificada como contexto não bloqueante: dependências duras de I33 são I03/I18; 90 km/h de I28 contextualiza o ensaio de componente prescrito. Registrada em `metadata/interfaces_contextuais.csv`, validada pelo auditor e teste dedicado. Atualização não muda física nem DEC-001–061. Busca finita I29 de 796 pontos continua em 242,885417/244,885417 dias (20,4/19,8 km/h); melhores buscas densas de 5.268 pontos seguem 242,802083/244,802083 dias. Todas condicionadas à interface DC hipotética, sem ótimo global ou viabilidade física provada.
 - Checkpoint verificado: `8a8f313848d37dff3a0897c6333eb39ce2493465`; refs local/main/branch coincidiram, worktree limpa. CI verde (inclui o diff documental do checkpoint) em `43304732486` (main) e `43304730297` (branch). O commit do próprio registro de retomada pode criar execuções adicionais apenas documentais.
