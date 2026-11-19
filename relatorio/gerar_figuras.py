@@ -200,6 +200,93 @@ def vistas_exterior():
     plt.close(fig)
 
 
+def vistas_layout():
+    """Planta dos envelopes do layout A e níveis das baterias na montagem final."""
+    if __package__:
+        from . import montagem_cad as cad
+    else:
+        import montagem_cad as cad
+
+    from matplotlib.patches import Rectangle
+    from matplotlib.ticker import FuncFormatter
+
+    config = json.loads((E / "parametros_resolvidos.json").read_text())["development"]
+    geometria = config["geometry"]
+    comp, largura, _ = np.array(geometria["cargo_outer_m"]) - 2 * geometria["lining_each_side_m"]
+    volumes = {}
+    for item in config["layout_equipment"]["A_fixa"]:
+        nome = item["id"]
+        pos = np.array(item["position_m"], dtype=float)
+        if nome.startswith("US5000_"):
+            pos[2] += cad.SUBIDA_BANCO
+        elif nome == "cooktop_armazenado":
+            pos[0] -= cad.RECUO_COOKTOP
+        volumes[nome] = pos, np.array(item["dimensions_m"])
+
+    equipamentos = [
+        ("cama_colchao", "Cama", "#e3e6dc"),
+        ("portatil_bolsa_1", "Portáteis", "#c9c1ab"),
+        ("tanque_limpa", "", "#b0d5d9"), ("tanque_cinza", "", "#b0d5d9"),
+        ("boiler", "", "#b0d5d9"), ("bomba", "", "#b0d5d9"),
+        ("inversor", "", "#a4b6c4"), ("hvac", "", "#c5c5da"),
+        ("lava_seca", "Lava e seca", "#dcd5c9"), ("geladeira_AC", "Geladeira", "#dcd5c9"),
+        ("cooktop_armazenado", "", "#dcd5c9"), ("cassete", "Cassete", "#dbd6cf"),
+        ("US5000_1", "Banco", "#5789ab"),
+    ]
+    fig, (plan, elev) = plt.subplots(1, 2, figsize=(9.2, 3.6),
+                                     gridspec_kw={"width_ratios": [1.45, 1]})
+    fig.subplots_adjust(left=.068, right=.98, top=.85, bottom=.19, wspace=.14)
+    plan.add_patch(Rectangle((0, 0), comp, largura, fc="white", ec="#455058"))
+    for nome, rotulo, cor in equipamentos:
+        pos, tam = volumes[nome]
+        if nome == "portatil_bolsa_1":
+            pos_final, tam_final = volumes["portatil_bolsa_4"]
+            tam = pos_final + tam_final - pos
+        plan.add_patch(Rectangle(pos[:2], *tam[:2], lw=.65, fc=cor, ec="#5a676a"))
+        if rotulo:
+            cx, cy = pos[:2] + tam[:2] / 2
+            if nome == "cama_colchao":
+                cx, cy = 1.65, 1.17
+            plan.text(cx, cy, rotulo, fontsize=8, ha="center", va="center")
+    # As superfícies se sobrepõem na projeção. Os números ocupam áreas visíveis
+    # das peças e a chave identifica os equipamentos de menor dimensão.
+    for number, (x, y) in enumerate([(.19,.90), (.43,1.06), (.73,.82), (1.30,1.38),
+                                      (.77,1.47), (1.12,.95), (2.83,.21)], start=1):
+        plan.text(x, y, str(number), ha="center", va="center", fontsize=7)
+    fig.text(.5, .01, "1  Água limpa     2  Água cinza     3  Boiler     4  Bomba     "
+             "5  Inversor     6  Ar-condicionado     7  Cooktop", ha="center", fontsize=8)
+    plan.set(xlim=(-.03, comp+.03), ylim=(-.025, largura+.025), aspect="equal",
+             xlabel="Distância à face interna traseira [m]", ylabel="Largura interna [m]")
+    plan.set_xticks([0, 1, 2, 3, comp])
+    plan.set_yticks([0, .6, 1.2, largura])
+    fmt = FuncFormatter(lambda v, _: f"{v:.3f}".rstrip("0").rstrip(".").replace(".", ","))
+    plan.xaxis.set_major_formatter(fmt)
+    plan.yaxis.set_major_formatter(fmt)
+    plan.set_title("Planta dos equipamentos · layout A", fontsize=11, pad=10)
+    plan.grid(False)
+
+    azul = "#235b7e"
+    modulos = [volumes[n] for n in sorted(volumes) if n.startswith("US5000_")]
+    topo = max(pos[2] + tamanho[2] for pos, tamanho in modulos)
+    nivel_piso = cad.PISO_Z
+    for i, (pos, tamanho) in enumerate(modulos, 1):
+        elev.add_patch(Rectangle((.10, pos[2]), .44, tamanho[2], ec=azul, fc="#b8cfdd", lw=.8))
+        elev.text(.32, pos[2] + tamanho[2]/2, f"US5000 · {i}", color="#133d56",
+                  va="center", ha="center", fontsize=8)
+    elev.add_patch(Rectangle((.10, 0), .44, cad.ARCO[2], ec="#5a676a", fc="#e2e5e5", lw=.65))
+    elev.text(.32, cad.ARCO[2]/2, "Caixa de roda", va="center", ha="center", fontsize=8)
+    elev.hlines([0, topo], [.04, .10], [.75, .75], colors="#48535b", linewidth=.85)
+    elev.annotate("", (.70, topo), (.70, 0), arrowprops={"arrowstyle":"<->", "lw":1, "color":azul})
+    metros = lambda z: f"{z:.3f}".replace(".", ",") + " m"
+    elev.text(.76, topo/2, f"{metros(topo)}\nacima do piso", va="center", color=azul, fontsize=8.5)
+    elev.text(.10, topo+.055, f"Topo do banco · {metros(nivel_piso+topo)} do solo", fontsize=9)
+    elev.text(.10, -.11, f"Piso acabado · {metros(nivel_piso)} do solo", fontsize=9)
+    elev.set(xlim=(0, 1.35), ylim=(-.18, 1.11), title="Níveis do banco de serviços")
+    elev.axis("off")
+    fig.savefig(OUT / "i17_layout_interno.png", dpi=210, bbox_inches="tight", pad_inches=.06)
+    plt.close(fig)
+
+
 def motor():
     """I04: envelope de torque/potência (picos OEM 410 N m, 205 kW) e mapa de eficiência de um
     modelo paramétrico de perdas calibrado para eta = 0,95 no ponto de canto. Não é mapa OEM."""
@@ -239,7 +326,6 @@ def motor():
 
 
 COPIAS = {
-    "i17_layout_interno.png": E / "integracao/A_fixa_vistas.png",
     "i24_custo.png": E / "i24_custo_brl/custo_por_grupo.png",
     "i30_cabos.png": E / "i30_corrente_maxima/campo_corrente_maxima.png",
     "i31_cabine.png": ROOT / "entregas/desenvolvimento_2026-11-09/cabine_transiente/campo_temperatura_velocidade.png",
@@ -255,7 +341,7 @@ COPIAS = {
 
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
-    for f in (solar, dinamica, autonomia_solar, i27, i28, vistas_exterior):
+    for f in (solar, dinamica, autonomia_solar, i27, i28, vistas_exterior, vistas_layout):
         f()
     print(json.dumps(motor()))
     faltando = []

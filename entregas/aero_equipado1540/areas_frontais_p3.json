@@ -1,0 +1,26 @@
+{
+  "script": "scripts/verificar_area_frontal_p3.py",
+  "revisao_do_calculo": "2026-11-19",
+  "commit_de_origem": "5144702c6fe460329e138d985bfdb9f430d76249",
+  "revisao_configuracao_do_caso": "1.1.1-execucao1540",
+  "cenario": "maxeon1540_independente",
+  "metodo_area": "União geométrica das projeções triangulares em YZ, observação ao longo de X",
+  "superficies_com_forca": [
+    "aurora",
+    "pvdeck"
+  ],
+  "ultima_iteracao_malha_fina": 344,
+  "area_frontal_casco_m2": 4.827840375264283,
+  "area_frontal_deck_m2": 0.06759993782043239,
+  "area_frontal_equipada_m2": 4.895440313084715,
+  "area_de_referencia_openfoam_m2": 4.827840375264284,
+  "cd_malha_fina_referencia_openfoam": 0.621536328,
+  "cd_malha_fina_referencia_equipada": 0.6129536848792908,
+  "cd_vezes_area_m2": 3.000678179011905,
+  "arquivos_de_entrada_sha256": {
+    "entregas/aero_equipado1540/malha_adicional_1/case/constant/triSurface/aurora.stl": "61a781c82a40a360ff92fc88978c4d87406ef7afdb49e9d6a77115d17d09c8ab",
+    "entregas/aero_equipado1540/malha_adicional_1/case/constant/triSurface/pvdeck.stl": "f47eaa636b0fe99278bae5cbf028e7f1b37e7e54d2010d51984436b0cf1a0d0f",
+    "entregas/aero_equipado1540/familia_gci/bg_55x20x10/case/system/controlDict": "710c92928f5af3e19dc1aad03dff3e046339c33e8a2004283f5b6c8fe79a458c",
+    "entregas/aero_equipado1540/familia_gci/bg_55x20x10/case/postProcessing/forces1/0/coefficient.dat": "da8d24c79e1cb1a4d92787fe9ecd7502e77f75e35f424f09df6fd0e56ba85eed"
+  }
+}

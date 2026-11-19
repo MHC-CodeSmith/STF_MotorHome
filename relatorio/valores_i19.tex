@@ -1,15 +1,13 @@
-\newcommand{\CdValor}{0{,}622 \pm 0{,}006}
-\newcommand{\CdGCI}{1,0\,\%}
-\newcommand{\CdA}{\SI{3,00}{m^2}}
+\newcommand{\CdValor}{\num{0.6215}}
+\newcommand{\CdFaixa}{\num{0.6215} a \num{0.6338}}
+\newcommand{\CdGCI}{\textnormal{GCI indeterminado}}
+\newcommand{\CdA}{\SI{3.00}{m^2}}
 \newcommand{\CdOscilatoria}{1}
-\newcommand{\GCItabela}{%
-\begin{table}[H]\centering\small
-\caption{Item 19 — família de malhas: convergência oscilatória; incerteza pela amplitude de oscilação (Stern et al., 2001).}
-\begin{tabular}{lrrr}\toprule Malha de fundo & Células & $h$ [m] & $C_d$ \\\midrule
-55$\times$20$\times$10 & \num{750513} & 0,2447 & 0,6215 \\
-44$\times$16$\times$8 & \num{522986} & 0,2760 & 0,6338 \\
-33$\times$12$\times$6 & \num{291219} & 0,3355 & 0,6220 \\\midrule
-\multicolumn{3}{l}{Razões de refino $r_{21}$, $r_{32}$} & 1,128, 1,216 \\
-\multicolumn{3}{l}{Razão de convergência $R = \varepsilon_{21}/\varepsilon_{32}$} & -1,04 \\
-\multicolumn{3}{l}{Incerteza $U = (C_{d,max} - C_{d,min})/2$} & 0,0061 (1,0\,\%) \\
+\newcommand{\GCItabela}{\begin{table}[H]\centering\small
+\caption{Item 19 --- coeficiente de arrasto na família final de três malhas.}
+\begin{tabular}{llrrr}\toprule
+Malha & Malha de fundo & Células & $h$ [m] & $C_d$ \\ \midrule
+Fina & 55$\times$20$\times$10 & \num{750513} & \num{0.2447} & \num{0.621536} \\
+Intermediária & 44$\times$16$\times$8 & \num{522986} & \num{0.2760} & \num{0.633751} \\
+Grossa & 33$\times$12$\times$6 & \num{291219} & \num{0.3355} & \num{0.621971} \\
 \bottomrule\end{tabular}\end{table}}
