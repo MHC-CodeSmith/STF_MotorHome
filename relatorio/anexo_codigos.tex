@@ -18,7 +18,11 @@ otimização e os scripts de fechamento deste memorial. Os demais scripts estão
 \lstinputlisting[language=Python]{../src/motorhome/reconciliacao.py}
 \subsubsection*{A.8 Velocidade ótima em 7000 km (item 29) — \cod{scripts/fechar\_i29\_velocidade.py}}
 \lstinputlisting[language=Python]{../scripts/fechar_i29_velocidade.py}
-\subsubsection*{A.9 Incerteza de malha do arrasto (item 19) — \cod{scripts/calcular\_gci\_aero.py}}
+\subsubsection*{A.9 Pós-processamento dos históricos de arrasto (item 19) — \cod{scripts/calcular\_gci\_aero.py}}
 \lstinputlisting[language=Python]{../scripts/calcular_gci_aero.py}
 \subsubsection*{A.10 Custo com impostos (item 24) — \cod{scripts/calcular\_custo\_brl\_i24.py}}
 \lstinputlisting[language=Python]{../scripts/calcular_custo_brl_i24.py}
+
+\subsubsection*{A.11 Execução do caso de arrasto (item 19)}
+Listagem original de \path{scripts/executar_aero_malha_adicional.py}, versão \texttt{5144702}. O executor usa o caso-base, o ambiente OpenFOAM 2412 e o cache local indicados no próprio código. Nesta revisão, os resultados foram conferidos a partir dos históricos arquivados das três corridas.
+\lstinputlisting[language=Python,lineskip=-0.35pt]{../scripts/executar_aero_malha_adicional.py}

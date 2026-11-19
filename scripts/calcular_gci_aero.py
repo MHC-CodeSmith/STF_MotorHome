@@ -1,144 +1,151 @@
-"""I19: discretization uncertainty of the drag coefficient.
+"""Item 19. Recalcula os extremos observados na família de malhas equipada.
 
-Reads the three members of the background-mesh family run by
-executar_aero_malha_adicional.py (same snappy levels, no cell cap, only the
-background divisions change). Representative size h = (V/N)^(1/3).
-
-Monotone convergence (0 < R < 1, R = e21/e32 with e = f_coarser - f_finer):
-Celik et al. (2008) GCI with apparent order p by fixed-point iteration and
-Richardson extrapolation. Oscillatory convergence (R < 0): Richardson
-extrapolation does not apply, and the uncertainty is bounded by half the
-oscillation range, U = (max - min)/2 (Stern et al., 2001). The Celik numbers
-are still written to the summary as a diagnostic. Writes the summary, a
-figure and the LaTeX macros used by the report.
+Lê o histórico de forças, o y+ por superfície e os registros SIMPLE originais.
+A área de referência é a declarada em forceCoeffs para ambas as superfícies.
+O nome de arquivo histórico é mantido para quem já chama este script.
 """
-
-from __future__ import annotations
-
 import json
 import math
+import re
+from statistics import fmean
 from pathlib import Path
 
 import matplotlib
-
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+from matplotlib.ticker import FuncFormatter
+import numpy as np
+import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 FAMILIA = ROOT / "entregas/aero_equipado1540/familia_gci"
-MEMBROS = ["bg_55x20x10", "bg_44x16x8", "bg_33x12x6"]   # fina, média, grossa
-VOLUME_M3 = 55.0 * 20.0 * 10.0
-A_REF = 4.827840375264284
-CD_ENERGIA_NOMINAL = 0.62487678   # config/parametros_globais.yaml: cd_range[1]
+MALHAS = ("bg_55x20x10", "bg_44x16x8", "bg_33x12x6")  # Fina a grossa
+NOMES = ("Fina", "Intermediária", "Grossa")
+VOLUME = 55.0 * 20.0 * 10.0  # m³
 
 
-def ordem_aparente(e21: float, e32: float, r21: float, r32: float) -> float:
-    s = math.copysign(1.0, e32 / e21)
-    p = 1.0
-    for _ in range(500):
-        q = math.log((r21**p - s) / (r32**p - s))
-        novo = abs(math.log(abs(e32 / e21)) + q) / math.log(r21)
-        if abs(novo - p) < 1e-12:
-            return novo
-        p = novo
-    raise RuntimeError("apparent order did not converge")
+def ler_caso(diretorio):
+    dados = json.loads((diretorio / "resumo.json").read_text(encoding="utf-8"))
+    if not dados.get("mesh_ok") or dados.get("solver_exit") != 0:
+        raise ValueError(f"{diretorio.name}: verificar malha ou execução")
+    log = (diretorio / "case/log.snappyHexMesh").read_text(errors="replace")
+    if "reached limit" in log:
+        raise ValueError(f"{diretorio.name}: refinamento atingiu o limite")
+    case = diretorio / "case"
+    check = (case / "log.checkMesh").read_text()
+    n = int(re.search(r"^\s*cells:\s*(\d+)", check, re.M)[1])
+    if "Mesh OK." not in check or n != dados["cell_count"]:
+        raise ValueError(f"{diretorio.name}: contagem ou verificação da malha divergente")
+    controle = (case / "system/controlDict").read_text()
+    area = float(re.search(r"\bAref\s+([^;]+);", controle)[1])
+    log_solver = (case / "log.simpleFoam").read_text()
+    final = re.search(r"SIMPLE solution converged in (\d+) iterations", log_solver)
+    if final is None or dados.get("solver_converged") is not True:
+        raise ValueError(f"{diretorio.name}: convergência iterativa não confirmada")
+    iteracao = int(final[1])
+    arquivo = case / "postProcessing/forces1/0/coefficient.dat"
+    tempos, historico = np.loadtxt(arquivo, usecols=(0, 1), unpack=True)
+    if tempos[-1] != iteracao or len(historico) < 50 or not np.isfinite(historico).all():
+        raise ValueError(f"{diretorio.name}: histórico de forças inválido")
+    cd = float(historico[-1])
+    if not math.isclose(cd, dados["last_cd_diagnostic"], rel_tol=1e-7):
+        raise ValueError(f"{diretorio.name}: Cd do resumo diverge do histórico")
+    fim = historico[-50:]
+    span = float((max(fim) - min(fim)) / abs(fmean(fim)))
+    yplus = {}
+    for linha in (case / "postProcessing/yPlus/0/yPlus.dat").read_text().splitlines():
+        if not linha.strip() or linha.startswith("#"):
+            continue
+        tempo, regiao, minimo, maximo, media = linha.split()
+        if float(tempo) == iteracao:
+            yplus[regiao] = [float(minimo), float(maximo), float(media)]
+    if set(yplus) != {"ground", "aurora", "pvdeck"}:
+        raise ValueError(f"{diretorio.name}: y+ ausente no último passo")
+    return {"caso": diretorio.name, "celulas": n, "h_m": (VOLUME / n)**(1/3),
+            "cd": cd, "area_ref_m2": area, "convergiu": True, "iteracoes": iteracao,
+            "cd_span_50it": span, "yplus": yplus}
 
 
-def main() -> None:
-    casos = []
-    for nome in MEMBROS:
-        r = json.loads((FAMILIA / nome / "resumo.json").read_text())
-        if not (r.get("mesh_ok") and r.get("solver_exit") == 0 and r.get("last_cd_diagnostic")):
-            raise SystemExit(f"{nome}: run incomplete or failed")
-        log = (FAMILIA / nome / "case/log.snappyHexMesh").read_text(errors="replace")
-        if "reached limit" in log:
-            raise SystemExit(f"{nome}: snappy hit the cell cap; not a valid family member")
-        n = int(r["cell_count"])
-        casos.append({"caso": nome, "celulas": n, "h_m": (VOLUME_M3 / n) ** (1 / 3), "cd": float(r["last_cd_diagnostic"]),
-                      "convergiu": bool(r.get("solver_converged")), "cd_span_50it": r.get("last50_cd_relative_span"),
-                      "yplus": r.get("yplus_summary")})
-    (h1, h2, h3), (f1, f2, f3) = [c["h_m"] for c in casos], [c["cd"] for c in casos]
-    r21, r32 = h2 / h1, h3 / h2
-    e21, e32 = f2 - f1, f3 - f2
-    razao_convergencia = e21 / e32
-    oscilatoria = razao_convergencia < 0
-    p = ordem_aparente(e21, e32, r21, r32)
-    f_ext = (r21**p * f1 - f2) / (r21**p - 1)
-    ea21 = abs((f1 - f2) / f1)
-    gci21 = 1.25 * ea21 / (r21**p - 1)
-    ea32 = abs((f2 - f3) / f2)
-    gci32 = 1.25 * ea32 / (r32**p - 1)
-    if oscilatoria:
-        metodo = "oscilatoria: U = (max - min)/2 (Stern et al., 2001); Richardson não aplicável"
-        incerteza = (max(f1, f2, f3) - min(f1, f2, f3)) / 2
-    else:
-        metodo = "monotônica: GCI de Celik et al. (2008)"
-        incerteza = gci21 * f1
-    resumo = {
-        "script": "scripts/calcular_gci_aero.py", "method": metodo,
-        "casos": casos, "r21": r21, "r32": r32, "razao_convergencia_R": razao_convergencia,
-        "oscilatoria": oscilatoria, "cd_fina": f1, "incerteza_absoluta_cd": incerteza,
-        "incerteza_relativa_cd": incerteza / f1, "cda_m2": f1 * A_REF,
-        "cd_modelos_energia": CD_ENERGIA_NOMINAL,
-        "diferenca_relativa_modelos_energia": (CD_ENERGIA_NOMINAL - f1) / f1,
-        "diagnostico_celik": {"ordem_aparente_p": p, "cd_extrapolado": f_ext, "gci_fina_21": gci21,
-                              "gci_media_32": gci32, "valido": not oscilatoria,
-                              "nota": "r21 < 1,3 e convergência oscilatória: valores apenas diagnósticos"},
-        "physical_validation": False,
-    }
-    (FAMILIA / "resumo_gci.json").write_text(json.dumps(resumo, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+def comparar(casos, cd_energia):
+    h1, h2, h3 = (c["h_m"] for c in casos)
+    if not h1 < h2 < h3:
+        raise ValueError("Ordem esperada: malha fina, intermediária e grossa")
+    cd1, cd2, cd3 = (c["cd"] for c in casos)
+    area = casos[0]["area_ref_m2"]
+    if any(c["area_ref_m2"] != area for c in casos):
+        raise ValueError("Os três coeficientes devem usar a mesma área de referência")
+    delta21, delta32 = cd2 - cd1, cd3 - cd2
+    razao = delta21 / delta32 if delta32 else None
+    return {"script": "scripts/calcular_gci_aero.py", "casos": casos,
+            "cenario": "maxeon1540_independente", "cd_fina": cd1, "cd_min": min(cd1, cd2, cd3),
+            "cd_max": max(cd1, cd2, cd3), "cda_m2": cd1 * area, "area_ref_m2": area,
+            "r21": h2 / h1, "r32": h3 / h2, "razao_convergencia_R": razao,
+            "oscilatoria": razao is not None and razao < 0,
+            "incerteza_absoluta_cd": None, "incerteza_relativa_cd": None,
+            "cd_modelos_energia": cd_energia,
+            "diferenca_relativa_modelos_energia": (cd_energia - cd1) / cd1,
+            "physical_validation": False,
+            "method": "Extremos observados nos três Cd finais; incerteza de malha não estimada"}
 
-    fig, ax = plt.subplots(figsize=(6.2, 3.2))
-    hs = [c["h_m"] for c in casos]
-    fs = [c["cd"] for c in casos]
-    ax.axhspan(f1 - incerteza, f1 + incerteza, color="#1f5fbf", alpha=0.12, label=f"$C_d$ = {f1:.3f} ± {incerteza:.3f}")
-    ax.plot(hs, fs, "o-", color="#1f5fbf", lw=1)
-    ax.axhline(CD_ENERGIA_NOMINAL, color="#e8590c", ls="--", lw=1, label=f"$C_d$ dos modelos de energia ({CD_ENERGIA_NOMINAL:.3f})")
-    for c in casos:
-        ax.annotate(f"{c['celulas'] / 1e3:.0f} mil células", (c["h_m"], c["cd"]), textcoords="offset points",
-                    xytext=(-20, 8), fontsize=8)
-    ax.set(xlabel="tamanho representativo de célula h = (V/N)$^{1/3}$ [m]", ylabel="$C_d$",
-           xlim=(min(hs) * 0.9, max(hs) * 1.08), ylim=(f1 - 4 * incerteza, f1 + 4 * incerteza))
-    ax.set_title("convergência " + ("oscilatória" if oscilatoria else "monotônica"), fontsize=9)
-    ax.legend(fontsize=8, loc="lower right"); ax.grid(alpha=0.3)
-    fig.tight_layout(); fig.savefig(FAMILIA / "gci_cd.png", dpi=180)
 
-    def virg(x: float, n: int = 3) -> str:
-        return f"{x:.{n}f}".replace(".", ",")
+def gerar_figura(resumo, arquivo):
+    casos = resumo["casos"]
+    fig, ax = plt.subplots(figsize=(6.05, 2.95))
+    fig.subplots_adjust(left=0.12, right=0.985, bottom=0.20, top=0.94)
+    ax.axhspan(resumo["cd_min"], resumo["cd_max"], color="#4987b9", alpha=0.15,
+               label="Faixa observada nas três malhas")
+    cd_energia = resumo["cd_modelos_energia"]
+    rotulo = f"Modelos de energia ({cd_energia:.3f})".replace(".", ",")
+    ax.axhline(cd_energia, color="#ad501e", linestyle="--", linewidth=1, label=rotulo)
+    ax.plot([c["h_m"] for c in casos], [c["cd"] for c in casos], "o-",
+            color="#1b5791", linewidth=1, markersize=4.6)
+    for c, nome in zip(casos, NOMES):
+        ax.annotate(nome, (c["h_m"], c["cd"]), xytext=(0, 6),
+                    textcoords="offset points", ha="center", fontsize=8)
+    ax.margins(x=0.16, y=0.48)
+    ax.xaxis.set_major_formatter(FuncFormatter(lambda x, _: f"{x:.2f}".replace(".", ",")))
+    ax.yaxis.set_major_formatter(FuncFormatter(lambda y, _: f"{y:.3f}".replace(".", ",")))
+    ax.tick_params(labelsize=7.5)
+    ax.set_xlabel(r"Tamanho representativo da célula, $h$ [m]", fontsize=9)
+    ax.set_ylabel(r"Coeficiente de arrasto, $C_d$", fontsize=9)
+    ax.grid(axis="y", linewidth=0.5, alpha=0.35)
+    ax.legend(loc="lower center", ncol=2, fontsize=7, frameon=False)
+    fig.savefig(arquivo, dpi=180)
+    plt.close(fig)
 
-    vezes = "$\\times$"
-    linhas = " \\\\\n".join(
-        "{} & \\num{{{}}} & {} & {}".format(c["caso"].replace("bg_", "").replace("x", vezes), c["celulas"],
-                                          virg(c["h_m"], 4), virg(c["cd"], 4))
-        for c in casos)
-    if oscilatoria:
-        linhas_metodo = (
-            f"\\multicolumn{{3}}{{l}}{{Razão de convergência $R = \\varepsilon_{{21}}/\\varepsilon_{{32}}$}} & {virg(razao_convergencia, 2)} \\\\\n"
-            f"\\multicolumn{{3}}{{l}}{{Incerteza $U = (C_{{d,max}} - C_{{d,min}})/2$}} & {virg(incerteza, 4)} ({virg(100 * incerteza / f1, 1)}\\,\\%) \\\\\n")
-        legenda = "convergência oscilatória; incerteza pela amplitude de oscilação (Stern et al., 2001)"
-    else:
-        linhas_metodo = (
-            f"\\multicolumn{{3}}{{l}}{{Ordem aparente $p$}} & {virg(p, 2)} \\\\\n"
-            f"\\multicolumn{{3}}{{l}}{{$C_d$ extrapolado (Richardson)}} & {virg(f_ext, 4)} \\\\\n"
-            f"\\multicolumn{{3}}{{l}}{{GCI malha fina}} & {virg(100 * gci21, 2)}\\,\\% \\\\\n")
-        legenda = "convergência monotônica; GCI de Celik et al. (2008)"
-    tex = (
-        f"\\newcommand{{\\CdValor}}{{{virg(f1, 3).replace(',', '{,}')} \\pm {virg(incerteza, 3).replace(',', '{,}')}}}\n"
-        f"\\newcommand{{\\CdGCI}}{{{virg(100 * incerteza / f1, 1)}\\,\\%}}\n"
-        f"\\newcommand{{\\CdA}}{{\\SI{{{virg(f1 * A_REF, 2)}}}{{m^2}}}}\n"
-        f"\\newcommand{{\\CdOscilatoria}}{{{'1' if oscilatoria else '0'}}}\n"
-        "\\newcommand{\\GCItabela}{%\n\\begin{table}[H]\\centering\\small\n"
-        f"\\caption{{Item 19 — família de malhas: {legenda}.}}\n"
-        "\\begin{tabular}{lrrr}\\toprule Malha de fundo & Células & $h$ [m] & $C_d$ \\\\\\midrule\n"
-        f"{linhas} \\\\\\midrule\n"
-        f"\\multicolumn{{3}}{{l}}{{Razões de refino $r_{{21}}$, $r_{{32}}$}} & {virg(r21, 3)}, {virg(r32, 3)} \\\\\n"
-        f"{linhas_metodo}"
-        "\\bottomrule\\end{tabular}\\end{table}}\n"
-    )
-    (ROOT / "relatorio/valores_i19.tex").write_text(tex, encoding="utf-8")
-    print(json.dumps({k: resumo[k] for k in ("method", "r21", "r32", "razao_convergencia_R", "cd_fina",
-                                              "incerteza_absoluta_cd", "incerteza_relativa_cd", "cda_m2",
-                                              "diferenca_relativa_modelos_energia")}, indent=1, ensure_ascii=False))
+
+def tex(resumo):
+    def numero(valor, casas=4):
+        return rf"\num{{{valor:.{casas}f}}}"
+    faixa = numero(resumo["cd_min"]) + " a " + numero(resumo["cd_max"])
+    razao = resumo["razao_convergencia_R"]
+    linhas = [r"\begin{table}[H]\centering\small",
+              r"\caption{Item 19 --- coeficiente de arrasto na família final de três malhas.}",
+              r"\begin{tabular}{llrrr}\toprule",
+              r"Malha & Malha de fundo & Células & $h$ [m] & $C_d$ \\ \midrule"]
+    for nome, c in zip(NOMES, resumo["casos"]):
+        fundo = c["caso"].removeprefix("bg_").replace("x", r"$\times$")
+        linha = [nome, fundo, numero(c["celulas"], 0), numero(c["h_m"]), numero(c["cd"], 6)]
+        linhas.append(" & ".join(linha) + r" \\")
+    linhas.append(r"\bottomrule\end{tabular}\end{table}")
+    return "\n".join([
+        r"\newcommand{\CdValor}{" + numero(resumo["cd_fina"]) + "}",
+        r"\newcommand{\CdFaixa}{" + faixa + "}",
+        r"\newcommand{\CdGCI}{\textnormal{GCI indeterminado}}",  # Uso legado
+        r"\newcommand{\CdA}{" + rf"\SI{{{resumo['cda_m2']:.2f}}}{{m^2}}" + "}",
+        r"\newcommand{\CdOscilatoria}{" + str(int(razao is not None and razao < 0)) + "}",
+        r"\newcommand{\GCItabela}{" + "\n".join(linhas) + "}",
+    ]) + "\n"
+
+
+def main():
+    config = yaml.safe_load((ROOT / "config/parametros_globais.yaml").read_text())
+    cd_energia = config["parameters"]["cd_range"]["value"][1]
+    resumo = comparar([ler_caso(FAMILIA / nome) for nome in MALHAS], cd_energia)
+    texto = json.dumps(resumo, ensure_ascii=False, indent=2, allow_nan=False)
+    (FAMILIA / "resumo_gci.json").write_text(texto + "\n", encoding="utf-8")
+    gerar_figura(resumo, FAMILIA / "gci_cd.png")
+    (ROOT / "relatorio/valores_i19.tex").write_text(tex(resumo), encoding="utf-8")
 
 
 if __name__ == "__main__":

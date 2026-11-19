@@ -19,7 +19,6 @@ from dataclasses import dataclass
 from pathlib import Path
 
 import numpy as np
-import trimesh
 
 ROOT = Path(__file__).resolve().parents[1]
 E = ROOT / "entregas"
@@ -37,6 +36,7 @@ ARCO = (0.85, 0.224, 0.35)                       # caixa de roda (config/paramet
 # de água limpa recua 4,5 cm (as alças do banco ficam a 1 cm dele).
 SUBIDA_BANCO = PISO_Z + ARCO[2] + 0.01 - 0.72
 RECUO_BANCO_B = (LARGURA / 2 - ARCO[1] - 0.005) - 0.853
+RECUO_COOKTOP = 0.06                             # para dentro da gaveta, layout A e B
 RAIO_TUBO, RAIO_CABO = 0.007, 0.007
 
 CORES = {
@@ -90,6 +90,8 @@ def _nome(no: str) -> str:
 
 def ler(caminho: Path, desloc=(0.0, 0.0, 0.0)):
     """[(nome, vértices, faces, geometria)] de um GLB, já transformados para o referencial global."""
+    import trimesh
+
     cena = trimesh.load(caminho)
     if isinstance(cena, trimesh.Trimesh):
         return [("malha", cena.vertices + desloc, np.asarray(cena.faces), cena)]
@@ -132,6 +134,8 @@ def cor_detalhe(nome: str, padrao=(0.85, 0.86, 0.88)) -> tuple:
 
 def caixa_malha(v_lo, v_hi):
     """Caixa (8 vértices, 12 triângulos) entre dois cantos."""
+    import trimesh
+
     b = trimesh.creation.box(bounds=np.array([v_lo, v_hi]))
     return np.asarray(b.vertices), np.asarray(b.faces)
 
@@ -150,6 +154,8 @@ def limpar(n: str) -> str:
 
 
 def cilindro(p0, p1, r, secoes=14):
+    import trimesh
+
     c = trimesh.creation.cylinder(radius=r, segment=np.array([p0, p1]), sections=secoes)
     return np.asarray(c.vertices), np.asarray(c.faces)
 
@@ -281,7 +287,7 @@ def interior(layout: str) -> list[Peca]:
     # ajustes de encaixe sobre os dados do layout (colisões dos próprios dados, 12 mm a 10 cm):
     for k, (v, f) in list(caixas.items()):
         if k.endswith("cooktop_armazenado"):          # atravessava a divisória 3.02: volta 6 cm para dentro da gaveta
-            caixas[k] = (v + [-0.06, 0, 0], f)
+            caixas[k] = (v + [-RECUO_COOKTOP, 0, 0], f)
         if layout == "B" and k.endswith("divisoria_2.54"):  # no B a lava e seca vai até 2,64: divisória logo depois
             caixas[k] = (v + [0.112, 0, 0], f)
         if "US5000" in k:                                  # fora da caixa de roda (ver SUBIDA_BANCO)
@@ -440,6 +446,8 @@ def interior(layout: str) -> list[Peca]:
 
 def tubo(pontos, raio, nome, rgb, grupo="rotas"):
     """Polilinha de cilindros (um por trecho) com esferas nas curvas."""
+    import trimesh
+
     saida = []
     p = [np.asarray(q, float) for q in pontos]
     for i, (a, b) in enumerate(itertools.pairwise(p)):
@@ -470,7 +478,7 @@ def rotas() -> list[Peca]:
         if "US5000" in n:
             v = v + [0, 0, SUBIDA_BANCO]
         if n.endswith("cooktop_armazenado"):
-            v = v + [-0.06, 0, 0]
+            v = v + [-RECUO_COOKTOP, 0, 0]
         saida.append(Peca("rotas", n, v, f, cor(n)))
     # 48 V: da frente do banco (y = 0,433, agora sobre a caixa de roda) pela frente do inversor até a base dele
     z_banco = 0.72 + SUBIDA_BANCO + 0.30

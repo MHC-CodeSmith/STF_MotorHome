@@ -140,6 +140,7 @@ transientes, como na apostila da disciplina \cite{apostila,incropera}.
 \centering\small
 \caption{Condições e parâmetros principais do cenário integrado \cod{maxeon1540\_independente}.}
 \label{tab:cenario}
+\setlength{\tabcolsep}{3pt}
 \begin{tabular}{lll}
 \toprule
 Grandeza & Valor & Origem \\
@@ -147,8 +148,8 @@ Grandeza & Valor & Origem \\
 Local, data & São Carlos, 21/06, céu limpo & enunciado; INMET A711 \\
 Ambiente & \SI{25}{\celsius}, UR 50\,\%, vento \SI{0}{m/s}, $\rho = \SI{1,10}{kg/m^3}$ & enunciado; altitude \\
 Massa montada típica & \SI{3976,5}{kg} (2 pessoas, bagagem, \SI{100}{L} de água) & item 18 \\
-Área frontal & \SI{4,828}{m^2} & item 19 (geometria do CFD) \\
-$C_d$ nos modelos de energia & 0,625 (faixa 0,581--0,720) & item 19 \\
+Área de referência do $C_d$ & \SI{4,828}{m^2} & casco (item 19) \\
+$C_d$ nos modelos de energia & 0,625 (sensibilidade 0,581--0,720) & item 19 \\
 $C_r$ & 0,012 (faixa 0,008--0,016) & item 20 \\
 Rendimento bateria--roda & 0,90 (faixa 0,85--0,95) & hipótese \\
 Auxiliares de tração & \SI{700}{W} em movimento & hipótese \\
@@ -310,8 +311,10 @@ perdas). Teto horizontal; portáteis a \ang{45} voltados para o norte, abertos a
 
 
 \begin{figure}[H]
-\centering\includegraphics[width=0.75\linewidth]{cad_teto.png}
-\caption{Item 8 — teto em planta: 2 SPR-MAX3-380 + 2 SPR-MAX3-390 num deck de \qtyproduct{4,24 x 1,69}{m}.}
+\centering
+\includegraphics[width=0.49\linewidth]{cad_teto.png}\hfill
+\includegraphics[width=0.50\linewidth]{i16_folga.png}
+\caption{Itens 8 e 16 — teto com quatro painéis (2 SPR-MAX3-380 e 2 SPR-MAX3-390) no deck de \qtyproduct{4,24 x 1,69}{m}. No detalhe, a faixa central até o para-brisa mede \SI{288}{mm}. O gabarito de instalação da Micro Heki exige pelo menos \SI{390}{mm} nessa direção.}
 \label{fig:teto}
 \end{figure}
 
@@ -344,8 +347,7 @@ potência de pico de \SI{205}{kW}, o calor a rejeitar do conjunto motor+inversor
 \itemsec{11}{Ar-condicionado, aquecimento e ventilação}
 \resposta{\textbf{Dometic FreshWell 3000} sob o banco (\SI{2700}{W} de frio, até \SI{3000}{W} de
 aquecimento, \SI{220}{V}, \SI{21}{kg}, \qtyproduct{626 x 400 x 286}{mm})
-\cite{dometic}; \textbf{ventilação natural} prioritária por claraboia de teto e
-janelas, com ventilação mecânica de reserva.}
+\cite{dometic}. A ventilação natural é feita pelas janelas, com apoio mecânico quando necessário. O arranjo de quatro painéis mantém o teto sem claraboia (Figura~\ref{fig:teto}).}
 
 O balanço de CO$_2$ em regime permanente (mistura perfeita) pede \SI{62}{m^3/h} de ar
 externo para manter \SI{1000}{ppm} com duas pessoas; com \SI{30}{m^3/h}, o equilíbrio
@@ -414,14 +416,20 @@ da conversão em 18 chapas de aço (\SI{33,1}{kg}) dimensionadas por 216 casos d
 cada, utilização máxima 0,99 (Figura~\ref{fig:banco}).}
 
 \itemsec{16}{Carenagem, portas, aberturas e vidros}
-\resposta{Carenagem de aço do fabricante, mantida. Portas: 2 dianteiras, 1 lateral
-corrediça (entrada da habitação) e traseiras duplas com abertura de \ang{270}.
-Aberturas novas: claraboia de ventilação no teto, uma janela lateral com vidro duplo de
-acrílico e tela, e passagens seladas para cabos e água. Vidros: para-brisa laminado e
-janelas da cabine do fabricante, com película solar. O deck solar de alumínio fica
-\SI{40}{mm} acima do teto. Isolamento Armaflex de \SI{32}{mm}
-($k = \SI{0,038}{W/(m.K)}$ a \SI{40}{\celsius}) \cite{armaflex}, com
-$U = \SI{0,746}{W/(m^2.K)}$ nas paredes opacas.}
+\resposta{A carroceria de aço, o para-brisa laminado, os vidros da cabine, as duas portas dianteiras, a lateral corrediça e as duas folhas traseiras com abertura de \ang{270} são do Fiat E-Ducato L3H2 (Tabela~\ref{tab:massa}). Essas peças já integram os \SI{2790}{kg} do veículo-base. A conversão prevê película solar, uma janela lateral e um deck de alumínio a \SI{40}{mm} do teto.}
+
+\textbf{Janela lateral.} Adota-se como referência de projeto uma Dometic S4 9104104526, projetável por dobradiça superior, com acrílico duplo, moldura em poliuretano e tela. A peça tem dimensões externas de \qtyproduct{544 x 330}{mm}, recorte de \qtyproduct{499 x 298}{mm} e massa de \SI{4,00}{kg} \cite{janelaS4}. O catálogo especifica parede local de \SI{34}{mm}. O painel fixo da área de estar exige conferência das nervuras, do requadro e do curso da folha no detalhamento de fabricação.
+
+\textbf{Teto e passagens.} Do fim do deck ao para-brisa há \SI{288}{mm} no eixo longitudinal do CAD (Figura~\ref{fig:teto}). A Micro Heki 9104117435 tem recorte de \qtyproduct{280 x 280}{mm}, moldura de \qtyproduct{408 x 370}{mm} e exige espaço externo de instalação de \qtyproduct{430 x 390}{mm} \cite{microheki,microespaco}. Faltam pelo menos \SI{102}{mm} nessa posição. A configuração de \SI{1540}{Wp} mantém a ventilação pelas janelas e o apoio mecânico do item 11. A proposta de passagens compreende uma entrada vedada para os cabos de teto e duas travessias protegidas de piso para a linha da pia, junto à bomba e sob o gabinete da cozinha (Figura~\ref{fig:rotas}).
+
+\textbf{Massas.} O inventário separa \SI{16,0}{kg} para janelas e proteção solar e \SI{4,0}{kg} para cuba e torneira. Nesta especificação, \SI{4,0}{kg} dos \SI{16,0}{kg} correspondem à S4 e \SI{12,0}{kg} ficam para as demais proteções e arremates. A claraboia tem quantidade instalada zero. Conserva-se o subtotal de \SI{325,03}{kg} da conversão interna e a massa de \SI{3976,53}{kg} do cenário.
+
+\textbf{Parede e vidros.} A resistência por unidade de área soma os filmes de ar, o ArmaFlex de \SI{32}{mm} ($k=0{,}03828$ W/(m\,K) a \SI{40}{\celsius}) \cite{armaflex} e o revestimento de \SI{6}{mm}. Com as entradas do modelo de cabine,
+\[
+ R''=1/3+0{,}032/0{,}03828+0{,}006/0{,}13+1/8
+ =1{,}34043\ {\rm m^2 K/W},\qquad U=0{,}74603\ {\rm W/(m^2 K)} .
+\]
+O modelo térmico representa \SI{39,1629}{m^2} opacos e \SI{4,60}{m^2} de vidro equivalente, com $U_v=5{,}7$ W/(m$^2$\,K), fator solar de 0,60 e teto opaco. As pontes térmicas somam \SI{10}{W/K} em paralelo. A condutância total reproduz os \SI{65,44}{W/K} usados no item 31.
 
 %======================================================================
 \section{Parâmetros calculados (itens 17 a 24)}
@@ -429,20 +437,18 @@ $U = \SI{0,746}{W/(m^2.K)}$ nas paredes opacas.}
 \itemsec{17}{Geometria 3D e vistas cotadas}
 \resposta{Figura~\ref{fig:vistas}: comprimento \SI{5,981}{m}, largura de carroceria
 \SI{2,079}{m} (\SI{2,491}{m} com espelhos), altura \SI{2,608}{m} no teto e \SI{2,688}{m}
-com o deck solar. A Figura~\ref{fig:layout} mostra o arranjo interno cotado e a
+com o deck solar. A carroceria do modelo é \SI{17}{mm} mais curta e \SI{29}{mm} mais larga que as cotas de catálogo do item 15. A Figura~\ref{fig:layout} mostra o arranjo interno cotado e a
 Figura~\ref{fig:corte}, o corte longitudinal da montagem completa. O interior fica no referencial
 do projeto: face interna traseira em $x=-3{,}35$\,m e piso acabado a \SI{0,68}{m} do solo.}
 A checagem de colisões da montagem (\texttt{relatorio/montagem\_cad.py}) mostrou o banco de US5000
 \SI{7}{cm} dentro da caixa de roda traseira esquerda posta sobre o eixo real, e os cabos de
-\SI{48}{V} passando por ela. No layout A o banco passou a apoiar sobre a caixa de roda (topo a
-\SI{1,54}{m}, abaixo do estrado da cama) e os cabos descem pela frente do inversor; no layout B o banco
+\SI{48}{V} passando por ela. No layout A, a base do banco fica \SI{10}{mm} acima da caixa de roda. Seu topo fica a \SI{1,543}{m} do solo, \SI{0,863}{m} acima do piso e \SI{117}{mm} abaixo do estrado. Os cabos descem pela frente do inversor. No layout B o banco
 entra \SI{18,5}{cm} para o centro. A linha de água da pia, que cruzava o banheiro e o corredor à
 altura da cintura, agora desce ao lado da bomba, corre sob o piso e sobe atrás do gabinete da cozinha.
 Com essas mudanças a montagem não tem colisões; restam só os terminais das rotas e as passagens pelo
 piso e pela bancada.
 \limite{as dimensões da caixa de roda são estimadas e precisam ser conferidas no desenho do
-fabricante; o banco mais alto eleva o centro de massa em menos de \SI{1}{cm}, efeito não incluído no
-item 18.}
+fabricante. A subida de \SI{0,320}{m} dos três módulos de \SI{39,7}{kg} eleva isoladamente o centro de massa do veículo em \SI{9,6}{mm}. O item 18 mantém o valor do inventário (\SI{0,931}{m} do solo); a correção isolada de altura conduz a cerca de \SI{0,940}{m}.}
 
 \begin{figure}[H]
 \centering\includegraphics[width=\linewidth]{i17_vistas_exterior.png}
@@ -455,7 +461,7 @@ L3H2.}
 
 \begin{figure}[H]
 \centering\includegraphics[width=\linewidth]{i17_layout_interno.png}
-\caption{Item 17 — envelopes dos equipamentos internos (layout A, cama fixa), em metros.}
+\caption{Item 17 — layout A com os envelopes da montagem final. O banco US5000 vai de 0,360 a \SI{0,863}{m} acima do piso acabado, cuja altura é de \SI{0,680}{m} em relação ao solo.}
 \label{fig:layout}
 \end{figure}
 
@@ -481,7 +487,7 @@ motor OEM sob o piso, layout A e deck solar sobre trilhos apoiados no teto abaul
 
 \itemsec{18}{Massa do veículo montado com passageiros}
 \resposta{\textbf{\SI{3976,5}{kg}} com duas pessoas (\SI{80}{kg} cada), \SI{60}{kg} de bagagem e
-\SI{100}{L} de água; CG em $x = \SI{2,018}{m}$, $y = \SI{0,002}{m}$, $z = \SI{0,931}{m}$; cargas
+\SI{100}{L} de água; CG do inventário em $x = \SI{2,018}{m}$, $y = \SI{0,002}{m}$, $z = \SI{0,931}{m}$; cargas
 de \SI{1988}{kg} por eixo; margem de \SI{273,5}{kg} até o PBT.}
 
 \begin{table}[H]
@@ -507,40 +513,20 @@ Ocupantes, bagagem e alimentos & 245,0 \\
 \end{table}
 
 \itemsec{19}{Coeficiente de arrasto e área frontal (CFD)}
-\resposta{Área frontal \textbf{$A = \SI{4,828}{m^2}$}. \textbf{$C_d = \CdValor$} na malha mais fina
-(RANS $k$--$\omega$ SST, família de três malhas), incerteza numérica de \CdGCI; $C_dA = \CdA$.}
+\resposta{A área frontal projetada do veículo equipado é \textbf{\SI{4,8954}{m^2}}. A \SI{80}{km/h}, a malha fina fornece $C_d=\CdValor$ na referência original do OpenFOAM (\SI{4,82784}{m^2}), ou $C_d=0{,}61295$ quando a referência é a silhueta equipada. Os dois pares representam o mesmo arrasto, $C_d A=\SI{3,00068}{m^2}$.}
 
-O domínio mede \qtyproduct{55 x 20 x 10}{m}, com a frente do veículo a \SI{17,5}{m} da entrada e
-\SI{31,5}{m} de esteira até a saída. Na entrada
-e no solo impõe-se \SI{22,2}{m/s} (\SI{80}{km/h}, solo móvel, vento nulo), saída com
-gradiente nulo, laterais e topo com simetria, e funções de parede na carroceria e no
-deck solar. A malha é hexaédrica com refinamento por superfície (níveis 5--6) e uma
-região de esteira. O fator de forma do deck solar está incluído.
+\textbf{Área e referência.} A união das projeções dos triângulos em $YZ$, perpendicular ao movimento, dá \SI{4,82784}{m^2} para o casco com os espelhos e \SI{0,06760}{m^2} para o deck. O vão vertical de \SI{40}{mm} separa as duas silhuetas. O \texttt{forceCoeffs} soma as forças nas superfícies \texttt{aurora} e \texttt{pvdeck} e divide pela pressão dinâmica e pela área de referência do casco. Os cálculos de energia conservam o par de entradas $C_d=0{,}625$ e $A=\SI{4,82784}{m^2}$.
 
-O estudo anterior do grupo variou a graduação vertical das células e obteve $C_d$ de 0,60 a
-0,70; a revisão deste memorial mostrou que essas malhas atingiram o limite de
-\num{650000} células do \texttt{snappyHexMesh} antes de completar o refinamento, de modo
-que não formavam uma família. A família final usa apenas o tamanho da malha de fundo como
-variável, sem limite de células (Tabela abaixo). A malha intermediária fica 2\,\% acima das
-outras duas, que concordam entre si em 0,1\,\%: a convergência é \emph{oscilatória}
-($R = \varepsilon_{21}/\varepsilon_{32} < 0$). Nesse caso a extrapolação de Richardson e o GCI
-de Celik et al.\ \cite{celik} não se aplicam (aplicados formalmente, dariam ordem aparente
-$p = 0{,}44$ e um valor extrapolado sem sentido físico); a incerteza é limitada pela metade da
-amplitude da oscilação, $U = (C_{d,max} - C_{d,min})/2$ \cite{stern}. As razões de refino
-efetivas (1,13 e 1,22) ficaram abaixo do valor 1,3 recomendado porque a contagem de células é
-dominada pelo refinamento de superfície, que acompanha a malha de fundo de forma
-sublinear.
+\textbf{Caso de escoamento.} O domínio é de \qtyproduct{55 x 20 x 10}{m}, com a frente a \SI{17,5}{m} da entrada e \SI{31,5}{m} de esteira até a saída. O ar de entrada e o solo móvel têm módulo de \SI{22,22}{m/s}. O modelo RANS $k$--$\omega$ SST considera rodas paradas, simetria no topo e nas laterais, funções de parede e refinamento de superfície de níveis 5--6 no casco e no deck. As três malhas finais têm o mesmo refinamento da esteira e limite de cinco milhões de células, não atingido. As malhas anteriores limitadas a \num{650000} células foram excluídas desta comparação.
+
+\textbf{Verificação.} Os históricos originais registram convergência iterativa de SIMPLE em 298, 335 e 344 iterações, respectivamente nas malhas grossa, intermediária e fina. Nas últimas 50 iterações de cada corrida, a variação pico a pico de $C_d$, dividida pela média, foi inferior a 0,018\,\%. Entre refinamentos, a variação muda de sinal ($R=-1{,}037$). As razões de refino efetivas são 1,128 e 1,216. A faixa de \CdFaixa{} descreve os valores observados; três malhas com esse comportamento não estabelecem uma incerteza de 1\,\% nem independência de malha \cite{stern,celik}.
 \GCItabela
 
-O $C_d = 0{,}625$ usado nos modelos de energia (itens 21--29) difere do resultado em
-0,5\,\%, dentro da incerteza numérica, e a faixa de sensibilidade 0,581--0,720 desses
-modelos cobre o intervalo. O valor é alto para um furgão (0,30--0,45 na carroceria limpa
-\cite{hucho}) porque inclui o deck solar a \SI{40}{mm} do teto, espelhos, rodas paradas e
-a área de referência com espelhos.
+O $C_d=0{,}625$ dos modelos de energia está dentro da faixa observada com a mesma referência de área. O deck, os espelhos e a ausência de rotação das rodas podem influenciar o arrasto. Isolar a contribuição de cada componente exigiria casos de comparação.
 
 \IfFileExists{figuras/i19_gci.png}{\begin{figure}[H]
 \centering\includegraphics[width=0.8\linewidth]{i19_gci.png}
-\caption{Item 19 — $C_d$ nas três malhas, faixa de incerteza e valor usado nos modelos de energia.}
+\caption{Item 19 — $C_d$ de cada malha, faixa observada e valor usado nos modelos de energia.}
 \end{figure}}{}
 
 \begin{figure}[H]
@@ -551,12 +537,11 @@ a área de referência com espelhos.
 
 \begin{figure}[H]
 \centering\includegraphics[width=\linewidth]{cfd_plano.png}
-\caption{Item 19 — velocidade no plano de simetria: aceleração sobre a borda do teto, escoamento no vão de \SI{40}{mm} sob o deck e esteira com velocidade abaixo de $0{,}6\,U_\infty$ por mais de \SI{6}{m} atrás do veículo.}
+\caption{Item 19 — velocidade no plano de simetria: campo publicado da malha fina à iteração 344. Observam-se a aceleração na região do teto e o déficit de velocidade na esteira.}
 \label{fig:cfdplano}
 \end{figure}
 
-\limite{geometria equivalente (não CAD do fabricante), sem rodas girando e $y^+$ médio de
-cerca de 260 na carroceria, adequado a funções de parede; não há validação experimental.}
+\limite{na iteração 344 da malha fina, o arquivo \texttt{yPlus.dat} registra $y^+$ médio de 304,6 na carroceria, com mínimo 5,88 e máximo 1.321,68. No deck, a média é 315,79. A dispersão mostra a variação local da resolução junto à parede. O caso usa geometria equivalente e não foi validado em ensaio experimental.}
 
 \itemsec{20}{Coeficiente de resistência ao rolamento}
 \resposta{\textbf{$C_r = 0{,}012$} (faixa de sensibilidade 0,008--0,016), valor típico de pneus
@@ -839,10 +824,10 @@ Item & Grandeza & Resultado \\
 13 & Interior & cama fixa, cassete, chuveiro, indução, frigobar 93 L, lava e seca \\
 14 & Suspensão/direção & McPherson / eixo rígido com feixe; EPS; $a_y \approx 0{,}96$ g \\
 15 & Chassi & monobloco 5,998$\times$2,050$\times$2,61 m, entre-eixos 4,035 m \\
-16 & Carenagem & aço OEM, claraboia, janela, isolamento 32 mm, $U = 0{,}746$ W/(m²K) \\
+16 & Carenagem & aço OEM, janela lateral prevista, teto sem claraboia, $U = 0{,}746$ W/(m²K) \\
 17 & Geometria 3D & três vistas cotadas (Fig.~\ref{fig:vistas}) \\
 18 & Massa montada & 3976,5 kg; 1988 kg por eixo \\
-19 & $C_d$, $A$ & $C_d = \CdValor$, $A = 4{,}828$ m² (CFD, 3 malhas) \\
+19 & $C_d$, $A$ & $A_\mathrm{equip}=4{,}8954$ m²; $C_d=\CdValor$ na área de referência de 4,82784 m²; faixa de \CdFaixa \\
 20 & $C_r$ & 0,012 (0,008--0,016) \\
 21 & Forças & 673 N a 40 km/h; 1287 N a 80 km/h \\
 22 & Potências & 7,5 / 28,6 kW nas rodas; 9,0 / 32,5 kW na bateria \\
@@ -906,6 +891,9 @@ validadas experimentalmente. Cada item indica a sua limitação específica.
 \bibitem{gillespie} GILLESPIE, T. D. \emph{Fundamentals of Vehicle Dynamics}. SAE International, 1992.
 \bibitem{euLabel} UNIÃO EUROPEIA. Regulamento (UE) 2020/740 — rotulagem de pneus (classes de resistência ao rolamento C2).
 \bibitem{ii35} CANALTECH. Imposto de 35\% já entrou em vigor: carros elétricos vão ficar mais caros. \url{https://canaltech.com.br/carros/imposto-de-35-ja-entrou-em-vigor-carros-eletricos-vao-ficar-mais-caros/}. Acesso em: 16 nov. 2026.
+\bibitem{janelaS4} DOMETIC. \emph{Windows \& Doors}, tabela S4, peça 9104104526. \url{https://mediabank.dometic.com/deployedFiles/2e7578a7069c02837a4a975ddc377872.pdf}.
+\bibitem{microheki} DOMETIC. \emph{Micro Heki}, peça 9104117435, desenho dimensional e ficha técnica. \url{https://www.dometic.com/en/product/dometic-micro-heki-9104117435}.
+\bibitem{microespaco} DOMETIC. \emph{Products 2025}, seção 3.42, Micro Heki, espaço externo de instalação. \url{https://www.dalix.cz/wp-content/uploads/2026/03/Produkty-Dometic-2025.pdf}.
 \end{thebibliography}
 
 %======================================================================
@@ -926,7 +914,7 @@ Itens & Script & Modelo / método \\
 8, 25--29 & \path{scripts/executar_cenario_integrado.py} & cadeia integrada de 17 etapas (solar, energia, massa, freios) \\
 8 & \path{src/motorhome/solar.py} & pvlib, céu claro, Faiman \\
 17 & \path{relatorio/gerar_figuras.py} & vistas cotadas da geometria do CFD \\
-19 & \path{scripts/executar_aero_malha_adicional.py}, \path{scripts/calcular_gci_aero.py} & OpenFOAM 2412 \path{snappyHexMesh}/\path{simpleFoam}; incerteza de malha (Celik/Stern) \\
+19 & \path{scripts/executar_aero_malha_adicional.py}, \path{scripts/calcular_gci_aero.py} & OpenFOAM 2412 \path{snappyHexMesh}/\path{simpleFoam}; comparação entre três malhas \\
 21--22, 26 & \path{scripts/sensibilizar_resistencias_rota.py} & equilíbrio longitudinal, 8100 casos \\
 24 & \path{scripts/calcular_custo_brl_i24.py} & cascata tributária de importação \\
 25 & \path{scripts/desenvolver_despacho_i25.py} & MILP de despacho solar \\

@@ -1,7 +1,23 @@
 # Item 19 — Coeficiente de arrasto e CFD
 
 <!-- revisao-final:inicio -->
-> **Estado em 16/11/2026:** o resultado final está no [relatório](../../../relatorio/relatorio.pdf), seção 19 (p. 17). Para revisar e registrar o parecer, siga o [guia de revisão por integrante](../../../docs/REVISAO_INTEGRANTES.md). O texto abaixo é o histórico do desenvolvimento; onde ele disser "em desenvolvimento", vale o relatório.
+**Resultado conferido com os arquivos do commit `5144702`.** Para o motorhome com o deck fotovoltaico, o coeficiente de arrasto da malha fina é **0,621536**, com **4,827840 m²** como área de referência de `forceCoeffs`. Esse valor de área corresponde à projeção frontal da carroceria, inclusive espelhos. A silhueta equipada, obtida pela união das projeções dos triângulos da carroceria e do deck no plano YZ, mede **4,895440 m²**. As forças de ambas as superfícies já entram no cálculo do coeficiente. A área de arrasto é **3,000678 m²**. O coeficiente equivalente normalizado pela silhueta equipada é **0,612954**. O par original dos modelos de energia continua sendo Cd nominal **0,62487678** e área **4,827840 m²**.
+
+| Malha | Células | Iterações SIMPLE | Cd no último passo | Variação relativa de Cd nas últimas 50 iterações |
+|---|---:|---:|---:|---:|
+| Grossa | 291.219 | 298 | 0,621971 | 0,00275% |
+| Intermediária | 522.986 | 335 | 0,633751 | 0,01790% |
+| Fina | 750.513 | 344 | 0,621536 | 0,01390% |
+
+O intervalo **0,621536–0,633751** reúne os três valores finais. A razão entre as diferenças sucessivas é −1,037. A sequência oscila, com razão de refinamento efetiva de 1,128 entre a fina e a intermediária e de 1,216 entre a intermediária e a grossa. Esses três valores permitem descrever a variação observada. A incerteza de discretização e a validação experimental permanecem em aberto.
+
+Na carroceria da malha fina, o y⁺ varia de **5,88 a 1.321,68**, com média **304,60**. No deck, varia de **98,63 a 792,91**, com média **315,79**. Os extremos e as médias são os de cada superfície no passo final de SIMPLE. O estudo usa solo móvel, rodas paradas e modelo de turbulência k–ω SST.
+
+**Reprodução do pós-processamento.** A partir da raiz do projeto, executar `python scripts/calcular_gci_aero.py` com NumPy, Matplotlib e PyYAML instalados. A execução lê a contagem de células e o critério de convergência dos logs, o Cd de `postProcessing/forces1/0/coefficient.dat`, o y⁺ de `postProcessing/yPlus/0/yPlus.dat` e a área de referência do `system/controlDict` de cada malha. Ela gera o resumo JSON, o gráfico e as macros do relatório. Para reproduzir o escoamento, o executor original requer OpenFOAM 2412 e o caso-base externo `cfd-aurora-refino-semcamadas-02`. O ZIP contém o histórico e as configurações utilizados para a conferência.
+
+[Resultados das três malhas](../../../entregas/aero_equipado1540/familia_gci/resumo_gci.json) · [Executor do CFD](../../../scripts/executar_aero_malha_adicional.py) · [Pós-processamento](../../../scripts/calcular_gci_aero.py) · [Geometria CFD de referência](../../../entregas/aero_equipado1540/malha_adicional_1/case/constant/triSurface) · [Relatório](../../../relatorio/relatorio.pdf)
+
+As notas de desenvolvimento a seguir documentam as etapas anteriores.
 <!-- revisao-final:fim -->
 
 **Responsável:** P3 — Carroceria, CAD e CFD  
