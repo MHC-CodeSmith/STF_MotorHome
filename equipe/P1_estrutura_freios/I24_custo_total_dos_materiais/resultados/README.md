@@ -9,5 +9,5 @@ BOMcanônica1540regenerada;GX1093USD+MPPT393USD+250/60USD465=1951USDlista2026Q2;
 
 Limite: Preços lista semVAT não são cotação instalada;BRL439cooktop é histórico,frete/tributos/câmbio permanecemnull.
 
-Índice local: `execucao_integrada.json`;SHA256da evidência: `f3e4f742dea7fbc73a67bd2173bf84b0a7a84c1d219f3c9df6046583f981e4b4`. Não aprovado fisicamente.
+Índice local: `execucao_integrada.json`;SHA256da evidência: `c6ab53631d3ae02e0567340a32d03186fb1e02194f59e1651b7651ebabb5582b`. Não aprovado fisicamente.
 <!-- execucao-integrada:fim -->

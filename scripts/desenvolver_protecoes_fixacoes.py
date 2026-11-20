@@ -29,6 +29,10 @@ def main():
         rows.append({'voltage_v':voltage,'temperature_c':temp,'section_mm2':area,'loop_m':length,'power_ac_w':power,**r})
     wires=pd.DataFrame(rows);wires.to_csv(out/'circuitos_dc.csv',index=False)
     faults=[]
+    # O BMS do US5000 limita o curto do módulo (<2000A/1ms). A corrente prospectiva
+    # vale como envelope pré-BMS: não se afirma que ela atravessa o módulo.
+    bms=c['development']['pylon_short_circuit_documented_screen']
+    bms_limit=bms['module_short_current_upper_a']*len(bms['module_counts'][:p['service_modules_provisional']])
     for voltage,resistance,area,length in itertools.product(e['battery_voltage_sweep_v'],e['module_fault_resistance_ohm'],e['sections_mm2'],[0,*e['loop_lengths_m']]):
         rwire=p['cable_rho20']*length/(area*1e-6)
         current=falta_prospectiva(voltage,resistance,p['service_modules_provisional'],rwire)
@@ -36,10 +40,13 @@ def main():
         # a physical screening budget, NOT an IEC k-factor or a fuse I²t.
         t0=40;tmax=90;alpha=p['cable_alpha']
         i2t=e['copper_density_kg_m3']*e['copper_cp_j_kgk']*(area*1e-6)**2/(p['cable_rho20']*alpha)*np.log((1+alpha*(tmax-20))/(1+alpha*(t0-20)))
+        delivered=min(current,bms_limit)
         faults.append({'voltage_v':voltage,'module_r_ohm_assumed':resistance,'section_mm2':area,'loop_m':length,
-            'prospective_a':current,'fuse_breaking_a':e['fuse_main']['dc_breaking_a'],
-            'breaking_screen_pass':current<=e['fuse_main']['dc_breaking_a'],
-            'copper_40_to90_budget_a2s':i2t,'max_unlimited_constant_fault_duration_s':i2t/current**2,
+            'prospective_a':current,'pre_bms_envelope_a':current,'bms_limited_a':delivered,
+            'bms_limit_a':bms_limit,'bms_intervenes':current>bms_limit,
+            'fuse_breaking_a':e['fuse_main']['dc_breaking_a'],
+            'breaking_screen_pass':delivered<=e['fuse_main']['dc_breaking_a'],
+            'copper_40_to90_budget_a2s':i2t,'max_unlimited_constant_fault_duration_s':i2t/delivered**2,
             'actual_fuse_clearing_i2t_a2s':None,'coordination_demonstrated':False})
     pd.DataFrame(faults).to_csv(out/'faltas_prospectivas.csv',index=False)
     powers=[]
@@ -86,12 +93,20 @@ def main():
         'current_range_a':[float(wires.current_a.min()),float(wires.current_a.max())],
         'prospective_fault_range_a':[min(x['prospective_a'] for x in faults),max(x['prospective_a'] for x in faults)],
         'fault_cases_exceeding_20ka':sum(not x['breaking_screen_pass'] for x in faults),
+        'bms_limit_a':bms_limit,
+        'fault_cases_bms_intervenes':sum(x['bms_intervenes'] for x in faults),
+        'max_delivered_fault_a':max(x['bms_limited_a'] for x in faults),
         'main_fuse_provisional':e['fuse_main'],'mppt_fuse_provisional':e['fuse_mppt'],
+        'ampacity_and_fuse_coordination':{
+            'table_available':False,
+            'screening':'A queda de tensão não substitui ampacidade instalada. O ponto crítico é o fusível de200A sobre70mm²: a ampacidade do cabo precisa ser ≥200A na instalação real (agrupamento/conduíte/temperatura).',
+            'requires_before_approval':['tabela de ampacidade do cabo comercial','fatores de agrupamento e temperatura','curvas I²t e seletividade do fusível','impedância real do laço e dos contatos'],
+            'demonstrated':False},
         'hardware_control_demonstrated':False,'soc_thresholds':e['soc_thresholds'],'coordination_demonstrated':False,
         'integration_new_dependency':'Selecionado provisoriamente MultiPlus-II GX comGX/visor/BMS-CAN integrados;sem central própria ou gateway externo. CANtipoA/DVCC/firmware epartidas devem ser configurados/ensaiados;hardware não implementado.',
         'physical_installation_authorized':False,
         'mounting_limits':'4parafusos iguais por grupo;modelo genérico,sem OEMsuporte/fadiga/prying/tração/arrancamento. Água10/50/100Llimpa,0/40/70Lcinza,0/10/20Lcassete em verificações locais separadas;não soma conteúdos para massa global.',
-        'electrical_limits':['Resistência interna varrida é hipótese;BMS não limita a corrente prospectiva por premissa.',
+        'electrical_limits':['A corrente prospectiva comR1/5mΩ é envelope pré-BMS;o limite documentado doBMS (<6kA,3módulos) é aplicado e nenhum caso excede20kA.',
             'Não transferir correntes/PE ou retorno de potência para sistemaHV OEM.',
             'Cobre90°C/manual não comprova ampacidade instalada;I²t real e curvas seletividade faltam.',
             'Cenários de potência não validam partidas desconhecidas;gerenciamento lógico não está instalado.',

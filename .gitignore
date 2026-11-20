@@ -1,6 +1,7 @@
 __pycache__/
 .pytest_cache/
 .venv/
+.venv311/
 *.pyc
 *.egg-info/
 .ipynb_checkpoints/
@@ -13,3 +14,11 @@ fontes_externas/downloads/
 build/
 dist/
 node_modules/
+relatorio/*.aux
+relatorio/*.log
+relatorio/*.toc
+relatorio/*.out
+relatorio/*.nav
+relatorio/*.snm
+relatorio/*.fls
+relatorio/*.fdb_latexmk

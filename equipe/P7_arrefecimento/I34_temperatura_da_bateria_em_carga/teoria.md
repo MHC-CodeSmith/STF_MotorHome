@@ -31,7 +31,7 @@ Método técnico integrado: I=P_carga/V; Q̇_Joule=I²R_int; C_b·dT_b/dt=Q̇_Jo
 
 20/80kW são ensaios térmicos, não potência solar. ModeloECM/múltiplos nós é parametrizado,com resistência/massa/troca sensibilizadas e sem curvaOEM inventada.
 
-Escopo: ECM2nós não packOEM calibrado;20/80kW não são FV disponível.
+Escopo: ECM2nós não packOEM calibrado;20/80kW não são FV disponível; 45°C é limite hipotético.
 
 Fonte dos parâmetros: `config/parametros_globais.yaml`;dadoOEM,hipótese e resultado mantêm status próprios. Simulação não é aprovação humana.
 <!-- execucao-integrada:fim -->

@@ -31,13 +31,16 @@ Cada um de nós vai apresentar a parte do projeto que desenvolveu."
 ## P2 — Bateria, elétrica e cabos (75 s) · slides 2, 8 · itens 6, 7, 9, 23, 30
 
 - Temos duas baterias LFP: a de tração, de 98 kWh úteis a 400 V, do fabricante, e um
-  banco de serviços de 14,4 kWh a 48 V com três módulos Pylontech US5000. Ao todo,
-  112,4 kWh a bordo.
-- O banco de serviços tem controladores MPPT Victron com 99 % de eficiência e um
+  banco de serviços de 14,4 kWh nominais (13,7 kWh úteis) a 48 V com três módulos
+  Pylontech US5000.
+- O banco de serviços tem controladores MPPT Victron (99 % no 250/60 e 98 % no 150/60) e um
   inversor de 5 kVA a 220 V e 60 Hz.
 - No item 30, calculamos a corrente de fase do motor na potência máxima: 489 A RMS.
-  Resolvemos o campo de temperatura r–θ no cabo de 120 mm², com convecção natural e
-  radiação. A temperatura máxima é 85 °C, abaixo dos 150 °C do isolamento.
+  Resolvemos o campo de temperatura r–θ no cabo, com convecção natural, radiação e
+  contorno completo (conduíte, três fases agrupadas, perdas AC). O resultado depende
+  do contorno: em cabo isolado a 25 °C dá 85 °C, mas no cofre do motor o cabo de
+  120 mm² chega a 158 °C, acima da ficha de 150 °C. A menor bitola que atende o
+  critério de 125 °C é 185 mm².
 
 ## P3 — Carroceria, CAD e CFD (75 s) · slide 4 · itens 16, 17, 19
 

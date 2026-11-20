@@ -9,5 +9,5 @@ Execução integrada: `entregas/integrado_maxeon1540/freios_integrados/convergen
 
 Limite: Disco/material/repartição/regenOEM não confirmados;108km/h é ensaio prescrito,acima limitador90.
 
-Índice local: `execucao_integrada.json`;SHA256da evidência: `1e0ea6ffb6cc49f3311246414f994e60caa7cb83352e1830ec7f5224b4a7ef59`. Não aprovado fisicamente.
+Índice local: `execucao_integrada.json`;SHA256da evidência: `d263cbcd3f9c566a87185ab016dabe5076ebb8dbc43ab23d18471815729dac61`. Não aprovado fisicamente.
 <!-- execucao-integrada:fim -->

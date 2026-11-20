@@ -29,7 +29,7 @@ Método técnico integrado: ρc·∂T/∂t=∇·(k∇T)+J²ρ_el(T); ρ_el(T)=ρ
 
 Campos multidimensionais de cobre/isolamento e sensibilidade. CorrenteDC calculada não é RMSde fase;cabosHV permanecemOEM sem modificação.
 
-Escopo: Corrente de faseOEM na potência máxima desconhecida;DC569.4A não equivale a RMSde fase.Não modificarcabos.
+Escopo: Bitolas185/240 são derivadas da ficha e exigem confirmação;corrente de fase depende de mapaOEM não publicado;nenhuma modificação física do chicoteHV é autorizada.
 
 Fonte dos parâmetros: `config/parametros_globais.yaml`;dadoOEM,hipótese e resultado mantêm status próprios. Simulação não é aprovação humana.
 <!-- execucao-integrada:fim -->
