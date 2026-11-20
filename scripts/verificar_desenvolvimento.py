@@ -120,8 +120,8 @@ def main():
     for path in (OUT/'cabine_transiente').glob('mesh*/campo_3d.npz'):
         field=np.load(path)
         check(np.isfinite(field['temperature_c']).all() and np.isfinite(field['velocity_m_s']).all(),f'{path.parent.name}: campo3D finito')
-    thermal=pd.read_csv(OUT/'mecanica_termica/I34_54sensibilidades.csv')
-    check(thermal.thermal_residual_j.abs().max()<1e-3 and thermal.electrical_residual_j.abs().max()<1e-3,'Bateria54casos conserva calor/energia')
+    thermal=pd.read_csv(OUT/'mecanica_termica/I34_sensibilidades.csv')
+    check(thermal.thermal_residual_j.abs().max()<1e-3 and thermal.electrical_residual_j.abs().max()<1e-3,'Bateria:sweep completo conserva calor/energia')
     bom=json.loads((OUT/'bom_atual/resumo.json').read_text())
     check(bom['known_subtotals_by_currency']=={'EUR':50990,'USD':1486,'BRL':439} and bom['installed_total_brl'] is None,'BOM: separa moedas e não inventa orçamento instalado')
     inv=next(x for x in c['development']['layout_equipment']['A_fixa'] if x['id']=='inversor')

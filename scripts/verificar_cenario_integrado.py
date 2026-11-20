@@ -243,7 +243,7 @@ def main():
           alias_coarse.relative_difference_current_percent.abs().max()<5.3 and
           abs(alias_daily.difference_current_minus_reference_kwh.abs().max()-0.4309193346602749)<1e-8,
           'I29 limiar DC:regra média aproxima referência linear em1min e erro sazonal coarsestep quantificado')
-    battery=pd.read_csv(out/'mecanica_termica/I34_54sensibilidades.csv');check(len(battery)==54 and battery.thermal_residual_j.abs().max()<1e-3,'Bateria54sensibilidades térmicas')
+    battery=pd.read_csv(out/'mecanica_termica/I34_sensibilidades.csv');check(len(battery)==486 and battery.thermal_residual_j.abs().max()<1e-3 and ('pack_entropy_v_k' in battery.columns) and ('resistance_ref_ohm' in battery.columns),'Bateria: sweep completo inclui resistência/entropia e conserva calor')
     sensitivity=json.loads((out/'sensibilidades/resumo.json').read_text());check(sensitivity['traction_cases']==972 and sensitivity['mission_cases']==120 and sensitivity['dc_daily_cases']==36 and sensitivity['max_energy_residual_kwh']<1e-6,'972incertezas/120missões/36DC com conservação')
     for r in json.loads((out/'sensibilidades/missoes_120_comparacoes.json').read_text()):check(r['max_daily_driving_h']<=8+1e-9 and not r['physical_mission_demonstrated'],'Extremos/buffer:8h/sem afirmarviabilidade')
     buffer=json.loads((out/'buffer_comercial/resumo.json').read_text());check(buffer['cases']==32 and buffer['max_energy_residual_kwh']<1e-6 and not buffer['buffer_installed'],'Buffer comercial32casos,sem instalação')

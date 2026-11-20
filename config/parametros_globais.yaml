@@ -511,6 +511,23 @@ parameters:
     version: 1.1.0-execucao02
     reference_date: '2026-11-09'
     note: Dado documentado da candidata SK; não aprovação da variante
+  motor_mode_power_kw:
+    value: {eco: 120, normal: 160, sport: 205}
+    unit: kW
+    source: oem_sk
+    decisions:
+    - DEC-002
+    - DEC-009
+    - DEC-036
+    - DEC-037
+    owner: P4
+    status: provisorio
+    confidence: alta
+    version: 1.1.0-execucao02
+    reference_date: '2026-11-09'
+    note: Modos de ficha (eco/normal/sport). Picos de ficha; não definem potência
+      contínua nem curva de perdas. O modo normal é usado como corrente de projeto
+      dos cabos; o pico é tratado como transitório.
   motor_peak_nm:
     value: 410
     unit: N m
@@ -3695,6 +3712,36 @@ development:
     max_time_s: 120
     note: Envelope torque constante/potencia constante é hipótese de cálculo; relação
       e raio não dados homologados da variante; não curvaOEM.
+  cable_hv:
+    version: 1.0.0-bitola-termica
+    reference_date: '2026-11-20'
+    owner: P2
+    source: hyp
+    status: provisorio_nao_validado
+    confidence: baixa
+    bitolas:
+    - {area_mm2: 120, condutor_mm: 15.1, externo_mm: 18.0, r20_ohm_km: 0.153, massa_kg_m: 1.147, origem: fabricante}
+    - {area_mm2: 150, condutor_mm: 17.0, externo_mm: 20.0, r20_ohm_km: 0.122, massa_kg_m: 1.434, origem: fabricante}
+    - {area_mm2: 185, condutor_mm: 18.8, externo_mm: 21.7, r20_ohm_km: 0.099, massa_kg_m: 1.768, origem: derivado_calibrado}
+    - {area_mm2: 240, condutor_mm: 21.4, externo_mm: 24.3, r20_ohm_km: 0.076, massa_kg_m: 2.294, origem: derivado_calibrado}
+    bitola_referencia_mm2: 185
+    bitola_minima_hot_spot_mm2: 185
+    bitola_minima_rota_protegida_mm2: 150
+    t_max_projeto_c: 125
+    t_falha_c: 150
+    corrente_projeto_modo: normal
+    contorno_projeto: {t_ar_c: 60, t_radiante_c: 80, emissividade: 0.9, fator_forma_radiacao: 0.3, fator_confinamento_conveccao: 0.7, n_fases: 3, fator_perda_ac: 1.1, fracao_perimetro_exposto: 0.8}
+    contorno_rota_protegida: {t_ar_c: 50, t_radiante_c: 70, emissividade: 0.9, fator_forma_radiacao: 0.5, fator_confinamento_conveccao: 0.7, n_fases: 3, fator_perda_ac: 1.1, fracao_perimetro_exposto: 0.8}
+    contorno_referencia_antiga: {t_ar_c: 25, t_radiante_c: 25, emissividade: 0.9, fator_forma_radiacao: 1.0, fator_confinamento_conveccao: 1.0, n_fases: 1, fator_perda_ac: 1.0}
+    cobre_rho_kg_m3: 8960
+    cobre_cp_j_kgk: 385
+    isolacao_rho_kg_m3: 1200
+    isolacao_cp_j_kgk: 1700
+    note: Bitolas120/150 vêm da ficha RADOX155 (STD718404G);185/240 são derivadas
+      por geometria calibrada nos dois pontos de catálogo (erro <1% em diâmetro e
+      R20) e exigem confirmação na ficha antes de qualquer compra. 'hot spot' é o
+      trecho no cofre do motor; 'rota protegida' é o piso abaixo de50/70°C. Nenhuma
+      modificação física do chicoteOEM é autorizada (DEC-001/DEC-040).
   thermal_sweep:
     mass_kg:
     - 500
@@ -3708,11 +3755,20 @@ development:
     - 250
     - 500
     - 1000
+    resistance_ref_ohm:
+    - 0.03
+    - 0.06
+    - 0.12
+    pack_entropy_v_k:
+    - -0.02
+    - 0.0
+    - 0.02
     powers_w:
     - 20000
     - 80000
     note: Sensibilidades estimadas; massa pack apenas no modelo térmico, nunca adicionada
-      à tara.
+      à tara. Resistência e entropia do pack são parâmetros dominantes da geração
+      de calor e não podem ficar fixos no caso-base; entram no produto cartesiano.
   mission_grid:
     start_hours:
     - 0

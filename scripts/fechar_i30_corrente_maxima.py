@@ -1,13 +1,12 @@
-"""I30 closure: motor-feed cable temperature at the motor's maximum power.
+"""I30: temperatura do cabo de alimentação do motor na potência máxima.
 
-The earlier study swept phase currents of 300/450/600 A and fixed film
-coefficients. Here the RMS phase current at peak power is estimated from the
-DC bus voltage with the SVPWM linear-modulation limit, V_LL,rms = V_dc/sqrt(2),
-I = P_mech / (eta_motor * sqrt(3) * V_LL * PF), and the outer boundary uses
-natural convection on a horizontal cylinder (Churchill-Chu) plus radiation in
-still air at 25 C, iterated on the computed surface temperature. The r-theta
-field comes from the same solver used before (motorhome.cabos_polares).
-Steady state at peak power is conservative: the 205 kW peak is short-duration.
+Revisão de 2026-11-20: o contorno térmico deixou de ser "cabo isolado em ar parado
+a 25 °C com radiação plena". Passa a cobrir ar e entorno radiativo distintos,
+confinamento em conduíte, agrupamento das três fases e perdas AC, além do regime
+transitório no pico. O solver r–θ (`motorhome.cabos_polares`) não foi alterado.
+
+O contorno "referencia_antiga" reproduz exatamente o resultado anterior
+(85,37 °C em 1×120 mm² a 489 A) e serve de regressão.
 """
 
 from __future__ import annotations
@@ -17,7 +16,6 @@ import csv
 import itertools
 import json
 import sys
-from dataclasses import replace
 from pathlib import Path
 
 import matplotlib
@@ -26,54 +24,25 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 import yaml
+from scipy.optimize import brentq
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
-from motorhome.cabos_polares import Cabo, resolver
-
-SIGMA = 5.670374419e-8
-G = 9.81
-# Dry air at 1 atm (Incropera, Table A.4): T [K], k [W/m K], nu [m2/s], Pr
-AIR = np.array([
-    [300, 0.0263, 15.89e-6, 0.707], [350, 0.0300, 20.92e-6, 0.700],
-    [400, 0.0338, 26.41e-6, 0.690], [450, 0.0373, 32.39e-6, 0.686],
-    [500, 0.0407, 38.79e-6, 0.684], [550, 0.0439, 45.57e-6, 0.683],
-    [600, 0.0469, 52.69e-6, 0.685],
-])
+from motorhome.cabo_hv import CondicoesContorno, resolver_estacionario, resolver_transiente
+from motorhome.cabos_polares import Cabo
 
 
-def ar(t_k: float) -> tuple[float, float, float]:
-    return tuple(float(np.interp(t_k, AIR[:, 0], AIR[:, i])) for i in (1, 2, 3))
+def _cabo_de_bitola(bitola, modelo):
+    """Cabo a partir da tabela canônica `development.cable_hv`."""
+    return Cabo(bitola["condutor_mm"] / 2000, bitola["externo_mm"] / 2000,
+                modelo["bundle_k_assumed_w_mk"], modelo["insulation_k_assumed_w_mk"],
+                bitola["r20_ohm_km"] / 1000, modelo["alpha_assumed_per_k"],
+                modelo["reference_k"])
 
 
-def h_externo(ts_k: float, ta_k: float, d_m: float, emissividade: float) -> tuple[float, float]:
-    """Natural convection (Churchill-Chu, horizontal cylinder) and linearised radiation."""
-    tf = (ts_k + ta_k) / 2
-    k, nu, pr = ar(tf)
-    alpha = nu / pr
-    ra = G * (1 / tf) * max(ts_k - ta_k, 1e-6) * d_m**3 / (nu * alpha)
-    nu_d = (0.60 + 0.387 * ra**(1 / 6) / (1 + (0.559 / pr)**(9 / 16))**(8 / 27))**2
-    h_conv = nu_d * k / d_m
-    h_rad = emissividade * SIGMA * (ts_k**2 + ta_k**2) * (ts_k + ta_k)
-    return h_conv, h_rad
-
-
-def resolver_acoplado(cabo: Cabo, corrente: float, ta_k: float, emissividade: float,
-                      nr: int = 32, nt: int = 128) -> dict:
-    ts = ta_k + 30.0
-    for _ in range(100):
-        h_conv, h_rad = h_externo(ts, ta_k, 2 * cabo.raio_externo_m, emissividade)
-        r = resolver(cabo, corrente, nr, nt, h_conv + h_rad, ta_k)
-        ts_new = float(np.mean(r["temperatura_superficie_k"]))
-        if abs(ts_new - ts) < 1e-6:
-            break
-        ts = 0.5 * ts + 0.5 * ts_new
-    else:
-        raise RuntimeError("surface temperature iteration did not converge")
-    return {"h_conv_w_m2k": h_conv, "h_rad_w_m2k": h_rad, "temperatura_superficie_c": ts_new - 273.15,
-            "temperatura_max_c": r["temperatura_max_k"] - 273.15,
-            "temperatura_media_feixe_c": r["temperatura_media_feixe_k"] - 273.15,
-            "joule_w_m": r["joule_w_m"], "residuo_w_m": r["residuo_w_m"], "_campo": r}
+def _corrente_fase(potencia_w, eta, pf, v_dc):
+    """I_fase a partir do limite de modulação linear SVPWM: V_LL,rms = V_dc/sqrt(2)."""
+    return potencia_w / (eta * np.sqrt(3) * v_dc / np.sqrt(2) * pf)
 
 
 def main() -> None:
@@ -82,84 +51,172 @@ def main() -> None:
     parser.add_argument("--destino", type=Path,
                         default=ROOT / "entregas/integrado_maxeon1540/i30_corrente_maxima")
     args = parser.parse_args()
-    cfg = yaml.safe_load(args.config.read_text())
-    m = cfg["model"]
-    globais = yaml.safe_load((ROOT / "config/parametros_globais.yaml").read_text())["parameters"]
-    p_mech = globais["motor_peak_kw"]["value"] * 1000
-    v_dc_nom = globais["traction_voltage_v"]["value"]
-    ta = m["ambient_k"]
-    base = Cabo(m["bundle_radius_m"], m["outer_radius_m"], m["bundle_k_assumed_w_mk"],
-                m["insulation_k_assumed_w_mk"], m["resistance20_ohm_m"], m["alpha_assumed_per_k"],
-                m["reference_k"])
-    alt = cfg["alternative_manufacturer_same_table"]
-    cabo150 = replace(base, raio_feixe_m=alt["conductor_diameter_max_mm"] / 2000,
-                      raio_externo_m=alt["cable_diameter_nominal_mm"] / 2000,
-                      resistencia20_ohm_m=alt["resistance20_max_ohm_km"] / 1000)
-    opcoes = {"1x120": (base, 1), "1x150": (cabo150, 1), "2x120": (base, 2)}
+    modelo = yaml.safe_load(args.config.read_text())["model"]
+    globais = yaml.safe_load((ROOT / "config/parametros_globais.yaml").read_text())
+    params = {k: v["value"] for k, v in globais["parameters"].items()}
+    cabos_cfg = globais["development"]["cable_hv"]
+    p_mech = params["motor_peak_kw"] * 1000
+    v_dc_nom = params["traction_voltage_v"]
+    modo_normal_w = params["motor_mode_power_kw"]["normal"] * 1000
 
+    bitolas = {b["area_mm2"]: _cabo_de_bitola(b, modelo) for b in cabos_cfg["bitolas"]}
+    nominal = {"eta": 0.95, "pf": 0.90, "vdc": v_dc_nom}
+    i_pico = _corrente_fase(p_mech, nominal["eta"], nominal["pf"], nominal["vdc"])
+    i_normal = _corrente_fase(modo_normal_w, nominal["eta"], nominal["pf"], nominal["vdc"])
+
+    contornos = {
+        "referencia_antiga": CondicoesContorno(**cabos_cfg["contorno_referencia_antiga"]),
+        "rota_protegida": CondicoesContorno(**cabos_cfg["contorno_rota_protegida"]),
+        "hot_spot": CondicoesContorno(**cabos_cfg["contorno_projeto"]),
+    }
+
+    # 1) Matriz contorno × bitola × ponto de operação.
     rows = []
-    for eta, pf, vdc, emis in itertools.product((0.92, 0.95, 0.97), (0.85, 0.90, 0.95),
-                                                 (0.875 * v_dc_nom, v_dc_nom), (0.8, 0.9)):
-        v_ll = vdc / np.sqrt(2)
-        corrente = p_mech / (eta * np.sqrt(3) * v_ll * pf)
-        for nome, (cabo, paralelos) in opcoes.items():
-            r = resolver_acoplado(cabo, corrente / paralelos, ta, emis)
-            r.pop("_campo")
-            rows.append({"eta_motor": eta, "fator_potencia": pf, "v_dc_v": vdc, "v_ll_rms_v": v_ll,
-                         "emissividade": emis, "corrente_fase_rms_a": corrente, "opcao": nome,
-                         "corrente_por_cabo_a": corrente / paralelos, **r,
-                         "acima_150c": r["temperatura_max_c"] > 150.0})
+    for (nome_contorno, contorno), area, potencia in itertools.product(
+            contornos.items(), bitolas, (modo_normal_w, p_mech)):
+        corrente = _corrente_fase(potencia, nominal["eta"], nominal["pf"], nominal["vdc"])
+        r = resolver_estacionario(bitolas[area], corrente, contorno)
+        rows.append({"contorno": nome_contorno, "potencia_w": potencia, "corrente_a": corrente,
+                     "area_mm2": area,
+                     "temperatura_max_c": r["temperatura_max_k"] - 273.15,
+                     "temperatura_superficie_c": r["temperatura_superficie_k"] - 273.15,
+                     "h_conveccao_w_m2k": r["h_conveccao_w_m2k"],
+                     "h_radiacao_w_m2k": r["h_radiacao_w_m2k"],
+                     "joule_w_m": r["joule_w_m"], "removido_w_m": r["removido_w_m"],
+                     "residuo_w_m": r["residuo_w_m"],
+                     "acima_125c": r["temperatura_max_k"] > cabos_cfg["t_max_projeto_c"] + 273.15,
+                     "acima_150c": r["temperatura_max_k"] > cabos_cfg["t_falha_c"] + 273.15})
 
-    nominal = {"eta": 0.95, "pf": 0.90, "vdc": v_dc_nom, "emis": 0.9}
-    nom_i = p_mech / (nominal["eta"] * np.sqrt(3) * nominal["vdc"] / np.sqrt(2) * nominal["pf"])
-    campos = {nome: resolver_acoplado(cabo, nom_i / par, ta, nominal["emis"]) for nome, (cabo, par) in opcoes.items()}
+    # 2) Corrente máxima para o critério de projeto em cada contorno.
+    def temperatura(area, corrente, contorno):
+        """Temperatura máxima; fuga térmica (sem solução física) conta como exceder."""
+        try:
+            return resolver_estacionario(bitolas[area], corrente, contorno, nr=24, nt=96)[
+                "temperatura_max_k"] - 273.15
+        except (ValueError, RuntimeError):
+            return 1e5
+
+    t_limite = cabos_cfg["t_max_projeto_c"]
+    limites = []
+    for nome_contorno, contorno in contornos.items():
+        for area in bitolas:
+            def excesso(corrente, area=area, contorno=contorno):
+                return temperatura(area, corrente, contorno) - t_limite
+            if excesso(5.0) > 0:
+                imax = 0.0
+            elif excesso(900.0) < 0:
+                imax = 900.0
+            else:
+                imax = brentq(excesso, 5.0, 900.0, xtol=1.0)
+            limites.append({"contorno": nome_contorno, "area_mm2": area,
+                            "corrente_max_125c_a": imax,
+                            "potencia_equivalente_kw": imax * (nominal["eta"] * np.sqrt(3)
+                                                               * nominal["vdc"] / np.sqrt(2)
+                                                               * nominal["pf"]) / 1000})
+
+    # 3) Transitório: pico de 205 kW partindo do regime normal.
+    transitorio = []
+    for nome_contorno, contorno in contornos.items():
+        for area in bitolas:
+            tr = resolver_transiente(bitolas[area], i_normal, i_pico, contorno,
+                                     duracao_pico_s=180.0,
+                                     t_limite_k=cabos_cfg["t_max_projeto_c"] + 273.15,
+                                     passo_s=2.0)
+            hist = dict(tr["historico"])
+            transitorio.append({"contorno": nome_contorno, "area_mm2": area,
+                                "temperatura_regime_c": tr["temperatura_regime_k"] - 273.15,
+                                "tau_s": tr["tau_s"],
+                                "temperatura_apos_60s_c": hist[60.0] - 273.15,
+                                "temperatura_apos_180s_c": hist[180.0] - 273.15,
+                                "duracao_maxima_admissivel_s": tr["duracao_maxima_admissivel_s"]})
+
+    # 4) Decisão: menor bitola que atende no ponto de projeto.
+    def atende(contorno, area):
+        return not next(r for r in rows if r["contorno"] == contorno
+                        and r["area_mm2"] == area
+                        and r["potencia_w"] == modo_normal_w)["acima_125c"]
+
+    bitola_minima = next((a for a in sorted(bitolas) if atende("hot_spot", a)), None)
+    bitola_rota = next((a for a in sorted(bitolas) if atende("rota_protegida", a)), None)
 
     args.destino.mkdir(parents=True, exist_ok=True)
-    with (args.destino / "sensibilidade.csv").open("w", newline="") as f:
-        w = csv.DictWriter(f, list(rows[0]), lineterminator="\n")
-        w.writeheader()
-        w.writerows(rows)
-    fig, axes = plt.subplots(1, 2, figsize=(11, 4.2))
-    for nome, res in campos.items():
-        c = res["_campo"]
-        nr = len(c["r_m"])
-        perfil = c["temperatura_k"].reshape(nr, -1).mean(axis=1) if c["temperatura_k"].ndim == 1 else c["temperatura_k"].mean(axis=1)
-        axes[0].plot(np.asarray(c["r_m"]) * 1000, perfil - 273.15, label=f"{nome}: Tmax {res['temperatura_max_c']:.0f} °C")
-    axes[0].axhline(150, ls="--", c="k", lw=0.8)
-    axes[0].text(0.3, 152, "limite do isolamento RADOX 155 (150 °C)", fontsize=8)
-    axes[0].set(xlabel="raio [mm]", ylabel="temperatura [°C]",
-                title=f"Perfil radial, I = {nom_i:.0f} A RMS (205 kW)")
-    axes[0].legend(fontsize=8)
-    c = campos["1x120"]["_campo"]
-    th = np.asarray(c["theta_rad"]); rr = np.asarray(c["r_m"])
-    tt = np.asarray(c["temperatura_k"]).reshape(len(rr), len(th)) - 273.15
-    axes[1].remove()
-    ax = fig.add_subplot(1, 2, 2, projection="polar")
-    pc = ax.pcolormesh(th, rr * 1000, tt, shading="nearest", cmap="inferno")
-    ax.set_title("Campo r–θ [°C], 1×120 mm² por fase (raio em mm)", fontsize=9)
-    ax.set_rticks([2, 4, 6, 8]); ax.set_rlabel_position(200); ax.tick_params(labelsize=7)
-    fig.colorbar(pc, ax=ax, label="°C")
-    fig.tight_layout()
+    for nome, dados in (("sensibilidade.csv", rows), ("limites_bitola.csv", limites),
+                         ("transitorio_pico.csv", transitorio)):
+        with (args.destino / nome).open("w", newline="") as f:
+            w = csv.DictWriter(f, list(dados[0]), lineterminator="\n")
+            w.writeheader()
+            w.writerows(dados)
+
+    fig, axes = plt.subplots(1, 2, figsize=(11.5, 4.4), layout="constrained")
+    for ax, potencia, titulo in (
+            (axes[0], modo_normal_w,
+             f"Modo normal ({modo_normal_w/1000:.0f} kW, {i_normal:.0f} A)"),
+            (axes[1], p_mech,
+             f"Pico em regime permanente ({p_mech/1000:.0f} kW, {i_pico:.0f} A)")):
+        for nome_contorno, estilo in zip(contornos, ("o-", "s-", "^-"), strict=True):
+            sel = [r for r in rows if r["contorno"] == nome_contorno
+                   and r["potencia_w"] == potencia]
+            ax.plot([r["area_mm2"] for r in sel], [r["temperatura_max_c"] for r in sel],
+                    estilo, label=nome_contorno)
+        ax.axhline(cabos_cfg["t_max_projeto_c"], ls="--", c="k", lw=0.8)
+        ax.axhline(cabos_cfg["t_falha_c"], ls=":", c="r", lw=0.8)
+        ax.set(xlabel="bitola [mm²]", ylabel="temperatura máxima [°C]", title=titulo)
+        ax.grid(alpha=.25); ax.legend(fontsize=8)
+    axes[0].text(0.3, cabos_cfg["t_max_projeto_c"]+2, "critério 125 °C", fontsize=8)
+    axes[0].text(0.3, cabos_cfg["t_falha_c"]+2, "ficha RADOX 150 °C (3000 h)", fontsize=8)
     fig.savefig(args.destino / "campo_corrente_maxima.png", dpi=150)
+    plt.close(fig)
 
     resumo = {
         "script": "scripts/fechar_i30_corrente_maxima.py",
-        "method": "I_fase = P_mec/(eta_m*sqrt(3)*V_LL*FP), V_LL,rms = V_dc/sqrt(2) (limite SVPWM linear); contorno: convecção natural Churchill–Chu + radiação, ar parado 25 °C; campo r–θ do solver do projeto",
-        "motor_peak_mechanical_w": p_mech,
-        "nominal": {**nominal, "corrente_fase_rms_a": nom_i,
-                    **{f"{n}_temperatura_max_c": campos[n]["temperatura_max_c"] for n in campos},
-                    **{f"{n}_h_total_w_m2k": campos[n]["h_conv_w_m2k"] + campos[n]["h_rad_w_m2k"] for n in campos}},
-        "faixa_corrente_fase_rms_a": [min(r["corrente_fase_rms_a"] for r in rows), max(r["corrente_fase_rms_a"] for r in rows)],
-        "faixa_temperatura_max_c": {n: [min(r["temperatura_max_c"] for r in rows if r["opcao"] == n),
-                                        max(r["temperatura_max_c"] for r in rows if r["opcao"] == n)] for n in opcoes},
+        "revisao": "2026-11-20-contorno-completo",
+        "method": "I_fase = P/(eta*sqrt(3)*V_LL*FP), V_LL,rms = V_dc/sqrt(2) (limite SVPWM linear); "
+                  "campo r-theta por volumes finitos; contorno = Churchill-Chu + radiação com sink "
+                  "distinto + conduíte + agrupamento de fases + fator de perda AC; transitório por "
+                  "capacidade concentrada calibrada no estacionário",
+        "motor_peak_mechanical_w": p_mech, "motor_normal_mechanical_w": modo_normal_w,
+        "nominal": {**nominal, "corrente_normal_a": i_normal, "corrente_pico_a": i_pico},
+        "regressao_referencia_antiga_c": {
+            area: next(r for r in rows if r["contorno"] == "referencia_antiga"
+                       and r["area_mm2"] == area
+                       and r["potencia_w"] == p_mech)["temperatura_max_c"]
+            for area in bitolas},
+        "temperatura_modo_normal_c": {
+            contorno: {area: next(r for r in rows if r["contorno"] == contorno
+                                  and r["area_mm2"] == area
+                                  and r["potencia_w"] == modo_normal_w)["temperatura_max_c"]
+                       for area in bitolas} for contorno in contornos},
+        "temperatura_100_pct_pico_c": {
+            contorno: {area: next(r for r in rows if r["contorno"] == contorno
+                                  and r["area_mm2"] == area
+                                  and r["potencia_w"] == p_mech)["temperatura_max_c"]
+                       for area in bitolas} for contorno in contornos},
+        "limites_125c": limites,
+        "transitorio": transitorio,
+        "criterio": {
+            "t_max_projeto_c": cabos_cfg["t_max_projeto_c"],
+            "t_falha_c": cabos_cfg["t_falha_c"],
+            "corrente_projeto": "modo normal",
+            "bitola_minima_hot_spot_mm2": bitola_minima,
+            "bitola_minima_rota_protegida_mm2": bitola_rota,
+            "bitola_referencia_config_mm2": cabos_cfg["bitola_referencia_mm2"],
+        },
         "max_abs_residuo_w_m": max(abs(r["residuo_w_m"]) for r in rows),
-        "limits": ["Regime permanente na potência de pico é conservador: o pico de 205 kW é de curta duração.",
-                   "Sem perdas AC/PWM (efeito pelicular), feixe de cabos, conduíte ou condução axial.",
-                   "Fator de potência, eficiência e tensão do barramento são varridos; mapa OEM não publicado."],
+        "limits": [
+            "Bitolas 185/240 são derivadas por geometria calibrada nos pontos de catálogo (erro <1%); "
+            "exigem confirmação na ficha do fabricante antes de qualquer compra.",
+            "Convecção/conduíte/fator de forma/agrupamento são hipóteses explicitadas em "
+            "config/parametros_globais.yaml (development.cable_hv); não são medições.",
+            "Perda AC entra como corrente equivalente; efeito pelicular não é resolvido.",
+            "Não há condução axial, terminais/contatos, chicote completo nem EMC.",
+            "Nenhuma modificação física do chicote HV OEM é autorizada (DEC-001/DEC-040): o "
+            "resultado é requisito de verificação e, se não comprovado, limite de potência contínua.",
+        ],
     }
-    (args.destino / "resumo.json").write_text(json.dumps(resumo, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps(resumo["nominal"], ensure_ascii=False, indent=1))
-    print(json.dumps(resumo["faixa_temperatura_max_c"]))
+    (args.destino / "resumo.json").write_text(
+        json.dumps(resumo, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(json.dumps({"normal": resumo["temperatura_modo_normal_c"],
+                      "criterio": resumo["criterio"]}, ensure_ascii=False, indent=1))
 
 
 if __name__ == "__main__":
