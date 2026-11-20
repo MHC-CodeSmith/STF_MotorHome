@@ -71,8 +71,8 @@
       "owner": "P2",
       "requirement": "Fiação elétrica",
       "status": "triagem_eletrica_e_rotas_executadas",
-      "executed_or_reviewed": "324casosDC com queda acoplada à carga;144faltas e cabos70/95/120mm²;rotasCAD de reserva;limite doBMS aplicado ao envelope pré-BMS.",
-      "remaining_limit": "Com o BMS limitando a saída (<6kA,3módulos),nenhum caso excede o fusível de20kA;impedância real/I²t/ampacidade/PE-DR/terminais ainda não validados.",
+      "executed_or_reviewed": "324casosDC com queda acoplada à carga;144faltas comDCIR plausível10-40mΩ e cabos70/95/120mm²;rotasCAD de reserva.",
+      "remaining_limit": "ComDCIR plausível o envelope pré-BMS fica≤16kA,já abaixo dos20kA do fusível;impedância real/I²t/ampacidade/PE-DR/terminais ainda não validados.",
       "evidence": "entregas/integrado_maxeon1540/protecoes_fixacoes/resumo.json",
       "historical_inventory": "equipe/P2_bateria_eletrica/I07_fiacao_eletrica",
       "human_approval_recorded": false

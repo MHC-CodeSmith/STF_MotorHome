@@ -94,15 +94,23 @@ antes de qualquer compra**. Nada foi apresentado como dado de fabricante.
 
 ## 5. Item 7 — faltas e proteções
 
-A triagem usava R interna de módulo de 1/5/20/50 mΩ, sem intervenção do BMS, o que
-produzia correntes prospectivas de até 160 kA e "56 casos acima de 20 kA". A própria
-ficha do US5000 (já no repositório) limita o curto do módulo a < 2000 A/1 ms.
+A triagem usava R interna de módulo de 1/5/20/50 mΩ — valores fisicamente baixos para
+um módulo LFP de 48 V/100 Ah — sem intervenção do BMS. Isso produzia correntes
+prospectivas de até **160 kA** e a conclusão de que "56 casos excedem 20 kA", o que
+levava a recomendar um fusível de classe superior.
 
-Agora o limite do BMS é aplicado: com 3 módulos, o teto de saída é 6 kA. Resultado:
-**nenhum dos 144 casos excede a interrupção de 20 kA do JLLN200** (antes 56). A
-corrente prospectiva continua registrada como envelope pré-BMS, e a conclusão
-anterior de "fusível de classe superior" foi retirada — ela era consequência de
-ignorar o BMS. Coordenação I²t, impedância real e ampacidade continuam **não
+Duas correções foram aplicadas:
+
+1. **Faixa de DCIR plausível** (10/20/30/40 mΩ), que é a mudança decisiva. Com ela o
+   envelope pré-BMS fica em **2,75–16,05 kA** — abaixo da interrupção de 20 kA do
+   JLLN 200 A **em todos os 144 casos, sem precisar invocar o BMS**.
+2. **Limite do BMS aplicado** (a ficha do US5000 dá < 2000 A/1 ms por módulo; 6 kA com
+   três módulos), que reduz a corrente entregue em 63 casos.
+
+O ponto importante é a ordem: a correção da resistência resolve o problema sozinha; o
+BMS é uma segunda barreira. A recomendação de "fusível de classe superior" foi retirada,
+porque o problema era a hipótese de resistência, não o fusível. Coordenação I²t,
+impedância real e ampacidade continuam **não
 demonstradas**.
 
 ## 6. Item 34 — sweep de sensibilidade completo

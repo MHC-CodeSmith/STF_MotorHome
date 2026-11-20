@@ -4634,11 +4634,12 @@
         4000
       ],
       "module_fault_resistance_ohm": [
-        0.001,
-        0.005,
+        0.01,
         0.02,
-        0.05
+        0.03,
+        0.04
       ],
+      "module_fault_resistance_note": "Faixa de DCIR plausível para módulo LFP 48V/100Ah (10-40mΩ), substituindo a varredura anterior de1/5/20/50mΩ que gerava correntes prospectivas irreais (até160kA) e conclusões dependentes de hipótese não física. Não é dado Pylontech; a ficha não publica DCIR.",
       "copper_density_kg_m3": 8960,
       "copper_cp_j_kgk": 385,
       "fuse_main": {
@@ -5419,10 +5420,10 @@
   },
   "_execution": {
     "scenario": "maxeon1540_independente",
-    "source_sha256": "b44473f46c5b43c75139aa408d4988efb9ad30483a5a28de87a7c06833c60f50",
+    "source_sha256": "37862a1aefb3864d4e939f4faba8a2b89b290aaee5347c47e59ad81662da7ae8",
     "output_directory": "entregas/integrado_maxeon1540",
     "physical_validation": false,
     "note": "Referência com rastreadores independentes para comparaçãoDEC054;250/60 teto+150/60 portáteis. InterfaceDCtração e alocaçãoFV hipotéticas;nenhuma ligação entre bancos. SharedMPPT continua comparado,não aprovado.",
-    "resolved_sha256": "43e16ef414fcd7bf66c60c533801b52bb1a6320dd480a1b744909fe7e4503e9f"
+    "resolved_sha256": "52044ad8f753a909ad99d3fb71eb516a2f9d3939ad083b3a8f4a536c89a2c522"
   }
 }

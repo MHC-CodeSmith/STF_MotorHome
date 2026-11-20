@@ -68,7 +68,7 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/protecoes_fixacoes/resumo.json",
-          "sha256": "6d3f39d4bf3598011f32067c4d25c6a8ab03ee3aeecee8910cb29a0337471986"
+          "sha256": "b0cf91c5c326a35b43734581713a164549f5603a47754cad688b76dcd8b98cfc"
         }
       ],
       "human_approval": false
@@ -118,7 +118,7 @@
       "evidence": [
         {
           "path": "entregas/desenvolvimento_2026-11-09/fixacoes_redimensionadas/resumo.json",
-          "sha256": "ab1b131555c455cec15235665e838514df7c0896dfbada0b870a090de52db5aa"
+          "sha256": "b04ccbe5544b6760dc0e820cfe026b645c1fbd4912fe2c44a8ef4b767c1ddae4"
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/A_fixa_vistas.png",
@@ -1035,7 +1035,7 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/protecoes_fixacoes/resumo.json",
-          "sha256": "6d3f39d4bf3598011f32067c4d25c6a8ab03ee3aeecee8910cb29a0337471986"
+          "sha256": "b0cf91c5c326a35b43734581713a164549f5603a47754cad688b76dcd8b98cfc"
         }
       ],
       "human_approval": false
@@ -1140,7 +1140,7 @@
       "evidence": [
         {
           "path": "entregas/desenvolvimento_2026-11-09/fixacoes_redimensionadas/resumo.json",
-          "sha256": "ab1b131555c455cec15235665e838514df7c0896dfbada0b870a090de52db5aa"
+          "sha256": "b04ccbe5544b6760dc0e820cfe026b645c1fbd4912fe2c44a8ef4b767c1ddae4"
         },
         {
           "path": "entregas/integrado_maxeon1540/despacho_i25/resumo.json",
@@ -1372,7 +1372,7 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "Com o BMS limitando a saída (<6kA,3módulos),nenhum caso excede o fusível de20kA;impedância real/I²t/ampacidade/PE-DR/terminais ainda não validados.; Saídas48V não são interfaceHV; 250/60 rejeitado pelas perdas de descasamento (até27%), não por limite de corrente. BMS/proteções/comutação e interfaceDC não demonstrados.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Bitolas185/240 são derivadas da ficha e exigem confirmação;corrente de fase depende de mapaOEM não publicado;nenhuma modificação física do chicoteHV é autorizada.",
+      "pending": "ComDCIR plausível o envelope pré-BMS fica≤16kA,já abaixo dos20kA do fusível;impedância real/I²t/ampacidade/PE-DR/terminais ainda não validados.; Saídas48V não são interfaceHV; 250/60 rejeitado pelas perdas de descasamento (até27%), não por limite de corrente. BMS/proteções/comutação e interfaceDC não demonstrados.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Bitolas185/240 são derivadas da ficha e exigem confirmação;corrente de fase depende de mapaOEM não publicado;nenhuma modificação física do chicoteHV é autorizada.",
       "original_section_sha256": "eff06b1da67f82053e1b0cf2bc14333b345cc07618c09a01f547c9ffc4c6ad63",
       "evidence": [
         {
@@ -1389,7 +1389,7 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/protecoes_fixacoes/resumo.json",
-          "sha256": "6d3f39d4bf3598011f32067c4d25c6a8ab03ee3aeecee8910cb29a0337471986"
+          "sha256": "b0cf91c5c326a35b43734581713a164549f5603a47754cad688b76dcd8b98cfc"
         }
       ],
       "human_approval": false
@@ -1691,7 +1691,7 @@
       "evidence": [
         {
           "path": "entregas/desenvolvimento_2026-11-09/fixacoes_redimensionadas/resumo.json",
-          "sha256": "ab1b131555c455cec15235665e838514df7c0896dfbada0b870a090de52db5aa"
+          "sha256": "b04ccbe5544b6760dc0e820cfe026b645c1fbd4912fe2c44a8ef4b767c1ddae4"
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/A_fixa_vistas.png",
@@ -1818,7 +1818,7 @@
         },
         {
           "path": "entregas/desenvolvimento_2026-11-09/fixacoes_redimensionadas/resumo.json",
-          "sha256": "ab1b131555c455cec15235665e838514df7c0896dfbada0b870a090de52db5aa"
+          "sha256": "b04ccbe5544b6760dc0e820cfe026b645c1fbd4912fe2c44a8ef4b767c1ddae4"
         },
         {
           "path": "entregas/integrado_maxeon1540/bancos_24_48_cad/resumo.json",
@@ -1902,11 +1902,11 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/parametros_resolvidos.json",
-          "sha256": "80abe48c4cc1688d6e3a12b9e8ec8dfb17a7503a28e23908d12826f95dc26bc5"
+          "sha256": "82b6ffcbd637d30b3bc2f67dfe7253ccd05b3f68722c12aa2675f10c55894884"
         },
         {
           "path": "entregas/integrado_maxeon1540/protecoes_fixacoes/resumo.json",
-          "sha256": "6d3f39d4bf3598011f32067c4d25c6a8ab03ee3aeecee8910cb29a0337471986"
+          "sha256": "b0cf91c5c326a35b43734581713a164549f5603a47754cad688b76dcd8b98cfc"
         },
         {
           "path": "entregas/integrado_maxeon1540/rotas_instalacoes/layoutA_rotas_reserva.step",
@@ -1970,7 +1970,7 @@
       "evidence": [
         {
           "path": "entregas/desenvolvimento_2026-11-09/fixacoes_redimensionadas/resumo.json",
-          "sha256": "ab1b131555c455cec15235665e838514df7c0896dfbada0b870a090de52db5aa"
+          "sha256": "b04ccbe5544b6760dc0e820cfe026b645c1fbd4912fe2c44a8ef4b767c1ddae4"
         },
         {
           "path": "entregas/integrado_maxeon1540/bom_atual/resumo.json",
@@ -2211,7 +2211,7 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "Com o BMS limitando a saída (<6kA,3módulos),nenhum caso excede o fusível de20kA;impedância real/I²t/ampacidade/PE-DR/terminais ainda não validados.; Saídas48V não são interfaceHV; 250/60 rejeitado pelas perdas de descasamento (até27%), não por limite de corrente. BMS/proteções/comutação e interfaceDC não demonstrados.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Bitolas185/240 são derivadas da ficha e exigem confirmação;corrente de fase depende de mapaOEM não publicado;nenhuma modificação física do chicoteHV é autorizada.",
+      "pending": "ComDCIR plausível o envelope pré-BMS fica≤16kA,já abaixo dos20kA do fusível;impedância real/I²t/ampacidade/PE-DR/terminais ainda não validados.; Saídas48V não são interfaceHV; 250/60 rejeitado pelas perdas de descasamento (até27%), não por limite de corrente. BMS/proteções/comutação e interfaceDC não demonstrados.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Bitolas185/240 são derivadas da ficha e exigem confirmação;corrente de fase depende de mapaOEM não publicado;nenhuma modificação física do chicoteHV é autorizada.",
       "original_section_sha256": "014026f4b1016fcfe8fb8a7c253cee0669d62555e69872094c92e48f0997095f",
       "evidence": [
         {
@@ -2228,7 +2228,7 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/protecoes_fixacoes/resumo.json",
-          "sha256": "6d3f39d4bf3598011f32067c4d25c6a8ab03ee3aeecee8910cb29a0337471986"
+          "sha256": "b0cf91c5c326a35b43734581713a164549f5603a47754cad688b76dcd8b98cfc"
         }
       ],
       "human_approval": false
@@ -2363,7 +2363,7 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/protecoes_fixacoes/resumo.json",
-          "sha256": "6d3f39d4bf3598011f32067c4d25c6a8ab03ee3aeecee8910cb29a0337471986"
+          "sha256": "b0cf91c5c326a35b43734581713a164549f5603a47754cad688b76dcd8b98cfc"
         }
       ],
       "human_approval": false
@@ -2880,7 +2880,7 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "Com o BMS limitando a saída (<6kA,3módulos),nenhum caso excede o fusível de20kA;impedância real/I²t/ampacidade/PE-DR/terminais ainda não validados.; Saídas48V não são interfaceHV; 250/60 rejeitado pelas perdas de descasamento (até27%), não por limite de corrente. BMS/proteções/comutação e interfaceDC não demonstrados.; 18L/h·pessoa,alvoCO2,pressão/eficiência do ventilador e operação são hipóteses; sem norma demonstrada,umidade latente,SKU,curva elétrica,ruído ou instalação.; 256picos,6históricos e72autonomias por orçamento previsto;partidas reais/atuadores e limiaresSOC continuam não demonstrados.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Bitolas185/240 são derivadas da ficha e exigem confirmação;corrente de fase depende de mapaOEM não publicado;nenhuma modificação física do chicoteHV é autorizada.",
+      "pending": "ComDCIR plausível o envelope pré-BMS fica≤16kA,já abaixo dos20kA do fusível;impedância real/I²t/ampacidade/PE-DR/terminais ainda não validados.; Saídas48V não são interfaceHV; 250/60 rejeitado pelas perdas de descasamento (até27%), não por limite de corrente. BMS/proteções/comutação e interfaceDC não demonstrados.; 18L/h·pessoa,alvoCO2,pressão/eficiência do ventilador e operação são hipóteses; sem norma demonstrada,umidade latente,SKU,curva elétrica,ruído ou instalação.; 256picos,6históricos e72autonomias por orçamento previsto;partidas reais/atuadores e limiaresSOC continuam não demonstrados.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Bitolas185/240 são derivadas da ficha e exigem confirmação;corrente de fase depende de mapaOEM não publicado;nenhuma modificação física do chicoteHV é autorizada.",
       "original_section_sha256": "1ed78266ad2b00fe29f830e733ae688f5464913ecf061c19dfdc2a3853381418",
       "evidence": [
         {
@@ -2901,7 +2901,7 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/protecoes_fixacoes/resumo.json",
-          "sha256": "6d3f39d4bf3598011f32067c4d25c6a8ab03ee3aeecee8910cb29a0337471986"
+          "sha256": "b0cf91c5c326a35b43734581713a164549f5603a47754cad688b76dcd8b98cfc"
         },
         {
           "path": "entregas/integrado_maxeon1540/ventilacao_mecanica_sensibilidade/resumo.json",
@@ -2988,7 +2988,7 @@
       "evidence": [
         {
           "path": "entregas/desenvolvimento_2026-11-09/teto_maxeon/resumo.json",
-          "sha256": "3199761d3b8b977213e8b9650ea5640d6bc11fd3cb3d9a2fe2978149c61b5e5d"
+          "sha256": "cce75dc7264021bbb76f5df7d53aa2e276c58841cdbe86c6beabcff206b1ef78"
         },
         {
           "path": "entregas/integrado_maxeon1540/bancos_24_48_cad/resumo.json",
@@ -3154,7 +3154,7 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "Com o BMS limitando a saída (<6kA,3módulos),nenhum caso excede o fusível de20kA;impedância real/I²t/ampacidade/PE-DR/terminais ainda não validados.; Saídas48V não são interfaceHV; 250/60 rejeitado pelas perdas de descasamento (até27%), não por limite de corrente. BMS/proteções/comutação e interfaceDC não demonstrados.; 256picos,6históricos e72autonomias por orçamento previsto;partidas reais/atuadores e limiaresSOC continuam não demonstrados.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Preços lista semVAT não são cotação instalada;BRL439cooktop é histórico,frete/tributos/câmbio permanecemnull.",
+      "pending": "ComDCIR plausível o envelope pré-BMS fica≤16kA,já abaixo dos20kA do fusível;impedância real/I²t/ampacidade/PE-DR/terminais ainda não validados.; Saídas48V não são interfaceHV; 250/60 rejeitado pelas perdas de descasamento (até27%), não por limite de corrente. BMS/proteções/comutação e interfaceDC não demonstrados.; 256picos,6históricos e72autonomias por orçamento previsto;partidas reais/atuadores e limiaresSOC continuam não demonstrados.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Preços lista semVAT não são cotação instalada;BRL439cooktop é histórico,frete/tributos/câmbio permanecemnull.",
       "original_section_sha256": "a3151a045237f72094e33b4f295903e28118e2a7da4b3a16b9b7dc51ea3e95a1",
       "evidence": [
         {
@@ -3175,7 +3175,7 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/protecoes_fixacoes/resumo.json",
-          "sha256": "6d3f39d4bf3598011f32067c4d25c6a8ab03ee3aeecee8910cb29a0337471986"
+          "sha256": "b0cf91c5c326a35b43734581713a164549f5603a47754cad688b76dcd8b98cfc"
         }
       ],
       "human_approval": false
@@ -3282,7 +3282,7 @@
       "evidence": [
         {
           "path": "entregas/desenvolvimento_2026-11-09/fixacoes_redimensionadas/resumo.json",
-          "sha256": "ab1b131555c455cec15235665e838514df7c0896dfbada0b870a090de52db5aa"
+          "sha256": "b04ccbe5544b6760dc0e820cfe026b645c1fbd4912fe2c44a8ef4b767c1ddae4"
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/dinamica_massa_integrada.csv",
@@ -3339,7 +3339,7 @@
       "evidence": [
         {
           "path": "entregas/desenvolvimento_2026-11-09/fixacoes_redimensionadas/resumo.json",
-          "sha256": "ab1b131555c455cec15235665e838514df7c0896dfbada0b870a090de52db5aa"
+          "sha256": "b04ccbe5544b6760dc0e820cfe026b645c1fbd4912fe2c44a8ef4b767c1ddae4"
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/inventario_massas.csv",
@@ -3447,7 +3447,7 @@
         },
         {
           "path": "entregas/desenvolvimento_2026-11-09/fixacoes_redimensionadas/resumo.json",
-          "sha256": "ab1b131555c455cec15235665e838514df7c0896dfbada0b870a090de52db5aa"
+          "sha256": "b04ccbe5544b6760dc0e820cfe026b645c1fbd4912fe2c44a8ef4b767c1ddae4"
         },
         {
           "path": "entregas/integrado_maxeon1540/bancos_24_48_cad/resumo.json",
@@ -3531,7 +3531,7 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/protecoes_fixacoes/resumo.json",
-          "sha256": "6d3f39d4bf3598011f32067c4d25c6a8ab03ee3aeecee8910cb29a0337471986"
+          "sha256": "b0cf91c5c326a35b43734581713a164549f5603a47754cad688b76dcd8b98cfc"
         },
         {
           "path": "entregas/integrado_maxeon1540/rotas_instalacoes/layoutA_rotas_reserva.step",

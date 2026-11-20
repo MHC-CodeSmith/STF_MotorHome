@@ -281,14 +281,16 @@ JLLN 80\,A no MPPT; \textbf{\SI{220}{V}/\SI{60}{Hz}} para as cargas CA e
 
 A triagem elétrica avaliou 324 casos de queda de tensão e 144 casos de curto-circuito no
 barramento de \SI{48}{V}. As correntes de operação ficam entre \SI{10}{A} e \SI{103}{A},
-com queda máxima de \SI{0,74}{\percent} em \SI{70}{mm^2}. Para as faltas, o envelope
-pré-BMS chega a \SI{160}{kA}, mas a ficha do US5000 limita o curto do módulo a
-\SI{<2000}{A} por \SI{1}{ms}; com três módulos o teto de saída é \SI{6}{kA}. Aplicado
-esse limite, \textbf{nenhum caso excede a interrupção de \SI{20}{kA} do JLLN 200\,A}
-(antes eram 56 casos, quando o BMS era ignorado). A verificação de ampacidade instalada
-e a coordenação fusível$\leftrightarrow$cabo continuam pendentes: o fusível de
-\SI{200}{A} sobre \SI{70}{mm^2} exige ampacidade $\geq \SI{200}{A}$ no arranjo real,
-que depende de tabela do cabo, agrupamento, temperatura e curvas I²t.
+com queda máxima de \SI{0,74}{\percent} em \SI{70}{mm^2}. Para as faltas, usou-se a faixa
+de resistência interna plausível de um módulo LFP de \SI{48}{V}/\SI{100}{Ah}
+(\SIrange{10}{40}{m\ohm}), com três módulos em paralelo: o envelope de corrente fica em
+\SIrange{2,75}{16,05}{kA}, \textbf{abaixo da interrupção de \SI{20}{kA} do JLLN 200\,A
+em todos os 144 casos}. A ficha do US5000 limita ainda o curto do módulo a
+\SI{<2000}{A}/\SI{1}{ms} (teto de \SI{6}{kA} com três módulos), o que reduz a corrente
+entregue em 63 casos. A verificação de ampacidade instalada e a coordenação
+fusível$\leftrightarrow$cabo continuam pendentes: o fusível de \SI{200}{A} sobre
+\SI{70}{mm^2} exige ampacidade $\geq \SI{200}{A}$ no arranjo real, que depende de tabela
+do cabo, agrupamento, temperatura e curvas I²t.
 
 \begin{figure}[H]
 \centering\includegraphics[width=0.85\linewidth]{cad_rotas.png}

@@ -1574,7 +1574,7 @@
       "pass": true
     },
     {
-      "check": "Faltas: BMS limita o envelope pré-BMS, fusível não é promovido e I²t real não é inventado",
+      "check": "Faltas: com DCIR plausível o envelope pré-BMS já fica abaixo da interrupção; BMS respeitado e I²t real não inventado",
       "pass": true
     },
     {

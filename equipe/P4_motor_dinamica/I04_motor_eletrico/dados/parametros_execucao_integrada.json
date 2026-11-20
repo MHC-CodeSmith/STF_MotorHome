@@ -3,7 +3,7 @@
   "canonical_source": "config/parametros_globais.yaml",
   "canonical_revision": "1.1.1-execucao1540",
   "derived_snapshot": "entregas/integrado_maxeon1540/parametros_resolvidos.json",
-  "snapshot_sha256": "80abe48c4cc1688d6e3a12b9e8ec8dfb17a7503a28e23908d12826f95dc26bc5",
+  "snapshot_sha256": "82b6ffcbd637d30b3bc2f67dfe7253ccd05b3f68722c12aa2675f10c55894884",
   "values": {
     "vehicle_variant": {
       "value": "SK MY25 505.GG1.2",

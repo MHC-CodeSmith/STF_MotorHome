@@ -3856,7 +3856,11 @@ development:
     sections_mm2: [70, 95, 120]
     loop_lengths_m: [0.4, 4, 10]
     powers_ac_w: [500, 2000, 3700, 4000]
-    module_fault_resistance_ohm: [0.001, 0.005, 0.02, 0.05]
+    module_fault_resistance_ohm: [0.01, 0.02, 0.03, 0.04]
+    module_fault_resistance_note: Faixa de DCIR plausível para módulo LFP 48V/100Ah (10-40mΩ),
+      substituindo a varredura anterior de1/5/20/50mΩ que gerava correntes prospectivas
+      irreais (até160kA) e conclusões dependentes de hipótese não física. Não é dado
+      Pylontech; a ficha não publica DCIR.
     copper_density_kg_m3: 8960
     copper_cp_j_kgk: 385
     fuse_main: {model: Littelfuse JLLN200, current_a: 200, dc_voltage_v: 125, dc_breaking_a: 20000, source: littelfuse_jlln}

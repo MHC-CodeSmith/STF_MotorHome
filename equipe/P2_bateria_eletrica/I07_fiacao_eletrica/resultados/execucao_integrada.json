@@ -5,10 +5,10 @@
   "model_equations": "V_carga=V_fonte−I·R; P_DC=V_carga·I; R=ρ(T)·L/A; P_Joule=I²R.",
   "method_and_conditions": "Resolver a raiz estável da carga de potência constante. Ampacidade instalada,terminais,I²t e corrente prospectiva real exigem dados não substituídos pela queda de tensão.",
   "status": "triagem_eletrica_e_rotas_executadas",
-  "executed": "324casosDC com queda acoplada à carga;144faltas e cabos70/95/120mm²;rotasCAD de reserva;limite doBMS aplicado ao envelope pré-BMS.",
-  "remaining_limit": "Com o BMS limitando a saída (<6kA,3módulos),nenhum caso excede o fusível de20kA;impedância real/I²t/ampacidade/PE-DR/terminais ainda não validados.",
+  "executed": "324casosDC com queda acoplada à carga;144faltas comDCIR plausível10-40mΩ e cabos70/95/120mm²;rotasCAD de reserva.",
+  "remaining_limit": "ComDCIR plausível o envelope pré-BMS fica≤16kA,já abaixo dos20kA do fusível;impedância real/I²t/ampacidade/PE-DR/terminais ainda não validados.",
   "evidence": "entregas/integrado_maxeon1540/protecoes_fixacoes/resumo.json",
-  "evidence_sha256": "6d3f39d4bf3598011f32067c4d25c6a8ab03ee3aeecee8910cb29a0337471986",
+  "evidence_sha256": "b0cf91c5c326a35b43734581713a164549f5603a47754cad688b76dcd8b98cfc",
   "human_approval": false,
   "physical_validation": false
 }

@@ -10,12 +10,12 @@
     102.93608033964722
   ],
   "prospective_fault_range_a": [
-    2273.9719207408143,
-    160500.0
+    2753.828530085614,
+    16049.999999999998
   ],
   "fault_cases_exceeding_20ka": 0,
   "bms_limit_a": 6000,
-  "fault_cases_bms_intervenes": 99,
+  "fault_cases_bms_intervenes": 63,
   "max_delivered_fault_a": 6000,
   "main_fuse_provisional": {
     "model": "Littelfuse JLLN200",

@@ -40,7 +40,7 @@
       "item": 7,
       "owner": "P2",
       "path": "equipe/P2_bateria_eletrica/I07_fiacao_eletrica/resultados/execucao_integrada.json",
-      "evidence_sha256": "6d3f39d4bf3598011f32067c4d25c6a8ab03ee3aeecee8910cb29a0337471986"
+      "evidence_sha256": "b0cf91c5c326a35b43734581713a164549f5603a47754cad688b76dcd8b98cfc"
     },
     {
       "item": 8,
@@ -88,7 +88,7 @@
       "item": 15,
       "owner": "P1",
       "path": "equipe/P1_estrutura_freios/I15_chassi/resultados/execucao_integrada.json",
-      "evidence_sha256": "ab1b131555c455cec15235665e838514df7c0896dfbada0b870a090de52db5aa"
+      "evidence_sha256": "b04ccbe5544b6760dc0e820cfe026b645c1fbd4912fe2c44a8ef4b767c1ddae4"
     },
     {
       "item": 16,
