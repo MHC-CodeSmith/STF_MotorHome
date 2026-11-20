@@ -1,9 +1,13 @@
-# Correções térmicas e de bitola dos cabos (20/11/2026)
+# Correções térmicas, de bitola e de faltas (20/11/2026)
 
 Revisão do item 30 (temperatura dos cabos de alimentação do motor), do item 7
 (proteções e faltas), do item 34 (sensibilidade térmica da bateria) e de sete
 inconsistências numéricas/textuais do relatório. Nenhuma aprovação humana foi
 inferida e nenhuma modificação física do chicote HV OEM é proposta.
+
+Duas conclusões técnicas mudaram: no item 30, o cabo de 120 mm² **não** atende
+fora do caso mais favorável; no item 7, os "56 casos acima de 20 kA" eram artefato
+de uma hipótese de resistência não física, não um problema de fusível.
 
 ## 1. Resumo executivo
 
@@ -33,7 +37,8 @@ mantido cerca de 7 min antes de atingir 125 °C. Por isso o dimensionamento usa 
 
 O solver r–θ (`motorhome.cabos_polares`) estava correto e **não foi alterado**:
 volumes finitos em dois materiais, geração Joule com R(T), malha convergente
-(6,9 × 10⁻⁵ K entre as duas malhas mais finas) e verificação analítica de ordem 2.
+(6,9 × 10⁻⁵ K entre as duas malhas mais finas) e verificações analíticas com ordem
+observada 1,84–1,86 no perfil radial e 1,997–1,999 na solução harmônica 2D.
 O problema era o contorno aplicado por `fechar_i30_corrente_maxima.py`:
 
 | Item | Antes | Agora |
@@ -128,6 +133,15 @@ e o sweep revela **3 casos que atingem o limite de 45 °C e interrompem a carga*
 Artefato renomeado de `I34_54sensibilidades.csv` para `I34_sensibilidades.csv`
 (o "54" deixou de ser verdade), com os checks do CI atualizados.
 
+**Duas sensibilidades conviventes (pendência identificada, não resolvida):** além do
+artefato acima, existe `equipe/P7.../I34/resultados/sensibilidade.csv`, gerado por
+`scripts/calcular_bateria_carga.py`, com 20 linhas e colunas diferentes — ele varia
+apenas R e entropia, sendo um subconjunto da malha de 486 casos. Não é um erro de
+cálculo, mas são duas fontes de "sensibilidade do item 34" com nomes de coluna
+distintos, o que induz comparação equivocada. Unificar exige decidir qual vira a
+fonte (ou fazer o gerador antigo ler `development.thermal_sweep`), então ficou
+registrado como pendência e não foi alterado neste PR.
+
 ## 7. Inconsistências corrigidas
 
 | # | Correção |
@@ -146,7 +160,7 @@ Artefato renomeado de `I34_54sensibilidades.csv` para `I34_sensibilidades.csv`
 - `src/motorhome/cabo_hv.py` (novo) — contorno completo e transitório
 - `src/motorhome/integracao_eletrica.py` — remove hardcode
 - `scripts/fechar_i30_corrente_maxima.py` — matriz, limites e transitório
-- `scripts/desenvolver_protecoes_fixacoes.py` — limite do BMS nas faltas
+- `scripts/desenvolver_protecoes_fixacoes.py` — faixa de DCIR plausível e limite do BMS
 - `scripts/desenvolver_mecanica_termica.py` — sweep genérico (486 casos)
 - `scripts/desenvolver_integracao.py` — serialização NumPy corrigida
 - `scripts/registrar_execucao02.py`, `scripts/preencher_metodos_itens.py` — textos/evidências
@@ -157,11 +171,12 @@ Artefato renomeado de `I34_54sensibilidades.csv` para `I34_sensibilidades.csv`
 
 **Configuração**
 - `config/parametros_globais.yaml` — `development.cable_hv`, `motor_mode_power_kw`,
-  `thermal_sweep` com R/entropia, notas do 250/60
+  `thermal_sweep` com R/entropia, faixa de DCIR de faltas, notas do 250/60
 
 **Relatório, slides e docs**
 - `relatorio/relatorio.tex`, `relatorio/slides.tex`, `relatorio/roteiro_video.md`
-- `docs/PROTECOES_SERVICOS_MODELO.md`
+- `docs/PROTECOES_SERVICOS_MODELO.md`, `docs/CABOS_E_RADIADOR_2D.md`
+- `README.md`, `docs/FECHAMENTO_35_ITENS.md` (links para este documento)
 - artefatos e manifestos regerados pelos próprios scripts
 
 ## 9. Verificação e golden values atualizados
@@ -178,8 +193,11 @@ Resultado local: **287 testes passam**, `ruff` limpo, os dois verificadores
 retornam `PASSOU`.
 
 Golden values alterados, com justificativa:
-- `verificar_desenvolvimento.py`: `(~faults.breaking_screen_pass).sum()` de **56 → 0**,
-  com verificação de que o BMS intervém em 99 casos e limita a 6 kA.
+- `verificar_desenvolvimento.py` (faltas): antes exigia `(~breaking_screen_pass).sum() == 56`;
+  agora exige que **nenhum** caso exceda e que o envelope pré-BMS
+  (`pre_bms_envelope_a.max()`) fique abaixo da interrupção, além de
+  `bms_limited_a.max() == 6 kA`. O check deixou de contar casos e passou a comparar
+  o envelope com a interrupção, que é o critério físico.
 - `verificar_cenario_integrado.py`: `len(battery)` de **54 → 486**, exigindo as
   colunas `resistance_ref_ohm` e `pack_entropy_v_k`.
 
@@ -200,4 +218,21 @@ rodaram antes do registro.
 - O chicote HV OEM não foi e não deve ser modificado; a bitola original precisa ser
   verificada e, se menor que a necessária, a potência contínua deve ser limitada.
 - A verificação de ampacidade e coordenação fusível↔cabo do lado 48 V continua
-  pendente de tabela de fabricante e curvas I²t.
+  pendente de tabela de fabricante e curvas I²t. O fusível de 200 A sobre 70 mm²
+  exige ampacidade ≥ 200 A no arranjo real — não verificado.
+
+## 11. Pendências deixadas explicitamente abertas
+
+Itens identificados na revisão que **não** foram alterados neste PR, por exigirem
+decisão de escopo:
+
+1. **Sensibilidades duplicadas do item 34** — descrito na seção 6.
+2. **Corrente inicial de 112,4 kWh no item 29** — o texto foi corrigido para separar
+   nominal/útil, mas o modelo continua somando 98 + 14,4 kWh. Usar 13,68 kWh (95 %
+   DoD) reexecutaria I25/I27/I29. Não se aplica porque a reserva de 20/30 % já é mais
+   restritiva que o DoD.
+3. **Triagem legada de 35 A em `comparar_teto_maxeon.py`** — a nota foi corrigida para
+   60 A, mas o booleano `conservative_35a_screen_pass` ainda é calculado com 35. Ele
+   não governa decisão (a rejeição do 250/60 vem do descasamento de 0,657–27,272 %).
+4. **Verificar a bitola do chicote HV OEM** — requisito que este PR emite, não resolve.
+5. **Ampacidade 70/95/120 mm²** do lado 48 V — sem tabela de fabricante no repositório.
