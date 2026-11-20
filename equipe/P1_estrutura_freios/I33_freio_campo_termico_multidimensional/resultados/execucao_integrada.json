@@ -8,7 +8,7 @@
   "executed": "24casos r-z com3976.53/4250kg,atrito e regen0/40/80kW;resistências subtraídas e carga dinâmica.",
   "remaining_limit": "Disco/material/repartição/regenOEM não confirmados;108km/h é ensaio prescrito,acima limitador90.",
   "evidence": "entregas/integrado_maxeon1540/freios_integrados/convergencia.csv",
-  "evidence_sha256": "1e0ea6ffb6cc49f3311246414f994e60caa7cb83352e1830ec7f5224b4a7ef59",
+  "evidence_sha256": "d263cbcd3f9c566a87185ab016dabe5076ebb8dbc43ab23d18471815729dac61",
   "human_approval": false,
   "physical_validation": false
 }

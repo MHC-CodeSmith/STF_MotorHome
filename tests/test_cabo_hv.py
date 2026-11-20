@@ -4,9 +4,11 @@ Os parâmetros de cabo aqui são os da ficha RADOX 155 (1×120 mm²); os contorn
 são sintéticos e explícitos, não medições.
 """
 
+import itertools
+from dataclasses import replace
+
 import numpy as np
 import pytest
-from dataclasses import replace
 
 from motorhome.cabo_hv import (
     CondicoesContorno,
@@ -98,14 +100,13 @@ def test_transitorio_parte_do_regime_e_tende_a_ele():
     # Pico sobe a temperatura, monotonicamente e abaixo do estacionário do pico.
     historico = [t for _, t in tr["historico"]]
     assert historico[0] == pytest.approx(tr["temperatura_regime_k"])
-    assert all(b >= a - 1e-9 for a, b in zip(historico[:-1], historico[1:]))
+    assert all(b >= a - 1e-9 for a, b in itertools.pairwise(historico))
     assert tr["temperatura_pico_k"] < resolver_estacionario(
         C120, 300.0, REFERENCIA)["temperatura_max_k"]
 
 
 def test_perda_ac_equivale_a_corrente_maior():
     """f_ac = 1,21 deve equivaler a 1,1× a corrente (I_eff = I·sqrt(f_ac))."""
-    base = resolver_estacionario(C120, 300.0, REFERENCIA)["temperatura_max_k"]
     com_perda = resolver_estacionario(
         C120, 300.0, replace(REFERENCIA, fator_perda_ac=1.21))["temperatura_max_k"]
     corrente_equivalente = resolver_estacionario(

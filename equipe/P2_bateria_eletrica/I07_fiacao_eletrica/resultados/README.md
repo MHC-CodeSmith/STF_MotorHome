@@ -10,9 +10,9 @@ de cabos de tração ou temperatura simulada.
 <!-- execucao-integrada:inicio -->
 Execução integrada: `entregas/integrado_maxeon1540/protecoes_fixacoes/resumo.json`.
 
-324casosDC com queda acoplada à carga;144faltas e cabos70/95/120mm²;rotasCAD de reserva.
+324casosDC com queda acoplada à carga;144faltas e cabos70/95/120mm²;rotasCAD de reserva;limite doBMS aplicado ao envelope pré-BMS.
 
-Limite: 56faltas hipotéticas excedem20kA;impedância real/I²t/ampacidade/PE-DR/terminais ainda não validados.
+Limite: Com o BMS limitando a saída (<6kA,3módulos),nenhum caso excede o fusível de20kA;impedância real/I²t/ampacidade/PE-DR/terminais ainda não validados.
 
-Índice local: `execucao_integrada.json`;SHA256da evidência: `b431cfc3d31c6c021bfdeaf6cb6a3fa623965760d457efff1cc265aabe862315`. Não aprovado fisicamente.
+Índice local: `execucao_integrada.json`;SHA256da evidência: `6d3f39d4bf3598011f32067c4d25c6a8ab03ee3aeecee8910cb29a0337471986`. Não aprovado fisicamente.
 <!-- execucao-integrada:fim -->

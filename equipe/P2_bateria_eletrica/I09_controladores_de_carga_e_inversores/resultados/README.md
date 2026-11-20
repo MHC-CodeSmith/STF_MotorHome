@@ -7,7 +7,7 @@ Execução integrada: `entregas/integrado_maxeon1540/energia_sistemas/mppt_parec
 
 InversorGX220/60;comparador250/60teto+150/60portáteis;compartilhado72I–V estimadas.
 
-Limite: 250/60 usa35A conservador;saídas48V não são interfaceHV. BMS/proteções/comutação e interfaceDC não demonstrados.
+Limite: Saídas48V não são interfaceHV; 250/60 rejeitado pelas perdas de descasamento (até27%), não por limite de corrente. BMS/proteções/comutação e interfaceDC não demonstrados.
 
-Índice local: `execucao_integrada.json`;SHA256da evidência: `d3ce8db03a4bcc94ae83d5db797eba6ab5c4e2cb91e7b4032838429f17d93d8e`. Não aprovado fisicamente.
+Índice local: `execucao_integrada.json`;SHA256da evidência: `270fc28676fa3c0a4630c279cc69015b8357df85abbf7ff161cbd9c1d34a90a6`. Não aprovado fisicamente.
 <!-- execucao-integrada:fim -->

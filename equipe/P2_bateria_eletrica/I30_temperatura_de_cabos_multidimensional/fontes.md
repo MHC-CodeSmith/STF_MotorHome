@@ -22,5 +22,5 @@ Fontes específicas da execução (não representam aprovação da instalação)
 - `multi_install`: https://www.victronenergy.com/media/pg/MultiPlus-II_230V/en/installation.html; consulta/revisão: 2026-11-10. Origem: fabricante.
 - `hyp`: hipotese_engenharia; consulta/revisão: 2026-11-09. Origem: hipotese_engenharia.
 
-Evidência técnica: `entregas/desenvolvimento_2026-11-09/cabos_HV_referencia/resumo_cabos.json`. Condições/hipóteses constam no YAML;valoresOEM não publicados permanecem desconhecidos.
+Evidência técnica: `entregas/integrado_maxeon1540/i30_corrente_maxima/resumo.json`. Condições/hipóteses constam no YAML;valoresOEM não publicados permanecem desconhecidos.
 <!-- execucao-integrada:fim -->

@@ -73,7 +73,7 @@ Transmissão & redutor fixo $i \approx 10$ \\
 Baterias & 110/98 kWh + 14,4 kWh \\
 Fiação & HV 120 mm²; 48 V até 120 mm² \\
 Painéis & Maxeon 21,5--22,1\,\% \\
-Controladoras & MPPT 99\,\%, inversor 96\,\% \\
+Controladoras & MPPT 99/98\,\%, inversor 96\,\% \\
 \bottomrule
 \end{tabular}
 \column{0.5\textwidth}
@@ -181,7 +181,7 @@ $v_{max}$ = \SI{90}{km/h} (limitador de série)\\
 \begin{columns}[c]
 \column{0.5\textwidth}
 \includegraphics[width=\linewidth]{i30_cabos.png}
-\small \SI{489}{A} RMS a \SI{205}{kW}: \destaque{\SI{85}{\celsius}} no cabo de \SI{120}{mm^2} (limite \SI{150}{\celsius})
+\small \SI{489}{A} RMS a \SI{205}{kW}: \destaque{\SI{158}{\celsius}\ (120 mm\textsuperscript{2}, cofre)}; \SI{118}{\celsius} com \SI{185}{mm^2}
 \column{0.5\textwidth}
 \includegraphics[width=\linewidth]{i33_campo.png}
 \small 30 $\to$ 10 m/s em 5 s: \destaque{pico de \SI{293}{\celsius}}; \SI{213}{\celsius} com regeneração de 80 kW
@@ -234,7 +234,7 @@ $v_{max}$ = \SI{90}{km/h} (limitador de série)\\
 \item O sol de inverno (\SI{13,9}{kWh/dia}) sustenta a \destaque{habitação} (\SI{7,2}{kWh/dia}) com folga
 \item Para a \destaque{tração} de um furgão de \SI{4}{t}, um dia de sol vale \SIrange{32}{58}{km}
 \item Menor tempo = menor consumo por km: \SI{20,7}{km/h}, \IbResumo
-\item Térmica dentro dos limites: cabos \SI{85}{\celsius}, freios \SI{293}{\celsius}, bateria \SI{32}{\celsius}
+\item Térmica dos cabos \destaque{depende do contorno}: 120 mm\textsuperscript{2} chega a \SI{158}{\celsius} no cofre; solução \SI{185}{mm^2} ou limitar a potência contínua
 \item Limitações: interface CC solar--tração não autorizada pelo fabricante; mapas OEM não publicados; sem validação experimental
 \end{itemize}
 \vfill

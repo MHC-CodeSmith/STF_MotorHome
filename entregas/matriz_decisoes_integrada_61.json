@@ -48,7 +48,7 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/despacho_i25/resumo.json",
-          "sha256": "f860eefac3d39a0fadda87f8230b41d2aeacc845513692632ace8b7776d2d15b"
+          "sha256": "35d2691ac30032ebc0b6a5d18588779586d590da6854274eacc31b6a7a124725"
         },
         {
           "path": "entregas/integrado_maxeon1540/energia_sistemas/I27_autonomia_otima_modelo_sem_HV.csv",
@@ -56,19 +56,19 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/energia_sistemas/mppt_parecer.json",
-          "sha256": "d3ce8db03a4bcc94ae83d5db797eba6ab5c4e2cb91e7b4032838429f17d93d8e"
+          "sha256": "270fc28676fa3c0a4630c279cc69015b8357df85abbf7ff161cbd9c1d34a90a6"
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/inventario_massas.csv",
           "sha256": "ab3fb084ed600556c3894931a418218d4dee87095197e3eb9e4d849a3d375beb"
         },
         {
-          "path": "entregas/integrado_maxeon1540/otimizacao_grade/resumo.json",
-          "sha256": "14970507bdf4393bf74e6abce098cfb972fae5ded6284f713ac622d4a1666374"
+          "path": "entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/resumo.json",
+          "sha256": "9b467832dc6ed5f586a6b82b39c9c68b9883e6c33f24825f773c21a6d912d453"
         },
         {
           "path": "entregas/integrado_maxeon1540/protecoes_fixacoes/resumo.json",
-          "sha256": "b431cfc3d31c6c021bfdeaf6cb6a3fa623965760d457efff1cc265aabe862315"
+          "sha256": "6d3f39d4bf3598011f32067c4d25c6a8ab03ee3aeecee8910cb29a0337471986"
         }
       ],
       "human_approval": false
@@ -102,6 +102,7 @@
         "traction_usable_kwh",
         "traction_voltage_v",
         "motor_peak_kw",
+        "motor_mode_power_kw",
         "motor_peak_nm",
         "speed_limit_kmh",
         "vehicle_price_eur_ex_vat"
@@ -117,11 +118,11 @@
       "evidence": [
         {
           "path": "entregas/desenvolvimento_2026-11-09/fixacoes_redimensionadas/resumo.json",
-          "sha256": "091af5f57a3b3509736cd6916ef76372bb438f948fb5bc26ebedb8cdb3b777b5"
+          "sha256": "ab1b131555c455cec15235665e838514df7c0896dfbada0b870a090de52db5aa"
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/A_fixa_vistas.png",
-          "sha256": "96d1b726a49620d9ecba7dee870c2ad13e92177e7d41983108634f5bf8ed07d3"
+          "sha256": "999ac019d77ceffda269cf4bdab4c78dde2ac838a1b83744b643b0885ff2df51"
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/inventario_massas.csv",
@@ -137,7 +138,7 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/rotas_instalacoes/layoutA_rotas_reserva.step",
-          "sha256": "0c8f72910a6065100c7fac13f948744f1b48233fc0053f93973d429099e82540"
+          "sha256": "329aca2c65549d912803120d5a8fff3e6819b2b9a9d6c2df64249aca7d1859d5"
         }
       ],
       "human_approval": false
@@ -175,12 +176,12 @@
       "original_section_sha256": "db3465e9bba98183f950e53e40aeac579b204b0001cd22f6c7dd955ae91d1b71",
       "evidence": [
         {
-          "path": "entregas/aero_equipado1540/incerteza_observada.json",
-          "sha256": "e3d4d231551d55e11748f02d473db8ae45e7de87b7bdd91bdcf139ed06d5899b"
+          "path": "entregas/aero_equipado1540/comparacao_malhas_adicionais.json",
+          "sha256": "34564c4ea1b17ff743cb8b54639e5d2a751708d73334115eb008a61504500d68"
         },
         {
           "path": "entregas/integrado_maxeon1540/despacho_i25/resumo.json",
-          "sha256": "f860eefac3d39a0fadda87f8230b41d2aeacc845513692632ace8b7776d2d15b"
+          "sha256": "35d2691ac30032ebc0b6a5d18588779586d590da6854274eacc31b6a7a124725"
         },
         {
           "path": "entregas/integrado_maxeon1540/energia_sistemas/I27_autonomia_otima_modelo_sem_HV.csv",
@@ -188,19 +189,19 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/A_fixa_vistas.png",
-          "sha256": "96d1b726a49620d9ecba7dee870c2ad13e92177e7d41983108634f5bf8ed07d3"
+          "sha256": "999ac019d77ceffda269cf4bdab4c78dde2ac838a1b83744b643b0885ff2df51"
         },
         {
-          "path": "entregas/integrado_maxeon1540/otimizacao_grade/resumo.json",
-          "sha256": "14970507bdf4393bf74e6abce098cfb972fae5ded6284f713ac622d4a1666374"
+          "path": "entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/resumo.json",
+          "sha256": "9b467832dc6ed5f586a6b82b39c9c68b9883e6c33f24825f773c21a6d912d453"
         },
         {
           "path": "entregas/integrado_maxeon1540/rotas_instalacoes/layoutA_rotas_reserva.step",
-          "sha256": "0c8f72910a6065100c7fac13f948744f1b48233fc0053f93973d429099e82540"
+          "sha256": "329aca2c65549d912803120d5a8fff3e6819b2b9a9d6c2df64249aca7d1859d5"
         },
         {
           "path": "entregas/integrado_maxeon1540/solar/resumo.json",
-          "sha256": "3e72a2e598203e96f34bcd7fd4bb91aa13bc5e7eab6da34a1bcb8d02ff507c5d"
+          "sha256": "cfbecea9a7c0d39dabbdb5a01e322f3e5a2bc0104eb2d5b20bf9b11680b1ec10"
         }
       ],
       "human_approval": false
@@ -230,7 +231,7 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "Vento0 e ΔT0 geram0vazão; ventilação não garantida. ManualFW3000rev2018 admite220–240V50/60Hz;placa adquirida/curva33°C epartidas pendentes.; 256picos,6históricos e72autonomias por orçamento previsto;partidas reais/atuadores e limiaresSOC continuam não demonstrados.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Não otimiza política solarDC não comprovada;duração17h é idealização acadêmica,não escala operacional segura.; Melhor da grade, não ótimo global; mínimoDC1kW hipotético e fontes sanitárias por parada presumidas.",
+      "pending": "18L/h·pessoa,alvoCO2,pressão/eficiência do ventilador e operação são hipóteses; sem norma demonstrada,umidade latente,SKU,curva elétrica,ruído ou instalação.; 256picos,6históricos e72autonomias por orçamento previsto;partidas reais/atuadores e limiaresSOC continuam não demonstrados.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Não otimiza política solarDC não comprovada;duração17h é idealização acadêmica,não escala operacional segura.; Diferença≈6d mostra interação do mínimoDC1kW hipotético com passo temporal; comparações finitas, sem ótimo global, interface autorizada ou viabilidade física.",
       "original_section_sha256": "d4308621945451635e5103bd4be0ac718ff02910b85dbde883960de522548ba3",
       "evidence": [
         {
@@ -246,12 +247,12 @@
           "sha256": "c9a6e3086d39bf2124bd996e6174337967c769cb53091465792cb182807c636f"
         },
         {
-          "path": "entregas/integrado_maxeon1540/integracao/ventilacao_natural_co2_umidade.csv",
-          "sha256": "22c48ec161a041b999785cd6073aea97d32178ad1698fabeae9e2c5bed13eebd"
+          "path": "entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/resumo.json",
+          "sha256": "9b467832dc6ed5f586a6b82b39c9c68b9883e6c33f24825f773c21a6d912d453"
         },
         {
-          "path": "entregas/integrado_maxeon1540/otimizacao_grade/resumo.json",
-          "sha256": "14970507bdf4393bf74e6abce098cfb972fae5ded6284f713ac622d4a1666374"
+          "path": "entregas/integrado_maxeon1540/ventilacao_mecanica_sensibilidade/resumo.json",
+          "sha256": "79abbdd37283d2e599ff878fcd543c02865fb01f7a8afe903bd63d4ef030cd5a"
         }
       ],
       "human_approval": false
@@ -291,15 +292,15 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/bom_atual/resumo.json",
-          "sha256": "f3e4f742dea7fbc73a67bd2173bf84b0a7a84c1d219f3c9df6046583f981e4b4"
+          "sha256": "c6ab53631d3ae02e0567340a32d03186fb1e02194f59e1651b7651ebabb5582b"
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/inventario_massas.csv",
           "sha256": "ab3fb084ed600556c3894931a418218d4dee87095197e3eb9e4d849a3d375beb"
         },
         {
-          "path": "entregas/integrado_maxeon1540/otimizacao_grade/resumo.json",
-          "sha256": "14970507bdf4393bf74e6abce098cfb972fae5ded6284f713ac622d4a1666374"
+          "path": "entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/resumo.json",
+          "sha256": "9b467832dc6ed5f586a6b82b39c9c68b9883e6c33f24825f773c21a6d912d453"
         }
       ],
       "human_approval": false
@@ -325,12 +326,12 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "Melhor da grade, não ótimo global; mínimoDC1kW hipotético e fontes sanitárias por parada presumidas.",
+      "pending": "Diferença≈6d mostra interação do mínimoDC1kW hipotético com passo temporal; comparações finitas, sem ótimo global, interface autorizada ou viabilidade física.",
       "original_section_sha256": "ff668d96c9150b755d4e6b9ff46647b81e9973001d5e1592e77e424f3bd7c177",
       "evidence": [
         {
-          "path": "entregas/integrado_maxeon1540/otimizacao_grade/resumo.json",
-          "sha256": "14970507bdf4393bf74e6abce098cfb972fae5ded6284f713ac622d4a1666374"
+          "path": "entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/resumo.json",
+          "sha256": "9b467832dc6ed5f586a6b82b39c9c68b9883e6c33f24825f773c21a6d912d453"
         }
       ],
       "human_approval": false
@@ -366,7 +367,7 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "Retângulo estimado/curvatura/ancoragens/estoque não comprovados;rastreadores independentes são comparadorDEC054,compartilhamento não aprovado.; Uma parada+carga seguida de condução;serviços cíclicos separados,mínimosDC hipotéticos,sem provaOEM/ótimo global.; Não otimiza política solarDC não comprovada;duração17h é idealização acadêmica,não escala operacional segura.; Melhor da grade, não ótimo global; mínimoDC1kW hipotético e fontes sanitárias por parada presumidas.; SIMPLErejeitado;CFDtransiente é complemento com contornos congelados,sem CHT/mobiliário/y+convergente.; Margem nominal1p184W/2p54W não valida33°C;SKU/placa,partida e fusível5A versus6.2A precisam confirmação.",
+      "pending": "Retângulo estimado/curvatura/ancoragens/estoque não comprovados;rastreadores independentes são comparadorDEC054,compartilhamento não aprovado.; Uma parada+carga seguida de condução;serviços cíclicos separados,mínimosDC hipotéticos,sem provaOEM/ótimo global.; Não otimiza política solarDC não comprovada;duração17h é idealização acadêmica,não escala operacional segura.; Diferença≈6d mostra interação do mínimoDC1kW hipotético com passo temporal; comparações finitas, sem ótimo global, interface autorizada ou viabilidade física.; SIMPLErejeitado;CFDtransiente é complemento com contornos congelados,sem CHT/mobiliário/y+convergente.; Fluxo/CO2/UR são hipóteses;capacidade sob33/25°C ainda não demonstrada; conflito da fonte,SKU/placa,partida e fusível5A versus6.2A pendentes.",
       "original_section_sha256": "7780d0059a2da41ae47541809998a6dfdee600cd2358ed72d84dcd7052223630",
       "evidence": [
         {
@@ -374,24 +375,24 @@
           "sha256": "629b63650e4a3eb2ada8c80920afa228323fdc043617422ff3ca24a930e31b50"
         },
         {
-          "path": "entregas/desenvolvimento_2026-11-09/hvac_revisao/resumo.json",
-          "sha256": "ff78dab883c30c2a63dbd94a3636886bc00bbbc08be92da8b7f515c423ecae10"
-        },
-        {
           "path": "entregas/integrado_maxeon1540/despacho_i25/resumo.json",
-          "sha256": "f860eefac3d39a0fadda87f8230b41d2aeacc845513692632ace8b7776d2d15b"
+          "sha256": "35d2691ac30032ebc0b6a5d18588779586d590da6854274eacc31b6a7a124725"
         },
         {
           "path": "entregas/integrado_maxeon1540/energia_sistemas/I27_autonomia_otima_modelo_sem_HV.csv",
           "sha256": "f723f356e2ce46494c5b3b66b7c55f796967d2f448c8fa9e24e5d1b6d11e93c6"
         },
         {
-          "path": "entregas/integrado_maxeon1540/otimizacao_grade/resumo.json",
-          "sha256": "14970507bdf4393bf74e6abce098cfb972fae5ded6284f713ac622d4a1666374"
+          "path": "entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/resumo.json",
+          "sha256": "9b467832dc6ed5f586a6b82b39c9c68b9883e6c33f24825f773c21a6d912d453"
         },
         {
           "path": "entregas/integrado_maxeon1540/solar/resumo.json",
-          "sha256": "3e72a2e598203e96f34bcd7fd4bb91aa13bc5e7eab6da34a1bcb8d02ff507c5d"
+          "sha256": "cfbecea9a7c0d39dabbdb5a01e322f3e5a2bc0104eb2d5b20bf9b11680b1ec10"
+        },
+        {
+          "path": "entregas/integrado_maxeon1540/ventilacao_mecanica_sensibilidade/resumo.json",
+          "sha256": "79abbdd37283d2e599ff878fcd543c02865fb01f7a8afe903bd63d4ef030cd5a"
         }
       ],
       "human_approval": false
@@ -422,7 +423,7 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "256picos,6históricos e72autonomias por orçamento previsto;partidas reais/atuadores e limiaresSOC continuam não demonstrados.; Tara/CGbase e posições assumidos; não pesagem. Limites por eixo permanecem desconhecidos.; Melhor da grade, não ótimo global; mínimoDC1kW hipotético e fontes sanitárias por parada presumidas.",
+      "pending": "256picos,6históricos e72autonomias por orçamento previsto;partidas reais/atuadores e limiaresSOC continuam não demonstrados.; Tara/CGbase e posições assumidos; não pesagem. Limites por eixo permanecem desconhecidos.; Diferença≈6d mostra interação do mínimoDC1kW hipotético com passo temporal; comparações finitas, sem ótimo global, interface autorizada ou viabilidade física.",
       "original_section_sha256": "44c72893c40273d47421558f296443e2120630a2c8d2610d2030106101d1258d",
       "evidence": [
         {
@@ -434,8 +435,8 @@
           "sha256": "ab3fb084ed600556c3894931a418218d4dee87095197e3eb9e4d849a3d375beb"
         },
         {
-          "path": "entregas/integrado_maxeon1540/otimizacao_grade/resumo.json",
-          "sha256": "14970507bdf4393bf74e6abce098cfb972fae5ded6284f713ac622d4a1666374"
+          "path": "entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/resumo.json",
+          "sha256": "9b467832dc6ed5f586a6b82b39c9c68b9883e6c33f24825f773c21a6d912d453"
         }
       ],
       "human_approval": false
@@ -465,6 +466,7 @@
         "traction_usable_kwh",
         "traction_voltage_v",
         "motor_peak_kw",
+        "motor_mode_power_kw",
         "motor_peak_nm",
         "speed_limit_kmh",
         "vehicle_price_eur_ex_vat"
@@ -475,9 +477,13 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "Envelope não é curvaOEM; eficiência/RPM/mapas reais e potência contínua faltam.; Relação/rotação/óleo real não publicados para varianteSK.; Não apresentar Crr como ensaio dos pneusOEM.; Cd/Crr/ρ condicionais; pista plana e vento0.; AuxiliaresOEM0/300/700/1500W sensibilizados, não confundidos com serviços.; Esses tempos não são desempenhoOEM: relação, raio,aderência e envelope não calibrados.",
+      "pending": "Envelope não é curvaOEM; eficiência/RPM/mapas reais e potência contínua faltam.; Relação/rotação/óleo real não publicados para varianteSK.; Não apresentar Crr como ensaio dos pneusOEM.; Rampa/vento e coeficientes são hipóteses, não rota medida; sem aceleração, mapas OEM ou limites de pneus/eixos.; Eficiência0,90 e auxiliares700W estimados; potência na roda não é mapa/potência contínua do motor, sem validação OEM ou física.; Esses tempos não são desempenhoOEM: relação, raio,aderência e envelope não calibrados.",
       "original_section_sha256": "d31ebdc8ff6de2b373e057b9076116693d0412330a18fbe1fe6392d1fc661fdd",
       "evidence": [
+        {
+          "path": "entregas/integrado_maxeon1540/dinamica_resistiva_sensibilidade/resumo.json",
+          "sha256": "d7da5498671db2ad474af7cc77811b5e67dcc7ea9e5af680f07eeb3aeb4f59ac"
+        },
         {
           "path": "entregas/integrado_maxeon1540/integracao/dinamica_massa_integrada.csv",
           "sha256": "3f1463aa2d85bc64177613d91b055cd5a317d8f01706847f32445612e794c1be"
@@ -515,20 +521,16 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "Vento0 e ΔT0 geram0vazão; ventilação não garantida. ManualFW3000rev2018 admite220–240V50/60Hz;placa adquirida/curva33°C epartidas pendentes.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Margem nominal1p184W/2p54W não valida33°C;SKU/placa,partida e fusível5A versus6.2A precisam confirmação.",
+      "pending": "18L/h·pessoa,alvoCO2,pressão/eficiência do ventilador e operação são hipóteses; sem norma demonstrada,umidade latente,SKU,curva elétrica,ruído ou instalação.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Fluxo/CO2/UR são hipóteses;capacidade sob33/25°C ainda não demonstrada; conflito da fonte,SKU/placa,partida e fusível5A versus6.2A pendentes.",
       "original_section_sha256": "52e53535ce5ae123f8d2af33a9da34b33c6531e4568d313bb926e42e26bd0441",
       "evidence": [
-        {
-          "path": "entregas/desenvolvimento_2026-11-09/hvac_revisao/resumo.json",
-          "sha256": "ff78dab883c30c2a63dbd94a3636886bc00bbbc08be92da8b7f515c423ecae10"
-        },
         {
           "path": "entregas/integrado_maxeon1540/bancos_24_48_cad/resumo.json",
           "sha256": "8b8f3d6291e0ee45028b603d030c20020cc4a5195d00ae80dbc4974ff0e67a82"
         },
         {
-          "path": "entregas/integrado_maxeon1540/integracao/ventilacao_natural_co2_umidade.csv",
-          "sha256": "22c48ec161a041b999785cd6073aea97d32178ad1698fabeae9e2c5bed13eebd"
+          "path": "entregas/integrado_maxeon1540/ventilacao_mecanica_sensibilidade/resumo.json",
+          "sha256": "79abbdd37283d2e599ff878fcd543c02865fb01f7a8afe903bd63d4ef030cd5a"
         }
       ],
       "human_approval": false
@@ -553,7 +555,7 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "Não otimiza política solarDC não comprovada;duração17h é idealização acadêmica,não escala operacional segura.; Melhor da grade, não ótimo global; mínimoDC1kW hipotético e fontes sanitárias por parada presumidas.",
+      "pending": "Não otimiza política solarDC não comprovada;duração17h é idealização acadêmica,não escala operacional segura.; Diferença≈6d mostra interação do mínimoDC1kW hipotético com passo temporal; comparações finitas, sem ótimo global, interface autorizada ou viabilidade física.",
       "original_section_sha256": "1e78daf9a8296fdc60ed58c5ec48b6488d568d2cdd0cd7d621b85eff74fa46df",
       "evidence": [
         {
@@ -561,8 +563,8 @@
           "sha256": "f723f356e2ce46494c5b3b66b7c55f796967d2f448c8fa9e24e5d1b6d11e93c6"
         },
         {
-          "path": "entregas/integrado_maxeon1540/otimizacao_grade/resumo.json",
-          "sha256": "14970507bdf4393bf74e6abce098cfb972fae5ded6284f713ac622d4a1666374"
+          "path": "entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/resumo.json",
+          "sha256": "9b467832dc6ed5f586a6b82b39c9c68b9883e6c33f24825f773c21a6d912d453"
         }
       ],
       "human_approval": false
@@ -616,7 +618,7 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "A identidade técnica está definida; homologação da conversão e aprovação humana continuam separadas.; Uso móvel, fixação/BMS e corrente/partidas documentais faltam; buffer não instalado.; Retângulo estimado/curvatura/ancoragens/estoque não comprovados;rastreadores independentes são comparadorDEC054,compartilhamento não aprovado.; 250/60 usa35A conservador;saídas48V não são interfaceHV. BMS/proteções/comutação e interfaceDC não demonstrados.; Vento0 e ΔT0 geram0vazão; ventilação não garantida. ManualFW3000rev2018 admite220–240V50/60Hz;placa adquirida/curva33°C epartidas pendentes.; 256picos,6históricos e72autonomias por orçamento previsto;partidas reais/atuadores e limiaresSOC continuam não demonstrados.; Preços lista semVAT não são cotação instalada;BRL439cooktop é histórico,frete/tributos/câmbio permanecemnull.; Corrente de faseOEM na potência máxima desconhecida;DC569.4A não equivale a RMSde fase.Não modificarcabos.; ECM2nós não packOEM calibrado;20/80kW não são FV disponível.; Bomba é candidata de modelo,não equipamentoOEM comprovado;curva de perdas/UA/ar ainda estimados.",
+      "pending": "A identidade técnica está definida; homologação da conversão e aprovação humana continuam separadas.; Uso móvel, fixação/BMS e corrente/partidas documentais faltam; buffer não instalado.; Retângulo estimado/curvatura/ancoragens/estoque não comprovados;rastreadores independentes são comparadorDEC054,compartilhamento não aprovado.; Saídas48V não são interfaceHV; 250/60 rejeitado pelas perdas de descasamento (até27%), não por limite de corrente. BMS/proteções/comutação e interfaceDC não demonstrados.; 18L/h·pessoa,alvoCO2,pressão/eficiência do ventilador e operação são hipóteses; sem norma demonstrada,umidade latente,SKU,curva elétrica,ruído ou instalação.; 256picos,6históricos e72autonomias por orçamento previsto;partidas reais/atuadores e limiaresSOC continuam não demonstrados.; Preços lista semVAT não são cotação instalada;BRL439cooktop é histórico,frete/tributos/câmbio permanecemnull.; Bitolas185/240 são derivadas da ficha e exigem confirmação;corrente de fase depende de mapaOEM não publicado;nenhuma modificação física do chicoteHV é autorizada.; ECM2nós não packOEM calibrado;20/80kW não são FV disponível; 45°C é limite hipotético.; Bomba é candidata de modelo,não equipamentoOEM comprovado;curva de perdas/UA/ar ainda estimados.",
       "original_section_sha256": "b60439b0751f65d70286dcb73e0009e42b19598b7f54307c425d2e66ee6f5e8b",
       "evidence": [
         {
@@ -624,16 +626,16 @@
           "sha256": "50c4d2cfdae8dbb987f1955a5a8ea8c2bb42349ba102ce6ba5829c2dd55d6636"
         },
         {
-          "path": "entregas/desenvolvimento_2026-11-09/cabos_HV_referencia/resumo_cabos.json",
-          "sha256": "d20e98a1760fb14b1d20bbd666103247affc400c430fa87e1679d1c8a8ccaf37"
-        },
-        {
           "path": "entregas/integrado_maxeon1540/bom_atual/resumo.json",
-          "sha256": "f3e4f742dea7fbc73a67bd2173bf84b0a7a84c1d219f3c9df6046583f981e4b4"
+          "sha256": "c6ab53631d3ae02e0567340a32d03186fb1e02194f59e1651b7651ebabb5582b"
         },
         {
           "path": "entregas/integrado_maxeon1540/energia_sistemas/mppt_parecer.json",
-          "sha256": "d3ce8db03a4bcc94ae83d5db797eba6ab5c4e2cb91e7b4032838429f17d93d8e"
+          "sha256": "270fc28676fa3c0a4630c279cc69015b8357df85abbf7ff161cbd9c1d34a90a6"
+        },
+        {
+          "path": "entregas/integrado_maxeon1540/i30_corrente_maxima/resumo.json",
+          "sha256": "dd87c266f91ed475dc8f12f1b634d0381faf2158dbca9dffaa1b33a3832f3169"
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/agua_operacao_14dias.csv",
@@ -648,16 +650,16 @@
           "sha256": "8cffed50d1ae28fe995225e8b055d6101bb16ff8d3ce634e5acaf24772e75664"
         },
         {
-          "path": "entregas/integrado_maxeon1540/integracao/ventilacao_natural_co2_umidade.csv",
-          "sha256": "22c48ec161a041b999785cd6073aea97d32178ad1698fabeae9e2c5bed13eebd"
-        },
-        {
-          "path": "entregas/integrado_maxeon1540/mecanica_termica/I34_54sensibilidades.csv",
-          "sha256": "a8ac1d2887074c99165a7f59700d120f2d659819c9fb5e37cbf5c5d934679ae0"
+          "path": "entregas/integrado_maxeon1540/mecanica_termica/I34_sensibilidades.csv",
+          "sha256": "100eb7664e2a5d2807ac52661682e8d62f499605178caecdd896d5cbc61a0dfa"
         },
         {
           "path": "entregas/integrado_maxeon1540/solar/resumo.json",
-          "sha256": "3e72a2e598203e96f34bcd7fd4bb91aa13bc5e7eab6da34a1bcb8d02ff507c5d"
+          "sha256": "cfbecea9a7c0d39dabbdb5a01e322f3e5a2bc0104eb2d5b20bf9b11680b1ec10"
+        },
+        {
+          "path": "entregas/integrado_maxeon1540/ventilacao_mecanica_sensibilidade/resumo.json",
+          "sha256": "79abbdd37283d2e599ff878fcd543c02865fb01f7a8afe903bd63d4ef030cd5a"
         }
       ],
       "human_approval": false
@@ -685,7 +687,7 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "Uso móvel, fixação/BMS e corrente/partidas documentais faltam; buffer não instalado.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Não otimiza política solarDC não comprovada;duração17h é idealização acadêmica,não escala operacional segura.; Melhor da grade, não ótimo global; mínimoDC1kW hipotético e fontes sanitárias por parada presumidas.",
+      "pending": "Uso móvel, fixação/BMS e corrente/partidas documentais faltam; buffer não instalado.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Não otimiza política solarDC não comprovada;duração17h é idealização acadêmica,não escala operacional segura.; Diferença≈6d mostra interação do mínimoDC1kW hipotético com passo temporal; comparações finitas, sem ótimo global, interface autorizada ou viabilidade física.",
       "original_section_sha256": "5ab18af7220afe0009845e5e3f9b052828726ff1974bb054b31f97c097aa102b",
       "evidence": [
         {
@@ -701,8 +703,8 @@
           "sha256": "ab3fb084ed600556c3894931a418218d4dee87095197e3eb9e4d849a3d375beb"
         },
         {
-          "path": "entregas/integrado_maxeon1540/otimizacao_grade/resumo.json",
-          "sha256": "14970507bdf4393bf74e6abce098cfb972fae5ded6284f713ac622d4a1666374"
+          "path": "entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/resumo.json",
+          "sha256": "9b467832dc6ed5f586a6b82b39c9c68b9883e6c33f24825f773c21a6d912d453"
         }
       ],
       "human_approval": false
@@ -763,7 +765,7 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "256picos,6históricos e72autonomias por orçamento previsto;partidas reais/atuadores e limiaresSOC continuam não demonstrados.; Tara/CGbase e posições assumidos; não pesagem. Limites por eixo permanecem desconhecidos.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Preços lista semVAT não são cotação instalada;BRL439cooktop é histórico,frete/tributos/câmbio permanecemnull.; Melhor da grade, não ótimo global; mínimoDC1kW hipotético e fontes sanitárias por parada presumidas.",
+      "pending": "256picos,6históricos e72autonomias por orçamento previsto;partidas reais/atuadores e limiaresSOC continuam não demonstrados.; Tara/CGbase e posições assumidos; não pesagem. Limites por eixo permanecem desconhecidos.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Preços lista semVAT não são cotação instalada;BRL439cooktop é histórico,frete/tributos/câmbio permanecemnull.; Diferença≈6d mostra interação do mínimoDC1kW hipotético com passo temporal; comparações finitas, sem ótimo global, interface autorizada ou viabilidade física.",
       "original_section_sha256": "0ed3e8ad78a1258beaafc835427366bf9ca18123e0d2818b9b81d6eafa2a9bd6",
       "evidence": [
         {
@@ -772,7 +774,7 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/bom_atual/resumo.json",
-          "sha256": "f3e4f742dea7fbc73a67bd2173bf84b0a7a84c1d219f3c9df6046583f981e4b4"
+          "sha256": "c6ab53631d3ae02e0567340a32d03186fb1e02194f59e1651b7651ebabb5582b"
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/agua_operacao_14dias.csv",
@@ -783,8 +785,8 @@
           "sha256": "ab3fb084ed600556c3894931a418218d4dee87095197e3eb9e4d849a3d375beb"
         },
         {
-          "path": "entregas/integrado_maxeon1540/otimizacao_grade/resumo.json",
-          "sha256": "14970507bdf4393bf74e6abce098cfb972fae5ded6284f713ac622d4a1666374"
+          "path": "entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/resumo.json",
+          "sha256": "9b467832dc6ed5f586a6b82b39c9c68b9883e6c33f24825f773c21a6d912d453"
         }
       ],
       "human_approval": false
@@ -813,16 +815,12 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "Vento0 e ΔT0 geram0vazão; ventilação não garantida. ManualFW3000rev2018 admite220–240V50/60Hz;placa adquirida/curva33°C epartidas pendentes.; 256picos,6históricos e72autonomias por orçamento previsto;partidas reais/atuadores e limiaresSOC continuam não demonstrados.; Tara/CGbase e posições assumidos; não pesagem. Limites por eixo permanecem desconhecidos.; SIMPLErejeitado;CFDtransiente é complemento com contornos congelados,sem CHT/mobiliário/y+convergente.; Margem nominal1p184W/2p54W não valida33°C;SKU/placa,partida e fusível5A versus6.2A precisam confirmação.",
+      "pending": "18L/h·pessoa,alvoCO2,pressão/eficiência do ventilador e operação são hipóteses; sem norma demonstrada,umidade latente,SKU,curva elétrica,ruído ou instalação.; 256picos,6históricos e72autonomias por orçamento previsto;partidas reais/atuadores e limiaresSOC continuam não demonstrados.; Tara/CGbase e posições assumidos; não pesagem. Limites por eixo permanecem desconhecidos.; SIMPLErejeitado;CFDtransiente é complemento com contornos congelados,sem CHT/mobiliário/y+convergente.; Fluxo/CO2/UR são hipóteses;capacidade sob33/25°C ainda não demonstrada; conflito da fonte,SKU/placa,partida e fusível5A versus6.2A pendentes.",
       "original_section_sha256": "5e73972bee4b2d10f772eadb0d3df1ffca3b97432efbfd199eeef7422f6aa3dc",
       "evidence": [
         {
           "path": "entregas/desenvolvimento_2026-11-09/cabine_transiente/balanco_convergencia.json",
           "sha256": "629b63650e4a3eb2ada8c80920afa228323fdc043617422ff3ca24a930e31b50"
-        },
-        {
-          "path": "entregas/desenvolvimento_2026-11-09/hvac_revisao/resumo.json",
-          "sha256": "ff78dab883c30c2a63dbd94a3636886bc00bbbc08be92da8b7f515c423ecae10"
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/agua_operacao_14dias.csv",
@@ -833,8 +831,8 @@
           "sha256": "ab3fb084ed600556c3894931a418218d4dee87095197e3eb9e4d849a3d375beb"
         },
         {
-          "path": "entregas/integrado_maxeon1540/integracao/ventilacao_natural_co2_umidade.csv",
-          "sha256": "22c48ec161a041b999785cd6073aea97d32178ad1698fabeae9e2c5bed13eebd"
+          "path": "entregas/integrado_maxeon1540/ventilacao_mecanica_sensibilidade/resumo.json",
+          "sha256": "79abbdd37283d2e599ff878fcd543c02865fb01f7a8afe903bd63d4ef030cd5a"
         }
       ],
       "human_approval": false
@@ -869,28 +867,28 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "256picos,6históricos e72autonomias por orçamento previsto;partidas reais/atuadores e limiaresSOC continuam não demonstrados.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Preços lista semVAT não são cotação instalada;BRL439cooktop é histórico,frete/tributos/câmbio permanecemnull.; Melhor da grade, não ótimo global; mínimoDC1kW hipotético e fontes sanitárias por parada presumidas.; Margem nominal1p184W/2p54W não valida33°C;SKU/placa,partida e fusível5A versus6.2A precisam confirmação.",
+      "pending": "256picos,6históricos e72autonomias por orçamento previsto;partidas reais/atuadores e limiaresSOC continuam não demonstrados.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Preços lista semVAT não são cotação instalada;BRL439cooktop é histórico,frete/tributos/câmbio permanecemnull.; Diferença≈6d mostra interação do mínimoDC1kW hipotético com passo temporal; comparações finitas, sem ótimo global, interface autorizada ou viabilidade física.; Fluxo/CO2/UR são hipóteses;capacidade sob33/25°C ainda não demonstrada; conflito da fonte,SKU/placa,partida e fusível5A versus6.2A pendentes.",
       "original_section_sha256": "088fc2e2ebba2a7d674d215a5c399daa456a9b4593661cdfde271639d2a01862",
       "evidence": [
-        {
-          "path": "entregas/desenvolvimento_2026-11-09/hvac_revisao/resumo.json",
-          "sha256": "ff78dab883c30c2a63dbd94a3636886bc00bbbc08be92da8b7f515c423ecae10"
-        },
         {
           "path": "entregas/integrado_maxeon1540/bancos_24_48_cad/resumo.json",
           "sha256": "8b8f3d6291e0ee45028b603d030c20020cc4a5195d00ae80dbc4974ff0e67a82"
         },
         {
           "path": "entregas/integrado_maxeon1540/bom_atual/resumo.json",
-          "sha256": "f3e4f742dea7fbc73a67bd2173bf84b0a7a84c1d219f3c9df6046583f981e4b4"
+          "sha256": "c6ab53631d3ae02e0567340a32d03186fb1e02194f59e1651b7651ebabb5582b"
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/agua_operacao_14dias.csv",
           "sha256": "c9a6e3086d39bf2124bd996e6174337967c769cb53091465792cb182807c636f"
         },
         {
-          "path": "entregas/integrado_maxeon1540/otimizacao_grade/resumo.json",
-          "sha256": "14970507bdf4393bf74e6abce098cfb972fae5ded6284f713ac622d4a1666374"
+          "path": "entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/resumo.json",
+          "sha256": "9b467832dc6ed5f586a6b82b39c9c68b9883e6c33f24825f773c21a6d912d453"
+        },
+        {
+          "path": "entregas/integrado_maxeon1540/ventilacao_mecanica_sensibilidade/resumo.json",
+          "sha256": "79abbdd37283d2e599ff878fcd543c02865fb01f7a8afe903bd63d4ef030cd5a"
         }
       ],
       "human_approval": false
@@ -919,7 +917,7 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "256picos,6históricos e72autonomias por orçamento previsto;partidas reais/atuadores e limiaresSOC continuam não demonstrados.; Tara/CGbase e posições assumidos; não pesagem. Limites por eixo permanecem desconhecidos.; Melhor da grade, não ótimo global; mínimoDC1kW hipotético e fontes sanitárias por parada presumidas.",
+      "pending": "256picos,6históricos e72autonomias por orçamento previsto;partidas reais/atuadores e limiaresSOC continuam não demonstrados.; Tara/CGbase e posições assumidos; não pesagem. Limites por eixo permanecem desconhecidos.; Diferença≈6d mostra interação do mínimoDC1kW hipotético com passo temporal; comparações finitas, sem ótimo global, interface autorizada ou viabilidade física.",
       "original_section_sha256": "37d984b0d8191dfa355e58e2b4480eea16b24249798a028f4a105828370b1099",
       "evidence": [
         {
@@ -931,8 +929,8 @@
           "sha256": "ab3fb084ed600556c3894931a418218d4dee87095197e3eb9e4d849a3d375beb"
         },
         {
-          "path": "entregas/integrado_maxeon1540/otimizacao_grade/resumo.json",
-          "sha256": "14970507bdf4393bf74e6abce098cfb972fae5ded6284f713ac622d4a1666374"
+          "path": "entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/resumo.json",
+          "sha256": "9b467832dc6ed5f586a6b82b39c9c68b9883e6c33f24825f773c21a6d912d453"
         }
       ],
       "human_approval": false
@@ -958,20 +956,20 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "250/60 usa35A conservador;saídas48V não são interfaceHV. BMS/proteções/comutação e interfaceDC não demonstrados.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Corrente de faseOEM na potência máxima desconhecida;DC569.4A não equivale a RMSde fase.Não modificarcabos.",
+      "pending": "Saídas48V não são interfaceHV; 250/60 rejeitado pelas perdas de descasamento (até27%), não por limite de corrente. BMS/proteções/comutação e interfaceDC não demonstrados.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Bitolas185/240 são derivadas da ficha e exigem confirmação;corrente de fase depende de mapaOEM não publicado;nenhuma modificação física do chicoteHV é autorizada.",
       "original_section_sha256": "5f83c10361f987958236fb94ddee687a289339e1cf562f213eafda586e62bd32",
       "evidence": [
-        {
-          "path": "entregas/desenvolvimento_2026-11-09/cabos_HV_referencia/resumo_cabos.json",
-          "sha256": "d20e98a1760fb14b1d20bbd666103247affc400c430fa87e1679d1c8a8ccaf37"
-        },
         {
           "path": "entregas/integrado_maxeon1540/bancos_24_48_cad/resumo.json",
           "sha256": "8b8f3d6291e0ee45028b603d030c20020cc4a5195d00ae80dbc4974ff0e67a82"
         },
         {
           "path": "entregas/integrado_maxeon1540/energia_sistemas/mppt_parecer.json",
-          "sha256": "d3ce8db03a4bcc94ae83d5db797eba6ab5c4e2cb91e7b4032838429f17d93d8e"
+          "sha256": "270fc28676fa3c0a4630c279cc69015b8357df85abbf7ff161cbd9c1d34a90a6"
+        },
+        {
+          "path": "entregas/integrado_maxeon1540/i30_corrente_maxima/resumo.json",
+          "sha256": "dd87c266f91ed475dc8f12f1b634d0381faf2158dbca9dffaa1b33a3832f3169"
         }
       ],
       "human_approval": false
@@ -1017,7 +1015,7 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/despacho_i25/resumo.json",
-          "sha256": "f860eefac3d39a0fadda87f8230b41d2aeacc845513692632ace8b7776d2d15b"
+          "sha256": "35d2691ac30032ebc0b6a5d18588779586d590da6854274eacc31b6a7a124725"
         },
         {
           "path": "entregas/integrado_maxeon1540/energia_sistemas/I27_autonomia_otima_modelo_sem_HV.csv",
@@ -1025,19 +1023,19 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/energia_sistemas/mppt_parecer.json",
-          "sha256": "d3ce8db03a4bcc94ae83d5db797eba6ab5c4e2cb91e7b4032838429f17d93d8e"
+          "sha256": "270fc28676fa3c0a4630c279cc69015b8357df85abbf7ff161cbd9c1d34a90a6"
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/inventario_massas.csv",
           "sha256": "ab3fb084ed600556c3894931a418218d4dee87095197e3eb9e4d849a3d375beb"
         },
         {
-          "path": "entregas/integrado_maxeon1540/otimizacao_grade/resumo.json",
-          "sha256": "14970507bdf4393bf74e6abce098cfb972fae5ded6284f713ac622d4a1666374"
+          "path": "entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/resumo.json",
+          "sha256": "9b467832dc6ed5f586a6b82b39c9c68b9883e6c33f24825f773c21a6d912d453"
         },
         {
           "path": "entregas/integrado_maxeon1540/protecoes_fixacoes/resumo.json",
-          "sha256": "b431cfc3d31c6c021bfdeaf6cb6a3fa623965760d457efff1cc265aabe862315"
+          "sha256": "6d3f39d4bf3598011f32067c4d25c6a8ab03ee3aeecee8910cb29a0337471986"
         }
       ],
       "human_approval": false
@@ -1068,7 +1066,7 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "Retângulo estimado/curvatura/ancoragens/estoque não comprovados;rastreadores independentes são comparadorDEC054,compartilhamento não aprovado.; 250/60 usa35A conservador;saídas48V não são interfaceHV. BMS/proteções/comutação e interfaceDC não demonstrados.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Uma parada+carga seguida de condução;serviços cíclicos separados,mínimosDC hipotéticos,sem provaOEM/ótimo global.; Não otimiza política solarDC não comprovada;duração17h é idealização acadêmica,não escala operacional segura.; Melhor da grade, não ótimo global; mínimoDC1kW hipotético e fontes sanitárias por parada presumidas.",
+      "pending": "Retângulo estimado/curvatura/ancoragens/estoque não comprovados;rastreadores independentes são comparadorDEC054,compartilhamento não aprovado.; Saídas48V não são interfaceHV; 250/60 rejeitado pelas perdas de descasamento (até27%), não por limite de corrente. BMS/proteções/comutação e interfaceDC não demonstrados.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Uma parada+carga seguida de condução;serviços cíclicos separados,mínimosDC hipotéticos,sem provaOEM/ótimo global.; Não otimiza política solarDC não comprovada;duração17h é idealização acadêmica,não escala operacional segura.; Diferença≈6d mostra interação do mínimoDC1kW hipotético com passo temporal; comparações finitas, sem ótimo global, interface autorizada ou viabilidade física.",
       "original_section_sha256": "41d87001814a45bc8ba5120314bb2a8127ab2509335769f301dfb6fbd731921d",
       "evidence": [
         {
@@ -1077,7 +1075,7 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/despacho_i25/resumo.json",
-          "sha256": "f860eefac3d39a0fadda87f8230b41d2aeacc845513692632ace8b7776d2d15b"
+          "sha256": "35d2691ac30032ebc0b6a5d18588779586d590da6854274eacc31b6a7a124725"
         },
         {
           "path": "entregas/integrado_maxeon1540/energia_sistemas/I27_autonomia_otima_modelo_sem_HV.csv",
@@ -1085,15 +1083,15 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/energia_sistemas/mppt_parecer.json",
-          "sha256": "d3ce8db03a4bcc94ae83d5db797eba6ab5c4e2cb91e7b4032838429f17d93d8e"
+          "sha256": "270fc28676fa3c0a4630c279cc69015b8357df85abbf7ff161cbd9c1d34a90a6"
         },
         {
-          "path": "entregas/integrado_maxeon1540/otimizacao_grade/resumo.json",
-          "sha256": "14970507bdf4393bf74e6abce098cfb972fae5ded6284f713ac622d4a1666374"
+          "path": "entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/resumo.json",
+          "sha256": "9b467832dc6ed5f586a6b82b39c9c68b9883e6c33f24825f773c21a6d912d453"
         },
         {
           "path": "entregas/integrado_maxeon1540/solar/resumo.json",
-          "sha256": "3e72a2e598203e96f34bcd7fd4bb91aa13bc5e7eab6da34a1bcb8d02ff507c5d"
+          "sha256": "cfbecea9a7c0d39dabbdb5a01e322f3e5a2bc0104eb2d5b20bf9b11680b1ec10"
         }
       ],
       "human_approval": false
@@ -1137,16 +1135,20 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "Limites por eixo/curso/rigidez e comportamento dinâmico OEM faltam; não homologar por estatística.; Chassi/ancoragensOEM/furação/contato/fadiga não demonstrados;seleções locais não homologam carroceria.; Tara/CGbase e posições assumidos; não pesagem. Limites por eixo permanecem desconhecidos.; Não apresentar Crr como ensaio dos pneusOEM.; Cd/Crr/ρ condicionais; pista plana e vento0.; AuxiliaresOEM0/300/700/1500W sensibilizados, não confundidos com serviços.; Uma parada+carga seguida de condução;serviços cíclicos separados,mínimosDC hipotéticos,sem provaOEM/ótimo global.; Eficiência constante e dados de rolamento/aerodinâmica estimados.; Não otimiza política solarDC não comprovada;duração17h é idealização acadêmica,não escala operacional segura.; Esses tempos não são desempenhoOEM: relação, raio,aderência e envelope não calibrados.; Melhor da grade, não ótimo global; mínimoDC1kW hipotético e fontes sanitárias por parada presumidas.; Disco/material/repartição/regenOEM não confirmados;108km/h é ensaio prescrito,acima limitador90.",
+      "pending": "Limites por eixo/curso/rigidez e comportamento dinâmico OEM faltam; não homologar por estatística.; Chassi/ancoragensOEM/furação/contato/fadiga não demonstrados;seleções locais não homologam carroceria.; Tara/CGbase e posições assumidos; não pesagem. Limites por eixo permanecem desconhecidos.; Não apresentar Crr como ensaio dos pneusOEM.; Rampa/vento e coeficientes são hipóteses, não rota medida; sem aceleração, mapas OEM ou limites de pneus/eixos.; Eficiência0,90 e auxiliares700W estimados; potência na roda não é mapa/potência contínua do motor, sem validação OEM ou física.; Uma parada+carga seguida de condução;serviços cíclicos separados,mínimosDC hipotéticos,sem provaOEM/ótimo global.; Eficiência constante e dados de rolamento/aerodinâmica estimados.; Não otimiza política solarDC não comprovada;duração17h é idealização acadêmica,não escala operacional segura.; Esses tempos não são desempenhoOEM: relação, raio,aderência e envelope não calibrados.; Diferença≈6d mostra interação do mínimoDC1kW hipotético com passo temporal; comparações finitas, sem ótimo global, interface autorizada ou viabilidade física.; Disco/material/repartição/regenOEM não confirmados;108km/h é ensaio prescrito,acima limitador90.",
       "original_section_sha256": "c2e13586f2b54c3d4e264366083305d5abe0e5e96e0028337f889a58ca70c57f",
       "evidence": [
         {
           "path": "entregas/desenvolvimento_2026-11-09/fixacoes_redimensionadas/resumo.json",
-          "sha256": "091af5f57a3b3509736cd6916ef76372bb438f948fb5bc26ebedb8cdb3b777b5"
+          "sha256": "ab1b131555c455cec15235665e838514df7c0896dfbada0b870a090de52db5aa"
         },
         {
           "path": "entregas/integrado_maxeon1540/despacho_i25/resumo.json",
-          "sha256": "f860eefac3d39a0fadda87f8230b41d2aeacc845513692632ace8b7776d2d15b"
+          "sha256": "35d2691ac30032ebc0b6a5d18588779586d590da6854274eacc31b6a7a124725"
+        },
+        {
+          "path": "entregas/integrado_maxeon1540/dinamica_resistiva_sensibilidade/resumo.json",
+          "sha256": "d7da5498671db2ad474af7cc77811b5e67dcc7ea9e5af680f07eeb3aeb4f59ac"
         },
         {
           "path": "entregas/integrado_maxeon1540/energia_sistemas/I25_I26_autonomia_solar_consumo.csv",
@@ -1158,7 +1160,7 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/freios_integrados/convergencia.csv",
-          "sha256": "1e0ea6ffb6cc49f3311246414f994e60caa7cb83352e1830ec7f5224b4a7ef59"
+          "sha256": "d263cbcd3f9c566a87185ab016dabe5076ebb8dbc43ab23d18471815729dac61"
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/dinamica_massa_integrada.csv",
@@ -1170,15 +1172,15 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/massa_cg_eixos_sensibilidade.csv",
-          "sha256": "7262d7ed10894ecb5bb58f8046e578c9e0f1cf2c595189ff9e31ce5e17a4b155"
+          "sha256": "12c89b023b3003a7ec97b435ced5b3e337b04634bd15245c7078a18130912858"
         },
         {
           "path": "entregas/integrado_maxeon1540/mecanica_termica/I28_envelope_0_90_sensibilidade.csv",
           "sha256": "2686c8d40eb7c787153832f7180c8fc95d978227d424f562cb0404d74cd3328d"
         },
         {
-          "path": "entregas/integrado_maxeon1540/otimizacao_grade/resumo.json",
-          "sha256": "14970507bdf4393bf74e6abce098cfb972fae5ded6284f713ac622d4a1666374"
+          "path": "entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/resumo.json",
+          "sha256": "9b467832dc6ed5f586a6b82b39c9c68b9883e6c33f24825f773c21a6d912d453"
         }
       ],
       "human_approval": false
@@ -1215,12 +1217,16 @@
       "original_section_sha256": "cff31a8d2113722ff7c6492f060d96d71bf41dcda663b1987b51ca976fa0ac57",
       "evidence": [
         {
+          "path": "entregas/aero_equipado1540/comparacao_malhas_adicionais.json",
+          "sha256": "34564c4ea1b17ff743cb8b54639e5d2a751708d73334115eb008a61504500d68"
+        },
+        {
           "path": "entregas/aero_equipado1540/incerteza_observada.json",
           "sha256": "e3d4d231551d55e11748f02d473db8ae45e7de87b7bdd91bdcf139ed06d5899b"
         },
         {
           "path": "entregas/integrado_maxeon1540/despacho_i25/resumo.json",
-          "sha256": "f860eefac3d39a0fadda87f8230b41d2aeacc845513692632ace8b7776d2d15b"
+          "sha256": "35d2691ac30032ebc0b6a5d18588779586d590da6854274eacc31b6a7a124725"
         },
         {
           "path": "entregas/integrado_maxeon1540/energia_sistemas/I25_I26_autonomia_solar_consumo.csv",
@@ -1239,8 +1245,8 @@
           "sha256": "2686c8d40eb7c787153832f7180c8fc95d978227d424f562cb0404d74cd3328d"
         },
         {
-          "path": "entregas/integrado_maxeon1540/otimizacao_grade/resumo.json",
-          "sha256": "14970507bdf4393bf74e6abce098cfb972fae5ded6284f713ac622d4a1666374"
+          "path": "entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/resumo.json",
+          "sha256": "9b467832dc6ed5f586a6b82b39c9c68b9883e6c33f24825f773c21a6d912d453"
         }
       ],
       "human_approval": false
@@ -1266,7 +1272,7 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "η/UA/vazão são hipóteses; não reprodução do circuitoOEM.; ECM2nós não packOEM calibrado;20/80kW não são FV disponível.; Bomba é candidata de modelo,não equipamentoOEM comprovado;curva de perdas/UA/ar ainda estimados.",
+      "pending": "η/UA/vazão são hipóteses; não reprodução do circuitoOEM.; ECM2nós não packOEM calibrado;20/80kW não são FV disponível; 45°C é limite hipotético.; Bomba é candidata de modelo,não equipamentoOEM comprovado;curva de perdas/UA/ar ainda estimados.",
       "original_section_sha256": "8f69c51ac11a8c3cdd5cd5c58b2a3f10fc63a5e5fa24bc00cf13965a89010264",
       "evidence": [
         {
@@ -1278,8 +1284,8 @@
           "sha256": "acad4d1d700dfd6dcd553c29003c9ca482d8d102833327b0ee4b1c03d2bb2d47"
         },
         {
-          "path": "entregas/integrado_maxeon1540/mecanica_termica/I34_54sensibilidades.csv",
-          "sha256": "a8ac1d2887074c99165a7f59700d120f2d659819c9fb5e37cbf5c5d934679ae0"
+          "path": "entregas/integrado_maxeon1540/mecanica_termica/I34_sensibilidades.csv",
+          "sha256": "100eb7664e2a5d2807ac52661682e8d62f499605178caecdd896d5cbc61a0dfa"
         }
       ],
       "human_approval": false
@@ -1313,7 +1319,7 @@
       "evidence": [
         {
           "path": "entregas/integrado_maxeon1540/freios_integrados/convergencia.csv",
-          "sha256": "1e0ea6ffb6cc49f3311246414f994e60caa7cb83352e1830ec7f5224b4a7ef59"
+          "sha256": "d263cbcd3f9c566a87185ab016dabe5076ebb8dbc43ab23d18471815729dac61"
         },
         {
           "path": "entregas/integrado_maxeon1540/freios_integrados/transferencia_carga_aderencia.csv",
@@ -1366,24 +1372,24 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "56faltas hipotéticas excedem20kA;impedância real/I²t/ampacidade/PE-DR/terminais ainda não validados.; 250/60 usa35A conservador;saídas48V não são interfaceHV. BMS/proteções/comutação e interfaceDC não demonstrados.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Corrente de faseOEM na potência máxima desconhecida;DC569.4A não equivale a RMSde fase.Não modificarcabos.",
+      "pending": "Com o BMS limitando a saída (<6kA,3módulos),nenhum caso excede o fusível de20kA;impedância real/I²t/ampacidade/PE-DR/terminais ainda não validados.; Saídas48V não são interfaceHV; 250/60 rejeitado pelas perdas de descasamento (até27%), não por limite de corrente. BMS/proteções/comutação e interfaceDC não demonstrados.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Bitolas185/240 são derivadas da ficha e exigem confirmação;corrente de fase depende de mapaOEM não publicado;nenhuma modificação física do chicoteHV é autorizada.",
       "original_section_sha256": "eff06b1da67f82053e1b0cf2bc14333b345cc07618c09a01f547c9ffc4c6ad63",
       "evidence": [
-        {
-          "path": "entregas/desenvolvimento_2026-11-09/cabos_HV_referencia/resumo_cabos.json",
-          "sha256": "d20e98a1760fb14b1d20bbd666103247affc400c430fa87e1679d1c8a8ccaf37"
-        },
         {
           "path": "entregas/integrado_maxeon1540/bancos_24_48_cad/resumo.json",
           "sha256": "8b8f3d6291e0ee45028b603d030c20020cc4a5195d00ae80dbc4974ff0e67a82"
         },
         {
           "path": "entregas/integrado_maxeon1540/energia_sistemas/mppt_parecer.json",
-          "sha256": "d3ce8db03a4bcc94ae83d5db797eba6ab5c4e2cb91e7b4032838429f17d93d8e"
+          "sha256": "270fc28676fa3c0a4630c279cc69015b8357df85abbf7ff161cbd9c1d34a90a6"
+        },
+        {
+          "path": "entregas/integrado_maxeon1540/i30_corrente_maxima/resumo.json",
+          "sha256": "dd87c266f91ed475dc8f12f1b634d0381faf2158dbca9dffaa1b33a3832f3169"
         },
         {
           "path": "entregas/integrado_maxeon1540/protecoes_fixacoes/resumo.json",
-          "sha256": "b431cfc3d31c6c021bfdeaf6cb6a3fa623965760d457efff1cc265aabe862315"
+          "sha256": "6d3f39d4bf3598011f32067c4d25c6a8ab03ee3aeecee8910cb29a0337471986"
         }
       ],
       "human_approval": false
@@ -1409,7 +1415,7 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "Vento0 e ΔT0 geram0vazão; ventilação não garantida. ManualFW3000rev2018 admite220–240V50/60Hz;placa adquirida/curva33°C epartidas pendentes.; SIMPLErejeitado;CFDtransiente é complemento com contornos congelados,sem CHT/mobiliário/y+convergente.",
+      "pending": "18L/h·pessoa,alvoCO2,pressão/eficiência do ventilador e operação são hipóteses; sem norma demonstrada,umidade latente,SKU,curva elétrica,ruído ou instalação.; SIMPLErejeitado;CFDtransiente é complemento com contornos congelados,sem CHT/mobiliário/y+convergente.",
       "original_section_sha256": "d222b7565987302c9d2a30149b90019213c5cd143ee5e4b602bb399c52c5a0af",
       "evidence": [
         {
@@ -1417,8 +1423,8 @@
           "sha256": "629b63650e4a3eb2ada8c80920afa228323fdc043617422ff3ca24a930e31b50"
         },
         {
-          "path": "entregas/integrado_maxeon1540/integracao/ventilacao_natural_co2_umidade.csv",
-          "sha256": "22c48ec161a041b999785cd6073aea97d32178ad1698fabeae9e2c5bed13eebd"
+          "path": "entregas/integrado_maxeon1540/ventilacao_mecanica_sensibilidade/resumo.json",
+          "sha256": "79abbdd37283d2e599ff878fcd543c02865fb01f7a8afe903bd63d4ef030cd5a"
         }
       ],
       "human_approval": false
@@ -1447,20 +1453,16 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "Vento0 e ΔT0 geram0vazão; ventilação não garantida. ManualFW3000rev2018 admite220–240V50/60Hz;placa adquirida/curva33°C epartidas pendentes.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Margem nominal1p184W/2p54W não valida33°C;SKU/placa,partida e fusível5A versus6.2A precisam confirmação.",
+      "pending": "18L/h·pessoa,alvoCO2,pressão/eficiência do ventilador e operação são hipóteses; sem norma demonstrada,umidade latente,SKU,curva elétrica,ruído ou instalação.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Fluxo/CO2/UR são hipóteses;capacidade sob33/25°C ainda não demonstrada; conflito da fonte,SKU/placa,partida e fusível5A versus6.2A pendentes.",
       "original_section_sha256": "5419cfa9abdedbcfda91adf5361fd5e52d60f725464024c72452fbc890bfd1b2",
       "evidence": [
-        {
-          "path": "entregas/desenvolvimento_2026-11-09/hvac_revisao/resumo.json",
-          "sha256": "ff78dab883c30c2a63dbd94a3636886bc00bbbc08be92da8b7f515c423ecae10"
-        },
         {
           "path": "entregas/integrado_maxeon1540/bancos_24_48_cad/resumo.json",
           "sha256": "8b8f3d6291e0ee45028b603d030c20020cc4a5195d00ae80dbc4974ff0e67a82"
         },
         {
-          "path": "entregas/integrado_maxeon1540/integracao/ventilacao_natural_co2_umidade.csv",
-          "sha256": "22c48ec161a041b999785cd6073aea97d32178ad1698fabeae9e2c5bed13eebd"
+          "path": "entregas/integrado_maxeon1540/ventilacao_mecanica_sensibilidade/resumo.json",
+          "sha256": "79abbdd37283d2e599ff878fcd543c02865fb01f7a8afe903bd63d4ef030cd5a"
         }
       ],
       "human_approval": false
@@ -1486,20 +1488,20 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "Uma parada+carga seguida de condução;serviços cíclicos separados,mínimosDC hipotéticos,sem provaOEM/ótimo global.; Não otimiza política solarDC não comprovada;duração17h é idealização acadêmica,não escala operacional segura.; Melhor da grade, não ótimo global; mínimoDC1kW hipotético e fontes sanitárias por parada presumidas.",
+      "pending": "Uma parada+carga seguida de condução;serviços cíclicos separados,mínimosDC hipotéticos,sem provaOEM/ótimo global.; Não otimiza política solarDC não comprovada;duração17h é idealização acadêmica,não escala operacional segura.; Diferença≈6d mostra interação do mínimoDC1kW hipotético com passo temporal; comparações finitas, sem ótimo global, interface autorizada ou viabilidade física.",
       "original_section_sha256": "fec2469a87cf7a0120ab5041d81d07b055edc95502cfeecaa6b9deb8bbde0574",
       "evidence": [
         {
           "path": "entregas/integrado_maxeon1540/despacho_i25/resumo.json",
-          "sha256": "f860eefac3d39a0fadda87f8230b41d2aeacc845513692632ace8b7776d2d15b"
+          "sha256": "35d2691ac30032ebc0b6a5d18588779586d590da6854274eacc31b6a7a124725"
         },
         {
           "path": "entregas/integrado_maxeon1540/energia_sistemas/I27_autonomia_otima_modelo_sem_HV.csv",
           "sha256": "f723f356e2ce46494c5b3b66b7c55f796967d2f448c8fa9e24e5d1b6d11e93c6"
         },
         {
-          "path": "entregas/integrado_maxeon1540/otimizacao_grade/resumo.json",
-          "sha256": "14970507bdf4393bf74e6abce098cfb972fae5ded6284f713ac622d4a1666374"
+          "path": "entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/resumo.json",
+          "sha256": "9b467832dc6ed5f586a6b82b39c9c68b9883e6c33f24825f773c21a6d912d453"
         }
       ],
       "human_approval": false
@@ -1533,7 +1535,7 @@
       "evidence": [
         {
           "path": "entregas/integrado_maxeon1540/integracao/A_fixa_vistas.png",
-          "sha256": "96d1b726a49620d9ecba7dee870c2ad13e92177e7d41983108634f5bf8ed07d3"
+          "sha256": "999ac019d77ceffda269cf4bdab4c78dde2ac838a1b83744b643b0885ff2df51"
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/agua_operacao_14dias.csv",
@@ -1545,7 +1547,7 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/rotas_instalacoes/layoutA_rotas_reserva.step",
-          "sha256": "0c8f72910a6065100c7fac13f948744f1b48233fc0053f93973d429099e82540"
+          "sha256": "329aca2c65549d912803120d5a8fff3e6819b2b9a9d6c2df64249aca7d1859d5"
         }
       ],
       "human_approval": false
@@ -1575,24 +1577,24 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "Retângulo estimado/curvatura/ancoragens/estoque não comprovados;rastreadores independentes são comparadorDEC054,compartilhamento não aprovado.; Passagens/terminais/chapariaOEM e drenagem/estanqueidade ainda não demonstrados.; B tem acesso de lavagem6mm insuficiente e portáteis altos;A selecionado provisoriamente. Não é CADOEM.; Variação final5.23%;GCI não justificável por refinamento local;geometria/parede não validadas,semCddefinitivo.",
+      "pending": "Retângulo estimado/curvatura/ancoragens/estoque não comprovados;rastreadores independentes são comparadorDEC054,compartilhamento não aprovado.; Passagens/terminais/chapariaOEM e drenagem/estanqueidade ainda não demonstrados.; B tem acesso de lavagem6mm insuficiente e portáteis altos;A selecionado provisoriamente. Não é CADOEM.; Malhas não aninhadas e Cd difere7.05% (grading2/base) e16.65% (grading4/base); y+ médio solo1146/913 e p inicial1.15e-4 no grading2. Sem GCI, independência, parede adequada ou validação física.",
       "original_section_sha256": "91755d8bc106a63f0f63e2278bc279b01f3ea2d4582c22dba398481ca6002960",
       "evidence": [
         {
-          "path": "entregas/aero_equipado1540/incerteza_observada.json",
-          "sha256": "e3d4d231551d55e11748f02d473db8ae45e7de87b7bdd91bdcf139ed06d5899b"
+          "path": "entregas/aero_equipado1540/comparacao_malhas_adicionais.json",
+          "sha256": "34564c4ea1b17ff743cb8b54639e5d2a751708d73334115eb008a61504500d68"
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/A_fixa_vistas.png",
-          "sha256": "96d1b726a49620d9ecba7dee870c2ad13e92177e7d41983108634f5bf8ed07d3"
+          "sha256": "999ac019d77ceffda269cf4bdab4c78dde2ac838a1b83744b643b0885ff2df51"
         },
         {
           "path": "entregas/integrado_maxeon1540/rotas_instalacoes/layoutA_rotas_reserva.step",
-          "sha256": "0c8f72910a6065100c7fac13f948744f1b48233fc0053f93973d429099e82540"
+          "sha256": "329aca2c65549d912803120d5a8fff3e6819b2b9a9d6c2df64249aca7d1859d5"
         },
         {
           "path": "entregas/integrado_maxeon1540/solar/resumo.json",
-          "sha256": "3e72a2e598203e96f34bcd7fd4bb91aa13bc5e7eab6da34a1bcb8d02ff507c5d"
+          "sha256": "cfbecea9a7c0d39dabbdb5a01e322f3e5a2bc0104eb2d5b20bf9b11680b1ec10"
         }
       ],
       "human_approval": false
@@ -1630,12 +1632,12 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "Não apresentar Crr como ensaio dos pneusOEM.; Uma parada+carga seguida de condução;serviços cíclicos separados,mínimosDC hipotéticos,sem provaOEM/ótimo global.; Eficiência constante e dados de rolamento/aerodinâmica estimados.; Não otimiza política solarDC não comprovada;duração17h é idealização acadêmica,não escala operacional segura.; Esses tempos não são desempenhoOEM: relação, raio,aderência e envelope não calibrados.; Melhor da grade, não ótimo global; mínimoDC1kW hipotético e fontes sanitárias por parada presumidas.",
+      "pending": "Não apresentar Crr como ensaio dos pneusOEM.; Uma parada+carga seguida de condução;serviços cíclicos separados,mínimosDC hipotéticos,sem provaOEM/ótimo global.; Eficiência constante e dados de rolamento/aerodinâmica estimados.; Não otimiza política solarDC não comprovada;duração17h é idealização acadêmica,não escala operacional segura.; Esses tempos não são desempenhoOEM: relação, raio,aderência e envelope não calibrados.; Diferença≈6d mostra interação do mínimoDC1kW hipotético com passo temporal; comparações finitas, sem ótimo global, interface autorizada ou viabilidade física.",
       "original_section_sha256": "26621cd3ba8db2baf7232aa0d982bf97f3d656f389d6cfe26264a1c01f8d2363",
       "evidence": [
         {
           "path": "entregas/integrado_maxeon1540/despacho_i25/resumo.json",
-          "sha256": "f860eefac3d39a0fadda87f8230b41d2aeacc845513692632ace8b7776d2d15b"
+          "sha256": "35d2691ac30032ebc0b6a5d18588779586d590da6854274eacc31b6a7a124725"
         },
         {
           "path": "entregas/integrado_maxeon1540/energia_sistemas/I25_I26_autonomia_solar_consumo.csv",
@@ -1654,8 +1656,8 @@
           "sha256": "2686c8d40eb7c787153832f7180c8fc95d978227d424f562cb0404d74cd3328d"
         },
         {
-          "path": "entregas/integrado_maxeon1540/otimizacao_grade/resumo.json",
-          "sha256": "14970507bdf4393bf74e6abce098cfb972fae5ded6284f713ac622d4a1666374"
+          "path": "entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/resumo.json",
+          "sha256": "9b467832dc6ed5f586a6b82b39c9c68b9883e6c33f24825f773c21a6d912d453"
         }
       ],
       "human_approval": false
@@ -1689,11 +1691,11 @@
       "evidence": [
         {
           "path": "entregas/desenvolvimento_2026-11-09/fixacoes_redimensionadas/resumo.json",
-          "sha256": "091af5f57a3b3509736cd6916ef76372bb438f948fb5bc26ebedb8cdb3b777b5"
+          "sha256": "ab1b131555c455cec15235665e838514df7c0896dfbada0b870a090de52db5aa"
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/A_fixa_vistas.png",
-          "sha256": "96d1b726a49620d9ecba7dee870c2ad13e92177e7d41983108634f5bf8ed07d3"
+          "sha256": "999ac019d77ceffda269cf4bdab4c78dde2ac838a1b83744b643b0885ff2df51"
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/inventario_massas.csv",
@@ -1701,11 +1703,11 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/massa_cg_eixos_sensibilidade.csv",
-          "sha256": "7262d7ed10894ecb5bb58f8046e578c9e0f1cf2c595189ff9e31ce5e17a4b155"
+          "sha256": "12c89b023b3003a7ec97b435ced5b3e337b04634bd15245c7078a18130912858"
         },
         {
           "path": "entregas/integrado_maxeon1540/rotas_instalacoes/layoutA_rotas_reserva.step",
-          "sha256": "0c8f72910a6065100c7fac13f948744f1b48233fc0053f93973d429099e82540"
+          "sha256": "329aca2c65549d912803120d5a8fff3e6819b2b9a9d6c2df64249aca7d1859d5"
         }
       ],
       "human_approval": false
@@ -1734,7 +1736,7 @@
       "evidence": [
         {
           "path": "entregas/integrado_maxeon1540/bom_atual/resumo.json",
-          "sha256": "f3e4f742dea7fbc73a67bd2173bf84b0a7a84c1d219f3c9df6046583f981e4b4"
+          "sha256": "c6ab53631d3ae02e0567340a32d03186fb1e02194f59e1651b7651ebabb5582b"
         }
       ],
       "human_approval": false
@@ -1803,8 +1805,8 @@
       "original_section_sha256": "f119fec735f4415b8a030b461c379e3dda15b7e94c90367656729862132a7dac",
       "evidence": [
         {
-          "path": "entregas/aero_equipado1540/incerteza_observada.json",
-          "sha256": "e3d4d231551d55e11748f02d473db8ae45e7de87b7bdd91bdcf139ed06d5899b"
+          "path": "entregas/aero_equipado1540/comparacao_malhas_adicionais.json",
+          "sha256": "34564c4ea1b17ff743cb8b54639e5d2a751708d73334115eb008a61504500d68"
         },
         {
           "path": "entregas/desenvolvimento_2026-11-09/arrefecimento/resumo_hidraulica.json",
@@ -1815,16 +1817,8 @@
           "sha256": "629b63650e4a3eb2ada8c80920afa228323fdc043617422ff3ca24a930e31b50"
         },
         {
-          "path": "entregas/desenvolvimento_2026-11-09/cabos_HV_referencia/resumo_cabos.json",
-          "sha256": "d20e98a1760fb14b1d20bbd666103247affc400c430fa87e1679d1c8a8ccaf37"
-        },
-        {
           "path": "entregas/desenvolvimento_2026-11-09/fixacoes_redimensionadas/resumo.json",
-          "sha256": "091af5f57a3b3509736cd6916ef76372bb438f948fb5bc26ebedb8cdb3b777b5"
-        },
-        {
-          "path": "entregas/desenvolvimento_2026-11-09/hvac_revisao/resumo.json",
-          "sha256": "ff78dab883c30c2a63dbd94a3636886bc00bbbc08be92da8b7f515c423ecae10"
+          "sha256": "ab1b131555c455cec15235665e838514df7c0896dfbada0b870a090de52db5aa"
         },
         {
           "path": "entregas/integrado_maxeon1540/bancos_24_48_cad/resumo.json",
@@ -1832,11 +1826,15 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/bom_atual/resumo.json",
-          "sha256": "f3e4f742dea7fbc73a67bd2173bf84b0a7a84c1d219f3c9df6046583f981e4b4"
+          "sha256": "c6ab53631d3ae02e0567340a32d03186fb1e02194f59e1651b7651ebabb5582b"
         },
         {
           "path": "entregas/integrado_maxeon1540/despacho_i25/resumo.json",
-          "sha256": "f860eefac3d39a0fadda87f8230b41d2aeacc845513692632ace8b7776d2d15b"
+          "sha256": "35d2691ac30032ebc0b6a5d18588779586d590da6854274eacc31b6a7a124725"
+        },
+        {
+          "path": "entregas/integrado_maxeon1540/dinamica_resistiva_sensibilidade/resumo.json",
+          "sha256": "d7da5498671db2ad474af7cc77811b5e67dcc7ea9e5af680f07eeb3aeb4f59ac"
         },
         {
           "path": "entregas/integrado_maxeon1540/energia_sistemas/I25_I26_autonomia_solar_consumo.csv",
@@ -1848,19 +1846,23 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/energia_sistemas/mppt_parecer.json",
-          "sha256": "d3ce8db03a4bcc94ae83d5db797eba6ab5c4e2cb91e7b4032838429f17d93d8e"
+          "sha256": "270fc28676fa3c0a4630c279cc69015b8357df85abbf7ff161cbd9c1d34a90a6"
         },
         {
           "path": "entregas/integrado_maxeon1540/freios_integrados/convergencia.csv",
-          "sha256": "1e0ea6ffb6cc49f3311246414f994e60caa7cb83352e1830ec7f5224b4a7ef59"
+          "sha256": "d263cbcd3f9c566a87185ab016dabe5076ebb8dbc43ab23d18471815729dac61"
         },
         {
           "path": "entregas/integrado_maxeon1540/freios_integrados/transferencia_carga_aderencia.csv",
           "sha256": "e999ed834a30d77fee43aeaffcdbf1de627d2a012ae059a72e7cb0b4cf5f4b45"
         },
         {
+          "path": "entregas/integrado_maxeon1540/i30_corrente_maxima/resumo.json",
+          "sha256": "dd87c266f91ed475dc8f12f1b634d0381faf2158dbca9dffaa1b33a3832f3169"
+        },
+        {
           "path": "entregas/integrado_maxeon1540/integracao/A_fixa_vistas.png",
-          "sha256": "96d1b726a49620d9ecba7dee870c2ad13e92177e7d41983108634f5bf8ed07d3"
+          "sha256": "999ac019d77ceffda269cf4bdab4c78dde2ac838a1b83744b643b0885ff2df51"
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/agua_operacao_14dias.csv",
@@ -1880,11 +1882,7 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/massa_cg_eixos_sensibilidade.csv",
-          "sha256": "7262d7ed10894ecb5bb58f8046e578c9e0f1cf2c595189ff9e31ce5e17a4b155"
-        },
-        {
-          "path": "entregas/integrado_maxeon1540/integracao/ventilacao_natural_co2_umidade.csv",
-          "sha256": "22c48ec161a041b999785cd6073aea97d32178ad1698fabeae9e2c5bed13eebd"
+          "sha256": "12c89b023b3003a7ec97b435ced5b3e337b04634bd15245c7078a18130912858"
         },
         {
           "path": "entregas/integrado_maxeon1540/mecanica_termica/I10_I12_balanco_perdas.csv",
@@ -1895,28 +1893,32 @@
           "sha256": "2686c8d40eb7c787153832f7180c8fc95d978227d424f562cb0404d74cd3328d"
         },
         {
-          "path": "entregas/integrado_maxeon1540/mecanica_termica/I34_54sensibilidades.csv",
-          "sha256": "a8ac1d2887074c99165a7f59700d120f2d659819c9fb5e37cbf5c5d934679ae0"
+          "path": "entregas/integrado_maxeon1540/mecanica_termica/I34_sensibilidades.csv",
+          "sha256": "100eb7664e2a5d2807ac52661682e8d62f499605178caecdd896d5cbc61a0dfa"
         },
         {
-          "path": "entregas/integrado_maxeon1540/otimizacao_grade/resumo.json",
-          "sha256": "14970507bdf4393bf74e6abce098cfb972fae5ded6284f713ac622d4a1666374"
+          "path": "entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/resumo.json",
+          "sha256": "9b467832dc6ed5f586a6b82b39c9c68b9883e6c33f24825f773c21a6d912d453"
         },
         {
           "path": "entregas/integrado_maxeon1540/parametros_resolvidos.json",
-          "sha256": "5d16a4117d0ce6d4c9b2621a5cedcd427602a36876cd9c6e5e402b83cfa653d4"
+          "sha256": "80abe48c4cc1688d6e3a12b9e8ec8dfb17a7503a28e23908d12826f95dc26bc5"
         },
         {
           "path": "entregas/integrado_maxeon1540/protecoes_fixacoes/resumo.json",
-          "sha256": "b431cfc3d31c6c021bfdeaf6cb6a3fa623965760d457efff1cc265aabe862315"
+          "sha256": "6d3f39d4bf3598011f32067c4d25c6a8ab03ee3aeecee8910cb29a0337471986"
         },
         {
           "path": "entregas/integrado_maxeon1540/rotas_instalacoes/layoutA_rotas_reserva.step",
-          "sha256": "0c8f72910a6065100c7fac13f948744f1b48233fc0053f93973d429099e82540"
+          "sha256": "329aca2c65549d912803120d5a8fff3e6819b2b9a9d6c2df64249aca7d1859d5"
         },
         {
           "path": "entregas/integrado_maxeon1540/solar/resumo.json",
-          "sha256": "3e72a2e598203e96f34bcd7fd4bb91aa13bc5e7eab6da34a1bcb8d02ff507c5d"
+          "sha256": "cfbecea9a7c0d39dabbdb5a01e322f3e5a2bc0104eb2d5b20bf9b11680b1ec10"
+        },
+        {
+          "path": "entregas/integrado_maxeon1540/ventilacao_mecanica_sensibilidade/resumo.json",
+          "sha256": "79abbdd37283d2e599ff878fcd543c02865fb01f7a8afe903bd63d4ef030cd5a"
         }
       ],
       "human_approval": false
@@ -1952,6 +1954,7 @@
         "traction_usable_kwh",
         "traction_voltage_v",
         "motor_peak_kw",
+        "motor_mode_power_kw",
         "motor_peak_nm",
         "speed_limit_kmh",
         "vehicle_price_eur_ex_vat"
@@ -1967,11 +1970,11 @@
       "evidence": [
         {
           "path": "entregas/desenvolvimento_2026-11-09/fixacoes_redimensionadas/resumo.json",
-          "sha256": "091af5f57a3b3509736cd6916ef76372bb438f948fb5bc26ebedb8cdb3b777b5"
+          "sha256": "ab1b131555c455cec15235665e838514df7c0896dfbada0b870a090de52db5aa"
         },
         {
           "path": "entregas/integrado_maxeon1540/bom_atual/resumo.json",
-          "sha256": "f3e4f742dea7fbc73a67bd2173bf84b0a7a84c1d219f3c9df6046583f981e4b4"
+          "sha256": "c6ab53631d3ae02e0567340a32d03186fb1e02194f59e1651b7651ebabb5582b"
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/inventario_massas.csv",
@@ -1983,7 +1986,7 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/massa_cg_eixos_sensibilidade.csv",
-          "sha256": "7262d7ed10894ecb5bb58f8046e578c9e0f1cf2c595189ff9e31ce5e17a4b155"
+          "sha256": "12c89b023b3003a7ec97b435ced5b3e337b04634bd15245c7078a18130912858"
         },
         {
           "path": "entregas/integrado_maxeon1540/mecanica_termica/I10_I12_balanco_perdas.csv",
@@ -2021,6 +2024,7 @@
         "traction_usable_kwh",
         "traction_voltage_v",
         "motor_peak_kw",
+        "motor_mode_power_kw",
         "motor_peak_nm",
         "speed_limit_kmh",
         "vehicle_price_eur_ex_vat",
@@ -2040,9 +2044,13 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "Envelope não é curvaOEM; eficiência/RPM/mapas reais e potência contínua faltam.; Relação/rotação/óleo real não publicados para varianteSK.; Não apresentar Crr como ensaio dos pneusOEM.; Cd/Crr/ρ condicionais; pista plana e vento0.; AuxiliaresOEM0/300/700/1500W sensibilizados, não confundidos com serviços.; Esses tempos não são desempenhoOEM: relação, raio,aderência e envelope não calibrados.",
+      "pending": "Envelope não é curvaOEM; eficiência/RPM/mapas reais e potência contínua faltam.; Relação/rotação/óleo real não publicados para varianteSK.; Não apresentar Crr como ensaio dos pneusOEM.; Rampa/vento e coeficientes são hipóteses, não rota medida; sem aceleração, mapas OEM ou limites de pneus/eixos.; Eficiência0,90 e auxiliares700W estimados; potência na roda não é mapa/potência contínua do motor, sem validação OEM ou física.; Esses tempos não são desempenhoOEM: relação, raio,aderência e envelope não calibrados.",
       "original_section_sha256": "c54e49d5272d0f1bc05980ecc439f43aa805f510305cfdbbb20ddbd92198da05",
       "evidence": [
+        {
+          "path": "entregas/integrado_maxeon1540/dinamica_resistiva_sensibilidade/resumo.json",
+          "sha256": "d7da5498671db2ad474af7cc77811b5e67dcc7ea9e5af680f07eeb3aeb4f59ac"
+        },
         {
           "path": "entregas/integrado_maxeon1540/integracao/dinamica_massa_integrada.csv",
           "sha256": "3f1463aa2d85bc64177613d91b055cd5a317d8f01706847f32445612e794c1be"
@@ -2101,24 +2109,24 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "Retângulo estimado/curvatura/ancoragens/estoque não comprovados;rastreadores independentes são comparadorDEC054,compartilhamento não aprovado.; Uma parada+carga seguida de condução;serviços cíclicos separados,mínimosDC hipotéticos,sem provaOEM/ótimo global.; Não otimiza política solarDC não comprovada;duração17h é idealização acadêmica,não escala operacional segura.; Melhor da grade, não ótimo global; mínimoDC1kW hipotético e fontes sanitárias por parada presumidas.",
+      "pending": "Retângulo estimado/curvatura/ancoragens/estoque não comprovados;rastreadores independentes são comparadorDEC054,compartilhamento não aprovado.; Uma parada+carga seguida de condução;serviços cíclicos separados,mínimosDC hipotéticos,sem provaOEM/ótimo global.; Não otimiza política solarDC não comprovada;duração17h é idealização acadêmica,não escala operacional segura.; Diferença≈6d mostra interação do mínimoDC1kW hipotético com passo temporal; comparações finitas, sem ótimo global, interface autorizada ou viabilidade física.",
       "original_section_sha256": "1deaff4520ffa7c1fd58374a43055cb1d7f67d04f33755998d7504203cec3e79",
       "evidence": [
         {
           "path": "entregas/integrado_maxeon1540/despacho_i25/resumo.json",
-          "sha256": "f860eefac3d39a0fadda87f8230b41d2aeacc845513692632ace8b7776d2d15b"
+          "sha256": "35d2691ac30032ebc0b6a5d18588779586d590da6854274eacc31b6a7a124725"
         },
         {
           "path": "entregas/integrado_maxeon1540/energia_sistemas/I27_autonomia_otima_modelo_sem_HV.csv",
           "sha256": "f723f356e2ce46494c5b3b66b7c55f796967d2f448c8fa9e24e5d1b6d11e93c6"
         },
         {
-          "path": "entregas/integrado_maxeon1540/otimizacao_grade/resumo.json",
-          "sha256": "14970507bdf4393bf74e6abce098cfb972fae5ded6284f713ac622d4a1666374"
+          "path": "entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/resumo.json",
+          "sha256": "9b467832dc6ed5f586a6b82b39c9c68b9883e6c33f24825f773c21a6d912d453"
         },
         {
           "path": "entregas/integrado_maxeon1540/solar/resumo.json",
-          "sha256": "3e72a2e598203e96f34bcd7fd4bb91aa13bc5e7eab6da34a1bcb8d02ff507c5d"
+          "sha256": "cfbecea9a7c0d39dabbdb5a01e322f3e5a2bc0104eb2d5b20bf9b11680b1ec10"
         }
       ],
       "human_approval": false
@@ -2155,7 +2163,7 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "Uso móvel, fixação/BMS e corrente/partidas documentais faltam; buffer não instalado.; 250/60 usa35A conservador;saídas48V não são interfaceHV. BMS/proteções/comutação e interfaceDC não demonstrados.; Tara/CGbase e posições assumidos; não pesagem. Limites por eixo permanecem desconhecidos.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Preços lista semVAT não são cotação instalada;BRL439cooktop é histórico,frete/tributos/câmbio permanecemnull.; Melhor da grade, não ótimo global; mínimoDC1kW hipotético e fontes sanitárias por parada presumidas.",
+      "pending": "Uso móvel, fixação/BMS e corrente/partidas documentais faltam; buffer não instalado.; Saídas48V não são interfaceHV; 250/60 rejeitado pelas perdas de descasamento (até27%), não por limite de corrente. BMS/proteções/comutação e interfaceDC não demonstrados.; Tara/CGbase e posições assumidos; não pesagem. Limites por eixo permanecem desconhecidos.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Preços lista semVAT não são cotação instalada;BRL439cooktop é histórico,frete/tributos/câmbio permanecemnull.; Diferença≈6d mostra interação do mínimoDC1kW hipotético com passo temporal; comparações finitas, sem ótimo global, interface autorizada ou viabilidade física.",
       "original_section_sha256": "bb060fb529163efb019b79d0fcae28baaede358bc612fd8bb148484a64c30528",
       "evidence": [
         {
@@ -2164,19 +2172,19 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/bom_atual/resumo.json",
-          "sha256": "f3e4f742dea7fbc73a67bd2173bf84b0a7a84c1d219f3c9df6046583f981e4b4"
+          "sha256": "c6ab53631d3ae02e0567340a32d03186fb1e02194f59e1651b7651ebabb5582b"
         },
         {
           "path": "entregas/integrado_maxeon1540/energia_sistemas/mppt_parecer.json",
-          "sha256": "d3ce8db03a4bcc94ae83d5db797eba6ab5c4e2cb91e7b4032838429f17d93d8e"
+          "sha256": "270fc28676fa3c0a4630c279cc69015b8357df85abbf7ff161cbd9c1d34a90a6"
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/inventario_massas.csv",
           "sha256": "ab3fb084ed600556c3894931a418218d4dee87095197e3eb9e4d849a3d375beb"
         },
         {
-          "path": "entregas/integrado_maxeon1540/otimizacao_grade/resumo.json",
-          "sha256": "14970507bdf4393bf74e6abce098cfb972fae5ded6284f713ac622d4a1666374"
+          "path": "entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/resumo.json",
+          "sha256": "9b467832dc6ed5f586a6b82b39c9c68b9883e6c33f24825f773c21a6d912d453"
         }
       ],
       "human_approval": false
@@ -2203,24 +2211,24 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "56faltas hipotéticas excedem20kA;impedância real/I²t/ampacidade/PE-DR/terminais ainda não validados.; 250/60 usa35A conservador;saídas48V não são interfaceHV. BMS/proteções/comutação e interfaceDC não demonstrados.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Corrente de faseOEM na potência máxima desconhecida;DC569.4A não equivale a RMSde fase.Não modificarcabos.",
+      "pending": "Com o BMS limitando a saída (<6kA,3módulos),nenhum caso excede o fusível de20kA;impedância real/I²t/ampacidade/PE-DR/terminais ainda não validados.; Saídas48V não são interfaceHV; 250/60 rejeitado pelas perdas de descasamento (até27%), não por limite de corrente. BMS/proteções/comutação e interfaceDC não demonstrados.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Bitolas185/240 são derivadas da ficha e exigem confirmação;corrente de fase depende de mapaOEM não publicado;nenhuma modificação física do chicoteHV é autorizada.",
       "original_section_sha256": "014026f4b1016fcfe8fb8a7c253cee0669d62555e69872094c92e48f0997095f",
       "evidence": [
-        {
-          "path": "entregas/desenvolvimento_2026-11-09/cabos_HV_referencia/resumo_cabos.json",
-          "sha256": "d20e98a1760fb14b1d20bbd666103247affc400c430fa87e1679d1c8a8ccaf37"
-        },
         {
           "path": "entregas/integrado_maxeon1540/bancos_24_48_cad/resumo.json",
           "sha256": "8b8f3d6291e0ee45028b603d030c20020cc4a5195d00ae80dbc4974ff0e67a82"
         },
         {
           "path": "entregas/integrado_maxeon1540/energia_sistemas/mppt_parecer.json",
-          "sha256": "d3ce8db03a4bcc94ae83d5db797eba6ab5c4e2cb91e7b4032838429f17d93d8e"
+          "sha256": "270fc28676fa3c0a4630c279cc69015b8357df85abbf7ff161cbd9c1d34a90a6"
+        },
+        {
+          "path": "entregas/integrado_maxeon1540/i30_corrente_maxima/resumo.json",
+          "sha256": "dd87c266f91ed475dc8f12f1b634d0381faf2158dbca9dffaa1b33a3832f3169"
         },
         {
           "path": "entregas/integrado_maxeon1540/protecoes_fixacoes/resumo.json",
-          "sha256": "b431cfc3d31c6c021bfdeaf6cb6a3fa623965760d457efff1cc265aabe862315"
+          "sha256": "6d3f39d4bf3598011f32067c4d25c6a8ab03ee3aeecee8910cb29a0337471986"
         }
       ],
       "human_approval": false
@@ -2251,7 +2259,7 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "256picos,6históricos e72autonomias por orçamento previsto;partidas reais/atuadores e limiaresSOC continuam não demonstrados.; Tara/CGbase e posições assumidos; não pesagem. Limites por eixo permanecem desconhecidos.; Melhor da grade, não ótimo global; mínimoDC1kW hipotético e fontes sanitárias por parada presumidas.",
+      "pending": "256picos,6históricos e72autonomias por orçamento previsto;partidas reais/atuadores e limiaresSOC continuam não demonstrados.; Tara/CGbase e posições assumidos; não pesagem. Limites por eixo permanecem desconhecidos.; Diferença≈6d mostra interação do mínimoDC1kW hipotético com passo temporal; comparações finitas, sem ótimo global, interface autorizada ou viabilidade física.",
       "original_section_sha256": "f8622b89b2b52a8cb7eaa06922863a3584fe6aa9841844da9c27d38cc698e34a",
       "evidence": [
         {
@@ -2263,8 +2271,8 @@
           "sha256": "ab3fb084ed600556c3894931a418218d4dee87095197e3eb9e4d849a3d375beb"
         },
         {
-          "path": "entregas/integrado_maxeon1540/otimizacao_grade/resumo.json",
-          "sha256": "14970507bdf4393bf74e6abce098cfb972fae5ded6284f713ac622d4a1666374"
+          "path": "entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/resumo.json",
+          "sha256": "9b467832dc6ed5f586a6b82b39c9c68b9883e6c33f24825f773c21a6d912d453"
         }
       ],
       "human_approval": false
@@ -2335,7 +2343,7 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/bom_atual/resumo.json",
-          "sha256": "f3e4f742dea7fbc73a67bd2173bf84b0a7a84c1d219f3c9df6046583f981e4b4"
+          "sha256": "c6ab53631d3ae02e0567340a32d03186fb1e02194f59e1651b7651ebabb5582b"
         },
         {
           "path": "entregas/integrado_maxeon1540/buffer_comercial/resumo.json",
@@ -2343,19 +2351,19 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/energia_sistemas/mppt_parecer.json",
-          "sha256": "d3ce8db03a4bcc94ae83d5db797eba6ab5c4e2cb91e7b4032838429f17d93d8e"
+          "sha256": "270fc28676fa3c0a4630c279cc69015b8357df85abbf7ff161cbd9c1d34a90a6"
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/inventario_massas.csv",
           "sha256": "ab3fb084ed600556c3894931a418218d4dee87095197e3eb9e4d849a3d375beb"
         },
         {
-          "path": "entregas/integrado_maxeon1540/otimizacao_grade/resumo.json",
-          "sha256": "14970507bdf4393bf74e6abce098cfb972fae5ded6284f713ac622d4a1666374"
+          "path": "entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/resumo.json",
+          "sha256": "9b467832dc6ed5f586a6b82b39c9c68b9883e6c33f24825f773c21a6d912d453"
         },
         {
           "path": "entregas/integrado_maxeon1540/protecoes_fixacoes/resumo.json",
-          "sha256": "b431cfc3d31c6c021bfdeaf6cb6a3fa623965760d457efff1cc265aabe862315"
+          "sha256": "6d3f39d4bf3598011f32067c4d25c6a8ab03ee3aeecee8910cb29a0337471986"
         }
       ],
       "human_approval": false
@@ -2385,12 +2393,12 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "Não apresentar Crr como ensaio dos pneusOEM.; Uma parada+carga seguida de condução;serviços cíclicos separados,mínimosDC hipotéticos,sem provaOEM/ótimo global.; Eficiência constante e dados de rolamento/aerodinâmica estimados.; Não otimiza política solarDC não comprovada;duração17h é idealização acadêmica,não escala operacional segura.; Melhor da grade, não ótimo global; mínimoDC1kW hipotético e fontes sanitárias por parada presumidas.",
+      "pending": "Não apresentar Crr como ensaio dos pneusOEM.; Uma parada+carga seguida de condução;serviços cíclicos separados,mínimosDC hipotéticos,sem provaOEM/ótimo global.; Eficiência constante e dados de rolamento/aerodinâmica estimados.; Não otimiza política solarDC não comprovada;duração17h é idealização acadêmica,não escala operacional segura.; Diferença≈6d mostra interação do mínimoDC1kW hipotético com passo temporal; comparações finitas, sem ótimo global, interface autorizada ou viabilidade física.",
       "original_section_sha256": "e4087ab2ee48e5cb899e7ea5f664a71cbe30c934e92d3b8535f8eb196b8d97eb",
       "evidence": [
         {
           "path": "entregas/integrado_maxeon1540/despacho_i25/resumo.json",
-          "sha256": "f860eefac3d39a0fadda87f8230b41d2aeacc845513692632ace8b7776d2d15b"
+          "sha256": "35d2691ac30032ebc0b6a5d18588779586d590da6854274eacc31b6a7a124725"
         },
         {
           "path": "entregas/integrado_maxeon1540/energia_sistemas/I25_I26_autonomia_solar_consumo.csv",
@@ -2405,8 +2413,8 @@
           "sha256": "3f1463aa2d85bc64177613d91b055cd5a317d8f01706847f32445612e794c1be"
         },
         {
-          "path": "entregas/integrado_maxeon1540/otimizacao_grade/resumo.json",
-          "sha256": "14970507bdf4393bf74e6abce098cfb972fae5ded6284f713ac622d4a1666374"
+          "path": "entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/resumo.json",
+          "sha256": "9b467832dc6ed5f586a6b82b39c9c68b9883e6c33f24825f773c21a6d912d453"
         }
       ],
       "human_approval": false
@@ -2434,7 +2442,7 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "Uso móvel, fixação/BMS e corrente/partidas documentais faltam; buffer não instalado.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Melhor da grade, não ótimo global; mínimoDC1kW hipotético e fontes sanitárias por parada presumidas.",
+      "pending": "Uso móvel, fixação/BMS e corrente/partidas documentais faltam; buffer não instalado.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Diferença≈6d mostra interação do mínimoDC1kW hipotético com passo temporal; comparações finitas, sem ótimo global, interface autorizada ou viabilidade física.",
       "original_section_sha256": "c7007bba75ee89b652c7d33cf128733c86359d5c7511ddb301eac2a4e604aaa9",
       "evidence": [
         {
@@ -2446,8 +2454,8 @@
           "sha256": "ab3fb084ed600556c3894931a418218d4dee87095197e3eb9e4d849a3d375beb"
         },
         {
-          "path": "entregas/integrado_maxeon1540/otimizacao_grade/resumo.json",
-          "sha256": "14970507bdf4393bf74e6abce098cfb972fae5ded6284f713ac622d4a1666374"
+          "path": "entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/resumo.json",
+          "sha256": "9b467832dc6ed5f586a6b82b39c9c68b9883e6c33f24825f773c21a6d912d453"
         }
       ],
       "human_approval": false
@@ -2477,24 +2485,24 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "Retângulo estimado/curvatura/ancoragens/estoque não comprovados;rastreadores independentes são comparadorDEC054,compartilhamento não aprovado.; Uma parada+carga seguida de condução;serviços cíclicos separados,mínimosDC hipotéticos,sem provaOEM/ótimo global.; Não otimiza política solarDC não comprovada;duração17h é idealização acadêmica,não escala operacional segura.; Melhor da grade, não ótimo global; mínimoDC1kW hipotético e fontes sanitárias por parada presumidas.",
+      "pending": "Retângulo estimado/curvatura/ancoragens/estoque não comprovados;rastreadores independentes são comparadorDEC054,compartilhamento não aprovado.; Uma parada+carga seguida de condução;serviços cíclicos separados,mínimosDC hipotéticos,sem provaOEM/ótimo global.; Não otimiza política solarDC não comprovada;duração17h é idealização acadêmica,não escala operacional segura.; Diferença≈6d mostra interação do mínimoDC1kW hipotético com passo temporal; comparações finitas, sem ótimo global, interface autorizada ou viabilidade física.",
       "original_section_sha256": "1fb075c16944a1605c02be183b3101b7f8846056c75f23f2c7c98f3ccbac974a",
       "evidence": [
         {
           "path": "entregas/integrado_maxeon1540/despacho_i25/resumo.json",
-          "sha256": "f860eefac3d39a0fadda87f8230b41d2aeacc845513692632ace8b7776d2d15b"
+          "sha256": "35d2691ac30032ebc0b6a5d18588779586d590da6854274eacc31b6a7a124725"
         },
         {
           "path": "entregas/integrado_maxeon1540/energia_sistemas/I27_autonomia_otima_modelo_sem_HV.csv",
           "sha256": "f723f356e2ce46494c5b3b66b7c55f796967d2f448c8fa9e24e5d1b6d11e93c6"
         },
         {
-          "path": "entregas/integrado_maxeon1540/otimizacao_grade/resumo.json",
-          "sha256": "14970507bdf4393bf74e6abce098cfb972fae5ded6284f713ac622d4a1666374"
+          "path": "entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/resumo.json",
+          "sha256": "9b467832dc6ed5f586a6b82b39c9c68b9883e6c33f24825f773c21a6d912d453"
         },
         {
           "path": "entregas/integrado_maxeon1540/solar/resumo.json",
-          "sha256": "3e72a2e598203e96f34bcd7fd4bb91aa13bc5e7eab6da34a1bcb8d02ff507c5d"
+          "sha256": "cfbecea9a7c0d39dabbdb5a01e322f3e5a2bc0104eb2d5b20bf9b11680b1ec10"
         }
       ],
       "human_approval": false
@@ -2562,16 +2570,16 @@
           "sha256": "ab3fb084ed600556c3894931a418218d4dee87095197e3eb9e4d849a3d375beb"
         },
         {
-          "path": "entregas/integrado_maxeon1540/integracao/ventilacao_natural_co2_umidade.csv",
-          "sha256": "22c48ec161a041b999785cd6073aea97d32178ad1698fabeae9e2c5bed13eebd"
-        },
-        {
-          "path": "entregas/integrado_maxeon1540/otimizacao_grade/resumo.json",
-          "sha256": "14970507bdf4393bf74e6abce098cfb972fae5ded6284f713ac622d4a1666374"
+          "path": "entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/resumo.json",
+          "sha256": "9b467832dc6ed5f586a6b82b39c9c68b9883e6c33f24825f773c21a6d912d453"
         },
         {
           "path": "entregas/integrado_maxeon1540/prioridades_servicos/resumo.json",
           "sha256": "15437d50aa34401f2c57e80d408782643c4f1002fa93f52d58a9f336483e4c70"
+        },
+        {
+          "path": "entregas/integrado_maxeon1540/ventilacao_mecanica_sensibilidade/resumo.json",
+          "sha256": "79abbdd37283d2e599ff878fcd543c02865fb01f7a8afe903bd63d4ef030cd5a"
         }
       ],
       "human_approval": false
@@ -2611,15 +2619,15 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/energia_sistemas/mppt_parecer.json",
-          "sha256": "d3ce8db03a4bcc94ae83d5db797eba6ab5c4e2cb91e7b4032838429f17d93d8e"
+          "sha256": "270fc28676fa3c0a4630c279cc69015b8357df85abbf7ff161cbd9c1d34a90a6"
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/inventario_massas.csv",
           "sha256": "ab3fb084ed600556c3894931a418218d4dee87095197e3eb9e4d849a3d375beb"
         },
         {
-          "path": "entregas/integrado_maxeon1540/otimizacao_grade/resumo.json",
-          "sha256": "14970507bdf4393bf74e6abce098cfb972fae5ded6284f713ac622d4a1666374"
+          "path": "entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/resumo.json",
+          "sha256": "9b467832dc6ed5f586a6b82b39c9c68b9883e6c33f24825f773c21a6d912d453"
         },
         {
           "path": "entregas/integrado_maxeon1540/prioridades_servicos/resumo.json",
@@ -2666,7 +2674,7 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "256picos,6históricos e72autonomias por orçamento previsto;partidas reais/atuadores e limiaresSOC continuam não demonstrados.; Tara/CGbase e posições assumidos; não pesagem. Limites por eixo permanecem desconhecidos.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Preços lista semVAT não são cotação instalada;BRL439cooktop é histórico,frete/tributos/câmbio permanecemnull.; Melhor da grade, não ótimo global; mínimoDC1kW hipotético e fontes sanitárias por parada presumidas.",
+      "pending": "256picos,6históricos e72autonomias por orçamento previsto;partidas reais/atuadores e limiaresSOC continuam não demonstrados.; Tara/CGbase e posições assumidos; não pesagem. Limites por eixo permanecem desconhecidos.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Preços lista semVAT não são cotação instalada;BRL439cooktop é histórico,frete/tributos/câmbio permanecemnull.; Diferença≈6d mostra interação do mínimoDC1kW hipotético com passo temporal; comparações finitas, sem ótimo global, interface autorizada ou viabilidade física.",
       "original_section_sha256": "4fbfd14d8cde4b8f07de860dad6cd8b8300d28febf0f8b196567dc4b7e5986fe",
       "evidence": [
         {
@@ -2675,7 +2683,7 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/bom_atual/resumo.json",
-          "sha256": "f3e4f742dea7fbc73a67bd2173bf84b0a7a84c1d219f3c9df6046583f981e4b4"
+          "sha256": "c6ab53631d3ae02e0567340a32d03186fb1e02194f59e1651b7651ebabb5582b"
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/agua_operacao_14dias.csv",
@@ -2686,8 +2694,8 @@
           "sha256": "ab3fb084ed600556c3894931a418218d4dee87095197e3eb9e4d849a3d375beb"
         },
         {
-          "path": "entregas/integrado_maxeon1540/otimizacao_grade/resumo.json",
-          "sha256": "14970507bdf4393bf74e6abce098cfb972fae5ded6284f713ac622d4a1666374"
+          "path": "entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/resumo.json",
+          "sha256": "9b467832dc6ed5f586a6b82b39c9c68b9883e6c33f24825f773c21a6d912d453"
         }
       ],
       "human_approval": false
@@ -2716,7 +2724,7 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "Vento0 e ΔT0 geram0vazão; ventilação não garantida. ManualFW3000rev2018 admite220–240V50/60Hz;placa adquirida/curva33°C epartidas pendentes.; 256picos,6históricos e72autonomias por orçamento previsto;partidas reais/atuadores e limiaresSOC continuam não demonstrados.; Passagens/terminais/chapariaOEM e drenagem/estanqueidade ainda não demonstrados.; SIMPLErejeitado;CFDtransiente é complemento com contornos congelados,sem CHT/mobiliário/y+convergente.; Margem nominal1p184W/2p54W não valida33°C;SKU/placa,partida e fusível5A versus6.2A precisam confirmação.",
+      "pending": "18L/h·pessoa,alvoCO2,pressão/eficiência do ventilador e operação são hipóteses; sem norma demonstrada,umidade latente,SKU,curva elétrica,ruído ou instalação.; 256picos,6históricos e72autonomias por orçamento previsto;partidas reais/atuadores e limiaresSOC continuam não demonstrados.; Passagens/terminais/chapariaOEM e drenagem/estanqueidade ainda não demonstrados.; SIMPLErejeitado;CFDtransiente é complemento com contornos congelados,sem CHT/mobiliário/y+convergente.; Fluxo/CO2/UR são hipóteses;capacidade sob33/25°C ainda não demonstrada; conflito da fonte,SKU/placa,partida e fusível5A versus6.2A pendentes.",
       "original_section_sha256": "b4325904d60fbf787fb1cc2e3bba2cfc6628c8996684d9cacc78d3deb25f1339",
       "evidence": [
         {
@@ -2724,20 +2732,16 @@
           "sha256": "629b63650e4a3eb2ada8c80920afa228323fdc043617422ff3ca24a930e31b50"
         },
         {
-          "path": "entregas/desenvolvimento_2026-11-09/hvac_revisao/resumo.json",
-          "sha256": "ff78dab883c30c2a63dbd94a3636886bc00bbbc08be92da8b7f515c423ecae10"
-        },
-        {
           "path": "entregas/integrado_maxeon1540/integracao/agua_operacao_14dias.csv",
           "sha256": "c9a6e3086d39bf2124bd996e6174337967c769cb53091465792cb182807c636f"
         },
         {
-          "path": "entregas/integrado_maxeon1540/integracao/ventilacao_natural_co2_umidade.csv",
-          "sha256": "22c48ec161a041b999785cd6073aea97d32178ad1698fabeae9e2c5bed13eebd"
+          "path": "entregas/integrado_maxeon1540/rotas_instalacoes/layoutA_rotas_reserva.step",
+          "sha256": "329aca2c65549d912803120d5a8fff3e6819b2b9a9d6c2df64249aca7d1859d5"
         },
         {
-          "path": "entregas/integrado_maxeon1540/rotas_instalacoes/layoutA_rotas_reserva.step",
-          "sha256": "0c8f72910a6065100c7fac13f948744f1b48233fc0053f93973d429099e82540"
+          "path": "entregas/integrado_maxeon1540/ventilacao_mecanica_sensibilidade/resumo.json",
+          "sha256": "79abbdd37283d2e599ff878fcd543c02865fb01f7a8afe903bd63d4ef030cd5a"
         }
       ],
       "human_approval": false
@@ -2772,7 +2776,7 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "250/60 usa35A conservador;saídas48V não são interfaceHV. BMS/proteções/comutação e interfaceDC não demonstrados.; 256picos,6históricos e72autonomias por orçamento previsto;partidas reais/atuadores e limiaresSOC continuam não demonstrados.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Preços lista semVAT não são cotação instalada;BRL439cooktop é histórico,frete/tributos/câmbio permanecemnull.; Melhor da grade, não ótimo global; mínimoDC1kW hipotético e fontes sanitárias por parada presumidas.",
+      "pending": "Saídas48V não são interfaceHV; 250/60 rejeitado pelas perdas de descasamento (até27%), não por limite de corrente. BMS/proteções/comutação e interfaceDC não demonstrados.; 256picos,6históricos e72autonomias por orçamento previsto;partidas reais/atuadores e limiaresSOC continuam não demonstrados.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Preços lista semVAT não são cotação instalada;BRL439cooktop é histórico,frete/tributos/câmbio permanecemnull.; Diferença≈6d mostra interação do mínimoDC1kW hipotético com passo temporal; comparações finitas, sem ótimo global, interface autorizada ou viabilidade física.",
       "original_section_sha256": "95abc3888799e4163e198fa76e1ed96a3a6d6bc545c0edef9354e8ae1fe89fe0",
       "evidence": [
         {
@@ -2781,19 +2785,19 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/bom_atual/resumo.json",
-          "sha256": "f3e4f742dea7fbc73a67bd2173bf84b0a7a84c1d219f3c9df6046583f981e4b4"
+          "sha256": "c6ab53631d3ae02e0567340a32d03186fb1e02194f59e1651b7651ebabb5582b"
         },
         {
           "path": "entregas/integrado_maxeon1540/energia_sistemas/mppt_parecer.json",
-          "sha256": "d3ce8db03a4bcc94ae83d5db797eba6ab5c4e2cb91e7b4032838429f17d93d8e"
+          "sha256": "270fc28676fa3c0a4630c279cc69015b8357df85abbf7ff161cbd9c1d34a90a6"
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/agua_operacao_14dias.csv",
           "sha256": "c9a6e3086d39bf2124bd996e6174337967c769cb53091465792cb182807c636f"
         },
         {
-          "path": "entregas/integrado_maxeon1540/otimizacao_grade/resumo.json",
-          "sha256": "14970507bdf4393bf74e6abce098cfb972fae5ded6284f713ac622d4a1666374"
+          "path": "entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/resumo.json",
+          "sha256": "9b467832dc6ed5f586a6b82b39c9c68b9883e6c33f24825f773c21a6d912d453"
         }
       ],
       "human_approval": false
@@ -2824,7 +2828,7 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "250/60 usa35A conservador;saídas48V não são interfaceHV. BMS/proteções/comutação e interfaceDC não demonstrados.; 256picos,6históricos e72autonomias por orçamento previsto;partidas reais/atuadores e limiaresSOC continuam não demonstrados.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Preços lista semVAT não são cotação instalada;BRL439cooktop é histórico,frete/tributos/câmbio permanecemnull.; Melhor da grade, não ótimo global; mínimoDC1kW hipotético e fontes sanitárias por parada presumidas.",
+      "pending": "Saídas48V não são interfaceHV; 250/60 rejeitado pelas perdas de descasamento (até27%), não por limite de corrente. BMS/proteções/comutação e interfaceDC não demonstrados.; 256picos,6históricos e72autonomias por orçamento previsto;partidas reais/atuadores e limiaresSOC continuam não demonstrados.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Preços lista semVAT não são cotação instalada;BRL439cooktop é histórico,frete/tributos/câmbio permanecemnull.; Diferença≈6d mostra interação do mínimoDC1kW hipotético com passo temporal; comparações finitas, sem ótimo global, interface autorizada ou viabilidade física.",
       "original_section_sha256": "26f5ab68976897635ff7d7dd599c647c3c42dfc09ac0d636169477ede61f7a16",
       "evidence": [
         {
@@ -2833,19 +2837,19 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/bom_atual/resumo.json",
-          "sha256": "f3e4f742dea7fbc73a67bd2173bf84b0a7a84c1d219f3c9df6046583f981e4b4"
+          "sha256": "c6ab53631d3ae02e0567340a32d03186fb1e02194f59e1651b7651ebabb5582b"
         },
         {
           "path": "entregas/integrado_maxeon1540/energia_sistemas/mppt_parecer.json",
-          "sha256": "d3ce8db03a4bcc94ae83d5db797eba6ab5c4e2cb91e7b4032838429f17d93d8e"
+          "sha256": "270fc28676fa3c0a4630c279cc69015b8357df85abbf7ff161cbd9c1d34a90a6"
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/agua_operacao_14dias.csv",
           "sha256": "c9a6e3086d39bf2124bd996e6174337967c769cb53091465792cb182807c636f"
         },
         {
-          "path": "entregas/integrado_maxeon1540/otimizacao_grade/resumo.json",
-          "sha256": "14970507bdf4393bf74e6abce098cfb972fae5ded6284f713ac622d4a1666374"
+          "path": "entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/resumo.json",
+          "sha256": "9b467832dc6ed5f586a6b82b39c9c68b9883e6c33f24825f773c21a6d912d453"
         }
       ],
       "human_approval": false
@@ -2876,32 +2880,32 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "56faltas hipotéticas excedem20kA;impedância real/I²t/ampacidade/PE-DR/terminais ainda não validados.; 250/60 usa35A conservador;saídas48V não são interfaceHV. BMS/proteções/comutação e interfaceDC não demonstrados.; Vento0 e ΔT0 geram0vazão; ventilação não garantida. ManualFW3000rev2018 admite220–240V50/60Hz;placa adquirida/curva33°C epartidas pendentes.; 256picos,6históricos e72autonomias por orçamento previsto;partidas reais/atuadores e limiaresSOC continuam não demonstrados.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Corrente de faseOEM na potência máxima desconhecida;DC569.4A não equivale a RMSde fase.Não modificarcabos.",
+      "pending": "Com o BMS limitando a saída (<6kA,3módulos),nenhum caso excede o fusível de20kA;impedância real/I²t/ampacidade/PE-DR/terminais ainda não validados.; Saídas48V não são interfaceHV; 250/60 rejeitado pelas perdas de descasamento (até27%), não por limite de corrente. BMS/proteções/comutação e interfaceDC não demonstrados.; 18L/h·pessoa,alvoCO2,pressão/eficiência do ventilador e operação são hipóteses; sem norma demonstrada,umidade latente,SKU,curva elétrica,ruído ou instalação.; 256picos,6históricos e72autonomias por orçamento previsto;partidas reais/atuadores e limiaresSOC continuam não demonstrados.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Bitolas185/240 são derivadas da ficha e exigem confirmação;corrente de fase depende de mapaOEM não publicado;nenhuma modificação física do chicoteHV é autorizada.",
       "original_section_sha256": "1ed78266ad2b00fe29f830e733ae688f5464913ecf061c19dfdc2a3853381418",
       "evidence": [
-        {
-          "path": "entregas/desenvolvimento_2026-11-09/cabos_HV_referencia/resumo_cabos.json",
-          "sha256": "d20e98a1760fb14b1d20bbd666103247affc400c430fa87e1679d1c8a8ccaf37"
-        },
         {
           "path": "entregas/integrado_maxeon1540/bancos_24_48_cad/resumo.json",
           "sha256": "8b8f3d6291e0ee45028b603d030c20020cc4a5195d00ae80dbc4974ff0e67a82"
         },
         {
           "path": "entregas/integrado_maxeon1540/energia_sistemas/mppt_parecer.json",
-          "sha256": "d3ce8db03a4bcc94ae83d5db797eba6ab5c4e2cb91e7b4032838429f17d93d8e"
+          "sha256": "270fc28676fa3c0a4630c279cc69015b8357df85abbf7ff161cbd9c1d34a90a6"
+        },
+        {
+          "path": "entregas/integrado_maxeon1540/i30_corrente_maxima/resumo.json",
+          "sha256": "dd87c266f91ed475dc8f12f1b634d0381faf2158dbca9dffaa1b33a3832f3169"
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/agua_operacao_14dias.csv",
           "sha256": "c9a6e3086d39bf2124bd996e6174337967c769cb53091465792cb182807c636f"
         },
         {
-          "path": "entregas/integrado_maxeon1540/integracao/ventilacao_natural_co2_umidade.csv",
-          "sha256": "22c48ec161a041b999785cd6073aea97d32178ad1698fabeae9e2c5bed13eebd"
+          "path": "entregas/integrado_maxeon1540/protecoes_fixacoes/resumo.json",
+          "sha256": "6d3f39d4bf3598011f32067c4d25c6a8ab03ee3aeecee8910cb29a0337471986"
         },
         {
-          "path": "entregas/integrado_maxeon1540/protecoes_fixacoes/resumo.json",
-          "sha256": "b431cfc3d31c6c021bfdeaf6cb6a3fa623965760d457efff1cc265aabe862315"
+          "path": "entregas/integrado_maxeon1540/ventilacao_mecanica_sensibilidade/resumo.json",
+          "sha256": "79abbdd37283d2e599ff878fcd543c02865fb01f7a8afe903bd63d4ef030cd5a"
         }
       ],
       "human_approval": false
@@ -2931,7 +2935,7 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "250/60 usa35A conservador;saídas48V não são interfaceHV. BMS/proteções/comutação e interfaceDC não demonstrados.; Tara/CGbase e posições assumidos; não pesagem. Limites por eixo permanecem desconhecidos.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Preços lista semVAT não são cotação instalada;BRL439cooktop é histórico,frete/tributos/câmbio permanecemnull.",
+      "pending": "Saídas48V não são interfaceHV; 250/60 rejeitado pelas perdas de descasamento (até27%), não por limite de corrente. BMS/proteções/comutação e interfaceDC não demonstrados.; Tara/CGbase e posições assumidos; não pesagem. Limites por eixo permanecem desconhecidos.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Preços lista semVAT não são cotação instalada;BRL439cooktop é histórico,frete/tributos/câmbio permanecemnull.",
       "original_section_sha256": "9bca920ae58ebec3928c89ce915190cefe34a46371bb21236c40677677317714",
       "evidence": [
         {
@@ -2940,11 +2944,11 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/bom_atual/resumo.json",
-          "sha256": "f3e4f742dea7fbc73a67bd2173bf84b0a7a84c1d219f3c9df6046583f981e4b4"
+          "sha256": "c6ab53631d3ae02e0567340a32d03186fb1e02194f59e1651b7651ebabb5582b"
         },
         {
           "path": "entregas/integrado_maxeon1540/energia_sistemas/mppt_parecer.json",
-          "sha256": "d3ce8db03a4bcc94ae83d5db797eba6ab5c4e2cb91e7b4032838429f17d93d8e"
+          "sha256": "270fc28676fa3c0a4630c279cc69015b8357df85abbf7ff161cbd9c1d34a90a6"
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/inventario_massas.csv",
@@ -2984,7 +2988,7 @@
       "evidence": [
         {
           "path": "entregas/desenvolvimento_2026-11-09/teto_maxeon/resumo.json",
-          "sha256": "d6bf93f353f4a7f28dd1cc1c4059d9233c6ecde726f20a8fcae12bcb33a857bf"
+          "sha256": "3199761d3b8b977213e8b9650ea5640d6bc11fd3cb3d9a2fe2978149c61b5e5d"
         },
         {
           "path": "entregas/integrado_maxeon1540/bancos_24_48_cad/resumo.json",
@@ -2992,19 +2996,19 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/despacho_i25/resumo.json",
-          "sha256": "f860eefac3d39a0fadda87f8230b41d2aeacc845513692632ace8b7776d2d15b"
+          "sha256": "35d2691ac30032ebc0b6a5d18588779586d590da6854274eacc31b6a7a124725"
         },
         {
           "path": "entregas/integrado_maxeon1540/energia_sistemas/mppt_parecer.json",
-          "sha256": "d3ce8db03a4bcc94ae83d5db797eba6ab5c4e2cb91e7b4032838429f17d93d8e"
+          "sha256": "270fc28676fa3c0a4630c279cc69015b8357df85abbf7ff161cbd9c1d34a90a6"
         },
         {
-          "path": "entregas/integrado_maxeon1540/otimizacao_grade/resumo.json",
-          "sha256": "14970507bdf4393bf74e6abce098cfb972fae5ded6284f713ac622d4a1666374"
+          "path": "entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/resumo.json",
+          "sha256": "9b467832dc6ed5f586a6b82b39c9c68b9883e6c33f24825f773c21a6d912d453"
         },
         {
           "path": "entregas/integrado_maxeon1540/solar/resumo.json",
-          "sha256": "3e72a2e598203e96f34bcd7fd4bb91aa13bc5e7eab6da34a1bcb8d02ff507c5d"
+          "sha256": "cfbecea9a7c0d39dabbdb5a01e322f3e5a2bc0104eb2d5b20bf9b11680b1ec10"
         }
       ],
       "human_approval": false
@@ -3035,16 +3039,12 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "Vento0 e ΔT0 geram0vazão; ventilação não garantida. ManualFW3000rev2018 admite220–240V50/60Hz;placa adquirida/curva33°C epartidas pendentes.; 256picos,6históricos e72autonomias por orçamento previsto;partidas reais/atuadores e limiaresSOC continuam não demonstrados.; Passagens/terminais/chapariaOEM e drenagem/estanqueidade ainda não demonstrados.; B tem acesso de lavagem6mm insuficiente e portáteis altos;A selecionado provisoriamente. Não é CADOEM.; Tara/CGbase e posições assumidos; não pesagem. Limites por eixo permanecem desconhecidos.; Margem nominal1p184W/2p54W não valida33°C;SKU/placa,partida e fusível5A versus6.2A precisam confirmação.",
+      "pending": "18L/h·pessoa,alvoCO2,pressão/eficiência do ventilador e operação são hipóteses; sem norma demonstrada,umidade latente,SKU,curva elétrica,ruído ou instalação.; 256picos,6históricos e72autonomias por orçamento previsto;partidas reais/atuadores e limiaresSOC continuam não demonstrados.; Passagens/terminais/chapariaOEM e drenagem/estanqueidade ainda não demonstrados.; B tem acesso de lavagem6mm insuficiente e portáteis altos;A selecionado provisoriamente. Não é CADOEM.; Tara/CGbase e posições assumidos; não pesagem. Limites por eixo permanecem desconhecidos.; Fluxo/CO2/UR são hipóteses;capacidade sob33/25°C ainda não demonstrada; conflito da fonte,SKU/placa,partida e fusível5A versus6.2A pendentes.",
       "original_section_sha256": "3aab3fdd1e9edbf494677e80e1220a509c941cb48797e614016aa049d9933ec4",
       "evidence": [
         {
-          "path": "entregas/desenvolvimento_2026-11-09/hvac_revisao/resumo.json",
-          "sha256": "ff78dab883c30c2a63dbd94a3636886bc00bbbc08be92da8b7f515c423ecae10"
-        },
-        {
           "path": "entregas/integrado_maxeon1540/integracao/A_fixa_vistas.png",
-          "sha256": "96d1b726a49620d9ecba7dee870c2ad13e92177e7d41983108634f5bf8ed07d3"
+          "sha256": "999ac019d77ceffda269cf4bdab4c78dde2ac838a1b83744b643b0885ff2df51"
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/agua_operacao_14dias.csv",
@@ -3055,12 +3055,12 @@
           "sha256": "ab3fb084ed600556c3894931a418218d4dee87095197e3eb9e4d849a3d375beb"
         },
         {
-          "path": "entregas/integrado_maxeon1540/integracao/ventilacao_natural_co2_umidade.csv",
-          "sha256": "22c48ec161a041b999785cd6073aea97d32178ad1698fabeae9e2c5bed13eebd"
+          "path": "entregas/integrado_maxeon1540/rotas_instalacoes/layoutA_rotas_reserva.step",
+          "sha256": "329aca2c65549d912803120d5a8fff3e6819b2b9a9d6c2df64249aca7d1859d5"
         },
         {
-          "path": "entregas/integrado_maxeon1540/rotas_instalacoes/layoutA_rotas_reserva.step",
-          "sha256": "0c8f72910a6065100c7fac13f948744f1b48233fc0053f93973d429099e82540"
+          "path": "entregas/integrado_maxeon1540/ventilacao_mecanica_sensibilidade/resumo.json",
+          "sha256": "79abbdd37283d2e599ff878fcd543c02865fb01f7a8afe903bd63d4ef030cd5a"
         }
       ],
       "human_approval": false
@@ -3091,7 +3091,7 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "Uso móvel, fixação/BMS e corrente/partidas documentais faltam; buffer não instalado.; 250/60 usa35A conservador;saídas48V não são interfaceHV. BMS/proteções/comutação e interfaceDC não demonstrados.; 256picos,6históricos e72autonomias por orçamento previsto;partidas reais/atuadores e limiaresSOC continuam não demonstrados.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; ECM2nós não packOEM calibrado;20/80kW não são FV disponível.; Bomba é candidata de modelo,não equipamentoOEM comprovado;curva de perdas/UA/ar ainda estimados.",
+      "pending": "Uso móvel, fixação/BMS e corrente/partidas documentais faltam; buffer não instalado.; Saídas48V não são interfaceHV; 250/60 rejeitado pelas perdas de descasamento (até27%), não por limite de corrente. BMS/proteções/comutação e interfaceDC não demonstrados.; 256picos,6históricos e72autonomias por orçamento previsto;partidas reais/atuadores e limiaresSOC continuam não demonstrados.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; ECM2nós não packOEM calibrado;20/80kW não são FV disponível; 45°C é limite hipotético.; Bomba é candidata de modelo,não equipamentoOEM comprovado;curva de perdas/UA/ar ainda estimados.",
       "original_section_sha256": "aaa4cdaccb05c770fcd18e47264c267751f3dc6a69bb63369ac995f4f88e6ce2",
       "evidence": [
         {
@@ -3104,7 +3104,7 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/energia_sistemas/mppt_parecer.json",
-          "sha256": "d3ce8db03a4bcc94ae83d5db797eba6ab5c4e2cb91e7b4032838429f17d93d8e"
+          "sha256": "270fc28676fa3c0a4630c279cc69015b8357df85abbf7ff161cbd9c1d34a90a6"
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/agua_operacao_14dias.csv",
@@ -3115,8 +3115,8 @@
           "sha256": "ab3fb084ed600556c3894931a418218d4dee87095197e3eb9e4d849a3d375beb"
         },
         {
-          "path": "entregas/integrado_maxeon1540/mecanica_termica/I34_54sensibilidades.csv",
-          "sha256": "a8ac1d2887074c99165a7f59700d120f2d659819c9fb5e37cbf5c5d934679ae0"
+          "path": "entregas/integrado_maxeon1540/mecanica_termica/I34_sensibilidades.csv",
+          "sha256": "100eb7664e2a5d2807ac52661682e8d62f499605178caecdd896d5cbc61a0dfa"
         }
       ],
       "human_approval": false
@@ -3154,7 +3154,7 @@
         "sources"
       ],
       "status": "modelos_executados_validacao_condicionada",
-      "pending": "56faltas hipotéticas excedem20kA;impedância real/I²t/ampacidade/PE-DR/terminais ainda não validados.; 250/60 usa35A conservador;saídas48V não são interfaceHV. BMS/proteções/comutação e interfaceDC não demonstrados.; 256picos,6históricos e72autonomias por orçamento previsto;partidas reais/atuadores e limiaresSOC continuam não demonstrados.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Preços lista semVAT não são cotação instalada;BRL439cooktop é histórico,frete/tributos/câmbio permanecemnull.",
+      "pending": "Com o BMS limitando a saída (<6kA,3módulos),nenhum caso excede o fusível de20kA;impedância real/I²t/ampacidade/PE-DR/terminais ainda não validados.; Saídas48V não são interfaceHV; 250/60 rejeitado pelas perdas de descasamento (até27%), não por limite de corrente. BMS/proteções/comutação e interfaceDC não demonstrados.; 256picos,6históricos e72autonomias por orçamento previsto;partidas reais/atuadores e limiaresSOC continuam não demonstrados.; Massa/rack/CAD estimados;uso móvel/BMS/folgas/retençãoOEM e capacidade final não validados.; Preços lista semVAT não são cotação instalada;BRL439cooktop é histórico,frete/tributos/câmbio permanecemnull.",
       "original_section_sha256": "a3151a045237f72094e33b4f295903e28118e2a7da4b3a16b9b7dc51ea3e95a1",
       "evidence": [
         {
@@ -3163,11 +3163,11 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/bom_atual/resumo.json",
-          "sha256": "f3e4f742dea7fbc73a67bd2173bf84b0a7a84c1d219f3c9df6046583f981e4b4"
+          "sha256": "c6ab53631d3ae02e0567340a32d03186fb1e02194f59e1651b7651ebabb5582b"
         },
         {
           "path": "entregas/integrado_maxeon1540/energia_sistemas/mppt_parecer.json",
-          "sha256": "d3ce8db03a4bcc94ae83d5db797eba6ab5c4e2cb91e7b4032838429f17d93d8e"
+          "sha256": "270fc28676fa3c0a4630c279cc69015b8357df85abbf7ff161cbd9c1d34a90a6"
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/agua_operacao_14dias.csv",
@@ -3175,7 +3175,7 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/protecoes_fixacoes/resumo.json",
-          "sha256": "b431cfc3d31c6c021bfdeaf6cb6a3fa623965760d457efff1cc265aabe862315"
+          "sha256": "6d3f39d4bf3598011f32067c4d25c6a8ab03ee3aeecee8910cb29a0337471986"
         }
       ],
       "human_approval": false
@@ -3222,7 +3222,7 @@
       "evidence": [
         {
           "path": "entregas/integrado_maxeon1540/despacho_i25/resumo.json",
-          "sha256": "f860eefac3d39a0fadda87f8230b41d2aeacc845513692632ace8b7776d2d15b"
+          "sha256": "35d2691ac30032ebc0b6a5d18588779586d590da6854274eacc31b6a7a124725"
         },
         {
           "path": "entregas/integrado_maxeon1540/energia_sistemas/I25_I26_autonomia_solar_consumo.csv",
@@ -3238,7 +3238,7 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/massa_cg_eixos_sensibilidade.csv",
-          "sha256": "7262d7ed10894ecb5bb58f8046e578c9e0f1cf2c595189ff9e31ce5e17a4b155"
+          "sha256": "12c89b023b3003a7ec97b435ced5b3e337b04634bd15245c7078a18130912858"
         },
         {
           "path": "entregas/integrado_maxeon1540/mecanica_termica/I28_envelope_0_90_sensibilidade.csv",
@@ -3282,7 +3282,7 @@
       "evidence": [
         {
           "path": "entregas/desenvolvimento_2026-11-09/fixacoes_redimensionadas/resumo.json",
-          "sha256": "091af5f57a3b3509736cd6916ef76372bb438f948fb5bc26ebedb8cdb3b777b5"
+          "sha256": "ab1b131555c455cec15235665e838514df7c0896dfbada0b870a090de52db5aa"
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/dinamica_massa_integrada.csv",
@@ -3294,7 +3294,7 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/massa_cg_eixos_sensibilidade.csv",
-          "sha256": "7262d7ed10894ecb5bb58f8046e578c9e0f1cf2c595189ff9e31ce5e17a4b155"
+          "sha256": "12c89b023b3003a7ec97b435ced5b3e337b04634bd15245c7078a18130912858"
         },
         {
           "path": "entregas/integrado_maxeon1540/mecanica_termica/I28_envelope_0_90_sensibilidade.csv",
@@ -3339,7 +3339,7 @@
       "evidence": [
         {
           "path": "entregas/desenvolvimento_2026-11-09/fixacoes_redimensionadas/resumo.json",
-          "sha256": "091af5f57a3b3509736cd6916ef76372bb438f948fb5bc26ebedb8cdb3b777b5"
+          "sha256": "ab1b131555c455cec15235665e838514df7c0896dfbada0b870a090de52db5aa"
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/inventario_massas.csv",
@@ -3347,7 +3347,7 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/massa_cg_eixos_sensibilidade.csv",
-          "sha256": "7262d7ed10894ecb5bb58f8046e578c9e0f1cf2c595189ff9e31ce5e17a4b155"
+          "sha256": "12c89b023b3003a7ec97b435ced5b3e337b04634bd15245c7078a18130912858"
         },
         {
           "path": "entregas/integrado_maxeon1540/mecanica_termica/I28_envelope_0_90_sensibilidade.csv",
@@ -3431,11 +3431,11 @@
       "evidence": [
         {
           "path": "docs/APROVACOES_FINAIS_PENDENTES.md",
-          "sha256": "dcbfc5017d3366ad0c60e1b8e635b03d9cedce4415c15c330d778b7692747f6c"
+          "sha256": "43a0c5a5d49a0132cca9a532a587e157e8980a333887676ccce5cd914da9a2d8"
         },
         {
-          "path": "entregas/aero_equipado1540/incerteza_observada.json",
-          "sha256": "e3d4d231551d55e11748f02d473db8ae45e7de87b7bdd91bdcf139ed06d5899b"
+          "path": "entregas/aero_equipado1540/comparacao_malhas_adicionais.json",
+          "sha256": "34564c4ea1b17ff743cb8b54639e5d2a751708d73334115eb008a61504500d68"
         },
         {
           "path": "entregas/desenvolvimento_2026-11-09/arrefecimento/resumo_hidraulica.json",
@@ -3446,16 +3446,8 @@
           "sha256": "629b63650e4a3eb2ada8c80920afa228323fdc043617422ff3ca24a930e31b50"
         },
         {
-          "path": "entregas/desenvolvimento_2026-11-09/cabos_HV_referencia/resumo_cabos.json",
-          "sha256": "d20e98a1760fb14b1d20bbd666103247affc400c430fa87e1679d1c8a8ccaf37"
-        },
-        {
           "path": "entregas/desenvolvimento_2026-11-09/fixacoes_redimensionadas/resumo.json",
-          "sha256": "091af5f57a3b3509736cd6916ef76372bb438f948fb5bc26ebedb8cdb3b777b5"
-        },
-        {
-          "path": "entregas/desenvolvimento_2026-11-09/hvac_revisao/resumo.json",
-          "sha256": "ff78dab883c30c2a63dbd94a3636886bc00bbbc08be92da8b7f515c423ecae10"
+          "sha256": "ab1b131555c455cec15235665e838514df7c0896dfbada0b870a090de52db5aa"
         },
         {
           "path": "entregas/integrado_maxeon1540/bancos_24_48_cad/resumo.json",
@@ -3463,11 +3455,15 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/bom_atual/resumo.json",
-          "sha256": "f3e4f742dea7fbc73a67bd2173bf84b0a7a84c1d219f3c9df6046583f981e4b4"
+          "sha256": "c6ab53631d3ae02e0567340a32d03186fb1e02194f59e1651b7651ebabb5582b"
         },
         {
           "path": "entregas/integrado_maxeon1540/despacho_i25/resumo.json",
-          "sha256": "f860eefac3d39a0fadda87f8230b41d2aeacc845513692632ace8b7776d2d15b"
+          "sha256": "35d2691ac30032ebc0b6a5d18588779586d590da6854274eacc31b6a7a124725"
+        },
+        {
+          "path": "entregas/integrado_maxeon1540/dinamica_resistiva_sensibilidade/resumo.json",
+          "sha256": "d7da5498671db2ad474af7cc77811b5e67dcc7ea9e5af680f07eeb3aeb4f59ac"
         },
         {
           "path": "entregas/integrado_maxeon1540/energia_sistemas/I25_I26_autonomia_solar_consumo.csv",
@@ -3479,19 +3475,23 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/energia_sistemas/mppt_parecer.json",
-          "sha256": "d3ce8db03a4bcc94ae83d5db797eba6ab5c4e2cb91e7b4032838429f17d93d8e"
+          "sha256": "270fc28676fa3c0a4630c279cc69015b8357df85abbf7ff161cbd9c1d34a90a6"
         },
         {
           "path": "entregas/integrado_maxeon1540/freios_integrados/convergencia.csv",
-          "sha256": "1e0ea6ffb6cc49f3311246414f994e60caa7cb83352e1830ec7f5224b4a7ef59"
+          "sha256": "d263cbcd3f9c566a87185ab016dabe5076ebb8dbc43ab23d18471815729dac61"
         },
         {
           "path": "entregas/integrado_maxeon1540/freios_integrados/transferencia_carga_aderencia.csv",
           "sha256": "e999ed834a30d77fee43aeaffcdbf1de627d2a012ae059a72e7cb0b4cf5f4b45"
         },
         {
+          "path": "entregas/integrado_maxeon1540/i30_corrente_maxima/resumo.json",
+          "sha256": "dd87c266f91ed475dc8f12f1b634d0381faf2158dbca9dffaa1b33a3832f3169"
+        },
+        {
           "path": "entregas/integrado_maxeon1540/integracao/A_fixa_vistas.png",
-          "sha256": "96d1b726a49620d9ecba7dee870c2ad13e92177e7d41983108634f5bf8ed07d3"
+          "sha256": "999ac019d77ceffda269cf4bdab4c78dde2ac838a1b83744b643b0885ff2df51"
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/agua_operacao_14dias.csv",
@@ -3511,11 +3511,7 @@
         },
         {
           "path": "entregas/integrado_maxeon1540/integracao/massa_cg_eixos_sensibilidade.csv",
-          "sha256": "7262d7ed10894ecb5bb58f8046e578c9e0f1cf2c595189ff9e31ce5e17a4b155"
-        },
-        {
-          "path": "entregas/integrado_maxeon1540/integracao/ventilacao_natural_co2_umidade.csv",
-          "sha256": "22c48ec161a041b999785cd6073aea97d32178ad1698fabeae9e2c5bed13eebd"
+          "sha256": "12c89b023b3003a7ec97b435ced5b3e337b04634bd15245c7078a18130912858"
         },
         {
           "path": "entregas/integrado_maxeon1540/mecanica_termica/I10_I12_balanco_perdas.csv",
@@ -3526,24 +3522,28 @@
           "sha256": "2686c8d40eb7c787153832f7180c8fc95d978227d424f562cb0404d74cd3328d"
         },
         {
-          "path": "entregas/integrado_maxeon1540/mecanica_termica/I34_54sensibilidades.csv",
-          "sha256": "a8ac1d2887074c99165a7f59700d120f2d659819c9fb5e37cbf5c5d934679ae0"
+          "path": "entregas/integrado_maxeon1540/mecanica_termica/I34_sensibilidades.csv",
+          "sha256": "100eb7664e2a5d2807ac52661682e8d62f499605178caecdd896d5cbc61a0dfa"
         },
         {
-          "path": "entregas/integrado_maxeon1540/otimizacao_grade/resumo.json",
-          "sha256": "14970507bdf4393bf74e6abce098cfb972fae5ded6284f713ac622d4a1666374"
+          "path": "entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/resumo.json",
+          "sha256": "9b467832dc6ed5f586a6b82b39c9c68b9883e6c33f24825f773c21a6d912d453"
         },
         {
           "path": "entregas/integrado_maxeon1540/protecoes_fixacoes/resumo.json",
-          "sha256": "b431cfc3d31c6c021bfdeaf6cb6a3fa623965760d457efff1cc265aabe862315"
+          "sha256": "6d3f39d4bf3598011f32067c4d25c6a8ab03ee3aeecee8910cb29a0337471986"
         },
         {
           "path": "entregas/integrado_maxeon1540/rotas_instalacoes/layoutA_rotas_reserva.step",
-          "sha256": "0c8f72910a6065100c7fac13f948744f1b48233fc0053f93973d429099e82540"
+          "sha256": "329aca2c65549d912803120d5a8fff3e6819b2b9a9d6c2df64249aca7d1859d5"
         },
         {
           "path": "entregas/integrado_maxeon1540/solar/resumo.json",
-          "sha256": "3e72a2e598203e96f34bcd7fd4bb91aa13bc5e7eab6da34a1bcb8d02ff507c5d"
+          "sha256": "cfbecea9a7c0d39dabbdb5a01e322f3e5a2bc0104eb2d5b20bf9b11680b1ec10"
+        },
+        {
+          "path": "entregas/integrado_maxeon1540/ventilacao_mecanica_sensibilidade/resumo.json",
+          "sha256": "79abbdd37283d2e599ff878fcd543c02865fb01f7a8afe903bd63d4ef030cd5a"
         }
       ],
       "human_approval": false

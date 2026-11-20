@@ -3,7 +3,7 @@
   "canonical_source": "config/parametros_globais.yaml",
   "canonical_revision": "1.1.1-execucao1540",
   "derived_snapshot": "entregas/integrado_maxeon1540/parametros_resolvidos.json",
-  "snapshot_sha256": "5d16a4117d0ce6d4c9b2621a5cedcd427602a36876cd9c6e5e402b83cfa653d4",
+  "snapshot_sha256": "80abe48c4cc1688d6e3a12b9e8ec8dfb17a7503a28e23908d12826f95dc26bc5",
   "values": {
     "oem_hv_modification_allowed": {
       "value": false,

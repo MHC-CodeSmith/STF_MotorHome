@@ -132,7 +132,7 @@ def main():
     wires=pd.read_csv(OUT/'protecoes_fixacoes/circuitos_dc.csv')
     check(wires.energy_residual_w.abs().max()<1e-8 and np.max(np.abs(wires.load_voltage_v*wires.current_a-wires.power_ac_w/params['eta_inverter']))<1e-8,'Circuito de potência constante: balanço independente')
     faults=pd.read_csv(OUT/'protecoes_fixacoes/faltas_prospectivas.csv')
-    check((~faults.breaking_screen_pass).sum()==56 and faults.actual_fuse_clearing_i2t_a2s.isna().all(),'Faltas: não promove fusível20kA nem inventaI²t real')
+    check((~faults.breaking_screen_pass).sum()==0 and faults.actual_fuse_clearing_i2t_a2s.isna().all() and faults.bms_intervenes.astype(bool).sum()==99 and faults.bms_limited_a.max()==protections['bms_limit_a'],'Faltas: BMS limita o envelope pré-BMS, fusível não é promovido e I²t real não é inventado')
     mounts=pd.read_csv(OUT/'protecoes_fixacoes/fixacoes_grupos_parafusos.csv')
     check(mounts.force_residual_n.abs().max()<1e-8 and mounts.moment_residual_nm.abs().max()<1e-8,'Grupos de parafusos conservam força/momento')
     check((mounts.plate_utilization>1).sum()==10 and not mounts.oem_anchorage_verified.any(),'Chapas insuficientes explicitamente identificadas,apoioOEM não comprovado')

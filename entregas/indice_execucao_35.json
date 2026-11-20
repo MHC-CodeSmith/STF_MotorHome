@@ -40,19 +40,19 @@
       "item": 7,
       "owner": "P2",
       "path": "equipe/P2_bateria_eletrica/I07_fiacao_eletrica/resultados/execucao_integrada.json",
-      "evidence_sha256": "b431cfc3d31c6c021bfdeaf6cb6a3fa623965760d457efff1cc265aabe862315"
+      "evidence_sha256": "6d3f39d4bf3598011f32067c4d25c6a8ab03ee3aeecee8910cb29a0337471986"
     },
     {
       "item": 8,
       "owner": "P5",
       "path": "equipe/P5_solar_autonomia/I08_painel_fotovoltaico/resultados/execucao_integrada.json",
-      "evidence_sha256": "3e72a2e598203e96f34bcd7fd4bb91aa13bc5e7eab6da34a1bcb8d02ff507c5d"
+      "evidence_sha256": "cfbecea9a7c0d39dabbdb5a01e322f3e5a2bc0104eb2d5b20bf9b11680b1ec10"
     },
     {
       "item": 9,
       "owner": "P2",
       "path": "equipe/P2_bateria_eletrica/I09_controladores_de_carga_e_inversores/resultados/execucao_integrada.json",
-      "evidence_sha256": "d3ce8db03a4bcc94ae83d5db797eba6ab5c4e2cb91e7b4032838429f17d93d8e"
+      "evidence_sha256": "270fc28676fa3c0a4630c279cc69015b8357df85abbf7ff161cbd9c1d34a90a6"
     },
     {
       "item": 10,
@@ -82,25 +82,25 @@
       "item": 14,
       "owner": "P1",
       "path": "equipe/P1_estrutura_freios/I14_suspensao_e_direcao/resultados/execucao_integrada.json",
-      "evidence_sha256": "7262d7ed10894ecb5bb58f8046e578c9e0f1cf2c595189ff9e31ce5e17a4b155"
+      "evidence_sha256": "12c89b023b3003a7ec97b435ced5b3e337b04634bd15245c7078a18130912858"
     },
     {
       "item": 15,
       "owner": "P1",
       "path": "equipe/P1_estrutura_freios/I15_chassi/resultados/execucao_integrada.json",
-      "evidence_sha256": "091af5f57a3b3509736cd6916ef76372bb438f948fb5bc26ebedb8cdb3b777b5"
+      "evidence_sha256": "ab1b131555c455cec15235665e838514df7c0896dfbada0b870a090de52db5aa"
     },
     {
       "item": 16,
       "owner": "P3",
       "path": "equipe/P3_carroceria_cad_cfd/I16_carenagem_portas_vidros/resultados/execucao_integrada.json",
-      "evidence_sha256": "0c8f72910a6065100c7fac13f948744f1b48233fc0053f93973d429099e82540"
+      "evidence_sha256": "329aca2c65549d912803120d5a8fff3e6819b2b9a9d6c2df64249aca7d1859d5"
     },
     {
       "item": 17,
       "owner": "P3",
       "path": "equipe/P3_carroceria_cad_cfd/I17_cad_3d_e_vistas_cotadas/resultados/execucao_integrada.json",
-      "evidence_sha256": "96d1b726a49620d9ecba7dee870c2ad13e92177e7d41983108634f5bf8ed07d3"
+      "evidence_sha256": "999ac019d77ceffda269cf4bdab4c78dde2ac838a1b83744b643b0885ff2df51"
     },
     {
       "item": 18,
@@ -142,13 +142,13 @@
       "item": 24,
       "owner": "P1",
       "path": "equipe/P1_estrutura_freios/I24_custo_total_dos_materiais/resultados/execucao_integrada.json",
-      "evidence_sha256": "f3e4f742dea7fbc73a67bd2173bf84b0a7a84c1d219f3c9df6046583f981e4b4"
+      "evidence_sha256": "c6ab53631d3ae02e0567340a32d03186fb1e02194f59e1651b7651ebabb5582b"
     },
     {
       "item": 25,
       "owner": "P5",
       "path": "equipe/P5_solar_autonomia/I25_autonomia_usando_somente_solar/resultados/execucao_integrada.json",
-      "evidence_sha256": "f860eefac3d39a0fadda87f8230b41d2aeacc845513692632ace8b7776d2d15b"
+      "evidence_sha256": "35d2691ac30032ebc0b6a5d18588779586d590da6854274eacc31b6a7a124725"
     },
     {
       "item": 26,
@@ -178,7 +178,7 @@
       "item": 30,
       "owner": "P2",
       "path": "equipe/P2_bateria_eletrica/I30_temperatura_de_cabos_multidimensional/resultados/execucao_integrada.json",
-      "evidence_sha256": "d20e98a1760fb14b1d20bbd666103247affc400c430fa87e1679d1c8a8ccaf37"
+      "evidence_sha256": "dd87c266f91ed475dc8f12f1b634d0381faf2158dbca9dffaa1b33a3832f3169"
     },
     {
       "item": 31,
@@ -196,13 +196,13 @@
       "item": 33,
       "owner": "P1",
       "path": "equipe/P1_estrutura_freios/I33_freio_campo_termico_multidimensional/resultados/execucao_integrada.json",
-      "evidence_sha256": "1e0ea6ffb6cc49f3311246414f994e60caa7cb83352e1830ec7f5224b4a7ef59"
+      "evidence_sha256": "d263cbcd3f9c566a87185ab016dabe5076ebb8dbc43ab23d18471815729dac61"
     },
     {
       "item": 34,
       "owner": "P7",
       "path": "equipe/P7_arrefecimento/I34_temperatura_da_bateria_em_carga/resultados/execucao_integrada.json",
-      "evidence_sha256": "a8ac1d2887074c99165a7f59700d120f2d659819c9fb5e37cbf5c5d934679ae0"
+      "evidence_sha256": "100eb7664e2a5d2807ac52661682e8d62f499605178caecdd896d5cbc61a0dfa"
     },
     {
       "item": 35,

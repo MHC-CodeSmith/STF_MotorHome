@@ -9,5 +9,5 @@ NovoCAD inclui rotas reservadas de cabo/água e inversor vertical com envelope d
 
 Limite: Passagens/terminais/chapariaOEM e drenagem/estanqueidade ainda não demonstrados.
 
-Índice local: `execucao_integrada.json`;SHA256da evidência: `0c8f72910a6065100c7fac13f948744f1b48233fc0053f93973d429099e82540`. Não aprovado fisicamente.
+Índice local: `execucao_integrada.json`;SHA256da evidência: `329aca2c65549d912803120d5a8fff3e6819b2b9a9d6c2df64249aca7d1859d5`. Não aprovado fisicamente.
 <!-- execucao-integrada:fim -->

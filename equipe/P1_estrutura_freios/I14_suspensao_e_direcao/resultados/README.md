@@ -9,5 +9,5 @@ Execução integrada: `entregas/integrado_maxeon1540/integracao/massa_cg_eixos_s
 
 Limite: Limites por eixo/curso/rigidez e comportamento dinâmico OEM faltam; não homologar por estatística.
 
-Índice local: `execucao_integrada.json`;SHA256da evidência: `7262d7ed10894ecb5bb58f8046e578c9e0f1cf2c595189ff9e31ce5e17a4b155`. Não aprovado fisicamente.
+Índice local: `execucao_integrada.json`;SHA256da evidência: `12c89b023b3003a7ec97b435ced5b3e337b04634bd15245c7078a18130912858`. Não aprovado fisicamente.
 <!-- execucao-integrada:fim -->

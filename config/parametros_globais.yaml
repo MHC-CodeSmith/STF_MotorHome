@@ -129,7 +129,9 @@ sources:
     kind: fabricante
     accessed: '2026-11-09'
     other_document: https://www.victronenergy.com/upload/documents/Datasheet-SmartSolar-charge-controller-MPPT-250-60-and-250-70-EN.pdf
-    conflict: 'Isc: ficha35A versus manual60A; hardware/revisão a confirmar;35A conservador.'
+    conflict: 'Manual do250/60 confere: Isc PV máxima60A, corrente de bateria máxima60A.
+      O valor35A citado antes pertence ao modelo150/35 e foi transcrito por engano.
+      Rejeição do250/60 deve-se às perdas de descasamento medidas, não a este número.'
   pylon_us_series2024:
     url: https://pylonwebs3.s3.amazonaws.com/upload/2024/09/26/US%20Series_20240926105858A040.pdf
     manufacturer_page: https://en.pylontech.com.cn/products/c23/134.html
@@ -3249,13 +3251,15 @@ development:
     roof_low_voltage_w: 190
     note: 150/60:50AIsc,60Asaída,3440Wnominais48V,145Voperação/150Vabsoluto no manual
       fabricante consultado. Stringsheterogêneas ainda dependemIV/proteção contra
-      retorno/conexão segura.190WbaixoV não incluído.250/60 permanece comparador rejeitado
-      provisoriamente por conflito35/60A.
+      retorno/conexão segura.190WbaixoV não incluído.250/60 (Isc60A/bateria60A) permanece
+      comparador rejeitado pelas perdas de descasamento medidas (72casos, até27%), não
+      por limite de corrente. O número35A era do modelo150/35.
     documented_isc_values_a:
     - 35
     - 60
-    controller_model_rejected: 'SmartSolar250/60: conflito documentalIsc35/60A; sem
-      confirmação da revisão não liberar36.48A.'
+    controller_model_rejected: 'SmartSolar250/60: rejeitado como comparador de estudo
+      pelas perdas de descasamento medidas (72casos, até27%), não por limite de corrente;
+      Isc PV e corrente de bateria conferem60A no manual do250/60.'
   layout_equipment:
     A_fixa:
     - id: geladeira_AC
@@ -3914,7 +3918,7 @@ development:
     - {id: SPR-MAX3-380-COM, power_wp: 380, vmp_v: 63.1, imp_a: 6.02, voc_v: 75.2, isc_a: 6.54}
     - {id: SPR-MAX3-390-COM, power_wp: 390, vmp_v: 64.5, imp_a: 6.05, voc_v: 75.3, isc_a: 6.55}
     module_order: [0, 1, 0, 1]
-    controller_reference: SmartSolar250/60 comparador com35AIsc conservador
+    controller_reference: SmartSolar250/60 comparador (Isc60A; rejeitado por descasamento)
     controller_voltage_absolute_v: 250
     controller_isc_conservative_a: 35
     note: CoeficientesVoc/Isc/P e tolerâncias3% de ficha;betaVmp é hipótese de sensibilidade.
@@ -4160,7 +4164,7 @@ development:
         owner: P2
         source: mppt250_60
         scope: conversao
-        status: provisorio_35A_conservador_nao_HV
+        status: provisorio_comparador_independente_nao_HV
         unit_reference_price: 465
         installed_price_brl: null
         price_currency: USD

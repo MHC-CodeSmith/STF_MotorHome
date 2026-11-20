@@ -551,7 +551,7 @@
       "owner": "P2",
       "source": "mppt250_60",
       "scope": "conversao",
-      "status": "provisorio_35A_conservador_nao_HV",
+      "status": "provisorio_comparador_independente_nao_HV",
       "unit_reference_price": 465,
       "installed_price_brl": null,
       "price_currency": "USD",

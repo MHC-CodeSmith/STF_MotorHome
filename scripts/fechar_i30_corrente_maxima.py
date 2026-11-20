@@ -28,7 +28,11 @@ from scipy.optimize import brentq
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
-from motorhome.cabo_hv import CondicoesContorno, resolver_estacionario, resolver_transiente
+from motorhome.cabo_hv import (
+    CondicoesContorno,
+    resolver_estacionario,
+    resolver_transiente,
+)
 from motorhome.cabos_polares import Cabo
 
 
@@ -117,8 +121,8 @@ def main() -> None:
     # 3) Transitório: pico de 205 kW partindo do regime normal.
     transitorio = []
     for nome_contorno, contorno in contornos.items():
-        for area in bitolas:
-            tr = resolver_transiente(bitolas[area], i_normal, i_pico, contorno,
+        for area, cabo in bitolas.items():
+            tr = resolver_transiente(cabo, i_normal, i_pico, contorno,
                                      duracao_pico_s=180.0,
                                      t_limite_k=cabos_cfg["t_max_projeto_c"] + 273.15,
                                      passo_s=2.0)
@@ -203,14 +207,14 @@ def main() -> None:
         },
         "max_abs_residuo_w_m": max(abs(r["residuo_w_m"]) for r in rows),
         "limits": [
-            "Bitolas 185/240 são derivadas por geometria calibrada nos pontos de catálogo (erro <1%); "
-            "exigem confirmação na ficha do fabricante antes de qualquer compra.",
-            "Convecção/conduíte/fator de forma/agrupamento são hipóteses explicitadas em "
-            "config/parametros_globais.yaml (development.cable_hv); não são medições.",
+            ("Bitolas 185/240 são derivadas por geometria calibrada nos pontos de catálogo "
+             "(erro <1%); exigem confirmação na ficha do fabricante antes de qualquer compra."),
+            ("Convecção/conduíte/fator de forma/agrupamento são hipóteses explicitadas em "
+             "config/parametros_globais.yaml (development.cable_hv); não são medições."),
             "Perda AC entra como corrente equivalente; efeito pelicular não é resolvido.",
             "Não há condução axial, terminais/contatos, chicote completo nem EMC.",
-            "Nenhuma modificação física do chicote HV OEM é autorizada (DEC-001/DEC-040): o "
-            "resultado é requisito de verificação e, se não comprovado, limite de potência contínua.",
+            ("Nenhuma modificação física do chicote HV OEM é autorizada (DEC-001/DEC-040): o "
+             "resultado é requisito de verificação e, se não comprovado, limite de potência contínua."),
         ],
     }
     (args.destino / "resumo.json").write_text(

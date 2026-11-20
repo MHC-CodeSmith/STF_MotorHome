@@ -9,5 +9,5 @@ Execução integrada: `entregas/desenvolvimento_2026-11-09/fixacoes_redimensiona
 
 Limite: Chassi/ancoragensOEM/furação/contato/fadiga não demonstrados;seleções locais não homologam carroceria.
 
-Índice local: `execucao_integrada.json`;SHA256da evidência: `091af5f57a3b3509736cd6916ef76372bb438f948fb5bc26ebedb8cdb3b777b5`. Não aprovado fisicamente.
+Índice local: `execucao_integrada.json`;SHA256da evidência: `ab1b131555c455cec15235665e838514df7c0896dfbada0b870a090de52db5aa`. Não aprovado fisicamente.
 <!-- execucao-integrada:fim -->

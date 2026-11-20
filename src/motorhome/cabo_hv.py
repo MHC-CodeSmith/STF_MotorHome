@@ -14,7 +14,7 @@ from dataclasses import dataclass
 
 import numpy as np
 
-from .cabos_polares import Cabo, resolver
+from .cabos_polares import resolver
 
 SIGMA = 5.670374419e-8
 G = 9.81
@@ -185,7 +185,7 @@ def resolver_fases(cabos, correntes, contorno):
     if len(cabos) != len(correntes) or not cabos:
         raise ValueError('cabos e correntes devem ter o mesmo tamanho não nulo')
     if not isinstance(contorno, CondicoesContorno):
-        raise ValueError('contorno inválido')
+        raise TypeError('contorno deve ser CondicoesContorno')
     grupo = CondicoesContorno(**{**contorno.__dict__, 'n_fases': 1,
                                  'fracao_perimetro_exposto': contorno.fracao_exposta})
     return [resolver_estacionario(cabo, corrente, grupo)

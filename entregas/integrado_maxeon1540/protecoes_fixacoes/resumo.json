@@ -13,7 +13,10 @@
     2273.9719207408143,
     160500.0
   ],
-  "fault_cases_exceeding_20ka": 56,
+  "fault_cases_exceeding_20ka": 0,
+  "bms_limit_a": 6000,
+  "fault_cases_bms_intervenes": 99,
+  "max_delivered_fault_a": 6000,
   "main_fuse_provisional": {
     "model": "Littelfuse JLLN200",
     "current_a": 200,
@@ -28,6 +31,17 @@
     "dc_breaking_a": 20000,
     "source": "littelfuse_jlln"
   },
+  "ampacity_and_fuse_coordination": {
+    "table_available": false,
+    "screening": "A queda de tensão não substitui ampacidade instalada. O ponto crítico é o fusível de200A sobre70mm²: a ampacidade do cabo precisa ser ≥200A na instalação real (agrupamento/conduíte/temperatura).",
+    "requires_before_approval": [
+      "tabela de ampacidade do cabo comercial",
+      "fatores de agrupamento e temperatura",
+      "curvas I²t e seletividade do fusível",
+      "impedância real do laço e dos contatos"
+    ],
+    "demonstrated": false
+  },
   "hardware_control_demonstrated": false,
   "soc_thresholds": null,
   "coordination_demonstrated": false,
@@ -35,7 +49,7 @@
   "physical_installation_authorized": false,
   "mounting_limits": "4parafusos iguais por grupo;modelo genérico,sem OEMsuporte/fadiga/prying/tração/arrancamento. Água10/50/100Llimpa,0/40/70Lcinza,0/10/20Lcassete em verificações locais separadas;não soma conteúdos para massa global.",
   "electrical_limits": [
-    "Resistência interna varrida é hipótese;BMS não limita a corrente prospectiva por premissa.",
+    "A corrente prospectiva comR1/5mΩ é envelope pré-BMS;o limite documentado doBMS (<6kA,3módulos) é aplicado e nenhum caso excede20kA.",
     "Não transferir correntes/PE ou retorno de potência para sistemaHV OEM.",
     "Cobre90°C/manual não comprova ampacidade instalada;I²t real e curvas seletividade faltam.",
     "Cenários de potência não validam partidas desconhecidas;gerenciamento lógico não está instalado.",

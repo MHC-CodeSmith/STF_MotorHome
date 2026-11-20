@@ -28,11 +28,12 @@ externo. Resistências logarítmicas radiais em série mantêm continuidade na i
 Fourier/Newton da apostila pp.9–10 e geração Joule são os fundamentos. Lei linear
 R(T) acoplada diretamente na matriz estacionária; não é fonte calculada com uma
 temperatura final prescrita. Faces axiais adiabáticas, por metro de comprimento.
-Não se adicionam radiação, contatos/terminais, conduíte, vizinhos ou percurso CAD.
+O solver não inclui contatos/terminais, condução axial, agrupamento real de chicote
+nem efeito pelicular; esses limites são tratados como hipóteses de contorno no
+módulo `motorhome.cabo_hv` (abaixo).
 
 Entradas **assumidas**: k_feixe200W/(mK), k_isolamento0,2W/(mK), alpha0,00393/K.
 Sensibilidades k_feixe100/200/385 e k_isolamento0,15/0,20/0,30W/(mK).
-Ambiente25°C oficial. h5/10/20W/(m²K) é parâmetro de filme, não vento externo.
 Não há fonte de fabricante para essas condutividades; não confundir material RADOX
 com polietileno genérico. Fonte elétrica é resistência máxima de catálogo, não
 medição da instalação; as temperaturas altas extrapolam as propriedades.
@@ -41,6 +42,32 @@ A ficha Fiat dá205kW mecânicos de pico e400Vnominais. Com eficiência combinad
 **hipotética90%**, o exemplo DC resulta569,444A. Isso **não fornece corrente RMS de
 fase**. Fases300/450/600A são cenários independentes. Duração de pico e limites do
 inversor/cabos reais permanecem desconhecidos.
+
+### Revisão de 20/11/2026 — contorno térmico completo
+
+O estudo anterior usava cabo isolado, ar a 25 °C e radiação plena. Em veículo real as
+três fases correm juntas em conduíte, no cofre do motor, com perdas AC. O módulo
+`src/motorhome/cabo_hv.py` acrescenta: sink radiativo distinto do ar, fator de forma,
+confinamento de convecção, fração de perímetro exposta do grupo e fator de perda AC.
+O caso antigo continua reproduzível (`n_fases=1`, radiação plena, 25 °C → 85,37 °C a
+489 A) e é um teste de regressão.
+
+Regime no **modo normal (160 kW, 382 A)**, temperatura máxima:
+
+| Contorno | 1×120 mm² | 1×150 mm² | 1×185 mm² | 1×240 mm² |
+|---|---:|---:|---:|---:|
+| Referência antiga (25 °C, radiação plena) | 62 °C | 53 °C | 46 °C | 40 °C |
+| Rota protegida (50/70 °C, conduíte) | 134 °C | 114 °C | 101 °C | 89 °C |
+| Cofre do motor (60/80 °C, conduíte) | **158 °C** | 134 °C | **118 °C** | 104 °C |
+
+Critério de projeto 125 °C (25 K abaixo dos 150 °C de 3000 h da ficha): **185 mm²** no
+cofre e **150 mm²** em trecho protegido. O pico de 205 kW não governa a bitola: a
+constante de tempo é de 23–45 min, então 180 s de pico elevam a temperatura em 1–3 K.
+Bitolas 185/240 são derivadas por geometria calibrada nos dois pontos de catálogo
+(erro < 1 %) e exigem confirmação na ficha; nada disso é dado de fabricante.
+
+Análise completa, decisão e limitações em
+[correções térmicas e de bitola](CORRECOES_TERMICAS_E_BITOLA_2026-11.md).
 
 | Estudo por condutor | h assumido | Tmax estacionária condicionada |
 |---|---:|---:|
