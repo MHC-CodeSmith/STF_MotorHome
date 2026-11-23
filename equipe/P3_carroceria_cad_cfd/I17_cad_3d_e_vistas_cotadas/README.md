@@ -1,8 +1,18 @@
 # Item 17 — CAD 3D e vistas cotadas
 
-<!-- revisao-final:inicio -->
-> **Estado em 16/11/2026:** o resultado final está no [relatório](../../../relatorio/relatorio.pdf), seção 17 (p. 13). Para revisar e registrar o parecer, siga o [guia de revisão por integrante](../../../docs/REVISAO_INTEGRANTES.md). O texto abaixo é o histórico do desenvolvimento; onde ele disser "em desenvolvimento", vale o relatório.
-<!-- revisao-final:fim -->
+## Resultado vigente
+
+O exterior equipado do cenário `maxeon1540_independente` mede 5,981 m de comprimento, 2,079 m de largura na carroceria (2,491 m com espelhos), 2,608 m de altura no teto e 2,688 m com o deck. As vistas lateral, superior e frontal e a perspectiva constam da Figura 9 do [memorial](../../../relatorio/relatorio.pdf).
+
+A Figura 10 usa o layout A da [configuração executada](../../../entregas/integrado_maxeon1540/parametros_resolvidos.json) e os ajustes da [montagem detalhada](../../../relatorio/montagem_cad.py). Os três módulos US5000 foram elevados em 0,320 m para liberar a caixa de roda esquerda. O piso acabado está a 0,680 m do solo. A base do primeiro módulo está a 1,040 m e o topo do terceiro a 1,543 m do solo, ou 0,863 m acima do piso. A geometria das caixas de roda é estimada.
+
+Para gerar a figura a partir da raiz do projeto:
+
+```sh
+python -c "from relatorio.gerar_figuras import vistas_layout; vistas_layout()"
+```
+
+As notas a seguir documentam etapas anteriores. A validação da geometria de fabricação depende da conferência da carroceria específica.
 
 **Responsável:** P3 — Carroceria, CAD e CFD  
 **Enunciado / tarefa:** Geometria 3D; vistas frontal, superior e lateral cotadas; área de teto, área frontal e volume.  
