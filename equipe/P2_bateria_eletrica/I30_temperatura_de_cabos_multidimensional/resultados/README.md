@@ -5,11 +5,11 @@ Entradas e seus hashes no JSON; não resultados OEM aprovados.
 [Detalhes, reprodução e limites](../../../../docs/CABOS_E_RADIADOR_2D.md).
 
 <!-- execucao-integrada:inicio -->
-Execução integrada: `entregas/desenvolvimento_2026-11-09/cabos_HV_referencia/resumo_cabos.json`.
+Execução integrada: `entregas/integrado_maxeon1540/i30_corrente_maxima/resumo.json`.
 
-Camposrθ de serviços e referênciaHV documentada reexecutados;malha/analítica/sensibilidade.
+Camposrθ reexecutados com contorno completo (ar, entorno radiativo, conduíte, 3 fases, perdas AC);matriz bitola×contorno×potência e transitório.
 
-Limite: Corrente de faseOEM na potência máxima desconhecida;DC569.4A não equivale a RMSde fase.Não modificarcabos.
+Limite: Bitolas185/240 são derivadas da ficha e exigem confirmação;corrente de fase depende de mapaOEM não publicado;nenhuma modificação física do chicoteHV é autorizada.
 
-Índice local: `execucao_integrada.json`;SHA256da evidência: `d20e98a1760fb14b1d20bbd666103247affc400c430fa87e1679d1c8a8ccaf37`. Não aprovado fisicamente.
+Índice local: `execucao_integrada.json`;SHA256da evidência: `dd87c266f91ed475dc8f12f1b634d0381faf2158dbca9dffaa1b33a3832f3169`. Não aprovado fisicamente.
 <!-- execucao-integrada:fim -->

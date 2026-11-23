@@ -18,7 +18,7 @@ Método/casos, hipóteses, fontes e convergência em [cabos e radiador](../../..
 <!-- execucao-integrada:inicio -->
 Revisão computacional registrada no índice `resultados/execucao_integrada.json`.
 
-Limitação remanescente: Corrente de faseOEM na potência máxima desconhecida;DC569.4A não equivale a RMSde fase.Não modificarcabos.
+Limitação remanescente: Bitolas185/240 são derivadas da ficha e exigem confirmação;corrente de fase depende de mapaOEM não publicado;nenhuma modificação física do chicoteHV é autorizada.
 
 Revisão humana final: **PENDENTE**. Não houve instalação/ensaio físico,homologação ou aceite inferido por este gerador.
 <!-- execucao-integrada:fim -->

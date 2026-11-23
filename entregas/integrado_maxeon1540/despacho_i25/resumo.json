@@ -1,6 +1,6 @@
 {
   "cases_milp": 630,
-  "configuration_sha256": "e408c1fda000196eae8449c19d29fa645c4949730212a9629566b10bd58946ac",
+  "configuration_sha256": "b44473f46c5b43c75139aa408d4988efb9ad30483a5a28de87a7c06833c60f50",
   "best_40_80_finest": [
     {
       "step_min": 5,
@@ -137,7 +137,7 @@
       "portable_tilt_deg": 45,
       "portable_azimuth_deg": 0,
       "service_day_kwh": 7.228825396825397,
-      "service_balance_max_kwh": 1.9394208461420703e-15,
+      "service_balance_max_kwh": 2.220446049250313e-15,
       "pv_generated_kwh": 14.410681770229504,
       "milp_gap": 0.0,
       "physical_interface_demonstrated": false
@@ -157,7 +157,7 @@
       "portable_tilt_deg": 45,
       "portable_azimuth_deg": 0,
       "service_day_kwh": 7.228825396825397,
-      "service_balance_max_kwh": 1.9394208461420703e-15,
+      "service_balance_max_kwh": 2.220446049250313e-15,
       "pv_generated_kwh": 14.410681770229504,
       "milp_gap": 0.0,
       "physical_interface_demonstrated": false
@@ -177,7 +177,7 @@
       "portable_tilt_deg": 45,
       "portable_azimuth_deg": 0,
       "service_day_kwh": 7.228825396825397,
-      "service_balance_max_kwh": 1.6132928326584306e-15,
+      "service_balance_max_kwh": 1.4883927423881005e-15,
       "pv_generated_kwh": 14.410681770229504,
       "milp_gap": 0.0,
       "physical_interface_demonstrated": false
@@ -197,7 +197,7 @@
       "portable_tilt_deg": 45,
       "portable_azimuth_deg": 0,
       "service_day_kwh": 7.228825396825397,
-      "service_balance_max_kwh": 1.6132928326584306e-15,
+      "service_balance_max_kwh": 1.4883927423881005e-15,
       "pv_generated_kwh": 14.410681770229504,
       "milp_gap": 0.0,
       "physical_interface_demonstrated": false
@@ -217,7 +217,7 @@
       "portable_tilt_deg": 60,
       "portable_azimuth_deg": 90,
       "service_day_kwh": 7.228825396825397,
-      "service_balance_max_kwh": 1.835337437583462e-15,
+      "service_balance_max_kwh": 1.016547956922409e-15,
       "pv_generated_kwh": 7.90141624532176,
       "milp_gap": 0.0,
       "physical_interface_demonstrated": false
@@ -237,7 +237,7 @@
       "portable_tilt_deg": 60,
       "portable_azimuth_deg": 90,
       "service_day_kwh": 7.228825396825397,
-      "service_balance_max_kwh": 1.835337437583462e-15,
+      "service_balance_max_kwh": 1.016547956922409e-15,
       "pv_generated_kwh": 7.90141624532176,
       "milp_gap": 0.0,
       "physical_interface_demonstrated": false

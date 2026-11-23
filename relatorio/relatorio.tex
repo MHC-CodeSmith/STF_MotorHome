@@ -281,10 +281,17 @@ JLLN 80\,A no MPPT; \textbf{\SI{220}{V}/\SI{60}{Hz}} para as cargas CA e
 \SI{12}{V} por conversor CC-CC para iluminação e bombas.}
 
 A triagem elétrica avaliou 324 casos de queda de tensão e 144 casos de curto-circuito no
-barramento de \SI{48}{V}. As correntes de operação ficam entre \SI{10}{A} e \SI{103}{A}.
-Em 56 dos casos de falta, a corrente prospectiva passa de \SI{20}{kA}, acima da
-capacidade de interrupção do fusível; para esses casos o projeto prevê limitação pela
-impedância dos cabos ou um fusível de classe superior.
+barramento de \SI{48}{V}. As correntes de operação ficam entre \SI{10}{A} e \SI{103}{A},
+com queda máxima de \SI{0,74}{\percent} em \SI{70}{mm^2}. Para as faltas, usou-se a faixa
+de resistência interna plausível de um módulo LFP de \SI{48}{V}/\SI{100}{Ah}
+(\SIrange{10}{40}{m\ohm}), com três módulos em paralelo: o envelope de corrente fica em
+\SIrange{2,75}{16,05}{kA}, \textbf{abaixo da interrupção de \SI{20}{kA} do JLLN 200\,A
+em todos os 144 casos}. A ficha do US5000 limita ainda o curto do módulo a
+\SI{<2000}{A}/\SI{1}{ms} (teto de \SI{6}{kA} com três módulos), o que reduz a corrente
+entregue em 63 casos. A verificação de ampacidade instalada e a coordenação
+fusível$\leftrightarrow$cabo continuam pendentes: o fusível de \SI{200}{A} sobre
+\SI{70}{mm^2} exige ampacidade $\geq \SI{200}{A}$ no arranjo real, que depende de tabela
+do cabo, agrupamento, temperatura e curvas I²t.
 
 \begin{figure}[H]
 \centering\includegraphics[width=0.85\linewidth]{cad_rotas.png}
@@ -300,8 +307,10 @@ impedância dos cabos ou um fusível de classe superior.
 \SI{22,1}{\percent}, área de \SI{7,07}{m^2} num deck de \qtyproduct{4,24 x 1,69}{m} \cite{maxeon}.
 \textbf{Portáteis:} 4$\times$ EcoFlow \SI{400}{W} dobráveis (monocristalinos,
 \qtyproduct{1,068 x 2,390}{m} abertos, \SI{21}{kg} com bolsa), \SI{1600}{Wp} e \SI{10,2}{m^2},
-montados só com o veículo parado. Geração em 21/06: \textbf{\SI{5,86}{kWh}} no teto e
-\textbf{\SI{8,04}{kWh}} nos portáteis, total \SI{13,9}{kWh/dia}.}
+montados só com o veículo parado. Geração em 21/06 na política fixa 08--16\,h:
+\textbf{\SI{5,86}{kWh}} no teto e \textbf{\SI{8,04}{kWh}} nos portáteis, total
+\SI{13,9}{kWh/dia}. Esse total corresponde à janela fixa de montagem; com os portáteis
+abertos durante todo o dia (item 25), a mesma simulação fornece \SI{14,4}{kWh/dia}.}
 
 \begin{figure}[H]
 \centering\includegraphics[width=0.8\linewidth]{i08_geracao_solar.png}
@@ -325,8 +334,8 @@ perdas). Teto horizontal; portáteis a \ang{45} voltados para o norte, abertos a
 \end{figure}
 
 \itemsec{9}{Controladoras de carga e inversores}
-\resposta{MPPT Victron SmartSolar \textbf{250/60-Tr} para o teto e \textbf{150/60-Tr} para os
-portáteis (eficiência máxima 99\,\%, \SI{3}{kg} cada); inversor-carregador Victron
+\resposta{MPPT Victron SmartSolar \textbf{250/60-Tr} para o teto (pico 99\,\%) e
+\textbf{150/60-Tr} para os portáteis (pico 98\,\%, \SI{3}{kg} cada); inversor-carregador Victron
 \textbf{MultiPlus-II GX 48/5000/70-50}, \SI{4000}{W} contínuos a \SI{25}{\celsius},
 eficiência máxima 96\,\%, consumo em vazio \SI{18}{W}, \SI{31}{kg}, ajustado para
 \SI{220}{V}/\SI{60}{Hz} \cite{victron}. Nos balanços de energia usam-se rendimentos
@@ -577,9 +586,11 @@ pico do motor.
 \end{figure}
 
 \itemsec{23}{Capacidade das baterias}
-\resposta{\textbf{\SI{112,4}{kWh} úteis a bordo}: \SI{98}{kWh} na tração (\SI{110}{kWh}
-brutos) e \SI{14,4}{kWh} nominais no banco de serviços (\SI{13,7}{kWh} com 95\,\% de
-profundidade de descarga).}
+\resposta{\textbf{\SI{98}{kWh} úteis} na tração (\SI{110}{kWh} brutos) mais
+\SI{14,4}{kWh} \emph{nominais} no banco de serviços (\SI{13,7}{kWh} com 95\,\% de
+profundidade de descarga, portanto \SI{13,7}{kWh} úteis). Somando nominal e útil
+indevidamente chegar-se-ia a \SI{112,4}{kWh}; esse número é apenas a soma de
+referência usada no modelo do item 29, não a energia útil a bordo.}
 
 \itemsec{24}{Custo total de material}
 \resposta{\textbf{R\$ 789 mil} (faixa R\$ 721--882 mil), incluindo impostos de importação:
@@ -686,29 +697,56 @@ m_{ef}\,\frac{dv}{dt} = \min\!\left(\frac{T_{mot}(\omega)\, i\, \eta_t}{r},\; \m
 ao longo da viagem, e o percurso é plano.}
 
 \itemsec{30}{Temperatura nos fios de alimentação do motor}
-\resposta{Na potência máxima de \SI{205}{kW}, a corrente de fase é de
-\textbf{\SI{489}{A} RMS} e a temperatura máxima no condutor de \SI{120}{mm^2} é de
-\textbf{\SI{85}{\celsius}} em regime permanente (faixa de \SIrange{77}{124}{\celsius}), abaixo do
-limite de \SI{150}{\celsius} do isolamento.}
+\resposta{Na potência máxima de \SI{205}{kW} a corrente de fase é de \textbf{\SI{489}{A} RMS};
+no modo normal (\SI{160}{kW}) é de \SI{382}{A}. A temperatura do cabo depende fortemente
+do contorno térmico: em cabo isolado a \SI{25}{\celsius} com radiação plena, \SI{120}{mm^2}
+dão \SI{85}{\celsius}, mas esse é o caso mais favorável. Com as três fases agrupadas em
+conduíte, no cofre do motor (\SI{60}{\celsius} de ar, \SI{80}{\celsius} de entorno) e
+perdas AC, o mesmo cabo chega a \textbf{\SI{158}{\celsius}} no modo normal, acima da ficha
+de \SI{150}{\celsius}. A menor bitola que atende o critério de projeto de \SI{125}{\celsius}
+é \textbf{\SI{185}{mm^2}} no cofre e \SI{150}{mm^2} em trecho protegido.}
 
 A corrente de fase sai do limite de modulação linear SVPWM,
 $V_{LL,rms} = V_{CC}/\sqrt{2} = \SI{283}{V}$:
 \begin{equation}
 I_{fase} = \frac{P_{mec}}{\eta_m \sqrt{3}\, V_{LL}\, FP} = \frac{205\,000}{0{,}95\cdot\sqrt3\cdot 283\cdot 0{,}90} = \SI{489}{A}.
 \end{equation}
-O campo de temperatura $T(r,\theta)$ é resolvido por volumes finitos em dois materiais
-(feixe de cobre e isolamento), com geração Joule dependente da temperatura,
-$q''' = I^2 R_{20}[1+\alpha(T-20)]/A$, e contorno de convecção natural (Churchill--Chu)
-mais radiação ($\varepsilon = 0{,}9$) em ar parado a \SI{25}{\celsius}, iterado sobre a
-temperatura da superfície ($h \approx \SI{15}{W/(m^2.K)}$). A sensibilidade (rendimento
-0,92--0,97, fator de potência 0,85--0,95, tensão \SIrange{350}{400}{V}, emissividade) dá
-\SIrange{454}{612}{A}. Cabos de \SI{150}{mm^2} ficam em \SIrange{64}{97}{\celsius}.
+O campo $T(r,\theta)$ vem de volumes finitos em dois materiais, com geração Joule
+$q''' = I^2 R_{20}[1+\alpha(T-20)]/A$ e contorno de convecção natural
+(Churchill--Chu) mais radiação, iterado sobre a superfície. O contorno completo inclui
+sink radiativo distinto do ar ($T_{rad} \neq T_{ar}$), confinamento em conduíte,
+agrupamento das três fases e fator de perda AC. A matriz bitola $\times$ contorno
+resulta em:
+
+\begin{center}\small
+\begin{tabular}{lcccc}
+\toprule
+Contorno (modo normal, \SI{382}{A}) & \SI{120}{mm^2} & \SI{150}{mm^2} & \SI{185}{mm^2} & \SI{240}{mm^2} \\
+\midrule
+Referência antiga (\SI{25}{\celsius}, radiação plena) & 62 & 53 & 46 & 40 \\
+Rota protegida (\SI{50}{\celsius}/\SI{70}{\celsius}) & 134 & 114 & 101 & 89 \\
+Cofre do motor (\SI{60}{\celsius}/\SI{80}{\celsius}, conduíte) & \textbf{158} & 134 & \textbf{118} & 104 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+O pico de \SI{205}{kW} é transitório: com constante de tempo térmica de
+\SIrange{23}{45}{min} conforme a bitola, \SI{180}{s} de pico elevam a temperatura em
+apenas \SIrange{1}{3}{K}. Em \SI{185}{mm^2} no cofre, o regime normal fica em
+\SI{118}{\celsius} e o pico pode ser sustentado por cerca de \SI{7}{min} antes de
+atingir \SI{125}{\celsius}. Por isso o critério usa o modo normal como regime e
+trata o pico pelo transitório, e não pelo regime permanente no pico.
+
 \begin{figure}[H]
 \centering\includegraphics[width=\linewidth]{i30_cabos.png}
-\caption{Item 30 — perfil radial e campo $T(r,\theta)$ no cabo de fase na potência de pico.}
+\caption{Item 30 — temperatura máxima em função da bitola, no modo normal e no pico
+permanente, para os três contornos térmicos.}
 \end{figure}
-\limite{regime permanente na potência de pico é conservador; não inclui efeito pelicular e
-agrupamento de cabos.}
+\limite{não modifica o chicote HV OEM (DEC-001/DEC-040): o resultado é requisito de
+verificação da bitola original e, se ela não for comprovada, limite de potência contínua.
+Bitolas 185/240 são derivadas por geometria calibrada nos pontos de catálogo e exigem
+confirmação na ficha; convecção/conduíte/agrupamento/perda AC são hipóteses declaradas.
+Sem efeito pelicular resolvido, condução axial, terminais ou EMC.}
 
 \itemsec{31}{Cabine estacionada ao meio-dia, fechada}
 \resposta{\textbf{\SI{49,1}{\celsius}} ao meio-dia no modelo de zona única (pico de
@@ -817,7 +855,7 @@ Item & Grandeza & Resultado \\
 6 & Baterias & tração LFP 110/98 kWh 400 V; serviços 3$\times$US5000, 14,4 kWh 48 V \\
 7 & Fiação & HV 120 mm² RADOX; 48 V 70--120 mm², fusível 200 A; 220 V/60 Hz \\
 8 & Painéis & 1540 Wp Maxeon IBC (21,5--22,1\,\%, 7,07 m²) + 1600 Wp portáteis; 13,9 kWh/dia \\
-9 & Controladoras/inversor & MPPT 250/60 e 150/60 (99\,\%); MultiPlus-II 5000 (96\,\%) \\
+9 & Controladoras/inversor & MPPT 250/60 (99\,\%) e 150/60 (98\,\%); MultiPlus-II 5000 (96\,\%) \\
 10 & Resfriamento & água-glicol, radiador frontal; 10,9--36,3 kW a 205 kW \\
 11 & HVAC & FreshWell 3000 (2,7 kW frio, 3 kW calor); ventilação natural \\
 12 & Lubrificação & sem óleo de motor; óleo do redutor, graxas \\
@@ -831,14 +869,14 @@ Item & Grandeza & Resultado \\
 20 & $C_r$ & 0,012 (0,008--0,016) \\
 21 & Forças & 673 N a 40 km/h; 1287 N a 80 km/h \\
 22 & Potências & 7,5 / 28,6 kW nas rodas; 9,0 / 32,5 kW na bateria \\
-23 & Capacidade & 112,4 kWh úteis (98 + 14,4) \\
+23 & Capacidade & 98 kWh úteis (tração) + 14,4 kWh nominais (serviços) \\
 24 & Custo & R\$ 789 mil (721--882 mil) com impostos de importação \\
 25 & Autonomia solar & 57,6 km a 40 km/h; 31,9 km a 80 km/h \\
 26 & Consumo & 4,44 km/kWh a 40 km/h; 2,46 km/kWh a 80 km/h \\
 27 & Autonomia diária & 351,5 km a 20,7 km/h (17 h); 309,5 km em 8 h \\
 28 & Vmax, 0--100 & 90 km/h (limitador); 0--100 inalcançável; 0--90 em 10,6 s \\
 29 & 7000 km & \IbResumo \\
-30 & Cabos & 489 A RMS, 85 °C (77--124 °C) \\
+30 & Cabos & 382 A normal; 120 mm²: 158 °C no cofre; 185 mm² atende 125 °C \\
 31 & Cabine fechada & 49,1 °C (zona única); 50,3 °C médio no CFD 3D \\
 32 & A/C & 2,65 kW (2,87 kW com ventilação por CO$_2$) \\
 33 & Freios & pico de 293 °C (213--313 °C) \\

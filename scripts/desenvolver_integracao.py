@@ -36,10 +36,28 @@ def save(path, value):
     path.write_text(json.dumps(value, indent=2, ensure_ascii=False, allow_nan=False)+'\n')
 
 
+def _nativo(valor):
+    """Converte escalares/arrays NumPy em tipos nativos, para CSV reprocessável.
+
+    NumPy 2 imprime `np.float64(0.5)` em `str()`, que `ast.literal_eval` rejeita
+    ao reler o inventário. Normaliza recursivamente sem alterar os valores.
+    """
+    if isinstance(valor, np.generic):
+        return valor.item()
+    if isinstance(valor, np.ndarray):
+        return valor.tolist()
+    if isinstance(valor, (list, tuple)):
+        return [_nativo(v) for v in valor]
+    if isinstance(valor, dict):
+        return {k: _nativo(v) for k, v in valor.items()}
+    return valor
+
+
 def table(path, rows):
     keys = list(dict.fromkeys(k for row in rows for k in row))
     with path.open('w') as f:
-        w = csv.DictWriter(f,keys,lineterminator='\n'); w.writeheader(); w.writerows(rows)
+        w = csv.DictWriter(f,keys,lineterminator='\n'); w.writeheader()
+        w.writerows({k: _nativo(v) for k, v in row.items()} for row in rows)
 
 
 def main():

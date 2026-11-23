@@ -81,7 +81,7 @@ def main():
             '2S2P misto380+390 evita inferir modelo385W não documentado;curvasIV ainda estimadas.',
             'CoeficienteVmp e potência portátil por temperatura são hipóteses,não curvasOEM.',
             '76kg são apenas módulos;suportes e custos/estoque/compatibilidade veicular não demonstrados.',
-            '250/60 limita35A por conflito documental;2S2P portátil falha triagem conservadora.4S reduz corrente mas amplia mismatch e requer proteções reais.',
+            '250/60 tem Isc PV e corrente de bateria60A; a rejeição deve-se ao descasamento medido (0,657-27,272%), não a um limite35A.4S reduz corrente mas amplia mismatch e requer proteções reais.',
             'Apenas estudo comparativo;missões ainda usam1350Wp e massa anterior;nenhumaenergia creditada aHV por esta comparação.']}
     (out/'resumo.json').write_text(json.dumps(result,indent=2,ensure_ascii=False)+'\n');print(json.dumps(result,ensure_ascii=False))
 

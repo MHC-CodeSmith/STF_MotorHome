@@ -62,13 +62,23 @@ def main():
     pd.DataFrame(losses).to_csv(out/'I10_I12_balanco_perdas.csv',index=False)
     thermal=yaml.safe_load((ROOT/'config/bateria_termica_proposta.yaml').read_text())
     base=thermal['assumed']|thermal['official'];s=d['thermal_sweep'];rows=[]
-    for power,mass,ua,cooler in itertools.product(s['powers_w'],s['mass_kg'],s['battery_coolant_ua_w_k'],s['cooler_ambient_ua_w_k']):
-        r=resolver(base|{'battery_mass_kg':mass,'battery_coolant_ua_w_k':ua,'cooler_ambient_ua_w_k':cooler},power)
-        r.pop('history')
-        rows.append({'power_w':power,'pack_mass_assumed_kg':mass,'battery_coolant_ua_w_k':ua,
-                     'cooler_ambient_ua_w_k':cooler,**r})
-    pd.DataFrame(rows).to_csv(out/'I34_54sensibilidades.csv',index=False)
+    # Produto cartesiano genérico: inclui massa, UA, cooler, resistência e entropia.
+    # `powers_w` é a potência imposta, não uma chave do modelo.
+    rename={'mass_kg':'battery_mass_kg'}
+    sweep_keys=[k for k in s if k!='note']
+    for combo in itertools.product(*(s[k] for k in sweep_keys)):
+        cfg=dict(base);row={};power=None
+        for key,value in zip(sweep_keys,combo,strict=True):
+            if key=='powers_w':
+                power=value;row['power_w']=value
+            else:
+                cfg[rename.get(key,key)]=value
+                row['pack_mass_assumed_kg' if key=='mass_kg' else key]=value
+        r=resolver(cfg,power);r.pop('history')
+        rows.append({**row,**r})
+    pd.DataFrame(rows).to_csv(out/'I34_sensibilidades.csv',index=False)
     (out/'resumo.json').write_text(json.dumps({'I28_cases':len(cases),'I34_cases':len(rows),
+        'I34_sweep_keys':sweep_keys,
         'I28_note':a['note'],'thermal_note':s['note'],'nominal_geometry_source':'layoutA integração, CGbase hipotético',
         'motor_maps_oem_available':False,'mechanical_peak_continuous_proven':False,
         'oem_lubrication_identified':False,'physical_validation':False},indent=2,ensure_ascii=False)+'\n')

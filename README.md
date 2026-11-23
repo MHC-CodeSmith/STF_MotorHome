@@ -16,6 +16,7 @@ O estado descrito abaixo (12/11) é histórico; os resultados vigentes estão no
 
 ## Revisão rápida
 
+- [Correções térmicas e de bitola dos cabos (20/11/2026)](docs/CORRECOES_TERMICAS_E_BITOLA_2026-11.md)
 - [Retomada compacta e QA mais recente](docs/RETOMADA_COMPACTA.md)
 - [Revisão técnica dos 35 itens, métodos e resultados](docs/REVISAO_GERAL_PROJETO.md)
 - [Estados resumidos por item](docs/REVISAO_TECNICA_EXECUCAO02.md)

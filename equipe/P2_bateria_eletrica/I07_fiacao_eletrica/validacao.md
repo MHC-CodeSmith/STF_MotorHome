@@ -16,7 +16,7 @@ status parcial; fonte dos coeficientes equivalentes e propriedades reais deve se
 <!-- execucao-integrada:inicio -->
 Revisão computacional registrada no índice `resultados/execucao_integrada.json`.
 
-Limitação remanescente: 56faltas hipotéticas excedem20kA;impedância real/I²t/ampacidade/PE-DR/terminais ainda não validados.
+Limitação remanescente: ComDCIR plausível o envelope pré-BMS fica≤16kA,já abaixo dos20kA do fusível;impedância real/I²t/ampacidade/PE-DR/terminais ainda não validados.
 
 Revisão humana final: **PENDENTE**. Não houve instalação/ensaio físico,homologação ou aceite inferido por este gerador.
 <!-- execucao-integrada:fim -->

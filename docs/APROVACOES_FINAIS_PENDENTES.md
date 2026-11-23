@@ -152,7 +152,7 @@ Já aprovados anteriormente e preservados: arquitetura B como direção, bancos 
 - **Opções:** Indicadores comerciais e atuadores documentados × integração a definir.
 - **Recomendação provisória:** Manter monitoramento básico comercial,sem central própria. Máquina de estados/falhas,256combinações de simultaneidade e72autonomias de prioridades por orçamento previsto simuladas;GX exigido pela combinaçãoUS5000/Victron é incorporado no novo inversorGX candidato;nenhumgateway/central externa própria. ConectorCANtipoA/firmware/DVCC eatuadores seguem a validar.
 - **Justificativa e fonte:** DEC047/056 já aprovadas; implementação e patamares ainda dependemBMS e hardware. [multi](https://www.victronenergy.com/media/pg/MultiPlus-II_230V/en/technical-specifications-mp-ii-230v.html).
-- **Impactos e incertezas:** 324casosDC/144faltas calculados;JLLN200/80A candidatos125VDC20kA,mas56faltas hipotéticas excedem20kA;dadoPylonUSSeries2024<2000A/1ms é teto de saída declarado,não prova de corrente prospectiva ou coordenaçãoI²t. CurvasI²t/seletividade/impedância real/contatores/DR-PE permanecem não demonstrados. PatamaresSOCnull;nenhum ensaio físico.
+- **Impactos e incertezas:** 324casosDC/144faltas calculados;JLLN200/80A candidatos125VDC20kA,e comDCIR plausível10-40mΩ nenhuma excede20kA (envelope≤16,05kA);dadoPylonUSSeries2024<2000A/1ms é teto de saída declarado,não prova de corrente prospectiva ou coordenaçãoI²t. CurvasI²t/seletividade/impedância real/contatores/DR-PE permanecem não demonstrados. PatamaresSOCnull;nenhum ensaio físico.
 - **Dependências:** B06; A04/A05/A12.
 - **Aprovação necessária:** revisão técnica das evidências e aprovação humana final da escolha; enquanto houver bloqueio, não liberar instalação, homologação ou conclusão física.
 

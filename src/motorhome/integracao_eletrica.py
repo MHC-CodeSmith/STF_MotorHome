@@ -27,7 +27,7 @@ def analisar(eletrica, interior):
             'known_added_service_mass_kg': sum(i['mass_kg'] or 0 for i in service_items),
             'unknown_added_mass_ids': [i['id'] for i in service_items if i['mass_kg'] is None],
             'oem_traction_mass_already_in_curb': True,
-            'main_bank_energy_kwh': bank['quantity']*51.2*100/1000,
+            'main_bank_energy_kwh': bank['energy_kwh'],
             'bank_continuous_current_a': bank['max_continuous_discharge_a'],
             'bank_recommended_min_200ah_met': bank['capacity_ah'] >= 200,
             'pack_floor_gap_assumed_m': .68-(.23+.32),
