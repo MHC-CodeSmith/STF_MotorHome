@@ -7,15 +7,16 @@ O nome de arquivo histórico é mantido para quem já chama este script.
 import json
 import math
 import re
-from statistics import fmean
 from pathlib import Path
+from statistics import fmean
 
 import matplotlib
+
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from matplotlib.ticker import FuncFormatter
 import numpy as np
 import yaml
+from matplotlib.ticker import FuncFormatter
 
 ROOT = Path(__file__).resolve().parents[1]
 FAMILIA = ROOT / "entregas/aero_equipado1540/familia_gci"
@@ -33,7 +34,7 @@ def ler_caso(diretorio):
         raise ValueError(f"{diretorio.name}: refinamento atingiu o limite")
     case = diretorio / "case"
     check = (case / "log.checkMesh").read_text()
-    n = int(re.search(r"^\s*cells:\s*(\d+)", check, re.M)[1])
+    n = int(re.search(r"^\s*cells:\s*(\d+)", check, re.MULTILINE)[1])
     if "Mesh OK." not in check or n != dados["cell_count"]:
         raise ValueError(f"{diretorio.name}: contagem ou verificação da malha divergente")
     controle = (case / "system/controlDict").read_text()

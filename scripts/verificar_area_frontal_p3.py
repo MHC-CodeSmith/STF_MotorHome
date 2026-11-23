@@ -63,6 +63,7 @@ def salvar_resultado(area_corpo, area_deck, area_equipada):
 
 def main():
     import trimesh
+
     from motorhome.geometria_malha import area_frontal
 
     corpo = trimesh.load_mesh(CORPO, process=False)

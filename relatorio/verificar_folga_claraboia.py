@@ -10,11 +10,12 @@ import struct
 from pathlib import Path
 
 import matplotlib
+
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+import numpy as np
 from matplotlib.collections import PolyCollection
 from matplotlib.patches import Rectangle
-import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
 GLB = ROOT / "entregas/parcial_2026-10-24/aurora_L3H2_proposta_m.glb"
@@ -54,7 +55,7 @@ def borda_vidro(triangulos, lateral):
     return min(borda)
 
 def dimensao(ax, xi, xf, y, texto, cor, acima=True):
-    ax.annotate("", (xf,y), (xi,y), arrowprops=dict(arrowstyle="<->",color=cor,lw=1.2,shrinkA=0,shrinkB=0))
+    ax.annotate("", (xf,y), (xi,y), arrowprops={"arrowstyle": "<->","color": cor,"lw": 1.2,"shrinkA": 0,"shrinkB": 0})
     ax.vlines((xi,xf),y-.023,y+.023,colors=cor,lw=.85)
     ax.text((xi+xf)/2,y+(.037 if acima else -.036),texto,ha="center",va="center",
             fontsize=10,weight="bold",color=cor)
