@@ -774,16 +774,34 @@ irradiância por face vem do pvlib. Três malhas (\num{2400}, \num{8100} e \num{
 \end{figure}
 
 \itemsec{32}{Potência de ar-condicionado (33 °C externo, 25 °C interno)}
-\resposta{\textbf{\SI{2,65}{kW} de frio} com duas pessoas e \SI{30}{m^3/h} de renovação
-(\SI{2,52}{kW} com uma pessoa); com a vazão de \SI{62}{m^3/h} exigida pelo CO$_2$,
-\textbf{\SI{2,87}{kW}}. O consumo elétrico, com COP 2,5, fica entre \SI{1,06}{kW} e
-\SI{1,15}{kW}.}
+\resposta{Sem proteção solar, \SI{2,65}{kW} de frio com duas pessoas e \SI{30}{m^3/h} de
+renovação (\SI{2,52}{kW} com uma pessoa) e \SI{2,87}{kW} com a vazão de \SI{62}{m^3/h} exigida
+pelo CO$_2$. Com a cortina refletiva do para-brisa fechada (veículo parado), a carga de projeto
+cai para \textbf{\SI{2,31}{kW}} (\SIrange{2,09}{2,53}{kW} na faixa de IAC), abaixo dos
+\SI{2,7}{kW} do FreshWell 3000. O consumo elétrico, com COP 2,5, fica em \SI{0,92}{kW}
+(\SI{1,15}{kW} sem a cortina).}
 
 O balanço em regime permanente soma condução pela envoltória ($UA\,\Delta T$), sol nas
 superfícies opacas e vidros, ocupantes (\SI{75}{W} sensíveis e \SI{55}{W} latentes por pessoa),
 equipamentos (\SI{100}{W}) e ventilação sensível e latente (psicrometria de Buck, UR
-50\,\%). O FreshWell 3000 publica \SI{2700}{W} nominais; há margem para uma pessoa e
-déficit de \SI{0,17}{kW} com duas pessoas na vazão de CO$_2$.
+50\,\%). O FreshWell 3000 publica \SI{2700}{W} nominais. Sem proteção, há margem para uma
+pessoa e déficit de \SI{0,17}{kW} com duas pessoas na vazão de CO$_2$.
+
+\textbf{Proteção solar do para-brisa.} O sol do meio-dia entra pela face frontal
+(\SI{742}{W/m^2} sobre \SI{2,5}{m^2} de vidro com $g = 0{,}6$) e responde por
+\SI{1,11}{kW}, 39\,\% da carga de projeto. Em vez de trocar o aparelho, adota-se uma cortina
+plissada refletiva interna, Remis REMIfront IV para o Ducato série 8 \cite{remifront}, fechada
+com o veículo parado. O ganho pelo vidro passa a $\text{IAC}\cdot\SI{1,11}{kW}$, em que o
+coeficiente de atenuação interna IAC é a razão entre o fator solar com e sem a proteção
+\cite{ashrae}. Com IAC = 0,5, a carga é \SI{2,31}{kW} e a margem é \SI{0,39}{kW}; na
+varredura de 0,3 a 0,7, a margem fica entre \SI{0,17}{kW} e \SI{0,61}{kW}, sempre positiva.
+Na missão do item 29 o deslocamento começa às 17h45, de modo que o veículo está sempre
+parado ao meio-dia. A cortina entra nos \SI{12}{kg} de proteções solares do inventário
+de janelas (item 16).
+\limite{o IAC do produto não foi ensaiado (faixa da literatura); a capacidade do FreshWell a
+\SI{33}{\celsius}/\SI{25}{\celsius} não é publicada; em movimento ao meio-dia, sem a
+cortina, o déficit de \SI{0,17}{kW} volta a existir. O custo da cortina não foi somado ao
+item 24.}
 
 \itemsec{33}{Temperatura dos freios (30 → 10 m/s em 5 s)}
 \resposta{\textbf{Pico de \SI{293}{\celsius}} na superfície do disco dianteiro sem regeneração
@@ -870,7 +888,7 @@ Item & Grandeza & Resultado \\
 8 & Painéis & 1540 Wp Maxeon IBC (21,5--22,1\,\%, 7,07 m²) + 1600 Wp portáteis; 13,9 kWh/dia \\
 9 & Controladoras/inversor & MPPT 250/60 (99\,\%) e 150/60 (98\,\%); MultiPlus-II 5000 (96\,\%) \\
 10 & Resfriamento & água-glicol, radiador frontal; 10,9--36,3 kW a 205 kW \\
-11 & HVAC & FreshWell 3000 (2,7 kW frio, 3 kW calor); ventilação natural \\
+11 & HVAC & FreshWell 3000 (2,7 kW frio, 3 kW calor); ventilação natural; cortina refletiva no para-brisa \\
 12 & Lubrificação & sem óleo de motor; óleo do redutor, graxas \\
 13 & Interior & cama fixa, cassete, chuveiro, indução, frigobar 93 L, lava e seca \\
 14 & Suspensão/direção & McPherson / eixo rígido com feixe; EPS; $a_y \approx 0{,}96$ g \\
@@ -891,7 +909,7 @@ Item & Grandeza & Resultado \\
 29 & 7000 km & \IbResumo \\
 30 & Cabos & 382 A normal; 120 mm²: 158 °C no cofre; 185 mm² atende 125 °C \\
 31 & Cabine fechada & 49,1 °C (zona única); 50,3 °C médio no CFD 3D \\
-32 & A/C & 2,65 kW (2,87 kW com ventilação por CO$_2$) \\
+32 & A/C & 2,31 kW com cortina no para-brisa (2,87 kW sem) para 2 pessoas e 62 m³/h \\
 33 & Freios & pico de 293 °C (213--313 °C) \\
 34 & Bateria em carga & 25,9 °C (20 kW); 32,0 °C (80 kW) \\
 35 & Bomba/radiador & 31,9 L/min, 71,6 kPa; 22,9 kW rejeitados; 66,8/55,1 °C \\
@@ -937,6 +955,8 @@ validadas experimentalmente. Cada item indica a sua limitação específica.
 \bibitem{radox} HUBER+SUHNER. RADOX 155 FLR4G/FLHR4G, STD 718404 G. Acesso em: 26 out. 2026.
 \bibitem{bosch} BOSCH. 039202453G - PCE2-XL Electric cooling pump. \url{https://www.bosch-ibusiness.com/en-2/products/product-categories/auxiliary-pumps-and-valves/pce-039202453g/pce-039202453g.pdf}. Acesso em: 26 out. 2026.
 \bibitem{dometic} DOMETIC. FreshWell 3000 — manual e dados técnicos. \url{https://www.dometic.com/en/outdoor/rv-and-van/rv-air-conditioners/dometic-freshwell-3000--28972}. Acesso em: 16 nov. 2026.
+\bibitem{remifront} REMIS. REMIfront IV — cortina de para-brisa para Fiat Ducato série 8 (2021+). \url{https://www.reimo.com/en/camping-shop/van-windows-caravan-windows-camper-windows-blinds-vents/cab-blinds-side-window-blinds-remifront/67134/remifront-iv-front-window-blind-ducato-2021-s8-large-sensors}. Acesso em: 23 nov. 2026.
+\bibitem{ashrae} ASHRAE. \emph{ASHRAE Handbook — Fundamentals}. Atlanta: ASHRAE, 2009. Cap. 15, Fenestration (coeficiente de atenuação interna, IAC).
 \bibitem{armaflex} ARMACELL. AF/ArmaFlex technical specifications. \url{https://www.armacell.com/en-DE/product/technical-specs/afarmaflex}. Acesso em: 25 out. 2026.
 \bibitem{openx} ULUS, D. OpenX Assets, release 20261015 (Fiat Ducato 2014, de razor24). \url{https://github.com/vevalabs/openx-assets}. Acesso em: 23 out. 2026.
 \bibitem{gillespie} GILLESPIE, T. D. \emph{Fundamentals of Vehicle Dynamics}. SAE International, 1992.
@@ -973,7 +993,7 @@ Itens & Script & Modelo / método \\
 28 & \path{scripts/desenvolver_mecanica_termica.py} & integração da aceleração \\
 29 & \path{scripts/fechar_i29_velocidade.py} & busca em grade 5 min + refino 1 min \\
 30 & \path{scripts/fechar_i30_corrente_maxima.py}, \path{src/motorhome/cabos_polares.py} & volumes finitos $r$--$\theta$, Churchill--Chu \\
-31--32 & \path{scripts/calcular_cabine.py}, \path{scripts/desenvolver_cabine_cfd.py} & zona única + CFD 3D transiente \\
+31--32 & \path{scripts/calcular_cabine.py}, \path{scripts/desenvolver_cabine_cfd.py}, \path{scripts/calcular_i32_protecao_parabrisa.py} & zona única + CFD 3D transiente; cortina do para-brisa \\
 33 & \path{scripts/integrar_freios_massa.py}, \path{src/motorhome/freios_axisimetricos.py} & Crank--Nicolson $r$--$z$ \\
 34 & \path{scripts/calcular_bateria_carga.py}, \path{src/motorhome/bateria_carga.py} & circuito equivalente + 2 nós térmicos \\
 35 & \path{scripts/calcular_hidraulica.py}, \path{src/motorhome/radiador_cruzado.py} & Darcy--Weisbach + $\varepsilon$--NTU discreto \\

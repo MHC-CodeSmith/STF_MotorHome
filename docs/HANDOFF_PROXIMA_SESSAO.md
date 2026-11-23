@@ -63,3 +63,9 @@ do PDF. As páginas foram tiradas do sumário do PDF de 16/11 (52 p.): se o rela
 - P6 Amanda aprovou pelo WhatsApp sem mudanças (déficit do A/C já descrito no I32).
 - Faltam: P1, P4 e P5 revisarem; nomes na capa; vídeo. A revisão externa de 19/11 (I25 cenários, I27 eixo, I29
   "ótima", limiar CC, I28 0–100) não foi aplicada: o grupo considera o trabalho fechado com os pareceres.
+- I32 (23/11): déficit do A/C resolvido sem trocar o FreshWell. O sol pelo para-brisa é 1,11 kW (39 % da carga);
+  cortina refletiva interna Remis REMIfront IV fechada com o veículo parado (IAC 0,5; varredura 0,3–0,7) leva a carga
+  de projeto (2 pessoas, 62 m³/h) a 2,31 kW (2,09–2,53 kW), margem sempre positiva frente a 2,7 kW. No I29 o
+  deslocamento começa às 17h45, então ao meio-dia o veículo está parado. `config/protecao_solar_cabine.yaml`,
+  `scripts/calcular_i32_protecao_parabrisa.py` → `entregas/integrado_maxeon1540/i32_protecao_solar/`; teste próprio.
+  Avisar a Amanda (P6), que tinha aprovado sem mudanças.

@@ -116,7 +116,7 @@ Aprovado com correções: 6 obrigatórias e 5 recomendadas, com página e o que 
 | P3 | Sabrina Seba | 19/11/2026 | correções em I16, I17 e I19; incorporadas | PR [#4](https://github.com/MHC-CodeSmith/STF_MotorHome/pull/4) |
 | P4 | | | pendente | |
 | P5 | | | pendente | |
-| P6 | Amanda | 19/11/2026 | aprovado sem correções (WhatsApp); o déficit do A/C com 62 m³/h (2,87 kW contra 2,7 kW) já está descrito no item 32 | — |
+| P6 | Amanda | 19/11/2026 | aprovado sem correções (WhatsApp); o déficit do A/C com 62 m³/h (2,87 kW contra 2,7 kW) já estava descrito no item 32; depois, em 23/11, o grupo resolveu o déficit com a cortina refletiva do para-brisa (2,31 kW) | — |
 | P7 | Herick Eliseu | 16/11/2026 | aprovado com correções ([parecer](PARECER_P7_HERICK_ELISEU.md)); as seis obrigatórias aplicadas | [#3](https://github.com/MHC-CodeSmith/STF_MotorHome/issues/3) (PR [#2](https://github.com/MHC-CodeSmith/STF_MotorHome/pull/2)) |
 
 Atualizar esta tabela quando cada issue for fechada. O P7 registrou o parecer por pull request, com o texto completo

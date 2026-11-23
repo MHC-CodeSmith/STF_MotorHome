@@ -84,7 +84,9 @@ Cada um de nós vai apresentar a parte do projeto que desenvolveu."
 - Fechado ao meio-dia, sem ar e sem pessoas, o interior chega a 49 °C no modelo de zona
   única e 50 °C em média na simulação CFD 3D.
 - Para manter 25 °C com 33 °C fora e duas pessoas dentro, precisamos de 2,65 kW de frio,
-  ou 2,87 kW com a renovação de ar necessária para o CO₂.
+  ou 2,87 kW com a renovação de ar necessária para o CO₂. Quase 40 % disso é sol pelo
+  para-brisa: com uma cortina refletiva fechada no veículo parado, a carga cai para 2,3 kW,
+  dentro dos 2,7 kW do aparelho.
 
 ## P7 — Arrefecimento e térmica da bateria (75 s) · slide 10 · itens 10, 12, 34, 35
 
