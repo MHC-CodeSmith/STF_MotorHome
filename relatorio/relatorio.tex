@@ -208,7 +208,8 @@ para essa medida \cite{ducatomanual}. Quantidade: 4 + estepe.}
 
 Na massa montada cada eixo recebe cerca de \SI{1988}{kg}, ou \SI{994}{kg} por pneu, 69\,\% da
 capacidade de carga do pneu. O raio de rolamento
-efetivo, de \SI{0,361}{m} (709 revoluções por milha), é usado nos itens 4, 28 e 33.
+efetivo, de \SI{0,361}{m} (709 revoluções por milha), é usado nos itens 4 e 33; a simulação
+de aceleração do item 28 usa o raio livre de \SI{0,372}{m} (metade do diâmetro de \SI{0,744}{m}).
 \limite{a placa de pressões da variante elétrica SK não foi obtida; os valores são os do
 Ducato com a mesma medida de pneu.}
 
@@ -561,9 +562,14 @@ O $C_d=0{,}625$ dos modelos de energia está dentro da faixa observada com a mes
 \limite{na iteração 344 da malha fina, o arquivo \texttt{yPlus.dat} registra $y^+$ médio de 304,6 na carroceria, com mínimo 5,88 e máximo 1.321,68. No deck, a média é 315,79. A dispersão mostra a variação local da resolução junto à parede. O caso usa geometria equivalente e não foi validado em ensaio experimental.}
 
 \itemsec{20}{Coeficiente de resistência ao rolamento}
-\resposta{\textbf{$C_r = 0{,}012$} (faixa de sensibilidade 0,008--0,016), valor típico de pneus
-comerciais C2 de van com pressão de catálogo em asfalto \cite{gillespie,euLabel}. Na massa
-montada, a força de rolamento é $F_r = C_r m g = \SI{468}{N}$.}
+\resposta{\textbf{$C_r = 0{,}012$} (faixa de sensibilidade 0,008--0,016) para pneus comerciais C2
+de van com pressão de catálogo em asfalto. Na massa montada, a força de rolamento é
+$F_r = C_r m g = \SI{468}{N}$.}
+O rótulo europeu de pneus \cite{euLabel} mede o coeficiente em tambor de laboratório: para um
+pneu C2 da classe C ele fica entre 0,0068 e 0,0080, e por isso o limite inferior da faixa é
+0,008. Na estrada o valor é maior, por causa da rugosidade do asfalto, da temperatura e da
+carga \cite{gillespie}; o valor nominal de 0,012 é uma hipótese conservadora.
+\limite{não há ensaio do pneu adotado; $C_r$ é hipótese com faixa de sensibilidade.}
 
 \itemsec{21}{Forças resistivas versus velocidade}
 \begin{equation}
@@ -689,8 +695,15 @@ na versão de \SI{4250}{kg} \cite{fiatsk}; sem o limitador, a potência permitir
 é de \textbf{\SI{10,6}{s}} no caso nominal (faixa de \SIrange{9,2}{14,2}{s} em 36 casos de
 relação, rendimento e aderência).}
 \begin{equation}
-m_{ef}\,\frac{dv}{dt} = \min\!\left(\frac{T_{mot}(\omega)\, i\, \eta_t}{r},\; \mu\, m g\, \frac{b}{L}\right) - F_a(v) - F_r .
+m\,\frac{dv}{dt} = \min\!\left(\frac{T_{mot}(\omega)\, i\, \eta_t}{r},\; \mu\, N_f\right) - F_a(v) - F_r ,
+\qquad N_f = m g\, \frac{b}{L} - m\,\frac{dv}{dt}\,\frac{h}{L} .
 \end{equation}
+$N_f$ é a carga no eixo dianteiro (tração dianteira), que diminui durante a aceleração pela
+transferência de carga; $h$ é a altura do centro de gravidade e $m$ é a massa do veículo, sem
+a inércia das partes girantes. $T_{mot}(\omega)$ inclui o trecho de potência constante.
+\limite{relação, rendimento e aderência são hipóteses. A simulação usa o raio livre do pneu,
+\SI{0,372}{m}; com o raio de rolamento de \SI{0,361}{m} (item 2), o caso nominal dá
+\SI{10,4}{s}.}
 \begin{figure}[H]
 \centering\includegraphics[width=0.72\linewidth]{i28_aceleracao.png}
 \caption{Item 28 — aceleração no plano, sem vento ($i = 10$, $\eta_t = 0{,}97$, $\mu = 0{,}8$).}
