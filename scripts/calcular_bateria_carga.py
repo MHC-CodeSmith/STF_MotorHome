@@ -37,7 +37,7 @@ def main():
             w = csv.DictWriter(f, list(h[0]), lineterminator='\n'); w.writeheader(); w.writerows(h)
         time = np.array([row['time_s'] for row in h])/3600
         axes[0].plot(time, [row['battery_k']-273.15 for row in h], label=f'{power//1000} kW • bateria')
-        axes[0].plot(time, [row['coolant_k']-273.15 for row in h], '--', label=f'{power//1000} kW • refrigerante')
+        axes[0].plot(time, [row['coolant_k']-273.15 for row in h], '--', label=f'{power//1000} kW • fluido de arrefecimento')
         axes[1].plot(time, [row['soc']*100 for row in h], label=f'{power//1000} kW')
         ref = resolver(c, power, rtol=1e-10, max_step_s=5)
         for step in [120, 60, 30]:

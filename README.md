@@ -7,7 +7,7 @@
 <!-- entrega-final:inicio -->
 ## Entrega final (16/11/2026)
 
-- [Relatório (PDF)](relatorio/relatorio.pdf) · [slides](relatorio/slides.pdf) · [roteiro do vídeo](relatorio/roteiro_video.md)
+- [Relatório (PDF)](relatorio/relatorio.pdf) · [roteiro do vídeo](relatorio/roteiro_video.md)
 - **Revisão por integrante:** [guia, itens e páginas de cada um](docs/REVISAO_INTEGRANTES.md) · [registrar parecer](https://github.com/MHC-CodeSmith/STF_MotorHome/issues/new?template=revisao_integrante.yml)
 - [Fechamento dos 35 itens](docs/FECHAMENTO_35_ITENS.md)
 

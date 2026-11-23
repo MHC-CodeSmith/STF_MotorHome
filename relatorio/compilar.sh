@@ -1,6 +1,6 @@
 #!/bin/bash
-# Gera figuras e compila relatório e slides.
-# Requer TeX Live com texlive-lang-portuguese, texlive-science e beamertheme-metropolis.
+# Gera figuras e compila o relatório.
+# Requer TeX Live com texlive-lang-portuguese, texlive-science.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 .venv/bin/python relatorio/gerar_figuras.py > /dev/null
@@ -10,5 +10,4 @@ VTK="$CACHE/cfd-familia-gci-20261116/bg_55x20x10/case/VTK/case_344"
 .venv/bin/python relatorio/renderizar_cad.py $( [ -d "$VTK" ] && echo --cfd-vtk "$VTK" ) > /dev/null
 cd relatorio
 latexmk -pdf -interaction=nonstopmode -halt-on-error relatorio.tex
-latexmk -pdf -interaction=nonstopmode -halt-on-error slides.tex
-ls -la relatorio.pdf slides.pdf
+ls -la relatorio.pdf

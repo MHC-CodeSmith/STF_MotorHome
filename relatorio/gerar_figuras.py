@@ -332,7 +332,7 @@ COPIAS = {
     "i33_campo.png": ROOT / "equipe/P1_estrutura_freios/I33_freio_campo_termico_multidimensional/resultados/campo_freio.png",
     "i33_historico.png": ROOT / "equipe/P1_estrutura_freios/I33_freio_campo_termico_multidimensional/resultados/historico_freio.png",
     "i34_bateria.png": ROOT / "equipe/P7_arrefecimento/I34_temperatura_da_bateria_em_carga/resultados/carga_bateria.png",
-    "i35_radiador.png": ROOT / "equipe/P7_arrefecimento/I35_bomba_radiador_e_vazao/resultados/campos_radiador.png",
+    "i35_radiador.png": ROOT / "equipe/P7_arrefecimento/I35_bomba_radiador_e_vazao/resultados/hidraulica_campos_equilibrio.png",
     "i35_ponto_operacao.png": ROOT / "entregas/desenvolvimento_2026-11-09/arrefecimento/ponto_operacao.png",
     "i19_gci.png": ROOT / "entregas/aero_equipado1540/familia_gci/gci_cd.png",
     "i29_missao.png": E / "i29_fechamento/missao_lider.png",

@@ -51,3 +51,15 @@ Guia com itens, páginas e decisões A01–A16 de cada um: `docs/REVISAO_INTEGRA
 preencher quando as issues fecharem). Cada `equipe/Pn/Ixx/README.md` ganhou o bloco `revisao-final` apontando para a seção
 do PDF. As páginas foram tiradas do sumário do PDF de 16/11 (52 p.): se o relatório mudar, rodar de novo o gerador
 (o script ficou em /tmp/gerar_revisao.py do lenovo; a tabela PAG no topo).
+
+## Revisões dos integrantes incorporadas (23/11/2026)
+- PRs #2 (P7 Herick, parecer), #4 (P3 Sabrina: I16/I17/I19, sem a incerteza de 1 %) e #5 (P2 Mateus: I07 com DCIR
+  10–40 mΩ, I23 sem "112,4 úteis", I30 com contorno térmico e bitola 185 mm², I34 com 486 casos) mergeados em `main`.
+  O #5 apagou `slides.tex`/`slides.pdf` de propósito; `compilar.sh` e os links foram ajustados.
+- Aplicadas as seis correções obrigatórias do P7: figura do I35 (campo de equilíbrio 0,557 kg/s), referência Bosch,
+  I10 (inclui os 96 W da bomba; 90 % é conservador), I12 (pico transitório; regime vai para a água), I34 (faixas da
+  varredura de 486 casos, 3 casos param a 45 °C, dU/dT nominal = 0) e "fluido de arrefecimento".
+- Figura do I30 refeita (rótulos cortados e nomes internos na legenda). I07 e tabela-resumo alinhados com 185 mm².
+- P6 Amanda aprovou pelo WhatsApp sem mudanças (déficit do A/C já descrito no I32).
+- Faltam: P1, P4 e P5 revisarem; nomes na capa; vídeo. A revisão externa de 19/11 (I25 cenários, I27 eixo, I29
+  "ótima", limiar CC, I28 0–100) não foi aplicada: o grupo considera o trabalho fechado com os pareceres.

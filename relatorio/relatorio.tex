@@ -274,7 +274,10 @@ consumo médio de \SI{7,2}{kWh/dia}.
 \resposta{\textbf{Alta tensão (\SI{400}{V}):} cabos de fase do fabricante; para os cálculos
 do item 30 adota-se o cabo de referência HUBER+SUHNER RADOX 155 FLR4G
 \qtyproduct{1 x 120}{mm^2} (cobre estanhado, isolamento poliolefínico reticulado, \SI{1500}{V} CC,
-\SI{1,147}{kg/m}, \SIrange{-40}{150}{\celsius}) \cite{radox}. \textbf{Serviços
+\SI{1,147}{kg/m}, \SIrange{-40}{150}{\celsius}) \cite{radox}. Com o contorno térmico do
+cofre do motor, o item 30 mostra que \SI{120}{mm^2} não atende o critério de \SI{125}{\celsius}:
+a bitola de referência passa a \SI{185}{mm^2} (\SI{150}{mm^2} em trecho protegido), como
+requisito de verificação do chicote OEM. \textbf{Serviços
 (\SI{48}{V}):} cabos de cobre de \SIlist{70;95;120}{mm^2} entre banco, inversor e
 barramento, fusível principal Littelfuse JLLN 200\,A (\SI{20}{kA} de interrupção) e
 JLLN 80\,A no MPPT; \textbf{\SI{220}{V}/\SI{60}{Hz}} para as cargas CA e
@@ -351,7 +354,10 @@ frontal com ventilador e bomba elétrica (referência Bosch PCE2-XL 039202453G, 
 \SI{0,46}{kg} \cite{bosch}); bateria de tração com placa fria no mesmo princípio. Na
 potência de pico de \SI{205}{kW}, o calor a rejeitar do conjunto motor+inversor é
 \SI{10,9}{kW}, \SI{22,9}{kW} e \SI{36,3}{kW} para rendimentos combinados de 95, 90 e
-85\,\%. O dimensionamento do radiador e da bomba está no item 35.}
+85\,\%, valores que já incluem os \SI{96}{W} da bomba. O caso de 90\,\% é conservador: com
+o rendimento de motor de 0,95 dos itens 4 e 30 e inversor de 97--98\,\%, o calor a
+\SI{205}{kW} ficaria entre \SI{15,2}{kW} e \SI{17,5}{kW}. O dimensionamento do radiador e
+da bomba está no item 35.}
 
 \itemsec{11}{Ar-condicionado, aquecimento e ventilação}
 \resposta{\textbf{Dometic FreshWell 3000} sob o banco (\SI{2700}{W} de frio, até \SI{3000}{W} de
@@ -368,8 +374,10 @@ seria \SI{1620}{ppm}. Os 648 casos de sensibilidade mostram ventiladores de
 a: óleo de engrenagens do redutor/diferencial (banho, enchimento vitalício do fabricante),
 graxa dos rolamentos de roda e das juntas homocinéticas, graxa das articulações da
 suspensão e direção, e óleo do compressor do ar-condicionado (circuito selado). A perda
-no redutor na potência de pico (\SIrange{2,1}{10,3}{kW}) aquece o óleo e é rejeitada por
-convecção na carcaça.}
+no redutor na potência de pico (\SIrange{2,1}{10,3}{kW}) é transitória: a aceleração de 0 a
+\SI{90}{km/h} em \SI{10,6}{s} aquece o óleo e a carcaça em cerca de \SI{2}{K}. Em regime
+sustentado, a convecção natural na carcaça não basta; a perda segue para o circuito de água
+pela carcaça integrada ou por um trocador óleo--água e entra na carga do radiador do item 35.}
 \limite{grau, volume e intervalo do óleo do redutor não são publicados para a variante.}
 
 \itemsec{13}{Materiais internos}
@@ -801,17 +809,22 @@ contra uma solução analítica 1D (ordem 1,96).
 \itemsec{34}{Temperatura da bateria em carga de 20 kW e 80 kW}
 \resposta{Carga de 20 a 80\,\% de SOC a partir de \SI{25}{\celsius}: com \textbf{\SI{20}{kW}},
 \SI{2,96}{h} e temperatura final de \textbf{\SI{25,9}{\celsius}}; com \textbf{\SI{80}{kW}},
-\SI{0,76}{h} e \textbf{\SI{32,0}{\celsius}}. Em 54 casos de sensibilidade, as faixas são
-\SIrange{25,5}{26,6}{\celsius} e \SIrange{29,7}{34,9}{\celsius}.}
+\SI{0,76}{h} e \textbf{\SI{32,0}{\celsius}}. Em 486 casos de sensibilidade (massa, condutâncias térmicas,
+resistência interna e coeficiente entrópico $\partial U_{oc}/\partial T$), a temperatura final
+fica em \SIrange{22,8}{30,9}{\celsius} a \SI{20}{kW} e em \SIrange{25,1}{45,0}{\celsius} a
+\SI{80}{kW}; três casos a \SI{80}{kW} (resistência alta, coeficiente entrópico positivo e
+menor condutância bateria--fluido) atingem o limite de \SI{45}{\celsius} e interrompem a carga
+entre 71 e 76\,\% de SOC. No caso nominal $\partial U_{oc}/\partial T = 0$, isto é, o calor
+reversível é nulo.}
 \begin{align}
 C_b \frac{dT_b}{dt} &= I^2 R(SOC,T) + I\,T\frac{\partial U_{oc}}{\partial T} - UA_{bc}(T_b - T_c),\\
 C_c \frac{dT_c}{dt} &= UA_{bc}(T_b - T_c) - UA_{ca}(T_c - T_a),
 \end{align}
-com $P = U_{oc} I + R I^2$, massa térmica de \SI{650}{kg}$\times$\SI{900}{J/(kg.K)} e refrigerante
+com $P = U_{oc} I + R I^2$, massa térmica de \SI{650}{kg}$\times$\SI{900}{J/(kg.K)} e fluido de arrefecimento
 de \SI{20}{kg}. Os resíduos de energia ficam abaixo de \SI{2e-7}{J}.
 \begin{figure}[H]
 \centering\includegraphics[width=0.85\linewidth]{i34_bateria.png}
-\caption{Item 34 — SOC e temperaturas da bateria e do refrigerante nas cargas de 20 e 80 kW.}
+\caption{Item 34 — SOC e temperaturas da bateria e do fluido de arrefecimento nas cargas de 20 e 80 kW.}
 \end{figure}
 
 \itemsec{35}{Bomba, radiador e vazão de arrefecimento}
@@ -833,7 +846,7 @@ $\varepsilon$--NTU (erro de $5\times10^{-6}$, ordem 2).
 \centering
 \includegraphics[width=0.49\linewidth]{i35_ponto_operacao.png}\hfill
 \includegraphics[width=0.49\linewidth]{i35_radiador.png}
-\caption{Item 35 — ponto de operação da bomba e perfis de temperatura do refrigerante e do ar.}
+\caption{Item 35 — ponto de operação da bomba e perfis de temperatura do fluido de arrefecimento e do ar.}
 \end{figure}
 \limite{com rendimento combinado de 85\,\% (\SI{36,3}{kW}), o fluido entraria a
 \SI{91,4}{\celsius}; o pico de \SI{205}{kW} é de curta duração.}
@@ -853,7 +866,7 @@ Item & Grandeza & Resultado \\
 4 & Motor & PMSM 205 kW / 410 N\,m, base 4775 rpm, $\eta_{max}$ 95,5\,\% (modelo) \\
 5 & Transmissão & redutor fixo $i\approx10$, $\eta = 0{,}97$, tração dianteira \\
 6 & Baterias & tração LFP 110/98 kWh 400 V; serviços 3$\times$US5000, 14,4 kWh 48 V \\
-7 & Fiação & HV 120 mm² RADOX; 48 V 70--120 mm², fusível 200 A; 220 V/60 Hz \\
+7 & Fiação & HV RADOX 185 mm² (requisito; 120 mm² não atende no cofre); 48 V 70--120 mm², fusível 200 A; 220 V/60 Hz \\
 8 & Painéis & 1540 Wp Maxeon IBC (21,5--22,1\,\%, 7,07 m²) + 1600 Wp portáteis; 13,9 kWh/dia \\
 9 & Controladoras/inversor & MPPT 250/60 (99\,\%) e 150/60 (98\,\%); MultiPlus-II 5000 (96\,\%) \\
 10 & Resfriamento & água-glicol, radiador frontal; 10,9--36,3 kW a 205 kW \\
@@ -922,7 +935,7 @@ validadas experimentalmente. Cada item indica a sua limitação específica.
 \bibitem{brembo} BREMBO. Disco 09.D018.11. \url{https://www.bremboparts.com/europe/en/catalogue/disc/09-D018-11}. Acesso em: 26 out. 2026.
 \bibitem{topczewska} TOPCZEWSKA, K. et al. Temperature and thermal stresses of a ventilated brake disc. \emph{Materials}, v. 15, 6821, 2022. DOI 10.3390/ma15196821.
 \bibitem{radox} HUBER+SUHNER. RADOX 155 FLR4G/FLHR4G, STD 718404 G. Acesso em: 26 out. 2026.
-\bibitem{bosch} BOSCH. Auxiliary water pump PCE2-XL 0392024453G. \url{https://www.bosch-ibusiness.com}. Acesso em: 26 out. 2026.
+\bibitem{bosch} BOSCH. 039202453G - PCE2-XL Electric cooling pump. \url{https://www.bosch-ibusiness.com/en-2/products/product-categories/auxiliary-pumps-and-valves/pce-039202453g/pce-039202453g.pdf}. Acesso em: 26 out. 2026.
 \bibitem{dometic} DOMETIC. FreshWell 3000 — manual e dados técnicos. \url{https://www.dometic.com/en/outdoor/rv-and-van/rv-air-conditioners/dometic-freshwell-3000--28972}. Acesso em: 16 nov. 2026.
 \bibitem{armaflex} ARMACELL. AF/ArmaFlex technical specifications. \url{https://www.armacell.com/en-DE/product/technical-specs/afarmaflex}. Acesso em: 25 out. 2026.
 \bibitem{openx} ULUS, D. OpenX Assets, release 20261015 (Fiat Ducato 2014, de razor24). \url{https://github.com/vevalabs/openx-assets}. Acesso em: 23 out. 2026.

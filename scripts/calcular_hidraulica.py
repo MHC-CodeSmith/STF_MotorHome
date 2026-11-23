@@ -55,7 +55,7 @@ def main():
             for name, field in [('quente', fields['quente_k']), ('frio', fields['fria_k'])]:
                 np.savetxt(args.destino/f'campo_{name}_k.csv', field, delimiter=',')
             fig, axes = plt.subplots(1, 2, figsize=(10, 4), layout='constrained')
-            for ax, field, label in zip(axes, [fields['quente_k'], fields['fria_k']], ['Refrigerante', 'Ar'], strict=True):
+            for ax, field, label in zip(axes, [fields['quente_k'], fields['fria_k']], ['Fluido de arrefecimento', 'Ar'], strict=True):
                 im = ax.imshow(field-273.15, origin='lower', cmap='inferno', aspect='auto')
                 ax.set(title=label, xlabel='Coordenada do escoamento quente', ylabel='Coordenada do ar')
                 fig.colorbar(im, ax=ax, label='°C')

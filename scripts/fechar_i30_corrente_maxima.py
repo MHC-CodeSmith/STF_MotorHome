@@ -35,6 +35,12 @@ from motorhome.cabo_hv import (
 )
 from motorhome.cabos_polares import Cabo
 
+ROTULOS_CONTORNO = {
+    "referencia_antiga": "cabo isolado, 25 °C (referência antiga)",
+    "rota_protegida": "rota protegida, 50/70 °C",
+    "hot_spot": "cofre do motor, 60/80 °C, conduíte",
+}
+
 
 def _cabo_de_bitola(bitola, modelo):
     """Cabo a partir da tabela canônica `development.cable_hv`."""
@@ -161,13 +167,13 @@ def main() -> None:
             sel = [r for r in rows if r["contorno"] == nome_contorno
                    and r["potencia_w"] == potencia]
             ax.plot([r["area_mm2"] for r in sel], [r["temperatura_max_c"] for r in sel],
-                    estilo, label=nome_contorno)
-        ax.axhline(cabos_cfg["t_max_projeto_c"], ls="--", c="k", lw=0.8)
-        ax.axhline(cabos_cfg["t_falha_c"], ls=":", c="r", lw=0.8)
+                    estilo, label=ROTULOS_CONTORNO.get(nome_contorno, nome_contorno))
+        ax.axhline(cabos_cfg["t_max_projeto_c"], ls="--", c="k", lw=0.8,
+                   label=f"critério {cabos_cfg['t_max_projeto_c']:.0f} °C")
+        ax.axhline(cabos_cfg["t_falha_c"], ls=":", c="r", lw=0.8,
+                   label=f"ficha RADOX {cabos_cfg['t_falha_c']:.0f} °C (3000 h)")
         ax.set(xlabel="bitola [mm²]", ylabel="temperatura máxima [°C]", title=titulo)
         ax.grid(alpha=.25); ax.legend(fontsize=8)
-    axes[0].text(0.3, cabos_cfg["t_max_projeto_c"]+2, "critério 125 °C", fontsize=8)
-    axes[0].text(0.3, cabos_cfg["t_falha_c"]+2, "ficha RADOX 150 °C (3000 h)", fontsize=8)
     fig.savefig(args.destino / "campo_corrente_maxima.png", dpi=150)
     plt.close(fig)
 

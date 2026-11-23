@@ -6,7 +6,7 @@ O repositório é público: dá para revisar tudo pelo navegador, sem instalar n
 ## Como revisar
 
 1. Abra o relatório: [`relatorio/relatorio.pdf`](../relatorio/relatorio.pdf) (no GitHub, use *Download* se a prévia não carregar).
-   Slides em [`relatorio/slides.pdf`](../relatorio/slides.pdf); roteiro do vídeo em [`relatorio/roteiro_video.md`](../relatorio/roteiro_video.md).
+   Roteiro do vídeo em [`relatorio/roteiro_video.md`](../relatorio/roteiro_video.md).
 2. Leia as seções dos seus itens (tabela abaixo; página pelo número impresso no rodapé).
 3. Confira com o [checklist de aceitação](guia_revisao.md): enunciado, valores com unidade e fonte, método, hipóteses, figuras e limitações.
 4. Para ver código e dados, cada item tem uma pasta em `equipe/` (`codigo/`, `dados/`, `resultados/`); o anexo de códigos está no fim do PDF.
@@ -112,12 +112,12 @@ Aprovado com correções: 6 obrigatórias e 5 recomendadas, com página e o que 
 | Integrante | Nome | Data | Parecer | Issue |
 |---|---|---|---|---|
 | P1 | | | pendente | |
-| P2 | | | pendente | |
-| P3 | | | pendente | |
+| P2 | Mateus | 20/11/2026 | correções em I07, I23, I30 e I34 ([documento](CORRECOES_TERMICAS_E_BITOLA_2026-11.md)); incorporadas | PR [#5](https://github.com/MHC-CodeSmith/STF_MotorHome/pull/5) |
+| P3 | Sabrina Seba | 19/11/2026 | correções em I16, I17 e I19; incorporadas | PR [#4](https://github.com/MHC-CodeSmith/STF_MotorHome/pull/4) |
 | P4 | | | pendente | |
 | P5 | | | pendente | |
-| P6 | | | pendente | |
-| P7 | Herick Eliseu | 16/11/2026 | aprovado com correções ([parecer](PARECER_P7_HERICK_ELISEU.md)); correções a aplicar | [#3](https://github.com/MHC-CodeSmith/STF_MotorHome/issues/3) (PR [#2](https://github.com/MHC-CodeSmith/STF_MotorHome/pull/2)) |
+| P6 | Amanda | 19/11/2026 | aprovado sem correções (WhatsApp); o déficit do A/C com 62 m³/h (2,87 kW contra 2,7 kW) já está descrito no item 32 | — |
+| P7 | Herick Eliseu | 16/11/2026 | aprovado com correções ([parecer](PARECER_P7_HERICK_ELISEU.md)); as seis obrigatórias aplicadas | [#3](https://github.com/MHC-CodeSmith/STF_MotorHome/issues/3) (PR [#2](https://github.com/MHC-CodeSmith/STF_MotorHome/pull/2)) |
 
 Atualizar esta tabela quando cada issue for fechada. O P7 registrou o parecer por pull request, com o texto completo
 em `docs/` e os mesmos campos do modelo de issue. A aprovação não remove as ressalvas técnicas do relatório
