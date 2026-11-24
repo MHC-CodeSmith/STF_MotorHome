@@ -111,13 +111,13 @@ Aprovado com correções: 6 obrigatórias e 5 recomendadas, com página e o que 
 
 | Integrante | Nome | Data | Parecer | Issue |
 |---|---|---|---|---|
-| P1 | Eduardo Barros Guimarães | 24/11/2026 | aprovado com correções em I02, I03, I14, I15, I18, I24 e I33 (fichas e hipóteses identificadas, faixas por eixo do layout A, caso de carga da chapa do boiler, cortina do I32 no custo, picos e diferença de malha do I33, título da referência Topczewska); incorporadas | [#7](https://github.com/MHC-CodeSmith/STF_MotorHome/issues/7) |
-| P2 | Mateus | 20/11/2026 | correções em I07, I23, I30 e I34 ([documento](CORRECOES_TERMICAS_E_BITOLA_2026-11.md)); incorporadas | PR [#5](https://github.com/MHC-CodeSmith/STF_MotorHome/pull/5) |
+| P1 | Eduardo Barros Guimarães | 24/11/2026 | aprovado com correções em I02, I03, I14, I15, I18, I24 e I33 (fichas e hipóteses identificadas, faixas por eixo do layout A, caso de carga da chapa do boiler, cortina do I32 no custo, picos e diferença de malha do I33, título da referência Topczewska); incorporadas | [#7](https://github.com/MHC-CodeSmith/STF_MotorHome/issues/7) (fechada em 24/11) |
+| P2 | Mateus | 20 e 24/11/2026 | correções em I07, I23, I30 e I34; mínimo CC do I25/I29 (0,38 kW, PR [#8](https://github.com/MHC-CodeSmith/STF_MotorHome/pull/8)) ([documento](CORRECOES_TERMICAS_E_BITOLA_2026-11.md)); incorporadas | PR [#5](https://github.com/MHC-CodeSmith/STF_MotorHome/pull/5) |
 | P3 | Sabrina Seba | 19/11/2026 | correções em I16, I17 e I19; incorporadas | PR [#4](https://github.com/MHC-CodeSmith/STF_MotorHome/pull/4) |
 | P4 | Victor | 23/11/2026 | aprovado com correções em I02, I20 e I28 (raio do item 28, equação de aceleração e justificativa do Cr); contas de I04, I05, I20, I21, I22 e I28 conferidas; incorporadas | PR [#6](https://github.com/MHC-CodeSmith/STF_MotorHome/pull/6) |
 | P5 | | | pendente | |
 | P6 | Amanda | 19/11/2026 | aprovado sem correções (WhatsApp); o déficit do A/C com 62 m³/h (2,87 kW contra 2,7 kW) já estava descrito no item 32; depois, em 23/11, o grupo resolveu o déficit com a cortina refletiva do para-brisa (2,31 kW) | — |
-| P7 | Herick Eliseu | 16/11/2026 | aprovado com correções ([parecer](PARECER_P7_HERICK_ELISEU.md)); as seis obrigatórias aplicadas | [#3](https://github.com/MHC-CodeSmith/STF_MotorHome/issues/3) (PR [#2](https://github.com/MHC-CodeSmith/STF_MotorHome/pull/2)) |
+| P7 | Herick Eliseu | 16/11/2026 | aprovado com correções ([parecer](PARECER_P7_HERICK_ELISEU.md)); as seis obrigatórias aplicadas | [#3](https://github.com/MHC-CodeSmith/STF_MotorHome/issues/3) (fechada em 24/11; PR [#2](https://github.com/MHC-CodeSmith/STF_MotorHome/pull/2)) |
 
 Atualizar esta tabela quando cada issue for fechada. O P7 registrou o parecer por pull request, com o texto completo
 em `docs/` e os mesmos campos do modelo de issue. A aprovação não remove as ressalvas técnicas do relatório
