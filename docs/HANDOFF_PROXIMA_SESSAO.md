@@ -81,3 +81,7 @@ do PDF. As páginas foram tiradas do sumário do PDF de 16/11 (52 p.): se o rela
   REMIfront IV (EUR 458, art. 37482) somada ao I24 → R$ 794 mil (725–888), I33 com picos
   293,13/312,49 °C e diferença de malha de 0,026 K, título correto da referência Topczewska.
 - Nome do P1 na capa. Ainda faltam P5 (Fael) e os demais nomes da capa.
+- PR #8 (Mateus, P2) incorporado: mínimo DC do I25 comparado na saída da cadeia (Pmin/eta_dc na
+  entrada), como no replay do I29; com 1 kW o I25 vai a 50,1/27,8 km. Saídas do I25 reproduzidas
+  localmente (diferença < 1e-13). A troca do parâmetro de 1 kW por corrente (1 A, CharIN) ficou
+  como proposta em docs/INTERFACE_DC_MINIMO_EQUIPAMENTO.md; o config não mudou.

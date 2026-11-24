@@ -9,5 +9,5 @@ Execução integrada: `entregas/integrado_maxeon1540/despacho_i25/resumo.json`.
 
 Limite: Uma parada+carga seguida de condução;serviços cíclicos separados,mínimosDC hipotéticos,sem provaOEM/ótimo global.
 
-Índice local: `execucao_integrada.json`;SHA256da evidência: `35d2691ac30032ebc0b6a5d18588779586d590da6854274eacc31b6a7a124725`. Não aprovado fisicamente.
+Índice local: `execucao_integrada.json`;SHA256da evidência: `0f2f59b7f05f9112f49049788a1efc66d7725fc424472fb105a9c4aedc5fd099`. Não aprovado fisicamente.
 <!-- execucao-integrada:fim -->
