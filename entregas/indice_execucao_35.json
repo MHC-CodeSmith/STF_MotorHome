@@ -46,13 +46,13 @@
       "item": 8,
       "owner": "P5",
       "path": "equipe/P5_solar_autonomia/I08_painel_fotovoltaico/resultados/execucao_integrada.json",
-      "evidence_sha256": "cfbecea9a7c0d39dabbdb5a01e322f3e5a2bc0104eb2d5b20bf9b11680b1ec10"
+      "evidence_sha256": "37865b724ec67504a3373382020fee68f6aedc5b35d74d54884004f78fa0f6c9"
     },
     {
       "item": 9,
       "owner": "P2",
       "path": "equipe/P2_bateria_eletrica/I09_controladores_de_carga_e_inversores/resultados/execucao_integrada.json",
-      "evidence_sha256": "270fc28676fa3c0a4630c279cc69015b8357df85abbf7ff161cbd9c1d34a90a6"
+      "evidence_sha256": "058d1fee3f3eeeda895c1ed24490b156fb1c7716b613c6f1136cb4c3873afa45"
     },
     {
       "item": 10,
@@ -88,19 +88,19 @@
       "item": 15,
       "owner": "P1",
       "path": "equipe/P1_estrutura_freios/I15_chassi/resultados/execucao_integrada.json",
-      "evidence_sha256": "b04ccbe5544b6760dc0e820cfe026b645c1fbd4912fe2c44a8ef4b767c1ddae4"
+      "evidence_sha256": "fd8e8da71ab32df74d5e436188c372f6fc83b30d1ba11c46fba0ab40ab22937c"
     },
     {
       "item": 16,
       "owner": "P3",
       "path": "equipe/P3_carroceria_cad_cfd/I16_carenagem_portas_vidros/resultados/execucao_integrada.json",
-      "evidence_sha256": "329aca2c65549d912803120d5a8fff3e6819b2b9a9d6c2df64249aca7d1859d5"
+      "evidence_sha256": "59ab5cf87171f550221be783cb8e6b6faad2161e9bda5298b01ca1e92eb96558"
     },
     {
       "item": 17,
       "owner": "P3",
       "path": "equipe/P3_carroceria_cad_cfd/I17_cad_3d_e_vistas_cotadas/resultados/execucao_integrada.json",
-      "evidence_sha256": "999ac019d77ceffda269cf4bdab4c78dde2ac838a1b83744b643b0885ff2df51"
+      "evidence_sha256": "40a2dbd178807b5f04daa9eedf70e85ca29a2d1a1509a0e3ea2c7e9ee4b26c46"
     },
     {
       "item": 18,
@@ -148,7 +148,7 @@
       "item": 25,
       "owner": "P5",
       "path": "equipe/P5_solar_autonomia/I25_autonomia_usando_somente_solar/resultados/execucao_integrada.json",
-      "evidence_sha256": "0f2f59b7f05f9112f49049788a1efc66d7725fc424472fb105a9c4aedc5fd099"
+      "evidence_sha256": "3b11296407cbacb0274f83652bf5a2378057bf0e9950faa66b388ed2a12d0ca2"
     },
     {
       "item": 26,
@@ -172,7 +172,7 @@
       "item": 29,
       "owner": "P5",
       "path": "equipe/P5_solar_autonomia/I29_otimizacao_viagem_7000_km/resultados/execucao_integrada.json",
-      "evidence_sha256": "9b467832dc6ed5f586a6b82b39c9c68b9883e6c33f24825f773c21a6d912d453"
+      "evidence_sha256": "136234083f09bc2ecb5a8c108ca6ae7b66eb1a1895a09df149e44f7cf1607d64"
     },
     {
       "item": 30,

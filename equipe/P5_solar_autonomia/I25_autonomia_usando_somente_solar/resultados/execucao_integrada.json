@@ -8,7 +8,7 @@
   "executed": "630alocações MILP,grade de partidas,30/15/5min;40/80 e curva10–90km/h,crédito solar inicial zero.",
   "remaining_limit": "Uma parada+carga seguida de condução;serviços cíclicos separados,mínimosDC hipotéticos,sem provaOEM/ótimo global.",
   "evidence": "entregas/integrado_maxeon1540/despacho_i25/resumo.json",
-  "evidence_sha256": "0f2f59b7f05f9112f49049788a1efc66d7725fc424472fb105a9c4aedc5fd099",
+  "evidence_sha256": "3b11296407cbacb0274f83652bf5a2378057bf0e9950faa66b388ed2a12d0ca2",
   "human_approval": false,
   "physical_validation": false
 }

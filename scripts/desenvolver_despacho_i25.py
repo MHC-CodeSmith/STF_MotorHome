@@ -110,16 +110,18 @@ def main():
             **{f'delta_{x["step_min"]}min_km':x['distance_km']-r['distance_km'] for x in comparisons}})
     pd.DataFrame(convergence).to_csv(out/'sensibilidade_passo.csv',index=False)
     fig,ax=plt.subplots(figsize=(8,5),layout='constrained')
+    # Curva condicional = menor piso positivo da varredura (0,38 kW); o maior (3 kW) nunca inicia.
+    conditional_min=min(x for x in g['hypothetical_dc_min_input_kw'] if x>0)
     for services in [False,True]:
-        rows=[r for r in curves if r['step_min']==15 and r['services_cyclic']==services and r['hypothetical_dc_min_input_kw']==1]
+        rows=[r for r in curves if r['step_min']==15 and r['services_cyclic']==services and r['hypothetical_dc_min_input_kw']==conditional_min]
         ax.plot([r['speed_kmh'] for r in rows],[r['distance_km'] for r in rows],label='Com serviços cíclicos' if services else 'Só tração')
-    ax.set(xlabel='Velocidade constante [km/h]',ylabel='Distância solar do próprio dia [km]',title='I25 — despacho condicional; mínimo de entrada DC hipotético 1 kW')
+    ax.set(xlabel='Velocidade constante [km/h]',ylabel='Distância solar do próprio dia [km]',title=f'I25 — despacho condicional; mínimo de entrada DC hipotético {conditional_min} kW')
     ax.legend();ax.grid(alpha=.25);fig.savefig(out/'autonomia_temporal.png',dpi=160);plt.close(fig)
     summary={'cases_milp':case_count,'configuration_sha256':hashlib.sha256(config_path.read_bytes()).hexdigest(),
         'best_40_80_finest':finest,'conditional':True,'interface_demonstrated':False,'global_policy_optimum':False,
         'scope':'Melhor partida na grade de30min; uma parada00h-partida e condução posterior até24h. Ângulo fixo escolhido por energia FV da parada. MILP aloca a geração entre circuitos independentes.',
         'service_boundary':'Comparador com Eserviços inicial=final7.2kWh; energia inicial não financia tração. Sem serviços, autonomia refere-se só à propulsão.',
-        'charge_boundary':'SOCbase30% não gasto; crédito solar inicia0. Armazenamento é packOEM, não buffer novo. Mínimos0/1/3kW de entrada são hipóteses, não dadosOEM.',
+        'charge_boundary':'SOCbase30% não gasto; crédito solar inicia0. Armazenamento é packOEM, não buffer novo. Mínimos0/0,38/3kW referem-se à potência entregue à bateria (saída da cadeia, como no I29); são hipóteses, não dadosOEM.',
         'limits':['Sem dinâmica de handshake/rampas/reinício; aceitação intraintervalo constante média.',
                   'Alocação FV flexível conceitual, perdas constantes; chaveamento físico não demonstrado.',
                   f'{p["roof_power_48v_study_wp"]}Wp fixos de estudo; meta1540Wp preservada. Portáteis somente parados com montagem/desmontagem.',

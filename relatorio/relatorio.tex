@@ -81,7 +81,8 @@ diretamente na bateria de alta tensão (\SI{400}{V}) do veículo, porque o fabri
 autoriza essa modificação. A energia solar alimenta o banco de serviços de \SI{48}{V} e,
 nos itens que pedem energia solar para tração (25, 27 e 29), é transferida à bateria de
 tração por uma interface de recarga CC externa pelo conector CCS2, tratada como hipótese de
-estudo com eficiência de 90\,\% e potência mínima de \SI{1}{kW}. Essa hipótese está
+estudo com eficiência de 90\,\% e potência mínima de \SI{0,38}{kW} (corrente mínima de
+\SI{1}{A} da classe de potência CharIN a \SI{380}{V}). Essa hipótese está
 explícita em todos os resultados que dependem dela.
 
 Cada resultado deste memorial é reproduzível pelo código do repositório do grupo; o
@@ -674,8 +675,10 @@ consumido na condução,
 E(t+\Delta t) = E(t) + \eta_{CC}\,P_{FV}(t)\,\Delta t - P_{bat}(v)\,\Delta t,\qquad E(0)=0,\; E\ge 0,
 \end{equation}
 e o horário de partida é otimizado. Foram resolvidos 630 casos (passos de 30, 15 e 5 min,
-potência mínima da interface de 0, 1 e \SI{3}{kW}). Com mínimo de \SI{1}{kW}, as distâncias
-caem para \SI{50,1}{km} e \SI{27,8}{km}.
+potência mínima da interface de 0, 0,38 e \SI{3}{kW}, esta derivada de \SI{1}{A} a
+\SI{380}{V}). Com mínimo de \SI{0,38}{kW}, as distâncias caem para \SI{56,6}{km} e
+\SI{31,4}{km}; com a hipótese anterior de \SI{1}{kW}, cairiam para
+\SI{50,1}{km} e \SI{27,8}{km}.
 \begin{figure}[H]
 \centering\includegraphics[width=0.75\linewidth]{i25_autonomia_solar.png}
 \caption{Item 25 — distância percorrida com a energia solar de 21/06 em função da velocidade.}
@@ -743,8 +746,9 @@ a inércia das partes girantes. $T_{mot}(\omega)$ inclui o trecho de potência c
 
 \IbTexto
 
-\limite{depende da interface CC hipotética de \SI{1}{kW} mínimo; o dia de 21/06 é repetido
-ao longo da viagem, e o percurso é plano.}
+\limite{depende da interface CC hipotética de \SI{0,38}{kW} mínimo (derivado de
+\SI{1}{A} a \SI{380}{V}, topo do pack 90S, conforme a classe de potência CharIN);
+o dia de 21/06 é repetido ao longo da viagem, e o percurso é plano.}
 
 \itemsec{30}{Temperatura nos fios de alimentação do motor}
 \resposta{Na potência máxima de \SI{205}{kW} a corrente de fase é de \textbf{\SI{489}{A} RMS};
@@ -837,7 +841,7 @@ com o veículo parado. O ganho pelo vidro passa a $\text{IAC}\cdot\SI{1,11}{kW}$
 coeficiente de atenuação interna IAC é a razão entre o fator solar com e sem a proteção
 \cite{ashrae}. Com IAC = 0,5, a carga é \SI{2,31}{kW} e a margem é \SI{0,39}{kW}; na
 varredura de 0,3 a 0,7, a margem fica entre \SI{0,17}{kW} e \SI{0,61}{kW}, sempre positiva.
-Na missão do item 29 o deslocamento começa às 17h45, de modo que o veículo está sempre
+Na missão do item 29 o deslocamento começa às 18h00, de modo que o veículo está sempre
 parado ao meio-dia. A cortina entra nos \SI{12}{kg} de proteções solares do inventário
 de janelas (item 16).
 \limite{o IAC do produto não foi ensaiado (faixa da literatura); a capacidade do FreshWell a

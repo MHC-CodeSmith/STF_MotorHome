@@ -80,7 +80,10 @@ def main():
         minimum=float(re.search(r'_min([0-9.]+)kW',path.name)[1])
         on=f.fv_traction_kwh>1e-7
         check((f.loc[on,'parked_for_charge']).all() and (f.loc[on,'driving_h']==0).all(),f'{path.name}: somente DC estacionária')
-        check((f.loc[on,'fv_traction_kwh']>=minimum*dt-1e-6).all(),f'{path.name}: mínimoDC respeitado')
+        # O piso é especificação de SAÍDA (energia entregue à bateria), a mesma
+        # convenção de reconciliacao.passo_solar; conferir fv_traction_kwh
+        # (entrada) contra o kW nominal reintroduziria o fator 1/eta_dc.
+        check((f.loc[on,'hv_received_kwh']>=minimum*dt-1e-6).all(),f'{path.name}: mínimoDC respeitado na saída')
         check(f.solar_credit_start_kwh.iloc[0]==0 and f.solar_credit_end_kwh.min()>-1e-6,f'{path.name}: não consome tração inicial')
         check(np.max(np.abs(f.pv_kw*dt-f.fv_traction_kwh-f.fv_services_kwh-f.fv_curtailed_kwh))<1e-6 and f.fv_curtailed_kwh.min()>-1e-6,f'{path.name}: FV sem dupla contagem')
         check(np.max(np.abs(f.solar_credit_end_kwh-f.solar_credit_start_kwh-f.hv_received_kwh+f.traction_used_kwh))<1e-6,f'{path.name}: balanço do crédito solar')

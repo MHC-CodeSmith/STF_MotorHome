@@ -85,3 +85,12 @@ do PDF. As páginas foram tiradas do sumário do PDF de 16/11 (52 p.): se o rela
   entrada), como no replay do I29; com 1 kW o I25 vai a 50,1/27,8 km. Saídas do I25 reproduzidas
   localmente (diferença < 1e-13). A troca do parâmetro de 1 kW por corrente (1 A, CharIN) ficou
   como proposta em docs/INTERFACE_DC_MINIMO_EQUIPAMENTO.md; o config não mudou.
+- PR #8, segundo commit (a0e962d): piso CC derivado de 1 A × 380 V = 0,38 kW (CharIN; pack 90S),
+  aplicado no I25 e no I29. I25 só tração: 56,6/31,4 km a 40/80 km/h (1 kW dava 50,1/27,8).
+  I29: 20,7 km/h, partida 18h00, 212,8 d (10/20 %) e 214,8 d (20/30 %); antes 17h45 e 248,8 d.
+  Na integração: gráfico autonomia_temporal.png usava max(varredura) = 3 kW (curva zerada) →
+  passa a usar o menor piso positivo; gerar_figuras.py comparava "0" com "0.0" do CSV → compara
+  número; textos com 17h45/1 kW atualizados (I32, introdução, roteiro, README, FECHAMENTO).
+  Pasta 1350 Wp (desenvolvimento_2026-11-09) e 1540 Wp (integrado_maxeon1540) seguem distintas
+  por desenho: o relatório usa a 1540; as figuras I31/I35 vêm da 1350, mas não dependem de Wp,
+  massa nem inventário do teto.

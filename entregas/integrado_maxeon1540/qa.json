@@ -386,30 +386,6 @@
       "pass": true
     },
     {
-      "label": "perfil_5min_servicos0_min1kW_40kmh.csv:sem recarga emmovimento/sem dupla contagem",
-      "pass": true
-    },
-    {
-      "label": "perfil_5min_servicos0_min1kW_40kmh.csv:solar inicial0/serviços cíclicos",
-      "pass": true
-    },
-    {
-      "label": "perfil_5min_servicos0_min1kW_80kmh.csv:sem recarga emmovimento/sem dupla contagem",
-      "pass": true
-    },
-    {
-      "label": "perfil_5min_servicos0_min1kW_80kmh.csv:solar inicial0/serviços cíclicos",
-      "pass": true
-    },
-    {
-      "label": "perfil_30min_servicos1_min1kW_40kmh.csv:sem recarga emmovimento/sem dupla contagem",
-      "pass": true
-    },
-    {
-      "label": "perfil_30min_servicos1_min1kW_40kmh.csv:solar inicial0/serviços cíclicos",
-      "pass": true
-    },
-    {
       "label": "perfil_15min_servicos0_min3kW_40kmh.csv:sem recarga emmovimento/sem dupla contagem",
       "pass": true
     },
@@ -482,14 +458,6 @@
       "pass": true
     },
     {
-      "label": "perfil_30min_servicos0_min1kW_80kmh.csv:sem recarga emmovimento/sem dupla contagem",
-      "pass": true
-    },
-    {
-      "label": "perfil_30min_servicos0_min1kW_80kmh.csv:solar inicial0/serviços cíclicos",
-      "pass": true
-    },
-    {
       "label": "perfil_30min_servicos1_min3kW_80kmh.csv:sem recarga emmovimento/sem dupla contagem",
       "pass": true
     },
@@ -503,6 +471,38 @@
     },
     {
       "label": "perfil_15min_servicos1_min0kW_80kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_15min_servicos1_min0.38kW_40kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_15min_servicos1_min0.38kW_40kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_15min_servicos0_min0.38kW_80kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_15min_servicos0_min0.38kW_80kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_5min_servicos1_min0.38kW_40kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_5min_servicos1_min0.38kW_40kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_5min_servicos0_min0.38kW_80kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_5min_servicos0_min0.38kW_80kmh.csv:solar inicial0/serviços cíclicos",
       "pass": true
     },
     {
@@ -522,19 +522,19 @@
       "pass": true
     },
     {
+      "label": "perfil_5min_servicos1_min0.38kW_80kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_5min_servicos1_min0.38kW_80kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
       "label": "perfil_5min_servicos0_min0kW_80kmh.csv:sem recarga emmovimento/sem dupla contagem",
       "pass": true
     },
     {
       "label": "perfil_5min_servicos0_min0kW_80kmh.csv:solar inicial0/serviços cíclicos",
-      "pass": true
-    },
-    {
-      "label": "perfil_5min_servicos1_min1kW_80kmh.csv:sem recarga emmovimento/sem dupla contagem",
-      "pass": true
-    },
-    {
-      "label": "perfil_5min_servicos1_min1kW_80kmh.csv:solar inicial0/serviços cíclicos",
       "pass": true
     },
     {
@@ -554,43 +554,19 @@
       "pass": true
     },
     {
-      "label": "perfil_5min_servicos1_min1kW_40kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "label": "perfil_5min_servicos0_min0.38kW_40kmh.csv:sem recarga emmovimento/sem dupla contagem",
       "pass": true
     },
     {
-      "label": "perfil_5min_servicos1_min1kW_40kmh.csv:solar inicial0/serviços cíclicos",
+      "label": "perfil_5min_servicos0_min0.38kW_40kmh.csv:solar inicial0/serviços cíclicos",
       "pass": true
     },
     {
-      "label": "perfil_15min_servicos0_min1kW_80kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "label": "perfil_15min_servicos0_min0.38kW_40kmh.csv:sem recarga emmovimento/sem dupla contagem",
       "pass": true
     },
     {
-      "label": "perfil_15min_servicos0_min1kW_80kmh.csv:solar inicial0/serviços cíclicos",
-      "pass": true
-    },
-    {
-      "label": "perfil_15min_servicos0_min1kW_40kmh.csv:sem recarga emmovimento/sem dupla contagem",
-      "pass": true
-    },
-    {
-      "label": "perfil_15min_servicos0_min1kW_40kmh.csv:solar inicial0/serviços cíclicos",
-      "pass": true
-    },
-    {
-      "label": "perfil_15min_servicos1_min1kW_40kmh.csv:sem recarga emmovimento/sem dupla contagem",
-      "pass": true
-    },
-    {
-      "label": "perfil_15min_servicos1_min1kW_40kmh.csv:solar inicial0/serviços cíclicos",
-      "pass": true
-    },
-    {
-      "label": "perfil_30min_servicos0_min1kW_40kmh.csv:sem recarga emmovimento/sem dupla contagem",
-      "pass": true
-    },
-    {
-      "label": "perfil_30min_servicos0_min1kW_40kmh.csv:solar inicial0/serviços cíclicos",
+      "label": "perfil_15min_servicos0_min0.38kW_40kmh.csv:solar inicial0/serviços cíclicos",
       "pass": true
     },
     {
@@ -610,14 +586,6 @@
       "pass": true
     },
     {
-      "label": "perfil_30min_servicos1_min1kW_80kmh.csv:sem recarga emmovimento/sem dupla contagem",
-      "pass": true
-    },
-    {
-      "label": "perfil_30min_servicos1_min1kW_80kmh.csv:solar inicial0/serviços cíclicos",
-      "pass": true
-    },
-    {
       "label": "perfil_15min_servicos1_min0kW_40kmh.csv:sem recarga emmovimento/sem dupla contagem",
       "pass": true
     },
@@ -626,11 +594,51 @@
       "pass": true
     },
     {
+      "label": "perfil_15min_servicos1_min0.38kW_80kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_15min_servicos1_min0.38kW_80kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
       "label": "perfil_15min_servicos1_min3kW_40kmh.csv:sem recarga emmovimento/sem dupla contagem",
       "pass": true
     },
     {
       "label": "perfil_15min_servicos1_min3kW_40kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_30min_servicos0_min0.38kW_40kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_30min_servicos0_min0.38kW_40kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_30min_servicos1_min0.38kW_40kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_30min_servicos1_min0.38kW_40kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_30min_servicos0_min0.38kW_80kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_30min_servicos0_min0.38kW_80kmh.csv:solar inicial0/serviços cíclicos",
+      "pass": true
+    },
+    {
+      "label": "perfil_30min_servicos1_min0.38kW_80kmh.csv:sem recarga emmovimento/sem dupla contagem",
+      "pass": true
+    },
+    {
+      "label": "perfil_30min_servicos1_min0.38kW_80kmh.csv:solar inicial0/serviços cíclicos",
       "pass": true
     },
     {
@@ -647,14 +655,6 @@
     },
     {
       "label": "perfil_5min_servicos1_min3kW_40kmh.csv:solar inicial0/serviços cíclicos",
-      "pass": true
-    },
-    {
-      "label": "perfil_15min_servicos1_min1kW_80kmh.csv:sem recarga emmovimento/sem dupla contagem",
-      "pass": true
-    },
-    {
-      "label": "perfil_15min_servicos1_min1kW_80kmh.csv:solar inicial0/serviços cíclicos",
       "pass": true
     },
     {

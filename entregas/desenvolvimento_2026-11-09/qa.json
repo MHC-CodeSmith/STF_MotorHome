@@ -370,7 +370,7 @@
       "pass": true
     },
     {
-      "check": "perfil_5min_servicos0_min3kW_40kmh.csv: mínimoDC respeitado",
+      "check": "perfil_5min_servicos0_min3kW_40kmh.csv: mínimoDC respeitado na saída",
       "pass": true
     },
     {
@@ -394,95 +394,11 @@
       "pass": true
     },
     {
-      "check": "perfil_5min_servicos0_min1kW_40kmh.csv: somente DC estacionária",
-      "pass": true
-    },
-    {
-      "check": "perfil_5min_servicos0_min1kW_40kmh.csv: mínimoDC respeitado",
-      "pass": true
-    },
-    {
-      "check": "perfil_5min_servicos0_min1kW_40kmh.csv: não consome tração inicial",
-      "pass": true
-    },
-    {
-      "check": "perfil_5min_servicos0_min1kW_40kmh.csv: FV sem dupla contagem",
-      "pass": true
-    },
-    {
-      "check": "perfil_5min_servicos0_min1kW_40kmh.csv: balanço do crédito solar",
-      "pass": true
-    },
-    {
-      "check": "perfil_5min_servicos0_min1kW_40kmh.csv: serviços cíclicos",
-      "pass": true
-    },
-    {
-      "check": "perfil_5min_servicos0_min1kW_40kmh.csv: energia de serviços verificada independentemente",
-      "pass": true
-    },
-    {
-      "check": "perfil_5min_servicos0_min1kW_80kmh.csv: somente DC estacionária",
-      "pass": true
-    },
-    {
-      "check": "perfil_5min_servicos0_min1kW_80kmh.csv: mínimoDC respeitado",
-      "pass": true
-    },
-    {
-      "check": "perfil_5min_servicos0_min1kW_80kmh.csv: não consome tração inicial",
-      "pass": true
-    },
-    {
-      "check": "perfil_5min_servicos0_min1kW_80kmh.csv: FV sem dupla contagem",
-      "pass": true
-    },
-    {
-      "check": "perfil_5min_servicos0_min1kW_80kmh.csv: balanço do crédito solar",
-      "pass": true
-    },
-    {
-      "check": "perfil_5min_servicos0_min1kW_80kmh.csv: serviços cíclicos",
-      "pass": true
-    },
-    {
-      "check": "perfil_5min_servicos0_min1kW_80kmh.csv: energia de serviços verificada independentemente",
-      "pass": true
-    },
-    {
-      "check": "perfil_30min_servicos1_min1kW_40kmh.csv: somente DC estacionária",
-      "pass": true
-    },
-    {
-      "check": "perfil_30min_servicos1_min1kW_40kmh.csv: mínimoDC respeitado",
-      "pass": true
-    },
-    {
-      "check": "perfil_30min_servicos1_min1kW_40kmh.csv: não consome tração inicial",
-      "pass": true
-    },
-    {
-      "check": "perfil_30min_servicos1_min1kW_40kmh.csv: FV sem dupla contagem",
-      "pass": true
-    },
-    {
-      "check": "perfil_30min_servicos1_min1kW_40kmh.csv: balanço do crédito solar",
-      "pass": true
-    },
-    {
-      "check": "perfil_30min_servicos1_min1kW_40kmh.csv: serviços cíclicos",
-      "pass": true
-    },
-    {
-      "check": "perfil_30min_servicos1_min1kW_40kmh.csv: energia de serviços verificada independentemente",
-      "pass": true
-    },
-    {
       "check": "perfil_15min_servicos0_min3kW_40kmh.csv: somente DC estacionária",
       "pass": true
     },
     {
-      "check": "perfil_15min_servicos0_min3kW_40kmh.csv: mínimoDC respeitado",
+      "check": "perfil_15min_servicos0_min3kW_40kmh.csv: mínimoDC respeitado na saída",
       "pass": true
     },
     {
@@ -510,7 +426,7 @@
       "pass": true
     },
     {
-      "check": "perfil_5min_servicos0_min0kW_40kmh.csv: mínimoDC respeitado",
+      "check": "perfil_5min_servicos0_min0kW_40kmh.csv: mínimoDC respeitado na saída",
       "pass": true
     },
     {
@@ -538,7 +454,7 @@
       "pass": true
     },
     {
-      "check": "perfil_30min_servicos1_min0kW_80kmh.csv: mínimoDC respeitado",
+      "check": "perfil_30min_servicos1_min0kW_80kmh.csv: mínimoDC respeitado na saída",
       "pass": true
     },
     {
@@ -566,7 +482,7 @@
       "pass": true
     },
     {
-      "check": "perfil_30min_servicos0_min0kW_40kmh.csv: mínimoDC respeitado",
+      "check": "perfil_30min_servicos0_min0kW_40kmh.csv: mínimoDC respeitado na saída",
       "pass": true
     },
     {
@@ -594,7 +510,7 @@
       "pass": true
     },
     {
-      "check": "perfil_30min_servicos0_min3kW_80kmh.csv: mínimoDC respeitado",
+      "check": "perfil_30min_servicos0_min3kW_80kmh.csv: mínimoDC respeitado na saída",
       "pass": true
     },
     {
@@ -622,7 +538,7 @@
       "pass": true
     },
     {
-      "check": "perfil_30min_servicos0_min3kW_40kmh.csv: mínimoDC respeitado",
+      "check": "perfil_30min_servicos0_min3kW_40kmh.csv: mínimoDC respeitado na saída",
       "pass": true
     },
     {
@@ -650,7 +566,7 @@
       "pass": true
     },
     {
-      "check": "perfil_5min_servicos1_min0kW_80kmh.csv: mínimoDC respeitado",
+      "check": "perfil_5min_servicos1_min0kW_80kmh.csv: mínimoDC respeitado na saída",
       "pass": true
     },
     {
@@ -678,7 +594,7 @@
       "pass": true
     },
     {
-      "check": "perfil_5min_servicos1_min3kW_80kmh.csv: mínimoDC respeitado",
+      "check": "perfil_5min_servicos1_min3kW_80kmh.csv: mínimoDC respeitado na saída",
       "pass": true
     },
     {
@@ -706,7 +622,7 @@
       "pass": true
     },
     {
-      "check": "perfil_30min_servicos1_min3kW_40kmh.csv: mínimoDC respeitado",
+      "check": "perfil_30min_servicos1_min3kW_40kmh.csv: mínimoDC respeitado na saída",
       "pass": true
     },
     {
@@ -730,39 +646,11 @@
       "pass": true
     },
     {
-      "check": "perfil_30min_servicos0_min1kW_80kmh.csv: somente DC estacionária",
-      "pass": true
-    },
-    {
-      "check": "perfil_30min_servicos0_min1kW_80kmh.csv: mínimoDC respeitado",
-      "pass": true
-    },
-    {
-      "check": "perfil_30min_servicos0_min1kW_80kmh.csv: não consome tração inicial",
-      "pass": true
-    },
-    {
-      "check": "perfil_30min_servicos0_min1kW_80kmh.csv: FV sem dupla contagem",
-      "pass": true
-    },
-    {
-      "check": "perfil_30min_servicos0_min1kW_80kmh.csv: balanço do crédito solar",
-      "pass": true
-    },
-    {
-      "check": "perfil_30min_servicos0_min1kW_80kmh.csv: serviços cíclicos",
-      "pass": true
-    },
-    {
-      "check": "perfil_30min_servicos0_min1kW_80kmh.csv: energia de serviços verificada independentemente",
-      "pass": true
-    },
-    {
       "check": "perfil_30min_servicos1_min3kW_80kmh.csv: somente DC estacionária",
       "pass": true
     },
     {
-      "check": "perfil_30min_servicos1_min3kW_80kmh.csv: mínimoDC respeitado",
+      "check": "perfil_30min_servicos1_min3kW_80kmh.csv: mínimoDC respeitado na saída",
       "pass": true
     },
     {
@@ -790,7 +678,7 @@
       "pass": true
     },
     {
-      "check": "perfil_15min_servicos1_min0kW_80kmh.csv: mínimoDC respeitado",
+      "check": "perfil_15min_servicos1_min0kW_80kmh.csv: mínimoDC respeitado na saída",
       "pass": true
     },
     {
@@ -814,11 +702,123 @@
       "pass": true
     },
     {
+      "check": "perfil_15min_servicos1_min0.38kW_40kmh.csv: somente DC estacionária",
+      "pass": true
+    },
+    {
+      "check": "perfil_15min_servicos1_min0.38kW_40kmh.csv: mínimoDC respeitado na saída",
+      "pass": true
+    },
+    {
+      "check": "perfil_15min_servicos1_min0.38kW_40kmh.csv: não consome tração inicial",
+      "pass": true
+    },
+    {
+      "check": "perfil_15min_servicos1_min0.38kW_40kmh.csv: FV sem dupla contagem",
+      "pass": true
+    },
+    {
+      "check": "perfil_15min_servicos1_min0.38kW_40kmh.csv: balanço do crédito solar",
+      "pass": true
+    },
+    {
+      "check": "perfil_15min_servicos1_min0.38kW_40kmh.csv: serviços cíclicos",
+      "pass": true
+    },
+    {
+      "check": "perfil_15min_servicos1_min0.38kW_40kmh.csv: energia de serviços verificada independentemente",
+      "pass": true
+    },
+    {
+      "check": "perfil_15min_servicos0_min0.38kW_80kmh.csv: somente DC estacionária",
+      "pass": true
+    },
+    {
+      "check": "perfil_15min_servicos0_min0.38kW_80kmh.csv: mínimoDC respeitado na saída",
+      "pass": true
+    },
+    {
+      "check": "perfil_15min_servicos0_min0.38kW_80kmh.csv: não consome tração inicial",
+      "pass": true
+    },
+    {
+      "check": "perfil_15min_servicos0_min0.38kW_80kmh.csv: FV sem dupla contagem",
+      "pass": true
+    },
+    {
+      "check": "perfil_15min_servicos0_min0.38kW_80kmh.csv: balanço do crédito solar",
+      "pass": true
+    },
+    {
+      "check": "perfil_15min_servicos0_min0.38kW_80kmh.csv: serviços cíclicos",
+      "pass": true
+    },
+    {
+      "check": "perfil_15min_servicos0_min0.38kW_80kmh.csv: energia de serviços verificada independentemente",
+      "pass": true
+    },
+    {
+      "check": "perfil_5min_servicos1_min0.38kW_40kmh.csv: somente DC estacionária",
+      "pass": true
+    },
+    {
+      "check": "perfil_5min_servicos1_min0.38kW_40kmh.csv: mínimoDC respeitado na saída",
+      "pass": true
+    },
+    {
+      "check": "perfil_5min_servicos1_min0.38kW_40kmh.csv: não consome tração inicial",
+      "pass": true
+    },
+    {
+      "check": "perfil_5min_servicos1_min0.38kW_40kmh.csv: FV sem dupla contagem",
+      "pass": true
+    },
+    {
+      "check": "perfil_5min_servicos1_min0.38kW_40kmh.csv: balanço do crédito solar",
+      "pass": true
+    },
+    {
+      "check": "perfil_5min_servicos1_min0.38kW_40kmh.csv: serviços cíclicos",
+      "pass": true
+    },
+    {
+      "check": "perfil_5min_servicos1_min0.38kW_40kmh.csv: energia de serviços verificada independentemente",
+      "pass": true
+    },
+    {
+      "check": "perfil_5min_servicos0_min0.38kW_80kmh.csv: somente DC estacionária",
+      "pass": true
+    },
+    {
+      "check": "perfil_5min_servicos0_min0.38kW_80kmh.csv: mínimoDC respeitado na saída",
+      "pass": true
+    },
+    {
+      "check": "perfil_5min_servicos0_min0.38kW_80kmh.csv: não consome tração inicial",
+      "pass": true
+    },
+    {
+      "check": "perfil_5min_servicos0_min0.38kW_80kmh.csv: FV sem dupla contagem",
+      "pass": true
+    },
+    {
+      "check": "perfil_5min_servicos0_min0.38kW_80kmh.csv: balanço do crédito solar",
+      "pass": true
+    },
+    {
+      "check": "perfil_5min_servicos0_min0.38kW_80kmh.csv: serviços cíclicos",
+      "pass": true
+    },
+    {
+      "check": "perfil_5min_servicos0_min0.38kW_80kmh.csv: energia de serviços verificada independentemente",
+      "pass": true
+    },
+    {
       "check": "perfil_5min_servicos0_min3kW_80kmh.csv: somente DC estacionária",
       "pass": true
     },
     {
-      "check": "perfil_5min_servicos0_min3kW_80kmh.csv: mínimoDC respeitado",
+      "check": "perfil_5min_servicos0_min3kW_80kmh.csv: mínimoDC respeitado na saída",
       "pass": true
     },
     {
@@ -846,7 +846,7 @@
       "pass": true
     },
     {
-      "check": "perfil_15min_servicos0_min0kW_40kmh.csv: mínimoDC respeitado",
+      "check": "perfil_15min_servicos0_min0kW_40kmh.csv: mínimoDC respeitado na saída",
       "pass": true
     },
     {
@@ -870,11 +870,39 @@
       "pass": true
     },
     {
+      "check": "perfil_5min_servicos1_min0.38kW_80kmh.csv: somente DC estacionária",
+      "pass": true
+    },
+    {
+      "check": "perfil_5min_servicos1_min0.38kW_80kmh.csv: mínimoDC respeitado na saída",
+      "pass": true
+    },
+    {
+      "check": "perfil_5min_servicos1_min0.38kW_80kmh.csv: não consome tração inicial",
+      "pass": true
+    },
+    {
+      "check": "perfil_5min_servicos1_min0.38kW_80kmh.csv: FV sem dupla contagem",
+      "pass": true
+    },
+    {
+      "check": "perfil_5min_servicos1_min0.38kW_80kmh.csv: balanço do crédito solar",
+      "pass": true
+    },
+    {
+      "check": "perfil_5min_servicos1_min0.38kW_80kmh.csv: serviços cíclicos",
+      "pass": true
+    },
+    {
+      "check": "perfil_5min_servicos1_min0.38kW_80kmh.csv: energia de serviços verificada independentemente",
+      "pass": true
+    },
+    {
       "check": "perfil_5min_servicos0_min0kW_80kmh.csv: somente DC estacionária",
       "pass": true
     },
     {
-      "check": "perfil_5min_servicos0_min0kW_80kmh.csv: mínimoDC respeitado",
+      "check": "perfil_5min_servicos0_min0kW_80kmh.csv: mínimoDC respeitado na saída",
       "pass": true
     },
     {
@@ -898,39 +926,11 @@
       "pass": true
     },
     {
-      "check": "perfil_5min_servicos1_min1kW_80kmh.csv: somente DC estacionária",
-      "pass": true
-    },
-    {
-      "check": "perfil_5min_servicos1_min1kW_80kmh.csv: mínimoDC respeitado",
-      "pass": true
-    },
-    {
-      "check": "perfil_5min_servicos1_min1kW_80kmh.csv: não consome tração inicial",
-      "pass": true
-    },
-    {
-      "check": "perfil_5min_servicos1_min1kW_80kmh.csv: FV sem dupla contagem",
-      "pass": true
-    },
-    {
-      "check": "perfil_5min_servicos1_min1kW_80kmh.csv: balanço do crédito solar",
-      "pass": true
-    },
-    {
-      "check": "perfil_5min_servicos1_min1kW_80kmh.csv: serviços cíclicos",
-      "pass": true
-    },
-    {
-      "check": "perfil_5min_servicos1_min1kW_80kmh.csv: energia de serviços verificada independentemente",
-      "pass": true
-    },
-    {
       "check": "perfil_30min_servicos1_min0kW_40kmh.csv: somente DC estacionária",
       "pass": true
     },
     {
-      "check": "perfil_30min_servicos1_min0kW_40kmh.csv: mínimoDC respeitado",
+      "check": "perfil_30min_servicos1_min0kW_40kmh.csv: mínimoDC respeitado na saída",
       "pass": true
     },
     {
@@ -958,7 +958,7 @@
       "pass": true
     },
     {
-      "check": "perfil_15min_servicos0_min0kW_80kmh.csv: mínimoDC respeitado",
+      "check": "perfil_15min_servicos0_min0kW_80kmh.csv: mínimoDC respeitado na saída",
       "pass": true
     },
     {
@@ -982,143 +982,59 @@
       "pass": true
     },
     {
-      "check": "perfil_5min_servicos1_min1kW_40kmh.csv: somente DC estacionária",
+      "check": "perfil_5min_servicos0_min0.38kW_40kmh.csv: somente DC estacionária",
       "pass": true
     },
     {
-      "check": "perfil_5min_servicos1_min1kW_40kmh.csv: mínimoDC respeitado",
+      "check": "perfil_5min_servicos0_min0.38kW_40kmh.csv: mínimoDC respeitado na saída",
       "pass": true
     },
     {
-      "check": "perfil_5min_servicos1_min1kW_40kmh.csv: não consome tração inicial",
+      "check": "perfil_5min_servicos0_min0.38kW_40kmh.csv: não consome tração inicial",
       "pass": true
     },
     {
-      "check": "perfil_5min_servicos1_min1kW_40kmh.csv: FV sem dupla contagem",
+      "check": "perfil_5min_servicos0_min0.38kW_40kmh.csv: FV sem dupla contagem",
       "pass": true
     },
     {
-      "check": "perfil_5min_servicos1_min1kW_40kmh.csv: balanço do crédito solar",
+      "check": "perfil_5min_servicos0_min0.38kW_40kmh.csv: balanço do crédito solar",
       "pass": true
     },
     {
-      "check": "perfil_5min_servicos1_min1kW_40kmh.csv: serviços cíclicos",
+      "check": "perfil_5min_servicos0_min0.38kW_40kmh.csv: serviços cíclicos",
       "pass": true
     },
     {
-      "check": "perfil_5min_servicos1_min1kW_40kmh.csv: energia de serviços verificada independentemente",
+      "check": "perfil_5min_servicos0_min0.38kW_40kmh.csv: energia de serviços verificada independentemente",
       "pass": true
     },
     {
-      "check": "perfil_15min_servicos0_min1kW_80kmh.csv: somente DC estacionária",
+      "check": "perfil_15min_servicos0_min0.38kW_40kmh.csv: somente DC estacionária",
       "pass": true
     },
     {
-      "check": "perfil_15min_servicos0_min1kW_80kmh.csv: mínimoDC respeitado",
+      "check": "perfil_15min_servicos0_min0.38kW_40kmh.csv: mínimoDC respeitado na saída",
       "pass": true
     },
     {
-      "check": "perfil_15min_servicos0_min1kW_80kmh.csv: não consome tração inicial",
+      "check": "perfil_15min_servicos0_min0.38kW_40kmh.csv: não consome tração inicial",
       "pass": true
     },
     {
-      "check": "perfil_15min_servicos0_min1kW_80kmh.csv: FV sem dupla contagem",
+      "check": "perfil_15min_servicos0_min0.38kW_40kmh.csv: FV sem dupla contagem",
       "pass": true
     },
     {
-      "check": "perfil_15min_servicos0_min1kW_80kmh.csv: balanço do crédito solar",
+      "check": "perfil_15min_servicos0_min0.38kW_40kmh.csv: balanço do crédito solar",
       "pass": true
     },
     {
-      "check": "perfil_15min_servicos0_min1kW_80kmh.csv: serviços cíclicos",
+      "check": "perfil_15min_servicos0_min0.38kW_40kmh.csv: serviços cíclicos",
       "pass": true
     },
     {
-      "check": "perfil_15min_servicos0_min1kW_80kmh.csv: energia de serviços verificada independentemente",
-      "pass": true
-    },
-    {
-      "check": "perfil_15min_servicos0_min1kW_40kmh.csv: somente DC estacionária",
-      "pass": true
-    },
-    {
-      "check": "perfil_15min_servicos0_min1kW_40kmh.csv: mínimoDC respeitado",
-      "pass": true
-    },
-    {
-      "check": "perfil_15min_servicos0_min1kW_40kmh.csv: não consome tração inicial",
-      "pass": true
-    },
-    {
-      "check": "perfil_15min_servicos0_min1kW_40kmh.csv: FV sem dupla contagem",
-      "pass": true
-    },
-    {
-      "check": "perfil_15min_servicos0_min1kW_40kmh.csv: balanço do crédito solar",
-      "pass": true
-    },
-    {
-      "check": "perfil_15min_servicos0_min1kW_40kmh.csv: serviços cíclicos",
-      "pass": true
-    },
-    {
-      "check": "perfil_15min_servicos0_min1kW_40kmh.csv: energia de serviços verificada independentemente",
-      "pass": true
-    },
-    {
-      "check": "perfil_15min_servicos1_min1kW_40kmh.csv: somente DC estacionária",
-      "pass": true
-    },
-    {
-      "check": "perfil_15min_servicos1_min1kW_40kmh.csv: mínimoDC respeitado",
-      "pass": true
-    },
-    {
-      "check": "perfil_15min_servicos1_min1kW_40kmh.csv: não consome tração inicial",
-      "pass": true
-    },
-    {
-      "check": "perfil_15min_servicos1_min1kW_40kmh.csv: FV sem dupla contagem",
-      "pass": true
-    },
-    {
-      "check": "perfil_15min_servicos1_min1kW_40kmh.csv: balanço do crédito solar",
-      "pass": true
-    },
-    {
-      "check": "perfil_15min_servicos1_min1kW_40kmh.csv: serviços cíclicos",
-      "pass": true
-    },
-    {
-      "check": "perfil_15min_servicos1_min1kW_40kmh.csv: energia de serviços verificada independentemente",
-      "pass": true
-    },
-    {
-      "check": "perfil_30min_servicos0_min1kW_40kmh.csv: somente DC estacionária",
-      "pass": true
-    },
-    {
-      "check": "perfil_30min_servicos0_min1kW_40kmh.csv: mínimoDC respeitado",
-      "pass": true
-    },
-    {
-      "check": "perfil_30min_servicos0_min1kW_40kmh.csv: não consome tração inicial",
-      "pass": true
-    },
-    {
-      "check": "perfil_30min_servicos0_min1kW_40kmh.csv: FV sem dupla contagem",
-      "pass": true
-    },
-    {
-      "check": "perfil_30min_servicos0_min1kW_40kmh.csv: balanço do crédito solar",
-      "pass": true
-    },
-    {
-      "check": "perfil_30min_servicos0_min1kW_40kmh.csv: serviços cíclicos",
-      "pass": true
-    },
-    {
-      "check": "perfil_30min_servicos0_min1kW_40kmh.csv: energia de serviços verificada independentemente",
+      "check": "perfil_15min_servicos0_min0.38kW_40kmh.csv: energia de serviços verificada independentemente",
       "pass": true
     },
     {
@@ -1126,7 +1042,7 @@
       "pass": true
     },
     {
-      "check": "perfil_15min_servicos1_min3kW_80kmh.csv: mínimoDC respeitado",
+      "check": "perfil_15min_servicos1_min3kW_80kmh.csv: mínimoDC respeitado na saída",
       "pass": true
     },
     {
@@ -1154,7 +1070,7 @@
       "pass": true
     },
     {
-      "check": "perfil_30min_servicos0_min0kW_80kmh.csv: mínimoDC respeitado",
+      "check": "perfil_30min_servicos0_min0kW_80kmh.csv: mínimoDC respeitado na saída",
       "pass": true
     },
     {
@@ -1178,39 +1094,11 @@
       "pass": true
     },
     {
-      "check": "perfil_30min_servicos1_min1kW_80kmh.csv: somente DC estacionária",
-      "pass": true
-    },
-    {
-      "check": "perfil_30min_servicos1_min1kW_80kmh.csv: mínimoDC respeitado",
-      "pass": true
-    },
-    {
-      "check": "perfil_30min_servicos1_min1kW_80kmh.csv: não consome tração inicial",
-      "pass": true
-    },
-    {
-      "check": "perfil_30min_servicos1_min1kW_80kmh.csv: FV sem dupla contagem",
-      "pass": true
-    },
-    {
-      "check": "perfil_30min_servicos1_min1kW_80kmh.csv: balanço do crédito solar",
-      "pass": true
-    },
-    {
-      "check": "perfil_30min_servicos1_min1kW_80kmh.csv: serviços cíclicos",
-      "pass": true
-    },
-    {
-      "check": "perfil_30min_servicos1_min1kW_80kmh.csv: energia de serviços verificada independentemente",
-      "pass": true
-    },
-    {
       "check": "perfil_15min_servicos1_min0kW_40kmh.csv: somente DC estacionária",
       "pass": true
     },
     {
-      "check": "perfil_15min_servicos1_min0kW_40kmh.csv: mínimoDC respeitado",
+      "check": "perfil_15min_servicos1_min0kW_40kmh.csv: mínimoDC respeitado na saída",
       "pass": true
     },
     {
@@ -1234,11 +1122,39 @@
       "pass": true
     },
     {
+      "check": "perfil_15min_servicos1_min0.38kW_80kmh.csv: somente DC estacionária",
+      "pass": true
+    },
+    {
+      "check": "perfil_15min_servicos1_min0.38kW_80kmh.csv: mínimoDC respeitado na saída",
+      "pass": true
+    },
+    {
+      "check": "perfil_15min_servicos1_min0.38kW_80kmh.csv: não consome tração inicial",
+      "pass": true
+    },
+    {
+      "check": "perfil_15min_servicos1_min0.38kW_80kmh.csv: FV sem dupla contagem",
+      "pass": true
+    },
+    {
+      "check": "perfil_15min_servicos1_min0.38kW_80kmh.csv: balanço do crédito solar",
+      "pass": true
+    },
+    {
+      "check": "perfil_15min_servicos1_min0.38kW_80kmh.csv: serviços cíclicos",
+      "pass": true
+    },
+    {
+      "check": "perfil_15min_servicos1_min0.38kW_80kmh.csv: energia de serviços verificada independentemente",
+      "pass": true
+    },
+    {
       "check": "perfil_15min_servicos1_min3kW_40kmh.csv: somente DC estacionária",
       "pass": true
     },
     {
-      "check": "perfil_15min_servicos1_min3kW_40kmh.csv: mínimoDC respeitado",
+      "check": "perfil_15min_servicos1_min3kW_40kmh.csv: mínimoDC respeitado na saída",
       "pass": true
     },
     {
@@ -1262,11 +1178,123 @@
       "pass": true
     },
     {
+      "check": "perfil_30min_servicos0_min0.38kW_40kmh.csv: somente DC estacionária",
+      "pass": true
+    },
+    {
+      "check": "perfil_30min_servicos0_min0.38kW_40kmh.csv: mínimoDC respeitado na saída",
+      "pass": true
+    },
+    {
+      "check": "perfil_30min_servicos0_min0.38kW_40kmh.csv: não consome tração inicial",
+      "pass": true
+    },
+    {
+      "check": "perfil_30min_servicos0_min0.38kW_40kmh.csv: FV sem dupla contagem",
+      "pass": true
+    },
+    {
+      "check": "perfil_30min_servicos0_min0.38kW_40kmh.csv: balanço do crédito solar",
+      "pass": true
+    },
+    {
+      "check": "perfil_30min_servicos0_min0.38kW_40kmh.csv: serviços cíclicos",
+      "pass": true
+    },
+    {
+      "check": "perfil_30min_servicos0_min0.38kW_40kmh.csv: energia de serviços verificada independentemente",
+      "pass": true
+    },
+    {
+      "check": "perfil_30min_servicos1_min0.38kW_40kmh.csv: somente DC estacionária",
+      "pass": true
+    },
+    {
+      "check": "perfil_30min_servicos1_min0.38kW_40kmh.csv: mínimoDC respeitado na saída",
+      "pass": true
+    },
+    {
+      "check": "perfil_30min_servicos1_min0.38kW_40kmh.csv: não consome tração inicial",
+      "pass": true
+    },
+    {
+      "check": "perfil_30min_servicos1_min0.38kW_40kmh.csv: FV sem dupla contagem",
+      "pass": true
+    },
+    {
+      "check": "perfil_30min_servicos1_min0.38kW_40kmh.csv: balanço do crédito solar",
+      "pass": true
+    },
+    {
+      "check": "perfil_30min_servicos1_min0.38kW_40kmh.csv: serviços cíclicos",
+      "pass": true
+    },
+    {
+      "check": "perfil_30min_servicos1_min0.38kW_40kmh.csv: energia de serviços verificada independentemente",
+      "pass": true
+    },
+    {
+      "check": "perfil_30min_servicos0_min0.38kW_80kmh.csv: somente DC estacionária",
+      "pass": true
+    },
+    {
+      "check": "perfil_30min_servicos0_min0.38kW_80kmh.csv: mínimoDC respeitado na saída",
+      "pass": true
+    },
+    {
+      "check": "perfil_30min_servicos0_min0.38kW_80kmh.csv: não consome tração inicial",
+      "pass": true
+    },
+    {
+      "check": "perfil_30min_servicos0_min0.38kW_80kmh.csv: FV sem dupla contagem",
+      "pass": true
+    },
+    {
+      "check": "perfil_30min_servicos0_min0.38kW_80kmh.csv: balanço do crédito solar",
+      "pass": true
+    },
+    {
+      "check": "perfil_30min_servicos0_min0.38kW_80kmh.csv: serviços cíclicos",
+      "pass": true
+    },
+    {
+      "check": "perfil_30min_servicos0_min0.38kW_80kmh.csv: energia de serviços verificada independentemente",
+      "pass": true
+    },
+    {
+      "check": "perfil_30min_servicos1_min0.38kW_80kmh.csv: somente DC estacionária",
+      "pass": true
+    },
+    {
+      "check": "perfil_30min_servicos1_min0.38kW_80kmh.csv: mínimoDC respeitado na saída",
+      "pass": true
+    },
+    {
+      "check": "perfil_30min_servicos1_min0.38kW_80kmh.csv: não consome tração inicial",
+      "pass": true
+    },
+    {
+      "check": "perfil_30min_servicos1_min0.38kW_80kmh.csv: FV sem dupla contagem",
+      "pass": true
+    },
+    {
+      "check": "perfil_30min_servicos1_min0.38kW_80kmh.csv: balanço do crédito solar",
+      "pass": true
+    },
+    {
+      "check": "perfil_30min_servicos1_min0.38kW_80kmh.csv: serviços cíclicos",
+      "pass": true
+    },
+    {
+      "check": "perfil_30min_servicos1_min0.38kW_80kmh.csv: energia de serviços verificada independentemente",
+      "pass": true
+    },
+    {
       "check": "perfil_5min_servicos1_min0kW_40kmh.csv: somente DC estacionária",
       "pass": true
     },
     {
-      "check": "perfil_5min_servicos1_min0kW_40kmh.csv: mínimoDC respeitado",
+      "check": "perfil_5min_servicos1_min0kW_40kmh.csv: mínimoDC respeitado na saída",
       "pass": true
     },
     {
@@ -1294,7 +1322,7 @@
       "pass": true
     },
     {
-      "check": "perfil_5min_servicos1_min3kW_40kmh.csv: mínimoDC respeitado",
+      "check": "perfil_5min_servicos1_min3kW_40kmh.csv: mínimoDC respeitado na saída",
       "pass": true
     },
     {
@@ -1318,39 +1346,11 @@
       "pass": true
     },
     {
-      "check": "perfil_15min_servicos1_min1kW_80kmh.csv: somente DC estacionária",
-      "pass": true
-    },
-    {
-      "check": "perfil_15min_servicos1_min1kW_80kmh.csv: mínimoDC respeitado",
-      "pass": true
-    },
-    {
-      "check": "perfil_15min_servicos1_min1kW_80kmh.csv: não consome tração inicial",
-      "pass": true
-    },
-    {
-      "check": "perfil_15min_servicos1_min1kW_80kmh.csv: FV sem dupla contagem",
-      "pass": true
-    },
-    {
-      "check": "perfil_15min_servicos1_min1kW_80kmh.csv: balanço do crédito solar",
-      "pass": true
-    },
-    {
-      "check": "perfil_15min_servicos1_min1kW_80kmh.csv: serviços cíclicos",
-      "pass": true
-    },
-    {
-      "check": "perfil_15min_servicos1_min1kW_80kmh.csv: energia de serviços verificada independentemente",
-      "pass": true
-    },
-    {
       "check": "perfil_15min_servicos0_min3kW_80kmh.csv: somente DC estacionária",
       "pass": true
     },
     {
-      "check": "perfil_15min_servicos0_min3kW_80kmh.csv: mínimoDC respeitado",
+      "check": "perfil_15min_servicos0_min3kW_80kmh.csv: mínimoDC respeitado na saída",
       "pass": true
     },
     {
@@ -1740,7 +1740,7 @@
       "volume_m3": 0.28283840000000027
     }
   ],
-  "input_hashes": 203,
+  "input_hashes": 205,
   "output_hashes": 1519,
   "stage_complete": false,
   "final_human_approved": 0,

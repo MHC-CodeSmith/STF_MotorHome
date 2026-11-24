@@ -73,7 +73,7 @@ Cada um de nós vai apresentar a parte do projeto que desenvolveu."
   20,7 km/h constantes.
 - Para os 7000 km de Belém ao Chuí só com sol, o tempo é dominado pela espera para
   recarregar. O ótimo é a velocidade que gasta menos energia por km, 20,7 km/h,
-  partindo às 17h45: a viagem leva cerca de 249 dias.
+  partindo às 18h00: a viagem leva cerca de 213 dias.
 
 ## P6 — Interior e conforto térmico (75 s) · slide 9 · itens 11, 13, 31, 32
 

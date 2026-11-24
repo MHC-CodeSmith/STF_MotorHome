@@ -9,5 +9,5 @@ InversorGX220/60;comparador250/60teto+150/60portáteis;compartilhado72I–V esti
 
 Limite: Saídas48V não são interfaceHV; 250/60 rejeitado pelas perdas de descasamento (até27%), não por limite de corrente. BMS/proteções/comutação e interfaceDC não demonstrados.
 
-Índice local: `execucao_integrada.json`;SHA256da evidência: `270fc28676fa3c0a4630c279cc69015b8357df85abbf7ff161cbd9c1d34a90a6`. Não aprovado fisicamente.
+Índice local: `execucao_integrada.json`;SHA256da evidência: `058d1fee3f3eeeda895c1ed24490b156fb1c7716b613c6f1136cb4c3873afa45`. Não aprovado fisicamente.
 <!-- execucao-integrada:fim -->

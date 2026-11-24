@@ -91,14 +91,18 @@ def autonomia_solar():
     passos = sorted({int(r["step_min"]) for r in todas})
     passo = next(s for s in passos if len({r["speed_kmh"] for r in todas if int(r["step_min"]) == s}) > 10)
     fig, ax = plt.subplots(figsize=(6.4, 3.2))
-    for dc, cor, lab in (("0", C["azul"], "interface CC ideal (sem potência mínima)"),
-                         ("1", C["laranja"], "interface CC com potência mínima de 1 kW")):
-        sel = sorted((r for r in todas if r["hypothetical_dc_min_input_kw"] == dc and int(r["step_min"]) == passo),
+    mininos = sorted({float(r["hypothetical_dc_min_input_kw"]) for r in todas if float(r["hypothetical_dc_min_input_kw"]) > 0})
+    piso = mininos[0] if mininos else 1.0
+    rotulo_piso = f"{piso:g}".replace(".", ",")
+    # Compara o piso como número: o CSV grava 0.0/0.38/3.0 quando a varredura tem valor fracionário.
+    for dc, cor, lab in ((0.0, C["azul"], "interface CC ideal (sem potência mínima)"),
+                         (piso, C["laranja"], f"interface CC com potência mínima de {rotulo_piso} kW")):
+        sel = sorted((r for r in todas if float(r["hypothetical_dc_min_input_kw"]) == dc and int(r["step_min"]) == passo),
                      key=lambda r: float(r["speed_kmh"]))
         v, d = col(sel, "speed_kmh"), col(sel, "distance_km")
         ax.plot(v, d, color=cor, label=f"{lab} (passo {passo} min)")
-        if dc == "0":
-            fino = [r for r in todas if r["hypothetical_dc_min_input_kw"] == "0" and r["step_min"] == "5"]
+        if dc == 0.0:
+            fino = [r for r in todas if float(r["hypothetical_dc_min_input_kw"]) == 0.0 and r["step_min"] == "5"]
             for vv in (40, 80):
                 k = next(float(r["distance_km"]) for r in fino if float(r["speed_kmh"]) == vv)
                 ax.plot(vv, k, "o", color="k")

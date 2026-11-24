@@ -18,6 +18,6 @@ iac:
     do produto.
 operation: >-
   Fechada com o veículo parado ao meio-dia. Na missão do I29 o deslocamento começa às
-  17h45, portanto o meio-dia é sempre de veículo parado. Em movimento o para-brisa fica
+  18h00, portanto o meio-dia é sempre de veículo parado. Em movimento o para-brisa fica
   livre e a carga volta ao caso sem proteção.
 capacity_claim_w: 2700

@@ -1,7 +1,7 @@
 """I29 closure: wide speed/start search plus 1-minute refinement of the leaders.
 
 Same model and inputs as ``refinar_resolucao_missao.py`` (scenario
-maxeon1540_independente, hypothetical 1 kW DC interface, 700 W traction
+maxeon1540_independente, hypothetical 0.38 kW DC floor (1 A x 380 V), 700 W traction
 auxiliaries). Stage A scans 12-40 km/h and every start hour on a 5-minute grid,
 which the earlier study showed agrees with 1 minute to 0.02 d. Stage B
 re-evaluates a neighbourhood of each Stage A leader at 1 minute. The result is
