@@ -14,7 +14,9 @@ def alocar_dia(pv_kw, estacionado, dt_h, *, minimo_dc_kw, eta_dc,
     """Maximiza crédito solar HV com SOC de serviços cíclico (Efinal=Einicial).
 
     Variáveis: energia FV para tração/serviços, energia no banco de serviços,
-    sessão DC binária por intervalo. Mínimo refere-se à entrada FV da cadeia.
+    sessão DC binária por intervalo. Mínimo refere-se à potência ENTREGUE à
+    bateria (saída da cadeia), a mesma convenção de
+    `reconciliacao.passo_solar`; especificação de carregador é de saída.
     Tração começa com crédito solar ZERO; energia OEM anterior não é recurso.
     SOC de serviços é um balanço separado, sem qualquer fluxo entre bancos.
     """
@@ -34,7 +36,10 @@ def alocar_dia(pv_kw, estacionado, dt_h, *, minimo_dc_kw, eta_dc,
     hi[eb:on]=capacidade_servicos_kwh
     # Exclude subminimum intervals explicitly; MILP feasibility tolerances
     # must not create fictitious micro-sessions when solar never reaches Pmin.
-    eligible=park & (pv>=minimo_dc_kw) & (pv>0)
+    # Pmin applies to what reaches the battery, so the FV input must clear
+    # Pmin/eta_dc. Comparing raw FV against Pmin would read the floor as an
+    # input spec and disagree with reconciliacao.passo_solar by 1/eta_dc.
+    eligible=park & (pv*eta_dc>=minimo_dc_kw) & (pv>0)
     hi[on:]=eligible.astype(float);hi[:n]*=eligible
     lo[eb]=hi[eb]=energia_servicos_inicial_kwh
     lo[3*n]=hi[3*n]=energia_servicos_inicial_kwh
@@ -45,7 +50,7 @@ def alocar_dia(pv_kw, estacionado, dt_h, *, minimo_dc_kw, eta_dc,
         row=n+i;matrix[row,eb+i+1]=1;matrix[row,eb+i]=-1;matrix[row,n+i]=-eta_servicos
         lower[row]=upper[row]=-load
         row=2*n+i;matrix[row,i]=1;matrix[row,on+i]=-hi[i]
-        row=3*n+i;matrix[row,i]=-1;matrix[row,on+i]=minimo_dc_kw*dt_h
+        row=3*n+i;matrix[row,i]=-1;matrix[row,on+i]=minimo_dc_kw*dt_h/eta_dc
     matrix[4*n,:n]=eta_dc;upper[4*n]=capacidade_credito_tracao_kwh
     objective=np.zeros(nv);objective[:n]=-eta_dc
     integer=np.zeros(nv);integer[on:]=1

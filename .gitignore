@@ -22,3 +22,6 @@ relatorio/*.nav
 relatorio/*.snm
 relatorio/*.fls
 relatorio/*.fdb_latexmk
+
+# Estado local de ferramentas de assistência
+.commandcode/

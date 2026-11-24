@@ -93,10 +93,10 @@ Os CADs das quatro quantidades e 12 casos do suporte do banco foram comparados. 
 |---|---:|---:|
 | Consumo de tração | 0,22515 kWh/km | 0,40608 kWh/km |
 | Rendimento de tração | 4,441 km/kWh | 2,463 km/kWh |
-| I25, mínimo DC hipotético de 1 kW, somente tração | 51,49 km | 28,55 km |
+| I25, mínimo DC hipotético de 1 kW, somente tração | 50,08 km | 27,77 km |
 | I25, mesma hipótese com serviços cíclicos | 27,19 km | 15,07 km |
 
-Os valores de I25 vêm do despacho temporal com crédito solar inicial zero, uma parada seguida de condução e discretização de 5 min. Não são autonomia física demonstrada, nem devem ser confundidos com os limites energéticos de outro cálculo que não impõe a mesma política temporal.
+Os valores de I25 vêm do despacho temporal com crédito solar inicial zero, uma parada seguida de condução e discretização de 5 min. Não são autonomia física demonstrada, nem devem ser confundidos com os limites energéticos de outro cálculo que não impõe a mesma política temporal. O mínimo de potência é comparado à potência **entregue à bateria** (saída da cadeia), a mesma convenção do replay I29; ver `docs/INTERFACE_DC_MINIMO_EQUIPAMENTO.md`.
 
 No item 27, o controle sem reposição HV fornece aproximadamente **351,47 km para 100%→30%** e **251,05 km para 80%→30%**, a 20,69 km/h no ótimo restrito. A duração calculada não é uma escala operacional segura e não resolve a otimização com recarga solar fisicamente implementada.
 
