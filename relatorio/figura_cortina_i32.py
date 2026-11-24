@@ -59,7 +59,7 @@ def render(ax):
     itens = [(k, t, c) for k, t, c in itens if len(t)]
     tri = desenhar(ax, itens, alfa={"para_brisa": 0.07})
     R.enquadrar(ax, tri, 12, 24, margem=0.02, zoom=1.22)
-    ax.set_title("Cortina plissada refletiva atrás do para-brisa\n(representação no modelo do projeto)", fontsize=9)
+    ax.set_title("Cortina plissada refletiva atrás do para-brisa\n(representação no modelo do projeto)", fontsize=12)
 
 
 def desenhar(ax, itens, alfa):
@@ -93,26 +93,27 @@ def barras(ax):
     ax.bar(x, [vidro, com - outras], bottom=outras, color=["#e8590c", "#f4a261"])
     ax.errorbar(1.47, com, yerr=[[com - lo], [hi - com]], fmt="none", ecolor="k", capsize=5, lw=1)
     ax.axhline(cap, color="#1f5fbf", ls="--", lw=1.2)
-    ax.text(2.12, cap + 0.05, f"FreshWell 3000: {cap:.1f} kW".replace(".", ","), color="#1f5fbf", fontsize=8, ha="right")
+    ax.text(2.12, cap + 0.05, f"FreshWell 3000: {cap:.1f} kW".replace(".", ","), color="#1f5fbf", fontsize=10.5, ha="right")
     for xi, v in zip(x, (sem, com)):
-        ax.text(xi, v + 0.06, f"{v:.2f} kW".replace(".", ","), ha="center", fontsize=9, fontweight="bold")
-    ax.text(1.54, com, f"IAC 0,3–0,7:\n{lo:.2f}–{hi:.2f} kW".replace(".", ","), fontsize=7, va="center")
+        ax.text(xi, v + 0.06, f"{v:.2f} kW".replace(".", ","), ha="center", fontsize=11.5, fontweight="bold")
+    ax.text(1.54, com, f"IAC 0,3–0,7:\n{lo:.2f}–{hi:.2f} kW".replace(".", ","), fontsize=10, va="center")
     ax.set_xticks(x, ["sem cortina", "com cortina\n(IAC = 0,5)"])
-    ax.set_ylabel("carga de refrigeração [kW]")
+    ax.set_ylabel("carga de refrigeração [kW]", fontsize=11)
+    ax.tick_params(labelsize=10.5)
     ax.set_ylim(0, 3.4)
     ax.set_xlim(-0.6, 2.15)
-    ax.legend(handles=[Patch(color="#e8590c", label="sol pelo para-brisa (sem cortina)"),
-                       Patch(color="#f4a261", label="sol pelo para-brisa (com cortina)"),
-                       Patch(color="#adb5bd", label="demais parcelas: condução, sol nas outras faces,\npessoas, equipamentos e ventilação")],
-              fontsize=7, loc="upper left", bbox_to_anchor=(1.0, 1.0), frameon=False)
-    ax.set_title("Carga de projeto ao meio-dia (2 pessoas, 62 m³/h)", fontsize=9)
+    ax.legend(handles=[Patch(color="#e8590c", label="sol pelo para-brisa\n(sem cortina)"),
+                       Patch(color="#f4a261", label="sol pelo para-brisa\n(com cortina)"),
+                       Patch(color="#adb5bd", label="demais parcelas: condução, sol nas\noutras faces, pessoas,\nequipamentos e ventilação")],
+              fontsize=10, loc="upper left", bbox_to_anchor=(1.0, 1.0), frameon=False)
+    ax.set_title("Carga de projeto ao meio-dia (2 pessoas, 62 m³/h)", fontsize=12)
     ax.spines[["top", "right"]].set_visible(False)
 
 
 def main() -> None:
-    fig = plt.figure(figsize=(11, 4.0), facecolor="white")
-    ax3 = fig.add_axes([0.0, 0.0, 0.40, 0.90], projection="3d", computed_zorder=False)
-    ax2 = fig.add_axes([0.47, 0.14, 0.27, 0.74])
+    fig = plt.figure(figsize=(9.6, 4.2), facecolor="white")
+    ax3 = fig.add_axes([0.0, 0.0, 0.37, 0.88], projection="3d", computed_zorder=False)
+    ax2 = fig.add_axes([0.455, 0.15, 0.29, 0.72])
     render(ax3)
     barras(ax2)
     R.salvar(fig, "i32_cortina.png")
