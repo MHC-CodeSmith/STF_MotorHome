@@ -844,6 +844,14 @@ varredura de 0,3 a 0,7, a margem fica entre \SI{0,17}{kW} e \SI{0,61}{kW}, sempr
 Na missão do item 29 o deslocamento começa às 18h00, de modo que o veículo está sempre
 parado ao meio-dia. A cortina entra nos \SI{12}{kg} de proteções solares do inventário
 de janelas (item 16).
+\begin{figure}[H]
+\centering\includegraphics[width=\linewidth]{i32_cortina.png}
+\caption{Item 32 — à esquerda, a cortina plissada refletiva fechada atrás do para-brisa, desenhada
+sobre o modelo exterior do projeto (representação esquemática, não a geometria do produto); à
+direita, a carga de projeto ao meio-dia sem e com a cortina, com a faixa de IAC de 0,3 a 0,7 e a
+capacidade nominal do FreshWell 3000.}
+\label{fig:cortina}
+\end{figure}
 \limite{o IAC do produto não foi ensaiado (faixa da literatura); a capacidade do FreshWell a
 \SI{33}{\celsius}/\SI{25}{\celsius} não é publicada; em movimento ao meio-dia, sem a
 cortina, o déficit de \SI{0,17}{kW} volta a existir. O custo da cortina (EUR 458) está no
@@ -1044,7 +1052,7 @@ Itens & Script & Modelo / método \\
 28 & \path{scripts/desenvolver_mecanica_termica.py} & integração da aceleração \\
 29 & \path{scripts/fechar_i29_velocidade.py} & busca em grade 5 min + refino 1 min \\
 30 & \path{scripts/fechar_i30_corrente_maxima.py}, \path{src/motorhome/cabos_polares.py} & volumes finitos $r$--$\theta$, Churchill--Chu \\
-31--32 & \path{scripts/calcular_cabine.py}, \path{scripts/desenvolver_cabine_cfd.py}, \path{scripts/calcular_i32_protecao_parabrisa.py} & zona única + CFD 3D transiente; cortina do para-brisa \\
+31--32 & \path{scripts/calcular_cabine.py}, \path{scripts/desenvolver_cabine_cfd.py}, \path{scripts/calcular_i32_protecao_parabrisa.py}, \path{relatorio/figura_cortina_i32.py} & zona única + CFD 3D transiente; cortina do para-brisa e sua figura \\
 33 & \path{scripts/integrar_freios_massa.py}, \path{src/motorhome/freios_axisimetricos.py} & Crank--Nicolson $r$--$z$ \\
 34 & \path{scripts/calcular_bateria_carga.py}, \path{src/motorhome/bateria_carga.py} & circuito equivalente + 2 nós térmicos \\
 35 & \path{scripts/calcular_hidraulica.py}, \path{src/motorhome/radiador_cruzado.py} & Darcy--Weisbach + $\varepsilon$--NTU discreto \\
