@@ -111,7 +111,7 @@ Aprovado com correções: 6 obrigatórias e 5 recomendadas, com página e o que 
 
 | Integrante | Nome | Data | Parecer | Issue |
 |---|---|---|---|---|
-| P1 | | | pendente | |
+| P1 | Eduardo Barros Guimarães | 24/11/2026 | aprovado com correções em I02, I03, I14, I15, I18, I24 e I33 (fichas e hipóteses identificadas, faixas por eixo do layout A, caso de carga da chapa do boiler, cortina do I32 no custo, picos e diferença de malha do I33, título da referência Topczewska); incorporadas | [#7](https://github.com/MHC-CodeSmith/STF_MotorHome/issues/7) |
 | P2 | Mateus | 20/11/2026 | correções em I07, I23, I30 e I34 ([documento](CORRECOES_TERMICAS_E_BITOLA_2026-11.md)); incorporadas | PR [#5](https://github.com/MHC-CodeSmith/STF_MotorHome/pull/5) |
 | P3 | Sabrina Seba | 19/11/2026 | correções em I16, I17 e I19; incorporadas | PR [#4](https://github.com/MHC-CodeSmith/STF_MotorHome/pull/4) |
 | P4 | Victor | 23/11/2026 | aprovado com correções em I02, I20 e I28 (raio do item 28, equação de aceleração e justificativa do Cr); contas de I04, I05, I20, I21, I22 e I28 conferidas; incorporadas | PR [#6](https://github.com/MHC-CodeSmith/STF_MotorHome/pull/6) |

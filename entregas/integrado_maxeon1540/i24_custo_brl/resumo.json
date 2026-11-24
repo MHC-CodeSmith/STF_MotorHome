@@ -14,13 +14,13 @@
     }
   },
   "total_brl": {
-    "baixo": 720710.0865314304,
-    "nominal": 788548.0652835678,
-    "alto": 881818.204742179
+    "baixo": 725177.1254840401,
+    "nominal": 793536.3981717385,
+    "alto": 887787.1323920327
   },
   "nominal_veiculo_importado_brl": 618859.0323914635,
-  "nominal_conversao_brl": 169689.03289210424,
-  "nominal_tributos_importacao_brl": 324492.95718336775,
+  "nominal_conversao_brl": 174677.36578027497,
+  "nominal_tributos_importacao_brl": 326511.8287515385,
   "is_quotation": false,
   "limits": [
     "Preços de lista/varejo públicos, não cotação; IVA europeu não deduzido dos preços de varejo (conservador).",

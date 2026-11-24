@@ -69,3 +69,15 @@ do PDF. As páginas foram tiradas do sumário do PDF de 16/11 (52 p.): se o rela
   deslocamento começa às 17h45, então ao meio-dia o veículo está parado. `config/protecao_solar_cabine.yaml`,
   `scripts/calcular_i32_protecao_parabrisa.py` → `entregas/integrado_maxeon1540/i32_protecao_solar/`; teste próprio.
   Avisar a Amanda (P6), que tinha aprovado sem mudanças.
+
+## 24/11/2026 — pareceres P4 e P1
+
+- PR #6 (Victor, P4) incorporado: raio do item 28 (0,372 m livre; 10,4 s com 0,361 m),
+  equação de aceleração igual ao código e Cr = 0,012 como hipótese conservadora.
+- Issue #7 (Eduardo Barros Guimarães, P1) incorporada no relatório: ficha norte-americana da
+  Continental, pressões como referência, estepe dentro da massa OEM (não confirmado), Brembo
+  como referência e 70/30 como hipótese, faixas por eixo do layout A (1737–2223 / 1698–2294 kg),
+  chapa do boiler como caso de 0,99 e 33,1 kg fora do I18 (4009,7 kg se somadas), cortina
+  REMIfront IV (EUR 458, art. 37482) somada ao I24 → R$ 794 mil (725–888), I33 com picos
+  293,13/312,49 °C e diferença de malha de 0,026 K, título correto da referência Topczewska.
+- Nome do P1 na capa. Ainda faltam P5 (Fael) e os demais nomes da capa.

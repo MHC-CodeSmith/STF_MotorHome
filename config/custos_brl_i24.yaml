@@ -36,6 +36,8 @@ itens:
      fonte: 'https://latam.victronenergy.com/wp-content/uploads/2026/04/Pricelist-Victron-2026-Q2-USD-C.pdf'}
   - {id: hvac, descricao: 'Dometic FreshWell 3000 (sob banco)', qtd: 1, preco: 2244.14, moeda: EUR, importado: componentes,
      fonte: 'https://carclimat.pl/en_US/p/DOMETIC-FRESHWELL-3000-230V-under-bench-air-conditioner-for-motorhomes-caravans/815'}
+  - {id: protecao_solar, descricao: 'Reimo REMIfront IV, cortina de para-brisa Ducato 2021 (S8), art. 37482 (I32; preço com IVA, acesso 24/11/2026)', qtd: 1, preco: 458.00, moeda: EUR, importado: componentes,
+     fonte: 'https://www.reimo.com/en/camping-shop/van-windows-caravan-windows-camper-windows-blinds-vents/cab-blinds-side-window-blinds-remifront/67134/remifront-iv-front-window-blind-ducato-2021-s8-large-sensors'}
   - {id: cassete, descricao: 'Thetford Porta Potti 365', qtd: 1, preco: 124.49, moeda: EUR, importado: componentes,
      fonte: 'https://aio.lv/en/product--thetford-5024586--11414029.md'}
   - {id: pv_portatil, descricao: 'EcoFlow 400 W portátil', qtd: 4, preco: 5712.27, moeda: BRL, importado: false,

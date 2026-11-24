@@ -44,7 +44,7 @@
 \toprule
 & Frente & Itens \\
 \midrule
-P1 \hspace{1em}\rule{4cm}{0.4pt} & Estrutura, freios, massa e custo & 1, 2, 3, 14, 15, 18, 24, 33 \\
+P1 \hspace{1em}Eduardo Barros Guimarães & Estrutura, freios, massa e custo & 1, 2, 3, 14, 15, 18, 24, 33 \\
 P2 \hspace{1em}\rule{4cm}{0.4pt} & Bateria, elétrica e cabos & 6, 7, 9, 23, 30 \\
 P3 \hspace{1em}\rule{4cm}{0.4pt} & Carroceria, CAD e CFD & 16, 17, 19 \\
 P4 \hspace{1em}\rule{4cm}{0.4pt} & Motor, transmissão e dinâmica & 4, 5, 20, 21, 22, 28 \\
@@ -200,30 +200,39 @@ Preço (sem IVA) & EUR 50.990 \\
 
 \itemsec{2}{Pneus e rodas}
 \resposta{Pneus \textbf{225/75 R16C 121R} (referência Continental VanContact A/S, artigo
-04514690000 \cite{conti}), radiais de borracha com cintas de aço, diâmetro \SI{0,744}{m},
+04514690000, ficha do catálogo norte-americano \cite{conti}; outras fichas da mesma medida
+trazem massa e faixa de aro diferentes e não foram usadas), radiais de borracha com cintas de aço, diâmetro \SI{0,744}{m},
 \SI{16,9}{kg} cada, carga máxima \SI{1449}{kg} por pneu; rodas de aço 6,5J$\times$16 (aro
-admissível 6--7\,in). \textbf{Pressão a frio: \SI{4,5}{bar} na dianteira e
+admissível 6--7\,in). \textbf{Pressão a frio de referência: \SI{4,5}{bar} na dianteira e
 \SI{5,0}{bar} na traseira} (\SI{450}{kPa}/\SI{500}{kPa}), valores do manual do Fiat Ducato
-para essa medida \cite{ducatomanual}. Quantidade: 4 + estepe.}
+para essa medida \cite{ducatomanual}, com confirmação pendente na etiqueta da variante elétrica.
+Quantidade: 4 + estepe.}
 
 Na massa montada cada eixo recebe cerca de \SI{1988}{kg}, ou \SI{994}{kg} por pneu, 69\,\% da
 capacidade de carga do pneu. O raio de rolamento
-efetivo, de \SI{0,361}{m} (709 revoluções por milha), é usado nos itens 4 e 33; a simulação
+efetivo, de \SI{0,361}{m} (709 revoluções por milha), é usado no item 4; a simulação
 de aceleração do item 28 usa o raio livre de \SI{0,372}{m} (metade do diâmetro de \SI{0,744}{m}).
+O estepe não é somado à parte no inventário do item 18: considera-se incluído nos \SI{2790}{kg}
+do fabricante, junto com as rodas originais.
 \limite{a placa de pressões da variante elétrica SK não foi obtida; os valores são os do
-Ducato com a mesma medida de pneu.}
+Ducato com a mesma medida de pneu. Não foi confirmado se a variante elétrica traz estepe ou
+kit de reparo; sem estepe na massa do fabricante, a massa da roda completa precisa ser somada.}
 
 \itemsec{3}{Sistema de freios}
 \resposta{Freios hidráulicos a disco nas quatro rodas com ABS/ESC do fabricante e
-frenagem regenerativa pelo motor. Disco dianteiro ventilado de \SI{300}{mm}$\times$\SI{32}{mm}
-(referência Brembo 09.D018.11 \cite{brembo}), ferro fundido cinzento
-($\rho = \SI{7100}{kg/m^3}$, $c_p = \SI{500}{J/(kg.K)}$, $k = \SI{51}{W/(m.K)}$ \cite{topczewska}),
-massa útil de \SI{5,1}{kg} por disco no modelo; repartição de frenagem 70/30 (diant./tras.).}
+frenagem regenerativa pelo motor. Disco dianteiro ventilado de \SI{300}{mm}$\times$\SI{32}{mm},
+com o Brembo 09.D018.11 \cite{brembo} como referência do modelo; propriedades de ferro fundido
+de um disco ferroviário ($\rho = \SI{7100}{kg/m^3}$, $c_p = \SI{500}{J/(kg.K)}$,
+$k = \SI{51}{W/(m.K)}$ \cite{topczewska}). No modelo térmico, \SI{5,1}{kg} é a massa das duas
+placas idealizadas do disco, sem cubo nem aletas, e a repartição de frenagem 70/30
+(diant./tras.) é hipótese de cálculo.}
 
 Com a transferência de carga numa desaceleração de \SI{4}{m/s^2}, a carga dinâmica é
 \SI{2362}{kg} na dianteira e \SI{1614}{kg} na traseira, o que exige coeficiente de
 atrito pneu--solo de 0,48 na dianteira e 0,30 na traseira, abaixo da aderência de pista
 seca. A simulação térmica está no item 33.
+\limite{discos, pinças e conjunto traseiro da variante escolhida ainda precisam ser
+confirmados pelo VIN; a compatibilidade do Brembo 09.D018.11 com o E-Ducato não foi verificada.}
 
 \itemsec{4}{Motor}
 \resposta{Motor síncrono de ímãs permanentes, 8 polos, \textbf{\SI{205}{kW} e \SI{410}{N.m}
@@ -419,12 +428,14 @@ balanço fechado; a lavadora consome \SI{68,8}{L} por ciclo.
 estabilizadora; traseira de eixo rígido com feixe de molas parabólicas; direção de
 pinhão e cremalheira com assistência elétrica.}
 
-Os 162 casos de massa e centro de gravidade (Tabela~\ref{tab:massa}) dão carga por eixo de
-\SIrange{1737}{2243}{kg} na dianteira e \SIrange{1698}{2294}{kg} na traseira, e índice
-geométrico de capotamento $a_y = t/(2h_{CG}) \approx \SI{0,96}{g}$ no caso nominal, acima
+Os 81 casos de massa e centro de gravidade do layout A (Tabela~\ref{tab:massa}) dão carga por
+eixo de \SIrange{1737}{2223}{kg} na dianteira e \SIrange{1698}{2294}{kg} na traseira; com os
+162 casos dos dois layouts, \SIrange{1737}{2243}{kg} e \SIrange{1693}{2294}{kg}. A estimativa
+geométrica de tombamento, $a_y = t/(2h_{CG}) \approx \SI{0,96}{g}$ no caso nominal, fica acima
 de valores típicos de furgões carregados.
-\limite{os limites por eixo da variante não são publicados; o PBT de \SI{4250}{kg} é o limite
-verificado.}
+\limite{os limites de carga por eixo da variante exata não são publicados e ainda precisam ser
+confirmados; o PBT de \SI{4250}{kg} é o único limite verificado. O índice de tombamento é
+geométrico (corpo rígido, sem suspensão nem pneus).}
 
 \itemsec{15}{Chassi}
 \resposta{Carroceria monobloco de aço do furgão L3H2: \textbf{\SI{5,998}{m} de comprimento,
@@ -432,6 +443,16 @@ verificado.}
 \SI{4,035}{m} de entre-eixos, compartimento útil de \qtyproduct{3,705 x 1,870 x 1,932}{m}. Fixações
 da conversão em 18 chapas de aço (\SI{33,1}{kg}) dimensionadas por 216 casos de carga
 cada, utilização máxima 0,99 (Figura~\ref{fig:banco}).}
+
+A utilização de 0,99 é a da chapa do boiler cheio (\SI{22}{kg} com \SI{15}{L} de água;
+\qtyproduct{160 x 100}{mm}, \SI{6}{mm}), no caso de \SI{5}{g} lateral com \SI{1}{g} vertical,
+CG a \SI{0,30}{m} da chapa e excentricidade de \SI{0,25}{m} no plano; governa a flexão da tira
+combinada com o cisalhamento. Nenhuma parte dos \SI{33,1}{kg} de chapas foi somada no item 18:
+a massa é bruta e o inventário já tem uma reserva agregada de suportes, sem geometria que
+permita calcular a substituição líquida. Somadas integralmente, as chapas levam a massa a
+\SI{4009,7}{kg} e a margem até o PBT a \SI{240,3}{kg}.
+\limite{a capacidade de carga do teto e dos pontos de ancoragem na carroceria não foi
+confirmada com o fabricante; as chapas são corpos de prova locais, não pontos OEM.}
 
 \itemsec{16}{Carenagem, portas, aberturas e vidros}
 \resposta{A carroceria de aço, o para-brisa laminado, os vidros da cabine, as duas portas dianteiras, a lateral corrediça e as duas folhas traseiras com abertura de \ang{270} são do Fiat E-Ducato L3H2 (Tabela~\ref{tab:massa}). Essas peças já integram os \SI{2790}{kg} do veículo-base. A conversão prevê película solar, uma janela lateral e um deck de alumínio a \SI{40}{mm} do teto.}
@@ -506,7 +527,7 @@ motor OEM sob o piso, layout A e deck solar sobre trilhos apoiados no teto abaul
 \itemsec{18}{Massa do veículo montado com passageiros}
 \resposta{\textbf{\SI{3976,5}{kg}} com duas pessoas (\SI{80}{kg} cada), \SI{60}{kg} de bagagem e
 \SI{100}{L} de água; CG do inventário em $x = \SI{2,018}{m}$, $y = \SI{0,002}{m}$, $z = \SI{0,931}{m}$; cargas
-de \SI{1988}{kg} por eixo; margem de \SI{273,5}{kg} até o PBT.}
+de \SI{1988}{kg} por eixo; margem nominal de \SI{273,5}{kg} até o PBT.}
 
 \begin{table}[H]
 \centering\small
@@ -529,6 +550,10 @@ Ocupantes, bagagem e alimentos & 245,0 \\
 \bottomrule
 \end{tabular}
 \end{table}
+
+Nos 81 casos do layout A a margem até o PBT fica entre \SI{163}{kg} e \SI{384}{kg}; as cargas
+por eixo estão no item 14. As chapas de fixação do item 15 não estão no total.
+\limite{os limites de carga por eixo da variante exata ainda precisam ser confirmados.}
 
 \itemsec{19}{Coeficiente de arrasto e área frontal (CFD)}
 \resposta{A área frontal projetada do veículo equipado é \textbf{\SI{4,8954}{m^2}}. A \SI{80}{km/h}, a malha fina fornece $C_d=\CdValor$ na referência original do OpenFOAM (\SI{4,82784}{m^2}), ou $C_d=0{,}61295$ quando a referência é a silhueta equipada. Os dois pares representam o mesmo arrasto, $C_d A=\SI{3,00068}{m^2}$.}
@@ -607,9 +632,13 @@ indevidamente chegar-se-ia a \SI{112,4}{kWh}; esse número é apenas a soma de
 referência usada no modelo do item 29, não a energia útil a bordo.}
 
 \itemsec{24}{Custo total de material}
-\resposta{\textbf{R\$ 789 mil} (faixa R\$ 721--882 mil), incluindo impostos de importação:
-veículo importado R\$ 619 mil e conversão R\$ 170 mil; os tributos de importação somam
-R\$ 324 mil.}
+\resposta{\textbf{R\$ 794 mil} (faixa R\$ 725--888 mil), estimativa de aquisição e
+conversão, incluindo impostos de importação: veículo importado R\$ 619 mil e conversão
+R\$ 175 mil; os tributos de importação somam R\$ 327 mil.}
+
+O valor não é só material: a conversão inclui uma rubrica estimada de montagem, suportes e
+acabamento (R\$ 15--40 mil). A cortina REMIfront IV adotada no item 32 entra pelo preço de
+varejo de EUR 458 \cite{remifront}, cerca de R\$ 5 mil com impostos.
 
 Os preços de lista ou varejo têm fonte e data de acesso (16/11/2026) no arquivo
 \cod{config/custos\_brl\_i24.yaml}. Câmbio: USD R\$ 5,5146 (PTAX 09/11/2026) e EUR
@@ -813,13 +842,17 @@ parado ao meio-dia. A cortina entra nos \SI{12}{kg} de proteções solares do in
 de janelas (item 16).
 \limite{o IAC do produto não foi ensaiado (faixa da literatura); a capacidade do FreshWell a
 \SI{33}{\celsius}/\SI{25}{\celsius} não é publicada; em movimento ao meio-dia, sem a
-cortina, o déficit de \SI{0,17}{kW} volta a existir. O custo da cortina não foi somado ao
+cortina, o déficit de \SI{0,17}{kW} volta a existir. O custo da cortina (EUR 458) está no
 item 24.}
 
 \itemsec{33}{Temperatura dos freios (30 → 10 m/s em 5 s)}
-\resposta{\textbf{Pico de \SI{293}{\celsius}} na superfície do disco dianteiro sem regeneração
-(\SI{3976,5}{kg}); \SI{313}{\celsius} no PBT; \SI{252}{\celsius} e \SI{213}{\celsius} com
-regeneração de \SI{40}{kW} e \SI{80}{kW}.}
+\resposta{\textbf{Pico de \SI{293,13}{\celsius}} na superfície do disco dianteiro sem regeneração
+(\SI{3976,5}{kg}); \SI{312,49}{\celsius} no PBT (malha fina, 96$\times$32); \SI{252}{\celsius} e
+\SI{213}{\celsius} nos cenários hipotéticos de regeneração de \SI{40}{kW} e \SI{80}{kW}.}
+
+A velocidade inicial de \SI{108}{km/h} (\SI{30}{m/s}) é a condição prescrita pelo enunciado
+para o ensaio do componente, acima do limitador de \SI{90}{km/h}. As propriedades térmicas
+adotadas vêm de um estudo de disco ferroviário \cite{topczewska}, não de dados do produto.
 
 A energia dissipada por atrito é \SI{1,46}{MJ} (energia cinética \SI{1,59}{MJ} menos arrasto e
 rolamento). A condução transiente axissimétrica no disco,
@@ -828,7 +861,8 @@ rolamento). A condução transiente axissimétrica no disco,
 \end{equation}
 recebe o fluxo de atrito na faixa de contato (\SIrange{100}{145}{mm}), com 70\,\% na dianteira
 e 90\,\% no disco, e convecção de 20 e \SI{50}{W/(m^2.K)}. Malhas de 24$\times$8 a
-96$\times$32 dão o mesmo pico (diferença menor que \SI{0,02}{K}); a solução foi verificada
+96$\times$32 dão o mesmo pico (diferença máxima de aproximadamente \SI{0,026}{K} entre as malhas
+comparadas com o mesmo passo de tempo); a solução foi verificada
 contra uma solução analítica 1D (ordem 1,96).
 \begin{figure}[H]
 \centering
@@ -904,7 +938,7 @@ Item & Grandeza & Resultado \\
 11 & HVAC & FreshWell 3000 (2,7 kW frio, 3 kW calor); ventilação natural; cortina refletiva no para-brisa \\
 12 & Lubrificação & sem óleo de motor; óleo do redutor, graxas \\
 13 & Interior & cama fixa, cassete, chuveiro, indução, frigobar 93 L, lava e seca \\
-14 & Suspensão/direção & McPherson / eixo rígido com feixe; EPS; $a_y \approx 0{,}96$ g \\
+14 & Suspensão/direção & McPherson / eixo rígido com feixe; EPS; eixos 1737--2223 / 1698--2294 kg (layout A); tombamento geométrico $\approx 0{,}96$ g \\
 15 & Chassi & monobloco 5,998$\times$2,050$\times$2,61 m, entre-eixos 4,035 m \\
 16 & Carenagem & aço OEM, janela lateral prevista, teto sem claraboia, $U = 0{,}746$ W/(m²K) \\
 17 & Geometria 3D & três vistas cotadas (Fig.~\ref{fig:vistas}) \\
@@ -914,7 +948,7 @@ Item & Grandeza & Resultado \\
 21 & Forças & 673 N a 40 km/h; 1287 N a 80 km/h \\
 22 & Potências & 7,5 / 28,6 kW nas rodas; 9,0 / 32,5 kW na bateria \\
 23 & Capacidade & 98 kWh úteis (tração) + 14,4 kWh nominais (serviços) \\
-24 & Custo & R\$ 789 mil (721--882 mil) com impostos de importação \\
+24 & Custo & R\$ 794 mil (725--888 mil), aquisição e conversão com impostos de importação \\
 25 & Autonomia solar & 57,6 km a 40 km/h; 31,9 km a 80 km/h \\
 26 & Consumo & 4,44 km/kWh a 40 km/h; 2,46 km/kWh a 80 km/h \\
 27 & Autonomia diária & 351,5 km a 20,7 km/h (17 h); 309,5 km em 8 h \\
@@ -923,7 +957,7 @@ Item & Grandeza & Resultado \\
 30 & Cabos & 382 A normal; 120 mm²: 158 °C no cofre; 185 mm² atende 125 °C \\
 31 & Cabine fechada & 49,1 °C (zona única); 50,3 °C médio no CFD 3D \\
 32 & A/C & 2,31 kW com cortina no para-brisa (2,87 kW sem) para 2 pessoas e 62 m³/h \\
-33 & Freios & pico de 293 °C (213--313 °C) \\
+33 & Freios & pico de 293 °C (213--312 °C) \\
 34 & Bateria em carga & 25,9 °C (20 kW); 32,0 °C (80 kW) \\
 35 & Bomba/radiador & 31,9 L/min, 71,6 kPa; 22,9 kW rejeitados; 66,8/55,1 °C \\
 \bottomrule
@@ -964,11 +998,11 @@ validadas experimentalmente. Cada item indica a sua limitação específica.
 \bibitem{conti} CONTINENTAL. VanContact A/S — specifications, artigo 04514690000. \url{https://continentaltire.com/tires/vancontact-as/specs}. Acesso em: 25 out. 2026.
 \bibitem{ducatomanual} FIAT. Ducato — Manual do proprietário, tabela de pressões de enchimento a frio. \url{https://www.manualslib.com/manual/1051526/Fiat-Ducato.html?page=221}. Acesso em: 16 nov. 2026.
 \bibitem{brembo} BREMBO. Disco 09.D018.11. \url{https://www.bremboparts.com/europe/en/catalogue/disc/09-D018-11}. Acesso em: 26 out. 2026.
-\bibitem{topczewska} TOPCZEWSKA, K. et al. Temperature and thermal stresses of a ventilated brake disc. \emph{Materials}, v. 15, 6821, 2022. DOI 10.3390/ma15196821.
+\bibitem{topczewska} TOPCZEWSKA, K.; GERLICI, J.; YEVTUSHENKO, A.; KUCIEJ, M.; KRAVCHENKO, K. Analytical model of the frictional heating in a railway brake disc at single braking with experimental verification. \emph{Materials}, v. 15, n. 19, 6821, 2022. DOI 10.3390/ma15196821.
 \bibitem{radox} HUBER+SUHNER. RADOX 155 FLR4G/FLHR4G, STD 718404 G. Acesso em: 26 out. 2026.
 \bibitem{bosch} BOSCH. 039202453G - PCE2-XL Electric cooling pump. \url{https://www.bosch-ibusiness.com/en-2/products/product-categories/auxiliary-pumps-and-valves/pce-039202453g/pce-039202453g.pdf}. Acesso em: 26 out. 2026.
 \bibitem{dometic} DOMETIC. FreshWell 3000 — manual e dados técnicos. \url{https://www.dometic.com/en/outdoor/rv-and-van/rv-air-conditioners/dometic-freshwell-3000--28972}. Acesso em: 16 nov. 2026.
-\bibitem{remifront} REMIS. REMIfront IV — cortina de para-brisa para Fiat Ducato série 8 (2021+). \url{https://www.reimo.com/en/camping-shop/van-windows-caravan-windows-camper-windows-blinds-vents/cab-blinds-side-window-blinds-remifront/67134/remifront-iv-front-window-blind-ducato-2021-s8-large-sensors}. Acesso em: 23 nov. 2026.
+\bibitem{remifront} REMIS. REMIfront IV — cortina de para-brisa para Fiat Ducato série 8 (2021+). \url{https://www.reimo.com/en/camping-shop/van-windows-caravan-windows-camper-windows-blinds-vents/cab-blinds-side-window-blinds-remifront/67134/remifront-iv-front-window-blind-ducato-2021-s8-large-sensors}. Art. 37482, EUR 458 com IVA. Acesso em: 24 nov. 2026.
 \bibitem{ashrae} ASHRAE. \emph{ASHRAE Handbook — Fundamentals}. Atlanta: ASHRAE, 2009. Cap. 15, Fenestration (coeficiente de atenuação interna, IAC).
 \bibitem{armaflex} ARMACELL. AF/ArmaFlex technical specifications. \url{https://www.armacell.com/en-DE/product/technical-specs/afarmaflex}. Acesso em: 25 out. 2026.
 \bibitem{openx} ULUS, D. OpenX Assets, release 20261015 (Fiat Ducato 2014, de razor24). \url{https://github.com/vevalabs/openx-assets}. Acesso em: 23 out. 2026.
