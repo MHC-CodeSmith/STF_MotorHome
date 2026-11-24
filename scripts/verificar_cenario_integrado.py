@@ -73,7 +73,7 @@ def main():
     temporal_leaders=temporal['best_local_by_resolution_and_reserve']
     check(len(temporal_leaders)==6 and
           [round(row['elapsed_days'],6) for row in temporal_leaders]==
-          [242.802083,244.802083,248.763889,250.760417,248.784028,250.779861] and
+          [213.822917,215.791667,212.802083,214.777778,212.785417,214.7625] and
           temporal['hypothetical_dc_interface'] and not temporal['physical_mission_demonstrated'] and
           not temporal['global_optimum_claimed'],
           'I29 comparação15/5/1min reproduz sensibilidade temporal local sem ótimo global')
@@ -241,7 +241,7 @@ def main():
           'I29 limiar DC:5056 intervalos/20 comparações,hipóteses e limites físicos explícitos')
     check(alias_one_min.relative_difference_current_percent.abs().max()<.1 and
           alias_coarse.relative_difference_current_percent.abs().max()<5.3 and
-          abs(alias_daily.difference_current_minus_reference_kwh.abs().max()-0.4309193346602749)<1e-8,
+          abs(alias_daily.difference_current_minus_reference_kwh.abs().max()-0.2611997137057198)<1e-8,
           'I29 limiar DC:regra média aproxima referência linear em1min e erro sazonal coarsestep quantificado')
     battery=pd.read_csv(out/'mecanica_termica/I34_sensibilidades.csv');check(len(battery)==486 and battery.thermal_residual_j.abs().max()<1e-3 and ('pack_entropy_v_k' in battery.columns) and ('resistance_ref_ohm' in battery.columns),'Bateria: sweep completo inclui resistência/entropia e conserva calor')
     sensitivity=json.loads((out/'sensibilidades/resumo.json').read_text());check(sensitivity['traction_cases']==972 and sensitivity['mission_cases']==120 and sensitivity['dc_daily_cases']==36 and sensitivity['max_energy_residual_kwh']<1e-6,'972incertezas/120missões/36DC com conservação')

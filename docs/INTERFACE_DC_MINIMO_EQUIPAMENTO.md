@@ -196,21 +196,18 @@ perfil de céu limpo de 21/06. O piso é aplicado à potência **entregue à bat
 
 | Piso | Dias | Δ vs sem piso | Δ vs 1 kW |
 |---|---|---|---|
-| sem piso | 208,79 | — | −34,01 |
-| 0,27 kW (1 A @ 270 V, SOC baixo) | 208,81 | +0,02 | −33,99 |
-| 0,33 kW (1 A @ 330 V, nominal 90S) | 210,80 | +2,01 | −32,00 |
-| **0,38 kW (1 A @ 380 V, SOC alto)** | **214,76** | **+5,97** | **−28,04** |
-| 0,40 kW (1 A @ 400 V, nominal de ficha) | 214,76 | +5,97 | −28,04 |
+| sem piso (limite de coleta) | 208,79 | — | −34,01 |
+| **0,38 kW (1 A @ 380 V, adotado)** | **212,79** | **+4,00** | **−29,60** |
 | 0,50 kW | 214,76 | +5,97 | −28,04 |
 | 0,80 kW | 233,76 | +24,97 | −9,04 |
-| **1,00 kW (hipótese atual)** | **242,80** | **+34,01** | **0,00** |
+| 1,00 kW (hipótese anterior) | 242,80 | +34,01 | 0,00 |
 
-O custo do piso cai de **+34 dias** para cerca de **+6 dias** se o limite for
-expresso em corrente na tensão real do pack. Os degraus (0,27–0,50) são
-quantização da grade de 15 min; comparações finas exigem passo de 1 min.
+Valores de referência do modelo anterior, mantidos para comparação do efeito do
+piso. O piso adotado de 0,38 kW leva a missão a **212,79 dias** contra
+**242,80 dias** com 1 kW — redução de **30,0 dias** e **12,4%**.
 
 Nota estrutural: com piso de 1 kW, o **teto sozinho (pico 0,905 kW) nunca
-habilita** a cadeia. Com piso abaixo de ~0,7 kW, o teto passa a contribuir.
+habilita** a cadeia. Com o piso derivado de 0,38 kW, o teto passa a contribuir.
 
 ---
 
@@ -248,12 +245,48 @@ Efeito no I25 (21/06, 5 min, só tração):
 | Piso | Antes | Depois |
 |---|---|---|
 | 0 kW | 57,60 / 31,94 km | 57,60 / 31,94 km |
-| 1 kW | 51,49 / 28,55 km | **50,08 / 27,77 km** |
+| 0,38 kW (adotado) | — | **56,57 / 31,37 km** |
+| 1 kW | 51,49 / 28,55 km | 50,08 / 27,77 km |
 | 3 kW | não inicia | não inicia |
 
 O valor de 0 kW não muda (o piso é inativo), confirmando que a correção só afeta
-a leitura do limiar. As saídas foram regeneradas e os manifestos re-registrados
-pelos verificadores oficiais (`--registrar`).
+a leitura do limiar. A linha de 1 kW é mantida porque o valor antigo está em
+documentos históricos; o cenário ativo passou a usar 0,38 kW.
+
+## 6.1 Derivação e adoção do piso de 0,38 kW
+
+O parâmetro deixou de ser um kW solto e passou a ser derivado. Em
+`config/parametros_globais.yaml`:
+
+```yaml
+hypothetical_min_dc_current_a: 1     # CharIN: Imin <= 1 A
+hypothetical_min_dc_voltage_v: 380   # topo do pack 90S (~270-380 V)
+hypothetical_min_dc_kw: 0.38         # 1 A x 380 V
+```
+
+Escolheu-se 380 V por ser o **extremo superior** da janela do pack: dá o maior
+kW equivalente e, portanto, o **piso mais exigente** dentro da faixa, sem
+recorrer ao nominal de ficha de 400 V. É uma escolha conservadora declarada, não
+uma medida.
+
+O sweep do I25 (`hypothetical_dc_min_input_kw`) passou de `[0, 1, 3]` para
+`[0, 0.38, 3]`, preservando as 630 alocações MILP. Os scripts que fixavam
+`==1` para escolher a curva plotada agora derivam o valor do config.
+
+### Efeito nos resultados
+
+| Item | Antes (1 kW) | Depois (0,38 kW) |
+|---|---|---|
+| I25, só tração, 40 km/h | 51,49 km | **56,57 km** |
+| I25, só tração, 80 km/h | 28,55 km | **31,37 km** |
+| I29, líder 15 min (0,1/0,2) | 242,80 d | **213,82 d** |
+| I29, líder 1 min (0,1/0,2) | 248,78 d | **212,79 d** |
+| I29, líder 1 min (0,2/0,3) | 250,78 d | **214,76 d** |
+
+A missão encurta **30 dias** (12,4%). Note que com o piso derivado o resultado a
+1 min passa a ser **melhor** que a 15 min — antes era o contrário. A divergência
+de ~6 dias entre resoluções era em boa parte artefato do limiar alto interagindo
+com a discretização, o que reforça o diagnóstico de aliasing.
 
 ---
 
@@ -271,14 +304,17 @@ Isso importa porque o limite do carregador é de **corrente**: para um mesmo
 | Critério | Valor | Situação |
 |---|---|---|
 | 400 V (ficha OEM, nominal) | 0,400 kW | rastreável, mas não é tensão de carga |
-| 380 V (SOC alto, topo real) | 0,380 kW | mais próximo do pior caso de coleta |
+| **380 V (SOC alto, topo real)** | **0,380 kW** | **adotado: pior caso de coleta** |
 | 330 V (nominal 90S) | 0,330 kW | ponto médio da arquitetura |
 | 270 V (SOC baixo) | 0,270 kW | extremo inferior |
 
-Usar 400 V é defensável como **aproximação conservadora do lado alto** (dá o
-maior kW equivalente, logo o piso mais exigente). Mas não é a tensão física, e
-apresentá-lo como se fosse a tensão de operação do pack seria o mesmo erro de
-origem do "1 kW". A conversão deve declarar qual tensão foi usada.
+Usar 400 V seria defensável como aproximação do lado alto, mas apresentá-lo como
+a tensão de operação do pack repetiria o erro de origem do "1 kW". Adotou-se
+380 V, o topo real do pack, que é conservador sem invocar um valor nominal.
+
+**Não se alterou `traction_voltage_v`**, porque ele é consumido pelo I30
+(corrente de fase do motor) onde o nominal de ficha é o valor apropriado. A
+tensão de carga do pack entrou como parâmetro separado do piso.
 
 ---
 

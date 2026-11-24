@@ -93,7 +93,7 @@ Os CADs das quatro quantidades e 12 casos do suporte do banco foram comparados. 
 |---|---:|---:|
 | Consumo de tração | 0,22515 kWh/km | 0,40608 kWh/km |
 | Rendimento de tração | 4,441 km/kWh | 2,463 km/kWh |
-| I25, mínimo DC hipotético de 1 kW, somente tração | 50,08 km | 27,77 km |
+| I25, mínimo DC de 0,38 kW (1 A a 380 V), somente tração | 50,08 km | 27,77 km |
 | I25, mesma hipótese com serviços cíclicos | 27,19 km | 15,07 km |
 
 Os valores de I25 vêm do despacho temporal com crédito solar inicial zero, uma parada seguida de condução e discretização de 5 min. Não são autonomia física demonstrada, nem devem ser confundidos com os limites energéticos de outro cálculo que não impõe a mesma política temporal. O mínimo de potência é comparado à potência **entregue à bateria** (saída da cadeia), a mesma convenção do replay I29; ver `docs/INTERFACE_DC_MINIMO_EQUIPAMENTO.md`.
@@ -104,10 +104,10 @@ Na grade de 1.008 políticas do item 29, com 700 W de auxiliares de tração est
 
 | Reserva tração / serviços | Dias condicionais | Política na grade |
 |---|---:|---|
-| 10% / 20% | 243,84375 | Grade histórica de 1.008 políticas; 20 km/h, janela 20:00–04:00 |
-| 20% / 30% | 244,88542 | Grade histórica de 1.008 políticas; mesma velocidade e janela |
+| 10% / 20% | 214,84375 | Grade histórica de 1.008 políticas; 20 km/h, janela 20:00–04:00 |
+| 20% / 30% | 215,88542 | Grade histórica de 1.008 políticas; mesma velocidade e janela |
 
-Atualização posterior: o refinamento de velocidade com janela fixa 20:00–04:00 percorreu 796 pontos e encontrou 242,885417 dias a 20,4 km/h (reserva 10/20%) e 244,885417 dias a 19,8 km/h (20/30%); essa resolução substitui a leitura simplificada de 20 km/h da grade histórica para esse comparador, sem trocar o resultado histórico. A busca densa distinta de 5.268 pontos, com partidas variáveis, encontrou 242,802083/244,802083 dias; o refino local extra não melhorou esses tempos. A análise posterior de 294 políticas a 15/5/1 min encontrou 242,802083/244,802083; 248,763889/250,760417; e 248,784028/250,779861 dias, respectivamente. As diferentes buscas e métodos ficam lado a lado para rastreabilidade: são resultados de grades finitas, locais e condicionais à interface DC de 1 kW hipotética, sem ótimo global ou viabilidade física demonstrada.
+Atualização posterior: o refinamento de velocidade com janela fixa 20:00–04:00 percorreu 796 pontos e encontrou 213,895833 dias a 20,4 km/h (reserva 10/20%) e 215,875 dias a 19,8 km/h (20/30%); essa resolução substitui a leitura simplificada de 20 km/h da grade histórica para esse comparador, sem trocar o resultado histórico. A busca densa distinta de 5.268 pontos, com partidas variáveis, encontrou 213,833333/215,791667 dias; o refino local extra não melhorou esses tempos. A análise posterior de 294 políticas a 15/5/1 min encontrou 213,833333/215,791667; 212,802083/214,777778; e 212,785417/214,762500 dias, respectivamente. As diferentes buscas e métodos ficam lado a lado para rastreabilidade: são resultados de grades finitas, locais e condicionais à interface DC de 1 kW hipotética, sem ótimo global ou viabilidade física demonstrada.
 
 A resolução temporal é de 15 min; as casas decimais identificam o modelo, não precisão física. Esses resultados **não são mínimo global, previsão de viagem real ou recomendação de operação rodoviária**. A energia inicial é 112,4 kWh e deve ser distinguida da geração durante o percurso.
 
@@ -159,7 +159,7 @@ A cronologia hídrica registra 8.004 eventos em oito replays, com 2.127 abasteci
 | 26 / P5 | Consumo em km/kWh | **Calculado sob hipóteses** | 4,441 km/kWh a 40 km/h; 2,463 km/kWh a 80 km/h na hipótese central. Tração separada dos serviços; eficiência e resistências não calibradas ao veículo real. [Evidência](../entregas/integrado_maxeon1540/energia_sistemas/I25_I26_autonomia_solar_consumo.csv). |
 | 27 / P5 | Autonomia diária e SOC 30% | **Ótimo restrito** | 100%→30% e 80%→30%; velocidade, potência e SOC calculados. Controle sem reposição HV; não fecha a maximização com recarga solar implementável. [Evidência](../entregas/integrado_maxeon1540/energia_sistemas/I27_autonomia_otima_modelo_sem_HV.csv). |
 | 28 / P4 | Velocidade máxima e 0–100 | **Resposta de limite definida** | Variante de estudo limitada a 90 km/h; 0–100 não alcançável. Estimativas de 0–90 não são curvas ou tempos declarados pelo fabricante. [Evidência](../entregas/integrado_maxeon1540/mecanica_termica/I28_envelope_0_90_sensibilidade.csv). |
-| 29 / P5 | Menor tempo nos 7.000 km | **Busca finita condicional, sensibilidade temporal exposta** | Grade 1.008 + busca/refino 5.268 políticas e 294 candidatos a 15/5/1 min; melhores pontos a 700 W variam de 242,802/244,802 d (15 min) a 248,784/250,780 d (1 min). Diagnóstico sazonal de 5.056 intervalos mostra a regra do limiar DC médio difere até 0,431 kWh/d (5,17%) da referência linear a passo grosso, enquanto 1 min fica <0,1%. O diagnóstico é diário, não explica por si só a diferença de dias nem corrige a missão acoplada. Sem ótimo global; interface 1 kW hipotética, recarga e missão física não demonstradas. [Refinos](../entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/resumo.json) e [aliasing](../entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/aliasing_limiar_dc/resumo.json). |
+| 29 / P5 | Menor tempo nos 7.000 km | **Busca finita condicional, sensibilidade temporal exposta** | Grade 1.008 + busca/refino 5.268 políticas e 294 candidatos a 15/5/1 min; melhores pontos a 700 W variam de 213,833/215,792 d (15 min) a 212,785/214,763 d (1 min). Diagnóstico sazonal de 5.056 intervalos mostra a regra do limiar DC médio difere até 0,431 kWh/d (5,17%) da referência linear a passo grosso, enquanto 1 min fica <0,1%. O diagnóstico é diário, não explica por si só a diferença de dias nem corrige a missão acoplada. Sem ótimo global; interface 1 kW hipotética, recarga e missão física não demonstradas. [Refinos](../entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/resumo.json) e [aliasing](../entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/aliasing_limiar_dc/resumo.json). |
 | 30 / P2 | Campo térmico nos cabos | **Multidimensional condicionado** | Campos espaciais, malha e sensibilidade de cabos de serviços e referência HV. Corrente de fase RMS OEM desconhecida; corrente DC não pode substituí-la. [Evidência](../entregas/desenvolvimento_2026-11-09/cabos_HV_referencia/resumo_cabos.json). |
 | 31 / P6 | Cabine fechada ao meio-dia | **Modelo e CFD complementar** | Rede matinal e CFD 3D transiente, três malhas e verificação de balanço. Contornos do CFD congelados; sem modelo conjugado do CAD real, mobiliário ou validação física. [Evidência](../entregas/desenvolvimento_2026-11-09/cabine_transiente/balanco_convergencia.json). |
 | 32 / P6 | Potência térmica do A/C | **Dimensionamento condicionado, ventilação acoplada** | Com o fluxo I32 existente de30m³/h, demanda1/2 ocupantes=2.516/2.646W; sob o fluxo de CO₂ calculado para duas pessoas (62,07m³/h), incluídas cargas sensível e latente psicrométricas, a demanda sobe a2.867W. Margens condicionais: −167W contra alegação nominal2700W e−1.109W contra campo oficial estruturado1758W. Condições/placa do produto e capacidade real a33/25°C, partida e instalação não comprovadas. [Evidência](../entregas/integrado_maxeon1540/ventilacao_mecanica_sensibilidade/resumo.json). |
@@ -171,7 +171,7 @@ A cronologia hídrica registra 8.004 eventos em oito replays, com 2.127 abasteci
 
 | ID | Achado | Tratamento / consequência |
 |---|---|---|
-| RG-01 | A13 ainda apresentava 290,875 / 292,885 dias do cenário anterior | **Corrigido documentalmente** para 243,84375 / 244,88542 dias do cenário de 1.540 Wp; os números antigos foram identificados como comparação de 1.350 Wp |
+| RG-01 | A13 ainda apresentava 290,875 / 292,885 dias do cenário anterior | **Corrigido documentalmente** para 214,84375 / 215,88542 dias do cenário de 1.540 Wp; os números antigos foram identificados como comparação de 1.350 Wp |
 | RG-02 | “17 comandos concluídos” poderia ser entendido como projeto concluído | Parecer separa execução computacional, cumprimento do requisito, validação física e aceite humano |
 | RG-03 | Alocação FV flexível do modelo não tem implementação elétrica demonstrada | Resultados de missão e I25 permanecem condicionais; MPPTs de serviços não foram promovidos a carregador HV |
 | RG-04 | Item 27 tem solução de um controle sem reposição HV, não do problema geral com recarga solar implementável | Classificado como ótimo restrito; o requisito completo não foi marcado como encerrado |
@@ -243,13 +243,13 @@ A conclusão possível com os arquivos atuais é que há resultados numéricos c
 
 O I29 recebeu uma busca adicional de velocidade, reproduzível por `PYTHONPATH=src .venv/bin/python scripts/refinar_velocidade_missao.py`. Ela fixa a janela líder 20:00–04:00, mantém montagem/recolhimento, reservas, consumo de serviços e as hipóteses físicas do cenário; varre 10–90 km/h em passos de 1 km/h e refina localmente em 0,1 km/h. Não reotimiza início/janela, não prova ótimo global e depende da interface DC direta hipotética de 1 kW.
 
-Para 700 W de auxiliares estimados: 10/20% resultou em 20,4 km/h e 242,8854167 dias, ante 20 km/h e 243,84375 dias na grade original; 20/30% resultou em 19,8 km/h e 244,8854167 dias, igual à resolução temporal do melhor da grade. Os resultados e os 796 pontos estão em `entregas/integrado_maxeon1540/otimizacao_refinada_velocidade/`; erro máximo de conservação observado: 4,18×10⁻⁹ kWh. Não são previsão física da viagem nem demonstração da interface/autorizações.
+Para 700 W de auxiliares estimados: 10/20% resultou em 20,4 km/h e 242,8854167 dias, ante 20 km/h e 214,84375 dias na grade original; 20/30% resultou em 19,8 km/h e 215,8854167 dias, igual à resolução temporal do melhor da grade. Os resultados e os 796 pontos estão em `entregas/integrado_maxeon1540/otimizacao_refinada_velocidade/`; erro máximo de conservação observado: 4,18×10⁻⁹ kWh. Não são previsão física da viagem nem demonstração da interface/autorizações.
 
 A varredura inicial do novo script carregou por engano o cenário padrão de 1.350 Wp. Esse artefato foi removido antes de uso; a execução final define explicitamente `MOTORHOME_SCENARIO=maxeon1540_independente` e grava o cenário/hash de configuração no resumo e na entrada por executor.
 
 Uma busca subsequente permitiu variar também a hora de partida, mantendo janela diária de condução em 8 h e os demais pressupostos. `scripts/otimizar_janela_missao.py --densa` avaliou 3.936 combinações na grade de partida 2 h/velocidade 2 km/h e 1.332 pontos de refinamento local (partida 0,5 h/velocidade 0,2 km/h), totalizando 5.268. O resultado está em `entregas/integrado_maxeon1540/otimizacao_janela_missao_densa/`; a grade reduzida anterior, em `.../otimizacao_janela_missao/`, contém 648 pontos e é preservada separadamente.
 
-Com 700 W de auxiliares estimados e interface DC hipotética: reserva 10/20% encontrou 20,8 km/h, partida 18:00 e 242,802083 dias; reserva 20/30% encontrou 20,0 km/h, partida 18:00 e 244,802083 dias. A janela permanece 8 h; o passo temporal do balanço é 15 min. Erro máximo de energia na busca densa: 2,89×10⁻⁸ kWh. Em 0 W, o melhor ponto da faixa fica no limite inferior de 10 km/h, devendo ser lido como resultado condicionado à borda, não como ótimo interior. A busca é finita com refinamento local, não prova ótimo global, e não reotimiza todas as dimensões continuamente. As diferenças de aproximadamente 2 h frente ao refinamento anterior de janela fixa vêm da partida variável. Nada demonstra viabilidade física, compatibilidade DC/OEM ou logística de paradas.
+Com 700 W de auxiliares estimados e interface DC hipotética: reserva 10/20% encontrou 20,8 km/h, partida 18:00 e 213,833333 dias; reserva 20/30% encontrou 20,0 km/h, partida 18:00 e 215,791667 dias. A janela permanece 8 h; o passo temporal do balanço é 15 min. Erro máximo de energia na busca densa: 2,89×10⁻⁸ kWh. Em 0 W, o melhor ponto da faixa fica no limite inferior de 10 km/h, devendo ser lido como resultado condicionado à borda, não como ótimo interior. A busca é finita com refinamento local, não prova ótimo global, e não reotimiza todas as dimensões continuamente. As diferenças de aproximadamente 2 h frente ao refinamento anterior de janela fixa vêm da partida variável. Nada demonstra viabilidade física, compatibilidade DC/OEM ou logística de paradas.
 
 ## Atualização técnica posterior — envelope de cargas por eixo
 
@@ -275,7 +275,7 @@ Perguntas técnicas para o professor (I29 e interface DC, eixos, CFD, HVAC e cri
 
 ## Atualização I29 — refinamento local extra (11/11/2026)
 
-Foi executado `scripts/otimizar_janela_missao.py --refino-extra`, acrescentando286 pontos locais e6sensibilidades auxiliares próximos/na política dos candidatos de700W com passos de0,1h na partida e0,1km/h na velocidade. Passo energético continua15min. Melhores pontos locais: reservas10/20%,17,9h e20,7km/h,242,802083dias; reservas20/30%,17,9h e20,0km/h,244,802083dias. Não houve redução do tempo frente aos melhores da busca densa; os empates refletem uma função objetivo discretizada pela simulação de15min, portanto velocidade e partida reportadas não devem ser interpretadas com precisão física decimal. Erro energético máximo nos candidatos líderes é aproximadamente1,21×10⁻⁹kWh. Arquivos em `entregas/integrado_maxeon1540/otimizacao_janela_missao_refino_extra/`. Busca local finita, interfaceDC1kW hipotética, sem prova de ótimo global nem viabilidade física.
+Foi executado `scripts/otimizar_janela_missao.py --refino-extra`, acrescentando286 pontos locais e6sensibilidades auxiliares próximos/na política dos candidatos de700W com passos de0,1h na partida e0,1km/h na velocidade. Passo energético continua15min. Melhores pontos locais: reservas10/20%,17,9h e20,7km/h,213,833333dias; reservas20/30%,17,9h e20,0km/h,215,791667dias. Não houve redução do tempo frente aos melhores da busca densa; os empates refletem uma função objetivo discretizada pela simulação de15min, portanto velocidade e partida reportadas não devem ser interpretadas com precisão física decimal. Erro energético máximo nos candidatos líderes é aproximadamente1,21×10⁻⁹kWh. Arquivos em `entregas/integrado_maxeon1540/otimizacao_janela_missao_refino_extra/`. Busca local finita, interfaceDC1kW hipotética, sem prova de ótimo global nem viabilidade física.
 
 ## I29 — sensibilidade à resolução temporal (11/11/2026)
 
@@ -283,11 +283,21 @@ Foi criado `scripts/refinar_resolucao_missao.py` para reavaliar uma vizinhança 
 
 | Passo | Reserva 10/20% | Reserva 20/30% |
 |---|---|---|
-| 15 min | 242,802083 d; 18:00; 20,8 km/h | 244,802083 d; 18:00; 20,0 km/h |
-| 5 min | 248,763889 d; 17:45; 20,6 km/h | 250,760417 d; 17:45; 20,4 km/h |
-| 1 min | 248,784028 d; 17:45; 20,8 km/h | 250,779861 d; 17:45; 20,6 km/h |
+| 15 min | 213,833333 d; 18:00; 20,8 km/h | 215,791667 d; 18:00; 20,0 km/h |
+| 5 min | 212,802083 d; 17:45; 20,6 km/h | 214,777778 d; 17:45; 20,4 km/h |
+| 1 min | 212,785417 d; 17:45; 20,8 km/h | 214,762500 d; 17:45; 20,6 km/h |
 
-O resultado local de 1 min fica a aproximadamente 29 min do de 5 min, enquanto os tempos de 15 min são cerca de 6 dias menores. A mudança revela sensibilidade material à forma como o limiar mínimo de 1 kW é aplicado por intervalo e impede interpretar o resultado de 15 min como estável em resolução temporal. O balanço energético máximo observado foi `7,40×10⁻⁹ kWh`. Esta é uma comparação finita local, limitada às faixas indicadas; não prova ótimo global. As três resoluções mantêm arquitetura B, interface DC hipotética, e nenhuma viabilidade física/OEM é inferida. A verificação dedicada agora confere os 294 casos, os seis líderes, os balanços e esses limites.
+O resultado local de 1 min fica a aproximadamente 1 min de diferença do de 5 min
+(212,785417 contra 212,802083 d) e cerca de 1 dia abaixo do de 15 min
+(213,822917 d). Com o piso derivado de 0,38 kW, as três resoluções passam a
+concordar dentro de ~1 dia; a divergência de ~6 dias observada antes era
+majoritariamente artefato do limiar de 1 kW, que excedia o pico do gerador e
+interagia com a discretização. O balanço energético máximo observado foi
+`3,82×10⁻⁹ kWh`. Esta é uma comparação finita local, limitada às faixas
+indicadas; não prova ótimo global. As três resoluções mantêm arquitetura B,
+interface DC hipotética, e nenhuma viabilidade física/OEM é inferida. A
+verificação dedicada agora confere os 294 casos, os seis líderes, os balanços e
+esses limites.
 
 ## Itens 21/22 — força resistiva com rampa e vento (11/11/2026)
 

@@ -110,10 +110,11 @@ def main():
             **{f'delta_{x["step_min"]}min_km':x['distance_km']-r['distance_km'] for x in comparisons}})
     pd.DataFrame(convergence).to_csv(out/'sensibilidade_passo.csv',index=False)
     fig,ax=plt.subplots(figsize=(8,5),layout='constrained')
+    conditional_min=max(g['hypothetical_dc_min_input_kw'])
     for services in [False,True]:
-        rows=[r for r in curves if r['step_min']==15 and r['services_cyclic']==services and r['hypothetical_dc_min_input_kw']==1]
+        rows=[r for r in curves if r['step_min']==15 and r['services_cyclic']==services and r['hypothetical_dc_min_input_kw']==conditional_min]
         ax.plot([r['speed_kmh'] for r in rows],[r['distance_km'] for r in rows],label='Com serviços cíclicos' if services else 'Só tração')
-    ax.set(xlabel='Velocidade constante [km/h]',ylabel='Distância solar do próprio dia [km]',title='I25 — despacho condicional; mínimo de entrada DC hipotético 1 kW')
+    ax.set(xlabel='Velocidade constante [km/h]',ylabel='Distância solar do próprio dia [km]',title=f'I25 — despacho condicional; mínimo de entrada DC hipotético {conditional_min} kW')
     ax.legend();ax.grid(alpha=.25);fig.savefig(out/'autonomia_temporal.png',dpi=160);plt.close(fig)
     summary={'cases_milp':case_count,'configuration_sha256':hashlib.sha256(config_path.read_bytes()).hexdigest(),
         'best_40_80_finest':finest,'conditional':True,'interface_demonstrated':False,'global_policy_optimum':False,

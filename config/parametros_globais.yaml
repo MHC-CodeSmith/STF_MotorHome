@@ -3800,9 +3800,17 @@ development:
       - 0.3
     max_days: 1500
     mode: direta_hipotese
-    hypothetical_min_dc_kw: 1
-    note: Busca exaustiva na grade especificada, não ótimo global contínuo e sem interfaceDC
-      demonstrada. Potência fixaOEM estimada em movimento,0/300/700/1500W; não confundir
+    hypothetical_min_dc_current_a: 1
+    hypothetical_min_dc_voltage_v: 380
+    hypothetical_min_dc_kw: 0.38
+    note: Piso derivado de corrente, não hipótese de kW solta. CharIN DC CCS
+      Power Classes V7.2 exige Imin<=1A e prevê 0A em pausa; a especificação de
+      carregador é de CORRENTE. 1A x 380V (topo do pack 90S, ~270-380V) = 0,38kW.
+      O valor anterior de 1kW não se confirmou na ficha nem no manual do Sungrow
+      IDC30E e excedia o pico do gerador (0,905kW). Ver
+      docs/INTERFACE_DC_MINIMO_EQUIPAMENTO.md. Busca exaustiva na grade
+      especificada, não ótimo global contínuo e sem interfaceDC demonstrada.
+      Potência fixaOEM estimada em movimento,0/300/700/1500W; não confundir
       com serviços.
     auxiliary_sweep_w:
     - 0
@@ -3820,7 +3828,7 @@ development:
     departure_start_h: 6
     departure_end_h: 23
     departure_step_h: 0.5
-    hypothetical_dc_min_input_kw: [0, 1, 3]
+    hypothetical_dc_min_input_kw: [0, 0.38, 3]
     portable_tilt_deg: [0, 15, 30, 45, 60, 75]
     portable_azimuth_deg: [0, 90, 180, 270]
     service_capacity_kwh: 14.4

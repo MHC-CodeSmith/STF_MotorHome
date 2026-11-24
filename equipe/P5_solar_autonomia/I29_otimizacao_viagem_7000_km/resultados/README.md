@@ -9,5 +9,5 @@ Grade1008, busca densa5268, refinamentos e294 políticas locais a15/5/1min; líd
 
 Limite: Diferença≈6d mostra interação do mínimoDC1kW hipotético com passo temporal; comparações finitas, sem ótimo global, interface autorizada ou viabilidade física.
 
-Índice local: `execucao_integrada.json`;SHA256da evidência: `9b467832dc6ed5f586a6b82b39c9c68b9883e6c33f24825f773c21a6d912d453`. Não aprovado fisicamente.
+Índice local: `execucao_integrada.json`;SHA256da evidência: `136234083f09bc2ecb5a8c108ca6ae7b66eb1a1895a09df149e44f7cf1607d64`. Não aprovado fisicamente.
 <!-- execucao-integrada:fim -->

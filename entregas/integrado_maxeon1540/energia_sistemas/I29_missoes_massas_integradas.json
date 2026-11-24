@@ -24,7 +24,7 @@
     "totals": {
       "pv_kwh": 7.309480706378697,
       "traction_solar_kwh": 0.0,
-      "service_solar_kwh": 6.245316924730357,
+      "service_solar_kwh": 6.245316924730356,
       "loss_kwh": 0.32870089077528186,
       "curtailed_kwh": 0.7354628908730604,
       "traction_used_kwh": 88.2,
@@ -92,7 +92,7 @@
     "totals": {
       "pv_kwh": 6.587314472040808,
       "traction_solar_kwh": 0.0,
-      "service_solar_kwh": 5.559259002109362,
+      "service_solar_kwh": 5.5592590021093615,
       "loss_kwh": 0.2925925790583874,
       "curtailed_kwh": 0.7354628908730604,
       "traction_used_kwh": 78.4,
@@ -160,7 +160,7 @@
     "totals": {
       "pv_kwh": 1.6484347014018186,
       "traction_solar_kwh": 0.0,
-      "service_solar_kwh": 1.5660129663317277,
+      "service_solar_kwh": 1.5660129663317273,
       "loss_kwh": 0.08242173507009101,
       "curtailed_kwh": 0.0,
       "traction_used_kwh": 88.2,
@@ -228,7 +228,7 @@
     "totals": {
       "pv_kwh": 1.4480576808452452,
       "traction_solar_kwh": 0.0,
-      "service_solar_kwh": 1.375654796802983,
+      "service_solar_kwh": 1.3756547968029826,
       "loss_kwh": 0.07240288404226233,
       "curtailed_kwh": 0.0,
       "traction_used_kwh": 78.39999999999999,
@@ -296,7 +296,7 @@
     "totals": {
       "pv_kwh": 6.979827985804243,
       "traction_solar_kwh": 0.0,
-      "service_solar_kwh": 5.932146840184626,
+      "service_solar_kwh": 5.932146840184625,
       "loss_kwh": 0.3122182547465592,
       "curtailed_kwh": 0.7354628908730604,
       "traction_used_kwh": 88.2,
@@ -364,7 +364,7 @@
     "totals": {
       "pv_kwh": 6.487634638451378,
       "traction_solar_kwh": 0.0,
-      "service_solar_kwh": 5.464563160199404,
+      "service_solar_kwh": 5.464563160199403,
       "loss_kwh": 0.2876085873789159,
       "curtailed_kwh": 0.7354628908730604,
       "traction_used_kwh": 78.4,
@@ -432,7 +432,7 @@
     "totals": {
       "pv_kwh": 1.6484347014018186,
       "traction_solar_kwh": 0.0,
-      "service_solar_kwh": 1.5660129663317277,
+      "service_solar_kwh": 1.5660129663317273,
       "loss_kwh": 0.08242173507009101,
       "curtailed_kwh": 0.0,
       "traction_used_kwh": 88.2,
@@ -500,7 +500,7 @@
     "totals": {
       "pv_kwh": 1.4480576808452452,
       "traction_solar_kwh": 0.0,
-      "service_solar_kwh": 1.375654796802983,
+      "service_solar_kwh": 1.3756547968029826,
       "loss_kwh": 0.07240288404226233,
       "curtailed_kwh": 0.0,
       "traction_used_kwh": 78.39999999999999,

@@ -9,5 +9,5 @@ Execução integrada: `entregas/integrado_maxeon1540/integracao/A_fixa_vistas.pn
 
 Limite: B tem acesso de lavagem6mm insuficiente e portáteis altos;A selecionado provisoriamente. Não é CADOEM.
 
-Índice local: `execucao_integrada.json`;SHA256da evidência: `999ac019d77ceffda269cf4bdab4c78dde2ac838a1b83744b643b0885ff2df51`. Não aprovado fisicamente.
+Índice local: `execucao_integrada.json`;SHA256da evidência: `40a2dbd178807b5f04daa9eedf70e85ca29a2d1a1509a0e3ea2c7e9ee4b26c46`. Não aprovado fisicamente.
 <!-- execucao-integrada:fim -->

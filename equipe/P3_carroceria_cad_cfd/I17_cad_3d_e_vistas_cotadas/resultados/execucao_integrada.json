@@ -8,7 +8,7 @@
   "executed": "2layouts e2tetos STEP/GLB;3vistas com escala e cotas;A sem colisõesAABB,com inversor corrigido vertical e acesso100mm de estudo.",
   "remaining_limit": "B tem acesso de lavagem6mm insuficiente e portáteis altos;A selecionado provisoriamente. Não é CADOEM.",
   "evidence": "entregas/integrado_maxeon1540/integracao/A_fixa_vistas.png",
-  "evidence_sha256": "999ac019d77ceffda269cf4bdab4c78dde2ac838a1b83744b643b0885ff2df51",
+  "evidence_sha256": "40a2dbd178807b5f04daa9eedf70e85ca29a2d1a1509a0e3ea2c7e9ee4b26c46",
   "human_approval": false,
   "physical_validation": false
 }

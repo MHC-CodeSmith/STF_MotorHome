@@ -9,5 +9,5 @@ Execução integrada: `entregas/integrado_maxeon1540/solar/resumo.json`.
 
 Limite: Retângulo estimado/curvatura/ancoragens/estoque não comprovados;rastreadores independentes são comparadorDEC054,compartilhamento não aprovado.
 
-Índice local: `execucao_integrada.json`;SHA256da evidência: `cfbecea9a7c0d39dabbdb5a01e322f3e5a2bc0104eb2d5b20bf9b11680b1ec10`. Não aprovado fisicamente.
+Índice local: `execucao_integrada.json`;SHA256da evidência: `37865b724ec67504a3373382020fee68f6aedc5b35d74d54884004f78fa0f6c9`. Não aprovado fisicamente.
 <!-- execucao-integrada:fim -->

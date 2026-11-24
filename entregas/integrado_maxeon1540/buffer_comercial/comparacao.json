@@ -394,7 +394,7 @@
     "soc_initial_service": 1.0,
     "soc_final_traction": 0.1,
     "soc_final_service": 0.2,
-    "buffer_final_kwh": 0.1431341907738517,
+    "buffer_final_kwh": 0.1431341907738516,
     "energy_residual_kwh": -5.5067062021407764e-14,
     "external_electric_energy_kwh": 0.0,
     "totals": {
@@ -558,7 +558,7 @@
     "soc_initial_service": 1.0,
     "soc_final_traction": 0.2,
     "soc_final_service": 0.3,
-    "buffer_final_kwh": 0.1431341907738517,
+    "buffer_final_kwh": 0.1431341907738516,
     "energy_residual_kwh": -7.549516567451064e-15,
     "external_electric_energy_kwh": 0.0,
     "totals": {
@@ -804,7 +804,7 @@
     "soc_initial_service": 1.0,
     "soc_final_traction": 0.15125355531333068,
     "soc_final_service": 0.8525802273599952,
-    "buffer_final_kwh": 0.5317751010519942,
+    "buffer_final_kwh": 0.531775101051984,
     "energy_residual_kwh": 1.6180479733840514e-09,
     "external_electric_energy_kwh": 0.0,
     "totals": {
@@ -968,7 +968,7 @@
     "soc_initial_service": 1.0,
     "soc_final_traction": 0.20482498388475964,
     "soc_final_service": 0.8421218572835695,
-    "buffer_final_kwh": 0.678671985064848,
+    "buffer_final_kwh": 0.6786719850648378,
     "energy_residual_kwh": 1.6304966821145683e-09,
     "external_electric_energy_kwh": 0.0,
     "totals": {
@@ -1132,7 +1132,7 @@
     "soc_initial_service": 1.0,
     "soc_final_traction": 0.13903083153155307,
     "soc_final_service": 0.8525802273599952,
-    "buffer_final_kwh": 0.052542844072617695,
+    "buffer_final_kwh": 0.05254284407259948,
     "energy_residual_kwh": 3.742570753306751e-09,
     "external_electric_energy_kwh": 0.0,
     "totals": {
@@ -1296,7 +1296,7 @@
     "soc_initial_service": 1.0,
     "soc_final_traction": 0.24617368867441036,
     "soc_final_service": 0.8525802273599952,
-    "buffer_final_kwh": 0.34633661209832517,
+    "buffer_final_kwh": 0.3463366120983069,
     "energy_residual_kwh": 3.760646960504488e-09,
     "external_electric_energy_kwh": 0.0,
     "totals": {

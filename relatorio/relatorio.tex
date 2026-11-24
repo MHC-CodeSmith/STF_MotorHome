@@ -645,8 +645,10 @@ consumido na condução,
 E(t+\Delta t) = E(t) + \eta_{CC}\,P_{FV}(t)\,\Delta t - P_{bat}(v)\,\Delta t,\qquad E(0)=0,\; E\ge 0,
 \end{equation}
 e o horário de partida é otimizado. Foram resolvidos 630 casos (passos de 30, 15 e 5 min,
-potência mínima da interface de 0, 1 e \SI{3}{kW}). Com mínimo de \SI{1}{kW}, as distâncias
-caem para \SI{50,1}{km} e \SI{27,8}{km}.
+potência mínima da interface de 0, 0,38 e \SI{3}{kW}, esta derivada de \SI{1}{A} a
+\SI{380}{V}). Com mínimo de \SI{0,38}{kW}, as distâncias caem para \SI{56,6}{km} e
+\SI{31,4}{km}; com a hipótese anterior de \SI{1}{kW}, cairiam para
+\SI{50,1}{km} e \SI{27,8}{km}.
 \begin{figure}[H]
 \centering\includegraphics[width=0.75\linewidth]{i25_autonomia_solar.png}
 \caption{Item 25 — distância percorrida com a energia solar de 21/06 em função da velocidade.}
@@ -714,8 +716,9 @@ a inércia das partes girantes. $T_{mot}(\omega)$ inclui o trecho de potência c
 
 \IbTexto
 
-\limite{depende da interface CC hipotética de \SI{1}{kW} mínimo; o dia de 21/06 é repetido
-ao longo da viagem, e o percurso é plano.}
+\limite{depende da interface CC hipotética de \SI{0,38}{kW} mínimo (derivado de
+\SI{1}{A} a \SI{380}{V}, topo do pack 90S, conforme a classe de potência CharIN);
+o dia de 21/06 é repetido ao longo da viagem, e o percurso é plano.}
 
 \itemsec{30}{Temperatura nos fios de alimentação do motor}
 \resposta{Na potência máxima de \SI{205}{kW} a corrente de fase é de \textbf{\SI{489}{A} RMS};
