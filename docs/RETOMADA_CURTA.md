@@ -3,8 +3,17 @@
 **Estado:** relatório publicado em `adb794dc3d5da2ff7085114c6d218365fe57a710`, nas refs
 `main` e `hub/tarefas-motorhome-com-codex`. CI verde: 45613552886 / 45613552731.
 41 páginas, 6.323.519 bytes, 38 figuras; 299 testes locais aprovados (8 avisos pvlib).
-Última tarefa: salvar este resumo antes da compactação; nenhuma alteração técnica pendente.
-Última pergunta do usuário: se houve CFD com/sem painéis — **sim**, evidência abaixo.
+**Encerramento desta lane:** usuário pediu salvar a passagem e fechar o chat. Nesta
+última retomada, conferidos inbox (sem notas), árvore limpa e refs remotas: ambas
+estavam em `d1ca3587a9532c949ce9de77d005e7def17914ce` (somente documentação após
+`adb794d`; PDF e cálculos não mudaram). Esta atualização também é só documental;
+não confundir o CI verde do relatório acima com uma consulta nova de CI.
+
+Última pergunta técnica respondida: houve CFD com/sem painéis — **sim**, resultados
+conferidos diretamente no JSON e em `relatorio/tabela_deck.tex`. A remoção inclui
+**painéis + deck/suportes**, não apenas os módulos; seção **3.1.12, p. impressa 19**.
+Nenhuma simulação foi reexecutada nesta conferência. Não há edição técnica aberta
+nesta lane; continuar pelos limites reais ao final, ou por nova orientação do usuário.
 
 ## Onde e como trabalhar
 
