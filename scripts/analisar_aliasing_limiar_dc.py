@@ -64,7 +64,7 @@ def interval_gate_energy_kwh(y0_kw: float, y1_kw: float, duration_h: float,
 
 
 def main() -> None:
-    os.environ["MOTORHOME_SCENARIO"] = "maxeon1540_independente"
+    os.environ["MOTORHOME_SCENARIO"] = "maxeon1560_independente"
     config = carregar_configuracao(ROOT)
     p = {key: value["value"] for key, value in config["parameters"].items()}
     grid = config["development"]["mission_grid"]
@@ -150,7 +150,7 @@ def main() -> None:
                 })
 
     frame = pd.DataFrame(rows)
-    out = ROOT / "entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/aliasing_limiar_dc"
+    out = ROOT / "entregas/integrado_maxeon1560/otimizacao_resolucao_temporal/aliasing_limiar_dc"
     out.mkdir(parents=True, exist_ok=True)
     frame.to_csv(out / "intervalos.csv", index=False, lineterminator="\n")
     daily_rows = []

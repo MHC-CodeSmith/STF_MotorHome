@@ -5,7 +5,7 @@ Uso (na raiz do repositório):
 
 Esquerda: cabine do modelo exterior do projeto com a cortina plissada desenhada 3 cm atrás do
 para-brisa (representação esquemática, não a geometria do produto). Direita: carga de projeto
-(2 pessoas, 62 m³/h) sem e com a cortina, lida de entregas/integrado_maxeon1540/i32_protecao_solar.
+(2 pessoas, 62 m³/h) sem e com a cortina, lida de entregas/integrado_maxeon1560/i32_protecao_solar.
 """
 
 from __future__ import annotations
@@ -24,7 +24,7 @@ from matplotlib.patches import Patch
 from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 
 ROOT = Path(__file__).resolve().parents[1]
-I32 = ROOT / "entregas/integrado_maxeon1540/i32_protecao_solar/resumo.json"
+I32 = ROOT / "entregas/integrado_maxeon1560/i32_protecao_solar/resumo.json"
 VIDRO = "Exterior_Static_313fb3"        # malha única com todos os vidros do exterior (material Body_Glass)
 RECUO = 0.03                            # cortina 3 cm atrás do vidro
 PREGAS = 14                             # faixas horizontais alternadas para sugerir o plissado

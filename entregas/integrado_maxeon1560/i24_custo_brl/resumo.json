@@ -1,0 +1,30 @@
+{
+  "script": "scripts/calcular_custo_brl_i24.py",
+  "config": "config/custos_brl_i24.yaml",
+  "cambio": {
+    "usd_brl": {
+      "value": 5.5146,
+      "date": "2026-11-09",
+      "source": "PTAX fechamento BCB, via https://brasil61.com/n/dolar-hoje-fecha-em-leve-alta-a-r-5-51-apos-oscilar-entre-queda-e-valorizacao-bras2617447"
+    },
+    "eur_brl": {
+      "value": 6.1748,
+      "date": "2026-11-09",
+      "source": "Taxa de referência BCE, via https://www.numerando.com.br/cambio/euro/2026"
+    }
+  },
+  "total_brl": {
+    "baixo": 725177.1254840401,
+    "nominal": 793536.3981717385,
+    "alto": 887787.1323920327
+  },
+  "nominal_veiculo_importado_brl": 618859.0323914635,
+  "nominal_conversao_brl": 174677.36578027497,
+  "nominal_tributos_importacao_brl": 326511.8287515385,
+  "is_quotation": false,
+  "limits": [
+    "Preços de lista/varejo públicos, não cotação; IVA europeu não deduzido dos preços de varejo (conservador).",
+    "II/IPI de componentes por faixa declarada; NCM não classificada item a item.",
+    "Linhas de estimativa (isolamento, marcenaria, elétrica/hidráulica, montagem) são faixas, não preços."
+  ]
+}

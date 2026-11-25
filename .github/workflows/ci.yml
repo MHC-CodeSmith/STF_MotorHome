@@ -25,7 +25,7 @@ jobs:
       - name: Conferir cenário integrado e manifesto (somente leitura)
         env:
           PYTHONPATH: src
-          MOTORHOME_SCENARIO: maxeon1540_independente
+          MOTORHOME_SCENARIO: maxeon1560_independente
         run: python scripts/verificar_cenario_integrado.py
       - name: Conferir desenvolvimento e manifesto (somente leitura)
         env:
@@ -41,10 +41,10 @@ jobs:
           retention-days: 30
           if-no-files-found: warn
           path: |
-            entregas/integrado_maxeon1540/qa.json
-            entregas/integrado_maxeon1540/manifesto.json
-            entregas/integrado_maxeon1540/otimizacao_refinada_velocidade/resumo.json
-            entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/aliasing_limiar_dc/resumo.json
+            entregas/integrado_maxeon1560/qa.json
+            entregas/integrado_maxeon1560/manifesto.json
+            entregas/integrado_maxeon1560/otimizacao_refinada_velocidade/resumo.json
+            entregas/integrado_maxeon1560/otimizacao_resolucao_temporal/aliasing_limiar_dc/resumo.json
             entregas/desenvolvimento_2026-11-09/qa.json
             entregas/desenvolvimento_2026-11-09/manifesto.json
       - name: Publicar relatório JUnit

@@ -22,7 +22,7 @@ from motorhome.solar import simular_dia
 
 
 def main():
-    os.environ["MOTORHOME_SCENARIO"] = "maxeon1540_independente"
+    os.environ["MOTORHOME_SCENARIO"] = "maxeon1560_independente"
     c = carregar_configuracao(ROOT)
     out = diretorio_entregas(ROOT) / "otimizacao_refinada_velocidade"
     out.mkdir(parents=True, exist_ok=True)

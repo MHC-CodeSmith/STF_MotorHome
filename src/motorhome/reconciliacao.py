@@ -135,7 +135,7 @@ def simular_missao(roof_kw, portable_kw, driving_slots, *, speed_kmh, kwh_km,
                    reserve_traction, reserve_service, target_km=7000.,
                    max_days=1500, mode='sem_interface', allocation='flexivel',
                    min_dc_kw=None, eta_dc=.9, eta_service=.95, eta_buffer=.95,
-                   buffer_capacity_kwh=0.):
+                   buffer_capacity_kwh=0., primeira_partida_h=None):
     """Replay de dia-tipo: SOCs independentes e carga externa apenas parada.
 
     Janela portátil planejada não é ampliada por imobilização incidental.
@@ -143,6 +143,9 @@ def simular_missao(roof_kw, portable_kw, driving_slots, *, speed_kmh, kwh_km,
     Resolução limita o horário de chegada a um intervalo. Não é otimizador.
     Desligamento por baixo SOC é falha do cenário de consumo médio completo;
     não se inventam limiares de shedding ou novos perfis de conforto.
+    primeira_partida_h: o relógio começa às 0h do primeiro dia; antes dessa hora o
+    veículo não dirige no primeiro dia, mesmo que a janela recorrente cruze a
+    meia-noite (sem ela, uma janela 18h-02h rodaria de 0h a 2h antes da partida).
     """
     n = len(roof_kw)
     if n < 1 or len(portable_kw) != n or len(driving_slots) != n:
@@ -175,7 +178,10 @@ def simular_missao(roof_kw, portable_kw, driving_slots, *, speed_kmh, kwh_km,
         for slot in range(n):
             remaining = target_km-distance
             available = max(0., traction-traction_capacity_kwh*reserve_traction)
-            drive = min(speed_kmh*dt, remaining, available/kwh_km) if driving_slots[slot] else 0.
+            antes_da_partida = (day == 0 and primeira_partida_h is not None
+                                and (slot+.5)*dt < primeira_partida_h)
+            drive = (min(speed_kmh*dt, remaining, available/kwh_km)
+                     if driving_slots[slot] and not antes_da_partida else 0.)
             driving = drive > 1e-9
             p_roof = float(roof_kw[slot])
             p_port = 0. if driving else float(portable_kw[slot])

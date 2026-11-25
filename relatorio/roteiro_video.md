@@ -66,14 +66,14 @@ Cada um de nós vai apresentar a parte do projeto que desenvolveu."
 
 ## P5 — Solar, autonomia e otimização (75 s) · slides 5, 6, 7 · itens 8, 25, 26, 27, 29
 
-- Em 21 de junho em São Carlos, o teto de 1540 Wp gera 5,9 kWh e os portáteis 8 kWh.
-- Só com o sol do dia, o veículo anda 57,6 km a 40 km/h ou 31,9 km a 80 km/h. O
+- Em 21 de junho em São Carlos, o teto de 1560 Wp gera 5,9 kWh e os portáteis 8,5 kWh com o veículo parado.
+- Só com o sol do dia, o veículo anda 56,9 km a 40 km/h ou 31,5 km a 80 km/h. O
   consumo é de 4,44 km/kWh a 40 km/h e 2,46 km/kWh a 80 km/h.
 - Com a bateria cheia indo até 30 %, a autonomia máxima em um dia é de 351 km, a
   20,7 km/h constantes.
 - Para os 7000 km de Belém ao Chuí só com sol, o tempo é dominado pela espera para
   recarregar. O ótimo é a velocidade que gasta menos energia por km, 20,7 km/h,
-  partindo às 18h00: a viagem leva cerca de 213 dias.
+  partindo às 18h00: a viagem leva cerca de 212 dias.
 
 ## P6 — Interior e conforto térmico (75 s) · slide 9 · itens 11, 13, 31, 32
 

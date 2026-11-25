@@ -27,7 +27,7 @@ from motorhome.solar import simular_dia
 
 
 def main() -> None:
-    os.environ["MOTORHOME_SCENARIO"] = "maxeon1540_independente"
+    os.environ["MOTORHOME_SCENARIO"] = "maxeon1560_independente"
     config = carregar_configuracao(ROOT)
     params = {key: value["value"] for key, value in config["parameters"].items()}
     grid = config["development"]["mission_grid"]

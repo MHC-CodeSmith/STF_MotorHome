@@ -1,0 +1,56 @@
+{
+  "module_counts": [
+    2,
+    3,
+    4,
+    5
+  ],
+  "sizing": [
+    {
+      "hours": 24,
+      "reserve": 0.2,
+      "modulos": 2,
+      "nominal_kwh": 9.6,
+      "utilizavel_kwh": 7.68,
+      "autonomia_h": 25.49791838670578
+    },
+    {
+      "hours": 24,
+      "reserve": 0.3,
+      "modulos": 3,
+      "nominal_kwh": 14.399999999999999,
+      "utilizavel_kwh": 10.079999999999998,
+      "autonomia_h": 33.466017882551334
+    },
+    {
+      "hours": 48,
+      "reserve": 0.2,
+      "modulos": 4,
+      "nominal_kwh": 19.2,
+      "utilizavel_kwh": 15.36,
+      "autonomia_h": 50.99583677341156
+    },
+    {
+      "hours": 48,
+      "reserve": 0.3,
+      "modulos": 5,
+      "nominal_kwh": 24.0,
+      "utilizavel_kwh": 16.799999999999997,
+      "autonomia_h": 55.77669647091889
+    }
+  ],
+  "layouts": 4,
+  "all_equipment_aabb_clear": true,
+  "support_cases": 12,
+  "module_pitch_inferred_m": 0.171,
+  "gap_from_existing_estimated_cad_m": 0.010000000000000009,
+  "physical_installation_validated": false,
+  "capacity_final_approved": false,
+  "limits": [
+    "CAD remove3módulos e insere cada quantidade,sem somar água/ocupantes novamente.",
+    "Passo/folga10mm é da geometria estimada existente,não requisito de fabricante verificado.",
+    "Cargas por eixo/cursoOEM,acesso/ventilação/rack real e material/fadiga/placas/ancoragem permanecem pendentes.",
+    "Massa veicular varia só módulos;trilhos próprios4.53kg já cabem na reserva de suporte,não somados outra vez. Cálculo de esforço inclui seu peso;demaisdiferenças de rack/cabos/proteções desconhecidas.",
+    "Parafusos usam grupo no contorno geométrico disponível,não furaçãoOEM. Aprovação de beam/bolt local não prova carroceria."
+  ]
+}

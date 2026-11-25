@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/scripts/verificar_cenario_integrado.py", line 288, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/scripts/verificar_cenario_integrado.py", line 58, in main
+    extra=json.loads((out/'otimizacao_janela_missao_refino_extra/resumo.json').read_text())
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/pathlib.py", line 1058, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/pathlib.py", line 1044, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/entregas/integrado_maxeon1560/otimizacao_janela_missao_refino_extra/resumo.json'

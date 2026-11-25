@@ -50,6 +50,8 @@ def main() -> None:
                         help="snappyHexMesh timeout in s (default: configured value, min 600)")
     parser.add_argument("--solver-timeout", type=int, default=None,
                         help="simpleFoam timeout in s (default: configured value, min 600)")
+    parser.add_argument("--sem-deck", action="store_true",
+                        help="omit the fixed PV deck (same mesh settings) for the with/without comparison")
     parser.add_argument("--mesh-only", action="store_true",
                         help="stop after checkMesh so the parallel solver can be run separately")
     args = parser.parse_args()
@@ -90,8 +92,9 @@ def main() -> None:
     text = text.replace("level (4 5);", "level (5 6);")
     if "level (5 6);" not in text:
         raise ValueError("Could not set the intended finer surface refinement")
-    text = text.replace("geometry {", "geometry {pvdeck.stl {type triSurfaceMesh; name pvdeck;}")
-    text = text.replace("refinementSurfaces {", "refinementSurfaces {pvdeck {level (5 6); patchInfo {type wall;}}")
+    if not args.sem_deck:
+        text = text.replace("geometry {", "geometry {pvdeck.stl {type triSurfaceMesh; name pvdeck;}")
+        text = text.replace("refinementSurfaces {", "refinementSurfaces {pvdeck {level (5 6); patchInfo {type wall;}}")
     if args.add_wall_layers:
         text = text.replace("addLayers false;", "addLayers true;")
         text = text.replace("layers {};", "layers {ground {nSurfaceLayers 3;} aurora {nSurfaceLayers 3;} pvdeck {nSurfaceLayers 3;}}")
@@ -104,7 +107,8 @@ def main() -> None:
            body.bounds[1, 2] + verification["panel_gap_above_body_m"]]
     panel = trimesh.creation.box(extents=dims)
     panel.apply_translation(np.asarray(low) + np.asarray(dims) / 2)
-    panel.export(case / "constant/triSurface/pvdeck.stl")
+    if not args.sem_deck:
+        panel.export(case / "constant/triSurface/pvdeck.stl")
 
     # Add the deck as a no-slip wall to all fields and force coefficient data.
     for field in (case / "0").iterdir():
@@ -128,6 +132,7 @@ def main() -> None:
         "ground_grading_factor": args.ground_grading_factor,
         "max_cells_cap": args.max_celulas,
         "mesh_only": args.mesh_only,
+        "pv_deck_modelled": not args.sem_deck,
         "wake_refinement_changed": False,
         "grid_independence_claimed": False,
         "validated_cd": None,

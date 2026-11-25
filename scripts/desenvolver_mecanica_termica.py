@@ -39,9 +39,17 @@ def main():
         target.terminal=True;target.direction=1
         r=solve_ivp(rhs,[0,a['max_time_s']],[0,0],events=target,rtol=1e-8,atol=1e-9,max_step=.05,dense_output=True)
         t=float(r.t[-1]);times=np.linspace(0,t,201);ys=r.sol(times)
+        # Theoretical 0-100 with the factory limiter removed only in the model;
+        # the same torque/power envelope is integrated past 90 km/h.
+        def target100(t,y): return y[0]-100/3.6
+        target100.terminal=True;target100.direction=1
+        r100=solve_ivp(rhs,[0,a['max_time_s']],[0,0],events=target100,rtol=1e-8,atol=1e-9,max_step=.05)
+        rpm100=100/3.6/a['wheel_radius_m']*ratio*60/(2*np.pi)
         case={'mass_kg':mass,'gear_ratio_assumed':ratio,'gear_eta_assumed':gear_eta,'adhesion_mu_assumed':mu,
               'time_to_90_s':t if len(r.t_events[0]) else None,'distance_to_90_m':float(ys[1,-1]),
-              'zero_to_100_status':'NAO_ALCANCAVEL_LIMITADOR90','source':'envelope_de_engenharia_nao_curvaOEM'}
+              'zero_to_100_status':'NAO_ALCANCAVEL_LIMITADOR90','source':'envelope_de_engenharia_nao_curvaOEM',
+              'time_to_100_without_limiter_s':float(r100.t[-1]) if len(r100.t_events[0]) else None,
+              'motor_rpm_at_100_kmh':rpm100,'zero_to_100_without_limiter_status':'TEORICO_LIMITADOR_REMOVIDO_SO_NO_MODELO'}
         cases.append(case)
         name=f'{mass:.2f}_{ratio}_{gear_eta}_{mu}'
         pd.DataFrame([{'time_s':tt,'speed_kmh':v*3.6,'distance_m':xx,'acceleration_m_s2':forces(v)[0],

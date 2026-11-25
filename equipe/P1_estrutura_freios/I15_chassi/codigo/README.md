@@ -6,8 +6,8 @@ Adicionar scripts/notebooks originais ou dependências open-source autorizadas. 
 Reprodução integrada pelo repositório:
 
 ```bash
-PYTHONPATH=src .venv/bin/python scripts/executar_cenario_integrado.py --cenario maxeon1540_independente --reexecutar
-PYTHONPATH=src MOTORHOME_SCENARIO=maxeon1540_independente .venv/bin/python scripts/verificar_cenario_integrado.py
+PYTHONPATH=src .venv/bin/python scripts/executar_cenario_integrado.py --cenario maxeon1560_independente --reexecutar
+PYTHONPATH=src MOTORHOME_SCENARIO=maxeon1560_independente .venv/bin/python scripts/verificar_cenario_integrado.py
 ```
 
 CFD e campos específicos preservam comandos em `docs/EXECUCAO_TECNICA02.md`;a cadeia integrada não substitui esses ensaios. Ver arquivos reais de evidência no índice local.

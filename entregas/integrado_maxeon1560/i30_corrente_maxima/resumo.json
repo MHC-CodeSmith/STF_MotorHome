@@ -1,0 +1,260 @@
+{
+  "script": "scripts/fechar_i30_corrente_maxima.py",
+  "revisao": "2026-11-20-contorno-completo",
+  "method": "I_fase = P/(eta*sqrt(3)*V_LL*FP), V_LL,rms = V_dc/sqrt(2) (limite SVPWM linear); campo r-theta por volumes finitos; contorno = Churchill-Chu + radiação com sink distinto + conduíte + agrupamento de fases + fator de perda AC; transitório por capacidade concentrada calibrada no estacionário",
+  "motor_peak_mechanical_w": 205000,
+  "motor_normal_mechanical_w": 160000,
+  "nominal": {
+    "eta": 0.95,
+    "pf": 0.9,
+    "vdc": 400,
+    "corrente_normal_a": 381.9867045275912,
+    "corrente_pico_a": 489.4204651759762
+  },
+  "regressao_referencia_antiga_c": {
+    "120": 85.3652403100844,
+    "150": 69.44632993167374,
+    "185": 58.85030096949424,
+    "240": 49.01991299117151
+  },
+  "temperatura_modo_normal_c": {
+    "referencia_antiga": {
+      "120": 62.401131702101566,
+      "150": 52.751724474622335,
+      "185": 46.25888113816359,
+      "240": 40.156914354025105
+    },
+    "rota_protegida": {
+      "120": 133.7777771451896,
+      "150": 114.05626394788203,
+      "185": 101.08278040002648,
+      "240": 89.05842780810588
+    },
+    "hot_spot": {
+      "120": 157.90589008577655,
+      "150": 133.8566412901206,
+      "185": 118.12152921034107,
+      "240": 103.5484361483318
+    }
+  },
+  "temperatura_100_pct_pico_c": {
+    "referencia_antiga": {
+      "120": 85.3652403100844,
+      "150": 69.44632993167374,
+      "185": 58.85030096949424,
+      "240": 49.01991299117151
+    },
+    "rota_protegida": {
+      "120": 181.49750896940344,
+      "150": 148.43402262096726,
+      "185": 126.74773237022919,
+      "240": 106.81514093361966
+    },
+    "hot_spot": {
+      "120": 217.50607947989647,
+      "150": 176.25952802976423,
+      "185": 149.60346657507688,
+      "240": 125.26169499077912
+    }
+  },
+  "limites_125c": [
+    {
+      "contorno": "referencia_antiga",
+      "area_mm2": 120,
+      "corrente_max_125c_a": 630.3635413199723,
+      "potencia_equivalente_kw": 264.03580390560563
+    },
+    {
+      "contorno": "referencia_antiga",
+      "area_mm2": 150,
+      "corrente_max_125c_a": 738.1655258454375,
+      "potencia_equivalente_kw": 309.19003916990806
+    },
+    {
+      "contorno": "referencia_antiga",
+      "area_mm2": 185,
+      "corrente_max_125c_a": 852.7449976651677,
+      "potencia_equivalente_kw": 357.18311137337435
+    },
+    {
+      "contorno": "referencia_antiga",
+      "area_mm2": 240,
+      "corrente_max_125c_a": 900.0,
+      "potencia_equivalente_kw": 376.97647141433106
+    },
+    {
+      "contorno": "rota_protegida",
+      "area_mm2": 120,
+      "corrente_max_125c_a": 358.23153647352416,
+      "potencia_equivalente_kw": 150.04984507680376
+    },
+    {
+      "contorno": "rota_protegida",
+      "area_mm2": 150,
+      "corrente_max_125c_a": 419.4391434740465,
+      "potencia_equivalente_kw": 175.687431422106
+    },
+    {
+      "contorno": "rota_protegida",
+      "area_mm2": 185,
+      "corrente_max_125c_a": 482.90384909248615,
+      "potencia_equivalente_kw": 202.27043229253783
+    },
+    {
+      "contorno": "rota_protegida",
+      "area_mm2": 240,
+      "corrente_max_125c_a": 578.8408983350301,
+      "potencia_equivalente_kw": 242.45488818293467
+    },
+    {
+      "contorno": "hot_spot",
+      "area_mm2": 120,
+      "corrente_max_125c_a": 303.8929893815525,
+      "potencia_equivalente_kw": 127.28945202734495
+    },
+    {
+      "contorno": "hot_spot",
+      "area_mm2": 150,
+      "corrente_max_125c_a": 354.7669861646828,
+      "potencia_equivalente_kw": 148.59867402073215
+    },
+    {
+      "contorno": "hot_spot",
+      "area_mm2": 185,
+      "corrente_max_125c_a": 408.1626316887431,
+      "potencia_equivalente_kw": 170.96412073023288
+    },
+    {
+      "contorno": "hot_spot",
+      "area_mm2": 240,
+      "corrente_max_125c_a": 488.2809481099409,
+      "potencia_equivalente_kw": 204.52269875258844
+    }
+  ],
+  "transitorio": [
+    {
+      "contorno": "referencia_antiga",
+      "area_mm2": 120,
+      "temperatura_regime_c": 62.401131702101566,
+      "tau_s": 779.0506698679146,
+      "temperatura_apos_60s_c": 64.19581095612062,
+      "temperatura_apos_180s_c": 67.47211664370951,
+      "duracao_maxima_admissivel_s": null
+    },
+    {
+      "contorno": "referencia_antiga",
+      "area_mm2": 150,
+      "temperatura_regime_c": 52.751724474622335,
+      "tau_s": 918.929292686014,
+      "temperatura_apos_60s_c": 53.88400095875619,
+      "temperatura_apos_180s_c": 55.970057418566284,
+      "duracao_maxima_admissivel_s": null
+    },
+    {
+      "contorno": "referencia_antiga",
+      "area_mm2": 185,
+      "temperatura_regime_c": 46.25888113816359,
+      "tau_s": 1052.4010525494411,
+      "temperatura_apos_60s_c": 47.018061804766205,
+      "temperatura_apos_180s_c": 48.42722293570762,
+      "duracao_maxima_admissivel_s": null
+    },
+    {
+      "contorno": "referencia_antiga",
+      "area_mm2": 240,
+      "temperatura_regime_c": 40.156914354025105,
+      "tau_s": 1259.957598021517,
+      "temperatura_apos_60s_c": 40.61045713701742,
+      "temperatura_apos_180s_c": 41.46065222456224,
+      "duracao_maxima_admissivel_s": null
+    },
+    {
+      "contorno": "rota_protegida",
+      "area_mm2": 120,
+      "temperatura_regime_c": 133.7777771451896,
+      "tau_s": 1278.9125836906528,
+      "temperatura_apos_60s_c": 136.2641648860494,
+      "temperatura_apos_180s_c": 141.022872067874,
+      "duracao_maxima_admissivel_s": 0.0
+    },
+    {
+      "contorno": "rota_protegida",
+      "area_mm2": 150,
+      "temperatura_regime_c": 114.05626394788203,
+      "tau_s": 1589.05481417751,
+      "temperatura_apos_60s_c": 115.58852306547658,
+      "temperatura_apos_180s_c": 118.53441564467232,
+      "duracao_maxima_admissivel_s": 468.5
+    },
+    {
+      "contorno": "rota_protegida",
+      "area_mm2": 185,
+      "temperatura_regime_c": 101.08278040002648,
+      "tau_s": 1923.2916243199818,
+      "temperatura_apos_60s_c": 102.0937917491645,
+      "temperatura_apos_180s_c": 104.04618032537098,
+      "duracao_maxima_admissivel_s": 2032.5
+    },
+    {
+      "contorno": "rota_protegida",
+      "area_mm2": 240,
+      "temperatura_regime_c": 89.05842780810588,
+      "tau_s": 2505.498524491167,
+      "temperatura_apos_60s_c": 89.65302489474419,
+      "temperatura_apos_180s_c": 90.80849958250315,
+      "duracao_maxima_admissivel_s": null
+    },
+    {
+      "contorno": "hot_spot",
+      "area_mm2": 120,
+      "temperatura_regime_c": 157.90589008577655,
+      "tau_s": 1402.6762037722135,
+      "temperatura_apos_60s_c": 160.56048272765315,
+      "temperatura_apos_180s_c": 165.67264706001367,
+      "duracao_maxima_admissivel_s": 0.0
+    },
+    {
+      "contorno": "hot_spot",
+      "area_mm2": 150,
+      "temperatura_regime_c": 133.8566412901206,
+      "tau_s": 1733.67649621806,
+      "temperatura_apos_60s_c": 135.47841353580912,
+      "temperatura_apos_180s_c": 138.61111962510074,
+      "duracao_maxima_admissivel_s": 0.0
+    },
+    {
+      "contorno": "hot_spot",
+      "area_mm2": 185,
+      "temperatura_regime_c": 118.12152921034107,
+      "tau_s": 2082.5505142064853,
+      "temperatura_apos_60s_c": 119.18510235573717,
+      "temperatura_apos_180s_c": 121.24633552284632,
+      "duracao_maxima_admissivel_s": 413.0
+    },
+    {
+      "contorno": "hot_spot",
+      "area_mm2": 240,
+      "temperatura_regime_c": 103.5484361483318,
+      "tau_s": 2673.763767423994,
+      "temperatura_apos_60s_c": 104.1701166307871,
+      "temperatura_apos_180s_c": 105.38094958458652,
+      "duracao_maxima_admissivel_s": 3153.0
+    }
+  ],
+  "criterio": {
+    "t_max_projeto_c": 125,
+    "t_falha_c": 150,
+    "corrente_projeto": "modo normal",
+    "bitola_minima_hot_spot_mm2": 185,
+    "bitola_minima_rota_protegida_mm2": 150,
+    "bitola_referencia_config_mm2": 185
+  },
+  "max_abs_residuo_w_m": 5.398948133006343e-08,
+  "limits": [
+    "Bitolas 185/240 são derivadas por geometria calibrada nos pontos de catálogo (erro <1%); exigem confirmação na ficha do fabricante antes de qualquer compra.",
+    "Convecção/conduíte/fator de forma/agrupamento são hipóteses explicitadas em config/parametros_globais.yaml (development.cable_hv); não são medições.",
+    "Perda AC entra como corrente equivalente; efeito pelicular não é resolvido.",
+    "Não há condução axial, terminais/contatos, chicote completo nem EMC.",
+    "Nenhuma modificação física do chicote HV OEM é autorizada (DEC-001/DEC-040): o resultado é requisito de verificação e, se não comprovado, limite de potência contínua."
+  ]
+}

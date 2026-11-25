@@ -1,4 +1,4 @@
-"""Verificações independentes do cenário1540,com resultados condicionais separados."""
+"""Verificações independentes dos cenários integrados (1540 histórico, 1560 vigente),com resultados condicionais separados."""
 import argparse
 import ast
 import hashlib
@@ -23,6 +23,13 @@ def main():
     parser=argparse.ArgumentParser();parser.add_argument('--registrar',action='store_true');args=parser.parse_args()
     c=carregar_configuracao(ROOT)
     if '_execution' not in c:raise ValueError('Selecionar cenário')
+    # Valores de referência por cenário: o arranjo 1540 fica como histórico; 1560 é o teto vigente (PR9).
+    gold={'maxeon1540_independente':{'roof_wp':1540,'extra_days':[242.802083,244.802083],
+                                     'temporal_days':[213.822917,215.791667,212.802083,214.777778,212.785417,214.7625],
+                                     'alias_max_kwh':0.2611997137057198},
+          'maxeon1560_independente':{'roof_wp':1560,'extra_days':[211.791667,213.770833],
+                                     'temporal_days':[211.791667,213.770833,210.777778,212.753472,209.8125,211.788194],
+                                     'alias_max_kwh':0.2664698496553939}}[c['_execution']['scenario']]
     p={k:v['value'] for k,v in c['parameters'].items()};out=diretorio_entregas(ROOT);checks=[];errors=[]
     def check(ok,label):
         checks.append({'label':label,'pass':bool(ok)})
@@ -36,7 +43,7 @@ def main():
         check(abs(water.mass_kg.sum()-100)<1e-8 and water[water.id=='agua_boiler'].mass_kg.iloc[0]==15 and water[water.id=='agua0'].mass_kg.iloc[0]==85,f'{layout}:100L totais localizados85+15sem duplicar')
         check(parts[parts.id.str.startswith('MAXEON')].mass_kg.sum()==76 and not parts.id.isin(['PV190','PV_JA3']).any(),f'{layout}:inventário4Maxeon sem painéis antigos')
     nominal=summary['layouts']['A_fixa']['nominal'];check(abs(nominal['mass_kg']-p['assembled_typical_mass_kg'])<1e-8,'Massafonteúnica=CAD')
-    check(p['roof_power_48v_study_wp']==1540 and p['pv_gamma']==-.0027,'PV1540/coeftérmico próprio')
+    check(p['roof_power_48v_study_wp']==gold['roof_wp'] and p['pv_gamma']==-.0027,f"PV{gold['roof_wp']}/coeftérmico próprio")
     check(p['architecture']=='B' and not p['stored_transfer_allowed'] and not p['dc_interface_demonstrated'],'B/independência sem provaDC')
     check(p['ac_voltage_v']==220 and p['ac_frequency_hz']==60,'220V60Hz')
     for path in (out/'solar').glob('solar_*.csv'):
@@ -58,7 +65,7 @@ def main():
     extra=json.loads((out/'otimizacao_janela_missao_refino_extra/resumo.json').read_text())
     extra_best=sorted(extra['best_by_reserve_and_auxiliary'],key=lambda row:row['reserve_traction'])
     check(extra['rows_total']==292 and extra['coarse_cases']==0 and extra['refined_cases']==286 and len(extra['auxiliary_sensitivities_at_selected_policy'])==6 and extra['time_step_h']==0.25,'I29 refinamento extra:286 pontos locais+6sensibilidades auxiliares,sem alterar passo temporal')
-    check([round(row['elapsed_days'],6) for row in extra_best]==[242.802083,244.802083] and max(abs(row['energy_residual_kwh']) for row in extra_best)<1e-8,'I29 refinamento extra preserva duração e conserva energia;sem ótimo global')
+    check([round(row['elapsed_days'],6) for row in extra_best]==gold['extra_days'] and max(abs(row['energy_residual_kwh']) for row in extra_best)<1e-8,'I29 refinamento extra preserva duração e conserva energia;sem ótimo global')
     check(extra['hypothetical_dc_interface'] and not extra['physical_mission_demonstrated'] and not extra['global_optimum_claimed'],'I29 refinamento permanece condicionado e hipotético')
     temporal=json.loads((out/'otimizacao_resolucao_temporal/resumo.json').read_text())
     temporal_cases=json.loads((out/'otimizacao_resolucao_temporal/candidatos.json').read_text())
@@ -73,7 +80,7 @@ def main():
     temporal_leaders=temporal['best_local_by_resolution_and_reserve']
     check(len(temporal_leaders)==6 and
           [round(row['elapsed_days'],6) for row in temporal_leaders]==
-          [213.822917,215.791667,212.802083,214.777778,212.785417,214.7625] and
+          gold['temporal_days'] and
           temporal['hypothetical_dc_interface'] and not temporal['physical_mission_demonstrated'] and
           not temporal['global_optimum_claimed'],
           'I29 comparação15/5/1min reproduz sensibilidade temporal local sem ótimo global')
@@ -241,7 +248,7 @@ def main():
           'I29 limiar DC:5056 intervalos/20 comparações,hipóteses e limites físicos explícitos')
     check(alias_one_min.relative_difference_current_percent.abs().max()<.1 and
           alias_coarse.relative_difference_current_percent.abs().max()<5.3 and
-          abs(alias_daily.difference_current_minus_reference_kwh.abs().max()-0.2611997137057198)<1e-8,
+          abs(alias_daily.difference_current_minus_reference_kwh.abs().max()-gold['alias_max_kwh'])<1e-8,
           'I29 limiar DC:regra média aproxima referência linear em1min e erro sazonal coarsestep quantificado')
     battery=pd.read_csv(out/'mecanica_termica/I34_sensibilidades.csv');check(len(battery)==486 and battery.thermal_residual_j.abs().max()<1e-3 and ('pack_entropy_v_k' in battery.columns) and ('resistance_ref_ohm' in battery.columns),'Bateria: sweep completo inclui resistência/entropia e conserva calor')
     sensitivity=json.loads((out/'sensibilidades/resumo.json').read_text());check(sensitivity['traction_cases']==972 and sensitivity['mission_cases']==120 and sensitivity['dc_daily_cases']==36 and sensitivity['max_energy_residual_kwh']<1e-6,'972incertezas/120missões/36DC com conservação')
@@ -258,7 +265,7 @@ def main():
     pylon=json.loads((out/'protecao_pylon_documentada/resumo.json').read_text())
     check(pylon['cases']==5 and not pylon['fuse_coordination_demonstrated'] and not pylon['prospective_fault_model_replaced'],'DadoPylon2000A/1ms não substitui curto prospectivo/I²t real')
     bom=json.loads((out/'bom_atual/resumo.json').read_text())
-    check(bom['known_subtotals_by_currency']=={'EUR':50990,'USD':1951,'BRL':439} and bom['installed_total_brl'] is None,'BOM1540 inclui250/60USD465,moedas separadas e sem orçamento instalado')
+    check(bom['known_subtotals_by_currency']=={'EUR':50990,'USD':1951,'BRL':439} and bom['installed_total_brl'] is None,f"BOM{gold['roof_wp']} inclui250/60USD465,moedas separadas e sem orçamento instalado")
     # Reimport CAD independently of export; no visual estimate of solid validity.
     gmsh.initialize();gmsh.option.setNumber('General.Terminal',0)
     try:

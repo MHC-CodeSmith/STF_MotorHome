@@ -33,5 +33,5 @@ Consulte a [revisão dos 35 itens](../../../docs/REVISAO_35_ITENS.md). O método
 Método/casos, hipóteses, fontes e convergência em [cabos e radiador](../../../docs/CABOS_E_RADIADOR_2D.md). Resultados reproduzíveis em [resumo](resultados/resumo_radiador.json); o requisito continua parcial e sem aprovação humana.
 
 <!-- execucao-integrada:inicio -->
-Execução vigente: fonte única `config/parametros_globais.yaml`,cenário `maxeon1540_independente` e índice local `resultados/execucao_integrada.json`. Referências antigas às propostas elétricas permanecem históricas e não autorizam arquitetura48V→OBC,modificaçãoHV ou aprovação final. Critérios/revisão computacional e bloqueios atuais constam em `docs/REVISAO_TECNICA_EXECUCAO02.md`.
+Execução vigente: fonte única `config/parametros_globais.yaml`,cenário `maxeon1560_independente` e índice local `resultados/execucao_integrada.json`. Referências antigas às propostas elétricas permanecem históricas e não autorizam arquitetura48V→OBC,modificaçãoHV ou aprovação final. Critérios/revisão computacional e bloqueios atuais constam em `docs/REVISAO_TECNICA_EXECUCAO02.md`.
 <!-- execucao-integrada:fim -->

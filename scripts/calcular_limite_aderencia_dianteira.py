@@ -17,8 +17,8 @@ import numpy as np
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
-INPUT = ROOT / "entregas/integrado_maxeon1540/integracao/massa_cg_eixos_sensibilidade.csv"
-OUT = ROOT / "entregas/integrado_maxeon1540/integracao/limite_aderencia_tracao_dianteira"
+INPUT = ROOT / "entregas/integrado_maxeon1560/integracao/massa_cg_eixos_sensibilidade.csv"
+OUT = ROOT / "entregas/integrado_maxeon1560/integracao/limite_aderencia_tracao_dianteira"
 G = 9.80665
 MU_GRID = (0.2, 0.3, 0.5, 0.7, 0.9)
 GRADE_GRID_PERCENT = (-6.0, 0.0, 6.0)

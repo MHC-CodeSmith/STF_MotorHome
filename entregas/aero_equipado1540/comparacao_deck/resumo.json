@@ -1,0 +1,75 @@
+{
+  "area_referencia_m2": 4.827840375264284,
+  "cd_cfd": {
+    "com_deck": 0.62153633,
+    "sem_deck": 0.5554859
+  },
+  "cda_m2": {
+    "com_deck": 3.0006781886675857,
+    "sem_deck": 2.6817972559100185
+  },
+  "delta_cda_m2": 0.3188809327575673,
+  "aumento_arrasto_percentual": 11.890568239445853,
+  "celulas": {
+    "com_deck": 750513,
+    "sem_deck": 524241
+  },
+  "iteracoes_convergencia_simple": {
+    "com_deck": null,
+    "sem_deck": null
+  },
+  "cd_energia": {
+    "com_deck": 0.62487678,
+    "sem_deck": 0.5584713616457496
+  },
+  "massa_kg": 3976.52552776,
+  "por_velocidade_kmh": {
+    "40": {
+      "com_deck": {
+        "forca_aero_n": 204.84480758358342,
+        "potencia_rodas_kw": 7.475572626503051,
+        "potencia_bateria_kw": 9.006191807225612,
+        "kwh_km": 0.2251547951806403,
+        "km_kwh": 4.441388864037767
+      },
+      "sem_deck": {
+        "forca_aero_n": 183.07602759261658,
+        "potencia_rodas_kw": 7.233697293270088,
+        "potencia_bateria_kw": 8.737441436966764,
+        "kwh_km": 0.2184360359241691,
+        "km_kwh": 4.577999210474383
+      },
+      "diferenca_kwh_km": 0.006718759256471196,
+      "diferenca_percentual": 3.0758474571492584
+    },
+    "80": {
+      "com_deck": {
+        "forca_aero_n": 819.3792303343337,
+        "potencia_rodas_kw": 28.607465758578332,
+        "potencia_bateria_kw": 32.486073065087034,
+        "kwh_km": 0.40607591331358794,
+        "km_kwh": 2.4625937348511493
+      },
+      "sem_deck": {
+        "forca_aero_n": 732.3041103704663,
+        "potencia_rodas_kw": 26.672463092714615,
+        "potencia_bateria_kw": 30.336070103016237,
+        "kwh_km": 0.37920087628770294,
+        "km_kwh": 2.637124707595062
+      },
+      "diferenca_kwh_km": 0.026875037025885007,
+      "diferenca_percentual": 7.087282415849347
+    }
+  },
+  "geracao_teto_kwh_dia": 5.939912190425816,
+  "km_dia_para_empatar": {
+    "40": 884.0787359220781,
+    "80": 221.0196839805177
+  },
+  "limites": [
+    "Rodas paradas e solo móvel: a rotação das rodas não é resolvida nos dois casos.",
+    "A malha sem deck tem menos células porque o refinamento 5-6 do deck não existe; a malha do casco é a mesma.",
+    "Três malhas não estabelecem independência de malha (item 19); a diferença é entre casos com o mesmo tratamento numérico.",
+    "Massa dos módulos e suportes mantida nos dois casos; a comparação isola só o arrasto."
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "execution": {
+    "scenario": "maxeon1560_independente",
+    "source_sha256": "f0b6d5ac11dfedb6d711505b4bda5890b4c2cfd15fad0f413e0787e3cb073158",
+    "output_directory": "entregas/integrado_maxeon1560",
+    "physical_validation": false,
+    "note": "Teto vigente da revisão P5 (PR9) com quatro SPR-MAX3-390-COM em 2S2P, duas strings iguais; rastreadores independentes 250/60 teto+150/60 portáteis. InterfaceDCtração e alocaçãoFV hipotéticas;nenhuma ligação entre bancos. Mesmas dimensões e massa 76kg do arranjo1540, que fica preservado como histórico.",
+    "resolved_sha256": "0440da640352206bb0d47995fcae0d3d91bd71c4df37641f40a3d45554e15b1a"
+  },
+  "commands": [
+    {
+      "command": [
+        "/tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/.venv/bin/python",
+        "/tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/scripts/gerar_solar_cenario.py"
+      ],
+      "returncode": 0,
+      "log": "entregas/integrado_maxeon1560/logs/20261125T043638Z/gerar_solar_cenario.log"
+    },
+    {
+      "command": [
+        "/tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/.venv/bin/python",
+        "/tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/scripts/desenvolver_integracao.py"
+      ],
+      "returncode": 0,
+      "log": "entregas/integrado_maxeon1560/logs/20261125T043638Z/desenvolver_integracao.log"
+    },
+    {
+      "command": [
+        "/tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/.venv/bin/python",
+        "/tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/scripts/desenvolver_mecanica_termica.py"
+      ],
+      "returncode": 0,
+      "log": "entregas/integrado_maxeon1560/logs/20261125T043638Z/desenvolver_mecanica_termica.log"
+    },
+    {
+      "command": [
+        "/tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/.venv/bin/python",
+        "/tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/scripts/integrar_freios_massa.py"
+      ],
+      "returncode": 0,
+      "log": "entregas/integrado_maxeon1560/logs/20261125T043638Z/integrar_freios_massa.log"
+    },
+    {
+      "command": [
+        "/tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/.venv/bin/python",
+        "/tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/scripts/desenvolver_protecoes_fixacoes.py"
+      ],
+      "returncode": 0,
+      "log": "entregas/integrado_maxeon1560/logs/20261125T043638Z/desenvolver_protecoes_fixacoes.log"
+    },
+    {
+      "command": [
+        "/tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/.venv/bin/python",
+        "/tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/scripts/detalhar_rotas_cad.py"
+      ],
+      "returncode": 0,
+      "log": "entregas/integrado_maxeon1560/logs/20261125T043638Z/detalhar_rotas_cad.log"
+    },
+    {
+      "command": [
+        "/tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/.venv/bin/python",
+        "/tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/scripts/desenvolver_energia_sistemas.py"
+      ],
+      "returncode": 0,
+      "log": "entregas/integrado_maxeon1560/logs/20261125T043638Z/desenvolver_energia_sistemas.log"
+    },
+    {
+      "command": [
+        "/tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/.venv/bin/python",
+        "/tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/scripts/desenvolver_despacho_i25.py"
+      ],
+      "returncode": 0,
+      "log": "entregas/integrado_maxeon1560/logs/20261125T043638Z/desenvolver_despacho_i25.log"
+    },
+    {
+      "command": [
+        "/tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/.venv/bin/python",
+        "/tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/scripts/otimizar_grade_missao.py"
+      ],
+      "returncode": 0,
+      "log": "entregas/integrado_maxeon1560/logs/20261125T043638Z/otimizar_grade_missao.log"
+    },
+    {
+      "command": [
+        "/tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/.venv/bin/python",
+        "/tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/scripts/detalhar_paradas_hidricas.py"
+      ],
+      "returncode": 0,
+      "log": "entregas/integrado_maxeon1560/logs/20261125T043638Z/detalhar_paradas_hidricas.log"
+    },
+    {
+      "command": [
+        "/tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/.venv/bin/python",
+        "/tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/scripts/consolidar_bom_atual.py"
+      ],
+      "returncode": 0,
+      "log": "entregas/integrado_maxeon1560/logs/20261125T043638Z/consolidar_bom_atual.log"
+    },
+    {
+      "command": [
+        "/tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/.venv/bin/python",
+        "/tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/scripts/sensibilizar_cenario_integrado.py"
+      ],
+      "returncode": 0,
+      "log": "entregas/integrado_maxeon1560/logs/20261125T043638Z/sensibilizar_cenario_integrado.log"
+    },
+    {
+      "command": [
+        "/tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/.venv/bin/python",
+        "/tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/scripts/comparar_buffer_comercial.py"
+      ],
+      "returncode": 0,
+      "log": "entregas/integrado_maxeon1560/logs/20261125T043638Z/comparar_buffer_comercial.log"
+    },
+    {
+      "command": [
+        "/tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/.venv/bin/python",
+        "/tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/scripts/simular_prioridades_servicos.py"
+      ],
+      "returncode": 0,
+      "log": "entregas/integrado_maxeon1560/logs/20261125T043638Z/simular_prioridades_servicos.log"
+    },
+    {
+      "command": [
+        "/tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/.venv/bin/python",
+        "/tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/scripts/comparar_bancos_servicos_cad.py"
+      ],
+      "returncode": 0,
+      "log": "entregas/integrado_maxeon1560/logs/20261125T043638Z/comparar_bancos_servicos_cad.log"
+    },
+    {
+      "command": [
+        "/tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/.venv/bin/python",
+        "/tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/scripts/conferir_protecao_pylon_documentada.py"
+      ],
+      "returncode": 0,
+      "log": "entregas/integrado_maxeon1560/logs/20261125T043638Z/conferir_protecao_pylon_documentada.log"
+    },
+    {
+      "command": [
+        "/tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/.venv/bin/python",
+        "/tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/scripts/verificar_cenario_integrado.py",
+        "--registrar"
+      ],
+      "returncode": 1,
+      "log": "entregas/integrado_maxeon1560/logs/20261125T043638Z/verificar_cenario_integrado.log"
+    }
+  ],
+  "complete": false,
+  "physical_validation": false
+}

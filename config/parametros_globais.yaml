@@ -4184,3 +4184,59 @@ development:
         part_number: SCC125060221
         price_status: lista_2026Q2_exVAT_nao_cotacao_atual
         mass_accounted_in: development.mass_allowances.suportes_eletricos
+    maxeon1560_independente:
+      version: 1.0.0-maxeon1560-integrado
+      reference_date: '2026-11-25'
+      source: maxeon3_2022
+      status: comparador_condicional_nao_instalado
+      owner: P1-P2-P3-P4-P5
+      output_directory: entregas/integrado_maxeon1560
+      note: Teto vigente da revisão P5 (PR9) com quatro SPR-MAX3-390-COM em 2S2P, duas strings
+        iguais; rastreadores independentes 250/60 teto+150/60 portáteis. InterfaceDCtração
+        e alocaçãoFV hipotéticas;nenhuma ligação entre bancos. Mesmas dimensões e massa
+        76kg do arranjo1540, que fica preservado como histórico.
+      parameter_sources: {assembled_typical_mass_kg: hyp, roof_arrangement_provisional: hyp}
+      parameter_values:
+        roof_power_48v_study_wp: 1560
+        pv_gamma: -0.0027
+        assembled_typical_mass_kg: 3976.52552776
+        roof_arrangement_provisional: 4Maxeon390_2S2P_comparador_independente
+      allowance_overrides:
+        suportes_eletricos:
+          mass_kg: 18
+          note: Reserva anterior15kg+MPPT250/60 3kg para teto independente;150/60 preservado
+            para portáteis. Diferença de suportes não demonstrada.
+      roof_inventory:
+      - {id: MAXEON_1, model: SPR-MAX3-390-COM, mass_kg: 19, position_m: [0.025, 0.065, 2.0], dimensions_m: [1.046, 1.69, 0.04], source: maxeon3_2022}
+      - {id: MAXEON_2, model: SPR-MAX3-390-COM, mass_kg: 19, position_m: [1.091, 0.065, 2.0], dimensions_m: [1.046, 1.69, 0.04], source: maxeon3_2022}
+      - {id: MAXEON_3, model: SPR-MAX3-390-COM, mass_kg: 19, position_m: [2.157, 0.065, 2.0], dimensions_m: [1.046, 1.69, 0.04], source: maxeon3_2022}
+      - {id: MAXEON_4, model: SPR-MAX3-390-COM, mass_kg: 19, position_m: [3.2230000000000003, 0.065, 2.0], dimensions_m: [1.046, 1.69, 0.04], source: maxeon3_2022}
+      bom_remove_ids: [pv_teto, pv_cabine]
+      bom_add:
+      - id: SPR-MAX3-390-COM
+        model: SPR-MAX3-390-COM
+        quantity: 4
+        unit_mass_kg: 19
+        owner: P5
+        source: maxeon3_2022
+        scope: conversao
+        status: provisorio_instalacao_nao_validada
+        unit_reference_price: null
+        installed_price_brl: null
+        price_currency: EUR
+        dimensions_m: [1.046, 1.69, 0.04]
+      - id: mppt_teto_250
+        model: SmartSolar250/60-Tr comparador teto independente
+        quantity: 1
+        unit_mass_kg: 3
+        owner: P2
+        source: mppt250_60
+        scope: conversao
+        status: provisorio_comparador_independente_nao_HV
+        unit_reference_price: 465
+        installed_price_brl: null
+        price_currency: USD
+        price_source: victron_price_2026q2
+        part_number: SCC125060221
+        price_status: lista_2026Q2_exVAT_nao_cotacao_atual
+        mass_accounted_in: development.mass_allowances.suportes_eletricos

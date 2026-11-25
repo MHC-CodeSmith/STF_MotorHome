@@ -42,7 +42,7 @@ def salvar_resultado(area_corpo, area_deck, area_equipada):
         "revisao_do_calculo": "2026-11-19",
         "commit_de_origem": "5144702c6fe460329e138d985bfdb9f430d76249",
         "revisao_configuracao_do_caso": "1.1.1-execucao1540",
-        "cenario": "maxeon1540_independente",
+        "cenario": "maxeon1560_independente",
         "metodo_area": "União geométrica das projeções triangulares em YZ, observação ao longo de X",
         "superficies_com_forca": ["aurora", "pvdeck"],
         "ultima_iteracao_malha_fina": iteracao,

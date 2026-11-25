@@ -1,0 +1,46 @@
+{
+  "source_case": "cfd-aurora-refino-semcamadas-02",
+  "source_snappy_sha256": "7bcffc3854bc1074a0f920d8d991cd204f08e6c13fab617536fb4d6916b4c33e",
+  "block_mesh_dimensions": [
+    55,
+    20,
+    10
+  ],
+  "surface_levels_body_deck": [
+    5,
+    6
+  ],
+  "wall_layers_requested": 0,
+  "wall_layer_patches": [],
+  "ground_grading_factor": 1.0,
+  "max_cells_cap": 5000000,
+  "mesh_only": false,
+  "pv_deck_modelled": false,
+  "wake_refinement_changed": false,
+  "grid_independence_claimed": false,
+  "validated_cd": null,
+  "physical_validation": false,
+  "block_mesh_exit": 0,
+  "snappy_exit": 0,
+  "check_mesh_exit": 0,
+  "cell_count": 524241,
+  "mesh_ok": true,
+  "solver_exit": 0,
+  "solver_converged": true,
+  "last_cd_diagnostic": 0.5554859,
+  "last50_cd_relative_span": 7.933651843552713e-05,
+  "finite_coefficients": true,
+  "yplus_exit": 0,
+  "yplus_summary": {
+    "ground": [
+      56.817738,
+      13990.133,
+      1497.3872
+    ],
+    "aurora": [
+      5.7578899,
+      1328.8893,
+      292.95182
+    ]
+  }
+}

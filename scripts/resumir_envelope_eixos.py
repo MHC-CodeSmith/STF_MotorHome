@@ -10,8 +10,8 @@ from collections import defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-INPUT = ROOT / "entregas/integrado_maxeon1540/integracao/massa_cg_eixos_sensibilidade.csv"
-OUT = ROOT / "entregas/integrado_maxeon1540/integracao/envelope_cargas_eixos"
+INPUT = ROOT / "entregas/integrado_maxeon1560/integracao/massa_cg_eixos_sensibilidade.csv"
+OUT = ROOT / "entregas/integrado_maxeon1560/integracao/envelope_cargas_eixos"
 FACTORS = (
     "estimated_mass_factor",
     "oem_rear_fraction_assumed",
@@ -63,7 +63,7 @@ def main() -> None:
     layouts = sorted({row["layout"] for row in rows})
     summary: dict[str, object] = {
         "source": str(INPUT.relative_to(ROOT)),
-        "scenario": "maxeon1540_independente",
+        "scenario": "maxeon1560_independente",
         "method": "envelope_fatorial_finito; sem interpretação probabilística",
         "cases": len(rows),
         "factor_levels": {factor: sorted({row[factor] for row in rows}) for factor in ("layout", *FACTORS)},

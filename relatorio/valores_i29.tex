@@ -1,10 +1,30 @@
-\newcommand{\IbResposta}{Velocidade ótima \textbf{constante de \SI{20,7}{km/h}}, com partida às 18h00 (janela de 8\,h até 02h00); a viagem de \SI{7000}{km} termina em \textbf{212,8 dias} (\SI{32,9}{km/dia} em média) com reservas de 10\,\% na tração e 20\,\% nos serviços, ou 214,8 dias com reservas de 20/30\,\%.}
-\newcommand{\IbResumo}{20,7 km/h constantes; 212,8 dias (31 km/dia em regime)}
+\newcommand{\IbResposta}{Velocidade ótima \textbf{constante de \SI{20,7}{km/h}}, com partida às 18h00 (janela de 8\,h até 02h00); a viagem de \SI{7000}{km} termina em \textbf{211,8 dias} (\SI{33,1}{km/dia} em média) com reservas de 10\,\% na tração e 20\,\% nos serviços, ou 212,8 dias com reservas de 20/30\,\%.}
+\newcommand{\IbResumo}{20,7 km/h constantes; 211,8 dias (31 km/dia em regime)}
 \newcommand{\IbTexto}{%
-A viagem parte com a tração cheia (\SI{98}{kWh} úteis) e o banco de serviços nominalmente cheio (\SI{14,4}{kWh} nominais, soma de referência \SI{112,4}{kWh} no modelo) e só recebe energia solar. Nos primeiros 4 dias a bateria de tração desce até a reserva e o veículo percorre \SI{585}{km}; daí em diante cada dia roda o que o sol repôs, \SI{30,7}{km} em cerca de \SI{1,5}{h} de condução, bem abaixo do limite de 8\,h. Ao longo da viagem, os painéis geram \SI{3069}{kWh}: \SI{1281}{kWh} chegam à tração e \SI{1538}{kWh} abastecem a habitação (\SI{7,23}{kWh/dia}). A tração consome \SI{1366}{kWh} (\SI{0,195}{kWh/km}), em \SI{338}{h} de condução.
+A viagem parte com a tração cheia (\SI{98}{kWh} úteis) e o banco de serviços nominalmente cheio (\SI{14,4}{kWh} nominais) e só recebe energia solar. O tempo é contado a partir de 0h do primeiro dia, e a primeira partida é às 18h00: antes dela o veículo não roda, embora a janela diária de condução (18h00 a 02h00) cruze a meia-noite. Nos primeiros 4 dias a bateria de tração desce até a reserva e o veículo percorre \SI{545}{km}; daí em diante cada dia roda o que o sol repôs, \SI{31,1}{km} em cerca de \SI{1,5}{h} de condução, bem abaixo do limite de 8\,h. Ao longo da viagem, os painéis geram \SI{3071}{kWh}: \SI{1282}{kWh} chegam à tração e \SI{1530}{kWh} abastecem a habitação (\SI{7,23}{kWh/dia}). A tração consome \SI{1366}{kWh} (\SI{0,195}{kWh/km}), em \SI{338}{h} de condução.
 
-Como a energia solar diária é fixa, o tempo total é dominado pelos dias de espera para acumular energia, e não pelas horas ao volante. O tempo mínimo corresponde, portanto, à velocidade que minimiza o consumo por quilômetro, o mesmo $v^{*}$ do item 27; rodar mais rápido gasta mais energia por quilômetro e exige mais dias parados. Partir no fim da tarde deixa todo o período de sol com o veículo parado e os portáteis abertos.
+Como a energia solar diária é fixa, o tempo total é dominado pelos dias de espera para acumular energia, e não pelas horas ao volante. O tempo mínimo corresponde, portanto, à velocidade que minimiza o consumo por quilômetro, o mesmo $v^{*}$ do item 27; rodar mais rápido gasta mais energia por quilômetro e exige mais dias parados. Partir no fim da tarde deixa todo o período de sol com o veículo parado e os portáteis abertos. A Tabela~\ref{tab:i29comparacao} compara a melhor velocidade com 40 e \SI{80}{km/h} sob a mesma partida, as mesmas reservas e a mesma geração. A distância até a primeira vez que a tração atinge a reserva mede a autonomia com a bateria inicialmente cheia; o ritmo depois disso é o que a geração diária sustenta.
+\IbComparacao
 
-O ótimo foi obtido em duas etapas: varredura de \num{2784} combinações (\SIrange{12}{40}{km/h} a cada \SI{1}{km/h}, partida a cada \SI{0,5}{h}, duas reservas) com passo de \SI{5}{min}, e refino de \num{294} casos (passo de \SI{0,1}{km/h} e \SI{0,25}{h}) com passo de \SI{1}{min}; o líder não está na borda da grade. Entre passos de 5 e \SI{1}{min} o tempo de viagem muda menos de \SI{0,03}{dias}.
+Em pista plana, o mínimo de consumo específico pode ser calculado diretamente (item 27), mas o tempo total também depende da agenda solar, da abertura dos portáteis, das reservas e da energia disponível em cada horário, interações que o simulador resolve intervalo a intervalo e que não têm forma fechada. Por isso a velocidade e o horário foram buscados numa grade; a velocidade publicada é a melhor combinação encontrada nas condições testadas, não um ótimo global demonstrado.
+
+O ótimo foi obtido em duas etapas: varredura de \num{2784} combinações (\SIrange{12}{40}{km/h} a cada \SI{1}{km/h}, partida a cada \SI{0,5}{h}, duas reservas) com passo de \SI{5}{min}, e refino de \num{294} casos (passo de \SI{0,1}{km/h} e \SI{0,25}{h}) com passo de \SI{1}{min}; o líder não está na borda da grade. Para o líder, entre passos de 5 e \SI{1}{min} a duração muda \SI{0,03}{dias}. A chegada é discretizada pela janela diária: se o último trecho não cabe antes do fim da janela, o veículo espera até a noite seguinte, de modo que uma pequena mudança de velocidade pode antecipar ou atrasar a chegada em quase um dia, como ocorre com as reservas de 20/30\,\%.
+
+\textbf{Cenário opcional: acumular por mais de um dia.} Em vez de rodar todo dia o que o sol repôs, o veículo pode esperar alguns dias e percorrer um trecho maior depois, até 8\,h por dia. Como a energia é o limite e a interface só carrega com o veículo parado, o tempo total fica praticamente o mesmo (a energia diária é igual e a reserva é a mesma); a vantagem é operacional, com menos montagens dos portáteis e trechos contínuos. A hipótese de dias claros repetidos, a recarga só pela interface CC e a operação diária dos portáteis continuam valendo; esse cenário não foi simulado.
 \begin{figure}[H]\centering\includegraphics[width=\linewidth]{i29_missao.png}
 \caption{Item 29 — distância acumulada e SOC da tração ao longo da viagem, e um dia típico.}\end{figure}}
+\newcommand{\IbComparacao}{%
+\begin{table}[H]\centering\small\setlength{\tabcolsep}{4pt}
+\caption{Item 29 — mesma partida (18h00), mesmas reservas e mesma geração; só a velocidade muda.}
+\label{tab:i29comparacao}
+\begin{tabular}{rrrrrrr}
+\toprule
+$v$ & Viagem & Ao volante & Consumo & Até a reserva & \multicolumn{2}{c}{Depois da reserva} \\
+{}[km/h] & [dias] & [h] & [kWh/km] & [km] & [km/dia] & [h/dia] \\
+\midrule
+20,7 & 211,8 & 338 & 0,195 & 545 & 31,1 & 1,50 \\
+40,0 & 245,8 & 175 & 0,225 & 419 & 27,0 & 0,67 \\
+80,0 & 454,8 & 88 & 0,406 & 217 & 14,9 & 0,19 \\
+\bottomrule
+\end{tabular}
+\end{table}}

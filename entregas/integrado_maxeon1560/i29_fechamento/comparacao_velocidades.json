@@ -1,0 +1,32 @@
+[
+ {
+  "speed_kmh": 20.7,
+  "elapsed_days": 211.76944444444442,
+  "driving_h": 338.1642512076963,
+  "kwh_per_km": 0.19517921788398573,
+  "dias_ate_reserva": 4,
+  "km_bateria_cheia": 545.299171770646,
+  "km_dia_regime": 31.06665104432755,
+  "h_dia_regime": 1.5008043982766932
+ },
+ {
+  "speed_kmh": 40.0,
+  "elapsed_days": 245.7736111111111,
+  "driving_h": 175.00000000000793,
+  "kwh_per_km": 0.22515479518060152,
+  "dias_ate_reserva": 2,
+  "km_bateria_cheia": 418.7209154366102,
+  "km_dia_regime": 26.997504178430813,
+  "h_dia_regime": 0.6749376044607703
+ },
+ {
+  "speed_kmh": 80.0,
+  "elapsed_days": 454.7520833333333,
+  "driving_h": 87.50000000000219,
+  "kwh_per_km": 0.40607591331365783,
+  "dias_ate_reserva": 1,
+  "km_bateria_cheia": 217.20076741387075,
+  "km_dia_regime": 14.948249235041816,
+  "h_dia_regime": 0.1868531154380227
+ }
+]

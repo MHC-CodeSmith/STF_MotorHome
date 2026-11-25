@@ -59,7 +59,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path, default=ROOT / "config/cabos_tracao_proposta.yaml")
     parser.add_argument("--destino", type=Path,
-                        default=ROOT / "entregas/integrado_maxeon1540/i30_corrente_maxima")
+                        default=ROOT / "entregas/integrado_maxeon1560/i30_corrente_maxima")
     args = parser.parse_args()
     modelo = yaml.safe_load(args.config.read_text())["model"]
     globais = yaml.safe_load((ROOT / "config/parametros_globais.yaml").read_text())

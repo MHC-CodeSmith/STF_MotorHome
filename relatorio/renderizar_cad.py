@@ -34,7 +34,7 @@ CORES = M.CORES
 
 ROTULOS = {
     "geladeira_AC": "geladeira", "cassete": "cassete", "boiler": "boiler", "inversor": "inversor",
-    "tanque_limpa": "água limpa", "tanque_cinza": "água cinza", "US5000_2": "banco 48 V",
+    "tanque_limpa": "água limpa", "tanque_cinza": "água cinza", "US5000_2": "banco 48 V (sob a cama)",
     "lava_seca": "lava e seca", "hvac": "A/C", "cama_colchao": "cama", "cama_conversivel_colchao": "cama conversível",
     "portatil_bolsa_2": "painéis portáteis", "banho": "banho", "tampo": "bancada",
 }
@@ -195,7 +195,7 @@ def cad() -> None:
         desenhar(ax, teto)
         enquadrar(ax, tri, 16, azim, zoom=1.25)
         ax.set_title(f"Vista {tit}", fontsize=9)
-    fig.suptitle("Aurora Solar — exterior com teto de 4 módulos Maxeon (1540 Wp)", fontsize=10)
+    fig.suptitle("Aurora Solar — exterior com teto de 4 módulos Maxeon (1560 Wp)", fontsize=10)
     salvar(fig, "cad_exterior.png")
 
     # 2. estacionado, portáteis abertos no solo
@@ -204,7 +204,7 @@ def cad() -> None:
     desenhar(axs[0], sob)
     desenhar(axs[0], teto)
     enquadrar(axs[0], tri, 28, -62, zoom=1.3)
-    axs[0].set_title("Estacionado: teto 1540 Wp + 4 painéis portáteis de 400 W abertos (≈ 13,9 kWh/dia em 21/06)", fontsize=9)
+    axs[0].set_title("Estacionado: teto 1560 Wp + 4 painéis portáteis de 400 W abertos (≈ 14,5 kWh/dia em 21/06)", fontsize=9)
     salvar(fig, "cad_estacionado.png")
 
     # 3. interiores em corte (carroceria fantasma), com tração sob o piso e bancos da cabine
@@ -262,7 +262,7 @@ def cad() -> None:
     desenhar(axs[0], teto)
     enquadrar(axs[0], tri, 90, -90, zoom=1.1)
     axs[0].set_proj_type("ortho")
-    axs[0].set_title("Teto: 2× SPR-MAX3-380 + 2× SPR-MAX3-390, deck de 4,24 × 1,69 m a 40 mm do teto", fontsize=9)
+    axs[0].set_title("Teto: 4× SPR-MAX3-390 (1560 Wp, 2S2P), deck de 4,24 × 1,69 m a 40 mm do teto", fontsize=9)
     salvar(fig, "cad_teto.png")
 
     # 7. corte longitudinal: metade esquerda da carroceria, interior A, tração sob o piso e deck sobre trilhos
@@ -278,14 +278,38 @@ def cad() -> None:
     rotular(axs[0], lay, 0.06, so={"cama_colchao", "cassete", "geladeira_AC", "lava_seca", "US5000_2", "tampo"})
     salvar(fig, "cad_corte.png", aparar=True, dpi=400)     # título vai na legenda do relatório
 
-    # 8. banco de serviços e chapas de fixação (STEP)
-    banco = partes_step(E / "integrado_maxeon1540/bancos_24_48_cad/A_banco_3modulos.step", CORES["energia"])
+    # 8. banco de serviços na montagem final (sobre a caixa de roda, sob o estrado) e chapas de fixação
+    modulos = [p for p in lay if p.dono.startswith("US5000")]
+    vb = np.vstack([p.v for p in modulos])
+    lo, hi = vb.min(0) - [0.45, 0.35, 0], vb.max(0) + [0.45, 0.35, 0]
+    perto = [p for p in G["arcos"] + lay if not p.dono.startswith("US5000")
+             and p.dono in {"estrado", "cama_colchao", "piso", "pedestal_banco"} | {a.dono for a in G["arcos"]}
+             and np.all(p.v.max(0)[:2] >= lo[:2]) and np.all(p.v.min(0)[:2] <= hi[:2])]
+    corte = []
+    for p in perto:
+        t = fatiar(p.tri, 0.04)
+        corte.append((p.dono, t[np.all((t[..., :2] >= lo[:2]) & (t[..., :2] <= hi[:2]), axis=(1, 2))], p.rgb))
+    corte = [c for c in corte if len(c[1])]
     chapas = partes_step(E / "desenvolvimento_2026-11-09/fixacoes_redimensionadas/chapas_locais_condicionais.step",
                          (0.62, 0.64, 0.68))
     fig, axs = figura_3d(2, (12, 4.2))
-    tri = desenhar(axs[0], banco, aresta=(0.1, 0.1, 0.15, 0.25))
-    enquadrar(axs[0], tri, 25, -60, zoom=1.2)
-    axs[0].set_title("Banco de serviços: 3× Pylontech US5000 no suporte (STEP)", fontsize=9)
+    tri = desenhar(axs[0], corte, alfa={"estrado": 0.35, "cama_colchao": 0.2}, lim=None)
+    desenhar(axs[0], lista(modulos), aresta=(0.1, 0.1, 0.15, 0.25))
+    enquadrar(axs[0], tri, 18, -55, zoom=1.15)
+    topo = vb.max(0)
+    axs[0].text(vb[:, 0].max() + 0.05, vb[:, 1].mean(), topo[2] - 0.2, "3× US5000\n(banco 48 V)", fontsize=8,
+                ha="left", zorder=50, bbox={"fc": "white", "ec": "0.6", "lw": 0.4, "pad": 1.5})
+    for dono, txt, desloc in (("estrado", "estrado da cama", (0, 0, 0)), ("caixa_roda_esquerda", "caixa de roda", (0.25, 0, -0.12)),
+                              ("pedestal_banco", "pedestal de aço", (-0.12, 0, -0.22))):
+        vs = [p.v for p in perto if p.dono == dono]
+        if vs:
+            v = np.vstack(vs)
+            v = v[np.all((v[:, :2] >= lo[:2]) & (v[:, :2] <= hi[:2]), axis=1)]
+            if len(v):
+                v = v[v[:, 2] >= v[:, 2].max() - 0.02]
+                axs[0].text(*v.mean(0) + [0, 0, 0.06] + np.asarray(desloc), txt, fontsize=8, ha="center", zorder=50,
+                            bbox={"fc": "white", "ec": "0.6", "lw": 0.4, "pad": 1.5})
+    axs[0].set_title("Banco de serviços: 3× US5000 no pedestal e na caixa de roda, sob o estrado", fontsize=9)
     tri = desenhar(axs[1], chapas, aresta=(0.1, 0.1, 0.15, 0.25))
     enquadrar(axs[1], tri, 30, -50, zoom=1.2)
     axs[1].set_title("18 chapas de fixação dimensionadas (STEP, 33,1 kg)", fontsize=9)

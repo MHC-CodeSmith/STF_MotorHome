@@ -1,0 +1,232 @@
+{
+  "inverter_dimensions_xyz_m": [
+    0.323,
+    0.148,
+    0.565
+  ],
+  "inverter_position_m": [
+    0.61,
+    1.4,
+    0.28
+  ],
+  "vertical_height_565mm": true,
+  "service_envelope_collisions": [],
+  "routes": [
+    {
+      "id": "cabo_positivo",
+      "points_m": [
+        [
+          0.512,
+          1.65,
+          0.5
+        ],
+        [
+          0.56,
+          1.7,
+          0.5
+        ],
+        [
+          0.56,
+          1.7,
+          0.26
+        ],
+        [
+          0.774,
+          1.7,
+          0.26
+        ],
+        [
+          0.774,
+          1.5,
+          0.26
+        ],
+        [
+          0.774,
+          1.5,
+          0.28
+        ]
+      ],
+      "radius_m": 0.007,
+      "length_m": 0.7433108938046538
+    },
+    {
+      "id": "cabo_retorno",
+      "points_m": [
+        [
+          0.537,
+          1.65,
+          0.5
+        ],
+        [
+          0.5850000000000001,
+          1.7,
+          0.5
+        ],
+        [
+          0.5850000000000001,
+          1.7,
+          0.26
+        ],
+        [
+          0.799,
+          1.7,
+          0.26
+        ],
+        [
+          0.799,
+          1.5,
+          0.26
+        ],
+        [
+          0.799,
+          1.5,
+          0.28
+        ]
+      ],
+      "radius_m": 0.007,
+      "length_m": 0.7433108938046538
+    },
+    {
+      "id": "tanque_bomba",
+      "points_m": [
+        [
+          0.86,
+          0.9,
+          0.155
+        ],
+        [
+          0.88,
+          1.15,
+          0.35
+        ],
+        [
+          1.2,
+          1.15,
+          0.35
+        ],
+        [
+          1.2,
+          1.38,
+          0.35
+        ],
+        [
+          1.2,
+          1.38,
+          0.44
+        ]
+      ],
+      "radius_m": 0.0065,
+      "length_m": 0.9576869528325014
+    },
+    {
+      "id": "bomba_boiler",
+      "points_m": [
+        [
+          1.2,
+          1.38,
+          0.35
+        ],
+        [
+          1.2,
+          1.15,
+          0.35
+        ],
+        [
+          0.8,
+          1.15,
+          0.35
+        ],
+        [
+          0.8,
+          0.85,
+          0.35
+        ],
+        [
+          0.8,
+          0.85,
+          0.4
+        ]
+      ],
+      "radius_m": 0.0065,
+      "length_m": 0.9799999999999999
+    },
+    {
+      "id": "principal_pia",
+      "points_m": [
+        [
+          1.2,
+          1.15,
+          0.35
+        ],
+        [
+          3.0,
+          1.15,
+          0.35
+        ],
+        [
+          3.0,
+          1.15,
+          0.95
+        ],
+        [
+          3.0,
+          0.3,
+          0.95
+        ]
+      ],
+      "radius_m": 0.0065,
+      "length_m": 3.25
+    }
+  ],
+  "estimated_cable_loop_with_slack_m": 1.783946145131169,
+  "route_equipment_aabb_contacts": [
+    {
+      "route": "cabo_positivo",
+      "part": "inversor",
+      "overlap_aabb_m3": 1.3720000000000036e-06,
+      "requires_terminal_or_passage_confirmation": true
+    },
+    {
+      "route": "cabo_retorno",
+      "part": "inversor",
+      "overlap_aabb_m3": 1.3720000000000036e-06,
+      "requires_terminal_or_passage_confirmation": true
+    },
+    {
+      "route": "tanque_bomba",
+      "part": "bomba",
+      "overlap_aabb_m3": 5.619249999999914e-06,
+      "requires_terminal_or_passage_confirmation": true
+    },
+    {
+      "route": "bomba_boiler",
+      "part": "boiler",
+      "overlap_aabb_m3": 1.098500000000003e-06,
+      "requires_terminal_or_passage_confirmation": true
+    }
+  ],
+  "electrical_for_estimated_route": [
+    {
+      "temperature_c": 20,
+      "status": "calculado",
+      "current_a": 102.27679064020153,
+      "loop_resistance_ohm": 0.0004393604506008765,
+      "load_voltage_v": 43.45506362317831,
+      "drop_percent": 0.10330201568204701,
+      "loss_w": 4.595948404321239,
+      "energy_residual_w": 1.1324274851176597e-12
+    },
+    {
+      "temperature_c": 90,
+      "status": "calculado",
+      "current_a": 102.30593283520368,
+      "loop_resistance_ohm": 0.0005602285105611777,
+      "load_voltage_v": 43.44268529962616,
+      "drop_percent": 0.13175793189388055,
+      "loss_w": 5.863633886915697,
+      "energy_residual_w": -1.7497114868092467e-13
+    }
+  ],
+  "oem_passages_validated": false,
+  "note": "Envelopes e AABB de rotas não são verificação de chaparia/terminais reais;contatos em pontos de conexão explicitamente listados. CabosHV não alterados;sem central própria/energia entre bancos."
+}

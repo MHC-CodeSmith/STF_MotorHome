@@ -1740,8 +1740,8 @@
       "volume_m3": 0.28283840000000027
     }
   ],
-  "input_hashes": 205,
-  "output_hashes": 1519,
+  "input_hashes": 207,
+  "output_hashes": 1535,
   "stage_complete": false,
   "final_human_approved": 0,
   "physical_mission_demonstrated": false

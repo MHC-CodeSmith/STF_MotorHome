@@ -24,7 +24,7 @@ tributos_importacao:
 itens:
   - {id: veiculo, descricao: 'Fiat E-Ducato L3H2 SK MY25 505.GG1.2 (sem IVA)', qtd: 1, preco: 50990, moeda: EUR, importado: veiculo,
      fonte: 'https://www.fiat.sk/content/dam/fiat2023/sk/cenniky/2026/03/e_Ducato_pricelist_dodavka_200326.pdf'}
-  - {id: modulos_maxeon, descricao: 'Maxeon 3 SPR-MAX3-380/390-COM (preço do 400 W como referência)', qtd: 4, preco: 346, moeda: EUR, importado: componentes,
+  - {id: modulos_maxeon, descricao: 'Maxeon 3 SPR-MAX3-390-COM, 4 unidades (preço do 400 W como referência)', qtd: 4, preco: 346, moeda: EUR, importado: componentes,
      fonte: 'https://www.europe-solarstore.com/sunpower-spr-max3-400.html'}
   - {id: bateria_servicos, descricao: 'Pylontech US5000 4,8 kWh', qtd: 3, preco: 908, moeda: EUR, importado: componentes,
      fonte: 'https://suministrosdelsol.com/pt/baterias-pylontech/1505-bateria-litio-pylontech-us5000-48kwh-48v.html'}

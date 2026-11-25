@@ -94,3 +94,22 @@ do PDF. As páginas foram tiradas do sumário do PDF de 16/11 (52 p.): se o rela
   Pasta 1350 Wp (desenvolvimento_2026-11-09) e 1540 Wp (integrado_maxeon1540) seguem distintas
   por desenho: o relatório usa a 1540; as figuras I31/I35 vêm da 1350, mas não dependem de Wp,
   massa nem inventário do teto.
+
+## 25/11/2026 — PR #9 (checklist da P5 e do projeto)
+
+- Cenário vigente passou a `maxeon1560_independente` (4×SPR-MAX3-390-COM, 2S2P, 1560 Wp), saídas em
+  `entregas/integrado_maxeon1560/`. Scripts, figuras, CI e verificadores apontam para ele; o
+  `maxeon1540_independente` fica registrado como histórico (valores de referência por cenário em
+  `scripts/verificar_cenario_integrado.py`).
+- Cadeia completa: `scripts/executar_cenario_integrado.py --cenario maxeon1560_independente`, depois
+  `sensibilizar_resistencias_rota`, `sensibilizar_ventilacao_mecanica`, envelopes de eixo/aderência,
+  `otimizar_janela_missao` (normal, `--densa`, `--refino-extra`), `refinar_velocidade_missao`,
+  `refinar_resolucao_missao`, `analisar_aliasing_limiar_dc`, `fechar_i29_velocidade` (busca e `--figura`),
+  `calcular_custo_brl_i24`, `fechar_i30_corrente_maxima`, `calcular_i32_protecao_parabrisa`. Densa: ~26 min.
+- Novos: `scripts/analisar_geracao_portateis_p5.py` (I08), `scripts/comparar_cfd_deck.py` e o caso
+  `entregas/aero_equipado1540/sem_deck_bg_55x20x10` (rodado no mhc-lenovo com `--sem-deck`, clone em
+  `/home/mhc/stf_semdeck`).
+- `simular_missao` ganhou `primeira_partida_h`; o I29 (fechamento) não dirige antes da primeira partida.
+- Relatório: seção "Simulações e algoritmos", mapa de dependências, quatro fluxogramas (TikZ), tabela
+  de escolhas, I08/I09/I13/I17/I19–I20/I23/I25–I32 revistos; 70 páginas.
+- Pendente: cotação do Renogy; estrutura da cama; rotação máxima do motor; nomes da capa P2–P7; vídeo.

@@ -126,7 +126,7 @@ def solve_steady_climb(mass_kg: float, cg_x_m: float, cg_z_m: float,
 
 
 def main() -> None:
-    os.environ["MOTORHOME_SCENARIO"] = "maxeon1540_independente"
+    os.environ["MOTORHOME_SCENARIO"] = "maxeon1560_independente"
     config = carregar_configuracao(ROOT)
     p = {k: v["value"] for k, v in config["parameters"].items()}
     source = pd.read_csv(diretorio_entregas(ROOT) / "integracao/massa_cg_eixos_sensibilidade.csv")

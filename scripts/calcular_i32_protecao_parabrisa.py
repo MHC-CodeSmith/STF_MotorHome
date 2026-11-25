@@ -18,13 +18,13 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path, default=ROOT / "config/protecao_solar_cabine.yaml")
     parser.add_argument("--destino", type=Path,
-                        default=ROOT / "entregas/integrado_maxeon1540/i32_protecao_solar")
+                        default=ROOT / "entregas/integrado_maxeon1560/i32_protecao_solar")
     args = parser.parse_args()
     cfg = yaml.safe_load(args.config.read_text())
     cabine = json.loads(
         (ROOT / "entregas/etapa_pos_dec061/cabine_31_32_reexecutada.json").read_text())
     ventilacao = json.loads(
-        (ROOT / "entregas/integrado_maxeon1540/ventilacao_mecanica_sensibilidade/resumo.json")
+        (ROOT / "entregas/integrado_maxeon1560/ventilacao_mecanica_sensibilidade/resumo.json")
         .read_text())["hvac_ventilation_coupling"]["design_flow_occupant_cases"]
     frente = next(s for s in cabine["surfaces"] if s["surface"] == "front")
     ganho_parabrisa = frente["noon_glass_solar_gain_w"]

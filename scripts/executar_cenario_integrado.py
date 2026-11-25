@@ -18,7 +18,7 @@ STEPS=['gerar_solar_cenario','desenvolver_integracao','desenvolver_mecanica_term
 
 
 def main():
-    parser=argparse.ArgumentParser();parser.add_argument('--cenario',default='maxeon1540_independente');parser.add_argument('--reexecutar',action='store_true');args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument('--cenario',default='maxeon1560_independente');parser.add_argument('--reexecutar',action='store_true');args=parser.parse_args()
     os.environ['MOTORHOME_SCENARIO']=args.cenario;c=carregar_configuracao(ROOT);out=diretorio_entregas(ROOT)
     if (out/'execucao_pipeline.json').exists() and not args.reexecutar:raise FileExistsError('Usar--reexecutar para cadeia já registrada')
     config=ROOT/'config/parametros_globais.yaml';initial=hashlib.sha256(config.read_bytes()).hexdigest()

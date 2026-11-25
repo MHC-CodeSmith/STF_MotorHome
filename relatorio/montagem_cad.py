@@ -6,7 +6,7 @@ Referencial: o mesmo de todo o projeto (config/equipamentos_interior.yaml, gerar
 interna traseira da caixa de carga fica em x = -3,35 m, o piso acabado em z = 0,68 m e a largura é centrada
 em y = 0. O deck solar segue a geometria do CFD (40 mm acima do teto, 25 mm da traseira).
 
-Os layouts A/B de integrado_maxeon1540 são caixas; aqui eles ganham os detalhes do interior equipado de
+Os layouts A/B de integrado_maxeon1560 são caixas; aqui eles ganham os detalhes do interior equipado de
 24/10 (geladeira, lava e seca, A/C, sanitário, porta do banheiro, ducha, pia, travesseiros, bolsas dos
 portáteis), encaixados exatamente na caixa de cada equipamento do layout final. O trem de tração e os
 bancos da cabine são os do conceito de 24/10 (componentes OEM, não mudaram).
@@ -36,6 +36,7 @@ ARCO = (0.85, 0.224, 0.35)                       # caixa de roda (config/paramet
 # de água limpa recua 4,5 cm (as alças do banco ficam a 1 cm dele).
 SUBIDA_BANCO = PISO_Z + ARCO[2] + 0.01 - 0.72
 RECUO_BANCO_B = (LARGURA / 2 - ARCO[1] - 0.005) - 0.853
+AVANCO_BANCO_A = 0.006                           # tira o banco do poste traseiro da cama (folga de 1 mm; 2 mm ao acesso do inversor)
 RECUO_COOKTOP = 0.06                             # para dentro da gaveta, layout A e B
 RAIO_TUBO, RAIO_CABO = 0.007, 0.007
 
@@ -278,11 +279,11 @@ def _detalhes_24_10():
     return grupos
 
 
-def interior(layout: str) -> list[Peca]:
+def interior(layout: str, arcos: list[Peca] | None = None) -> list[Peca]:
     """layout 'A' (cama fixa, escolhido) ou 'B' (cama conversível)."""
     arquivo = {"A": "A_fixa.glb", "B": "B_conversivel_noite.glb"}[layout]
     grupo = f"layout{layout}"
-    caixas = {n: (v, f) for n, v, f, _ in ler(E / "integrado_maxeon1540/integracao" / arquivo, CARGA)
+    caixas = {n: (v, f) for n, v, f, _ in ler(E / "integrado_maxeon1560/integracao" / arquivo, CARGA)
               if "MAXEON" not in n}
     # ajustes de encaixe sobre os dados do layout (colisões dos próprios dados, 12 mm a 10 cm):
     for k, (v, f) in list(caixas.items()):
@@ -291,7 +292,7 @@ def interior(layout: str) -> list[Peca]:
         if layout == "B" and k.endswith("divisoria_2.54"):  # no B a lava e seca vai até 2,64: divisória logo depois
             caixas[k] = (v + [0.112, 0, 0], f)
         if "US5000" in k:                                  # fora da caixa de roda (ver SUBIDA_BANCO)
-            caixas[k] = (v + ([0, 0, SUBIDA_BANCO] if layout == "A" else [0, RECUO_BANCO_B, 0]), f)
+            caixas[k] = (v + ([AVANCO_BANCO_A, 0, SUBIDA_BANCO] if layout == "A" else [0, RECUO_BANCO_B, 0]), f)
         if layout == "B" and k.endswith("tanque_limpa"):
             caixas[k] = (v + [0, -0.045, 0], f)
     det = _detalhes_24_10()
@@ -431,6 +432,25 @@ def interior(layout: str) -> list[Peca]:
         vv, ff = caixa_malha([lo[0] + 0.12, y0, hi[2] - 0.05], [lo[0] + 0.24, y1, hi[2] - 0.035])
         saida.append(Peca(grupo, "US5000_led", vv, ff, (0.20, 0.80, 0.35), limpar(k)))
         substituidas.add(k)
+    # Layout A: o banco sobe 0,36 m e só os 7 cm da frente apoiam na caixa de roda. O resto vai sobre um
+    # pedestal de cantoneiras de aço até o piso (quatro montantes, quadro superior e travessa inferior),
+    # parafusado às chapas de fixação do item 15; a massa está na reserva de suportes elétricos.
+    if layout == "A":
+        lo = np.min([lim(k)[0] for k in caixas if "US5000" in k], axis=0)
+        hi = np.max([lim(k)[1] for k in caixas if "US5000" in k], axis=0)
+        arco = [p for p in arcos or [] if p.nome == "caixa_roda_esquerda"]
+        x1 = min(hi[0], arco[0].caixa[0][0] - 0.005) if arco else hi[0]
+        aco, c = (0.45, 0.47, 0.50), 0.03
+        for xa in (lo[0], x1 - c):
+            for ya in (lo[1], hi[1] - c):
+                vv, ff = caixa_malha([xa, ya, PISO_Z], [xa + c, ya + c, lo[2]])
+                saida.append(Peca(grupo, "pedestal_montante", vv, ff, aco, "pedestal_banco"))
+        for z0 in (PISO_Z, lo[2] - c):
+            for ya in (lo[1], hi[1] - c):
+                vv, ff = caixa_malha([lo[0], ya, z0], [x1, ya + c, z0 + c])
+                saida.append(Peca(grupo, "pedestal_travessa", vv, ff, aco, "pedestal_banco"))
+        vv, ff = caixa_malha([lo[0], lo[1], lo[2] - 0.004], [x1, hi[1], lo[2]])
+        saida.append(Peca(grupo, "pedestal_chapa", vv, ff, aco, "pedestal_banco"))
 
     # cooktop guardado: vidro preto
     k = achar("cooktop_armazenado"); v, f = caixas[k]
@@ -472,11 +492,11 @@ def rotas() -> list[Peca]:
         return (0.78, 0.80, 0.84)
     desloc = CARGA + np.array([0.0, -LARGURA / 2, 0.0])
     saida = []
-    for n, v, f, _ in ler(E / "integrado_maxeon1540/rotas_instalacoes/layoutA_rotas_reserva.glb", desloc):
+    for n, v, f, _ in ler(E / "integrado_maxeon1560/rotas_instalacoes/layoutA_rotas_reserva.glb", desloc):
         if n.startswith("eletrico__") or "principal_pia" in n:
             continue                                   # refeitos abaixo, sem colisão
         if "US5000" in n:
-            v = v + [0, 0, SUBIDA_BANCO]
+            v = v + [AVANCO_BANCO_A, 0, SUBIDA_BANCO]
         if n.endswith("cooktop_armazenado"):
             v = v + [-RECUO_COOKTOP, 0, 0]
         saida.append(Peca("rotas", n, v, f, cor(n)))
@@ -498,6 +518,7 @@ def rotas() -> list[Peca]:
 
 def montagem() -> dict[str, list[Peca]]:
     ext = exterior()
-    return {"exterior": ext, "arcos": caixas_de_roda(ext), "cabine": cabine_oem(), "tracao": tracao_oem(),
-            "teto": deck_solar(ext), "layoutA": interior("A"), "layoutB": interior("B"), "rotas": rotas(),
+    arcos = caixas_de_roda(ext)
+    return {"exterior": ext, "arcos": arcos, "cabine": cabine_oem(), "tracao": tracao_oem(),
+            "teto": deck_solar(ext), "layoutA": interior("A", arcos), "layoutB": interior("B", arcos), "rotas": rotas(),
             "solo": portateis_solo()}

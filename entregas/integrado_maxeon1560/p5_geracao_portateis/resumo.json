@@ -1,0 +1,75 @@
+{
+  "execution": {
+    "scenario": "maxeon1560_independente",
+    "source_sha256": "f0b6d5ac11dfedb6d711505b4bda5890b4c2cfd15fad0f413e0787e3cb073158",
+    "output_directory": "entregas/integrado_maxeon1560",
+    "physical_validation": false,
+    "note": "Teto vigente da revisão P5 (PR9) com quatro SPR-MAX3-390-COM em 2S2P, duas strings iguais; rastreadores independentes 250/60 teto+150/60 portáteis. InterfaceDCtração e alocaçãoFV hipotéticas;nenhuma ligação entre bancos. Mesmas dimensões e massa 76kg do arranjo1540, que fica preservado como histórico.",
+    "resolved_sha256": "0440da640352206bb0d47995fcae0d3d91bd71c4df37641f40a3d45554e15b1a"
+  },
+  "dia": "2026-06-21",
+  "passo_min": 15,
+  "montagem_h": 0.5,
+  "recolhimento_h": 0.5,
+  "casos": {
+    "so_teto": {
+      "janela_conducao_h": null,
+      "teto_kwh": 5.939912190425816,
+      "portateis_kwh": 0.0,
+      "total_kwh": 5.939912190425816,
+      "portateis_tilt_deg": null,
+      "portateis_azimute_deg": null,
+      "horas_portateis_abertos": 0.0
+    },
+    "parado_dia_todo": {
+      "janela_conducao_h": [
+        0,
+        0
+      ],
+      "teto_kwh": 5.939912190425816,
+      "portateis_kwh": 8.546857028566691,
+      "total_kwh": 14.486769218992507,
+      "portateis_tilt_deg": 45,
+      "portateis_azimute_deg": 0,
+      "horas_portateis_abertos": 24.0
+    },
+    "conducao_08_16": {
+      "janela_conducao_h": [
+        8,
+        16
+      ],
+      "teto_kwh": 5.939912190425816,
+      "portateis_kwh": 0.3713285295159656,
+      "total_kwh": 6.311240719941782,
+      "portateis_tilt_deg": 75,
+      "portateis_azimute_deg": 270,
+      "horas_portateis_abertos": 15.0
+    },
+    "conducao_18_02": {
+      "janela_conducao_h": [
+        18,
+        2
+      ],
+      "teto_kwh": 5.939912190425816,
+      "portateis_kwh": 8.545980394871831,
+      "total_kwh": 14.485892585297647,
+      "portateis_tilt_deg": 45,
+      "portateis_azimute_deg": 0,
+      "horas_portateis_abertos": 15.0
+    }
+  },
+  "candidatos": 4,
+  "elevacao_solar_9h_deg": 24.730991565268795,
+  "melhor_inclinacao_teto": {
+    "inclinacao_deg": 20,
+    "azimute_face_deg": 0,
+    "teto_kwh_dia": 7.6516517533324215,
+    "ganho_vs_plano_kwh": 1.7117395629066054
+  },
+  "limites": [
+    "Fichas de fabricante/revenda; nenhum portátil ensaiado; coeficiente térmico do cenário quando a ficha não publica.",
+    "Guarda conferida por envelope (dobrado x 4 unidades) contra o espaço das bolsas atuais, não por modelo CAD de cada produto.",
+    "Tempo de montagem igual para todos (0,5 h + 0,5 h), hipótese do cenário.",
+    "Inclinação do teto: rolagem rígida do deck, sem sombreamento próprio nem mudança de arrasto."
+  ]
+}

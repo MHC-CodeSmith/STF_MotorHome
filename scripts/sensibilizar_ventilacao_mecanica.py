@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def main() -> None:
-    os.environ["MOTORHOME_SCENARIO"] = "maxeon1540_independente"
+    os.environ["MOTORHOME_SCENARIO"] = "maxeon1560_independente"
     config = carregar_configuracao(ROOT)
     parameters = {key: value["value"] for key, value in config["parameters"].items()}
     study = config["development"]["ventilation_study"]

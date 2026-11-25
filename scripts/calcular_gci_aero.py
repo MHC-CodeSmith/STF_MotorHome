@@ -78,7 +78,7 @@ def comparar(casos, cd_energia):
     delta21, delta32 = cd2 - cd1, cd3 - cd2
     razao = delta21 / delta32 if delta32 else None
     return {"script": "scripts/calcular_gci_aero.py", "casos": casos,
-            "cenario": "maxeon1540_independente", "cd_fina": cd1, "cd_min": min(cd1, cd2, cd3),
+            "cenario": "maxeon1560_independente", "cd_fina": cd1, "cd_min": min(cd1, cd2, cd3),
             "cd_max": max(cd1, cd2, cd3), "cda_m2": cd1 * area, "area_ref_m2": area,
             "r21": h2 / h1, "r32": h3 / h2, "razao_convergencia_R": razao,
             "oscilatoria": razao is not None and razao < 0,

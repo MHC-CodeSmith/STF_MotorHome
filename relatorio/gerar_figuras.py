@@ -18,7 +18,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
-E = ROOT / "entregas/integrado_maxeon1540"
+E = ROOT / "entregas/integrado_maxeon1560"
 OUT = ROOT / "relatorio/figuras"
 plt.rcParams.update({"figure.dpi": 110, "savefig.dpi": 180, "font.size": 9, "axes.grid": True,
                      "grid.alpha": 0.3, "axes.spines.top": False, "axes.spines.right": False})
@@ -41,16 +41,38 @@ def salvar(fig, nome):
 
 
 def solar():
-    rows = ler(E / "solar/solar_alternativo_00_08.csv")
-    h = np.array([int(r["time"][11:13]) + int(r["time"][14:16]) / 60 for r in rows])
-    roof, port = col(rows, "roof_kw"), col(rows, "portable_kw")
-    dt = np.diff(h).mean()
-    fig, ax = plt.subplots(figsize=(6.4, 3))
-    ax.fill_between(h, roof, color=C["laranja"], alpha=0.35, label=f"teto 1540 Wp: {roof.sum() * dt:.2f} kWh/dia")
-    ax.plot(h, roof, color=C["laranja"])
-    ax.plot(h, port, color=C["azul"], label=f"portáteis 1600 Wp, montados após a parada: {port.sum() * dt:.2f} kWh/dia")
-    ax.set(xlabel="hora local (21/06, São Carlos, céu limpo)", ylabel="potência CC [kW]", xlim=(5, 19))
-    ax.legend(loc="upper left")
+    """I08: teto, portáteis e soma hora a hora nos quatro casos de operação do mesmo dia."""
+    pasta = E / "p5_geracao_portateis"
+    rows = ler(pasta / "horario_casos.csv")
+    res = json.loads((pasta / "resumo.json").read_text())["casos"]
+    wp = json.loads((E / "solar/resumo.json").read_text())["roof_wp"]
+    titulos = {"so_teto": "só teto", "parado_dia_todo": "parado o dia todo (portáteis prontos antes do amanhecer)",
+               "conducao_08_16": "condução diurna, 08–16 h", "conducao_18_02": "condução no fim da tarde, 18–02 h"}
+    fig, axs = plt.subplots(2, 2, figsize=(9, 5.2), sharex=True, sharey=True)
+    for ax, (caso, tit) in zip(axs.flat, titulos.items()):
+        r = [x for x in rows if x["caso"] == caso]
+        h, teto, port, tot = col(r, "hora"), col(r, "teto_kw"), col(r, "portateis_kw"), col(r, "total_kw")
+        ab = np.array([x["abertos"] == "True" for x in r])
+        janela = res[caso]["janela_conducao_h"]
+        if janela and janela[0] != janela[1]:
+            ini, fim = janela
+            for a, b in ([(ini, fim)] if fim > ini else [(ini, 24), (0, fim)]):
+                ax.axvspan(a, b, color=C["cinza"], alpha=0.15, lw=0)
+        if ab.any() and not ab.all():
+            for t0 in h[1:][np.diff(ab.astype(int)) != 0]:
+                ax.axvline(t0, color=C["azul"], ls=":", lw=0.8)
+        ax.fill_between(h, teto, color=C["laranja"], alpha=0.35, lw=0)
+        ax.plot(h, teto, color=C["laranja"], lw=1.2, label=f"teto {wp} Wp")
+        ax.plot(h, port, color=C["azul"], lw=1.2, label="portáteis 1600 Wp")
+        ax.plot(h, tot, color="k", lw=1.6, label="soma")
+        ax.set_title(f"{tit}\nteto {res[caso]['teto_kwh']:.2f} + portáteis {res[caso]['portateis_kwh']:.2f} = "
+                     f"{res[caso]['total_kwh']:.2f} kWh".replace(".", ","), fontsize=8.5)
+        ax.set(xlim=(0, 24), xticks=range(0, 25, 4))
+    axs[0, 0].legend(loc="upper left", fontsize=7.5)
+    for ax in axs[1]:
+        ax.set_xlabel("hora local (21/06, São Carlos, céu limpo)")
+    for ax in axs[:, 0]:
+        ax.set_ylabel("potência CC [kW]")
     salvar(fig, "i08_geracao_solar.png")
 
 
@@ -86,29 +108,34 @@ def dinamica():
 
 
 def autonomia_solar():
-    todas = [r for r in ler(E / "despacho_i25/melhores_por_velocidade.csv") if r["services_cyclic"] == "False"]
+    linhas = ler(E / "despacho_i25/melhores_por_velocidade.csv")
+    todas = [r for r in linhas if r["services_cyclic"] == "False"]
     # passo mais fino que cobre toda a faixa 10–90 km/h
     passos = sorted({int(r["step_min"]) for r in todas})
     passo = next(s for s in passos if len({r["speed_kmh"] for r in todas if int(r["step_min"]) == s}) > 10)
-    fig, ax = plt.subplots(figsize=(6.4, 3.2))
+    fig, ax = plt.subplots(figsize=(6.4, 3.4))
     mininos = sorted({float(r["hypothetical_dc_min_input_kw"]) for r in todas if float(r["hypothetical_dc_min_input_kw"]) > 0})
     piso = mininos[0] if mininos else 1.0
     rotulo_piso = f"{piso:g}".replace(".", ",")
     # Compara o piso como número: o CSV grava 0.0/0.38/3.0 quando a varredura tem valor fracionário.
-    for dc, cor, lab in ((0.0, C["azul"], "interface CC ideal (sem potência mínima)"),
-                         (piso, C["laranja"], f"interface CC com potência mínima de {rotulo_piso} kW")):
-        sel = sorted((r for r in todas if float(r["hypothetical_dc_min_input_kw"]) == dc and int(r["step_min"]) == passo),
-                     key=lambda r: float(r["speed_kmh"]))
+    casos = (("False", 0.0, C["cinza"], "--", "sem habitação, interface ideal (sem mínimo)"),
+             ("False", piso, C["laranja"], "-", f"sem habitação, mínimo de {rotulo_piso} kW na saída"),
+             ("True", piso, C["azul"], "-", f"com a habitação (7,23 kWh/dia), mínimo de {rotulo_piso} kW"))
+    for serv, dc, cor, ls, lab in casos:
+        sel = sorted((r for r in linhas if r["services_cyclic"] == serv and float(r["hypothetical_dc_min_input_kw"]) == dc
+                      and int(r["step_min"]) == passo), key=lambda r: float(r["speed_kmh"]))
         v, d = col(sel, "speed_kmh"), col(sel, "distance_km")
-        ax.plot(v, d, color=cor, label=f"{lab} (passo {passo} min)")
-        if dc == 0.0:
-            fino = [r for r in todas if float(r["hypothetical_dc_min_input_kw"]) == 0.0 and r["step_min"] == "5"]
+        ax.plot(v, d, color=cor, ls=ls, label=lab)
+        if dc == piso:
+            fino = [r for r in linhas if r["services_cyclic"] == serv and float(r["hypothetical_dc_min_input_kw"]) == dc
+                    and r["step_min"] == "5"]
             for vv in (40, 80):
                 k = next(float(r["distance_km"]) for r in fino if float(r["speed_kmh"]) == vv)
-                ax.plot(vv, k, "o", color="k")
-                ax.annotate(f"{k:.1f} km a {vv} km/h (passo 5 min)", (vv, k), textcoords="offset points", xytext=(5, 6))
-    ax.set(xlabel="velocidade média [km/h]", ylabel="distância com o sol do dia [km]", xlim=(10, 90), ylim=(0, None))
-    ax.legend()
+                ax.plot(vv, k, "o", color=cor)
+                ax.annotate(f"{k:.1f} km".replace(".", ","), (vv, k), textcoords="offset points", xytext=(5, 5), color=cor)
+    ax.set(xlabel="velocidade [km/h]", ylabel="distância com o sol do dia [km]", xlim=(10, 90), ylim=(0, None))
+    ax.set_title(f"curvas com passo de {passo} min; pontos a 40 e 80 km/h com passo de 5 min", fontsize=8)
+    ax.legend(fontsize=7.5)
     salvar(fig, "i25_autonomia_solar.png")
 
 
@@ -188,7 +215,7 @@ def vistas_exterior():
             cota(ax, (hi[0] + 0.25, lo[1]), (hi[0] + 0.25, hi[1]), f"c/ espelhos {larg:.3f} m", 0, False)
             cota(ax, (lo[0] + 0.3, -larg_corpo / 2), (lo[0] + 0.3, larg_corpo / 2), f"carroceria {larg_corpo:.3f} m", 0, False)
             db = deck.bounds
-            ax.text(db[0][0], hi[1] + 0.15, f"teto FV {db[1][0] - db[0][0]:.2f} × {db[1][1] - db[0][1]:.2f} m (4 Maxeon, 1540 Wp)",
+            ax.text(db[0][0], hi[1] + 0.15, f"teto FV {db[1][0] - db[0][0]:.2f} × {db[1][1] - db[0][1]:.2f} m (4 Maxeon, 1560 Wp)",
                     fontsize=7, color="#e8590c")
         else:
             cota(ax, (-larg_corpo / 2, lo[2] - 0.3), (larg_corpo / 2, lo[2] - 0.3), f"{larg_corpo:.3f} m", 0)

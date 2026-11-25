@@ -68,13 +68,13 @@ def append_block(path,text):
 def main():
     review=json.loads((ROOT/'entregas/desenvolvimento_2026-11-09/revisao_35_itens.json').read_text())
     records={x['item']:x for x in review['items']};c=yaml.safe_load((ROOT/'config/parametros_globais.yaml').read_text());index=[]
-    snapshot=ROOT/'entregas/integrado_maxeon1540/parametros_resolvidos.json';resolved=json.loads(snapshot.read_text())
+    snapshot=ROOT/'entregas/integrado_maxeon1560/parametros_resolvidos.json';resolved=json.loads(snapshot.read_text())
     decisions=json.loads((ROOT/'entregas/etapa_pos_dec061/matriz_decisoes_61.json').read_text())
 
     with (ROOT/'metadata/itens.csv').open() as f:items=list(csv.DictReader(f))
     for item in items:
         n=int(item['numero']);folder=ROOT/item['pasta'];record=records[n];equation,method=METHODS[n]
-        append_block(folder/'README.md','Execução vigente: fonte única `config/parametros_globais.yaml`,cenário `maxeon1540_independente` e índice local `resultados/execucao_integrada.json`. Referências antigas às propostas elétricas permanecem históricas e não autorizam arquitetura48V→OBC,modificaçãoHV ou aprovação final. Critérios/revisão computacional e bloqueios atuais constam em `docs/REVISAO_TECNICA_EXECUCAO02.md`.')
+        append_block(folder/'README.md','Execução vigente: fonte única `config/parametros_globais.yaml`,cenário `maxeon1560_independente` e índice local `resultados/execucao_integrada.json`. Referências antigas às propostas elétricas permanecem históricas e não autorizam arquitetura48V→OBC,modificaçãoHV ou aprovação final. Critérios/revisão computacional e bloqueios atuais constam em `docs/REVISAO_TECNICA_EXECUCAO02.md`.')
         theory=folder/'teoria.md';old=theory.read_text()
         if 'A preencher com equações corretas e citações. Não inventar dados.' in old:
             old=old.replace('A preencher com equações corretas e citações. Não inventar dados.',equation)
@@ -95,7 +95,7 @@ def main():
             'note':'Cópia derivada de entradas efetivamente resolvidas;editar apenas fonte canônica e reexecutar. Parâmetros de geometria/loads adicionais no snapshot,sem nova fonte de verdade.'},indent=2,ensure_ascii=False)+'\n')
         (folder/'resultados/execucao_integrada.json').write_text(json.dumps(result,indent=2,ensure_ascii=False)+'\n')
         append_block(folder/'resultados/README.md',f'Execução integrada: `{record["evidence"]}`.\n\n{record["executed_or_reviewed"]}\n\nLimite: {record["remaining_limit"]}\n\nÍndice local: `execucao_integrada.json`;SHA256da evidência: `{hashval}`. Não aprovado fisicamente.')
-        append_block(folder/'codigo/README.md','Reprodução integrada pelo repositório:\n\n```bash\nPYTHONPATH=src .venv/bin/python scripts/executar_cenario_integrado.py --cenario maxeon1540_independente --reexecutar\nPYTHONPATH=src MOTORHOME_SCENARIO=maxeon1540_independente .venv/bin/python scripts/verificar_cenario_integrado.py\n```\n\nCFD e campos específicos preservam comandos em `docs/EXECUCAO_TECNICA02.md`;a cadeia integrada não substitui esses ensaios. Ver arquivos reais de evidência no índice local.')
+        append_block(folder/'codigo/README.md','Reprodução integrada pelo repositório:\n\n```bash\nPYTHONPATH=src .venv/bin/python scripts/executar_cenario_integrado.py --cenario maxeon1560_independente --reexecutar\nPYTHONPATH=src MOTORHOME_SCENARIO=maxeon1560_independente .venv/bin/python scripts/verificar_cenario_integrado.py\n```\n\nCFD e campos específicos preservam comandos em `docs/EXECUCAO_TECNICA02.md`;a cadeia integrada não substitui esses ensaios. Ver arquivos reais de evidência no índice local.')
         source_lines=[]
         for key in SOURCES[n]:
             src=c['sources'][key];url=src.get('url') or src.get('path')

@@ -60,7 +60,7 @@ def main() -> None:
             totals[case] += line["total_brl"]
             rows.append(line)
 
-    out = ROOT / "entregas/integrado_maxeon1540/i24_custo_brl"
+    out = ROOT / "entregas/integrado_maxeon1560/i24_custo_brl"
     out.mkdir(parents=True, exist_ok=True)
     fields = ["id", "caso", "descricao", "qtd", "moeda", "valor_origem_brl", "cif_brl", "ii_brl", "ipi_brl",
               "pis_brl", "cofins_brl", "icms_brl", "total_brl", "fonte"]

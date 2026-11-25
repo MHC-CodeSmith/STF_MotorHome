@@ -17,8 +17,8 @@ import matplotlib.pyplot as plt
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
-INPUT = ROOT / "entregas/integrado_maxeon1540/integracao/massa_cg_eixos_sensibilidade.csv"
-OUT = ROOT / "entregas/integrado_maxeon1540/integracao/envelope_frenagem_eixos"
+INPUT = ROOT / "entregas/integrado_maxeon1560/integracao/massa_cg_eixos_sensibilidade.csv"
+OUT = ROOT / "entregas/integrado_maxeon1560/integracao/envelope_frenagem_eixos"
 G = 9.80665
 DECEL_G = (0.0, 0.1, 0.2, 0.3, 0.4, 0.5)
 # UK MY25.5 L3 comparator; not established for the studied Slovakia MY25 van.

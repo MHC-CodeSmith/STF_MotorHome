@@ -36,7 +36,7 @@ python scripts/verificar_estrutura.py
 python scripts/auditar_projeto.py
 ruff check src scripts tests
 PYTHONPATH=src python -m pytest tests -q
-MOTORHOME_SCENARIO=maxeon1540_independente PYTHONPATH=src python scripts/verificar_cenario_integrado.py
+MOTORHOME_SCENARIO=maxeon1560_independente PYTHONPATH=src python scripts/verificar_cenario_integrado.py
 PYTHONPATH=src python scripts/verificar_desenvolvimento.py
 ```
 
@@ -44,8 +44,8 @@ Os dois últimos verificadores são somente leitura sem `--registrar`: conferem 
 
 ## Resultados condicionais recentes
 
-- I29 compara buscas finitas distintas e preserva as saídas em `entregas/integrado_maxeon1540/otimizacao_*`; não declara ótimo global.
-- O diagnóstico do limiar DC tem código reproduzível em `scripts/analisar_aliasing_limiar_dc.py`, teste próprio e saídas CSV/JSON/PNG em `entregas/integrado_maxeon1540/otimizacao_resolucao_temporal/aliasing_limiar_dc/`. O limiar de 0,38 kW (1 A × 380 V, classe CharIN) é hipotético, não especificação de carregador; o valor anterior de 1 kW não tinha fonte.
+- I29 compara buscas finitas distintas e preserva as saídas em `entregas/integrado_maxeon1560/otimizacao_*`; não declara ótimo global.
+- O diagnóstico do limiar DC tem código reproduzível em `scripts/analisar_aliasing_limiar_dc.py`, teste próprio e saídas CSV/JSON/PNG em `entregas/integrado_maxeon1560/otimizacao_resolucao_temporal/aliasing_limiar_dc/`. O limiar de 0,38 kW (1 A × 380 V, classe CharIN) é hipotético, não especificação de carregador; o valor anterior de 1 kW não tinha fonte.
 - CFD, balanços de massa/eixos, circuitos, HVAC e arrefecimento têm limites, entradas assumidas e evidências listadas na revisão técnica e nos bloqueios. Valores ausentes permanecem lacunas ou sensibilidades explícitas; não são preenchidos como especificações OEM.
 
 ---
