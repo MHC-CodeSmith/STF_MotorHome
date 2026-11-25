@@ -76,3 +76,9 @@ A revisão de leitura e as comparações adicionais estão em
 de dias parados; `dados_comparacoes/execucao.json` registra entradas e balanços.
 O modelo da bateria é de dois nós; o campo espacial apresentado corresponde a cabos,
 freios, cabine e perfis do radiador, sem inventar campo de células.
+
+Os anexos originais de referência foram conferidos novamente: identidades e hashes
+em `referencias_fornecidas.json`. O enunciado determina os requisitos, e o relatório
+de Baratto et al. orienta a estrutura e a redação, sem transferir dados entre projetos.
+A tabela de custos distingue aquisições/componentes da reserva mista de montagem;
+o custo de materiais não é confundido com todo o investimento instalado.

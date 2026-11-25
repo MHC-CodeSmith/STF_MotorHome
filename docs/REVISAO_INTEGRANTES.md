@@ -69,7 +69,7 @@ Decisões provisórias com você entre os responsáveis: A03 (Alocação FV e MP
 | I05 | Transmissão | 5 | [`I05_transmissao`](../equipe/P4_motor_dinamica/I05_transmissao/README.md) |
 | I20 | Resistência de rolamento | 19 | [`I20_resistencia_de_rolamento`](../equipe/P4_motor_dinamica/I20_resistencia_de_rolamento/README.md) |
 | I21 | Forças resistivas versus velocidade | 19 | [`I21_forcas_resistivas_versus_velocidade`](../equipe/P4_motor_dinamica/I21_forcas_resistivas_versus_velocidade/README.md) |
-| I22 | Potência resistiva e tração | 19 | [`I22_potencia_resistiva_e_tracao`](../equipe/P4_motor_dinamica/I22_potencia_resistiva_e_tracao/README.md) |
+| I22 | Potência resistiva e tração | 21 | [`I22_potencia_resistiva_e_tracao`](../equipe/P4_motor_dinamica/I22_potencia_resistiva_e_tracao/README.md) |
 | I28 | Velocidade máxima e 0–100 km/h | 31 | [`I28_velocidade_maxima_e_0100_km_h`](../equipe/P4_motor_dinamica/I28_velocidade_maxima_e_0100_km_h/README.md) |
 
 Decisões provisórias com você entre os responsáveis: A01 (Variante OEM); A13 (Política e reservas da missão); A14 (Parâmetros físicos e validação).
@@ -81,7 +81,7 @@ Decisões provisórias com você entre os responsáveis: A01 (Variante OEM); A13
 | I08 | Painel fotovoltaico | 6 | [`I08_painel_fotovoltaico`](../equipe/P5_solar_autonomia/I08_painel_fotovoltaico/README.md) |
 | I25 | Autonomia usando somente solar | 33 | [`I25_autonomia_usando_somente_solar`](../equipe/P5_solar_autonomia/I25_autonomia_usando_somente_solar/README.md) |
 | I26 | Consumo (km/kWh) | 31 | [`I26_consumo_km_kwh`](../equipe/P5_solar_autonomia/I26_consumo_km_kwh/README.md) |
-| I27 | Autonomia diária com SOC final 30% | 34 | [`I27_autonomia_diaria_com_soc_final_30`](../equipe/P5_solar_autonomia/I27_autonomia_diaria_com_soc_final_30/README.md) |
+| I27 | Autonomia diária com SOC final 30% | 35 | [`I27_autonomia_diaria_com_soc_final_30`](../equipe/P5_solar_autonomia/I27_autonomia_diaria_com_soc_final_30/README.md) |
 | I29 | Otimização viagem 7000 km | 35 | [`I29_otimizacao_viagem_7000_km`](../equipe/P5_solar_autonomia/I29_otimizacao_viagem_7000_km/README.md) |
 
 Decisões provisórias com você entre os responsáveis: A02 (Recarga DC direta ou buffer dedicado); A03 (Alocação FV e MPPT compartilhado); A11 (Módulos e ocupação do teto); A13 (Política e reservas da missão).
@@ -90,7 +90,7 @@ Decisões provisórias com você entre os responsáveis: A02 (Recarga DC direta 
 
 | Item | Título | Página | Pasta |
 |---|---|---|---|
-| I11 | HVAC e ventilação interna | 12 | [`I11_hvac_e_ventilacao_interna`](../equipe/P6_interior_cabine/I11_hvac_e_ventilacao_interna/README.md) |
+| I11 | HVAC e ventilação interna | 13 | [`I11_hvac_e_ventilacao_interna`](../equipe/P6_interior_cabine/I11_hvac_e_ventilacao_interna/README.md) |
 | I13 | Materiais e equipamentos internos | 13 | [`I13_materiais_e_equipamentos_internos`](../equipe/P6_interior_cabine/I13_materiais_e_equipamentos_internos/README.md) |
 | I31 | Cabine fechada ao meio-dia | 26 | [`I31_cabine_fechada_ao_meio_dia`](../equipe/P6_interior_cabine/I31_cabine_fechada_ao_meio_dia/README.md) |
 | I32 | Potência térmica de A/C | 26 | [`I32_potencia_termica_de_a_c`](../equipe/P6_interior_cabine/I32_potencia_termica_de_a_c/README.md) |
@@ -102,7 +102,7 @@ Decisões provisórias com você entre os responsáveis: A04 (Autonomia e módul
 | Item | Título | Página | Pasta |
 |---|---|---|---|
 | I10 | Resfriamento de componentes elétricos | 11 | [`I10_resfriamento_de_componentes_eletricos`](../equipe/P7_arrefecimento/I10_resfriamento_de_componentes_eletricos/README.md) |
-| I12 | Sistema de lubrificação | 11 | [`I12_sistema_de_lubrificacao`](../equipe/P7_arrefecimento/I12_sistema_de_lubrificacao/README.md) |
+| I12 | Sistema de lubrificação | 12 | [`I12_sistema_de_lubrificacao`](../equipe/P7_arrefecimento/I12_sistema_de_lubrificacao/README.md) |
 | I34 | Temperatura da bateria em carga | 28 | [`I34_temperatura_da_bateria_em_carga`](../equipe/P7_arrefecimento/I34_temperatura_da_bateria_em_carga/README.md) |
 | I35 | Bomba, radiador e vazão | 29 | [`I35_bomba_radiador_e_vazao`](../equipe/P7_arrefecimento/I35_bomba_radiador_e_vazao/README.md) |
 

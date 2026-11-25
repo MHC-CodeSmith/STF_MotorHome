@@ -81,11 +81,11 @@
 O presente relatório tem como objetivo desenvolver e analisar o comportamento térmico,
 energético e aerodinâmico de um veículo elétrico solar projetado especificamente para a
 disciplina de Sistemas Térmicos e Fluídicos. O estudo segue as condições ambientais
- definidas no enunciado, que correspondem a um dia de céu limpo em 21 de junho, na cidade
+definidas no enunciado, que correspondem a um dia de céu limpo em 21 de junho, na cidade
 de São Carlos, com temperatura ambiente de 25 °C, umidade relativa de 50\% e ausência de
 vento. Essas condições servem como base para avaliar tanto o desempenho quanto as
-limitações do sistema.\footnote{A redação retoma trechos do
-relatório de referência do Cuca \cite{cuca}, adaptada ao motorhome deste projeto.}
+limitações do sistema.\footnote{A introdução e partes da fundamentação retomam a redação de Baratto et al.
+\cite{cuca}, adaptada ao motorhome e às condições deste projeto.}
 
 O trabalho envolve a definição completa do veículo, incluindo rodas, pneus, freios,
 suspensão, motor, transmissão, baterias, controladoras e área de painéis fotovoltaicos.
@@ -125,35 +125,42 @@ O arrasto aerodinâmico cresce com o quadrado da velocidade \cite{gillespie,huch
 \subsection{Motores Elétricos e Sistemas de Propulsão}
 Motores elétricos brushless de alta eficiência são amplamente estudados para aplicação
 em veículos solares devido ao seu elevado rendimento, baixa massa e grande confiabilidade.
-A relação $P=T\omega$ permite obter potência a partir de torque e velocidade angular.
+A potência mecânica é dada por $P=T\omega$, em que $T$ é o torque e $\omega$ a
+velocidade angular. Essa relação permite construir o envelope de potência a partir
+da curva de torque e relacionar a rotação do motor à velocidade do veículo.
 No E-Ducato, o motor síncrono de ímãs permanentes aciona as rodas dianteiras por um
 redutor de relação fixa \cite{fiatsk,fiatde}.
 
 \subsection{Armazenamento de Energia com Baterias de Íons de Lítio}
 Para garantir segurança e longevidade, a literatura destaca o papel do Sistema de
 Gerenciamento de Bateria (BMS), responsável por equalizar células, monitorar temperatura
-e corrente e prevenir sobrecarga e descarga excessiva. O projeto utiliza baterias LFP:
+e corrente e prevenir sobrecarga e descarga excessiva. O projeto utiliza baterias de fosfato de ferro-lítio (LFP):
 a original para tração e módulos independentes para a habitação \cite{fiatsk,pylontech}.
 
 \subsection{Conversão Fotovoltaica e Controladores MPPT}
 Como a potência disponível depende da irradiância e da temperatura da célula, os
-controladores Maximum Power Point Tracking (MPPT) são indispensáveis. Eles ajustam
+controladores com rastreamento do ponto de máxima potência (MPPT) são indispensáveis. Eles ajustam
 dinamicamente o ponto de operação elétrico das células. O inversor converte a tensão
-contínua do banco de serviços em tensão alternada para os aparelhos \cite{maxeon,victron}.
+contínua (CC) do banco de serviços em tensão alternada (CA) para os aparelhos. A energia útil
+depende também das perdas de conversão e do horário em que os painéis ficam expostos
+ao sol \cite{maxeon,victron}.
 
 \subsection{Uso de CFD e Simulações Térmicas}
 A Dinâmica dos Fluidos Computacional (CFD) é uma ferramenta numérica utilizada para
 modelar o comportamento do escoamento de ar ao redor de geometrias complexas,
 permitindo prever grandezas aerodinâmicas sem a necessidade de ensaios físicos.
-Neste trabalho, o escoamento é resolvido por volumes finitos. Os problemas térmicos
-utilizam condução, convecção, radiação e balanços de energia, com conferência de malha,
-passo de tempo e conservação \cite{celik,incropera,apostila}.
+O escoamento e a condução são resolvidos por volumes finitos; balanços de energia
+representam os demais sistemas. No arrefecimento, a bomba estabelece a vazão e o
+radiador transfere calor ao ar, conforme as vazões e a condutância térmica $UA$.
+Malha, passo temporal e conservação verificam as soluções numéricas
+\cite{celik,incropera,apostila}.
 
 \clearpage
 \section{Projeto técnico}
 \subsection{Especificações}
 Considerando que o objetivo do motorhome é conciliar deslocamento e habitação,
-as escolhas buscam reduzir massa e consumo, mantendo os componentes originais do furgão.
+as escolhas buscam reduzir massa e consumo, preservando os componentes originais
+do fabricante (OEM).
 Dessa forma, seguem os detalhes e componentes escolhidos para o projeto:
 \begin{table}[htbp]\centering\small
 \caption{Principais escolhas de projeto.}\label{tab:escolhas}
@@ -181,7 +188,7 @@ bateria de \SI{98}{kWh} úteis e motor de \SI{205}{kW} \cite{fiatsk}.
 \itemmark{2}
 Foram adotados pneus \textbf{225/75 R16C 121R}, com o Continental VanContact A/S
 04514690000 como referência (ficha norte-americana): diâmetro \SI{0,744}{m}, massa \SI{16,9}{kg} e capacidade
-\SI{1449}{kg} por pneu \cite{conti}. As rodas são de aço, 6,5J$\times$16; quantidade: quatro e estepe.
+\SI{1449}{kg} por pneu \cite{conti}. São utilizadas quatro rodas de aço 6,5J$\times$16, além do estepe.
 
 As pressões de referência são \SI{4,5}{bar} na dianteira e \SI{5,0}{bar} na traseira,
 a confirmar na etiqueta da variante elétrica \cite{ducatomanual}. As cargas nominais
@@ -233,7 +240,8 @@ A bateria de tração original utiliza a tecnologia LFP, com \SI{110}{kWh} bruto
 (LFP, \SI{48}{V}, \SI{100}{Ah}, \SI{4,8}{kWh} cada, \SI{39,7}{kg},
 \qtyproduct{442 x 420 x 161}{mm}), total \SI{14,4}{kWh} e \SI{119,1}{kg}, sob a cama.
 
-O banco de serviços foi dimensionado para 24 a 48\,h de habitação sem sol. Partindo de SOC 100\,\% e
+O banco de serviços foi dimensionado para 24 a 48\,h de habitação sem sol. O estado
+de carga (SOC) expressa a fração de energia disponível. Partindo de SOC 100\,\% e
 parando em 30\,\% (reserva), três módulos dão $0{,}70 \times \SI{14,4}{kWh} = \SI{10,1}{kWh}$
 utilizáveis; com a carga média de \SI{0,301}{kW} (\SI{7,23}{kWh/dia} retirados do banco, Tabela~\ref{tab:cargas}
 do item 13), a habitação dura $10{,}1/0{,}301 \approx \SI{33}{h}$ sem geração.
@@ -259,7 +267,8 @@ O item 27 reserva 30\% da tração; o item 29 usa reservas tração/serviços de
 O teto recebe quatro \textbf{Maxeon SPR-MAX3-390-COM}, em 2S2P: \SI{1560}{Wp},
 \SI{76}{kg}, \SI{7,07}{m^2} e eficiência de 22,1\% \cite{maxeon}.
 São acrescentados quatro EcoFlow de \SI{400}{W}, \SI{21}{kg} cada com bolsa, abertos apenas
-com o veículo parado. A tabela compara a geração no mesmo dia claro.
+com o veículo parado. Para separar o efeito dos portáteis do horário de uso, a Tabela~\ref{tab:i08casos}
+e a Figura~\ref{fig:i08} comparam quatro condições no mesmo dia claro.
 
 Em 2S2P, $V_{mp}=2(64{,}5)=\SI{129}{V}$ e $I_{mp}=2(6{,}05)=\SI{12,10}{A}$.
 O $V_{oc}$ a \SI{-20}{\celsius}, com tolerância, é \SI{171,59}{V}; a saída ideal a 48 V
@@ -311,14 +320,15 @@ Preço unitário & R\$ 5.712 & EUR 649 & USD 460 & USD 495,99 \\
 \end{tabular}
 \end{table}
 
-As massas das alternativas não incluem acessórios: com hipótese de \SI{1}{kg} adicional
-por unidade, os conjuntos ficam em 44,8/52,6/58,8 kg. As fichas são específicas do
+Como as massas publicadas das alternativas não incluem acessórios, adota-se
+\SI{1}{kg} adicional por unidade. Com isso, os conjuntos Lightweight, ZOUPW e Renogy
+pesam, respectivamente, 44,8, 52,6 e 58,8 kg. As fichas são específicas do
 EcoFlow Lightweight, ZOUPW 450 W N-Type 16BB e Renogy RSP400LSC-G1 \cite{ecoflowlw,zoupw,renogy}.
 Não se confirmou equivalência deste último com o nome E.FLEX. A loja oficial indicava
 USD 495,99/unidade, sem estoque em 25/11: USD 1.983,96 por quatro, sem frete/impostos
 \cite{renogypreco}. O cenário principal mantém os EcoFlow atuais.
 
-Todos passam na triagem do MPPT 150/60 em 2S2P: $V_{oc}$ frio abaixo de 150 V e
+Os quatro candidatos atendem à verificação por ficha do MPPT 150/60 em 2S2P: $V_{oc}$ frio abaixo de 150 V e
 $I_{sc}$ abaixo de 50 A. Os envelopes dobrados cabem no espaço de
 \qtyproduct{1,10 x 0,38 x 0,98}{m}, com retirada pelas portas traseiras; conectores e
 acessórios exigem conferência. Uma fileira leste--oeste ocupa 3,7--4,6 m por 1,7--2,2 m;
@@ -345,7 +355,7 @@ custo, sombras ou esforço de um mecanismo de inclinação.
 \centering
 \includegraphics[width=0.49\linewidth]{cad_teto.png}\hfill
 \includegraphics[width=0.50\linewidth]{i16_folga.png}
-\caption{Teto com quatro painéis (4 SPR-MAX3-390, mesma geometria do arranjo anterior) no deck de \qtyproduct{4,24 x 1,69}{m}. No detalhe, a faixa central até o para-brisa mede \SI{288}{mm}. O gabarito de instalação da Micro Heki exige pelo menos \SI{390}{mm} nessa direção.}
+\caption{Teto com quatro painéis (4 SPR-MAX3-390) no deck de \qtyproduct{4,24 x 1,69}{m}. No detalhe, a faixa central até o para-brisa mede \SI{288}{mm}. O gabarito de instalação da Micro Heki exige pelo menos \SI{390}{mm} nessa direção.}
 \label{fig:teto}
 \end{figure}
 \begin{figure}[htbp]
@@ -359,14 +369,16 @@ custo, sombras ou esforço de um mecanismo de inclinação.
 A instalação de serviços utiliza cobre de \SIrange{70}{120}{mm^2} a \SI{48}{V},
 fusível JLLN 200 A/20 kA e JLLN 80 A no MPPT. Os aparelhos recebem \SI{220}{V}/\SI{60}{Hz};
 iluminação e bombas usam conversor de \SI{12}{V}. O chicote de alta tensão permanece OEM;
-a referência RADOX de \SI{120}{mm^2} é revista no item 30 \cite{radox}.
+a capacidade térmica da referência RADOX de \SI{120}{mm^2} é avaliada na Seção~\ref{item:30} \cite{radox}.
 
 Em 324 casos, a corrente de operação chega a \SI{103}{A} e a queda de tensão a 0,74\%.
 Nos 144 casos de falta, com resistência interna de \SIrange{10}{40}{m\ohm} por módulo,
 o envelope de \SIrange{2,75}{16,05}{kA} fica abaixo dos \SI{20}{kA} do fusível.
 O limite publicado do US5000, $<\SI{2000}{A}/\SI{1}{ms}$ por módulo, reduz 63 casos \cite{pylontech}.
-Os 56 casos antigos acima de 20 kA vinham de outra faixa, \SIrange{1}{50}{m\ohm}.
-Ainda faltam ampacidade instalada e coordenação das curvas I²t.
+A varredura de referência de \SIrange{1}{50}{m\ohm}, mais ampla, produz 56 casos
+acima de 20 kA antes da atuação do BMS; a conclusão depende, portanto, da resistência real dos módulos. A capacidade
+de condução de corrente na instalação e a coordenação das curvas I²t ainda precisam
+ser verificadas.
 \begin{figure}[htbp]
 \centering\includegraphics[width=0.85\linewidth]{cad_rotas.png}
 \caption{Rotas reservadas de cabos de \SI{48}{V} (positivo em vermelho, retorno em preto) e de água (azul) no layout A; equipamentos em cinza translúcido. A linha da pia corre sob o piso e sobe atrás do gabinete da cozinha.}
@@ -388,31 +400,37 @@ O inversor é o \textbf{MultiPlus-II GX 48/5000/70-50}: \SI{4000}{W} contínuos 
 
 No balanço, as perdas FV são 10\%; os rendimentos agregados do inversor e do conversor
 CC são 0,90. Os bancos são distintos: a tração só recebe solar por uma interface externa
-CCS2 hipotética, parada, com $\eta_{CC}=0{,}90$ e mínimo de \SI{0,38}{kW} na saída.
+CCS2 hipotética, com o veículo parado, $\eta_{CC}=0{,}90$ e mínimo de
+\SI{0,38}{kW} na saída. O modelo aloca geração fotovoltaica a essa interface;
+não transfere a energia armazenada no banco de serviços para a tração.
 \begin{figure}[htbp]
 \centering
-\begin{tikzpicture}[fluxo,node distance=0.5cm and 0.75cm]
-\node[caixa] (sol) {Sol\\(pvlib)};
-\node[caixa,above right=0.05cm and 0.8cm of sol] (teto) {teto\\1560\,Wp};
-\node[caixa,below right=0.05cm and 0.8cm of sol] (port) {portáteis\\1600\,Wp (parado)};
-\node[caixa,right=of teto] (m1) {MPPT\\250/60-Tr};
-\node[caixa,right=of port] (m2) {MPPT\\150/60-Tr};
-\node[caixa,below right=0.05cm and 0.8cm of m1] (banco) {banco de serviços\\48\,V, 14,4\,kWh};
-\node[caixa,above right=0.1cm and 0.8cm of banco] (inv) {inversor\\MultiPlus-II};
-\node[caixa,right=0.6cm of inv] (ca) {cargas CA\\220\,V};
-\node[caixa,right=0.8cm of banco] (cc) {CC-CC\\12\,V};
-\node[hipo,below=1.1cm of banco,xshift=0.9cm] (if) {interface CC externa (CCS2)\\$\eta=0{,}90$; transfere só se\\$P_{\text{saída}}\ge\SI{0,38}{kW}$};
-\node[caixa,right=0.8cm of if] (hv) {bateria de tração\\400\,V, 98\,kWh úteis};
+\begin{tikzpicture}[fluxo]
+\node[caixa] (sol) at (0,0) {Sol};
+\node[caixa] (teto) at (2.7,1.3) {teto\\1560\,Wp};
+\node[caixa] (port) at (2.7,-1.3) {portáteis\\1600\,Wp (parado)};
+\node[caixa] (m1) at (5.5,1.3) {MPPT\\250/60-Tr};
+\node[caixa] (m2) at (5.5,-1.3) {MPPT\\150/60-Tr};
+\node[caixa] (banco) at (9,1.3) {banco de serviços\\48\,V, 14,4\,kWh};
+\node[caixa] (inv) at (12.5,1.3) {inversor\\MultiPlus-II};
+\node[caixa] (ca) at (15,1.3) {cargas CA\\220\,V};
+\node[caixa] (cc) at (12.5,-0.4) {CC-CC\\12\,V};
+\node[hipo] (if) at (10,-3.5) {interface CC externa hipotética\\$\eta=0{,}90$; $P_{\text{saída}}\ge\SI{0,38}{kW}$};
+\node[caixa] (hv) at (14.5,-3.5) {bateria de tração\\400\,V, 98\,kWh úteis};
 \draw[seta] (sol) -- (teto); \draw[seta] (sol) -- (port);
 \draw[seta] (teto) -- (m1); \draw[seta] (port) -- (m2);
-\draw[seta] (m1) -- (banco); \draw[seta] (m2) -- (banco);
+\draw[seta] (m1) -- (banco); \draw[seta] (m2.east) -- (banco.south);
 \draw[seta] (banco) -- (inv); \draw[seta] (inv) -- (ca); \draw[seta] (banco) -- (cc);
-\draw[seta,dashed] (banco) -- node[rot,right] {só itens 25, 27, 29} (if);
+\coordinate (alocacao) at (6.8,-3.5);
+\draw[dashed,thick] (6.8,1.3) -- (alocacao);
+\draw[dashed,thick] (m2.east) -- (6.8,-1.3);
+\node[font=\scriptsize,fill=white,inner sep=1pt,anchor=east] at (6.6,-2.3) {parcela FV alocada};
+\draw[seta,dashed] (alocacao) -- (if.west);
 \draw[seta,dashed] (if) -- (hv);
 \end{tikzpicture}
-\caption{Caminho da energia. Os dois rastreadores carregam o banco de \SI{48}{V}; o inversor
-alimenta as cargas em CA. O ramo tracejado é a recarga CC externa hipotética da tração, com o mínimo
-aplicado à potência de saída.}
+\caption{Fluxos de energia nos estudos. Os rastreadores alimentam os serviços; o ramo tracejado
+representa a alocação conceitual de parte da geração FV à recarga CC da tração. Não há
+transferência da carga armazenada entre os bancos. O desenho não é um esquema de ligação elétrica.}
 \label{fig:fluxo_eletrico}
 \end{figure}
 \begin{figure}[htbp]\centering
@@ -692,8 +710,8 @@ A massa calculada é \textbf{\SI{\MassaNom}{kg}}, incluindo duas pessoas de 80 k
 O CG é $(\CgX;\CgY;\CgZ)$ m; as cargas são \SI{\EixoDianteiro}{kg} na dianteira
 e \SI{\EixoTraseiro}{kg} na traseira.
 \input{tabela_massa}
-A cama acrescentou \SI{\MassaExtraCama}{kg} líquidos, substituindo a reserva anterior de
-12 kg. O envelope estrutural de 30 kg de colchão/roupa é conservador; o inventário tem
+A massa líquida da estrutura da cama é de \SI{\MassaExtraCama}{kg}, descontada a
+reserva de 12 kg para evitar dupla contagem. O envelope estrutural de 30 kg de colchão/roupa é conservador; o inventário tem
 12 kg de colchão. A margem varia de \SIrange{\MargemMinA}{\MargemMaxA}{kg} nos casos do
 layout A. As chapas gerais são tratadas separadamente no item 15; cumprir o PBT não
 comprova os limites por eixo.
@@ -774,10 +792,17 @@ hipóteses; o pico não é potência contínua garantida, nem substitui o limite
 \FloatBarrier
 \subsection{Análise de Custo}
 \itemmark{24}
-O custo estimado é de \textbf{R\$ 794 mil}, faixa de R\$ 725--888 mil: R\$ 619 mil
-pelo veículo importado e R\$ 175 mil pela conversão. O total inclui montagem/acabamento
-estimados em R\$ 15--40 mil; não é orçamento apenas de materiais.
+O orçamento separa a aquisição do veículo, os equipamentos de conversão e uma
+reserva de montagem, suportes e acabamento. As aquisições e os componentes fora dessa
+reserva somam \textbf{R\$ \CustoComponentesMil\ mil}, com faixa de
+R\$ \CustoComponentesMinMil--\CustoComponentesMaxMil\ mil. A rubrica mista acrescenta
+R\$ \CustoRubricaMistaMil\ mil no nominal, levando o investimento total a
+\textbf{R\$ \CustoProjetoMil\ mil}, ou aproximadamente R\$ 794 mil.
 
+A reserva não discrimina materiais e mão de obra. Portanto, na hipótese nominal,
+o custo de aquisição e materiais fica entre R\$ \CustoComponentesMil\ e
+R\$ \CustoProjetoMil\ mil, conforme a parcela material dessa rubrica. O limite
+superior inclui toda a reserva; não é uma soma apenas de componentes cotados.
 Os câmbios de referência são USD/BRL 5,5146 e EUR/BRL 6,1748. Nas importações,
 o cálculo soma CIF, II, IPI, PIS/COFINS e ICMS por dentro, totalizando R\$ 327 mil
 em tributos. As alíquotas/faixas e fontes são registradas no orçamento \cite{ii35}.
@@ -900,7 +925,7 @@ temperatura, por isso a solução é iterada até a temperatura de superfície c
 \toprule
 Contorno (modo normal, \SI{382}{A}) & \SI{120}{mm^2} & \SI{150}{mm^2} & \SI{185}{mm^2} & \SI{240}{mm^2} \\
 \midrule
-Referência antiga (\SI{25}{\celsius}, radiação plena) & 62 & 53 & 46 & 40 \\
+Referência idealizada (\SI{25}{\celsius}, radiação plena) & 62 & 53 & 46 & 40 \\
 Rota protegida (\SI{50}{\celsius}/\SI{70}{\celsius}) & 134 & 114 & 101 & 89 \\
 Cofre do motor (\SI{60}{\celsius}/\SI{80}{\celsius}, conduíte) & \textbf{158} & 134 & \textbf{118} & 104 \\
 \bottomrule
@@ -1065,10 +1090,11 @@ asterisco indica parada ao atingir o limite hipotético de 45 °C.}
 No pior caso ($R=0{,}12\,\Omega$, $\partial U/\partial T=0{,}02$ V/K, 500 kg,
 $UA_{bc}/UA_{ca}=125/250$ W/K), a carga de 80 kW para em 45 °C após 0,66 h;
 partindo a 35 °C, após 0,37 h. A geração interna chega a 6,35 kW.
-A sugestão de chiller de 3--5 kW, isoladamente, não garante esse extremo:
+Um resfriador de 3--5 kW térmicos não garante a rejeição desse calor no extremo:
 para rejeitar 6,35 kW com bateria a 45 °C e fluido a 25 °C, seriam necessários
 $UA_{bc}\ge318$ W/K e ao menos 6,35 kW térmicos de capacidade instantânea.
-É pré-dimensionamento condicional; não se acrescenta um equipamento fictício à massa/custo OEM.
+Esse é um requisito condicional para o circuito da bateria; massa e custo adicionais
+dependem da seleção de um equipamento e da capacidade do sistema original.
 
 \itemsec{35}{Vazão de arrefecimento e desempenho do radiador}
 Para controlar o aquecimento do trem de força, o circuito deve transportar as perdas
@@ -1118,7 +1144,7 @@ no motor e perdas motor/inversor de 11--13 kW. O pico contínuo de 205 kW é,
 assim, um envelope conservador; a ligação hidráulica do redutor ainda precisa ser confirmada.
 
 A estimativa de cavitação usa pressão atmosférica de 91,5 kPa, pressão de vapor
-hipotética de 55 kPa a 90 °C e perda na sucção de 10 kPa. O NPSH disponível é
+hipotética de 55 kPa a 90 °C e perda na sucção de 10 kPa. A altura líquida positiva de sucção disponível (NPSH) é
 2,6 m sem pressurização e 12,3 m com tampa de 100 kPa(g). A pressão de vapor e as
 perdas de sucção são hipóteses; sem o NPSH requerido da bomba, a margem contra
 cavitação não está comprovada.
@@ -1189,14 +1215,20 @@ nessa análise, 0 e 1400 W são sensibilidades deliberadas, sem alterar a escolh
 \end{figure}
 
 \itemsec{25}{Autonomia com a energia solar do dia}
-O crédito solar da tração começa em zero. Calculam-se geração por intervalo, perdas,
-serviços e energia entregue à tração; a distância é $d=E_{tr}/e(v)$.
-O despacho MILP/HiGHS escolhe a partida, sem portáteis em movimento nem recarga CC rodando:
+Para calcular a distância sustentada pelo sol de um único dia, contabiliza-se apenas
+a energia gerada nesse dia: o crédito inicial da tração é zero. Em cada intervalo,
+a geração atende aos serviços e às perdas, e o restante pode ser destinado à recarga
+CC da tração, com o veículo parado. A energia disponível evolui segundo
 \[
- E_{k+1}=E_k+E_{CC,k}-e(v)\Delta d_k,\qquad E_0=0,\quad E_k\geq0.
+ E_{k+1}=E_k+E_{CC,k}-e(v)\Delta d_k,\qquad E_0=0,\quad E_k\geq0,
 \]
-O mínimo de \SI{0,38}{kW} é aplicado na saída da interface, igual ao item 29.
-Foram resolvidos 630 casos em passos de 30/15/5 min, com e sem habitação.
+em que $e(v)$ é o consumo por quilômetro e $E_{CC,k}$ a energia solar recebida na
+tração. Para uma velocidade constante, a distância é $d=E_{tr}/e(v)$.
+
+A alocação de energia e a partida são avaliadas por programação linear inteira mista
+(MILP), com o solucionador HiGHS. Foram resolvidos 630 casos em passos de 30, 15 e
+5 min, com e sem habitação. Adota-se mínimo de \SI{0,38}{kW} na saída CC, a mesma
+convenção da análise de viagem, e não se usam portáteis nem recarga CC em movimento.
 \input{tabela_i25}
 Na tabela: mínimo em kW, energias em kWh e distâncias em km.
 Sem habitação, obtêm-se \textbf{\AutSolarSemQuarenta/\AutSolarSemOitenta\ km} a 40/80 km/h;
@@ -1205,9 +1237,9 @@ O máximo da curva de 15 min é \SI{\AutSolarMax}{km} a \SI{\AutSolarVel}{km/h};
 os pontos 40/80 foram refinados a 5 min.
 
 O mínimo corta 0,19 kWh na saída e a partida antecipada perde mais 0,05 kWh de geração:
-a queda total entregue é 0,23 kWh, não os 0,4 kWh anotados anteriormente.
-Com serviços, o corte é nulo; a anotação de ganho de 0,78 kWh pertence ao teste antigo
-com limiares de 1 e 0,5 kW. Sem a interface CC hipotética, a autonomia solar de tração é zero.
+a redução total entregue é 0,23 kWh. Com os serviços, não há corte nesse teste, pois
+a geração de baixa potência pode atender à habitação. Sem a interface CC hipotética,
+a autonomia solar de tração é zero.
 
 A influência do carregador é isolada na Figura~\ref{fig:limiar_comparado}. Além dos
 limiares de 0, 0,38 e 3 kW, foram resolvidas 140 novas janelas MILP para 0,5 e 1 kW,
@@ -1224,8 +1256,8 @@ Sem habitação e a 80 km/h, baixar o mínimo de 1 para 0,5 kW aumenta o crédit
 resultam em 6,19 kWh para tração e 15,15 km. Aumentar o mínimo impede aproveitar
 intervalos de baixa geração. Abaixo de certo
 limiar, parte da geração já é destinada aos serviços, e baixar o mínimo pode deixar
-de aumentar o crédito da tração. Esses resultados pertencem ao cenário de 1560 Wp;
-o ganho antigo de 0,78 kWh não é transferido para ele.
+de aumentar o crédito da tração. A comparação mantém o teto de 1560 Wp, o mesmo
+consumo e as mesmas condições de operação.
 
 \begin{figure}[htbp]
 \centering\includegraphics[width=0.75\linewidth]{i25_autonomia_solar.png}
@@ -1290,7 +1322,9 @@ separado. Com SOC inicial de 80\%, o alcance máximo é \SI{\AlcanceOitentaSoc}{
 \end{figure}
 
 \itemsec{29}{Estratégia para a viagem de 7000 km}
-A viagem começa com os dois bancos cheios e só recebe solar. A cada intervalo,
+A viagem começa com os dois bancos cheios e recebe apenas energia solar.
+Repete-se o dia claro de 21/06 em pista plana; o resultado é condicionado à interface
+CC hipotética e não reproduz o clima e o relevo de todo o litoral. A cada intervalo,
 atualizam-se geração, serviços, reservas e distância (Figura~\ref{fig:fluxo_viagem}):
 \[
  E_{t,k+1}=E_{t,k}+E_{CC,k}-e(v)\Delta d_k,\qquad
@@ -1300,44 +1334,33 @@ A melhor combinação encontrada é \textbf{20,5 km/h}, primeira saída às \tex
 janela até 02h e chegada em \textbf{214,8 dias} com reservas 10/20\%.
 Com 20/30\%, são 215,8 dias a 20,7 km/h.
 \IbComparacao
-A tração atinge a reserva pela primeira vez em 3,85 dias, após 539 km.
-Depois disso, o sol sustenta cerca de 30,6 km/dia e 1,49 h/dia ao volante;
-no total, são 341 h de condução. Partir à tarde preserva a geração dos portáteis.
-A Figura~\ref{fig:viagem_lider} relaciona a distância e o SOC à operação diária dessa
-estratégia: o deslocamento ocorre à noite e a maior parte do dia fica disponível
-para captar energia com o veículo parado.
+A bateria inicial sustenta 539 km até atingir a reserva, após 3,85 dias.
+Depois disso, a reposição solar limita o ritmo a cerca de 30,6 km/dia.
+A Figura~\ref{fig:viagem_lider} mostra essa mudança e a operação noturna, que preserva
+a maior parte do dia para captar energia com os portáteis abertos.
 \begin{figure}[htbp]\centering\includegraphics[width=\linewidth]{i29_missao.png}
 \caption{Distância e SOC da tração na estratégia de 20,5 km/h, com janela 18--02h,
 e geração/operação em um dia típico da mesma viagem.}
 \label{fig:viagem_lider}\end{figure}
 
 
-Foram testadas 2784 combinações a 5 min e 294 no refino de 1 min; a duração do líder
-muda 0,03 dia. A grade é necessária porque agenda, reservas e limiar CC também afetam
-a chegada; o mínimo analítico de consumo não prova o menor tempo global.
+A busca avaliou 2784 combinações em passos de 5 min e refinou 294 casos a 1 min,
+alterando a duração do líder em 0,03 dia. Agenda solar, reservas e mínimo CC exigem
+essa busca conjunta: o menor consumo específico não prova o menor tempo de viagem.
 
-A alternativa de acumular energia entre deslocamentos foi simulada em seis casos,
-mostrados na Tabela~\ref{tab:acumulacao}. Para isolar o efeito das pausas, fixa-se a
-janela diurna de 08 a 16h e comparam-se condução diária, um e dois dias parados entre
-os dias de condução, a 40 e 80 km/h. As reservas são 10/20\%, os dois bancos começam
-cheios, os serviços continuam consumindo energia durante as pausas e os portáteis
-podem ficar abertos durante todo o dia parado. Nos dias de condução, a abertura segue
-a agenda planejada, sem reabrir durante uma parada antecipada por falta de energia.
-Essa é uma política fixa de comparação. Não há energia da rede.
+A Tabela~\ref{tab:acumulacao} compara ainda seis políticas de acumulação: 40/80 km/h
+e zero, um ou dois dias parados entre dias de condução. Fixam-se janela 08--16h,
+reservas de 10/20\%, bancos inicialmente cheios e consumo da habitação. Os portáteis
+abrem o dia inteiro nas pausas; nos dias de condução, seguem a agenda fixa, sem
+reabertura antecipada. Não há recarga da rede.
 \input{tabela_acumulacao}
-Na condução diurna diária, a geração perde os portáteis durante as horas de maior
-sol e os serviços atingem a reserva após 7,2 dias. Intercalar pausas permite a chegada
-condicional, porém alonga a viagem; nessa família, dois dias parados aproveitam melhor
-os portáteis que apenas um. A janela 18--02h discutida anteriormente evita essa perda
-sem esperar dias inteiros. Trata-se de comparação entre políticas fixas, e não de
-prova de ótimo global para todas as sequências de espera e condução.
-O resultado repete o dia claro de 21/06, em pista plana, e depende da interface CC
-hipotética de 0,38 kW mínimo; não representa uma previsão climática de viagem real.
-
-
+Com condução diurna diária, os serviços atingem a reserva em 7,2 dias.
+As pausas permitem chegada condicional, mas alongam a viagem. Dois dias parados
+aproveitam melhor os portáteis que apenas um; a janela noturna evita essa perda.
+A comparação vale para essas políticas fixas, sem prova de ótimo global.
 
 \FloatBarrier
-\clearpage
+\Needspace{12\baselineskip}
 \section{Tabela final de respostas}
 
 \begin{longtable}{>{\raggedright}p{0.9cm}>{\raggedright}p{4.3cm}p{10.1cm}}
@@ -1369,15 +1392,15 @@ Item & Grandeza & Resultado \\
 21 & Forças & 681 N a 40 km/h; 1295 N a 80 km/h \\
 22 & Potências & 7,56 / 28,78 kW nas rodas; \PotenciaBateriaQuarenta / \PotenciaBateriaOitenta\ kW na bateria \\
 23 & Capacidade & 98 kWh úteis (tração) + 14,4 kWh nominais (13,7 kWh utilizáveis) nos serviços \\
-24 & Custo & R\$ 794 mil (725--888 mil), aquisição e conversão com impostos de importação \\
+24 & Custo & aquisição/materiais: R\$ \CustoComponentesMil--\CustoProjetoMil\ mil no nominal; total com reserva mista: R\$ 794 mil (725--888 mil), incluindo impostos \\
 25 & Autonomia solar & \AutSolarSemQuarenta\ km a 40 km/h; \AutSolarSemOitenta\ km a 80 km/h (0,38 kW; \AutSolarComQuarenta / \AutSolarComOitenta\ km com habitação) \\
 26 & Consumo & \DistanciaEnergiaQuarenta\ km/kWh a 40 km/h; \DistanciaEnergiaOitenta\ km/kWh a 80 km/h \\
 27 & Autonomia diária & \AlcanceDia\ km a \VelocidadeDia\ km/h (\HorasDia\ h); \AlcanceOito\ km em 8 h \\
 28 & Vmax, 0--100 & 90 km/h (limitador de fábrica); 0--90 em \AcelNoventa\ s; 0--100 teórico, sem limitador, em \AcelCem\ s \\
 29 & 7000 km & \IbResumo \\
-30 & Cabos & 382 A normal; 120 mm²: 158 °C no cofre; 185 mm² atende 125 °C \\
+30 & Cabos & 489 A no pico; campo permanente: 217,5/149,6 °C em 120/185 mm²; a 382 A: 158/118 °C no cofre; 185 mm² atende 125 °C no normal \\
 31 & Cabine fechada & 49,1 °C (zona única); 50,3 °C médio no CFD 3D \\
-32 & A/C & 2,31 kW com cortina no para-brisa (2,87 kW sem) para 2 pessoas e 62 m³/h \\
+32 & A/C & 1 pessoa/30 m³/h: 2,52 kW; 2 pessoas/62 m³/h: 2,87 kW sem cortina e 2,31 kW com cortina \\
 33 & Freios & pico nominal \FreioPico\ °C; \FreioRegenOitenta\ °C com regeneração hipotética de 80 kW \\
 34 & Bateria em carga & 25,9 °C (20 kW); 32,0 °C (80 kW) \\
 35 & Bomba/radiador & 31,9 L/min, 71,6 kPa; 22,9 kW rejeitados; 66,8/55,1 °C \\
@@ -1395,6 +1418,7 @@ o arrefecimento. Autonomia solar da tração, contornos térmicos e propriedades
 permanecem condicionados às hipóteses indicadas.
 
 \begin{thebibliography}{99}\small
+\setlength{\itemsep}{2pt}\setlength{\parskip}{0pt}
 \bibitem{fiatsk} FIAT PROFESSIONAL. E-Ducato — cenník a technické údaje, 20/03/2026. \url{https://www.fiat.sk/content/dam/fiat2023/sk/cenniky/2026/03/e_Ducato_pricelist_dodavka_200326.pdf}. Acesso em: 23 out. 2026.
 \bibitem{fiatde} FIAT PROFESSIONAL DE. E-Ducato technische Daten. \url{https://www.fiat.de/professional/modelle/e-ducato/technical-data}. Acesso em: 26 out. 2026.
 \bibitem{maxeon} MAXEON SOLAR TECHNOLOGIES. Maxeon 3 COM 380--400 W datasheet 544454. \url{https://sunpower.maxeon.com/int/sites/default/files/2022-05/sp_max3_104c_com_380-400_dc_ds_en_a4_544454.pdf}. Acesso em: 9 nov. 2026.
@@ -1433,7 +1457,7 @@ permanecem condicionados às hipóteses indicadas.
 \bibitem{boiler} QUICK. Boiler B3, manual BOILERB3REV003A, modelo B31505S, 15 L/500 W. \url{https://www.go2marine.com/Product-Guides/MFR/Quick/208285F.pdf}. Manual do fabricante em distribuidor. Acesso em: 9 nov. 2026.
 \bibitem{ctb} BRASIL. Lei n.º 9.503, de 23 de setembro de 1997. Código de Trânsito Brasileiro, art. 61. \url{https://legis.senado.leg.br/norma/551379/publicacao/34619690}. Acesso em: 25 nov. 2026.
 \bibitem{cuca} BARATTO, A. J. et al. \emph{Projeto de um Veículo Elétrico Solar}.
-SEM0571, EESC--USP, dez. 2025. Relatório de referência fornecido pelo usuário (Cuca).
+SEM0571, EESC--USP, São Carlos, dez. 2025. Relatório acadêmico, 36 p.
 \bibitem{victronmpptdim} VICTRON ENERGY. \emph{MPPT solar charger manual}, seções 9.1--9.2: SmartSolar 150/60 e 250/60-Tr. \url{https://www.victronenergy.com/media/pg/Manual_SmartSolar_MPPT_150-60_up_to_250-70/en/technical-specifications.html}. Acesso em:25 nov.2026.
 \end{thebibliography}
 \end{document}

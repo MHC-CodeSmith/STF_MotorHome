@@ -1,0 +1,17 @@
+[
+  {
+    "role": "requisitos",
+    "filename": "Projeto Sist. Térmicos e Fluídicos 2026 (1).pdf",
+    "pages": 2,
+    "sha256_pdf": "d808110aae47232b4769d42b02401084a83aa7512715a81ab476a1a8d5a76ce0",
+    "identical_to_repository": "docs/fontes_recebidas/Projeto Sist. Térmicos e Fluídicos 2026.pdf"
+  },
+  {
+    "role": "estrutura e redação",
+    "filename": "Relatório_Sistemas_Térmicos_e_Fluídicos___SEM0571 (1).pdf",
+    "pages": 36,
+    "sha256_pdf": "45b33ab80e8f5b041cffb9c98cc4c36258e80d7f5251b9fdbbada9c33538bd0a",
+    "sha256_extracted_text": "2ce024cbc9fb8c55d686333292346ebf3541ae9dece895aabe557f3342a3ca12",
+    "note": "Texto idêntico à extração antes utilizada; trechos atribuídos e adaptados, sem transferência de resultados."
+  }
+]

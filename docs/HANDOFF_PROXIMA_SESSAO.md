@@ -1,3 +1,19 @@
+# Conferência dos anexos — redação final vigente
+
+Enunciado reenviado é idêntico ao versionado; texto do Cuca é idêntico à extração
+anterior. Hashes em `relatorio/referencias_fornecidas.json`; não duplicar a pesquisa
+nem importar o PDF integral do relatório de terceiros para o repositório público.
+Memorial continua com 41 páginas/38 figuras, sem listas nem código. A revisão final
+limpa histórico de correções, liga modelos à interpretação e ajusta o resumo I30/I32.
+Diagrama da energia: parcela FV pode ir à interface CC hipotética; não representar
+descarga do banco de serviços para a tração nem incluir I27 nesse ramo solar.
+Custo: R$ 768,54 mil de aquisições/componentes fora da reserva mista de R$ 25 mil;
+aquisição/materiais nominal entre R$ 768,54–793,54 mil, sem inventar rateio da reserva.
+Ver detalhes em `REVISAO_LEITURA_E_COMPARACOES.md`. Parâmetros físicos e resultados
+das simulações preservados. Nomes e exceções (código/vídeo) seguem as instruções aceitas.
+
+---
+
 # Continuação vigente: leitura orgânica e comparações
 
 Esta revisão prevalece sobre a edição de 39 páginas descrita abaixo. O memorial tem

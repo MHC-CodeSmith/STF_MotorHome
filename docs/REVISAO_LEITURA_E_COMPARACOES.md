@@ -73,7 +73,38 @@ físicas continuam declarados. PDF sem código e sem listas itemizadas; vídeo f
 do escopo por instrução do usuário. A existência das simulações e dos testes não
 comprova fabricação, homologação ou validação física dos componentes.
 
-PDF compilado: 41 páginas, 6.321.423 bytes (6,32 MB), 38 figuras/diagramas.
+PDF compilado: 41 páginas, aproximadamente 6,32 MB, 38 figuras/diagramas.
 Freios na seção 3.3.1 (p. 23); cabos 3.3.2 (p. 24); cabine 3.3.3 (p. 26);
 ar-condicionado 3.3.4 (p. 26); bateria 3.3.5 (p. 28); circuito 3.3.6 (p. 29).
 As páginas são as impressas no rodapé; o arquivo inclui a capa antes da página 1.
+
+## Conferência dos anexos originais e redação final
+
+Os PDFs reenviados foram conferidos integralmente: enunciado de duas páginas e
+relatório de Baratto et al. (Cuca), de 36 páginas. O enunciado é idêntico ao arquivo
+já versionado e o texto extraído do Cuca é idêntico à extração antes utilizada.
+Nomes dos arquivos e SHA-256 dos PDFs/textos estão em
+`relatorio/referencias_fornecidas.json`. O PDF integral de terceiros não foi publicado
+novamente; trechos adaptados continuam com atribuição bibliográfica.
+
+A revisão separa o trabalho de integração dos PRs da leitura acadêmica do memorial:
+retira relatos de anotações antigas e mantém hipótese, comparação vigente e resultado.
+A revisão bibliográfica foi ajustada para ligar motor, energia e gerenciamento térmico.
+O diagrama elétrico foi corrigido: o ramo CC recebe uma parcela de geração FV,
+sem sugerir transferência da energia armazenada no banco de serviços. A legenda
+anterior ainda incluía indevidamente o item 27, que é sem reposição solar.
+
+O resumo dos itens 30 e 32 agora explicita, respectivamente, o campo na potência
+máxima e o caso de uma pessoa pedido pelo enunciado, além das sensibilidades.
+Não se apresenta a seção de 185 mm² como solução para pico contínuo: a condição
+normal e a duração admissível do pico são diferenciadas no corpo do texto.
+
+A tabela de custo ganhou subtotal de aquisições/componentes fora da reserva mista:
+R$ 768.536,40 nominais. A reserva de R$ 25.000 mistura montagem, suportes e acabamento;
+a parcela de materiais não é conhecida. Por isso a aquisição/materiais nominal é
+expressa como intervalo de R$ 768.536,40 a R$ 793.536,40, sem inventar uma fração de
+mão de obra. O total do projeto, os tributos e todos os resultados numéricos de
+dinâmica/energia/térmica permanecem inalterados. O gerador confere a soma em cada faixa.
+
+Os PRs #1/#2/#4/#5/#6/#8/#9 continuam mesclados; não havia PR nem issue aberto na
+conferência. Código no PDF e vídeo permanecem fora do escopo por instrução do usuário.

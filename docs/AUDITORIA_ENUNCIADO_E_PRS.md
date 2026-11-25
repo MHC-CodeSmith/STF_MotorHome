@@ -76,7 +76,7 @@ Cuca. “Apresentado” significa que existe resposta técnica, não confirmaç�
 |21|Curvas de forças aerodinâmica/rolamento com velocidade.|
 |22|Curvas de potência resistiva/demanda e envelope disponível.|
 |23|Capacidades nominal/útil, bases de SOC e reservas separadas.|
-|24|Tabela por componente, R$, impostos/faixas; inclui montagem identificada.|
+|24|Tabela por componente, R$, impostos/faixas; subtotal de aquisição/componentes R$ 768,54 mil. A reserva mista de montagem/suportes/acabamento dá faixa nominal de aquisição/materiais R$ 768,54–793,54 mil, sem rateio fictício.|
 |25|40/80km/h só solar, gráfico, balanços e serviços; interface condicional.|
 |26|40/80km/h em km/kWh e kWh/km, curva e conversão SI.|
 |27|SOC final30%, velocidade e potência instantânea; comparação24h/8h.|
@@ -115,3 +115,6 @@ Ruff, verificação estrutural e os dois verificadores de manifesto em modo de l
 aprovados. A auditoria de estrutura também expõe os parâmetros OEM não publicados
 e a ausência de aprovação final de engenharia; testes não alteram essa condição.
 Configuração preservada: SHA-256 `047c725c8f26f5dbf4c824aaffeb92d09272f12a4e5e181e5e059c5eb3a4396b`.
+
+Conferência direta dos dois PDFs anexados: fontes e ajustes de redação registrados
+em `REVISAO_LEITURA_E_COMPARACOES.md` e `relatorio/referencias_fornecidas.json`.

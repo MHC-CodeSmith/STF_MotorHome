@@ -120,7 +120,6 @@ def main():
         values['SemDeckBat'+name]=(row['sem_deck']['potencia_bateria_kw'],2)
         values['DeckPercentual'+name]=(row['diferenca_percentual'],1)
         values['DeckKmEmpate'+name]=(deck['km_dia_para_empatar'][speed],0)
-    (R/'valores_integrados.tex').write_text('% Gerado por relatorio/atualizar_tabelas.py; cenário maxeon1560_independente.\n'+''.join('\\newcommand{\\'+name+'}{'+fmt(v,n)+'}\n' for name,(v,n) in values.items()))
     inventory=[x for x in csvs(E/'integracao/inventario_massas.csv') if x['layout']=='A_fixa']
     # Partição disjunta: cada id é contado uma única vez.
     groups={}
@@ -146,6 +145,16 @@ def main():
         low=next(r for r in cost if r['id']==x['id'] and r['caso']=='baixo')
         high=next(r for r in cost if r['id']==x['id'] and r['caso']=='alto')
         rows.append([escape(x['descricao']),x['qtd'],fmt(float(x['total_brl'])/1000,2),fmt(float(low['total_brl'])/1000,2)+'--'+fmt(float(high['total_brl'])/1000,2)])
+    component_cost={case:sum(float(x['total_brl']) for x in cost if x['caso']==case and x['id']!='montagem') for case in ['baixo','nominal','alto']}
+    mixed_cost={case:sum(float(x['total_brl']) for x in cost if x['caso']==case and x['id']=='montagem') for case in ['baixo','nominal','alto']}
+    for case, subtotal in component_cost.items():
+        assert abs(subtotal+mixed_cost[case]-sum(float(x['total_brl']) for x in cost if x['caso']==case))<1e-7
+    values['CustoComponentesMil']=(component_cost['nominal']/1000,2)
+    values['CustoComponentesMinMil']=(component_cost['baixo']/1000,2)
+    values['CustoComponentesMaxMil']=(component_cost['alto']/1000,2)
+    values['CustoRubricaMistaMil']=(mixed_cost['nominal']/1000,2)
+    values['CustoProjetoMil']=((component_cost['nominal']+mixed_cost['nominal'])/1000,2)
+    rows.append([r'\textbf{Subtotal sem montagem, suportes e acabamento}', '',fmt(component_cost['nominal']/1000,2),fmt(component_cost['baixo']/1000,2)+'--'+fmt(component_cost['alto']/1000,2)])
     rows.append([r'\textbf{Total}', '',fmt(sum(float(x['total_brl']) for x in cost if x['caso']=='nominal')/1000,2),fmt(sum(float(x['total_brl']) for x in cost if x['caso']=='baixo')/1000,2)+'--'+fmt(sum(float(x['total_brl']) for x in cost if x['caso']=='alto')/1000,2)])
     table(R/'tabela_custos.tex','Orçamento por componente/rubrica; valores já incluem a hipótese tributária. Estimativas são identificadas na descrição.','tab:custos',['Componente ou rubrica','Qtd.','Nominal [mil R\\$]','Faixa [mil R\\$]'],rows,'Xrrr')
     rows=[]
@@ -153,6 +162,7 @@ def main():
         util=max(v.get('utilizacao',0),v.get('utilizacao_flambagem',0),v.get('utilizacao_compressao',0))
         rows.append([escape(key).replace(r'\_', ' '),fmt(util,3),fmt(v['flecha_mm'],2) if 'flecha_mm' in v else '--',fmt(v['limite_flecha_mm'],2) if 'limite_flecha_mm' in v else '--'])
     table(R/'tabela_cama.tex','Verificação da cama por elementos idealizados; utilização 1 é o limite.','tab:cama',['Caso','Utilização','Flecha [mm]','Limite [mm]'],rows,'Xrrr')
+    (R/'valores_integrados.tex').write_text('% Gerado por relatorio/atualizar_tabelas.py; cenário maxeon1560_independente.\n'+''.join('\\newcommand{\\'+name+'}{'+fmt(v,n)+'}\n' for name,(v,n) in values.items()))
     print(json.dumps({'mass_kg':mass,'macros':len(values),'cost_rows':len(rows)}))
 
 
