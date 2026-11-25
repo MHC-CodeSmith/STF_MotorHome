@@ -1,3 +1,14 @@
+# Estado vigente após os dois commits do PR #8
+
+O segundo commit, `a0e962d`, aplicou o equivalente de 1 A × 380 V = 0,38 kW
+na saída CC, de forma coordenada em I25/I29. O cenário1560 foi reexecutado;
+refinamento final e primeira saída física constam em `i29_fechamento`.
+O texto abaixo descreve o diagnóstico/proposta anterior e deve ser lido como histórico.
+O limite de corrente CharIN não comprova que um equipamento real opere com o veículo;
+90S e 380 V são referências de hipótese, não medição do pack escolhido.
+
+---
+
 # Limite de potência da interface CC — verificação documental do "1 kW"
 
 **Data da consulta:** 2026-11-24

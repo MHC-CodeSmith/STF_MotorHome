@@ -1,0 +1,217 @@
+{
+  "reviewed_head_before_revision": "d7528ba65f9c7f47c9a11867c2c3e38e2ec158f7",
+  "pull_requests": [
+    {
+      "pr": 1,
+      "state": "MERGED",
+      "title": "Hub/tarefas motorhome com codex",
+      "commits": [
+        {
+          "sha": "60541a08ab02389cec3486a9c04c5a3c6d20dd1b",
+          "ancestor_of_reviewed_head": true,
+          "title": "Integra 1540 Wp e reproduz os 35 itens com CFD, bancos e prioridades"
+        },
+        {
+          "sha": "188d2c0cf5ea52b2a08339bce4150ec0dfaa3890",
+          "ancestor_of_reviewed_head": true,
+          "title": "Registra retomada e bloqueio de publicação da integração técnica"
+        },
+        {
+          "sha": "3f684d91a217b3298aef5aeb7dffb4511408928d",
+          "ancestor_of_reviewed_head": true,
+          "title": "Condensa retomada e esclarece autorização remota pendente"
+        },
+        {
+          "sha": "c4e88dd0743575b196fb8c8ff56959d7de4393a3",
+          "ancestor_of_reviewed_head": true,
+          "title": "Refina continuidade técnica do motorhome solar"
+        },
+        {
+          "sha": "6f52def8856c384df271b3d20b0994094bccdf56",
+          "ancestor_of_reviewed_head": true,
+          "title": "Atualiza QA para 179 entradas rastreadas"
+        },
+        {
+          "sha": "1365052b60f6e6d4e95fc2ab1527a3c6ccca6b40",
+          "ancestor_of_reviewed_head": true,
+          "title": "Registra checkpoint para continuidade técnica"
+        },
+        {
+          "sha": "01984620de0870ad821d0a3d71167b347a7ca8c9",
+          "ancestor_of_reviewed_head": true,
+          "title": "Analisa envelope de cargas por eixo"
+        },
+        {
+          "sha": "d8a88bc18172415163b6e12973ab7855b88fb214",
+          "ancestor_of_reviewed_head": true,
+          "title": "Amplia busca finita da missão solar"
+        },
+        {
+          "sha": "1a1cdbd8131ecb60694ac89ba5e4795842651b6e",
+          "ancestor_of_reviewed_head": true,
+          "title": "Registra progresso das buscas de missão"
+        },
+        {
+          "sha": "cfa71eb0b0290a2a647919fb9e15454c68808d84",
+          "ancestor_of_reviewed_head": true,
+          "title": "Refina análises de missão e capacidade HVAC"
+        },
+        {
+          "sha": "83c657a2223a70c0371ed80d7bd40fc29d390632",
+          "ancestor_of_reviewed_head": true,
+          "title": "Atualiza recomendação da missão I29"
+        },
+        {
+          "sha": "746621025b9dbac5c45f20a3645c8c6a3bec3d1e",
+          "ancestor_of_reviewed_head": true,
+          "title": "Registra estado final local e bloqueio de publicação"
+        },
+        {
+          "sha": "6ce9f24cd8e3dee47dcdf94766cdeaebdaef23d4",
+          "ancestor_of_reviewed_head": true,
+          "title": "Registra publicação da branch e bloqueio da main"
+        }
+      ],
+      "reviews_count": 0,
+      "general_comments_count": 0,
+      "inline_comments_count": 0,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pr": 2,
+      "state": "MERGED",
+      "title": "Revisão P7 — Herick Eliseu",
+      "commits": [
+        {
+          "sha": "022523bd29a4b6df64d240f45c5795675338347c",
+          "ancestor_of_reviewed_head": true,
+          "title": "Registra o parecer do P7 (Herick Eliseu)"
+        },
+        {
+          "sha": "c1d4222b3c4c92715c642510d7cce40a6f6574fc",
+          "ancestor_of_reviewed_head": true,
+          "title": "Vincula o registro do P7 à issue #3 e ao PR #2"
+        }
+      ],
+      "reviews_count": 0,
+      "general_comments_count": 0,
+      "inline_comments_count": 0,
+      "body_sha256": "a5a67b6475e08d11518780064218cd6284923cae6bdd98a644b6c7f8667afecf"
+    },
+    {
+      "pr": 4,
+      "state": "MERGED",
+      "title": "Revisa a carroceria, as vistas do CAD e os resultados de CFD do P3",
+      "commits": [
+        {
+          "sha": "18188563e56078492011a91fb4827e0be3f3c5af",
+          "ancestor_of_reviewed_head": true,
+          "title": "Revisa a carroceria, as vistas do CAD e os resultados de CFD do P3"
+        },
+        {
+          "sha": "a945d20bee71b9d4be023d3b74f272ef709753d0",
+          "ancestor_of_reviewed_head": true,
+          "title": "Add files via upload"
+        }
+      ],
+      "reviews_count": 0,
+      "general_comments_count": 0,
+      "inline_comments_count": 0,
+      "body_sha256": "d0b0ee4815b15125f674dd69b895a51ad07cbba7d992da5d1d02bd94c2f1d031"
+    },
+    {
+      "pr": 5,
+      "state": "MERGED",
+      "title": "Corrige contorno térmico, bitola dos cabos e análise de faltas",
+      "commits": [
+        {
+          "sha": "d310fd4a317f7d030a505878e4739be15a22a195",
+          "ancestor_of_reviewed_head": true,
+          "title": "Adiciona modelo de contorno térmico de cabos HV"
+        },
+        {
+          "sha": "53a187dbfebbb6ad3e7c2cc1396455abf8daa13e",
+          "ancestor_of_reviewed_head": true,
+          "title": "Reanalisa bitola do cabo HV e amplia o sweep do I34"
+        },
+        {
+          "sha": "ca226866aad0d321f52c7bf1ce45eecf9a9864e0",
+          "ancestor_of_reviewed_head": true,
+          "title": "Propaga a bitola de 185 mm2 e corrige inconsistencias eletricas"
+        },
+        {
+          "sha": "7b691c917ea1a9700181ae0e51fb42cc922bdb13",
+          "ancestor_of_reviewed_head": true,
+          "title": "Troca a varredura de faltas para DCIR plausivel (I07)"
+        },
+        {
+          "sha": "8d474abc83738329b5a8e88215f69cbc7cb53730",
+          "ancestor_of_reviewed_head": true,
+          "title": "Revisa o documento de mudancas antes do PR"
+        }
+      ],
+      "reviews_count": 0,
+      "general_comments_count": 0,
+      "inline_comments_count": 0,
+      "body_sha256": "4dbe85587d6544f3386895ceec22a6194b00f4cc3631a66a00f469eb1b120a62"
+    },
+    {
+      "pr": 6,
+      "state": "MERGED",
+      "title": "Revisão P4: correções de texto nos itens 2, 20 e 28",
+      "commits": [
+        {
+          "sha": "037a43c06f1b921e1075cd6cc869044d76b9b7dc",
+          "ancestor_of_reviewed_head": true,
+          "title": "Revisão P4: corrige raio do item 28, equação de aceleração e justific…"
+        }
+      ],
+      "reviews_count": 0,
+      "general_comments_count": 0,
+      "inline_comments_count": 0,
+      "body_sha256": "80cf48b7f3ffa8fbc890cfed610feb35978fc3ce0f5a7c3e608eb5e86576dbce"
+    },
+    {
+      "pr": 8,
+      "state": "MERGED",
+      "title": "Corrige convenção do mínimo DC no I25 e verifica a origem do 1 kW",
+      "commits": [
+        {
+          "sha": "bd1453cdf01bb3c82ed74d42c0a5ef07ed3875cf",
+          "ancestor_of_reviewed_head": true,
+          "title": "Corrige convenção do mínimo DC no I25 e verifica a origem do 1 kW"
+        },
+        {
+          "sha": "a0e962db78162dc77fed7a6710a46c1c5dba453e",
+          "ancestor_of_reviewed_head": true,
+          "title": "Deriva o piso DC de 1 A x 380 V e aplica 0,38 kW no I25 e no I29"
+        }
+      ],
+      "reviews_count": 0,
+      "general_comments_count": 0,
+      "inline_comments_count": 0,
+      "body_sha256": "d4e10844260a035384cbe2f0a4459f2b63a6c3ad1a681e2dec4284b9803804c9"
+    },
+    {
+      "pr": 9,
+      "state": "MERGED",
+      "title": "Adiciona checklist de revisão da P5 e do projeto",
+      "commits": [
+        {
+          "sha": "f3189fcc1222a934a5b4ece58d5233306687746a",
+          "ancestor_of_reviewed_head": true,
+          "title": "Add files via upload"
+        }
+      ],
+      "reviews_count": 0,
+      "general_comments_count": 1,
+      "inline_comments_count": 0,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "issues_reviewed": [
+    3,
+    7
+  ],
+  "physical_validation": false
+}

@@ -1674,6 +1674,10 @@
       "pass": true
     },
     {
+      "check": "MPPT250/60: limite PV60A correto, sem inferir Isc quente desconhecido dos portáteis",
+      "pass": true
+    },
+    {
       "check": "TetoMaxeon:configuração efetivamente executada",
       "pass": true
     },

@@ -1,3 +1,9 @@
+> Revisão editorial posterior: o PDF foi enxugado, mantendo os 27 pedidos/subpedidos,
+> os quatro fluxogramas, o mapa e as comparações. As listagens foram retiradas por
+> instrução expressa. A introdução/revisão/objetivos usam frases adaptadas do Cuca com
+> atribuição. A cobertura geral dos PRs e do enunciado está em
+> [AUDITORIA_ENUNCIADO_E_PRS.md](AUDITORIA_ENUNCIADO_E_PRS.md).
+
 # Auditoria integral do PR #9 e adaptação do relatório
 
 Revisão de 25/11/2026. Fonte: [PR #9 do Fael](https://github.com/MHC-CodeSmith/STF_MotorHome/pull/9),

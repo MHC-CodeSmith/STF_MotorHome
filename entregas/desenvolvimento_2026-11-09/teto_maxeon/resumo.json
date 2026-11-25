@@ -71,7 +71,9 @@
       "roof_hot_isc_plus_portable_stc_a": 35.9625564,
       "isc_portable_hot_unknown": true,
       "max_cold_voc_v": 171.477593,
-      "conservative_35a_screen_pass": false,
+      "controller_pv_isc_limit_a": 60,
+      "current_screen_pass_at_60a": true,
+      "portable_temperature_current_screen_complete": false,
       "shared_topology_demonstrated": false
     },
     {
@@ -80,7 +82,9 @@
       "roof_hot_isc_plus_portable_stc_a": 24.962556399999997,
       "isc_portable_hot_unknown": true,
       "max_cold_voc_v": 220.512,
-      "conservative_35a_screen_pass": true,
+      "controller_pv_isc_limit_a": 60,
+      "current_screen_pass_at_60a": true,
+      "portable_temperature_current_screen_complete": false,
       "shared_topology_demonstrated": false
     }
   ],
@@ -107,7 +111,7 @@
     "2S2P misto380+390 evita inferir modelo385W não documentado;curvasIV ainda estimadas.",
     "CoeficienteVmp e potência portátil por temperatura são hipóteses,não curvasOEM.",
     "76kg são apenas módulos;suportes e custos/estoque/compatibilidade veicular não demonstrados.",
-    "250/60 tem Isc PV e corrente de bateria60A; a rejeição deve-se ao descasamento medido (0,657-27,272%), não a um limite35A.4S reduz corrente mas amplia mismatch e requer proteções reais.",
+    "250/60 tem Isc PV e corrente de bateria60A; a rejeição deve-se ao descasamento calculado (0,657-27,272%), não a um limite35A.4S reduz corrente mas amplia mismatch e requer proteções reais.",
     "Apenas estudo comparativo;missões ainda usam1350Wp e massa anterior;nenhumaenergia creditada aHV por esta comparação."
   ]
 }

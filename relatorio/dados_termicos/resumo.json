@@ -1,0 +1,99 @@
+{
+  "script": "relatorio/gerar_complementos_termicos.py",
+  "cable_fields": [
+    {
+      "area_mm2": 120,
+      "current_a": 489.4204651759762,
+      "temperature_max_c": 217.50607947989647,
+      "residual_w_m": -5.398948133006343e-08,
+      "angular_boundary_uniform": true
+    },
+    {
+      "area_mm2": 185,
+      "current_a": 489.4204651759762,
+      "temperature_max_c": 149.60346657507688,
+      "residual_w_m": 1.9446652288479527e-08,
+      "angular_boundary_uniform": true
+    }
+  ],
+  "shared_loop_including_reducer_sensitivity": {
+    "reducer_loss_w": 6150.0000000000055,
+    "total_heat_w": 29023.777777777796,
+    "inlet_at_ua1000_c": 78.0947538639495,
+    "ua_for_65c_w_k": 1952.2943196686497
+  },
+  "hydraulic_sensitivity": [
+    {
+      "component_factor": 1,
+      "flow_l_min": 31.850989284771885,
+      "pressure_pa": 71625.7450267194,
+      "component_pressure_pa": 48469.86365778011
+    },
+    {
+      "component_factor": 2,
+      "flow_l_min": 26.387750880401573,
+      "pressure_pa": 82790.85194188626,
+      "component_pressure_pa": 66536.61344583059
+    },
+    {
+      "component_factor": 3,
+      "flow_l_min": 23.115334262785495,
+      "pressure_pa": 89265.67529171801,
+      "component_pressure_pa": 76585.6771915104
+    }
+  ],
+  "ua_for_65c_w_k": 1093.3342951114105,
+  "battery_extreme_cases": [
+    {
+      "initial_c": 25,
+      "stop": "temperature_limit",
+      "duration_s": 2366.5019563823585,
+      "final_soc": 0.7137492335970299,
+      "final_battery_k": 318.15,
+      "max_battery_k": 318.15,
+      "terminal_energy_j": 189320156.51058868,
+      "ocv_charge_integral_j": 180703689.51151615,
+      "ohmic_energy_j": 8616466.999072561,
+      "reversible_energy_j": 2806330.7476993087,
+      "cooling_energy_j": 1981753.3988426775,
+      "sensible_energy_j": 9441044.34792921,
+      "electrical_residual_j": -3.91155481338501e-08,
+      "thermal_residual_j": -1.6763806343078613e-08,
+      "maximum_internal_heat_w": 6351.274356918848
+    },
+    {
+      "initial_c": 35,
+      "stop": "temperature_limit",
+      "duration_s": 1314.9287542533377,
+      "final_soc": 0.48885236093752166,
+      "final_battery_k": 318.15,
+      "max_battery_k": 318.15,
+      "terminal_energy_j": 105194300.34026702,
+      "ocv_charge_integral_j": 100665595.19940172,
+      "ohmic_energy_j": 4528705.140865283,
+      "reversible_energy_j": 1598835.7798856245,
+      "cooling_energy_j": 1885904.4940319695,
+      "sensible_energy_j": 4241636.426718927,
+      "electrical_residual_j": 1.30385160446167e-08,
+      "thermal_residual_j": 1.1175870895385742e-08,
+      "maximum_internal_heat_w": 5484.031329394792
+    }
+  ],
+  "npsh_assumptions": {
+    "atmospheric_pa": 91500,
+    "vapor_pa": 55000,
+    "suction_loss_pa": 10000,
+    "density_kg_m3": 1050
+  },
+  "npsha_unpressurized_m": 2.573569489896676,
+  "npsha_100kpa_gauge_m": 12.285152470638849,
+  "ventilation_48v_m3_h": 144.58702331465744,
+  "physical_validation": false,
+  "inputs_sha256": {
+    "config/parametros_globais.yaml": "047c725c8f26f5dbf4c824aaffeb92d09272f12a4e5e181e5e059c5eb3a4396b",
+    "config/cabos_tracao_proposta.yaml": "ab74a64157fc053fdb98b9ce32192f8218349495636bba38b362b76b42370395",
+    "config/hidraulica_proposta.yaml": "0c6dc989cdcf6487b51efa71b0b75e44bfb2f981bf5a03de1bc256f9ce8e9972",
+    "config/bateria_termica_proposta.yaml": "96ee85de644490efa6d2b04ccd6875650cb00ba2e8706a9733ef2cb4708d86ae",
+    "relatorio/gerar_complementos_termicos.py": "ab3324cd2b7acab3d119d8b6c9a9babeef0da2d5d678d06a65d9fb9a08b0198e"
+  }
+}

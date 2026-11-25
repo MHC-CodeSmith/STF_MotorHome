@@ -1,3 +1,13 @@
+# Instrução editorial vigente — 25/11/2026
+
+O usuário rejeitou o PDF de 85 páginas por ser longo. A versão final deve seguir de perto
+a redação do Cuca, inclusive frases aplicáveis, adaptadas com atribuição, sem copiar
+resultados de outro projeto. Manter simulações, gráficos e imagens. **Nenhum código ou
+anexo de listagens no PDF final**; fontes permanecem no repositório. Vídeo segue excluído.
+Conferir todos os PRs e o enunciado, não só o Fael: `docs/AUDITORIA_ENUNCIADO_E_PRS.md`.
+Os complementos P7 não mudam massa nem missão: são campos/verificações e requisitos
+condicionais, sem fingir instalação de chiller, ventilador ou peças OEM não selecionadas.
+
 # Revisão do relatório em 25/11/2026
 
 Para a continuação mais recente, leia `docs/HANDOFF_PROXIMA_SESSAO.md` e

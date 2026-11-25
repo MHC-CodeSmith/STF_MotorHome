@@ -1,3 +1,32 @@
+# Revisão editorial e de todos os PRs — estado vigente em 25/11/2026
+
+O usuário pediu relatório curto com redação próxima à do Cuca, inclusive frases; manter
+simulações, gráficos e imagens e retirar todo código/anexo de listagens do PDF.
+A versão de 85 páginas em d7528ba é anterior à nova instrução. As hipóteses e 35 itens são
+preservados no corpo enxuto, com tabelas para as especificações e detalhes numéricos.
+
+Auditoria geral: `docs/AUDITORIA_ENUNCIADO_E_PRS.md`, PRs #1/#2/#4/#5/#6/#8/#9, issues #3/#7,
+mais parecer P6. Conferir enunciado, não presumir que MERGED significa resolvido.
+A matriz Fael continua em `docs/AUDITORIA_PR9_REESCRITA.md`. O parecer P7 recomendava
+itens 7–11 que faltavam no PDF; foram incorporados, com rechecagens e ressalvas reais.
+
+Complementos em `relatorio/gerar_complementos_termicos.py` e `relatorio/dados_termicos/`:
+campo 2D do cabo no pico; Δp/NPSH/UA; extremos da bateria; ventilação 48 V. A proposta de 3–5 kW
+para chiller não cobre pico interno de 6,35 kW; meta de 65 °C exige UA de 1093 W/K só para motor/inversor,
+ou 1952 W/K com 6,15 kW adicionais do redutor. Isso é requisito condicional, não instalação.
+Script antigo do teto corrigido de 35 A para 60 A; corrente quente portátil permanece desconhecida.
+Fonte vigente da sensibilidade I34 identificada: 486 casos; 20 linhas antigas são históricas.
+
+Versão final: 39 páginas, 6,03 MB e 33 figuras/diagramas; guia `REVISAO_INTEGRANTES.md`
+com páginas atuais e sem referência ao anexo de código.
+
+Nomes da capa seguem a lista do usuário. Código no PDF e vídeo foram excluídos por sua
+instrução, embora o enunciado original os peça; não alegar cumprimento literal dessas
+parcelas. Seminário, envio por e-mail e autorização para oito em vez de dez alunos não
+foram realizados. Publicação nas duas refs e autor MHC sem trailer seguem autorizados.
+
+---
+
 # Continuação vigente — revisão integral de 25/11/2026
 
 Esta seção prevalece sobre os registros históricos abaixo. O relatório segue a organização do

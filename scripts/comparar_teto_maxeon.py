@@ -66,14 +66,16 @@ def main():
         limitations.append({'portable_series':series,'portable_parallel':parallel,
             'roof_hot_isc_plus_portable_stc_a':roof_isc+parallel*s['portable_isc_a'],
             'isc_portable_hot_unknown':True,'max_cold_voc_v':max(cold,portable_cold),
-            'conservative_35a_screen_pass':roof_isc+parallel*s['portable_isc_a']<=35,
+            'controller_pv_isc_limit_a':60,
+            'current_screen_pass_at_60a':roof_isc+parallel*s['portable_isc_a']<=60,
+            'portable_temperature_current_screen_complete':False,
             'shared_topology_demonstrated':False})
     result={'configuration_sha256':hashlib.sha256(config.read_bytes()).hexdigest(),'nominal_wp':sum(g['models'][i]['power_wp'] for i in g['module_order']),
         'module_mass_kg':4*g['module_mass_kg'],'required_length_including_margins_m':total_length,
         'length_remaining_m':d['roof_assumed_envelope_m'][0]-total_length,'width_remaining_m':d['roof_assumed_envelope_m'][1]-g['module_dimensions_m'][1],
         'fits_assumed_flat_rectangle':total_length<=d['roof_assumed_envelope_m'][0] and g['module_dimensions_m'][1]<=d['roof_assumed_envelope_m'][1],
         'positions':positions,'pair_cold_voc_tolerance_v':cold,'roof_hot_isc_tolerance_a':roof_isc,
-        'controller_150v_compatible':cold<150,'controller_250v_roof_only_screen_pass':cold<250 and roof_isc<35,
+        'controller_150v_compatible':cold<150,'controller_250v_roof_only_screen_pass':cold<250 and roof_isc<=60,
         'shared_screen':limitations,'mismatch_cases':len(rows),'mismatch_range_percent':[min(x['mismatch_loss_percent'] for x in rows),max(x['mismatch_loss_percent'] for x in rows)],
         'source':c['sources']['maxeon3_2022'],'baseline_updated':False,'installed_geometry_validated':False,
         'dc_traction_demonstrated':False,'shared_mppt_approved':False,
@@ -81,7 +83,7 @@ def main():
             '2S2P misto380+390 evita inferir modelo385W não documentado;curvasIV ainda estimadas.',
             'CoeficienteVmp e potência portátil por temperatura são hipóteses,não curvasOEM.',
             '76kg são apenas módulos;suportes e custos/estoque/compatibilidade veicular não demonstrados.',
-            '250/60 tem Isc PV e corrente de bateria60A; a rejeição deve-se ao descasamento medido (0,657-27,272%), não a um limite35A.4S reduz corrente mas amplia mismatch e requer proteções reais.',
+            '250/60 tem Isc PV e corrente de bateria60A; a rejeição deve-se ao descasamento calculado (0,657-27,272%), não a um limite35A.4S reduz corrente mas amplia mismatch e requer proteções reais.',
             'Apenas estudo comparativo;missões ainda usam1350Wp e massa anterior;nenhumaenergia creditada aHV por esta comparação.']}
     (out/'resumo.json').write_text(json.dumps(result,indent=2,ensure_ascii=False)+'\n');print(json.dumps(result,ensure_ascii=False))
 

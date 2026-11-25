@@ -178,6 +178,11 @@ def main():
     check(round(float(capacity.query('occupants==2 and capacity_claim_w==1758').nominal_margin_w.iloc[0]))==-888,'HVAC: cenário conservador expõe margem negativa sem aprovar seleção')
     roof=json.loads((OUT/'teto_maxeon/resumo.json').read_text())
     check(roof['nominal_wp']==1540 and roof['fits_assumed_flat_rectangle'] and not roof['installed_geometry_validated'],'1540Wp Maxeon cabe só no retângulo estimado,não instalação validada')
+    check(all(r['controller_pv_isc_limit_a']==60 and
+              r['current_screen_pass_at_60a']==(r['roof_hot_isc_plus_portable_stc_a']<=60) and
+              not r['portable_temperature_current_screen_complete']
+              for r in roof['shared_screen']),
+          'MPPT250/60: limite PV60A correto, sem inferir Isc quente desconhecido dos portáteis')
     check(roof['configuration_sha256']==sha(ROOT/'config/parametros_globais.yaml'),'TetoMaxeon:configuração efetivamente executada')
     check(not roof['controller_150v_compatible'] and roof['controller_250v_roof_only_screen_pass'] and not roof['shared_mppt_approved'],'Teto:limitesDC sem aprovar MPPTcompartilhado')
     mismatch=pd.read_csv(OUT/'teto_maxeon/mppt_mismatch_72.csv')

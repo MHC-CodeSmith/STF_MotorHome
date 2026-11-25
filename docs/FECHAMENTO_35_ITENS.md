@@ -1,3 +1,7 @@
+> Estado editorial vigente: [auditoria geral](AUDITORIA_ENUNCIADO_E_PRS.md) de todos os PRs
+> e do enunciado. PDF enxuto de 39 páginas, sem código; vídeo excluído pelo usuário.
+> As referências antigas a anexos, roteiro e paginação abaixo são históricas.
+
 # Fechamento dos 35 itens — revisão de 25/11/2026
 
 Resultado final da viagem após o reforço da cama: 20,5 km/h, primeira saída às 18h,

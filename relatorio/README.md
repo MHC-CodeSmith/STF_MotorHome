@@ -1,9 +1,9 @@
 # Relatório Aurora Solar — revisão de 25/11/2026
 
-O memorial segue a organização do relatório de referência do Cuca: Introdução com Objetivos,
+O memorial utiliza frases da introdução/revisão/objetivos do Cuca, com atribuição e adaptação ao motorhome, e segue sua organização: Introdução com Objetivos,
 Revisão bibliográfica por tema e Projeto técnico com métodos, especificações, parâmetros,
 análise de custo e simulações. Ao final estão a tabela de respostas dos 35 itens, conclusões,
-referências e os códigos. Resultados e hipóteses pertencem ao motorhome deste projeto.
+referências. Não há listagens nem anexo de código no PDF, por instrução do usuário. Resultados e hipóteses pertencem ao motorhome deste projeto.
 
 A capa usa os oito nomes e as grafias fornecidos pelo usuário, em `autores.tex`. O vídeo está
 fora desta revisão por instrução expressa do usuário; `roteiro_video.md` é um artefato anterior.
@@ -19,6 +19,7 @@ A auditoria completa do PR do Fael está em [`../docs/AUDITORIA_PR9_REESCRITA.md
 | `figura_cortina_i32.py` | Representação da cortina e balanço do ar-condicionado |
 | `figuras/produtos/fontes.json` | Fonte, modelo e SHA-256 das fotografias oficiais |
 | `valores_i19.tex`, `valores_i29.tex` | Resultados gerados pelos fechamentos de arrasto e viagem |
+| `gerar_complementos_termicos.py` | Campo multidimensional do cabo e verificações adicionais do P7; saídas em `dados_termicos/` |
 | `compilar.sh` | Regenera tabelas/figuras e compila o PDF |
 
 ## Compilação
@@ -55,3 +56,15 @@ O recibo efetivo desta revisão fica em
 com logs e hashes. A busca fechou em 20,5 km/h, 18h, 214,8 dias (reservas 10/20%);
 40/80 km/h sob o mesmo horário resultaram em 248,8/457,8 dias. O resultado é condicional.
 O recibo anterior `execucao_pipeline.json` permanece histórico.
+
+## Revisão enxuta e auditoria geral
+
+A edição anterior de 85 páginas foi substituída por uma versão de 39 páginas, em fonte
+12 pt, com simulações, gráficos, fotos e vistas CAD. O PDF ocupa cerca de 6,03 MB
+(abaixo do limite de 20 MB). As listagens continuam no repositório e não entram no memorial.
+
+A [auditoria do enunciado e de todos os PRs](../docs/AUDITORIA_ENUNCIADO_E_PRS.md)
+confere #1/#2/#4/#5/#6/#8/#9, as issues e os 35 itens. Foram reincorporadas as recomendações
+7–11 do P7 em tabelas curtas, corrigida a triagem legada de 35 A e acrescentado o campo T(x,y)
+dos cabos. As limitações físicas e as exceções ao enunciado por instrução do usuário
+são identificadas separadamente. Códigos e vídeo não são declarados entregues no PDF.

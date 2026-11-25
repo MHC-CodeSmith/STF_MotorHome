@@ -1,0 +1,20 @@
+[
+  {
+    "source": "https://www.victronenergy.com/media/pg/Manual_SmartSolar_MPPT_150-60_up_to_250-70/en/technical-specifications.html",
+    "accessed": "2026-11-25",
+    "sha256": "96c51b19a3012c0349d41a3b61ce0c358e2b1cc411698425786b333fc8be9bc5",
+    "evidence": "seções9.1/9.2:Tr185×250×95mm,3kg;150/60η98%Isc50A;250/60η99%Isc60A"
+  },
+  {
+    "source": "https://www.bosch-ibusiness.com/en-2/products/product-categories/auxiliary-pumps-and-valves/pce-039202453g/pce-039202453g.pdf",
+    "accessed": "2026-11-25",
+    "sha256": "026fc3fae45317197b72292d9e841698f2b4b381427640b09bf126aed5f42906",
+    "evidence": "página2 renderizada:corpoØ77,2mm,comprimento cotado109mm,bocalØ20mm; massa0,46kg na página1"
+  },
+  {
+    "source": "Relatório Cuca fornecido pelo usuário",
+    "path_at_review": "../cuca.txt",
+    "sha256": "2ce024cbc9fb8c55d686333292346ebf3541ae9dece895aabe557f3342a3ca12",
+    "use": "trechos da introdução/revisão/objetivos adaptados; nenhuma transferência de resultados"
+  }
+]

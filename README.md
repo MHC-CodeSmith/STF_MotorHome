@@ -12,11 +12,12 @@ A interfaceCC externa continua condicional, sem comprovação de compatibilidade
 ## Relatório revisado (25/11/2026)
 
 - [Relatório (PDF)](relatorio/relatorio.pdf) · [compilação e reprodução](relatorio/README.md)
+- [Auditoria de todos os PRs e do enunciado](docs/AUDITORIA_ENUNCIADO_E_PRS.md)
 - [Auditoria integral do PR #9 do Fael](docs/AUDITORIA_PR9_REESCRITA.md): 27 pedidos e seus subitens, com evidências e limites
 - **Revisão por integrante:** [guia, itens e páginas de cada um](docs/REVISAO_INTEGRANTES.md) · [registrar parecer](https://github.com/MHC-CodeSmith/STF_MotorHome/issues/new?template=revisao_integrante.yml)
 - [Fechamento dos 35 itens](docs/FECHAMENTO_35_ITENS.md)
 
-A revisão segue a estrutura do modelo Cuca, com os oito nomes fornecidos pelo usuário, fotos de produtos, equações, custos por item e tabela final. A cama redimensionada está incluída na massa e nos resultados derivados. O vídeo está fora do escopo atual por instrução do usuário.
+A versão enxuta segue a redação e a estrutura do Cuca, com atribuição dos trechos adaptados e sem código no PDF, com os oito nomes fornecidos pelo usuário, fotos de produtos, equações, custos por item e tabela final. A cama redimensionada está incluída na massa e nos resultados derivados. O vídeo está fora do escopo atual por instrução do usuário.
 
 O estado descrito abaixo (12/11) é histórico; os resultados vigentes estão no relatório.
 <!-- entrega-final:fim -->
