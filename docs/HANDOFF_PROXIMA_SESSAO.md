@@ -1,3 +1,5 @@
+> **Comece por [RETOMADA_CURTA.md](RETOMADA_CURTA.md)**: estado publicado, decisões, evidências e comandos em uma leitura curta. Os registros abaixo mantêm o histórico.
+
 # Conferência dos anexos — redação final vigente
 
 Enunciado reenviado é idêntico ao versionado; texto do Cuca é idêntico à extração
