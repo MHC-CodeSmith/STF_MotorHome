@@ -179,6 +179,14 @@ def main() -> None:
             print({k: row[k] for k in ("start_hour", "speed_kmh", "reserve_traction", "elapsed_days", "kwh_per_km")})
 
 
+def primeira_reserva(resultado: dict, reserva: float) -> dict | None:
+    """Primeiro intervalo que atinge a reserva, mesmo se houver recarga no mesmo dia."""
+    row = next((x for x in resultado["trace"] if x["soc_traction"] <= reserva + 1e-9), None)
+    if row is None:
+        return None
+    return {**row, "elapsed_days": row["day"] - 1 + row["hour_end"] / 24}
+
+
 def figura() -> None:
     import matplotlib
 
@@ -212,15 +220,19 @@ def figura() -> None:
     fig.tight_layout(); fig.savefig(out / "missao_lider.png", dpi=180)
     km_dia = 7000 / r["elapsed_days"]
     # fase 1: a tração desce até a reserva; fase 2: cada dia roda o que o sol repôs
-    fim1 = next(x for x in daily if x["soc_traction"] <= lider["reserve_traction"] + 0.005)
-    km_regime = (7000 - fim1["distance_km"]) / (r["elapsed_days"] - fim1["day"])
+    fim1 = primeira_reserva(r, lider["reserve_traction"])
+    if fim1 is None:
+        raise ValueError("O líder não atingiu a reserva; não atribuir ritmo pós-reserva.")
+    km_regime = (7000 - fim1["distance_km"]) / (r["elapsed_days"] - fim1["elapsed_days"])
     h_regime = km_regime / lider["speed_kmh"]
     alt = next((x for x in lideres if x is not lider), None)
     virg = lambda x, n=1: f"{x:.{n}f}".replace(".", ",")
+    borda = any(x is True for x in resumo["leader_on_grid_edge_b"])
+    borda_texto = "há líder na borda da grade, portanto o refino local não encerra a busca" if borda else "os líderes não estão na borda da grade local"
     h0 = lider["start_hour"]; hh = f"{int(h0):02d}h{round((h0 % 1) * 60):02d}"
     h1 = (h0 + 8) % 24; hf = f"{int(h1):02d}h{round((h1 % 1) * 60):02d}"
-    tex = (
-        f"\\newcommand{{\\IbResposta}}{{Velocidade ótima \\textbf{{constante de \\SI{{{virg(lider['speed_kmh'])}}}{{km/h}}}}, "
+    tex = f"\\newcommand{{\\PartidaMissao}}{{{hh}}}\n" + (
+        f"\\newcommand{{\\IbResposta}}{{Melhor combinação encontrada: velocidade \\textbf{{constante de \\SI{{{virg(lider['speed_kmh'])}}}{{km/h}}}}, "
         f"com partida às {hh} (janela de 8\\,h até {hf}); a viagem de \\SI{{7000}}{{km}} termina em "
         f"\\textbf{{{virg(r['elapsed_days'])} dias}} (\\SI{{{virg(km_dia)}}}{{km/dia}} em média) com reservas de "
         f"{int(100 * lider['reserve_traction'])}\\,\\% na tração e {int(100 * lider['reserve_service'])}\\,\\% nos serviços"
@@ -233,7 +245,7 @@ def figura() -> None:
         "nominalmente cheio (\\SI{14,4}{kWh} nominais) e só recebe energia solar. "
         f"O tempo é contado a partir de 0h do primeiro dia, e a primeira partida é às {hh}: antes dela o "
         f"veículo não roda, embora a janela diária de condução ({hh} a {hf}) cruze a meia-noite. "
-        f"Nos primeiros {fim1['day']} dias a bateria de tração desce até a reserva e o veículo percorre "
+        f"A primeira chegada à reserva ocorre em {virg(fim1['elapsed_days'], 2)} dias, após percorrer "
         f"\\SI{{{virg(fim1['distance_km'], 0)}}}{{km}}; daí em diante cada dia roda o que o sol repôs, "
         f"\\SI{{{virg(km_regime)}}}{{km}} em cerca de \\SI{{{virg(h_regime, 1)}}}{{h}} de condução, "
         "bem abaixo do limite de 8\\,h. "
@@ -245,9 +257,9 @@ def figura() -> None:
         f"(\\SI{{{virg(lider['kwh_per_km'], 3)}}}{{kWh/km}}), em "
         f"\\SI{{{virg(r['totals']['driving_h'], 0)}}}{{h}} de condução.\n\n"
         "Como a energia solar diária é fixa, o tempo total é dominado pelos dias de espera para acumular "
-        "energia, e não pelas horas ao volante. O tempo mínimo corresponde, portanto, à velocidade que "
-        "minimiza o consumo por quilômetro, o mesmo $v^{*}$ do item 27; rodar mais rápido gasta mais "
-        "energia por quilômetro e exige mais dias parados. Partir no fim da tarde deixa todo o período de "
+        "energia, e não apenas pelas horas ao volante. O mínimo de consumo específico $v^{*}$ do item 27 "
+        "é uma referência analítica para a busca; a agenda e as reservas ainda precisam ser verificadas. "
+        "Nos casos comparados, rodar mais rápido aumenta o consumo e os dias de espera. Partir no fim da tarde deixa todo o período de "
         "sol com o veículo parado e os portáteis abertos. A Tabela~\\ref{tab:i29comparacao} compara a "
         "melhor velocidade com 40 e \\SI{80}{km/h} sob a mesma partida, as mesmas reservas e a mesma "
         "geração. A distância até a primeira vez que a tração atinge a reserva mede a autonomia com a "
@@ -258,19 +270,19 @@ def figura() -> None:
         "disponível em cada horário, interações que o simulador resolve intervalo a intervalo e que não têm "
         "forma fechada. Por isso a velocidade e o horário foram buscados numa grade; a velocidade publicada "
         "é a melhor combinação encontrada nas condições testadas, não um ótimo global demonstrado.\n\n"
-        f"O ótimo foi obtido em duas etapas: varredura de \\num{{{resumo['candidates_stage_a']}}} combinações "
+        f"A melhor política foi localizada em duas etapas: varredura de \\num{{{resumo['candidates_stage_a']}}} combinações "
         "(\\SIrange{12}{40}{km/h} a cada \\SI{1}{km/h}, partida a cada \\SI{0,5}{h}, duas reservas) com passo de "
         f"\\SI{{5}}{{min}}, e refino de \\num{{{resumo['candidates_stage_b']}}} casos (passo de \\SI{{0,1}}{{km/h}} e "
-        "\\SI{0,25}{h}) com passo de \\SI{1}{min}; o líder não está na borda da grade. Para o líder, entre "
+        f"\\SI{{0,25}}{{h}}) com passo de \\SI{{1}}{{min}}; {borda_texto}. Para o líder, entre "
         f"passos de 5 e \\SI{{1}}{{min}} a duração muda \\SI{{{virg(abs(resumo['leaders_stage_a_5min'][0]['elapsed_days'] - resumo['leaders_stage_b_1min'][0]['elapsed_days']), 2)}}}{{dias}}. "
         "A chegada é discretizada pela janela diária: se o último trecho não cabe antes do fim da janela, o "
         "veículo espera até a noite seguinte, de modo que uma pequena mudança de velocidade pode antecipar ou "
         "atrasar a chegada em quase um dia, como ocorre com as reservas de 20/30\\,\\%.\n\n"
         "\\textbf{Cenário opcional: acumular por mais de um dia.} Em vez de rodar todo dia o que o sol "
         "repôs, o veículo pode esperar alguns dias e percorrer um trecho maior depois, até 8\\,h por dia. "
-        "Como a energia é o limite e a interface só carrega com o veículo parado, o tempo total fica "
-        "praticamente o mesmo (a energia diária é igual e a reserva é a mesma); a vantagem é operacional, "
-        "com menos montagens dos portáteis e trechos contínuos. A hipótese de dias claros repetidos, a "
+        "Essa política pode reduzir montagens, mas também altera o SOC, o espaço disponível nos bancos "
+        "e o corte por capacidade; não se atribui a ela uma duração sem simulação específica. Devem ser "
+        "mantidos o teto de 1560 Wp, o mínimo de 0,38 kW, as reservas e a ausência de energia da rede. A hipótese de dias claros repetidos, a "
         "recarga só pela interface CC e a operação diária dos portáteis continuam valendo; esse cenário não "
         "foi simulado.\n"
         "\\begin{figure}[H]\\centering\\includegraphics[width=\\linewidth]{i29_missao.png}\n"
@@ -281,12 +293,13 @@ def figura() -> None:
     for v in (lider["speed_kmh"], 40.0, 80.0):
         x = r if v == lider["speed_kmh"] else avaliar(
             (h0, v, (lider["reserve_traction"], lider["reserve_service"])), True)
-        dd = x["daily"]
-        f1 = next((y for y in dd if y["soc_traction"] <= lider["reserve_traction"] + 0.005), dd[-1])
-        resto = x["elapsed_days"] - f1["day"]
+        f1 = primeira_reserva(x, lider["reserve_traction"])
+        if f1 is None:
+            f1 = {"elapsed_days": x["elapsed_days"], "distance_km": x["distance_km"]}
+        resto = x["elapsed_days"] - f1["elapsed_days"]
         comp.append({"speed_kmh": v, "elapsed_days": x["elapsed_days"], "driving_h": x["totals"]["driving_h"],
                      "kwh_per_km": x["totals"]["traction_used_kwh"] / 7000,
-                     "dias_ate_reserva": f1["day"], "km_bateria_cheia": f1["distance_km"],
+                     "dias_ate_reserva": f1["elapsed_days"], "km_bateria_cheia": f1["distance_km"],
                      "km_dia_regime": (7000 - f1["distance_km"]) / resto if resto > 0 else None,
                      "h_dia_regime": ((7000 - f1["distance_km"]) / resto / v) if resto > 0 else None})
     (out / "comparacao_velocidades.json").write_text(json.dumps(comp, indent=1, ensure_ascii=False) + "\n")

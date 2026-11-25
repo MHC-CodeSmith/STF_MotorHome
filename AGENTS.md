@@ -1,3 +1,12 @@
+# Revisão do relatório em 25/11/2026
+
+Para a continuação mais recente, leia `docs/HANDOFF_PROXIMA_SESSAO.md` e
+`docs/AUDITORIA_PR9_REESCRITA.md`. A revisão segue o modelo Cuca; o cenário ativo é
+`maxeon1560_independente`, incluindo a cama no inventário e nos resultados derivados.
+Os nomes da capa são os oito fornecidos pelo usuário em `relatorio/autores.tex`; preservar
+essas grafias. O vídeo foi retirado do escopo por instrução explícita do usuário.
+As instruções e cenários anteriores abaixo são históricos quando divergirem desse estado.
+
 # Fechamento e entregáveis (16/11/2026)
 
 O usuário pediu para terminar os 35 itens e o trabalho todo: relatório, slides e roteiro do vídeo estão em `relatorio/` (ver `relatorio/README.md`) e as lacunas fechadas em `docs/FECHAMENTO_35_ITENS.md`. A instrução antiga de não preparar relatório/slides está revogada. Comece por `docs/HANDOFF_PROXIMA_SESSAO.md`.

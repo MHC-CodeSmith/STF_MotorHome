@@ -39,10 +39,12 @@ CANDIDATOS = [
      "isc_a": 12.4, "beta_voc": None, "gamma": None, "massa_kg": 12.15, "massa_nota": "painel",
      "aberto_m": [3.095, 0.878], "dobrado_m": [0.878, 0.773, 0.090], "preco": 459.99, "moeda": "USD",
      "fonte": "https://zoupw.com/products/450-watt-portable-solar-panel"},
-    {"id": "renogy400_rsp400lsc", "modelo": "Renogy 400 W RSP400LSC-G1 (anotado como E.FLEX 400; confirmar)",
+    {"id": "renogy400_rsp400lsc", "modelo": "Renogy 400 W RSP400LSC-G1 (candidato de referência; E.FLEX não identificado)",
      "wp": 400, "vmp_v": 40.0, "imp_a": 10.0, "voc_v": 47.2, "isc_a": 11.0, "beta_voc": -0.0028, "gamma": -0.0038,
      "massa_kg": 13.7, "massa_nota": "painel", "aberto_m": [2.838, 0.855], "dobrado_m": [0.855, 0.708, 0.080],
-     "preco": None, "moeda": None, "fonte": "https://ca.renogy.com/cdn/shop/files/RSP400LSC-G1-datasheet.pdf"},
+     "preco": 495.99, "moeda": "USD", "fonte": "https://ca.renogy.com/cdn/shop/files/RSP400LSC-G1-datasheet.pdf",
+     "fonte_preco": "https://www.renogy.com/collections/portable-solar-panels/products/400w-lightweight-portable-solar-suitcase",
+     "data_preco": "2026-11-25", "disponibilidade": "indisponivel_na_consulta"},
 ]
 GUARDA_M = (1.10, 0.38, 0.98)   # x livre das bolsas; y de 0,27 m até o tanque (0,65 m); z piso-estrado
 CASOS = {"so_teto": None, "parado_dia_todo": (0, 0), "conducao_08_16": (8, 16), "conducao_18_02": (18, 2)}
@@ -132,6 +134,11 @@ def main():
             "id": k["id"], "modelo": k["modelo"], "wp_unidade": k["wp"], "wp_4un": 4 * k["wp"],
             "kwh_parado_dia_todo_4un": 4 * kwh["parado_dia_todo"], "kwh_parada_18_02_4un": 4 * kwh["conducao_18_02"],
             "massa_4un_kg": 4 * k["massa_kg"],
+            "acessorios_assumidos_kg_unidade": 0 if k["id"] == "ecoflow400_atual" else 1,
+            "massa_viagem_4un_kg": 4 * (k["massa_kg"] + (0 if k["id"] == "ecoflow400_atual" else 1)),
+            "carga_retencao_5g_n": 4 * (k["massa_kg"] + (0 if k["id"] == "ecoflow400_atual" else 1)) * 5 * 9.80665,
+            "cintas_quantidade": 2, "capacidade_trabalho_min_por_cinta_n": 5000,
+            "ancoragem_oem_demonstrada": False,
             "massa_nota": k["massa_nota"], "kwh_por_kg_parado": kwh["parado_dia_todo"] / k["massa_kg"],
             "aberto_comp_m": comp, "aberto_larg_m": larg, "area_aberta_4un_m2": 4 * comp * larg,
             "fileira_4un_leste_oeste_m": 4 * larg + 3 * 0.10,
@@ -141,7 +148,8 @@ def main():
             "cabe_na_guarda_atual": cabe, "voc_frio_2s_v": voc_frio_2s, "isc_2p_a": isc_2p,
             "mppt_150_60_2s2p_ok": voc_frio_2s < s["controller_voc_max_v"] and isc_2p <= s["controller_isc_max_a"],
             "vmp_2s_v": 2 * k["vmp_v"], "preco_unidade": k["preco"], "moeda": k["moeda"], "fonte": k["fonte"],
-            "ensaiado": False})
+            "fonte_preco": k.get("fonte_preco", k["fonte"]), "data_preco": k.get("data_preco", "2026-11-25"),
+            "disponibilidade": k.get("disponibilidade", "nao_verificada"), "ensaiado": False})
     pd.DataFrame(cand_rows).to_csv(out / "candidatos_portateis.csv", index=False)
 
     # Sensibilidade: inclinação do teto pelo eixo longitudinal (rolagem do deck). Eixo leste-oeste do

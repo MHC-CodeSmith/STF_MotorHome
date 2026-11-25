@@ -2,29 +2,44 @@
 As listagens abaixo são os módulos de cálculo dos itens com simulação multidimensional ou
 otimização e os scripts de fechamento deste memorial. Os demais scripts estão no repositório.
 
-\subsubsection*{A.1 Campo térmico $r$--$\theta$ do cabo (item 30) — \cod{src/motorhome/cabos\_polares.py}}
+\subsubsection*{A.1 Campo térmico $r$--$\theta$ do cabo (item 30)}
+\noindent\path{src/motorhome/cabos_polares.py}\par
 \lstinputlisting[language=Python]{../src/motorhome/cabos_polares.py}
-\subsubsection*{A.2 Cabo na potência máxima (item 30) — \cod{scripts/fechar\_i30\_corrente\_maxima.py}}
+\subsubsection*{A.2 Cabo na potência máxima (item 30)}
+\noindent\path{scripts/fechar_i30_corrente_maxima.py}\par
 \lstinputlisting[language=Python]{../scripts/fechar_i30_corrente_maxima.py}
-\subsubsection*{A.3 Disco de freio $r$--$z$ (item 33) — \cod{src/motorhome/freios\_axisimetricos.py}}
+\subsubsection*{A.3 Disco de freio $r$--$z$ (item 33)}
+\noindent\path{src/motorhome/freios_axisimetricos.py}\par
 \lstinputlisting[language=Python]{../src/motorhome/freios_axisimetricos.py}
-\subsubsection*{A.4 Bateria em carga (item 34) — \cod{src/motorhome/bateria\_carga.py}}
+\subsubsection*{A.4 Bateria em carga (item 34)}
+\noindent\path{src/motorhome/bateria_carga.py}\par
 \lstinputlisting[language=Python]{../src/motorhome/bateria_carga.py}
-\subsubsection*{A.5 Radiador de fluxo cruzado (item 35) — \cod{src/motorhome/radiador\_cruzado.py}}
+\subsubsection*{A.5 Radiador de fluxo cruzado (item 35)}
+\noindent\path{src/motorhome/radiador_cruzado.py}\par
 \lstinputlisting[language=Python]{../src/motorhome/radiador_cruzado.py}
-\subsubsection*{A.6 Geração solar (item 8) — \cod{src/motorhome/solar.py}}
+\subsubsection*{A.6 Geração solar (item 8)}
+\noindent\path{src/motorhome/solar.py}\par
 \lstinputlisting[language=Python]{../src/motorhome/solar.py}
-\subsubsection*{A.7 Missão e consumo (itens 26 e 29) — \cod{src/motorhome/reconciliacao.py}}
+\subsubsection*{A.7 Missão e consumo (itens 26 e 29)}
+\noindent\path{src/motorhome/reconciliacao.py}\par
 \lstinputlisting[language=Python]{../src/motorhome/reconciliacao.py}
-\subsubsection*{A.8 Velocidade ótima em 7000 km (item 29) — \cod{scripts/fechar\_i29\_velocidade.py}}
+\subsubsection*{A.8 Velocidade ótima em 7000 km (item 29)}
+\noindent\path{scripts/fechar_i29_velocidade.py}\par
 \lstinputlisting[language=Python]{../scripts/fechar_i29_velocidade.py}
-\subsubsection*{A.9 Pós-processamento dos históricos de arrasto (item 19) — \cod{scripts/calcular\_gci\_aero.py}}
+\subsubsection*{A.9 Pós-processamento dos históricos de arrasto (item 19) — \path{scripts/calcular_gci_aero.py}}
 \lstinputlisting[language=Python]{../scripts/calcular_gci_aero.py}
-\subsubsection*{A.10 Custo com impostos (item 24) — \cod{scripts/calcular\_custo\_brl\_i24.py}}
+\subsubsection*{A.10 Custo com impostos (item 24)}
+\noindent\path{scripts/calcular_custo_brl_i24.py}\par
 \lstinputlisting[language=Python]{../scripts/calcular_custo_brl_i24.py}
 
 \subsubsection*{A.11 Execução do caso de arrasto (item 19)}
 Listagem original de \path{scripts/executar_aero_malha_adicional.py}, versão \texttt{5144702}. O executor usa o caso-base, o ambiente OpenFOAM 2412 e o cache local indicados no próprio código. Nesta revisão, os resultados foram conferidos a partir dos históricos arquivados das três corridas.
 \lstinputlisting[language=Python,lineskip=-0.35pt]{../scripts/executar_aero_malha_adicional.py}
-\subsubsection*{A.12 Cortina do para-brisa (item 32) — \cod{scripts/calcular\_i32\_protecao\_parabrisa.py}}
+\subsubsection*{A.12 Cortina do para-brisa (item 32)}
+\noindent\path{scripts/calcular_i32_protecao_parabrisa.py}\par
 \lstinputlisting[language=Python]{../scripts/calcular_i32_protecao_parabrisa.py}
+
+\subsubsection*{A.13 Verificação da cama (itens 13 e 17)}
+\lstinputlisting[language=Python]{../scripts/verificar_estrutura_cama.py}
+\subsubsection*{A.14 Perfil horário da habitação (item 13)}
+\lstinputlisting[language=Python]{../scripts/gerar_perfil_habitacao_p5.py}

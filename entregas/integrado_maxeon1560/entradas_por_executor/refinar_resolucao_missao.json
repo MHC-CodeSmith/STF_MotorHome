@@ -1,8 +1,8 @@
 {
   "scenario": "maxeon1560_independente",
-  "source_sha256": "f0b6d5ac11dfedb6d711505b4bda5890b4c2cfd15fad0f413e0787e3cb073158",
+  "source_sha256": "047c725c8f26f5dbf4c824aaffeb92d09272f12a4e5e181e5e059c5eb3a4396b",
   "output_directory": "entregas/integrado_maxeon1560",
   "physical_validation": false,
   "note": "Teto vigente da revisão P5 (PR9) com quatro SPR-MAX3-390-COM em 2S2P, duas strings iguais; rastreadores independentes 250/60 teto+150/60 portáteis. InterfaceDCtração e alocaçãoFV hipotéticas;nenhuma ligação entre bancos. Mesmas dimensões e massa 76kg do arranjo1540, que fica preservado como histórico.",
-  "resolved_sha256": "0440da640352206bb0d47995fcae0d3d91bd71c4df37641f40a3d45554e15b1a"
+  "resolved_sha256": "ff46bf2d090b8485a9b41dc487b01868010c7849de01db28de566dac2a3e5712"
 }

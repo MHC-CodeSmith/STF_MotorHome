@@ -1,12 +1,12 @@
 {
   "scenario": "maxeon1560_independente",
-  "source_config_sha256": "f0b6d5ac11dfedb6d711505b4bda5890b4c2cfd15fad0f413e0787e3cb073158",
-  "resolved_config_sha256": "0440da640352206bb0d47995fcae0d3d91bd71c4df37641f40a3d45554e15b1a",
+  "source_config_sha256": "047c725c8f26f5dbf4c824aaffeb92d09272f12a4e5e181e5e059c5eb3a4396b",
+  "resolved_config_sha256": "ff46bf2d090b8485a9b41dc487b01868010c7849de01db28de566dac2a3e5712",
   "script": "scripts/sensibilizar_resistencias_rota.py",
   "method": "equilíbrio longitudinal em velocidade constante: rolamento + gravidade da rampa + arrasto relativo ao ar; sem mapas OEM e sem crédito de regeneração",
   "cases": 8100,
   "mass_kg": [
-    3976.52552776,
+    4042.78262976,
     4250
   ],
   "speed_kmh": [
@@ -90,31 +90,31 @@
     "estimated_battery_demand_kw_no_regen_credit": 0.7,
     "estimated_battery_kwh_per_km_no_regen_credit": 0.0077777777777777776
   },
-  "flat_reference_mass_kg": 3976.52552776,
+  "flat_reference_mass_kg": 4042.78262976,
   "flat_reference_kwh_per_km_by_speed": [
     {
       "speed_kmh": 10,
-      "estimated_battery_kwh_per_km_no_regen_credit": 0.2183825707640942
+      "estimated_battery_kwh_per_km_no_regen_credit": 0.22078909005790273
     },
     {
       "speed_kmh": 20,
-      "estimated_battery_kwh_per_km_no_regen_credit": 0.1952370156474034
+      "estimated_battery_kwh_per_km_no_regen_credit": 0.19764353494121192
     },
     {
       "speed_kmh": 40,
-      "estimated_battery_kwh_per_km_no_regen_credit": 0.2251547951806403
+      "estimated_battery_kwh_per_km_no_regen_credit": 0.22756131447444883
     },
     {
       "speed_kmh": 60,
-      "estimated_battery_kwh_per_km_no_regen_credit": 0.29835109440270186
+      "estimated_battery_kwh_per_km_no_regen_credit": 0.3007576136965104
     },
     {
       "speed_kmh": 80,
-      "estimated_battery_kwh_per_km_no_regen_credit": 0.40607591331358794
+      "estimated_battery_kwh_per_km_no_regen_credit": 0.4084824326073965
     },
     {
       "speed_kmh": 90,
-      "estimated_battery_kwh_per_km_no_regen_credit": 0.47227887876345137
+      "estimated_battery_kwh_per_km_no_regen_credit": 0.4746853980572598
     }
   ],
   "road_grade_or_wind_is_approved_mission_input": false,
@@ -127,5 +127,5 @@
     "The combined traction efficiency and auxiliary draw do not substitute for motor/inverter maps.",
     "OEM continuous power, reduction ratio, and axle limits are unavailable; no performance approval is implied."
   ],
-  "configuration_file_sha256": "f0b6d5ac11dfedb6d711505b4bda5890b4c2cfd15fad0f413e0787e3cb073158"
+  "configuration_file_sha256": "047c725c8f26f5dbf4c824aaffeb92d09272f12a4e5e181e5e059c5eb3a4396b"
 }

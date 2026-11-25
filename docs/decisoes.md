@@ -142,3 +142,20 @@ Executado novamente `scripts/comparar_hvac_revisoes.py`: 72 cenários térmicos,
 ### 11/11/2026 — refinamento local adicional de I29
 
 Sem alterar DEC-001–061, `scripts/otimizar_janela_missao.py --refino-extra` avaliou 286 pontos locais (partida em passos de0,1h e velocidade0,1km/h), mais6sensibilidades auxiliares na política selecionada, em torno dos melhores pontos anteriores para auxiliares de tração700W. A malha temporal permanece15min e a busca só cobre a vizinhança de cada candidato. O caso de reservas10/20% selecionou17,9h/20,7km/h e242,802083dias; reservas20/30% selecionou17,9h/20,0km/h e244,802083dias. As durações não melhoraram frente à busca densa; mudanças de partida/velocidade pertencem ao mesmo resultado dentro da resolução temporal. Resíduos máximos nos melhores pontos cerca de1,21e-9kWh. Saída em `entregas/integrado_maxeon1540/otimizacao_janela_missao_refino_extra/`; interfaceDC continua hipotética, resultado não prova ótimo global ou missão física.
+
+
+## 25/11/2026 — reescrita e correção da cama (PR #9)
+
+A verificação anterior (`0d3af7e`) retornava `aprovado=false`: a flecha da longarina
+excedia L/300. A revisão inclui peso dos postes, carga concentrada sobre a longarina e
+flecha do estrado com peso próprio. O pré-dimensionamento passa a usar estrado de
+30 mm, quadro 50×50×3 mm e postes 45×45×4 mm; os postes resistem ao caso de 5 g
+sem depender da amarração à parede. Os parafusos M8 são verificados apenas no aço;
+a chapa de base, soldas e ancoragem na carroceria não recebem aprovação física.
+
+O cenário ativo `maxeon1560_independente` incorpora o quadro e os postes e substitui
+a reserva de 12 kg da estrutura da cama (evita dupla contagem). Acréscimo líquido: 66.257102 kg;
+massa nominal: 4042.782630 kg. A configuração e a geometria do estrado são atualizadas
+explicitamente, com reexecução de massa/CG, dinâmica, freios e energia (I17–I29/I33).
+O cenário 1540 permanece histórico. As chapas gerais de 33,1 kg do I15 continuam
+como envelope adicional porque a substituição das reservas não é conhecida.

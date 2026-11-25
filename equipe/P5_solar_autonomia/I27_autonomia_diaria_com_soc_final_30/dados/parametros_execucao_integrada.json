@@ -3,7 +3,7 @@
   "canonical_source": "config/parametros_globais.yaml",
   "canonical_revision": "1.1.1-execucao1540",
   "derived_snapshot": "entregas/integrado_maxeon1560/parametros_resolvidos.json",
-  "snapshot_sha256": "331353b7f3e52ff5fb3c41f931bf3a4c315f6f6110e28ccb71088bdaeec4c6fa",
+  "snapshot_sha256": "455077ebe46b44dbb290ea1449a76a72e0f9354de82d8efb0abdd261300c99d7",
   "values": {
     "architecture": {
       "value": "B",
@@ -210,7 +210,7 @@
       "note": ""
     },
     "assembled_typical_mass_kg": {
-      "value": 3976.52552776,
+      "value": 4042.78262976,
       "unit": "kg",
       "source": "hyp",
       "decisions": [
@@ -223,7 +223,7 @@
       "owner": "P1",
       "status": "provisorio_cenario",
       "confidence": "baixa",
-      "version": "1.0.0-maxeon1560-integrado",
+      "version": "1.1.0-maxeon1560-cama",
       "reference_date": "2026-11-25",
       "note": "Cenário maxeon1560_independente;Teto vigente da revisão P5 (PR9) com quatro SPR-MAX3-390-COM em 2S2P, duas strings iguais; rastreadores independentes 250/60 teto+150/60 portáteis. InterfaceDCtração e alocaçãoFV hipotéticas;nenhuma ligação entre bancos. Mesmas dimensões e massa 76kg do arranjo1540, que fica preservado como histórico."
     },
@@ -753,7 +753,7 @@
       "owner": "P2",
       "status": "provisorio_cenario",
       "confidence": "baixa",
-      "version": "1.0.0-maxeon1560-integrado",
+      "version": "1.1.0-maxeon1560-cama",
       "reference_date": "2026-11-25",
       "note": "Cenário maxeon1560_independente;Teto vigente da revisão P5 (PR9) com quatro SPR-MAX3-390-COM em 2S2P, duas strings iguais; rastreadores independentes 250/60 teto+150/60 portáteis. InterfaceDCtração e alocaçãoFV hipotéticas;nenhuma ligação entre bancos. Mesmas dimensões e massa 76kg do arranjo1540, que fica preservado como histórico."
     },
@@ -1127,7 +1127,7 @@
       "owner": "P3",
       "status": "provisorio_cenario",
       "confidence": "baixa",
-      "version": "1.0.0-maxeon1560-integrado",
+      "version": "1.1.0-maxeon1560-cama",
       "reference_date": "2026-11-25",
       "note": "Cenário maxeon1560_independente;Teto vigente da revisão P5 (PR9) com quatro SPR-MAX3-390-COM em 2S2P, duas strings iguais; rastreadores independentes 250/60 teto+150/60 portáteis. InterfaceDCtração e alocaçãoFV hipotéticas;nenhuma ligação entre bancos. Mesmas dimensões e massa 76kg do arranjo1540, que fica preservado como histórico."
     },
@@ -1143,7 +1143,7 @@
       "owner": "P5",
       "status": "provisorio_cenario",
       "confidence": "baixa",
-      "version": "1.0.0-maxeon1560-integrado",
+      "version": "1.1.0-maxeon1560-cama",
       "reference_date": "2026-11-25",
       "note": "Cenário maxeon1560_independente;Teto vigente da revisão P5 (PR9) com quatro SPR-MAX3-390-COM em 2S2P, duas strings iguais; rastreadores independentes 250/60 teto+150/60 portáteis. InterfaceDCtração e alocaçãoFV hipotéticas;nenhuma ligação entre bancos. Mesmas dimensões e massa 76kg do arranjo1540, que fica preservado como histórico."
     },

@@ -23,12 +23,12 @@
     "0.0": {
       "cases": 162,
       "front_load_range_kg": [
-        1737.1921405546111,
+        1744.40530657196,
         2242.902407907505
       ],
       "rear_load_range_kg": [
         1693.0967637748263,
-        2294.25679670561
+        2362.945570079588
       ],
       "above_front_comparator_cases": 54,
       "above_rear_comparator_cases": 0,
@@ -37,68 +37,68 @@
     "0.1": {
       "cases": 162,
       "front_load_range_kg": [
-        1816.3155551057741,
+        1825.618693294424,
         2348.4517388350177
       ],
       "rear_load_range_kg": [
         1595.6468013142703,
-        2207.9127151514804
+        2273.466530268506
       ],
-      "above_front_comparator_cases": 79,
+      "above_front_comparator_cases": 82,
       "above_rear_comparator_cases": 0,
       "max_abs_axle_sum_error_kg": 4.547473508864641e-13
     },
     "0.2": {
       "cases": 162,
       "front_load_range_kg": [
-        1895.438969656937,
+        1906.832080016888,
         2454.0010697625307
       ],
       "rear_load_range_kg": [
         1498.1968388537148,
-        2121.5686335973505
+        2183.9874904574253
       ],
       "above_front_comparator_cases": 108,
       "above_rear_comparator_cases": 0,
-      "max_abs_axle_sum_error_kg": 0.0
+      "max_abs_axle_sum_error_kg": 4.547473508864641e-13
     },
     "0.3": {
       "cases": 162,
       "front_load_range_kg": [
-        1974.5623842081,
+        1988.0454667393522,
         2559.5504006900433
       ],
       "rear_load_range_kg": [
         1400.7468763931593,
-        2035.2245520432207
+        2094.5084506463436
       ],
-      "above_front_comparator_cases": 118,
+      "above_front_comparator_cases": 120,
       "above_rear_comparator_cases": 0,
       "max_abs_axle_sum_error_kg": 0.0
     },
     "0.4": {
       "cases": 162,
       "front_load_range_kg": [
-        2053.685798759263,
+        2069.258853461816,
         2665.099731617556
       ],
       "rear_load_range_kg": [
         1303.2969139326033,
-        1948.8804704890913
+        2005.0294108352623
       ],
-      "above_front_comparator_cases": 152,
+      "above_front_comparator_cases": 156,
       "above_rear_comparator_cases": 0,
       "max_abs_axle_sum_error_kg": 0.0
     },
     "0.5": {
       "cases": 162,
       "front_load_range_kg": [
-        2132.8092133104255,
+        2150.47224018428,
         2770.649062545069
       ],
       "rear_load_range_kg": [
         1205.8469514720477,
-        1862.5363889349615
+        1915.5503710241805
       ],
       "above_front_comparator_cases": 162,
       "above_rear_comparator_cases": 0,

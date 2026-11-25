@@ -1,0 +1,122 @@
+{
+  "script": "scripts/gerar_perfil_habitacao_p5.py",
+  "cenario": "maxeon1560_independente",
+  "data": "2026-11-25",
+  "config_sha256": "047c725c8f26f5dbf4c824aaffeb92d09272f12a4e5e181e5e059c5eb3a4396b",
+  "energia_banco_kwh_dia": 7.228825396825396,
+  "potencia_media_kw": 0.3012010582010582,
+  "pico_medio_1h_kw": 1.1508703703703704,
+  "fontes_e_hipoteses": [
+    {
+      "id": "geladeira",
+      "fonte": "fridge",
+      "hipotese_horario": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "energia_aparelho_kwh_dia": 0.47,
+      "rendimento": 0.9,
+      "nota": "0.47kWh/dia é hipótese de consumo/ciclo;temperatura/ventilação reais sensibilizadas.0.73A nominal não define potência ativa ou partida."
+    },
+    {
+      "id": "inducao",
+      "fonte": "cooktop",
+      "hipotese_horario": [
+        8,
+        12,
+        19
+      ],
+      "energia_aparelho_kwh_dia": 1,
+      "rendimento": 0.9,
+      "nota": "Energia diária deriva potência efetiva e tempo de uso estimados;2000Wnominais não comprovam transitórios ou simultaneidade."
+    },
+    {
+      "id": "ar_condicionado",
+      "fonte": "hyp",
+      "hipotese_horario": [
+        13,
+        14,
+        15
+      ],
+      "energia_aparelho_kwh_dia": 3,
+      "rendimento": 0.9,
+      "nota": "3kWh/dia é hipótese de uso limitado,não2700Wtérmicos. Referência elétrica atual é manual2018,6.2A60Hz;FP/partida/curva33°C permanecem desconhecidos."
+    },
+    {
+      "id": "boiler",
+      "fonte": "hyp",
+      "hipotese_horario": [
+        18,
+        19
+      ],
+      "energia_aparelho_kwh_dia": 0.72,
+      "rendimento": 0.9,
+      "nota": "40L/d misturada25→38°C,cp4180J/kgK,eficiência0.9 eespera0.05kWh/d dão≈0.72kWh/d. Água contida15L faz parte dos100L totais;potência500W não é energia diária."
+    },
+    {
+      "id": "lavagem",
+      "fonte": "washer",
+      "hipotese_horario": [
+        10
+      ],
+      "energia_aparelho_kwh_dia": 0.041428571428571426,
+      "rendimento": 0.9,
+      "nota": "0.29kWh por lavagem/7 é hipótese de cenário para o equipamento2em1;secagem é parcela separada,não outra máquina. Pico não documentado."
+    },
+    {
+      "id": "secagem",
+      "fonte": "hyp",
+      "hipotese_horario": [
+        11,
+        12
+      ],
+      "energia_aparelho_kwh_dia": 0.2857142857142857,
+      "rendimento": 0.9,
+      "nota": "2kWh por secagem semanal dividido7 é estimativa;sensibilidade1–4kWh por ciclo. Não atribuir esta energia ao fabricante."
+    },
+    {
+      "id": "iluminacao_eletronicos_bombas",
+      "fonte": "hyp",
+      "hipotese_horario": [
+        6,
+        7,
+        8,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "energia_aparelho_kwh_dia": 0.6,
+      "rendimento": 0.9,
+      "nota": "0.6kWh/dia agregaLED,eletrônicos e bombas como hipótese moderada;sem ventilador/exaustor automático. ConsumoGX/inversor18W é contado separadamente,sem duplicação."
+    }
+  ],
+  "limites": [
+    "Perfil horário estimado, não medido.",
+    "Não substitui corrente de pico ou verificação de simultaneidade do inversor.",
+    "Resultados principais I25/I29 usam carga média; este perfil é o handoff para estudo da rotina."
+  ]
+}

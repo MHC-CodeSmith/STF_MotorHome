@@ -1,0 +1,14 @@
+{
+ "elapsed_days": 214.75555555555556,
+ "km_dia": 32.59519867549669,
+ "totals": {
+  "pv_kwh": 3114.6044657698862,
+  "traction_solar_kwh": 1300.482697937881,
+  "service_solar_kwh": 1552.1454227975698,
+  "loss_kwh": 227.08117051732788,
+  "curtailed_kwh": 34.89517451720655,
+  "traction_used_kwh": 1383.1303600396773,
+  "service_used_kwh": 1552.4304141127118,
+  "driving_h": 341.4634146343237
+ }
+}

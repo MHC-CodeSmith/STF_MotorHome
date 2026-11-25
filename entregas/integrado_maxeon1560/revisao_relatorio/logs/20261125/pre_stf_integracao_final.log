@@ -1,0 +1,37 @@
+[32;1m
+*******************************************************************
+******        Statistics on Transfer (Write)                 ******[0m
+[32;1m
+*******************************************************************
+******        Transfer Mode = 0  I.E.  As Is       ******[0m
+[32;1m******        Transferring Shape, ShapeType = 0                      ******[0m
+[32;1m** WorkSession : Sending all data[0m
+[32;1m Step File Name : /tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/entregas/integrado_maxeon1560/integracao/A_fixa.step(12728 ents)  Write  Done[0m
+[32;1m
+*******************************************************************
+******        Statistics on Transfer (Write)                 ******[0m
+[32;1m
+*******************************************************************
+******        Transfer Mode = 0  I.E.  As Is       ******[0m
+[32;1m******        Transferring Shape, ShapeType = 0                      ******[0m
+[32;1m** WorkSession : Sending all data[0m
+[32;1m Step File Name : /tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/entregas/integrado_maxeon1560/integracao/B_conversivel_noite.step(11669 ents)  Write  Done[0m
+[32;1m
+*******************************************************************
+******        Statistics on Transfer (Write)                 ******[0m
+[32;1m
+*******************************************************************
+******        Transfer Mode = 0  I.E.  As Is       ******[0m
+[32;1m******        Transferring Shape, ShapeType = 0                      ******[0m
+[32;1m** WorkSession : Sending all data[0m
+[32;1m Step File Name : /tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/entregas/integrado_maxeon1560/integracao/JA3_Victron190_transversal.step(1432 ents)  Write  Done[0m
+[32;1m
+*******************************************************************
+******        Statistics on Transfer (Write)                 ******[0m
+[32;1m
+*******************************************************************
+******        Transfer Mode = 0  I.E.  As Is       ******[0m
+[32;1m******        Transferring Shape, ShapeType = 0                      ******[0m
+[32;1m** WorkSession : Sending all data[0m
+[32;1m Step File Name : /tmp/claude-1000/-home/2dcdde84-75b4-409a-a2e6-53a659ce1495/scratchpad/stf/entregas/integrado_maxeon1560/integracao/JA3_Victron190_longitudinal.step(1432 ents)  Write  Done[0m
+{"layouts": {"A_fixa": {"nominal": {"layout": "A_fixa", "estimated_mass_factor": 1, "oem_rear_fraction_assumed": 0.42, "oem_cg_height_assumed_m": 0.78, "water_clean_grey_black_l": "[100, 0, 0]", "mass_kg": 4042.78262976, "cg_x_m": 2.0418648742807446, "cg_y_m": -0.0012135722232217204, "cg_z_m": 0.941534594834313, "front_kg": 1996.9794461021859, "rear_kg": 2045.803183657814, "pbt_margin_kg": 207.21737024000004, "axle_compliance": null, "geometric_ay_g": 0.9492868692032105}, "equipment_collisions": [], "wheel_arch_collisions_assumed_geometry": [], "outside_envelope": [], "washer_door_service_clearance_m": 0.5899999999999999, "washer_door_required_extension_m": 0.4800000000000001, "aisle_front_m": 0.45399999999999996, "geometry_status": "ESTUDO_DE_ENVELOPES_NAO_VALIDADO", "selection": "A_provisorio_espaco_manutencao_verificar", "axle_limits_documented": false}, "B_conversivel_noite": {"nominal": {"layout": "B_conversivel_noite", "estimated_mass_factor": 1, "oem_rear_fraction_assumed": 0.42, "oem_cg_height_assumed_m": 0.78, "water_clean_grey_black_l": "[100, 0, 0]", "mass_kg": 3992.32474776, "cg_x_m": 2.0057283996704207, "cg_y_m": -0.005538452404806531, "cg_z_m": 0.9478426689180153, "front_kg": 2007.809474578022, "rear_kg": 1984.5152731819778, "pbt_margin_kg": 257.6752522400002, "axle_compliance": null, "geometric_ay_g": 0.9384063165361977}, "equipment_collisions": [], "wheel_arch_collisions_assumed_geometry": [], "outside_envelope": [], "washer_door_service_clearance_m": 0.4740000000000001, "washer_door_required_extension_m": 0.4800000000000001, "aisle_front_m": 0.45399999999999996, "geometry_status": "ESTUDO_DE_ENVELOPES_NAO_VALIDADO", "selection": "comparador_conversivel", "axle_limits_documented": false}}, "mass_scenarios": 162, "FEA_cases": 12}

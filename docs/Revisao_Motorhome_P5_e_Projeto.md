@@ -2,15 +2,22 @@
 
 Lista para consolidar as anotações do relatório inicial e as mudanças discutidas com a equipe. Os resultados já calculados estão indicados como referência. As demais ações são tarefas de revisão.
 
-> **Situação em 25/11/2026:** todos os itens foram incorporados ao relatório e ao código. O teto de 1.560 Wp roda no cenário `maxeon1560_independente` (saídas em `entregas/integrado_maxeon1560/`); o arranjo de 1.540 Wp fica como histórico. Resultados que mudaram ou que pedem atenção:
+> **Revisão integral de25/11/2026:** cada um dos27 pedidos e seus subitens tem tratamento
+> rastreável em [AUDITORIA_PR9_REESCRITA.md](AUDITORIA_PR9_REESCRITA.md). A marcação abaixo
+> registra atendimento por cálculo, texto ou limite explícito; não é aprovação física.
 >
-> - **I08:** quatro casos horários e comparação de portáteis em `scripts/analisar_geracao_portateis_p5.py`. Teto 5,94 kWh; parado o dia todo 14,49 kWh; condução 08–16 h 6,31 kWh; condução 18–02 h 14,49 kWh. Inclinação de 20° com face norte dá 7,65 kWh no teto. O Renogy E.FLEX 400 W não foi encontrado; usou-se o RSP400LSC-G1 (preço a cotar).
-> - **I25:** com mínimo de 0,38 kW na saída, 56,9 km a 40 km/h e 31,5 km a 80 km/h sem a habitação; 27,5 e 15,2 km com ela. O corte de ≈0,4 kWh **não se confirmou**: o mínimo corta 0,19 kWh e antecipa a partida (0,05 kWh), 0,23 kWh no total; com a habitação o corte é nulo.
-> - **I29:** primeira partida às 18h00 sem condução antes dela (`primeira_partida_h` em `simular_missao`). 211,8 dias a 20,7 km/h (212,8 com reservas 20/30 %); 245,8 dias a 40 km/h e 454,8 dias a 80 km/h com a mesma partida e reservas. O cenário de acumular vários dias foi descrito, não simulado.
-> - **I19–I20:** CFD sem o deck na mesma malha: C_d 0,5555 contra 0,6215; o deck soma 0,319 m² de C_d A (+3,1 % de consumo a 40 km/h, +7,1 % a 80 km/h). Retirar o teto só compensaria acima de 884 km/dia a 40 km/h.
-> - **I28:** 0–90 km/h em 10,6 s de fábrica; 0–100 teórico em 12,5 s (7128 rpm com i = 10; a rotação máxima do motor não é publicada).
-> - **I07:** os 56 casos acima de 20 kA eram da varredura antiga (1–50 mΩ); com 10–40 mΩ nenhum caso passa do JLLN 200 A.
-> - **I17:** banco de 48 V sob o estrado, sobre pedestal de aço e a caixa de roda; estrado e postes da cama ainda sem verificação estrutural.
+> O cenário vigente continua `maxeon1560_independente`, agora com a cama no inventário:
+> massa nominal4042,78262976kg; acréscimo líquido66,257102kg sem duplicar a reserva12kg.
+> I26:4,39/2,45km/kWh a40/80km/h; I27:347,2km (até24h) e307,2km (8h).
+> I28:10,8s até90km/h;12,7s até100km/h apenas no modelo sem limitador. Rotação de
+> referência9267rpm inferida de130km/h comi10, sem inventar nmax ou curvaOEM.
+> Renogy:USD495,99/unidade na loja oficial, consulta25/11, indisponível nessa consulta.
+> Perfil horário da habitação entregue em `entregas/integrado_maxeon1560/perfil_habitacao/`.
+>
+> Os valores numéricos nos pedidos originais abaixo são referências da revisão anterior;
+> os resultados vigentes estão nas tabelas geradas do relatório e nas saídas do cenário.
+> O cenário1540 permanece histórico. Capa preenchida conforme instrução do usuário;
+> vídeo excluído do escopo por instrução expressa.
 
 ## 1. P5 · Geração solar, autonomia e viagem
 

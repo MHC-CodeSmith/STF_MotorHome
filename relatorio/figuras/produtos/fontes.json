@@ -1,0 +1,31 @@
+[
+  {
+    "id": "renogy",
+    "path": "relatorio/figuras/produtos/renogy.jpg",
+    "source_page": "https://www.renogy.com/collections/portable-solar-panels/products/400w-lightweight-portable-solar-suitcase",
+    "image_url": "https://www.renogy.com/cdn/shop/files/RSP400LSC__36865.1751960864.1280.1280.jpg?v=1764838163&width=460",
+    "accessed": "2026-11-25",
+    "sha256": "c97744f94161e5aa92ec8969b440c3e28d1d763a5eb60e5b0695f04f6e246863",
+    "license": "Copyright do fabricante; reprodução ilustrativa atribuída em trabalho acadêmico; não se declara licença aberta."
+  },
+  {
+    "id": "inversor",
+    "path": "relatorio/figuras/produtos/inversor.png",
+    "source_page": "https://www.victronenergy.com/inverters-chargers/multiplus-ii-gx",
+    "image_url": "https://www.victronenergy.com/upload/documents/Multiplus-II%2048V%205kVA%2050-70%20230V%20GX%20%28front%29.png",
+    "accessed": "2026-11-25",
+    "sha256": "5c128cda221d1241e81088cdba043f1d2501e076353105e8d8a9fdf43d4762c5",
+    "license": "Copyright Victron Energy; fotografia atribuída para ilustração acadêmica, sem declaração de licença aberta.",
+    "download_url": "https://www.victronenergy.com/_next/image?url=https%3A%2F%2Fwww.victronenergy.com%2Fupload%2Fdocuments%2FMultiplus-II%252048V%25205kVA%252050-70%2520230V%2520GX%2520%2528front%2529.png&w=828&q=80"
+  },
+  {
+    "id": "mppt",
+    "path": "relatorio/figuras/produtos/mppt.png",
+    "source_page": "https://www.victronenergy.com/solar-charge-controllers/smartsolar-250-85-250-100",
+    "image_url": "https://www.victronenergy.com/upload/documents/SmartSolar-MPPT-250-60-Tr-%28top%29.png",
+    "accessed": "2026-11-25",
+    "sha256": "27bd6693f56b716f7e8da9a46a7c9e68647c5e2789b33b3041e28b02fb05e8b4",
+    "license": "Copyright Victron Energy; fotografia atribuída para ilustração acadêmica, sem declaração de licença aberta.",
+    "download_url": "https://www.victronenergy.com/_next/image?url=https%3A%2F%2Fwww.victronenergy.com%2Fupload%2Fdocuments%2FSmartSolar-MPPT-250-60-Tr-%2528top%2529.png&w=828&q=80"
+  }
+]

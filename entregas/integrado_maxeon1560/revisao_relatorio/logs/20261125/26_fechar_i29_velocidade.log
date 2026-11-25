@@ -1,0 +1,3 @@
+{"candidates_stage_a": 2784, "candidates_stage_b": 294, "leader_on_grid_edge_b": [false, false]}
+{'start_hour': np.float64(18.0), 'speed_kmh': np.float64(20.5), 'reserve_traction': 0.1, 'elapsed_days': 214.75555555555556, 'kwh_per_km': np.float64(0.19759005143424996)}
+{'start_hour': np.float64(18.0), 'speed_kmh': np.float64(20.7), 'reserve_traction': 0.2, 'elapsed_days': 215.79305555555553, 'kwh_per_km': np.float64(0.19758573717773648)}

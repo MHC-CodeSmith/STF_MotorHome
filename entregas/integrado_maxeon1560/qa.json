@@ -30,6 +30,38 @@
       "pass": true
     },
     {
+      "label": "I17 cama: massa de tubos/postes/estrado por geometria independente, sem duplicar reserva12kg",
+      "pass": true
+    },
+    {
+      "label": "I18 cama: nova massa propagada ao inventário, fonte única e CG sem reserva duplicada",
+      "pass": true
+    },
+    {
+      "label": "I17 cama: casos críticos e flechas atendidos sem inferir ensaio ou resistência OEM",
+      "pass": true
+    },
+    {
+      "label": "I13 perfil horário entregue à P5 conserva energia diária com perdas e consumo em vazio",
+      "pass": true
+    },
+    {
+      "label": "I29 fechamento: configuração atual, interface condicional e sem ótimo global",
+      "pass": true
+    },
+    {
+      "label": "I29 líder reserva0.1: consumo por forças com massa nova, balanço e reservas",
+      "pass": true
+    },
+    {
+      "label": "I29 líder reserva0.2: consumo por forças com massa nova, balanço e reservas",
+      "pass": true
+    },
+    {
+      "label": "I29 comparação inclui40/80 e primeira reserva por intervalo",
+      "pass": true
+    },
+    {
       "label": "PV1560/coeftérmico próprio",
       "pass": true
     },
@@ -50,83 +82,83 @@
       "pass": true
     },
     {
-      "label": "fixo_08_16_3976.526_40_0.1_sem_interface:consumo físico independente",
+      "label": "fixo_08_16_4042.783_40_0.1_sem_interface:consumo físico independente",
       "pass": true
     },
     {
-      "label": "fixo_08_16_3976.526_40_0.1_sem_interface:controle sem interface não ganha energiaHV",
+      "label": "fixo_08_16_4042.783_40_0.1_sem_interface:controle sem interface não ganha energiaHV",
       "pass": true
     },
     {
-      "label": "fixo_08_16_3976.526_40_0.1_sem_interface:energia/semrecargaexterna",
+      "label": "fixo_08_16_4042.783_40_0.1_sem_interface:energia/semrecargaexterna",
       "pass": true
     },
     {
-      "label": "fixo_08_16_3976.526_40_0.1_direta_hipotese:consumo físico independente",
+      "label": "fixo_08_16_4042.783_40_0.1_direta_hipotese:consumo físico independente",
       "pass": true
     },
     {
-      "label": "fixo_08_16_3976.526_40_0.1_direta_hipotese:energia/semrecargaexterna",
+      "label": "fixo_08_16_4042.783_40_0.1_direta_hipotese:energia/semrecargaexterna",
       "pass": true
     },
     {
-      "label": "fixo_08_16_3976.526_40_0.2_sem_interface:consumo físico independente",
+      "label": "fixo_08_16_4042.783_40_0.2_sem_interface:consumo físico independente",
       "pass": true
     },
     {
-      "label": "fixo_08_16_3976.526_40_0.2_sem_interface:controle sem interface não ganha energiaHV",
+      "label": "fixo_08_16_4042.783_40_0.2_sem_interface:controle sem interface não ganha energiaHV",
       "pass": true
     },
     {
-      "label": "fixo_08_16_3976.526_40_0.2_sem_interface:energia/semrecargaexterna",
+      "label": "fixo_08_16_4042.783_40_0.2_sem_interface:energia/semrecargaexterna",
       "pass": true
     },
     {
-      "label": "fixo_08_16_3976.526_40_0.2_direta_hipotese:consumo físico independente",
+      "label": "fixo_08_16_4042.783_40_0.2_direta_hipotese:consumo físico independente",
       "pass": true
     },
     {
-      "label": "fixo_08_16_3976.526_40_0.2_direta_hipotese:energia/semrecargaexterna",
+      "label": "fixo_08_16_4042.783_40_0.2_direta_hipotese:energia/semrecargaexterna",
       "pass": true
     },
     {
-      "label": "fixo_08_16_3976.526_80_0.1_sem_interface:consumo físico independente",
+      "label": "fixo_08_16_4042.783_80_0.1_sem_interface:consumo físico independente",
       "pass": true
     },
     {
-      "label": "fixo_08_16_3976.526_80_0.1_sem_interface:controle sem interface não ganha energiaHV",
+      "label": "fixo_08_16_4042.783_80_0.1_sem_interface:controle sem interface não ganha energiaHV",
       "pass": true
     },
     {
-      "label": "fixo_08_16_3976.526_80_0.1_sem_interface:energia/semrecargaexterna",
+      "label": "fixo_08_16_4042.783_80_0.1_sem_interface:energia/semrecargaexterna",
       "pass": true
     },
     {
-      "label": "fixo_08_16_3976.526_80_0.1_direta_hipotese:consumo físico independente",
+      "label": "fixo_08_16_4042.783_80_0.1_direta_hipotese:consumo físico independente",
       "pass": true
     },
     {
-      "label": "fixo_08_16_3976.526_80_0.1_direta_hipotese:energia/semrecargaexterna",
+      "label": "fixo_08_16_4042.783_80_0.1_direta_hipotese:energia/semrecargaexterna",
       "pass": true
     },
     {
-      "label": "fixo_08_16_3976.526_80_0.2_sem_interface:consumo físico independente",
+      "label": "fixo_08_16_4042.783_80_0.2_sem_interface:consumo físico independente",
       "pass": true
     },
     {
-      "label": "fixo_08_16_3976.526_80_0.2_sem_interface:controle sem interface não ganha energiaHV",
+      "label": "fixo_08_16_4042.783_80_0.2_sem_interface:controle sem interface não ganha energiaHV",
       "pass": true
     },
     {
-      "label": "fixo_08_16_3976.526_80_0.2_sem_interface:energia/semrecargaexterna",
+      "label": "fixo_08_16_4042.783_80_0.2_sem_interface:energia/semrecargaexterna",
       "pass": true
     },
     {
-      "label": "fixo_08_16_3976.526_80_0.2_direta_hipotese:consumo físico independente",
+      "label": "fixo_08_16_4042.783_80_0.2_direta_hipotese:consumo físico independente",
       "pass": true
     },
     {
-      "label": "fixo_08_16_3976.526_80_0.2_direta_hipotese:energia/semrecargaexterna",
+      "label": "fixo_08_16_4042.783_80_0.2_direta_hipotese:energia/semrecargaexterna",
       "pass": true
     },
     {
@@ -210,83 +242,83 @@
       "pass": true
     },
     {
-      "label": "alternativo_00_08_3976.526_40_0.1_sem_interface:consumo físico independente",
+      "label": "alternativo_00_08_4042.783_40_0.1_sem_interface:consumo físico independente",
       "pass": true
     },
     {
-      "label": "alternativo_00_08_3976.526_40_0.1_sem_interface:controle sem interface não ganha energiaHV",
+      "label": "alternativo_00_08_4042.783_40_0.1_sem_interface:controle sem interface não ganha energiaHV",
       "pass": true
     },
     {
-      "label": "alternativo_00_08_3976.526_40_0.1_sem_interface:energia/semrecargaexterna",
+      "label": "alternativo_00_08_4042.783_40_0.1_sem_interface:energia/semrecargaexterna",
       "pass": true
     },
     {
-      "label": "alternativo_00_08_3976.526_40_0.1_direta_hipotese:consumo físico independente",
+      "label": "alternativo_00_08_4042.783_40_0.1_direta_hipotese:consumo físico independente",
       "pass": true
     },
     {
-      "label": "alternativo_00_08_3976.526_40_0.1_direta_hipotese:energia/semrecargaexterna",
+      "label": "alternativo_00_08_4042.783_40_0.1_direta_hipotese:energia/semrecargaexterna",
       "pass": true
     },
     {
-      "label": "alternativo_00_08_3976.526_40_0.2_sem_interface:consumo físico independente",
+      "label": "alternativo_00_08_4042.783_40_0.2_sem_interface:consumo físico independente",
       "pass": true
     },
     {
-      "label": "alternativo_00_08_3976.526_40_0.2_sem_interface:controle sem interface não ganha energiaHV",
+      "label": "alternativo_00_08_4042.783_40_0.2_sem_interface:controle sem interface não ganha energiaHV",
       "pass": true
     },
     {
-      "label": "alternativo_00_08_3976.526_40_0.2_sem_interface:energia/semrecargaexterna",
+      "label": "alternativo_00_08_4042.783_40_0.2_sem_interface:energia/semrecargaexterna",
       "pass": true
     },
     {
-      "label": "alternativo_00_08_3976.526_40_0.2_direta_hipotese:consumo físico independente",
+      "label": "alternativo_00_08_4042.783_40_0.2_direta_hipotese:consumo físico independente",
       "pass": true
     },
     {
-      "label": "alternativo_00_08_3976.526_40_0.2_direta_hipotese:energia/semrecargaexterna",
+      "label": "alternativo_00_08_4042.783_40_0.2_direta_hipotese:energia/semrecargaexterna",
       "pass": true
     },
     {
-      "label": "alternativo_00_08_3976.526_80_0.1_sem_interface:consumo físico independente",
+      "label": "alternativo_00_08_4042.783_80_0.1_sem_interface:consumo físico independente",
       "pass": true
     },
     {
-      "label": "alternativo_00_08_3976.526_80_0.1_sem_interface:controle sem interface não ganha energiaHV",
+      "label": "alternativo_00_08_4042.783_80_0.1_sem_interface:controle sem interface não ganha energiaHV",
       "pass": true
     },
     {
-      "label": "alternativo_00_08_3976.526_80_0.1_sem_interface:energia/semrecargaexterna",
+      "label": "alternativo_00_08_4042.783_80_0.1_sem_interface:energia/semrecargaexterna",
       "pass": true
     },
     {
-      "label": "alternativo_00_08_3976.526_80_0.1_direta_hipotese:consumo físico independente",
+      "label": "alternativo_00_08_4042.783_80_0.1_direta_hipotese:consumo físico independente",
       "pass": true
     },
     {
-      "label": "alternativo_00_08_3976.526_80_0.1_direta_hipotese:energia/semrecargaexterna",
+      "label": "alternativo_00_08_4042.783_80_0.1_direta_hipotese:energia/semrecargaexterna",
       "pass": true
     },
     {
-      "label": "alternativo_00_08_3976.526_80_0.2_sem_interface:consumo físico independente",
+      "label": "alternativo_00_08_4042.783_80_0.2_sem_interface:consumo físico independente",
       "pass": true
     },
     {
-      "label": "alternativo_00_08_3976.526_80_0.2_sem_interface:controle sem interface não ganha energiaHV",
+      "label": "alternativo_00_08_4042.783_80_0.2_sem_interface:controle sem interface não ganha energiaHV",
       "pass": true
     },
     {
-      "label": "alternativo_00_08_3976.526_80_0.2_sem_interface:energia/semrecargaexterna",
+      "label": "alternativo_00_08_4042.783_80_0.2_sem_interface:energia/semrecargaexterna",
       "pass": true
     },
     {
-      "label": "alternativo_00_08_3976.526_80_0.2_direta_hipotese:consumo físico independente",
+      "label": "alternativo_00_08_4042.783_80_0.2_direta_hipotese:consumo físico independente",
       "pass": true
     },
     {
-      "label": "alternativo_00_08_3976.526_80_0.2_direta_hipotese:energia/semrecargaexterna",
+      "label": "alternativo_00_08_4042.783_80_0.2_direta_hipotese:energia/semrecargaexterna",
       "pass": true
     },
     {

@@ -1,7 +1,7 @@
 {
   "scenario": "maxeon1560_independente",
-  "source_config_sha256": "f0b6d5ac11dfedb6d711505b4bda5890b4c2cfd15fad0f413e0787e3cb073158",
-  "resolved_config_sha256": "0440da640352206bb0d47995fcae0d3d91bd71c4df37641f40a3d45554e15b1a",
+  "source_config_sha256": "047c725c8f26f5dbf4c824aaffeb92d09272f12a4e5e181e5e059c5eb3a4396b",
+  "resolved_config_sha256": "ff46bf2d090b8485a9b41dc487b01868010c7849de01db28de566dac2a3e5712",
   "source_mass_cg_cases": 162,
   "cases": 65610,
   "speeds_kmh": [
@@ -43,23 +43,23 @@
       "speed_kmh": 20,
       "mu_assumed": 0.3,
       "grade_percent_in_model_range": [
-        9.805093584984839,
+        9.654899532375572,
         15.247845850655695
       ],
-      "grade_percent_in_model_median": 12.690902775029958,
+      "grade_percent_in_model_median": 12.595483915691936,
       "cases_level_infeasible": 0,
       "cases_capped": 0,
       "power_limited_fraction": 0.0,
-      "max_abs_force_residual_n": 2.7284841053187847e-12
+      "max_abs_force_residual_n": 3.637978807091713e-12
     },
     {
       "speed_kmh": 20,
       "mu_assumed": 0.5,
       "grade_percent_in_model_range": [
-        17.13979253523655,
+        16.881092207455183,
         24.893298335284786
       ],
-      "grade_percent_in_model_median": 21.17398575058114,
+      "grade_percent_in_model_median": 21.0351763389405,
       "cases_level_infeasible": 0,
       "cases_capped": 0,
       "power_limited_fraction": 0.0,
@@ -69,23 +69,23 @@
       "speed_kmh": 20,
       "mu_assumed": 0.7,
       "grade_percent_in_model_range": [
-        23.839547840336035,
+        23.476258527440198,
         33.842668383681925
       ],
-      "grade_percent_in_model_median": 28.95761224757925,
+      "grade_percent_in_model_median": 28.766235990059158,
       "cases_level_infeasible": 0,
       "cases_capped": 0,
       "power_limited_fraction": 0.0,
-      "max_abs_force_residual_n": 7.275957614183426e-12
+      "max_abs_force_residual_n": 9.094947017729282e-12
     },
     {
       "speed_kmh": 40,
       "mu_assumed": 0.3,
       "grade_percent_in_model_range": [
-        9.018836451137124,
+        8.88429368563878,
         15.160651849077993
       ],
-      "grade_percent_in_model_median": 12.269752954889363,
+      "grade_percent_in_model_median": 12.154698594097855,
       "cases_level_infeasible": 0,
       "cases_capped": 0,
       "power_limited_fraction": 0.0,
@@ -95,10 +95,10 @@
       "speed_kmh": 40,
       "mu_assumed": 0.5,
       "grade_percent_in_model_range": [
-        16.3824434020672,
+        16.13932911566111,
         24.80779791565007
       ],
-      "grade_percent_in_model_median": 20.865701396080453,
+      "grade_percent_in_model_median": 20.690767739806716,
       "cases_level_infeasible": 0,
       "cases_capped": 0,
       "power_limited_fraction": 0.0,
@@ -108,10 +108,10 @@
       "speed_kmh": 40,
       "mu_assumed": 0.7,
       "grade_percent_in_model_range": [
-        23.105857178116874,
+        22.758212768193825,
         33.758240473039436
       ],
-      "grade_percent_in_model_median": 28.62804639630966,
+      "grade_percent_in_model_median": 28.408568973346526,
       "cases_level_infeasible": 0,
       "cases_capped": 0,
       "power_limited_fraction": 0.0,
@@ -121,23 +121,23 @@
       "speed_kmh": 60,
       "mu_assumed": 0.3,
       "grade_percent_in_model_range": [
-        7.995798446561481,
+        7.881571513618776,
         14.98120549329705
       ],
-      "grade_percent_in_model_median": 11.545787590159911,
+      "grade_percent_in_model_median": 11.470240215599084,
       "cases_level_infeasible": 0,
       "cases_capped": 0,
       "power_limited_fraction": 0.0,
-      "max_abs_force_residual_n": 4.547473508864641e-12
+      "max_abs_force_residual_n": 3.637978807091713e-12
     },
     {
       "speed_kmh": 60,
       "mu_assumed": 0.5,
       "grade_percent_in_model_range": [
-        15.39818007108426,
+        15.175235568340788,
         24.63187496653994
       ],
-      "grade_percent_in_model_median": 20.29435032686497,
+      "grade_percent_in_model_median": 20.125681245792997,
       "cases_level_infeasible": 0,
       "cases_capped": 0,
       "power_limited_fraction": 0.0,
@@ -147,23 +147,23 @@
       "speed_kmh": 60,
       "mu_assumed": 0.7,
       "grade_percent_in_model_range": [
-        21.987301753848698,
-        31.286575831260176
+        21.627062595057794,
+        31.17156256179763
       ],
-      "grade_percent_in_model_median": 25.733304649109822,
+      "grade_percent_in_model_median": 25.521604482827133,
       "cases_level_infeasible": 0,
       "cases_capped": 0,
-      "power_limited_fraction": 0.6186556927297668,
+      "power_limited_fraction": 0.6282578875171467,
       "max_abs_force_residual_n": 7.275957614183426e-12
     },
     {
       "speed_kmh": 80,
       "mu_assumed": 0.3,
       "grade_percent_in_model_range": [
-        6.736706791835914,
+        6.64742410856396,
         14.54579406660656
       ],
-      "grade_percent_in_model_median": 10.6854051721984,
+      "grade_percent_in_model_median": 10.62135757579475,
       "cases_level_infeasible": 0,
       "cases_capped": 0,
       "power_limited_fraction": 0.0,
@@ -173,23 +173,23 @@
       "speed_kmh": 80,
       "mu_assumed": 0.5,
       "grade_percent_in_model_range": [
-        13.73961180230533,
-        22.206368017838756
+        13.51206743297343,
+        22.127589129890435
       ],
-      "grade_percent_in_model_median": 17.59326867849759,
+      "grade_percent_in_model_median": 17.456018541671714,
       "cases_level_infeasible": 0,
       "cases_capped": 0,
-      "power_limited_fraction": 0.680612711476909,
+      "power_limited_fraction": 0.6902149062642889,
       "max_abs_force_residual_n": 3.637978807091713e-12
     },
     {
       "speed_kmh": 80,
       "mu_assumed": 0.7,
       "grade_percent_in_model_range": [
-        13.73961180230533,
-        22.206368017838756
+        13.51206743297343,
+        22.127589129890435
       ],
-      "grade_percent_in_model_median": 18.062074459205753,
+      "grade_percent_in_model_median": 17.90483672965319,
       "cases_level_infeasible": 0,
       "cases_capped": 0,
       "power_limited_fraction": 1.0,
@@ -199,36 +199,36 @@
       "speed_kmh": 90,
       "mu_assumed": 0.3,
       "grade_percent_in_model_range": [
-        6.018783559292595,
+        5.943702667058097,
         14.23237057635891
       ],
-      "grade_percent_in_model_median": 10.22938623260444,
+      "grade_percent_in_model_median": 10.156974460842813,
       "cases_level_infeasible": 0,
       "cases_capped": 0,
       "power_limited_fraction": 0.0,
-      "max_abs_force_residual_n": 2.7284841053187847e-12
+      "max_abs_force_residual_n": 3.637978807091713e-12
     },
     {
       "speed_kmh": 90,
       "mu_assumed": 0.5,
       "grade_percent_in_model_range": [
-        10.73378213293087,
-        19.11438600516621
+        10.552202406986083,
+        19.047037400939587
       ],
-      "grade_percent_in_model_median": 15.160346137213615,
+      "grade_percent_in_model_median": 14.973736948627764,
       "cases_level_infeasible": 0,
       "cases_capped": 0,
-      "power_limited_fraction": 0.9711934156378601,
+      "power_limited_fraction": 0.9750800182898949,
       "max_abs_force_residual_n": 2.7284841053187847e-12
     },
     {
       "speed_kmh": 90,
       "mu_assumed": 0.7,
       "grade_percent_in_model_range": [
-        10.73378213293087,
-        19.11438600516621
+        10.552202406986083,
+        19.047037400939587
       ],
-      "grade_percent_in_model_median": 15.160346137213615,
+      "grade_percent_in_model_median": 14.973736948627764,
       "cases_level_infeasible": 0,
       "cases_capped": 0,
       "power_limited_fraction": 1.0,
@@ -242,5 +242,5 @@
     "No gear ratio, motor speed limit, thermal derating, battery power limit, or startability at zero speed is modeled.",
     "This numerical envelope is not an OEM performance claim, road test, legal gradeability, or proof of sustained climbing."
   ],
-  "configuration_file_sha256": "f0b6d5ac11dfedb6d711505b4bda5890b4c2cfd15fad0f413e0787e3cb073158"
+  "configuration_file_sha256": "047c725c8f26f5dbf4c824aaffeb92d09272f12a4e5e181e5e059c5eb3a4396b"
 }

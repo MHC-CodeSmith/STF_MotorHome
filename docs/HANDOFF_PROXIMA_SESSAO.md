@@ -1,3 +1,44 @@
+# Continuação vigente — revisão integral de 25/11/2026
+
+Esta seção prevalece sobre os registros históricos abaixo. O relatório segue a organização do
+Cuca, preservando 35 itens: Introdução/Objetivos, Revisão bibliográfica e Projeto técnico com
+especificações, custo, simulações, deduções e tabela final. Fontes em `relatorio/`, PDF no mesmo
+local. Capa: exatamente os oito nomes em `relatorio/autores.tex`, por instrução do usuário.
+Vídeo excluído do escopo. Nenhuma nova aprovação de grafia ou publicação é necessária.
+
+O PR #9 do Fael foi conferido no GitHub (patch de 81 linhas, sem reviews/comentários de linha).
+A matriz completa dos 27 pedidos e seus subpedidos está em `docs/AUDITORIA_PR9_REESCRITA.md`.
+Renogy RSP400LSC-G1: USD 495,99 na loja oficial, sem estoque em 25/11; comparação com acessórios,
+dimensões, tempo de instalação hipotético e retenção calculada. A fichaFiat dá 90/130/130 km/h:
+a comparação de RPM é cinemática, sem inventar nmax/curva OEM. Professores conferidos na USP.
+
+Cama: estrado de 30 mm, quadro de 50×50×3 mm, postes de 45×45×4 mm. Peso próprio, ajoelhamento,
+flecha L/300 e cargas de 3g/5g incluídos; utilização máxima 0,833. A hipótese preliminar de 25 mm/40 mm
+não foi adotada porque omitia casos e massas. Acréscimo líquido de 66,257102 kg, já no inventário:
+massa A = 4042,78262976 kg, margem de 207,21737024 kg. Soldas/bases/ancoragem OEM não validadas.
+Ver `cama_estrutura/resumo.json` e `HISTORICO_MASSAS.md` no cenário 1560. Resultados antigos
+3976 kg/1540 Wp/1350 Wp permanecem históricos. Não os tratar como projeto vigente.
+
+Reprodução completa: `PYTHONPATH=src:scripts .venv/bin/python scripts/reexecutar_revisao_relatorio.py
+--executar` (uma linha; execução longa, dois workers). Perfil horário por aparelho tem rotina
+hipotética; I25/I29 principais continuam usando carga média. O recibo da revisão distingue a
+execução efetiva dos antigos manifestos. `relatorio/compilar.sh` atualiza tabelas/figuras e PDF.
+Após modificar código/dados, atualizar índice, testes e manifestos; ver README do relatório.
+
+Publicação autorizada no histórico da tarefa: autor MHC <carvalho.matheush@gmail.com>, sem trailer;
+`git push origin integ:main integ:hub/tarefas-motorhome-com-codex`. Revisões dos integrantes são
+pareceres acadêmicos, não validação física; instalação e interface CC continuam condicionais.
+
+Resultado final da viagem após o reforço da cama: 20,5 km/h, primeira saída às 18h,
+214,755556 dias com reservas 10/20%; alternativa 20/30%: 20,7 km/h e 215,793056 dias.
+Comparação a horário/reservas comuns: 40 km/h → 248,767361 dias; 80 km/h → 457,750694 dias.
+Primeira reserva do líder em 3,845139 dias/538,645874 km; ritmo posterior 30,635538 km/dia.
+Recibo dos 30 comandos principais, cinco suplementos, três preparações recuperadas e três
+rechecagens históricas em `entregas/integrado_maxeon1560/revisao_relatorio/execucao.json`.
+As preparações sem código de saída no log são identificadas como tal, sem inventar registro.
+
+---
+
 # Handoff — STF MotorHome (16/11/2026, fim da sessão)
 
 ## O que é e por quê

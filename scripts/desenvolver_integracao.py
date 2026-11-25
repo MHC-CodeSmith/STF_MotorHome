@@ -69,6 +69,8 @@ def main():
     c=carregar_configuracao(ROOT); d=c['development']
     p={k:v['value'] for k,v in c['parameters'].items()}
     geo=d['geometry']; mat=d['materials']; mass=d['mass_assumptions']
+    bed=d.get('bed_structure',{})
+    bed_active=c.get('_execution',{}).get('scenario') in bed.get('scenarios',[])
     length,width,height=np.array(geo['cargo_outer_m'])-2*geo['lining_each_side_m']
     cases=c['development']['layout_equipment']
     summaries={}; mass_rows=[]; sensitivity=[]; traction=[]
@@ -86,7 +88,7 @@ def main():
         for x in [2.54,3.02,3.57]:
             panel_specs.append((f'divisoria_{x}',[x,0,0],[.012,.62,.91]))
         if label=='A_fixa':
-            panel_specs.append(('estrado',[.02,.02,.98],[1.95,1.35,.018]))
+            panel_specs.append(('estrado',[.02,.02,.98],[1.95,1.35,bed['plywood_thickness_m'] if bed_active else .018]))
         else:
             for y in [.02,width-.52]:
                 panel_specs.append((f'assento_{y}',[.02,y,.58],[1.95,.50,.018]))
@@ -103,7 +105,8 @@ def main():
                 (np.array(part['position_m'])+np.array(part['dimensions_m'])/2).tolist(),
                 part['estimated'],'hyp' if part['estimated'] else 'canonical_bom')
         for name,pos,size in panel_specs:
-            m=float(np.prod(size)*mat['plywood_density_kg_m3'])
+            density=bed['plywood_density_kg_m3'] if bed_active and name=='estrado' else mat['plywood_density_kg_m3']
+            m=float(np.prod(size)*density)
             model.box(name,'madeira',pos,size,[187,151,108,230])
             add(name,m,(np.array(pos)+np.array(size)/2).tolist(),True,'volumeCAD*density_hyp')
         opaque_area=2*(length*height+width*height)+2*length*width
@@ -126,7 +129,16 @@ def main():
         # Basin/sink, mattress support/fasteners, seats/travel remain OEM except
         # stationary furniture. The remaining fitting allowance is explicit.
         add('cuba_torneira',4,[2.8,.3,.83],True,'hyp_allowance')
-        add('ferragens_estrutura_cama',12 if label=='A_fixa' else 20,[1.,.8,.5],True,'hyp_allowance')
+        if label=='A_fixa' and bed_active:
+            add('quadro_cama',bed['frame_mass_kg'],[.995,.695,.955],True,bed['source'])
+            add('postes_cama',bed['posts_mass_kg'],[.995,.695,.49],True,bed['source'])
+            # Outer envelopes only; section voids are represented by calculated masses.
+            for j,y in enumerate([.045,.695,1.345]):
+                model.box(f'longarina_cama_{j}','aco',[.045,y-.025,.93],[1.9,.05,.05],[110,110,115,255])
+            for j,x in enumerate([.045,1.945]):
+                model.box(f'travessa_cama_{j}','aco',[x-.025,.045,.93],[.05,1.3,.05],[110,110,115,255])
+        else:
+            add('ferragens_estrutura_cama',12 if label=='A_fixa' else 20,[1.,.8,.5],True,'hyp_allowance')
         add('bagagens',mass['baggage_kg'],[1.,.8,.5],False,'DEC008')
         for i,m in enumerate(mass['occupants_kg']):
             inventory.append({'id':f'ocupante{i+1}','mass_kg':m,'cg_m':[.2,(-.45 if i==0 else .45),1.15],

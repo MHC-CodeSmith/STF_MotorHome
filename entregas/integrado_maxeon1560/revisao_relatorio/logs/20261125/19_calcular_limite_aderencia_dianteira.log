@@ -1,0 +1,1 @@
+{"cases": 2430, "flat_mu_0_2_g_range": [0.08234274120988762, 0.10823331668841771], "flat_mu_0_9_g_range": [0.3165286580605613, 0.4276429529863305], "uphill_6pct_cases_unable_to_hold": 0, "max_force_residual_n": 1.0913936421275139e-11, "plot": "entregas/integrado_maxeon1560/integracao/limite_aderencia_tracao_dianteira/envelope_aderencia.png"}

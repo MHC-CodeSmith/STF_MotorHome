@@ -22,48 +22,48 @@
     "com_deck": 0.62487678,
     "sem_deck": 0.5584713616457496
   },
-  "massa_kg": 3976.52552776,
+  "massa_kg": 4042.78262976,
   "por_velocidade_kmh": {
     "40": {
       "com_deck": {
         "forca_aero_n": 204.84480758358342,
-        "potencia_rodas_kw": 7.475572626503051,
-        "potencia_bateria_kw": 9.006191807225612,
-        "kwh_km": 0.2251547951806403,
-        "km_kwh": 4.441388864037767
+        "potencia_rodas_kw": 7.562207321080158,
+        "potencia_bateria_kw": 9.102452578977953,
+        "kwh_km": 0.22756131447444883,
+        "km_kwh": 4.394420037120512
       },
       "sem_deck": {
         "forca_aero_n": 183.07602759261658,
-        "potencia_rodas_kw": 7.233697293270088,
-        "potencia_bateria_kw": 8.737441436966764,
-        "kwh_km": 0.2184360359241691,
-        "km_kwh": 4.577999210474383
+        "potencia_rodas_kw": 7.320331987847193,
+        "potencia_bateria_kw": 8.833702208719103,
+        "kwh_km": 0.22084255521797758,
+        "km_kwh": 4.528112795167457
       },
-      "diferenca_kwh_km": 0.006718759256471196,
-      "diferenca_percentual": 3.0758474571492584
+      "diferenca_kwh_km": 0.006718759256471252,
+      "diferenca_percentual": 3.0423299756877267
     },
     "80": {
       "com_deck": {
         "forca_aero_n": 819.3792303343337,
-        "potencia_rodas_kw": 28.607465758578332,
-        "potencia_bateria_kw": 32.486073065087034,
-        "kwh_km": 0.40607591331358794,
-        "km_kwh": 2.4625937348511493
+        "potencia_rodas_kw": 28.780735147732543,
+        "potencia_bateria_kw": 32.678594608591716,
+        "kwh_km": 0.4084824326073965,
+        "km_kwh": 2.448085695183683
       },
       "sem_deck": {
         "forca_aero_n": 732.3041103704663,
-        "potencia_rodas_kw": 26.672463092714615,
-        "potencia_bateria_kw": 30.336070103016237,
-        "kwh_km": 0.37920087628770294,
-        "km_kwh": 2.637124707595062
+        "potencia_rodas_kw": 26.845732481868826,
+        "potencia_bateria_kw": 30.528591646520916,
+        "kwh_km": 0.38160739558151147,
+        "km_kwh": 2.620494287004455
       },
       "diferenca_kwh_km": 0.026875037025885007,
-      "diferenca_percentual": 7.087282415849347
+      "diferenca_percentual": 7.042588098936487
     }
   },
   "geracao_teto_kwh_dia": 5.939912190425816,
   "km_dia_para_empatar": {
-    "40": 884.0787359220781,
+    "40": 884.0787359220708,
     "80": 221.0196839805177
   },
   "limites": [

@@ -23,12 +23,13 @@ def main():
     parser=argparse.ArgumentParser();parser.add_argument('--registrar',action='store_true');args=parser.parse_args()
     c=carregar_configuracao(ROOT)
     if '_execution' not in c:raise ValueError('Selecionar cenário')
-    # Valores de referência por cenário: o arranjo 1540 fica como histórico; 1560 é o teto vigente (PR9).
+    # Referências por cenário. 1540 histórico intacto; 1560 reexecutado em25/11 com4042.78262976kg.
+    # A mudança das durações decorre dos66.257102kg da cama; ver docs/AUDITORIA_PR9_REESCRITA.md.
     gold={'maxeon1540_independente':{'roof_wp':1540,'extra_days':[242.802083,244.802083],
                                      'temporal_days':[213.822917,215.791667,212.802083,214.777778,212.785417,214.7625],
                                      'alias_max_kwh':0.2611997137057198},
-          'maxeon1560_independente':{'roof_wp':1560,'extra_days':[211.791667,213.770833],
-                                     'temporal_days':[211.791667,213.770833,210.777778,212.753472,209.8125,211.788194],
+          'maxeon1560_independente':{'roof_wp':1560,'extra_days':[214.78125,216.760417],
+                                     'temporal_days':[214.78125,216.760417,213.763889,214.802083,212.797222,214.773611],
                                      'alias_max_kwh':0.2664698496553939}}[c['_execution']['scenario']]
     p={k:v['value'] for k,v in c['parameters'].items()};out=diretorio_entregas(ROOT);checks=[];errors=[]
     def check(ok,label):
@@ -43,6 +44,62 @@ def main():
         check(abs(water.mass_kg.sum()-100)<1e-8 and water[water.id=='agua_boiler'].mass_kg.iloc[0]==15 and water[water.id=='agua0'].mass_kg.iloc[0]==85,f'{layout}:100L totais localizados85+15sem duplicar')
         check(parts[parts.id.str.startswith('MAXEON')].mass_kg.sum()==76 and not parts.id.isin(['PV190','PV_JA3']).any(),f'{layout}:inventário4Maxeon sem painéis antigos')
     nominal=summary['layouts']['A_fixa']['nominal'];check(abs(nominal['mass_kg']-p['assembled_typical_mass_kg'])<1e-8,'Massafonteúnica=CAD')
+    if c['_execution']['scenario']=='maxeon1560_independente':
+        bed=json.loads((out/'cama_estrutura/resumo.json').read_text())
+        spec=c['development']['bed_structure']
+        expected_frame=(3*1.90+2*1.30)*7850*(.05**2-(.05-2*.003)**2)
+        expected_posts=4*.98*7850*(.045**2-(.045-2*.004)**2)
+        expected_board=1.95*1.35*.030*600
+        expected_extra=expected_frame+expected_posts+expected_board-1.95*1.35*.018*550-12
+        check(abs(bed['massas_kg']['quadro_aco']-expected_frame)<1e-8 and
+              abs(bed['massas_kg']['postes_aco']-expected_posts)<1e-8 and
+              abs(bed['massas_kg']['estrado']-expected_board)<1e-8 and
+              abs(bed['acrescimo_massa_kg']-expected_extra)<1e-8,
+              'I17 cama: massa de tubos/postes/estrado por geometria independente, sem duplicar reserva12kg')
+        active_mass=mass[mass.layout=='A_fixa'].set_index('id').mass_kg
+        check('ferragens_estrutura_cama' not in active_mass.index and
+              abs(active_mass['quadro_cama']-expected_frame)<1e-8 and
+              abs(active_mass['postes_cama']-expected_posts)<1e-8 and
+              abs(active_mass['estrado']-expected_board)<1e-8 and
+              abs(nominal['mass_kg']-(3976.52552776+expected_extra))<1e-8 and
+              abs(spec['frame_mass_kg']-expected_frame)<1e-8 and
+              abs(spec['posts_mass_kg']-expected_posts)<1e-8,
+              'I18 cama: nova massa propagada ao inventário, fonte única e CG sem reserva duplicada')
+        check(bed['aprovado'] and bed['flechas_dentro_do_limite'] and
+              bed['casos']['D_poste_5g_lateral']['utilizacao']<1 and
+              bed['casos']['B_longarina_concentrada']['flecha_mm']<=
+              bed['casos']['B_longarina_concentrada']['limite_flecha_mm'] and
+              not bed['aprovacao_fisica'] and not bed['ancoragem_carroceria_verificada'],
+              'I17 cama: casos críticos e flechas atendidos sem inferir ensaio ou resistência OEM')
+        profile=pd.read_csv(out/'perfil_habitacao/perfil_24h.csv')
+        expected_services=sum(x['energy_ac_or_dc_kwh_day']['base']/
+                              (p['eta_inverter'] if x['side']=='AC' else p['eta_lv']) for x in c['loads'])
+        expected_services+=24*p['inverter_idle_w']/1000
+        check(len(profile)==24 and abs(profile.potencia_banco_kw.sum()-expected_services)<1e-9,
+              'I13 perfil horário entregue à P5 conserva energia diária com perdas e consumo em vazio')
+    if c['_execution']['scenario']=='maxeon1560_independente':
+        closing=json.loads((out/'i29_fechamento/resumo.json').read_text())
+        check(closing['configuration_file_sha256']==sha(ROOT/'config/parametros_globais.yaml') and
+              not closing['global_optimum_claimed'] and closing['hypothetical_dc_interface'],
+              'I29 fechamento: configuração atual, interface condicional e sem ótimo global')
+        for leader in closing['leaders_stage_b_1min']:
+            velocity=leader['speed_kmh']/3.6
+            force=.5*p['rho_range'][1]*p['cd_range'][1]*p['area_m2']*velocity**2
+            force+=p['crr_range'][1]*nominal['mass_kg']*9.80665
+            consumption=(force*velocity/p['eta_traction_range'][1]+p['traction_aux_assumed_w'])/1000/leader['speed_kmh']
+            check(abs(leader['kwh_per_km']-consumption)<1e-10 and
+                  abs(leader['totals']['traction_used_kwh']-7000*consumption)<1e-6 and
+                  abs(leader['totals']['driving_h']*leader['speed_kmh']-7000)<1e-6 and
+                  abs(leader['energy_residual_kwh'])<1e-6 and
+                  leader['external_electric_energy_kwh']==0 and
+                  not leader['physical_mission_demonstrated'] and
+                  leader['soc_final_traction']>=leader['reserve_traction']-1e-9 and
+                  leader['soc_final_service']>=leader['reserve_service']-1e-9,
+                  f"I29 líder reserva{leader['reserve_traction']}: consumo por forças com massa nova, balanço e reservas")
+        comparison=json.loads((out/'i29_fechamento/comparacao_velocidades.json').read_text())
+        check(len(comparison)==3 and comparison[1]['speed_kmh']==40 and comparison[2]['speed_kmh']==80 and
+              all(x['dias_ate_reserva']>0 and x['km_bateria_cheia']>0 and x['km_dia_regime']>0 for x in comparison),
+              'I29 comparação inclui40/80 e primeira reserva por intervalo')
     check(p['roof_power_48v_study_wp']==gold['roof_wp'] and p['pv_gamma']==-.0027,f"PV{gold['roof_wp']}/coeftérmico próprio")
     check(p['architecture']=='B' and not p['stored_transfer_allowed'] and not p['dc_interface_demonstrated'],'B/independência sem provaDC')
     check(p['ac_voltage_v']==220 and p['ac_frequency_hz']==60,'220V60Hz')

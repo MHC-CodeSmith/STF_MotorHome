@@ -1,0 +1,643 @@
+{
+  "scenario": "maxeon1560_independente",
+  "collected_utc": "2026-11-25T07:34:36.375348+00:00",
+  "configuration_file": "config/parametros_globais.yaml",
+  "configuration_sha256": "047c725c8f26f5dbf4c824aaffeb92d09272f12a4e5e181e5e059c5eb3a4396b",
+  "resolved_configuration_sha256": "ff46bf2d090b8485a9b41dc487b01868010c7849de01db28de566dac2a3e5712",
+  "bulk_commands": [
+    {
+      "command": [
+        "nice",
+        "-n",
+        "15",
+        ".venv/bin/python",
+        "scripts/desenvolver_mecanica_termica.py"
+      ],
+      "returncode": 0,
+      "seconds": 30.1,
+      "script_sha256_at_collection": "c8235ea535ceb36340954bb1326103801162c45128e20b8ebd35918767e7393a",
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/00_desenvolver_mecanica_termica.log",
+        "sha256": "b28a5cffd159ed3d7a47aa2b018f2d05701b34a09eece90ff2bf16f3412294a8"
+      }
+    },
+    {
+      "command": [
+        "nice",
+        "-n",
+        "15",
+        ".venv/bin/python",
+        "scripts/integrar_freios_massa.py"
+      ],
+      "returncode": 0,
+      "seconds": 6.1,
+      "script_sha256_at_collection": "5ca347d34e638a2a742ddf86243a91a7a30f658778e2f5d08a21189d38d8fbd2",
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/01_integrar_freios_massa.log",
+        "sha256": "c06af4a76d1e6ea86168506fbee87097a44219f6ce811ec3cfaf804c0225fcf9"
+      }
+    },
+    {
+      "command": [
+        "nice",
+        "-n",
+        "15",
+        ".venv/bin/python",
+        "scripts/desenvolver_protecoes_fixacoes.py"
+      ],
+      "returncode": 0,
+      "seconds": 1.2,
+      "script_sha256_at_collection": "06f6d28d67edb5104d86c84bb0eb3eff772ff5817baa8710f87abaa16bb555ff",
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/02_desenvolver_protecoes_fixacoes.log",
+        "sha256": "8bcf33854a0a7db76ff3af6fac442602c536ff4f4508d0daa5ee634a4db332ad"
+      }
+    },
+    {
+      "command": [
+        "nice",
+        "-n",
+        "15",
+        ".venv/bin/python",
+        "scripts/detalhar_rotas_cad.py"
+      ],
+      "returncode": 0,
+      "seconds": 1.5,
+      "script_sha256_at_collection": "7e45fa6d49179c6c36e83ebd624b56776f9027154801b8e5528af884442ac769",
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/03_detalhar_rotas_cad.log",
+        "sha256": "8f2e1cc88e0346d1da46c5a13c634538542676c2c2d5721fe249b93135ee7961"
+      }
+    },
+    {
+      "command": [
+        "nice",
+        "-n",
+        "15",
+        ".venv/bin/python",
+        "scripts/desenvolver_energia_sistemas.py"
+      ],
+      "returncode": 0,
+      "seconds": 10.1,
+      "script_sha256_at_collection": "29497f6b769499e8d621f50366139b6e7811fc775872c9541296ee57fc551620",
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/04_desenvolver_energia_sistemas.log",
+        "sha256": "d40ff89e214dbddc74e002785265a170c0b88a4463008709a164831e0cc98293"
+      }
+    },
+    {
+      "command": [
+        "nice",
+        "-n",
+        "15",
+        ".venv/bin/python",
+        "scripts/desenvolver_despacho_i25.py"
+      ],
+      "returncode": 0,
+      "seconds": 12.3,
+      "script_sha256_at_collection": "9af76492e0dcbce80d512f6a74a3042df8f9d0567c3e33de1bb9d8ca3aa98ef7",
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/05_desenvolver_despacho_i25.log",
+        "sha256": "afac9901ffc69936498ab89783a510b9a38e13684b8fc2bdc5009112e610fd9c"
+      }
+    },
+    {
+      "command": [
+        "nice",
+        "-n",
+        "15",
+        ".venv/bin/python",
+        "scripts/otimizar_grade_missao.py"
+      ],
+      "returncode": 0,
+      "seconds": 312.0,
+      "script_sha256_at_collection": "a37b300c4a8cb724d13779c7503f7d991bd5016a28b2817e2858e08b980766c8",
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/06_otimizar_grade_missao.log",
+        "sha256": "d5cb229c36630ba88f7fa4a74d061ea77f0f222df58d1f74b4291759b888aaa7"
+      }
+    },
+    {
+      "command": [
+        "nice",
+        "-n",
+        "15",
+        ".venv/bin/python",
+        "scripts/detalhar_paradas_hidricas.py"
+      ],
+      "returncode": 0,
+      "seconds": 1.5,
+      "script_sha256_at_collection": "2cdacfc506b152d3f76dbb63b537a1c4a3f5a6fff3879081becfd0067e30db3c",
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/07_detalhar_paradas_hidricas.log",
+        "sha256": "7f7e7cafcf8ff8e60529778c312dbf104e7cd74648b30ebcc59ad48164f299cc"
+      }
+    },
+    {
+      "command": [
+        "nice",
+        "-n",
+        "15",
+        ".venv/bin/python",
+        "scripts/consolidar_bom_atual.py"
+      ],
+      "returncode": 0,
+      "seconds": 1.0,
+      "script_sha256_at_collection": "12a7a394c81f8fca0b32a144c86cbb16fba69f656c99a07686205ac467d2aae6",
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/08_consolidar_bom_atual.log",
+        "sha256": "989bba7a560ff07e910451970a8f065325f477c81670e81b8e406e8bc2bc4305"
+      }
+    },
+    {
+      "command": [
+        "nice",
+        "-n",
+        "15",
+        ".venv/bin/python",
+        "scripts/sensibilizar_cenario_integrado.py"
+      ],
+      "returncode": 0,
+      "seconds": 16.2,
+      "script_sha256_at_collection": "e5e4b236868be7129bc6bb349918cc336305ed96b7b5d483eb1562b9fcf6de44",
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/09_sensibilizar_cenario_integrado.log",
+        "sha256": "3c0c931a25348df6622d2004781aa3d5a43f286bd934ba934da73a018cd91fe5"
+      }
+    },
+    {
+      "command": [
+        "nice",
+        "-n",
+        "15",
+        ".venv/bin/python",
+        "scripts/comparar_buffer_comercial.py"
+      ],
+      "returncode": 0,
+      "seconds": 15.9,
+      "script_sha256_at_collection": "78140904f84823d270044b93dda3857b9cdda8e1ae4381a6f1660935a392c404",
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/10_comparar_buffer_comercial.log",
+        "sha256": "ba2c60312369d45c220ac0a11a0044700c415f9fbb7c31ad808ca141a5322038"
+      }
+    },
+    {
+      "command": [
+        "nice",
+        "-n",
+        "15",
+        ".venv/bin/python",
+        "scripts/simular_prioridades_servicos.py"
+      ],
+      "returncode": 0,
+      "seconds": 1.2,
+      "script_sha256_at_collection": "91b7cc09cc3e28183d2e636b8d069bdd8180803b5d23dcc2f48cc029ce224079",
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/11_simular_prioridades_servicos.log",
+        "sha256": "4e63806490953daeedfde0f9d831f875ee90b7f8b99053c70eaf1e152f5498f4"
+      }
+    },
+    {
+      "command": [
+        "nice",
+        "-n",
+        "15",
+        ".venv/bin/python",
+        "scripts/comparar_bancos_servicos_cad.py"
+      ],
+      "returncode": 0,
+      "seconds": 2.7,
+      "script_sha256_at_collection": "83cda909af0a5a8dbe258176c533961bd90880d0ed2156e8509e81e898302d33",
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/12_comparar_bancos_servicos_cad.log",
+        "sha256": "dead6d66ddb3a4b539279437f9f382919d4ffbb48f2e1fadae18df19f2fb2264"
+      }
+    },
+    {
+      "command": [
+        "nice",
+        "-n",
+        "15",
+        ".venv/bin/python",
+        "scripts/conferir_protecao_pylon_documentada.py"
+      ],
+      "returncode": 0,
+      "seconds": 1.0,
+      "script_sha256_at_collection": "04b375211ed397a9bb5f724ff6d5a3903212322733f12077542b3472be9a8964",
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/13_conferir_protecao_pylon_documentada.log",
+        "sha256": "00daa0bc96ccb7f37528f8e41443783d9b476481df77d6da5dd43728b89c7162"
+      }
+    },
+    {
+      "command": [
+        "nice",
+        "-n",
+        "15",
+        ".venv/bin/python",
+        "scripts/sensibilizar_resistencias_rota.py"
+      ],
+      "returncode": 0,
+      "seconds": 1.2,
+      "script_sha256_at_collection": "e7383dff3f10454a67620c92b8945d4314c99a792b29a4b30106964a79bf49d7",
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/14_sensibilizar_resistencias_rota.log",
+        "sha256": "44f3d52ead83088fdf51ead020477ece7d8db05eadcb7598875dae106a8b0bce"
+      }
+    },
+    {
+      "command": [
+        "nice",
+        "-n",
+        "15",
+        ".venv/bin/python",
+        "scripts/sensibilizar_ventilacao_mecanica.py"
+      ],
+      "returncode": 0,
+      "seconds": 1.9,
+      "script_sha256_at_collection": "358464dd1878e62457e9e05215be902495e17dc48c3a43c433305bff6265c2f4",
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/15_sensibilizar_ventilacao_mecanica.log",
+        "sha256": "0e5bf353c88bf79cf78960c1b14a3d358d0304aa982a40fc0789c4c306554326"
+      }
+    },
+    {
+      "command": [
+        "nice",
+        "-n",
+        "15",
+        ".venv/bin/python",
+        "scripts/modelar_envelope_subida_condicional.py"
+      ],
+      "returncode": 0,
+      "seconds": 17.2,
+      "script_sha256_at_collection": "98d7eb1dd49d1f76551c11e5e36a776b6c705e770ffd00368b0c5ed4cb5a8199",
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/16_modelar_envelope_subida_condicional.log",
+        "sha256": "6d2a23b1be5154e178831b99741dcee36e651e5c0e6c9c875f75c92137092bdb"
+      }
+    },
+    {
+      "command": [
+        "nice",
+        "-n",
+        "15",
+        ".venv/bin/python",
+        "scripts/calcular_envelope_frenagem_eixos.py"
+      ],
+      "returncode": 0,
+      "seconds": 1.5,
+      "script_sha256_at_collection": "fdf88fda15739663a7fd4c65af388ffe2a97bec0380170ba4f827482d81d02cf",
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/17_calcular_envelope_frenagem_eixos.log",
+        "sha256": "f15e31e1464d0703f599d53d30b9c95882e16750cffdfbdf2393b595bce13251"
+      }
+    },
+    {
+      "command": [
+        "nice",
+        "-n",
+        "15",
+        ".venv/bin/python",
+        "scripts/resumir_envelope_eixos.py"
+      ],
+      "returncode": 0,
+      "seconds": 0.0,
+      "script_sha256_at_collection": "c5acccfc441b45e5d8a45f7121d2fcc1d608c67cc3ee95e19d2232198d5ab7d2",
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/18_resumir_envelope_eixos.log",
+        "sha256": "a3dafae91805673d05528b8432941a2c48bbdfd742534964f15d400b31c1797a"
+      }
+    },
+    {
+      "command": [
+        "nice",
+        "-n",
+        "15",
+        ".venv/bin/python",
+        "scripts/calcular_limite_aderencia_dianteira.py"
+      ],
+      "returncode": 0,
+      "seconds": 1.5,
+      "script_sha256_at_collection": "522267fc83980af8bd1a6b279142a6b5b71630a918b64b08743341b12eca59ca",
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/19_calcular_limite_aderencia_dianteira.log",
+        "sha256": "9585293612505505c4eac802045b4ddf7cff0bae4944a0e1ad0fd30ccf9f68c7"
+      }
+    },
+    {
+      "command": [
+        "nice",
+        "-n",
+        "15",
+        ".venv/bin/python",
+        "scripts/otimizar_janela_missao.py"
+      ],
+      "returncode": 0,
+      "seconds": 176.7,
+      "script_sha256_at_collection": "0fd75091e0bdd64f88a64c66308aefe5c65a7be635614d35a8e463d2a2a0852b",
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/20_otimizar_janela_missao.log",
+        "sha256": "aa50bbb25af5321bcea92b226d1ef3f8fd1b0dfcc199a8fa6beca366783e9153"
+      }
+    },
+    {
+      "command": [
+        "nice",
+        "-n",
+        "15",
+        ".venv/bin/python",
+        "scripts/otimizar_janela_missao.py",
+        "--densa"
+      ],
+      "returncode": 0,
+      "seconds": 1530.5,
+      "script_sha256_at_collection": "0fd75091e0bdd64f88a64c66308aefe5c65a7be635614d35a8e463d2a2a0852b",
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/21_otimizar_janela_missao.log",
+        "sha256": "9adf8bd05301b96c067ef62868d9ef1ec315c8cfe2d06963656502f12c1d4842"
+      }
+    },
+    {
+      "command": [
+        "nice",
+        "-n",
+        "15",
+        ".venv/bin/python",
+        "scripts/otimizar_janela_missao.py",
+        "--refino-extra"
+      ],
+      "returncode": 0,
+      "seconds": 41.2,
+      "script_sha256_at_collection": "0fd75091e0bdd64f88a64c66308aefe5c65a7be635614d35a8e463d2a2a0852b",
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/22_otimizar_janela_missao.log",
+        "sha256": "453a6439795a3145355911baa52672bb1aca1f196547ebc696cfb65b9d88a7fd"
+      }
+    },
+    {
+      "command": [
+        "nice",
+        "-n",
+        "15",
+        ".venv/bin/python",
+        "scripts/refinar_velocidade_missao.py"
+      ],
+      "returncode": 0,
+      "seconds": 150.7,
+      "script_sha256_at_collection": "376f99f9ba45a47b43ef04872742c19573e7270b0b1226cd99e3d925b9aeb58c",
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/23_refinar_velocidade_missao.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "nice",
+        "-n",
+        "15",
+        ".venv/bin/python",
+        "scripts/refinar_resolucao_missao.py"
+      ],
+      "returncode": 0,
+      "seconds": 210.0,
+      "script_sha256_at_collection": "1540268393e737f3a0fefe6b92a2cfd2856577f97ee9815cb28cdca21569fe9a",
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/24_refinar_resolucao_missao.log",
+        "sha256": "a2f00923d05fe12c11d994a021fe9f3c6446fc19ba3b66e12b955afb62613f9f"
+      }
+    },
+    {
+      "command": [
+        "nice",
+        "-n",
+        "15",
+        ".venv/bin/python",
+        "scripts/analisar_aliasing_limiar_dc.py"
+      ],
+      "returncode": 0,
+      "seconds": 2.7,
+      "script_sha256_at_collection": "f3733a3d4207079b33c05553ddcb2360d5194d55cc31680e1a3057d7fd136a96",
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/25_analisar_aliasing_limiar_dc.log",
+        "sha256": "1db9ae18a0f891479db82ce2c89b7cf367a5c8b168059c6a5a6090d5563acf26"
+      }
+    },
+    {
+      "command": [
+        "nice",
+        "-n",
+        "15",
+        ".venv/bin/python",
+        "scripts/fechar_i29_velocidade.py",
+        "--workers",
+        "2"
+      ],
+      "returncode": 0,
+      "seconds": 1524.5,
+      "script_sha256_at_collection": "baa38979f6452824355ac59d179d7743208c70d3286f64a8b98dcff62a46beca",
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/26_fechar_i29_velocidade.log",
+        "sha256": "a11fb567a1599e3dbeed2db50240081277c21a530b3d4c34bf9a422edade06f2"
+      }
+    },
+    {
+      "command": [
+        "nice",
+        "-n",
+        "15",
+        ".venv/bin/python",
+        "scripts/fechar_i29_velocidade.py",
+        "--figura"
+      ],
+      "returncode": 0,
+      "seconds": 10.5,
+      "script_sha256_at_collection": "baa38979f6452824355ac59d179d7743208c70d3286f64a8b98dcff62a46beca",
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/27_fechar_i29_velocidade.log",
+        "sha256": "f36514ff416e403a454f9348bd9f1d29fbc8f601dc67746b02f354c9e920252e"
+      }
+    },
+    {
+      "command": [
+        "nice",
+        "-n",
+        "15",
+        ".venv/bin/python",
+        "scripts/calcular_custo_brl_i24.py"
+      ],
+      "returncode": 0,
+      "seconds": 0.8,
+      "script_sha256_at_collection": "cc26c83cd462c46a3077f727937e1bcc057d52ffab3ba6a4aabfd0d899278456",
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/28_calcular_custo_brl_i24.log",
+        "sha256": "908efb9b1ed3f8f2c92239b19cfb2ea3a0a36b33cc9dd8d4c82ac42af46e33b0"
+      }
+    },
+    {
+      "command": [
+        "nice",
+        "-n",
+        "15",
+        ".venv/bin/python",
+        "scripts/comparar_cfd_deck.py"
+      ],
+      "returncode": 0,
+      "seconds": 0.9,
+      "script_sha256_at_collection": "5d6fe391abca061e04cbd36fd1a0bffc76ccb8a6ec3c7100f7b62e75962e148f",
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/29_comparar_cfd_deck.log",
+        "sha256": "31efa0676685c376f620cca25a486e0521b1ecdce1092976344aa4513e2ecd20"
+      }
+    }
+  ],
+  "bulk_complete": true,
+  "supplementary_commands": [
+    {
+      "command": [
+        "nice",
+        "-n",
+        "15",
+        ".venv/bin/python",
+        "scripts/analisar_geracao_portateis_p5.py"
+      ],
+      "returncode": 0,
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/extra_analisar_geracao_portateis_p5.log",
+        "sha256": "7890cef271ae39c37096b533443641c59c86c27f1b50ca57a1c1ff740699dfbf"
+      },
+      "script_sha256_at_collection": "451a3fcae2d2e795988a2960ba76e93f585051abd33cf7031134900d45ff61d7"
+    },
+    {
+      "command": [
+        "nice",
+        "-n",
+        "15",
+        ".venv/bin/python",
+        "scripts/calcular_i32_protecao_parabrisa.py"
+      ],
+      "returncode": 0,
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/extra_calcular_i32_protecao_parabrisa.log",
+        "sha256": "5019fd2387a5e463bb3cb5bbc5bfcdea93cd9cd2944cc2defec51574d4179178"
+      },
+      "script_sha256_at_collection": "c579f926d84d0551dcd9479a43393e41a0b9fb1eda1890016f06e4dbc0cfc092"
+    },
+    {
+      "command": [
+        "nice",
+        "-n",
+        "15",
+        ".venv/bin/python",
+        "scripts/fechar_i30_corrente_maxima.py"
+      ],
+      "returncode": 0,
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/extra_fechar_i30_corrente_maxima.log",
+        "sha256": "37221655794a7ea64618ec5b8bc3dcf34b208323a1396430b57532eb473f13a6"
+      },
+      "script_sha256_at_collection": "a333b4cf6bad5fa5dadc0e10585d66afcd5ea20cb20355cc8cb2529da228a60b"
+    },
+    {
+      "command": [
+        "nice",
+        "-n",
+        "15",
+        ".venv/bin/python",
+        "scripts/gerar_perfil_habitacao_p5.py"
+      ],
+      "returncode": 0,
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/extra_gerar_perfil_habitacao_p5.log",
+        "sha256": "2c95ddebaabe4cbe34e2b449e9e324ef002e72c1da9b2814dc1c5f19410a017b"
+      },
+      "script_sha256_at_collection": "59c0285481d63bcba6f53fc0f1682a89716a628b8bcc604c691f477e10ae581e"
+    },
+    {
+      "command": [
+        "nice",
+        "-n",
+        "15",
+        ".venv/bin/python",
+        "scripts/sensibilizar_raio_i28.py"
+      ],
+      "returncode": 0,
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/extra_sensibilizar_raio_i28.log",
+        "sha256": "c47251b312160dc386e5a41f807c9be0dd69daaa015d9a96a005c85bf5a5d584"
+      },
+      "script_sha256_at_collection": "f9a0b350dc3d894110a1d00d141b6385bb2e6abfede39324f1cd0f0666cd23ef"
+    }
+  ],
+  "preparatory_evidence": [
+    {
+      "returncode_not_recorded_in_log": true,
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/pre_stf_bed_final.log",
+        "sha256": "8812eac6fcc2491b90c850407b6aeb45765c46edc778c24cd4d88e0d07e658cb"
+      },
+      "note": "Execução preparatória recuperada do handoff; os resultados são conferidos pelo verificador independente. Não inferir código de saída a partir do texto."
+    },
+    {
+      "returncode_not_recorded_in_log": true,
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/pre_stf_solar_final.log",
+        "sha256": "e8278f0a1cea777b2cd6890b64680c8cabc34af43bac39a6d898ec49a2f8b914"
+      },
+      "note": "Execução preparatória recuperada do handoff; os resultados são conferidos pelo verificador independente. Não inferir código de saída a partir do texto."
+    },
+    {
+      "returncode_not_recorded_in_log": true,
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/pre_stf_integracao_final.log",
+        "sha256": "d495e2979e9a47777e73e775b31307d1da4808257a13f8a86e3b659dd6c7a1b7"
+      },
+      "note": "Execução preparatória recuperada do handoff; os resultados são conferidos pelo verificador independente. Não inferir código de saída a partir do texto."
+    }
+  ],
+  "historical_base_rechecks": [
+    {
+      "scenario": "base",
+      "command": [
+        ".venv/bin/python",
+        "scripts/comparar_teto_maxeon.py"
+      ],
+      "returncode": 0,
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/base_comparar_teto_maxeon.log",
+        "sha256": "dd9955feb83872524354c799388c0e1bd3fee96fbad11b52454e6cdfad84944c"
+      }
+    },
+    {
+      "scenario": "base",
+      "command": [
+        ".venv/bin/python",
+        "scripts/desenvolver_despacho_i25.py"
+      ],
+      "returncode": 0,
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/base_desenvolver_despacho_i25.log",
+        "sha256": "761215a9eae9dd2082c6b40e9ea70b5234fad04f58f8dea4f4e223184b41e0e5"
+      }
+    },
+    {
+      "scenario": "base",
+      "command": [
+        ".venv/bin/python",
+        "scripts/redimensionar_fixacoes.py"
+      ],
+      "returncode": 0,
+      "log": {
+        "path": "entregas/integrado_maxeon1560/revisao_relatorio/logs/20261125/base_redimensionar_fixacoes.log",
+        "sha256": "90e69e013ac4afb027d29af62303f8b53d4bfa6618c02ec792b3092cd0769006"
+      }
+    }
+  ],
+  "physical_validation": false,
+  "reproducer": "scripts/reexecutar_revisao_relatorio.py",
+  "notes": [
+    "Recibo montado a partir dos logs efetivos da continuação, não de uma execução fictícia do novo reprodutor.",
+    "Hashes de scripts são da coleta; ajustes de apresentação/I29-primeira-reserva ocorreram durante a busca, sem alterar o algoritmo da busca. O comando --figura posterior usou esses ajustes.",
+    "execucao_pipeline.json da integração anterior foi preservado como histórico, sem substituir sua configuração por um hash novo."
+  ]
+}

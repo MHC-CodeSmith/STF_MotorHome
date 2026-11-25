@@ -2,14 +2,21 @@
 
 [![CI — estrutura, modelos e evidências](https://github.com/MHC-CodeSmith/STF_MotorHome/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/MHC-CodeSmith/STF_MotorHome/actions/workflows/ci.yml)
 
-**Estado do estudo em 12/11/2026:** desenvolvimento computacional dos 35 itens, preservando as 61 decisões. Os resultados são cálculos, simulações ou sensibilidades sob as hipóteses indicadas em cada evidência. O projeto **não está validado fisicamente**: há zero aprovações humanas finais, e a missão solar não foi demonstrada. Arquitetura B (interface DC externa para tração) continua hipótese sem comprovação de compatibilidade ou autorização OEM.
+**Estado em25/11/2026:** relatório dos35 itens reescrito no formato de referência do Cuca,
+com os nomes fornecidos pelo usuário e auditoria integral do PR #9. O cenário1560 incorpora
+a cama redimensionada na massa e nos resultados derivados. Os cálculos e simulações têm
+hipóteses e fontes indicadas; pareceres dos integrantes não são validação física do veículo.
+A interfaceCC externa continua condicional, sem comprovação de compatibilidade ou autorizaçãoOEM.
 
 <!-- entrega-final:inicio -->
-## Entrega final (16/11/2026)
+## Relatório revisado (25/11/2026)
 
-- [Relatório (PDF)](relatorio/relatorio.pdf) · [roteiro do vídeo](relatorio/roteiro_video.md)
+- [Relatório (PDF)](relatorio/relatorio.pdf) · [compilação e reprodução](relatorio/README.md)
+- [Auditoria integral do PR #9 do Fael](docs/AUDITORIA_PR9_REESCRITA.md): 27 pedidos e seus subitens, com evidências e limites
 - **Revisão por integrante:** [guia, itens e páginas de cada um](docs/REVISAO_INTEGRANTES.md) · [registrar parecer](https://github.com/MHC-CodeSmith/STF_MotorHome/issues/new?template=revisao_integrante.yml)
 - [Fechamento dos 35 itens](docs/FECHAMENTO_35_ITENS.md)
+
+A revisão segue a estrutura do modelo Cuca, com os oito nomes fornecidos pelo usuário, fotos de produtos, equações, custos por item e tabela final. A cama redimensionada está incluída na massa e nos resultados derivados. O vídeo está fora do escopo atual por instrução do usuário.
 
 O estado descrito abaixo (12/11) é histórico; os resultados vigentes estão no relatório.
 <!-- entrega-final:fim -->

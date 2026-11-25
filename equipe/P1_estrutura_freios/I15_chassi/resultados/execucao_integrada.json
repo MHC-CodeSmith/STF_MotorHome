@@ -8,7 +8,7 @@
   "executed": "378alternativas216cargas por geometria;inversor em planovertical;11Tet4+3Tet10 de tiras e18chapas STEP.",
   "remaining_limit": "Chassi/ancoragensOEM/furação/contato/fadiga não demonstrados;seleções locais não homologam carroceria.",
   "evidence": "entregas/desenvolvimento_2026-11-09/fixacoes_redimensionadas/resumo.json",
-  "evidence_sha256": "7de8ac4c9847fc1ad5c7f920a99b0a8c5c266d324bea68ad62d6c6960f8ac77b",
+  "evidence_sha256": "7de83c9196601bd6182bdcddd32d5b3aaa792b379c424b870b698c0a17ea02c7",
   "human_approval": false,
   "physical_validation": false
 }

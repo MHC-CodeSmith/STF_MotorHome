@@ -1,0 +1,12 @@
+{
+  "script": "scripts/sensibilizar_raio_i28.py",
+  "date_utc": "2026-11-25T07:23:40.889653+00:00",
+  "configuration_sha256": "047c725c8f26f5dbf4c824aaffeb92d09272f12a4e5e181e5e059c5eb3a4396b",
+  "canonical_radius_unchanged_m": 0.37211,
+  "gear_ratio_assumed": 10,
+  "gear_efficiency_assumed": 0.97,
+  "mu_assumed": 0.8,
+  "maximum_difference_to_time_integration_s": 2.861379527985264e-06,
+  "physical_validation": false,
+  "note": "Sensibilidade de raio sob o mesmo envelope hipotético; não é curva OEM nem ensaio."
+}

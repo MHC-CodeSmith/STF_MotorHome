@@ -2999,6 +2999,17 @@ bom_components:
   unit_reference_price: null
   price_currency: BRL
 development:
+  bed_structure:
+    scenarios: [maxeon1560_independente]
+    plywood_thickness_m: 0.030
+    plywood_density_kg_m3: 600.0
+    frame_section_m: [0.050, 0.003]
+    post_section_m: [0.045, 0.004]
+    frame_mass_kg: 36.74742
+    posts_mass_kg: 20.186432000000003
+    replaced_allowance_kg: 12.0
+    source: scripts/verificar_estrutura_cama.py
+    note: Pré-dimensionamento calculado; ancoragem OEM, soldas e ensaio não demonstrados.
   revision: execucao-02
   status: provisorio_estimado_nao_validado
   source: hyp
@@ -4185,7 +4196,7 @@ development:
         price_status: lista_2026Q2_exVAT_nao_cotacao_atual
         mass_accounted_in: development.mass_allowances.suportes_eletricos
     maxeon1560_independente:
-      version: 1.0.0-maxeon1560-integrado
+      version: 1.1.0-maxeon1560-cama
       reference_date: '2026-11-25'
       source: maxeon3_2022
       status: comparador_condicional_nao_instalado
@@ -4199,7 +4210,7 @@ development:
       parameter_values:
         roof_power_48v_study_wp: 1560
         pv_gamma: -0.0027
-        assembled_typical_mass_kg: 3976.52552776
+        assembled_typical_mass_kg: 4042.78262976
         roof_arrangement_provisional: 4Maxeon390_2S2P_comparador_independente
       allowance_overrides:
         suportes_eletricos:

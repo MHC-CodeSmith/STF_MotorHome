@@ -3,6 +3,8 @@
 # Requer TeX Live com texlive-lang-portuguese, texlive-science.
 set -euo pipefail
 cd "$(dirname "$0")/.."
+.venv/bin/python relatorio/atualizar_tabelas.py > /dev/null
+.venv/bin/python scripts/gerar_perfil_habitacao_p5.py > /dev/null
 .venv/bin/python relatorio/gerar_figuras.py > /dev/null
 # Renderizações de CAD (geometria em entregas/) e de CFD (só se o VTK do cache existir).
 CACHE=${CACHE:-/home/mhc/motorhome_referencias_tarefas}

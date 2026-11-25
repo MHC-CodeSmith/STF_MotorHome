@@ -89,13 +89,24 @@ def dinamica():
     salvar(fig, "i21_forcas_resistivas.png")
     pw = col(rows, "rodas_kw"); pb = col(rows, "bateria_kw")
     ms = v / 3.6
-    fig, ax = plt.subplots(figsize=(6.4, 3.2))
-    ax.plot(v, fa * ms / 1000, color=C["azul"], label="potência aerodinâmica")
-    ax.plot(v, fr * ms / 1000, color=C["verde"], label="potência de rolamento")
-    ax.plot(v, pw, color="k", lw=2, label="potência de tração nas rodas")
-    ax.plot(v, pb, color=C["laranja"], lw=2, ls="--", label="potência na bateria (η=0,9; aux. 0,7 kW)")
-    ax.set(xlabel="velocidade [km/h]", ylabel="potência [kW]", xlim=(0, 90))
-    ax.legend()
+    cfg = json.loads((E / "parametros_resolvidos.json").read_text())
+    perf = cfg["development"]["performance_envelope"]
+    eta_red = min(perf["gear_efficiency"], key=lambda x: abs(x-.97))
+    ratio = min(perf["gear_ratio"], key=lambda x: abs(x-10))
+    available = eta_red*np.minimum(perf["peak_torque_nm"]*ratio*ms/perf["wheel_radius_m"], perf["peak_motor_w"])/1000
+    fig, axes = plt.subplots(1, 2, figsize=(9, 3.3))
+    ax = axes[0]
+    ax.plot(v, fa * ms / 1000, color=C["azul"], label="aerodinâmica")
+    ax.plot(v, fr * ms / 1000, color=C["verde"], label="rolamento")
+    ax.plot(v, pw, color="k", lw=2, label="demanda nas rodas")
+    ax.plot(v, pb, color=C["laranja"], lw=2, ls="--", label="demanda na bateria")
+    ax.set(xlabel="velocidade [km/h]", ylabel="potência [kW]", xlim=(0,90), title="Demanda em regime")
+    ax.legend(fontsize=7)
+    ax = axes[1]
+    ax.plot(np.r_[0,v], np.r_[0,available], color=C["roxo"], label="pico disponível nas rodas")
+    ax.plot(v,pw,color="k",label="demanda nas rodas")
+    ax.set(xlabel="velocidade [km/h]",ylabel="potência [kW]",xlim=(0,90),title="Envelope do motor e redutor")
+    ax.legend(fontsize=7)
     salvar(fig, "i22_potencias.png")
     fig, ax = plt.subplots(figsize=(6.4, 3))
     km = col(rows, "km_kwh")
@@ -142,8 +153,8 @@ def autonomia_solar():
 def i27():
     # Cada linha guarda o valor do intervalo que termina naquele instante (steps-pre).
     fig, axs = plt.subplots(1, 3, figsize=(9, 2.8))
-    for nome, cor, lab in (("I27_SOC1_otimo_ate24h.csv", C["azul"], "ótimo (até 24 h): 351 km"),
-                           ("I27_SOC1_8h.csv", C["laranja"], "janela de 8 h: 309 km")):
+    for nome, cor, lab in (("I27_SOC1_otimo_ate24h.csv", C["azul"], "ótimo (até 24 h)"),
+                           ("I27_SOC1_8h.csv", C["laranja"], "janela de 8 h")):
         r = ler(E / "energia_sistemas" / nome)
         t, v = col(r, "time_h"), col(r, "speed_kmh")
         pb, pw, soc = col(r, "battery_power_kw"), col(r, "wheels_power_kw"), col(r, "soc_traction")
@@ -152,16 +163,18 @@ def i27():
                                  np.append(pw, 0.0), np.append(soc, soc[-1]))
         axs[0].plot(t, v, color=cor, label=lab, drawstyle="steps-pre")
         axs[1].plot(t, pb, color=cor, drawstyle="steps-pre")
-        axs[1].plot(t, pw, color=cor, ls="--", drawstyle="steps-pre")
+        eta_red = 0.97  # hipótese de rendimento do redutor do item5
+        axs[1].plot(t, pw/eta_red, color=cor, ls="--", drawstyle="steps-pre")
         axs[2].plot(t, 100 * soc, color=cor)
     axs[0].set(xlabel="tempo [h]", ylabel="velocidade [km/h]", xlim=(0, 24)); axs[0].legend(fontsize=7)
-    axs[1].set(xlabel="tempo [h]", ylabel="potência [kW]", title="— bateria   - - rodas", ylim=(0, None), xlim=(0, 24))
+    axs[1].set(xlabel="tempo [h]", ylabel="potência [kW]", title="— bateria   - - motor (ηred=0,97)", ylim=(0, None), xlim=(0, 24))
     axs[2].axhline(30, color="k", lw=0.8, ls=":"); axs[2].set(xlabel="tempo [h]", ylabel="SOC tração [%]", xlim=(0, 24))
     salvar(fig, "i27_perfil.png")
 
 
 def i28():
-    r = ler(E / "mecanica_termica/aceleracao_3976.53_10_0.97_0.8.csv")
+    mass = json.loads((E / "integracao/layouts_massas.json").read_text())["layouts"]["A_fixa"]["nominal"]["mass_kg"]
+    r = ler(E / f"mecanica_termica/aceleracao_{mass:.2f}_10_0.97_0.8.csv")
     t, v = col(r, "time_s"), col(r, "speed_kmh")
     fig, ax = plt.subplots(figsize=(6.4, 3))
     ax.plot(t, v, color=C["azul"], lw=2)
@@ -356,12 +369,31 @@ def motor():
     return {"eta_max_modelo": float(np.nanmax(eta)), "rpm_base": float(w_b * 60 / (2 * np.pi)), "rpm_90kmh_i10": rpm90}
 
 
+
+def freios_integrados():
+    """I33: campos e históricos da mesma massa usada no texto atual."""
+    mass = json.loads((E / "integracao/layouts_massas.json").read_text())["layouts"]["A_fixa"]["nominal"]["mass_kg"]
+    pasta = E / "freios_integrados"
+    field = np.load(pasta / f"campo_{mass:.3f}kg_regen0kw.npz")
+    fig, ax = plt.subplots(figsize=(5.8, 3.3))
+    im = ax.pcolormesh(field["r_m"]*1000, field["z_m"]*1000, field["temperature_k"].T-273.15,
+                       shading="nearest", cmap="inferno")
+    fig.colorbar(im, ax=ax, label="temperatura [°C]")
+    ax.set(xlabel="raio [mm]", ylabel="espessura z [mm]", title=f"Massa nominal {mass:.1f} kg; sem regeneração")
+    salvar(fig, "i33_campo.png")
+    fig, ax = plt.subplots(figsize=(5.8, 3.3))
+    for m, regen, label in [(mass,0,"nominal, sem regeneração"), (mass,40,"nominal, regeneração 40 kW"),
+                            (mass,80,"nominal, regeneração 80 kW"), (4250,0,"PBT, sem regeneração")]:
+        rows = ler(pasta / f"temperatura_tempo_{m:.3f}kg_regen{regen}kw.csv")
+        ax.plot(col(rows,"tempo_s"), col(rows,"tmax_superficie_k")-273.15, label=label)
+    ax.set(xlabel="tempo [s]", ylabel="pico superficial [°C]", xlim=(0,5))
+    ax.legend(fontsize=7)
+    salvar(fig, "i33_historico.png")
+
 COPIAS = {
     "i24_custo.png": E / "i24_custo_brl/custo_por_grupo.png",
     "i30_cabos.png": E / "i30_corrente_maxima/campo_corrente_maxima.png",
     "i31_cabine.png": ROOT / "entregas/desenvolvimento_2026-11-09/cabine_transiente/campo_temperatura_velocidade.png",
-    "i33_campo.png": ROOT / "equipe/P1_estrutura_freios/I33_freio_campo_termico_multidimensional/resultados/campo_freio.png",
-    "i33_historico.png": ROOT / "equipe/P1_estrutura_freios/I33_freio_campo_termico_multidimensional/resultados/historico_freio.png",
     "i34_bateria.png": ROOT / "equipe/P7_arrefecimento/I34_temperatura_da_bateria_em_carga/resultados/carga_bateria.png",
     "i35_radiador.png": ROOT / "equipe/P7_arrefecimento/I35_bomba_radiador_e_vazao/resultados/hidraulica_campos_equilibrio.png",
     "i35_ponto_operacao.png": ROOT / "entregas/desenvolvimento_2026-11-09/arrefecimento/ponto_operacao.png",
@@ -372,7 +404,7 @@ COPIAS = {
 
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
-    for f in (solar, dinamica, autonomia_solar, i27, i28, vistas_exterior, vistas_layout):
+    for f in (solar, dinamica, autonomia_solar, i27, i28, vistas_exterior, vistas_layout, freios_integrados):
         f()
     print(json.dumps(motor()))
     faltando = []

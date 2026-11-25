@@ -179,6 +179,10 @@ reserves,day,event,scheduled_stop_h,stop_needed,duration_h_assumed,refill_l,disp
 "[0.1, 0.2]_aux0W",156,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
 "[0.1, 0.2]_aux0W",157,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
 "[0.1, 0.2]_aux0W",158,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
+"[0.1, 0.2]_aux0W",159,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
+"[0.1, 0.2]_aux0W",160,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
+"[0.1, 0.2]_aux0W",161,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
+"[0.1, 0.2]_aux0W",161,lavagem,4,True,0.25,60.0,60.0,31.200000000000003,68.8,0.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
 "[0.1, 0.2]_aux300W",1,base,4,False,0.0,0.0,0.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
 "[0.1, 0.2]_aux300W",2,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
 "[0.1, 0.2]_aux300W",3,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
@@ -395,6 +399,9 @@ reserves,day,event,scheduled_stop_h,stop_needed,duration_h_assumed,refill_l,disp
 "[0.1, 0.2]_aux300W",188,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
 "[0.1, 0.2]_aux300W",189,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
 "[0.1, 0.2]_aux300W",189,lavagem,4,True,0.25,60.0,60.0,31.200000000000003,68.8,0.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
+"[0.1, 0.2]_aux300W",190,base,4,True,0.25,68.8,68.8,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
+"[0.1, 0.2]_aux300W",191,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
+"[0.1, 0.2]_aux300W",192,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
 "[0.1, 0.2]_aux700W",1,base,4,False,0.0,0.0,0.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
 "[0.1, 0.2]_aux700W",2,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
 "[0.1, 0.2]_aux700W",3,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
@@ -637,6 +644,9 @@ reserves,day,event,scheduled_stop_h,stop_needed,duration_h_assumed,refill_l,disp
 "[0.1, 0.2]_aux700W",210,lavagem,4,True,0.25,60.0,60.0,31.200000000000003,68.8,0.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
 "[0.1, 0.2]_aux700W",211,base,4,True,0.25,68.8,68.8,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
 "[0.1, 0.2]_aux700W",212,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
+"[0.1, 0.2]_aux700W",213,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
+"[0.1, 0.2]_aux700W",214,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
+"[0.1, 0.2]_aux700W",215,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
 "[0.1, 0.2]_aux1500W",1,base,4,False,0.0,0.0,0.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
 "[0.1, 0.2]_aux1500W",2,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
 "[0.1, 0.2]_aux1500W",3,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
@@ -926,6 +936,8 @@ reserves,day,event,scheduled_stop_h,stop_needed,duration_h_assumed,refill_l,disp
 "[0.1, 0.2]_aux1500W",252,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
 "[0.1, 0.2]_aux1500W",252,lavagem,4,True,0.25,60.0,60.0,31.200000000000003,68.8,0.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
 "[0.1, 0.2]_aux1500W",253,base,4,True,0.25,68.8,68.8,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
+"[0.1, 0.2]_aux1500W",254,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
+"[0.1, 0.2]_aux1500W",255,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
 "[0.2, 0.3]_aux0W",1,base,4,False,0.0,0.0,0.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
 "[0.2, 0.3]_aux0W",2,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
 "[0.2, 0.3]_aux0W",3,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
@@ -1108,6 +1120,10 @@ reserves,day,event,scheduled_stop_h,stop_needed,duration_h_assumed,refill_l,disp
 "[0.2, 0.3]_aux0W",158,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
 "[0.2, 0.3]_aux0W",159,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
 "[0.2, 0.3]_aux0W",160,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
+"[0.2, 0.3]_aux0W",161,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
+"[0.2, 0.3]_aux0W",161,lavagem,4,True,0.25,60.0,60.0,31.200000000000003,68.8,0.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
+"[0.2, 0.3]_aux0W",162,base,4,True,0.25,68.8,68.8,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
+"[0.2, 0.3]_aux0W",163,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
 "[0.2, 0.3]_aux300W",1,base,4,False,0.0,0.0,0.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
 "[0.2, 0.3]_aux300W",2,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
 "[0.2, 0.3]_aux300W",3,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
@@ -1326,6 +1342,8 @@ reserves,day,event,scheduled_stop_h,stop_needed,duration_h_assumed,refill_l,disp
 "[0.2, 0.3]_aux300W",189,lavagem,4,True,0.25,60.0,60.0,31.200000000000003,68.8,0.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
 "[0.2, 0.3]_aux300W",190,base,4,True,0.25,68.8,68.8,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
 "[0.2, 0.3]_aux300W",191,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
+"[0.2, 0.3]_aux300W",192,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
+"[0.2, 0.3]_aux300W",193,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
 "[0.2, 0.3]_aux700W",1,base,4,False,0.0,0.0,0.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
 "[0.2, 0.3]_aux700W",2,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
 "[0.2, 0.3]_aux700W",3,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
@@ -1570,6 +1588,10 @@ reserves,day,event,scheduled_stop_h,stop_needed,duration_h_assumed,refill_l,disp
 "[0.2, 0.3]_aux700W",212,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
 "[0.2, 0.3]_aux700W",213,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
 "[0.2, 0.3]_aux700W",214,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
+"[0.2, 0.3]_aux700W",215,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
+"[0.2, 0.3]_aux700W",216,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
+"[0.2, 0.3]_aux700W",217,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
+"[0.2, 0.3]_aux700W",217,lavagem,4,True,0.25,60.0,60.0,31.200000000000003,68.8,0.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
 "[0.2, 0.3]_aux1500W",1,base,4,False,0.0,0.0,0.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
 "[0.2, 0.3]_aux1500W",2,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
 "[0.2, 0.3]_aux1500W",3,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
@@ -1860,3 +1882,6 @@ reserves,day,event,scheduled_stop_h,stop_needed,duration_h_assumed,refill_l,disp
 "[0.2, 0.3]_aux1500W",252,lavagem,4,True,0.25,60.0,60.0,31.200000000000003,68.8,0.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
 "[0.2, 0.3]_aux1500W",253,base,4,True,0.25,68.8,68.8,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
 "[0.2, 0.3]_aux1500W",254,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
+"[0.2, 0.3]_aux1500W",255,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
+"[0.2, 0.3]_aux1500W",256,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False
+"[0.2, 0.3]_aux1500W",257,base,4,True,0.25,60.0,60.0,40.0,54.0,6.0,0.0,0.0,hipotese_sem_fontes_geograficas,False

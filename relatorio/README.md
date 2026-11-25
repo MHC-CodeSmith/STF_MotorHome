@@ -1,33 +1,57 @@
-# Relatório final, slides e roteiro do vídeo
+# Relatório Aurora Solar — revisão de 25/11/2026
 
-Entrega oficial: **02/12/2026 até 06:00**, por e-mail aos dois docentes — PDF < 20 MB,
-vídeo de 8–10 min < 50 MB com todos os integrantes, anexo com os códigos.
+O memorial segue a organização do relatório de referência do Cuca: Introdução com Objetivos,
+Revisão bibliográfica por tema e Projeto técnico com métodos, especificações, parâmetros,
+análise de custo e simulações. Ao final estão a tabela de respostas dos 35 itens, conclusões,
+referências e os códigos. Resultados e hipóteses pertencem ao motorhome deste projeto.
 
-| Arquivo | Conteúdo |
+A capa usa os oito nomes e as grafias fornecidos pelo usuário, em `autores.tex`. O vídeo está
+fora desta revisão por instrução expressa do usuário; `roteiro_video.md` é um artefato anterior.
+A auditoria completa do PR do Fael está em [`../docs/AUDITORIA_PR9_REESCRITA.md`](../docs/AUDITORIA_PR9_REESCRITA.md).
+
+| Arquivo | Função |
 |---|---|
-| `relatorio.tex` | Memorial de cálculo (51 p., 5 MB, 29 figuras incluindo 10 renderizações de CAD/CFD): introdução, revisão bibliográfica, itens 1–35, resumo, limitações, referências e anexo de códigos |
-| `roteiro_video.md` | Roteiro do vídeo: 7 blocos de ~75 s, um por integrante, com os slides de apoio |
-| `montagem_cad.py` | Montagem CAD detalhada no referencial do projeto (traseira interna em x = −3,35 m, piso em z = 0,68 m): layouts A/B com os detalhes do interior de 24/10 encaixados nas caixas finais, tração e bancos OEM, caixas de roda, deck Maxeon sobre trilhos na posição do CFD, rotas e portáteis |
-| `renderizar_cad.py` | Renderizações de CAD (exterior, teto, estacionado, interiores A/B em corte, plantas, rotas, corte longitudinal, banco e chapas) a partir de `montagem_cad.py`, e de CFD (Cp na superfície, velocidade no plano de simetria) a partir do VTK da malha fina |
-| `figura_cortina_i32.py` | Figura do item 32: cortina refletiva desenhada 3 cm atrás do para-brisa do modelo exterior e carga de A/C sem/com cortina (`entregas/integrado_maxeon1560/i32_protecao_solar/resumo.json`) |
-| `gerar_figuras.py` | Gera `figuras/` a partir de `entregas/` e `equipe/` (nenhum número é digitado à mão) |
-| `valores_i19.tex`, `valores_i29.tex` | Macros escritas por `scripts/calcular_gci_aero.py` e `scripts/fechar_i29_velocidade.py --figura` |
-| `compilar.sh` | Figuras + PDFs |
+| `relatorio.tex`, `relatorio.pdf` | Fonte e PDF do memorial |
+| `autores.tex` | Nomes fornecidos pelo usuário, isolados da estrutura do documento |
+| `atualizar_tabelas.py` | Lê as saídas do cenário1560 e gera `valores_integrados.tex` e tabelas de massa, custo, cama e autonomia solar |
+| `gerar_figuras.py` | Curvas, vistas cotadas e campos de freio da massa atual; copia campos térmicos que independem de massa/FV |
+| `montagem_cad.py`, `renderizar_cad.py` | Montagem e renderizações de CAD; campos CFD arquivados quando o cache está disponível |
+| `figura_cortina_i32.py` | Representação da cortina e balanço do ar-condicionado |
+| `figuras/produtos/fontes.json` | Fonte, modelo e SHA-256 das fotografias oficiais |
+| `valores_i19.tex`, `valores_i29.tex` | Resultados gerados pelos fechamentos de arrasto e viagem |
+| `compilar.sh` | Regenera tabelas/figuras e compila o PDF |
 
-## Compilar
+## Compilação
+
+Na raiz, com Python3.11 e dependências do projeto instaladas:
 
 ```bash
-relatorio/compilar.sh        # na raiz do repositório
+relatorio/compilar.sh
 ```
 
-Requer TeX Live com `texlive-lang-portuguese`, `texlive-science` (siunitx v3) e
-`texlive-latex-extra` (metropolis). Nesta máquina (mhc-lenovo) faltam babel-portuguese e
-siunitx; os PDFs foram compilados na torre (`hipolito-Precision-5860-Tower`) com a mesma
-árvore de arquivos.
+Requer TeX Live com português, `siunitx`, `latexmk`, `adjustbox`, `xurl`, TikZ e fontes Latin
+Modern (`texlive-lang-portuguese`, `texlive-science`, `texlive-latex-extra`). A compilação
+usa as saídas versionadas; não refaz CFD nem a busca longa da missão.
 
-## Antes de enviar
+## Reprodução numérica da revisão
 
-- Preencher os nomes dos integrantes na capa (`relatorio.tex`, tabela P1–P7).
-- Conferir se o repositório GitHub citado no anexo está público para os docentes.
-- Os resultados não têm aprovação humana registrada (A01–A16 em
-  `docs/APROVACOES_FINAIS_PENDENTES.md`); cada integrante deve revisar a sua seção.
+```bash
+PYTHONPATH=src:scripts .venv/bin/python scripts/reexecutar_revisao_relatorio.py --executar
+relatorio/compilar.sh
+```
+
+Essa execução usa `maxeon1560_independente`, incorpora a cama no inventário e repete dinâmica,
+freios, consumos e as buscas da viagem. O arranjo1540 é histórico. A grade densa e o fechamentoI29
+levam vários minutos; o script imprime a lista de comandos sem executar quando `--executar`
+é omitido. Não roda CFD. Mudança de configuração durante a cadeia interrompe a execução.
+
+Os resultados continuam condicionados às hipóteses descritas em cada item. A verificação dos
+elementos da cama não comprova a ancoragem OEM, e a interfaceCCS2 permanece não demonstrada.
+A auditoria do software e os manifestos conferem consistência computacional, sem substituir
+validação física. O PDF deve ficar abaixo dos20 MB exigidos no enunciado.
+
+O recibo efetivo desta revisão fica em
+[`revisao_relatorio/execucao.json`](../entregas/integrado_maxeon1560/revisao_relatorio/execucao.json),
+com logs e hashes. A busca fechou em 20,5 km/h, 18h, 214,8 dias (reservas 10/20%);
+40/80 km/h sob o mesmo horário resultaram em 248,8/457,8 dias. O resultado é condicional.
+O recibo anterior `execucao_pipeline.json` permanece histórico.
