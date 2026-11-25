@@ -1,3 +1,7 @@
+> Documento de revisão histórica. Tratamento e comparações na versão atual:
+> [leitura integrada das simulações](REVISAO_LEITURA_E_COMPARACOES.md) e
+> [auditoria de todos os PRs](AUDITORIA_ENUNCIADO_E_PRS.md).
+
 # Correções térmicas, de bitola e de faltas (20/11/2026)
 
 Revisão do item 30 (temperatura dos cabos de alimentação do motor), do item 7

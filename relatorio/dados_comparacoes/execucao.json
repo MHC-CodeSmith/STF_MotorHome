@@ -1,0 +1,30 @@
+{
+  "scenario": "maxeon1560_independente",
+  "time_step_minutes": 5,
+  "executed_utc": "2026-11-25T12:04:38.979887+00:00",
+  "oat_cases": 20,
+  "new_milp_cases": 140,
+  "new_dc_floors_kw": [
+    0.5,
+    1.0
+  ],
+  "accumulation_missions": 6,
+  "maximum_energy_residual_kwh": 2.322478565019992e-08,
+  "hypothetical_dc_interface": true,
+  "physical_validation": false,
+  "limits": [
+    "Clima claro repetido, pista plana, sem energia externa.",
+    "Um dia de condução seguido de zero, um ou dois dias parados; janela08–16, até8h/dia.",
+    "Portáteis disponíveis o dia todo nos dias parados; início/fim do ciclo ocorrem sem sol, depois da montagem/antes do recolhimento.",
+    "Comparação de política fixa; não é otimização global nem deve ser comparada como se usasse horário18–02."
+  ],
+  "inputs_sha256": {
+    "config/parametros_globais.yaml": "047c725c8f26f5dbf4c824aaffeb92d09272f12a4e5e181e5e059c5eb3a4396b",
+    "src/motorhome/reconciliacao.py": "2ba4cab46d02bd2a00f09a45c89a1b356a7ecd070fefb2d7332af8471327e152",
+    "src/motorhome/despacho_diario.py": "10cd0122a1e41f473eecc5ecaf832b810a2f7a2d36d94ae208da5469bd6031a5",
+    "scripts/fechar_i29_velocidade.py": "baa38979f6452824355ac59d179d7743208c70d3286f64a8b98dcff62a46beca",
+    "relatorio/comparar_parametros.py": "f0447e00174ec7cea497911dc051b17b2a704172560a6f11bf5d188a95dbc92a",
+    "entregas/integrado_maxeon1560/despacho_i25/melhores_por_velocidade.csv": "a9241abb07652d03672968c066228ac1e2bb21d5d9dafbfb18c420456dbfe002",
+    "entregas/integrado_maxeon1560/p5_geracao_portateis/inclinacao_teto.csv": "8eada5d949c96b3797283d618f3edf41a57402561ff7fe728b51e63b923e7ac8"
+  }
+}

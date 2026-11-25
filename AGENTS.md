@@ -1,3 +1,11 @@
+# Leitura integrada e comparações — estado vigente
+
+O relatório deve fluir como texto explicativo, seguindo Cuca: grupos de componentes,
+custo e simulações com fenômeno, hipóteses, modelo, figura e interpretação juntos.
+Sem listas itemizadas, sem código no PDF. Térmica começa pelos freios. Não confundir
+marcar checklist com executar comparação: ver `docs/REVISAO_LEITURA_E_COMPARACOES.md`.
+A numeração do enunciado fica nos rótulos e na tabela final, sem ditar a narrativa.
+
 # Instrução editorial vigente — 25/11/2026
 
 O usuário rejeitou o PDF de 85 páginas por ser longo. A versão final deve seguir de perto

@@ -1,8 +1,9 @@
 # Relatório Aurora Solar — revisão de 25/11/2026
 
 O memorial utiliza frases da introdução/revisão/objetivos do Cuca, com atribuição e adaptação ao motorhome, e segue sua organização: Introdução com Objetivos,
-Revisão bibliográfica por tema e Projeto técnico com métodos, especificações, parâmetros,
-análise de custo e simulações. Ao final estão a tabela de respostas dos 35 itens, conclusões,
+Revisão bibliográfica por tema e Projeto técnico com especificações agrupadas por sistema,
+análise de custo e simulações integradas à explicação. As análises térmicas abrem a seção,
+a começar pelos freios. Não há listas itemizadas. Ao final estão a tabela de respostas dos 35 itens, conclusões,
 referências. Não há listagens nem anexo de código no PDF, por instrução do usuário. Resultados e hipóteses pertencem ao motorhome deste projeto.
 
 A capa usa os oito nomes e as grafias fornecidos pelo usuário, em `autores.tex`. O vídeo está
@@ -59,8 +60,8 @@ O recibo anterior `execucao_pipeline.json` permanece histórico.
 
 ## Revisão enxuta e auditoria geral
 
-A edição anterior de 85 páginas foi substituída por uma versão de 39 páginas, em fonte
-12 pt, com simulações, gráficos, fotos e vistas CAD. O PDF ocupa cerca de 6,03 MB
+A edição anterior de 85 páginas foi substituída por uma versão de 41 páginas, em fonte
+12 pt, com simulações, gráficos, fotos e vistas CAD. O PDF ocupa cerca de 6,32 MB
 (abaixo do limite de 20 MB). As listagens continuam no repositório e não entram no memorial.
 
 A [auditoria do enunciado e de todos os PRs](../docs/AUDITORIA_ENUNCIADO_E_PRS.md)
@@ -68,3 +69,10 @@ confere #1/#2/#4/#5/#6/#8/#9, as issues e os 35 itens. Foram reincorporadas as r
 7–11 do P7 em tabelas curtas, corrigida a triagem legada de 35 A e acrescentado o campo T(x,y)
 dos cabos. As limitações físicas e as exceções ao enunciado por instrução do usuário
 são identificadas separadamente. Códigos e vídeo não são declarados entregues no PDF.
+
+A revisão de leitura e as comparações adicionais estão em
+[`REVISAO_LEITURA_E_COMPARACOES.md`](../docs/REVISAO_LEITURA_E_COMPARACOES.md).
+`comparar_parametros.py` reproduz consumo por parâmetro, novos limiares CC e políticas
+de dias parados; `dados_comparacoes/execucao.json` registra entradas e balanços.
+O modelo da bateria é de dois nós; o campo espacial apresentado corresponde a cabos,
+freios, cabine e perfis do radiador, sem inventar campo de células.

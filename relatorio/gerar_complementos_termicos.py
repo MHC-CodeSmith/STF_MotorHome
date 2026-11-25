@@ -10,6 +10,7 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 import yaml
 from scipy.optimize import brentq
 
@@ -63,7 +64,34 @@ def main():
     combined_load=load+reducer_loss
     eff=efetividade_integral(a['radiator_ua_w_k']/min(ch,cc),min(ch,cc)/max(ch,cc))
     extra={'reducer_loss_w':reducer_loss,'total_heat_w':combined_load,'inlet_at_ua1000_c':25+combined_load/(eff*min(ch,cc)),'ua_for_65c_w_k':brentq(lambda ua:25+combined_load/(efetividade_integral(ua/min(ch,cc),min(ch,cc)/max(ch,cc))*min(ch,cc))-65,100,10000)}
-    files=['config/parametros_globais.yaml','config/cabos_tracao_proposta.yaml','config/hidraulica_proposta.yaml','config/bateria_termica_proposta.yaml','relatorio/gerar_complementos_termicos.py']
+    sweep_path=ROOT/'entregas/integrado_maxeon1560/mecanica_termica/I34_sensibilidades.csv'
+    sweep=pd.read_csv(sweep_path)
+    fixed=sweep[(sweep.pack_mass_assumed_kg==500)&(sweep.battery_coolant_ua_w_k==125)&(sweep.cooler_ambient_ua_w_k==250)]
+    fig,axes=plt.subplots(1,2,figsize=(8,3.2),layout='constrained')
+    for ax,power in zip(axes,[20000,80000],strict=True):
+        subset=fixed[fixed.power_w==power]
+        pivot=subset.pivot(index='pack_entropy_v_k',columns='resistance_ref_ohm',values='final_battery_k')-273.15
+        pic=ax.imshow(pivot.to_numpy(),origin='lower',vmin=22,vmax=45,cmap='YlOrRd',aspect='auto')
+        ax.set(xticks=range(3),xticklabels=['0,03','0,06','0,12'],yticks=range(3),yticklabels=['−0,02','0','+0,02'],xlabel='Resistência do pack [Ω]',ylabel='Entropia dU/dT [V/K]',title=f'{power/1000:.0f} kW · 500 kg · UA 125/250 W/K')
+        for i,entropy in enumerate(pivot.index):
+            for j,resistance in enumerate(pivot.columns):
+                row=subset[(subset.pack_entropy_v_k==entropy)&(subset.resistance_ref_ohm==resistance)].iloc[0]
+                suffix='*' if row.stop=='temperature_limit' else ''
+                ax.text(j,i,f'{pivot.iloc[i,j]:.1f}{suffix}'.replace('.',','),ha='center',va='center',fontsize=10)
+    fig.colorbar(pic,ax=axes,label='Temperatura final [°C]')
+    fig.savefig(ROOT/'relatorio/figuras/comparacao_bateria.png',dpi=170);plt.close(fig)
+    fig,axes=plt.subplots(1,2,figsize=(8,3.2),layout='constrained')
+    axes[0].bar([1,2,3],[r['flow_l_min'] for r in hydraulic],color='#1f5fbf')
+    axes[0].set(xticks=[1,2,3],xlabel='Fator da perda de pressão dos componentes',ylabel='Vazão de equilíbrio [L/min]',ylim=(0,36))
+    ua_grid=np.linspace(700,2200,100)
+    for eta,color in [(.95,'#2b8a3e'),(.90,'#1f5fbf'),(.85,'#e8590c')]:
+        heat=205000*(1/eta-1)+base['electric_power_w']
+        temperature=[25+heat/(efetividade_integral(ua/min(ch,cc),min(ch,cc)/max(ch,cc))*min(ch,cc)) for ua in ua_grid]
+        axes[1].plot(ua_grid,temperature,color=color,label=f'η combinado {eta:.0%}')
+    axes[1].axhline(65,color='k',ls='--',lw=1,label='meta 65 °C (hipótese)')
+    axes[1].set(xlabel='UA do radiador [W/K]',ylabel='Entrada do fluido [°C]');axes[1].legend(fontsize=8)
+    fig.savefig(ROOT/'relatorio/figuras/comparacao_arrefecimento.png',dpi=170);plt.close(fig)
+    files=['config/parametros_globais.yaml','config/cabos_tracao_proposta.yaml','config/hidraulica_proposta.yaml','config/bateria_termica_proposta.yaml','relatorio/gerar_complementos_termicos.py','entregas/integrado_maxeon1560/mecanica_termica/I34_sensibilidades.csv']
     result={'script':'relatorio/gerar_complementos_termicos.py','cable_fields':campos,'shared_loop_including_reducer_sensitivity':extra,'hydraulic_sensitivity':hydraulic,'ua_for_65c_w_k':needed,'battery_extreme_cases':cases,'npsh_assumptions':{'atmospheric_pa':91500,'vapor_pa':55000,'suction_loss_pa':10000,'density_kg_m3':1050},'npsha_unpressurized_m':(91500-55000-10000)/(1050*9.80665),'npsha_100kpa_gauge_m':(191500-55000-10000)/(1050*9.80665),'ventilation_48v_m3_h':(4000/.9-4000)/(1.10*1006*10)*3600,'physical_validation':False,'inputs_sha256':{f:hashlib.sha256((ROOT/f).read_bytes()).hexdigest() for f in files}}
     (out/'resumo.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
     print(json.dumps(result,ensure_ascii=False,indent=2))

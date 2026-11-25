@@ -94,6 +94,7 @@
     "config/cabos_tracao_proposta.yaml": "ab74a64157fc053fdb98b9ce32192f8218349495636bba38b362b76b42370395",
     "config/hidraulica_proposta.yaml": "0c6dc989cdcf6487b51efa71b0b75e44bfb2f981bf5a03de1bc256f9ce8e9972",
     "config/bateria_termica_proposta.yaml": "96ee85de644490efa6d2b04ccd6875650cb00ba2e8706a9733ef2cb4708d86ae",
-    "relatorio/gerar_complementos_termicos.py": "ab3324cd2b7acab3d119d8b6c9a9babeef0da2d5d678d06a65d9fb9a08b0198e"
+    "relatorio/gerar_complementos_termicos.py": "ceb9098ea5718adfb191008cc9b7f82e9730c80ec8437e56ece788ba559e4244",
+    "entregas/integrado_maxeon1560/mecanica_termica/I34_sensibilidades.csv": "b87fb3d18897ed84cec072da698299019eedf097a47802db150b1491a0fd668d"
   }
 }

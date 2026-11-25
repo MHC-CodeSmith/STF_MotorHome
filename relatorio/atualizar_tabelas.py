@@ -105,7 +105,7 @@ def main():
         a,b=solar_row(services,minimum,40),solar_row(services,minimum,80)
         generation=float(a['pv_generated_kwh']); domestic=float(a['service_day_kwh']); hv=float(a['solar_hv_received_kwh'])
         rows.append([label,fmt(minimum,2),fmt(generation,2),fmt(domestic,2),fmt(generation-domestic-hv,2),fmt(hv,2),fmt(a['distance_km']),fmt(b['distance_km'])])
-    table(R/'tabela_i25.tex','Item 25 — energia do dia e distância; passo de 5 min e mínimo na saída CC.','tab:i25',
+    table(R/'tabela_i25.tex','Energia do dia e distância; passo de 5 min e mínimo na saída CC.','tab:i25',
           ['Caso','Mínimo','Geração','Serviços','Perdas/corte','Tração','40 km/h','80 km/h'],rows,'Xrrrrrrr')
     deck=json.loads((ROOT/'entregas/aero_equipado1540/comparacao_deck/resumo.json').read_text())
     deck_rows=[]
@@ -139,7 +139,7 @@ def main():
     assert abs(sum(groups.values())-mass)<1e-7
     rows=[[escape(k),fmt(v)] for k,v in groups.items()]
     rows.append([r'\textbf{Total}',r'\textbf{'+fmt(mass)+'}'])
-    table(R/'tabela_massa.tex','Item 18 — massa montada com a cama redimensionada; somas do inventário.','tab:massa',['Parcela','Massa [kg]'],rows,'Xr')
+    table(R/'tabela_massa.tex','Massa montada com a cama redimensionada; somas do inventário.','tab:massa',['Parcela','Massa [kg]'],rows,'Xr')
     cost=csvs(E/'i24_custo_brl/custo_por_linha.csv'); rows=[]
     for x in cost:
         if x['caso']!='nominal':continue
@@ -147,12 +147,12 @@ def main():
         high=next(r for r in cost if r['id']==x['id'] and r['caso']=='alto')
         rows.append([escape(x['descricao']),x['qtd'],fmt(float(x['total_brl'])/1000,2),fmt(float(low['total_brl'])/1000,2)+'--'+fmt(float(high['total_brl'])/1000,2)])
     rows.append([r'\textbf{Total}', '',fmt(sum(float(x['total_brl']) for x in cost if x['caso']=='nominal')/1000,2),fmt(sum(float(x['total_brl']) for x in cost if x['caso']=='baixo')/1000,2)+'--'+fmt(sum(float(x['total_brl']) for x in cost if x['caso']=='alto')/1000,2)])
-    table(R/'tabela_custos.tex','Item 24 — orçamento por componente/rubrica; valores já incluem a hipótese tributária. Estimativas são identificadas na descrição.','tab:custos',['Componente ou rubrica','Qtd.','Nominal [mil R\\$]','Faixa [mil R\\$]'],rows,'Xrrr')
+    table(R/'tabela_custos.tex','Orçamento por componente/rubrica; valores já incluem a hipótese tributária. Estimativas são identificadas na descrição.','tab:custos',['Componente ou rubrica','Qtd.','Nominal [mil R\\$]','Faixa [mil R\\$]'],rows,'Xrrr')
     rows=[]
     for key,v in bed['casos'].items():
         util=max(v.get('utilizacao',0),v.get('utilizacao_flambagem',0),v.get('utilizacao_compressao',0))
         rows.append([escape(key).replace(r'\_', ' '),fmt(util,3),fmt(v['flecha_mm'],2) if 'flecha_mm' in v else '--',fmt(v['limite_flecha_mm'],2) if 'limite_flecha_mm' in v else '--'])
-    table(R/'tabela_cama.tex','Item 17 — verificação da cama por elementos idealizados; utilização 1 é o limite.','tab:cama',['Caso','Utilização','Flecha [mm]','Limite [mm]'],rows,'Xrrr')
+    table(R/'tabela_cama.tex','Verificação da cama por elementos idealizados; utilização 1 é o limite.','tab:cama',['Caso','Utilização','Flecha [mm]','Limite [mm]'],rows,'Xrrr')
     print(json.dumps({'mass_kg':mass,'macros':len(values),'cost_rows':len(rows)}))
 
 

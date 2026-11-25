@@ -109,6 +109,29 @@ def test_controle_sem_interface_interrompe_na_reserva_analitica():
     assert r['totals']['traction_solar_kwh'] == 0
 
 
+def test_dias_parados_ampliam_geracao_sem_conducao_ou_energia_gratis():
+    common = {'speed_kmh':1, 'kwh_km':1, 'service_kwh_day':1,
+              'traction_capacity_kwh':100, 'service_capacity_kwh':10,
+              'reserve_traction':.1, 'reserve_service':.2, 'target_km':999,
+              'max_days':3, 'mode':'direta_hipotese', 'min_dc_kw':.1}
+    drive = [8 <= hour < 16 for hour in range(24)]
+    r = simular_missao([2.]*24, [0.]*24, drive, driving_day_period=2,
+                      portable_parked_kw=[2.]*24, **common)
+    assert [x['driving_h'] for x in r['daily']] == pytest.approx([8, 0, 8])
+    assert r['totals']['pv_kwh'] == pytest.approx(192)
+    assert r['energy_residual_kwh'] == pytest.approx(0, abs=1e-8)
+    assert min(x['soc_service'] for x in r['trace']) >= .2-1e-10
+    baseline = simular_missao([2.]*24, [0.]*24, drive, **common)
+    explicit = simular_missao([2.]*24, [0.]*24, drive, driving_day_period=1,
+                             portable_parked_kw=[2.]*24, **common)
+    assert baseline == explicit
+    assert baseline['totals']['driving_h'] == pytest.approx(24)
+    with pytest.raises(ValueError, match='Período'):
+        simular_missao([2.]*24, [0.]*24, drive, driving_day_period=0, **common)
+    with pytest.raises(ValueError, match='incompatível'):
+        simular_missao([2.]*24, [0.]*24, drive, portable_parked_kw=[2.], **common)
+
+
 def test_eixos_conservam_peso_e_momento():
     r = reacoes_eixos([(1000, 0), (600, 4), (200, 2)], 4)
     assert r == {'total_kg': 1800, 'dianteiro_kg': 1100, 'traseiro_kg': 700}

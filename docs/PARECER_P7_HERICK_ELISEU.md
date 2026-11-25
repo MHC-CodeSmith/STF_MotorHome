@@ -1,3 +1,7 @@
+> Documento de revisão histórica. Tratamento e comparações na versão atual:
+> [leitura integrada das simulações](REVISAO_LEITURA_E_COMPARACOES.md) e
+> [auditoria de todos os PRs](AUDITORIA_ENUNCIADO_E_PRS.md).
+
 # Parecer P7: Herick Eliseu
 
 Registro da revisão final por integrante ([guia](REVISAO_INTEGRANTES.md)). Os campos seguem o

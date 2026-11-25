@@ -1,3 +1,17 @@
+# Continuação vigente: leitura orgânica e comparações
+
+Esta revisão prevalece sobre a edição de 39 páginas descrita abaixo. O memorial tem
+41 páginas e 38 figuras/diagramas, sem código nem listas itemizadas. Especificações
+em 12 grupos; simulações começam por freios, cabos, cabine, A/C, bateria e radiador.
+As figuras acompanham o modelo e a interpretação. Ler `REVISAO_LEITURA_E_COMPARACOES.md`:
+20 casos de consumo com um parâmetro por vez, 140 novas janelas MILP, seis missões de
+acumular energia e figuras de R×entropia, UA/rendimento e perda de pressão.
+O cenário nominal/configuração/massa não mudou. `simular_missao` ganhou período de
+dias de condução com padrão 1, preservando o comportamento anterior; 299 testes passam.
+A rotina `relatorio/compilar.sh` inclui a reprodução das novas comparações.
+
+---
+
 # Revisão editorial e de todos os PRs — estado vigente em 25/11/2026
 
 O usuário pediu relatório curto com redação próxima à do Cuca, inclusive frases; manter

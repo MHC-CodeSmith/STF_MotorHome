@@ -1,3 +1,6 @@
+> Revisão atual de leitura e comparações: [registro](REVISAO_LEITURA_E_COMPARACOES.md).
+> Inclui execuções adicionais e apresentação orgânica das sugestões de Fael, Alonso e Herick.
+
 > Revisão editorial posterior: o PDF foi enxugado, mantendo os 27 pedidos/subpedidos,
 > os quatro fluxogramas, o mapa e as comparações. As listagens foram retiradas por
 > instrução expressa. A introdução/revisão/objetivos usam frases adaptadas do Cuca com
@@ -35,7 +38,7 @@ representa autorização de instalação, ensaio ou aprovação humana dos compo
 | 12 | Melhor velocidade,40 e80 sob mesmo horário/reservas; dias, horas, ritmo após reserva e bateria inicial | I29, macro/tabela `IbComparacao`, geradas por `fechar_i29_velocidade.py --figura`; `i29_fechamento/comparacao_velocidades.json`. Horário e reservas comuns isolam a velocidade. A primeira chegada à reserva é apurada intervalo a intervalo, sem a aproximação pelo SOC de fim do dia, que pode ocultar uma descarga seguida de recarga. Há teste desse caso. Comparações com horários otimizados separadas nas buscas. |
 | 13 | Por que busca em grade e alcance da palavra ótima | I29 distingue mínimo analítico de consumo do mínimo de tempo dependente da agenda, portáteis, mínimoCC e reservas. Resultado identificado como melhor combinação na grade/refinos; ótimo global não alegado. |
 | 14 |17h45: janela recorrente versus primeira partida física | `simular_missao(..., primeira_partida_h=...)` e fechamentoI29 impedem condução antes da primeira saída. O horário final é aquele recalculado, não herdado do cenário anterior. |
-| 15 | Acumular vários dias como opção | I29 descreve a política opcional e suas restrições de capacidade, reservas, céu claro e portáteis; não se inventa ganho nem se apresenta como resultado simulado do cenário principal. |
+| 15 | Acumular vários dias como opção | I29 apresenta seis execuções de política fixa 08–16h, a 40/80 km/h, com zero/um/dois dias inteiros parados entre deslocamentos. Tabela de chegada/interrupção, duração e horas de condução; ver `REVISAO_LEITURA_E_COMPARACOES.md` e `relatorio/dados_comparacoes/`. Não substitui o cenário principal noturno nem prova ótimo global. |
 | 16 | Variante, introdução com teto/portáteis, alternativas e parâmetros decisivos; teoria→dados→método→resultado→interpretação | Introdução e Projeto técnico; SK MY25 505.GG1.2, tabela de escolhas, subseções de especificação e deduções dos11 problemas. Fotografias oficiais com fontes, CAD e campos preservados. Comparações típicas sem fonte equivalente foram retiradas. |
 | 17a | Mapa de dependências e ordem de propagação | Mapa entreP1–P7; massa/CG e CdA→consumoI26→I25/I29/I27; esta ordem foi respeitada na reexecução. |
 | 17b | Fluxo geração/elétrica, bancos distintos, recarga externaCC e ponto do mínimo | I09, `fig:fluxo_eletrico`: sol→teto/portáteis→MPPT→serviços; inversor/cargas e ramo hipotéticoCCS2 separados. |

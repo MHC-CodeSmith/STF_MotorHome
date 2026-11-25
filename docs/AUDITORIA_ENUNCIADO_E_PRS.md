@@ -1,3 +1,6 @@
+> Leitura integrada e comparações adicionais de Fael, Alonso e Herick:
+> [registro da revisão atual](REVISAO_LEITURA_E_COMPARACOES.md). O PDF não segue uma lista de respostas.
+
 # Conferência do enunciado, de todos os PRs e da versão enxuta
 
 Revisão de 25/11/2026, após o usuário rejeitar o PDF de 85 páginas e pedir redação
@@ -25,12 +28,12 @@ a cama mudou a massa e os resultados dependentes foram reexecutados.
 | #2/P7 — obrigatória 4 | I12 não atribui rejeição sustentada à convecção isolada do redutor; a carga adicional é separada no I35. |
 | #2/P7 — obrigatória 5 | I34 usa 486 casos incluindo R e entropia, nominal dU/dT=0, três cortes a45°C; não apenas a antiga varredura parcial. |
 | #2/P7 — obrigatória 6 | Texto e figuras usam “fluido de arrefecimento”. |
-| #2/P7 — recomendada 7 | Tabela compacta de bomba, radiador, ventilador, MEG, mangueiras, vaso e circuito da bateria. Ventilação48V recalculada:444W e145m³/h aΔT10K. Cotas/volumes OEM ausentes são identificados, não inventados. |
+| #2/P7 — recomendada 7 | Especificação compacta de bomba, radiador, ventilador, MEG, mangueiras, vaso e circuito da bateria. Ventilação48V recalculada:444W e145m³/h aΔT10K. Cotas/volumes OEM ausentes são identificados, não inventados. |
 | #2/P7 — recomendada 8 | Tabela de lubrificantes típicos e perdas de motor/inversor/redutor; viscosidade/volume exatos dependem de VIN. |
 | #2/P7 — recomendada 9 | Meta65°C explicitada: UA1000 resulta66,8°C e não atende; mínimo calculado1093W/K. Se o redutor compartilhar o circuito,29,02kW exigem1952W/K. Carga140kW nas rodas distinguida do pico205kW. |
 | #2/P7 — recomendada 10 | Δp de componentes reexecutado:48,5kPa/68%; vazões31,9→26,4→23,1L/min. NPSHa2,6/12,3m sob hipóteses explícitas, sem afirmar margem porque NPSHr não foi publicado. |
 | #2/P7 — recomendada 11 | Extremos reexecutados: parada45°C em0,66/0,37h ao iniciar25/35°C. Calor interno máximo6,35kW; a sugestão3–5kW não garante o extremo. Critério instantâneo conservador:capacidade≥6,35kW e UA bateria–fluido≥318W/K para45/25°C. Não se afirma que um chiller foi instalado. |
-| #2/P7 — interfaces/A14/A15 | Tabela de limites, hipóteses de R/entropia/UA, distinção FreshWell/circuitoOEM, massa dentro da tara e reservas, carga do redutor e redução de potência por temperatura. Integração física/limitesOEM continuam não demonstrados. |
+| #2/P7 — interfaces/A14/A15 | Discussão dos limites, hipóteses de R/entropia/UA, distinção FreshWell/circuitoOEM, massa dentro da tara e reservas, carga do redutor e redução de potência por temperatura. Integração física/limitesOEM continuam não demonstrados. |
 | #4/P3 | Janela S4 com material/cotas/massa, claraboia rejeitada por288<390mm, passagens, parede/vidro/UA; banco sob cama a0,863m; áreas4,8954/4,82784m² e CdA; faixa oscilatória sem “incerteza1%”. |
 | #5/P2 | Mantidos contornos reais assumidos,382/489A,158°C em120mm²,185mm² como requisito derivado, pico transitório; faltas10–40mΩ com2,75–16,05kA eBMS; capacidade útil/nominal; eficiência98% do150/60; código sem hardcode de energia e serialização coerente. |
 | #5 — pendência software35A | Corrigido `comparar_teto_maxeon.py`: triagem usa60A, inclusive no teto isolado; corrente quente dos portáteis continua desconhecida. Sem aprovação automática do arranjo compartilhado. Verificador confere essa condição. |
@@ -103,11 +106,11 @@ objetivas para o professor em `PERGUNTAS_TERMICAS_PROFESSOR.md`.
 
 ## Verificação da versão publicada
 
-PDF de 39 páginas, 6.027.541 bytes (6,03 MB), fonte de 12 pt e 33 figuras/diagramas.
-Os 35 itens aparecem na ordem; não há listagens nem anexo de código; citações e
+PDF de 41 páginas, aproximadamente 6,32 MB, fonte de 12 pt e 38 figuras/diagramas.
+Os 35 itens têm rótulos únicos e tabela final na ordem; não há listagens nem anexo de código; citações e
 referências estão resolvidas, sem avisos de LaTeX na passagem final.
 
-Suite local: 298 testes aprovados, com oito avisos de depreciação da dependência pvlib.
+Suite local: 299 testes aprovados, com oito avisos de depreciação da dependência pvlib.
 Ruff, verificação estrutural e os dois verificadores de manifesto em modo de leitura
 aprovados. A auditoria de estrutura também expõe os parâmetros OEM não publicados
 e a ausência de aprovação final de engenharia; testes não alteram essa condição.

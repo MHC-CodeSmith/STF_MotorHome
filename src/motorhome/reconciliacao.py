@@ -135,7 +135,8 @@ def simular_missao(roof_kw, portable_kw, driving_slots, *, speed_kmh, kwh_km,
                    reserve_traction, reserve_service, target_km=7000.,
                    max_days=1500, mode='sem_interface', allocation='flexivel',
                    min_dc_kw=None, eta_dc=.9, eta_service=.95, eta_buffer=.95,
-                   buffer_capacity_kwh=0., primeira_partida_h=None):
+                   buffer_capacity_kwh=0., primeira_partida_h=None,
+                   driving_day_period=1, portable_parked_kw=None):
     """Replay de dia-tipo: SOCs independentes e carga externa apenas parada.
 
     Janela portátil planejada não é ampliada por imobilização incidental.
@@ -146,10 +147,17 @@ def simular_missao(roof_kw, portable_kw, driving_slots, *, speed_kmh, kwh_km,
     primeira_partida_h: o relógio começa às 0h do primeiro dia; antes dessa hora o
     veículo não dirige no primeiro dia, mesmo que a janela recorrente cruze a
     meia-noite (sem ela, uma janela 18h-02h rodaria de 0h a 2h antes da partida).
+    driving_day_period: dirige no primeiro dia e a cada N dias; os dias intermediários
+    são parados. portable_parked_kw permite abertura durante todo o dia parado.
+    O ciclo usa dias civis; a comparação entre ciclos deve usar janela sem cruzar 0h.
     """
     n = len(roof_kw)
     if n < 1 or len(portable_kw) != n or len(driving_slots) != n:
         raise ValueError('Séries incompatíveis')
+    if isinstance(driving_day_period, bool) or not isinstance(driving_day_period, int) or driving_day_period < 1:
+        raise ValueError('Período de condução deve ser inteiro positivo')
+    if portable_parked_kw is not None and len(portable_parked_kw) != n:
+        raise ValueError('Série de portáteis no dia parado incompatível')
     dt = 24/n
     if sum(driving_slots)*dt > 8+1e-9:
         raise ValueError('Mais de8h de condução planejada')
@@ -165,6 +173,8 @@ def simular_missao(roof_kw, portable_kw, driving_slots, *, speed_kmh, kwh_km,
         raise ValueError('Alocação desconhecida')
     if any(not math.isfinite(p) or p < 0 for p in list(roof_kw)+list(portable_kw)):
         raise ValueError('Potência inválida')
+    if portable_parked_kw is not None and any(not math.isfinite(p) or p < 0 for p in portable_parked_kw):
+        raise ValueError('Potência de portáteis no dia parado inválida')
     if mode != 'buffer_hipotese' and buffer_capacity_kwh:
         raise ValueError('Buffer somente em cenário dedicado')
     traction, service, buffer, distance = traction_capacity_kwh, service_capacity_kwh, 0., 0.
@@ -175,16 +185,19 @@ def simular_missao(roof_kw, portable_kw, driving_slots, *, speed_kmh, kwh_km,
     reason = 'horizonte_sem_conclusao'
     for day in range(max_days):
         drove = 0.
+        driving_day = day % driving_day_period == 0
         for slot in range(n):
             remaining = target_km-distance
             available = max(0., traction-traction_capacity_kwh*reserve_traction)
             antes_da_partida = (day == 0 and primeira_partida_h is not None
                                 and (slot+.5)*dt < primeira_partida_h)
             drive = (min(speed_kmh*dt, remaining, available/kwh_km)
-                     if driving_slots[slot] and not antes_da_partida else 0.)
+                     if driving_day and driving_slots[slot] and not antes_da_partida else 0.)
             driving = drive > 1e-9
             p_roof = float(roof_kw[slot])
-            p_port = 0. if driving else float(portable_kw[slot])
+            portable_source = (portable_parked_kw if not driving_day and portable_parked_kw is not None
+                               else portable_kw)
+            p_port = 0. if driving else float(portable_source[slot])
             pv = (p_roof+p_port)*dt
             need = service_kwh_day/n
             service_room = max(0., service_capacity_kwh-service+need)/eta_service

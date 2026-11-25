@@ -12,6 +12,7 @@ A interfaceCC externa continua condicional, sem comprovação de compatibilidade
 ## Relatório revisado (25/11/2026)
 
 - [Relatório (PDF)](relatorio/relatorio.pdf) · [compilação e reprodução](relatorio/README.md)
+- [Revisão de leitura e comparações de Fael, Alonso e Herick](docs/REVISAO_LEITURA_E_COMPARACOES.md)
 - [Auditoria de todos os PRs e do enunciado](docs/AUDITORIA_ENUNCIADO_E_PRS.md)
 - [Auditoria integral do PR #9 do Fael](docs/AUDITORIA_PR9_REESCRITA.md): 27 pedidos e seus subitens, com evidências e limites
 - **Revisão por integrante:** [guia, itens e páginas de cada um](docs/REVISAO_INTEGRANTES.md) · [registrar parecer](https://github.com/MHC-CodeSmith/STF_MotorHome/issues/new?template=revisao_integrante.yml)
