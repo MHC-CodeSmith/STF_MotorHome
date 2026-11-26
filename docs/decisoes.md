@@ -1,5 +1,27 @@
 # Registro de decisões do projeto (ADR simplificado)
 
+## Estado vigente — conciliação documental de 26/11/2026
+
+**Decisão principal por área:** consultar a [síntese P1–P7](DECISOES_VIGENTES_P1_P7.md).
+A [matriz das 61 decisões](MATRIZ_DECISOES_61.md) foi reconciliada com as evidências
+atuais, preservando IDs, títulos, deliberações e hashes do registro original.
+
+O cenário ativo é `maxeon1560_independente`, com cama reforçada, massa estimada
+4042,782630 kg e piso CC **hipotético** de 0,38 kW. A arquitetura B e a independência
+dos bancos permanecem; CCS2/alocação FV não foram demonstrados. I29 resulta em
+214,755556 dias no líder da busca finita, não em missão física ou ótimo global.
+Cabos de 185 mm² não foram liberados para pico contínuo no cofre; A/C com proteção
+solar e requisitos UA/vazão continuam condicionais. Nenhuma aprovação final de
+engenharia foi acrescentada; os pareceres acadêmicos incorporados são preservados.
+
+Esta atualização usa YAML, resultados e recibos da revisão de 25/11; não modifica
+entradas, modelos, cálculos ou PDF e não reexecuta simulações. Os registros datados
+abaixo documentam a evolução: 1350/1540 Wp, massas, pisos CC e agendas anteriores
+não descrevem o cenário atual. O [registro original](decisoes_motorhome_2026-10-28.md)
+permanece byte a byte, inclusive deliberações aprovadas e ressalvas físicas.
+
+## Histórico de decisões e execução
+
 As perguntas e evidências necessárias ao marco inicial estão no [registro M0](REGISTRO_M0.md). São pendências para revisão; nenhuma resposta ou aprovação foi presumida.
 
 | ID | Data | Decisão | Alternativas | Responsável | Itens impactados | Revisão |

@@ -146,7 +146,7 @@
     "scripts/comparar_cfd_deck.py": "5d6fe391abca061e04cbd36fd1a0bffc76ccb8a6ec3c7100f7b62e75962e148f",
     "scripts/consolidar_termica.py": "beb61268737cbd6674ffa8aa1a471fe21a0d6e698cf10d1ec94d27c391fb9b07",
     "scripts/calcular_solar.py": "fc80551a40190e8d4e4b1e8969ed9627a74eb3046299ecab8fce149ae5732861",
-    "scripts/atualizar_matriz_decisoes_integrada.py": "46039c7e8f70634c6904b26ebeaafd3ab2dcf4edf53050beb50f086df955f0dc",
+    "scripts/atualizar_matriz_decisoes_integrada.py": "67f611426d6de0d1711577e3f8ab958960f1825b6d88a9362acdcc35ba5bfb2e",
     "scripts/desenvolver_integracao.py": "331c6932c62c4b628fd064e87efc6eebb7d858cc6a56b93925778a7b7cf773e5",
     "scripts/consolidar_pacote_dec061.py": "176b6151e641591bdd8c68b8a253e155f56998e590d9dd31444f8147aeb08b91",
     "scripts/gerar_solar_cenario.py": "757d06ed8e0370f677065621029af0768c7c3d14f6728a40194bf51b2a4608ce",
