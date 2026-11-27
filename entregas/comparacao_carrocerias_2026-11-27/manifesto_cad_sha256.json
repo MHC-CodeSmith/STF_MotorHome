@@ -1,0 +1,19 @@
+{
+  "cad/original.glb": "efc1cbd19dd89db7ee46d15f7fc4a4150ea145deb117e4278a198fcbfe010b94",
+  "cad/modificado.glb": "4413dd1bb99df2e3f7e1b3add9bbc694142c5b61cf25043f8e2c61a8d26e112c",
+  "cad/ajuste_oem.glb": "20ad8dee78c068d747e69b1a26e5bbbee2f54d02f92edc314e00badb0d8c5f76",
+  "superficies/revised/aurora_cfd_m.stl": "30f329eaa2b8a99537f8cb652a287893e477c7fb22bb9e6e1072d6951177dbff",
+  "superficies/revised/manifesto_superficie.json": "6989fdc0e4c1b1a0eda00667eb91bc0d93c7b5004fa720f45554d0360934276d",
+  "superficies/original/aurora_cfd_m.stl": "ab2eec8617758a8c209a9e84d19b9c1e79f3951c47faa74ff9a2c866662b0b40",
+  "superficies/original/manifesto_superficie.json": "66e749f01d39e8cf808343340f64ea1a279d6e10a9f980ab26a731c8d503ab06",
+  "superficies/modified/aurora_cfd_m.stl": "096f3fc21c07f151381aad339b18425b4c059e6520ec82651dc5b397fc9b8f1d",
+  "superficies/modified/manifesto_superficie.json": "3ed4b26537ba14c14bf6725b3f3e918827565890e17fcadf7467bf0c8005db76",
+  "LICENSES/CC-BY-4.0.txt": "d557539df68e771cc1eedcc91d13f70fca930e508d11eedcafa4b15db49e3744",
+  "LICENSES/MPL-2.0.txt": "66a3107d5ad6a058aab753eaac2047ccb2ed0e39465dd0fe5844da3e300d5172",
+  "ATTRIBUTION.txt": "e354f29123258149f770f1f5430eb32b370091effa8575c15f8d0d42c2354420",
+  "ajuste_cotas_oem.json": "b311ce8e5158cfb644f6f1bc28b177244477e4687975b9ff9940d17001040a8e",
+  "geometrias_medidas.json": "ee5e495607bbd3d4683c749cf25914bdf0a4b0f837148fbd6608aa5407812084",
+  "verificacao_geometrica.json": "b72ae0d01e27d49c72d7d24a40850c4dc10ac75871ed70199c862aee0b552c2b",
+  "comparacao_cad.png": "0e84fe43131924f503244cef8cc5992f4fd32d9a3b2a6125c6d405f0314e7172",
+  "comparacao_cad_paineis.png": "3aa3e4d702fb64eb3e86b09735d5547c2224d14ddfd87101e8b7eeb9e9e0e9ff"
+}

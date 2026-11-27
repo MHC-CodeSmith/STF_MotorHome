@@ -1,0 +1,26 @@
+{
+  "backend_checks": [
+    {
+      "device": "gpu0",
+      "cpu_mpi2_s": 337.2221097811125,
+      "gpu_mpi2_s": 449.1209645261988,
+      "observed_speedup": 0.7508491841098216,
+      "max_relative_cd_difference_last10": 0.002027997489729917,
+      "check_passed": true
+    },
+    {
+      "device": "gpu1",
+      "cpu_mpi2_s": 337.2221097811125,
+      "gpu_mpi2_s": 453.294065812137,
+      "observed_speedup": 0.7439367404400805,
+      "max_relative_cd_difference_last10": 0.002027997489729917,
+      "check_passed": true
+    }
+  ],
+  "all_passed": true,
+  "physical_validation": false,
+  "validated_cd": null,
+  "scope": "40-iteration same-mesh backend comparison on a shared workstation; these coefficients are not production CFD results.",
+  "libogl_sha256": "3eb9617f74f497c8b739064824d27467f6853ed9daada027bdd7966ace7bf482",
+  "libginkgo_sha256": "41fdf5c262935645103e4a30960f428ea94155913af062194c7f52b881b8f2c1"
+}

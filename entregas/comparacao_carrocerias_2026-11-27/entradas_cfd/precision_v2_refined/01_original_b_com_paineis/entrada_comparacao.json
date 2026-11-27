@@ -1,0 +1,61 @@
+{
+  "status": "COMPARACAO_PREPARADA_NAO_EXECUTADA",
+  "superficie_sha256": "ab2eec8617758a8c209a9e84d19b9c1e79f3951c47faa74ff9a2c866662b0b40",
+  "area_referencia_m2": 4.253907892076646,
+  "velocity_m_s": 22.222222,
+  "surface_levels": [
+    5,
+    6
+  ],
+  "requested_layers": 5,
+  "hipoteses": [
+    "nu=1.7e-5 e rho=1.1 s\u00e3o valores piloto a revisar",
+    "Camadas solicitadas n\u00e3o garantem cobertura; conferir malha e y+",
+    "Rodas estacion\u00e1rias; espelhos da malha de refer\u00eancia",
+    "Forma adaptada/reparada n\u00e3o homologada; Cd n\u00e3o \u00e9 resultado final"
+  ],
+  "codigo": "scripts/preparar_cfd_piloto.py",
+  "geometry_name": "01_original_b_com_paineis",
+  "input_geometry": {
+    "stl": "/home/hipolito/stf-aero-cache/original_prepared_parts/aurora_cfd_m.stl",
+    "area_m2": 4.253907892076646,
+    "manifest": "/home/hipolito/stf-aero-cache/original_prepared_parts/manifesto_superficie.json",
+    "preparation_projection_changes": [
+      0.0010400230124214768,
+      0.0010891135523034292,
+      0.003419194388581898
+    ],
+    "panels": true
+  },
+  "first_layer_m": null,
+  "expansion_ratio": 1.2,
+  "velocity_convection": "bounded Gauss linearUpwind grad(U)",
+  "wheel_rotation": false,
+  "panel_present": true,
+  "panel_dimensions_m": [
+    1.046,
+    1.69,
+    0.04
+  ],
+  "panel_count": 4,
+  "panel_gaps_m": 0.02,
+  "roof_clearance_m": 0.04,
+  "panel_minimum_corner_m": [
+    -2.474992609024048,
+    -0.845,
+    2.2851677322387696
+  ],
+  "panel_supports_modelled": false,
+  "panel_fit_to_original_short_body_verified": false,
+  "matched_settings": true,
+  "validated_cd": null,
+  "background_divisions": [
+    77,
+    28,
+    14
+  ],
+  "maximum_cells": 10000000,
+  "mesh_shrinker": "displacementMotionSolver/displacementLaplacian",
+  "final_layer_relative": 0.3,
+  "minimum_layer_stack_relative": 0.1
+}

@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-27",
+  "OpenFOAM": "v2412 patch 260127",
+  "OGL": {
+    "url": "https://github.com/hpsim/OGL",
+    "commit": "69387eeffa02aa614085ced705ecd8a2f59ddd6c",
+    "license": "GPL-3.0-or-later"
+  },
+  "Ginkgo": {
+    "url": "https://github.com/ginkgo-project/ginkgo",
+    "commit": "fc86d48b78cebd2b2c5833a2dcf0fe40f615cf19",
+    "license": "BSD-3-Clause"
+  },
+  "CUDA": "12.8",
+  "architecture": "sm_86",
+  "MPI": "OpenMPI 4.1.6; host-staged transfers",
+  "patch_application": [
+    "Apply ginkgo-host-mpi-staging.patch with patch -p1 from the pinned Ginkgo source directory.",
+    "Apply ogl-matrix-scaling.patch with git apply from the pinned OGL source directory.",
+    "Run build-gpu.sh after adapting its base path; sources and OpenFOAM binaries/headers must already exist."
+  ],
+  "benchmark": "../backend_benchmark/resumo.json",
+  "patch_sha256": {
+    "ginkgo-host-mpi-staging.patch": "b373a474ae25d749aeae4ecca8683b1c8a613e96fb6bfcad724c105f9b4c58ec",
+    "ogl-matrix-scaling.patch": "679cfb2a6c0b66821f280e54b2f0be553674663fdee4230d0c0516b4c17a65eb"
+  }
+}

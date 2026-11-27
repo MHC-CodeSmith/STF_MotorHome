@@ -1,0 +1,53 @@
+--- a/core/distributed/matrix.cpp
++++ b/core/distributed/matrix.cpp
+@@ -302,15 +302,19 @@
+                 dense_x->get_local_vector()->get_stride());
+ 
+             auto comm = this->get_communicator();
+-            auto req = sparse_comm_->communicate(dense_b->get_local_vector(),
+-                                                 send_buffer_, recv_buffer_);
+-            local_mtx_->apply(dense_b->get_local_vector(), local_x);
+-            req.wait();
+-
+             auto exec = this->get_executor();
+             auto use_host_buffer = mpi::requires_host_buffer(exec, comm);
+             if (use_host_buffer) {
++                auto host_b = gko::clone(exec->get_master(), dense_b->get_local_vector());
++                auto req = sparse_comm_->communicate(host_b.get(), host_send_buffer_, host_recv_buffer_);
++                local_mtx_->apply(dense_b->get_local_vector(), local_x);
++                req.wait();
++                recv_buffer_.init(exec, host_recv_buffer_->get_size());
+                 recv_buffer_->copy_from(host_recv_buffer_.get());
++            } else {
++                auto req = sparse_comm_->communicate(dense_b->get_local_vector(), send_buffer_, recv_buffer_);
++                local_mtx_->apply(dense_b->get_local_vector(), local_x);
++                req.wait();
+             }
+             non_local_mtx_->apply(one_scalar_.get(), recv_buffer_.get(),
+                                   one_scalar_.get(), local_x);
+@@ -336,16 +340,19 @@
+                 dense_x->get_local_vector()->get_stride());
+ 
+             auto comm = this->get_communicator();
+-            auto req = sparse_comm_->communicate(dense_b->get_local_vector(),
+-                                                 send_buffer_, recv_buffer_);
+-            local_mtx_->apply(local_alpha, dense_b->get_local_vector(),
+-                              local_beta, local_x);
+-            req.wait();
+-
+             auto exec = this->get_executor();
+             auto use_host_buffer = mpi::requires_host_buffer(exec, comm);
+             if (use_host_buffer) {
++                auto host_b = gko::clone(exec->get_master(), dense_b->get_local_vector());
++                auto req = sparse_comm_->communicate(host_b.get(), host_send_buffer_, host_recv_buffer_);
++                local_mtx_->apply(local_alpha, dense_b->get_local_vector(), local_beta, local_x);
++                req.wait();
++                recv_buffer_.init(exec, host_recv_buffer_->get_size());
+                 recv_buffer_->copy_from(host_recv_buffer_.get());
++            } else {
++                auto req = sparse_comm_->communicate(dense_b->get_local_vector(), send_buffer_, recv_buffer_);
++                local_mtx_->apply(local_alpha, dense_b->get_local_vector(), local_beta, local_x);
++                req.wait();
+             }
+             non_local_mtx_->apply(local_alpha, recv_buffer_.get(),
+                                   one_scalar_.get(), local_x);

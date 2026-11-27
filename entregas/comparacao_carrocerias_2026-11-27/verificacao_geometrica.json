@@ -1,0 +1,44 @@
+[
+  {
+    "case": "original",
+    "closed": true,
+    "bounds_preserved": true,
+    "four_tyres_preserved": true,
+    "projection_changes": [
+      0.0010400230124214768,
+      0.0010891135523034292,
+      0.003419194388581898
+    ]
+  },
+  {
+    "case": "modified",
+    "closed": true,
+    "bounds_preserved": true,
+    "four_tyres_preserved": true,
+    "projection_changes": [
+      0.002054267997377723,
+      0.00021551572692636215,
+      0.0007304350161270992
+    ]
+  },
+  {
+    "case": "revised",
+    "closed": true,
+    "bounds_preserved": true,
+    "four_tyres_preserved": true,
+    "projection_changes": [
+      0.0019863057716065216,
+      0.0030841601081331806,
+      0.0026144387669942214
+    ],
+    "open_mirror_width_m": 2.690000057220459
+  },
+  {
+    "case": "revised",
+    "wheelbase_m": 4.035,
+    "front_track_m": 1.81,
+    "rear_track_m": 1.79,
+    "front_overhang_m": 0.948,
+    "rear_overhang_m": 1.015
+  }
+]
