@@ -13,6 +13,7 @@ from queue import SimpleQueue
 from threading import local
 
 from executar_openfoam import ambiente
+from processo_cfd_monitorado import run as run_monitored
 
 
 def main():
@@ -22,6 +23,10 @@ def main():
     p.add_argument("--workers", type=int, default=1)
     p.add_argument("--mpi", type=int, default=1)
     p.add_argument("--gpu-lib", type=Path)
+    p.add_argument("--devices", type=int, nargs="+")
+    p.add_argument("--inicio", type=int, default=0)
+    p.add_argument("--fim", type=int)
+    p.add_argument("--potential", action="store_true")
     p.add_argument("--aguardar-malha", action="store_true")
     p.add_argument("--timeout-s", type=int, default=21600)
     a = p.parse_args()
@@ -40,7 +45,10 @@ def main():
         raise ValueError("Supported limits: workers 1–2; MPI 1–4")
     worker_state = local()
     devices = SimpleQueue()
-    for device in range(a.workers):
+    selected_devices = a.devices if a.devices is not None else list(range(a.workers))
+    if len(selected_devices) != a.workers or len(set(selected_devices)) != a.workers:
+        raise ValueError("Provide one distinct device per worker")
+    for device in selected_devices:
         devices.put(device)
 
     def init_worker():
@@ -106,6 +114,8 @@ def main():
                 (case / "resume_snapped.json").read_text()
             )
             stages = [("checkMesh_snapped", []), *stages[1:]]
+        if a.potential:
+            stages.append(("potentialFoam", ["-initialiseUBCs"]))
         if a.mpi > 1:
             (case / "system/decomposeParDict").write_text(
                 "FoamFile {version 2.0; format ascii; class dictionary; object decomposeParDict;}\n"
@@ -123,21 +133,12 @@ def main():
             if log.exists():
                 raise FileExistsError(log)
             start = time.time()
-            with log.open("w") as stream:
-                try:
-                    proc = subprocess.run(
-                        command,
-                        env=case_env,
-                        stdout=stream,
-                        stderr=subprocess.STDOUT,
-                        timeout=a.timeout_s,
-                        check=False,
-                    )
-                    code = proc.returncode
-                except subprocess.TimeoutExpired:
-                    code = -999
+            stage_result = run_monitored(
+                command, case_env, log, a.timeout_s, guard=tool == "simpleFoam"
+            )
+            code = stage_result["exit_code"]
             text = log.read_text(errors="replace")
-            result[tool] = {"exit_code": code, "elapsed_s": time.time() - start}
+            result[tool] = {**stage_result, "elapsed_s": time.time() - start}
             if tool.startswith("checkMesh"):
                 result["mesh_ok"] = "Mesh OK." in text
                 m = re.search(r"cells:\s+(\d+)", text)
@@ -160,7 +161,7 @@ def main():
                 result["drag_n"] = (
                     0.5 * 1.1 * 22.222222**2 * result["cda_m2"] if cd else None
                 )
-                with (case / "log.yPlus").open("w") as stream:
+                with (case / "log.yPlus").open("x") as stream:
                     ycommand = [
                         "simpleFoam",
                         "-case",
@@ -210,11 +211,18 @@ def main():
 
     cases = [
         c for c in sorted(a.casos.iterdir()) if (c / "entrada_comparacao.json").exists()
-    ]
+    ][a.inicio : a.fim]
     with ThreadPoolExecutor(max_workers=a.workers, initializer=init_worker) as pool:
         results = list(pool.map(run_case, cases))
-    if any(r.get("simpleFoam", {}).get("exit_code") != 0 for r in results):
-        raise SystemExit("One or more cases failed; inspect retained logs")
+    if any(
+        r.get("simpleFoam", {}).get("exit_code") != 0
+        or not r.get("solver_converged")
+        or r.get("cd_span_last50", float("inf")) >= 0.01
+        for r in results
+    ):
+        raise SystemExit(
+            "One or more cases failed acceptance checks; inspect retained logs"
+        )
 
 
 if __name__ == "__main__":

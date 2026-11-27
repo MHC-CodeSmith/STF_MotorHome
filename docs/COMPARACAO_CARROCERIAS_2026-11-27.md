@@ -246,3 +246,48 @@ liberada após checkMesh aprovado e hashes conferidos. O script de coordenação
 usado está copiado em software_patches/run-gpu-campaign.sh; cada solução tem
 limite de 24 h. A passagem à malha refinada não representa aceitação física
 ou convergência iterativa automática da fase inicial.
+
+## Correção após as primeiras soluções — 27/11, 18h BRT
+
+As seis malhas iniciais terminaram e passaram no checkMesh. Entretanto, o
+original sem painéis divergiu, chegando ao limite de 2000 iterações com força
+absurda; o original com painéis divergiu e sofreu exceção de ponto flutuante
+na iteração 1081. O modificado sem painéis foi interrompido durante a solução;
+seu Cd momentâneo de aproximadamente 0,418 não foi aceito como convergido.
+Esses logs e estados ficam em rejected_production_v1 na entrega; os campos
+integrais permanecem no cache precision_v1. Nenhum desses números é um novo
+coeficiente do projeto. O ensaio anterior de 40 iterações conferia somente
+um trecho curto e não demonstrava estabilidade de soluções longas.
+
+A recuperação preserva os hashes das malhas e todas as condições físicas.
+Os novos casos, precision_v1_recovery, recebem inicialização potencial,
+relaxação de pressão 0,2 e de U/k/omega 0,3, com gradiente padrão cellLimited
+Gauss linear 1. Mantém-se a convecção linearUpwind de U. As referências de
+método são [potentialFoam](https://doc.openfoam.com/2306/tools/processing/solvers/rtm/basic/potentialFoam/)
+e [under relaxation](https://doc.openfoam.com/2212/tools/processing/numerics/solvers/under-relaxation/).
+Isso é uma tentativa de estabilização numérica, sem selecionar Cd-alvo.
+A inicialização potencial não substitui o modelo viscoso SST.
+
+Um par CPU/CUDA usa a mesma malha original e os mesmos campos potencialmente
+inicializados, em stability_diagnostic. A comparação longa deve preceder a
+aceitação do backend recuperado. O caso GPU desse par é acessível também pelo
+link precision_v1_recovery/01_original_a_sem_paineis, evitando descartar suas
+iterações: não há segunda solução independente nesse link. O CPU tem limite
+de 600 iterações; o GPU, 4000, sujeito à convergência ou guarda de divergência.
+O original com painéis roda na GPU 1 com o mesmo protocolo recuperado.
+Os coeficientes de ambos continuam provisórios até a verificação final.
+
+O executor agora interrompe Cd não finito ou |Cd|>10 depois da inicialização
+(iteração>100), como guarda ampla de falha. Isso não é limite físico universal,
+critério de convergência ou alvo de calibração. Saída zero sem convergência
+SIMPLE e sem estabilização de Cd é reprovada. FieldMinMax registra extremos
+locais de U, p, k, omega e nut a cada 25 iterações para localizar instabilidades.
+
+O serviço stf-aero-refined-meshes-20261127 prepara a malha fina no CPU em paralelo;
+stf-aero-stability-diagnostic-20261127 executa a referência CPU e o original
+GPU 0; stf-aero-recovery-original-panels-20261127 executa o par com painéis
+na GPU 1. O coordenador stf-aero-recovery-campaign-20261127 aguarda os primeiros
+casos recuperados e os compara com o CPU antes de liberar os demais quatro e,
+por fim, os seis casos refinados recuperados. Script copiado na entrega em
+software_patches/run-recovery-campaign.py. O monitor foi estendido para registrar
+todos esses serviços e casos. Não reiniciar a campanha inicial antiga.

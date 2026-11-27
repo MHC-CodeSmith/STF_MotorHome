@@ -85,6 +85,9 @@ def main():
             "aero_power_w": 0.5 * rho * speed**3 * cda if cda is not None else None,
             "iterations": history[-1][0] if history else None,
             "last50_cd_relative_span": span,
+            "cd_mean_last50": sum(v for _, v in history[-50:]) / 50
+            if len(history) >= 50
+            else None,
             "mesh_ok": mesh_ok,
             "solver_converged": solver_converged,
             "completed": completed,
@@ -107,6 +110,13 @@ def main():
         shutil.copy2(config, d / config.name)
         if path.exists():
             shutil.copy2(path, d / path.name)
+        for name in [
+            "recovery_protocol.json",
+            "resultado_malha.json",
+            "reuse_verified_mesh.json",
+        ]:
+            if (case / name).exists():
+                shutil.copy2(case / name, d / name)
         for raw in sorted(case.glob("log.*")):
             with (
                 raw.open("rb") as source,
@@ -177,7 +187,39 @@ def main():
     if any(r["iterations"] is not None for r in cases):
         ax.legend(fontsize=7)
     fig.savefig(a.destino / "historicos_cd.png", dpi=160)
+    ax.set_ylim(0, 1.5)
+    ax.set_title("Cd histories — display limited to 0–1.5; full data in CSV")
+    fig.savefig(a.destino / "historicos_cd_zoom.png", dpi=160)
     plt.close(fig)
+    if len(cases) == 6 and all(r["iterative_check_passed"] for r in cases):
+        import numpy as np
+
+        labels = ["Original", "Modified", "OEM dimension fit"]
+        fig, axes = plt.subplots(1, 2, figsize=(11, 4), layout="constrained")
+        x = np.arange(3)
+        for offset, panels, label in [
+            (-0.18, False, "Without panels"),
+            (0.18, True, "With panels"),
+        ]:
+            values = [r for r in cases if r["panel_present"] == panels]
+            axes[0].bar(
+                x + offset,
+                [r["cd_diagnostic"] for r in values],
+                width=0.36,
+                label=label,
+            )
+            axes[1].bar(
+                x + offset, [r["cda_m2"] for r in values], width=0.36, label=label
+            )
+        for chart, ylabel in zip(axes, ["Cd [-]", "CdA [m²]"]):
+            chart.set_xticks(x, labels)
+            chart.set_ylabel(ylabel)
+            chart.grid(axis="y", alpha=0.2)
+            chart.legend()
+        fig.suptitle("Numerical comparison — physical validation pending")
+        fig.savefig(a.destino / "comparacao_coeficientes.png", dpi=180)
+        fig.savefig(a.destino / "comparacao_coeficientes.pdf")
+        plt.close(fig)
     print(json.dumps({"cases": cases, "pairs": pairs}, indent=2))
 
 

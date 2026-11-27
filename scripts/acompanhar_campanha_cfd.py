@@ -22,13 +22,37 @@ def main():
     parser.add_argument("--cache", type=Path, required=True)
     parser.add_argument("--destino", type=Path, required=True)
     parser.add_argument("--intervalo", type=int, default=30)
+    parser.add_argument(
+        "--phases",
+        nargs="+",
+        default=[
+            "precision_v1",
+            "precision_v1_recovery",
+            "precision_v2_refined",
+            "precision_v2_refined_recovery",
+            "stability_diagnostic",
+        ],
+    )
+    parser.add_argument(
+        "--units",
+        nargs="+",
+        default=[
+            "stf-aero-gpu-campaign-20261127",
+            "stf-aero-recovery-campaign-20261127",
+            "stf-aero-stability-diagnostic-20261127",
+            "stf-aero-recovery-original-panels-20261127",
+            "stf-aero-refined-meshes-20261127",
+        ],
+    )
     args = parser.parse_args()
     args.destino.mkdir(parents=True, exist_ok=True)
     while True:
         now = datetime.now(timezone.utc).isoformat()
         state = {"updated_utc": now, "validated_cd": None, "phases": {}}
-        for phase in ["precision_v1", "precision_v2_refined"]:
+        for phase in args.phases:
             cases = []
+            if not (args.cache / phase).exists():
+                continue
             for case in sorted((args.cache / phase).iterdir()):
                 if not (case / "entrada_comparacao.json").exists():
                     continue
@@ -74,31 +98,43 @@ def main():
                 )
             except (OSError, UnicodeError):
                 continue
-            if "simpleFoam" in command and str(args.cache / "precision_") in command:
+            if (
+                "simpleFoam" in command
+                and str(args.cache) in command
+                and any(f"/{phase}/" in command for phase in args.phases)
+            ):
                 observed.append({"sample": line, "command": command})
         state["gpu_processes"] = observed
         if observed:
             with (args.destino / "gpu_process_observations.jsonl").open("a") as stream:
                 stream.write(json.dumps({"utc": now, "processes": observed}) + "\n")
-        unit = subprocess.run(
-            [
-                "systemctl",
-                "--user",
-                "show",
-                "stf-aero-gpu-campaign-20261127",
-                "--property=ActiveState",
-                "--value",
-            ],
-            capture_output=True,
-            text=True,
-            timeout=15,
-            check=False,
+        services = {}
+        for name in args.units:
+            unit = subprocess.run(
+                [
+                    "systemctl",
+                    "--user",
+                    "show",
+                    name,
+                    "--property=ActiveState",
+                    "--value",
+                ],
+                capture_output=True,
+                text=True,
+                timeout=15,
+                check=False,
+            )
+            services[name] = unit.stdout.strip()
+        state["services"] = services
+        state["campaign_service"] = (
+            "active"
+            if any(value in ["active", "activating"] for value in services.values())
+            else "inactive"
         )
-        state["campaign_service"] = unit.stdout.strip()
         pending = args.destino / "estado_campanha.tmp"
         pending.write_text(json.dumps(state, indent=2) + "\n")
         pending.replace(args.destino / "estado_campanha.json")
-        if unit.returncode or state["campaign_service"] not in ["active", "activating"]:
+        if state["campaign_service"] != "active":
             break
         time.sleep(args.intervalo)
 

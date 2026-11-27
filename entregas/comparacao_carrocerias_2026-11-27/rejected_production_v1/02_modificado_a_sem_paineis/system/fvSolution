@@ -1,0 +1,11 @@
+FoamFile {version 2.0; format ascii; class dictionary; object fvSolution;}
+
+solvers {
+ cellDisplacement {solver GAMG; smoother GaussSeidel; tolerance 1e-8; relTol .01; minIter 5; maxIter 200;}
+
+ p {solver GKOCG; executor cuda; verbose 1; tolerance 1e-09; relTol 0.001; maxIter 1000; updateRHS true; updateInitGuess true; adaptMinIter false; forceHostBuffer true; scaling 1; preconditioner {preconditioner Multigrid; caching 0; maxLevels 9; minCoarseRows 20;}}
+ "(U|k|omega)" {solver GKOBiCGStab; executor cuda; verbose 1; tolerance 1e-09; relTol 0.001; maxIter 1000; updateRHS true; updateInitGuess true; adaptMinIter false; forceHostBuffer true; preconditioner {preconditioner BJ; maxBlockSize 1; caching 0;}}
+}
+SIMPLE {nNonOrthogonalCorrectors 1; consistent no;
+ residualControl {p 1e-5; U 1e-6; "(k|omega)" 1e-6;}}
+relaxationFactors {fields {p .3;} equations {U .7; k .7; omega .7;}}

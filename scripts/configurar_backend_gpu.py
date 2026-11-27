@@ -12,14 +12,14 @@ def configure(case: Path, tolerance: float = 1e-9, relative: float = 0.001):
     original.write_text(text)
     text = text.replace(
         "p {solver GAMG; tolerance 1e-7; relTol .1; smoother GaussSeidel;}",
-        "p {solver GKOCG; executor cuda; verbose 1; "
+        "p {solver GKOCG; executor cuda; verbose 0; "
         f"tolerance {tolerance}; relTol {relative}; maxIter 1000; "
         "updateRHS true; updateInitGuess true; adaptMinIter false; forceHostBuffer true; "
         "scaling 1; preconditioner {preconditioner Multigrid; "
         "caching 0; maxLevels 9; minCoarseRows 20;}}",
     ).replace(
         '"(U|k|omega)" {solver smoothSolver; smoother symGaussSeidel; tolerance 1e-7; relTol .1;}',
-        '"(U|k|omega)" {solver GKOBiCGStab; executor cuda; verbose 1; '
+        '"(U|k|omega)" {solver GKOBiCGStab; executor cuda; verbose 0; '
         f"tolerance {tolerance}; relTol {relative}; maxIter 1000; "
         "updateRHS true; updateInitGuess true; adaptMinIter false; forceHostBuffer true; "
         "preconditioner {preconditioner BJ; maxBlockSize 1; caching 0;}}",
