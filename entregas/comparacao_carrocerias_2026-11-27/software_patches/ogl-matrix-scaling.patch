@@ -1,0 +1,26 @@
+diff --git a/HostMatrix/HostMatrix.C b/HostMatrix/HostMatrix.C
+index 5c003a7..e7c1637 100644
+--- a/HostMatrix/HostMatrix.C
++++ b/HostMatrix/HostMatrix.C
+@@ -722,7 +722,7 @@ void HostMatrixWrapper<MatrixType>::update_non_local_matrix_data(
+ 
+     for (label element_ctr = 0; element_ctr < non_local_matrix_nnz_;
+          element_ctr++) {
+-        contiguous_iface[element_ctr] = interface_coeffs[permute[element_ctr]];
++        contiguous_iface[element_ctr] = scaling_ * interface_coeffs[permute[element_ctr]];
+     }
+ 
+     // copy to persistent
+diff --git a/HostMatrix/HostMatrixFreeFunctions.C b/HostMatrix/HostMatrixFreeFunctions.C
+index ca4c3de..e3535d3 100644
+--- a/HostMatrix/HostMatrixFreeFunctions.C
++++ b/HostMatrix/HostMatrixFreeFunctions.C
+@@ -25,7 +25,7 @@ void symmetric_update(const label total_nnz, const label upper_nnz,
+     for (label i = 0; i < total_nnz; ++i) {
+         const label pos{permute[i]};
+         out[i] =
+-            scale * (pos >= upper_nnz) ? diag[pos - upper_nnz] : upper[pos];
++            scale * ((pos >= upper_nnz) ? diag[pos - upper_nnz] : upper[pos]);
+     }
+ }
+ 

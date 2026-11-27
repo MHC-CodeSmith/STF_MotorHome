@@ -1,0 +1,85 @@
+{
+  "status": "APROXIMACAO_POR_DIGITALIZACAO_MANUAL_DE_ILUSTRACAO",
+  "source_url": "https://www.fiat.sk/content/dam/fiat2023/sk/cenniky/2026/03/e_Ducato_pricelist_dodavka_200326.pdf",
+  "pdf_sha256": "e3becec7275a4a13df61aa7fc5e8b0f6eb38ff6c3584d755d5b1bbd5f5e6224f",
+  "page": 5,
+  "render_height_px": 2000,
+  "render_width_px": 1415,
+  "crop_original_px": [
+    481,
+    1020,
+    962,
+    1300
+  ],
+  "crop_resized_px": [
+    1700,
+    1000
+  ],
+  "rear_datum_x_px": 157,
+  "front_datum_x_px": 1632,
+  "ground_y_px": 890,
+  "roof_y_px": 270,
+  "profile_pixels": [
+    [
+      157,
+      282
+    ],
+    [
+      230,
+      273
+    ],
+    [
+      400,
+      273
+    ],
+    [
+      800,
+      270
+    ],
+    [
+      1080,
+      270
+    ],
+    [
+      1130,
+      281
+    ],
+    [
+      1190,
+      315
+    ],
+    [
+      1250,
+      366
+    ],
+    [
+      1320,
+      430
+    ],
+    [
+      1400,
+      510
+    ],
+    [
+      1480,
+      550
+    ],
+    [
+      1540,
+      575
+    ],
+    [
+      1590,
+      615
+    ],
+    [
+      1632,
+      730
+    ]
+  ],
+  "limits": [
+    "Illustration digitisation is not a measured body scan or OEM surface drawing.",
+    "X normalised to official 5.998 m length; Z normalised to selected 2.612 m height.",
+    "Pixel choices, ride height and rendering introduce profile uncertainty; no Cd target used."
+  ]
+}

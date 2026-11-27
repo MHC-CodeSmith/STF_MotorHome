@@ -1,0 +1,120 @@
+{
+  "updated_utc": "2026-11-27T14:55:26.516467+00:00",
+  "validated_cd": null,
+  "phases": {
+    "precision_v1": [
+      {
+        "case": "01_original_a_sem_paineis",
+        "mesh_verified": false,
+        "resultado_malha.json": {
+          "case": "01_original_a_sem_paineis",
+          "started_unix": 1795790011.7459369,
+          "checkMesh_snapped_resume": {
+            "exit_code": 0,
+            "elapsed_s": 8.296489832922816
+          },
+          "last_stage_passed": true
+        },
+        "layer_iteration": 11.0,
+        "solver_iteration": null
+      },
+      {
+        "case": "01_original_b_com_paineis",
+        "mesh_verified": false,
+        "resultado_malha.json": {
+          "case": "01_original_b_com_paineis",
+          "started_unix": 1795790011.7476501,
+          "checkMesh_snapped_resume": {
+            "exit_code": 0,
+            "elapsed_s": 9.183567983098328
+          },
+          "last_stage_passed": true
+        },
+        "layer_iteration": 9.0,
+        "solver_iteration": null
+      },
+      {
+        "case": "02_modificado_a_sem_paineis",
+        "mesh_verified": false,
+        "resultado_malha.json": {
+          "case": "02_modificado_a_sem_paineis",
+          "started_unix": 1795790011.7479854,
+          "checkMesh_snapped_resume": {
+            "exit_code": 0,
+            "elapsed_s": 9.864047829061747
+          },
+          "last_stage_passed": true
+        },
+        "layer_iteration": 9.0,
+        "solver_iteration": null
+      },
+      {
+        "case": "02_modificado_b_com_paineis",
+        "mesh_verified": false,
+        "resultado_malha.json": {
+          "case": "02_modificado_b_com_paineis",
+          "started_unix": 1795790011.7483451,
+          "checkMesh_snapped_resume": {
+            "exit_code": 0,
+            "elapsed_s": 11.0128521239385
+          },
+          "last_stage_passed": true
+        },
+        "layer_iteration": 8.0,
+        "solver_iteration": null
+      },
+      {
+        "case": "03_ajuste_oem_a_sem_paineis",
+        "mesh_verified": false,
+        "layer_iteration": null,
+        "solver_iteration": null
+      },
+      {
+        "case": "03_ajuste_oem_b_com_paineis",
+        "mesh_verified": false,
+        "layer_iteration": null,
+        "solver_iteration": null
+      }
+    ],
+    "precision_v2_refined": [
+      {
+        "case": "01_original_a_sem_paineis",
+        "mesh_verified": false,
+        "layer_iteration": null,
+        "solver_iteration": null
+      },
+      {
+        "case": "01_original_b_com_paineis",
+        "mesh_verified": false,
+        "layer_iteration": null,
+        "solver_iteration": null
+      },
+      {
+        "case": "02_modificado_a_sem_paineis",
+        "mesh_verified": false,
+        "layer_iteration": null,
+        "solver_iteration": null
+      },
+      {
+        "case": "02_modificado_b_com_paineis",
+        "mesh_verified": false,
+        "layer_iteration": null,
+        "solver_iteration": null
+      },
+      {
+        "case": "03_ajuste_oem_a_sem_paineis",
+        "mesh_verified": false,
+        "layer_iteration": null,
+        "solver_iteration": null
+      },
+      {
+        "case": "03_ajuste_oem_b_com_paineis",
+        "mesh_verified": false,
+        "layer_iteration": null,
+        "solver_iteration": null
+      }
+    ]
+  },
+  "gpu_processes": [],
+  "campaign_service": "active"
+}

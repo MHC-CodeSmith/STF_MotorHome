@@ -1,0 +1,7 @@
+case,panel_present,area_ref_m2,cells,cd_diagnostic,cd_pressure,cd_viscous,cl_diagnostic,cda_m2,drag_n,aero_power_w,iterations,last50_cd_relative_span,mesh_ok,solver_converged,completed,iterative_check_passed,grid_independence,physical_validation,validated_cd
+01_original_a_sem_paineis,False,4.253907892076646,1673573,-2.3592376e+23,-2.3455156e+23,-1.3721998e+21,1.1854228e+24,-1.0035979445923966e+24,-2.7258215233888433e+26,-6.057381102512506e+27,2000.0,1.7170607159204228,True,False,True,False,False,False,
+01_original_b_com_paineis,True,4.253907892076646,2238639,2.0085752e+55,2.0085752e+55,-8.4330678e+37,-4.5465313e+55,8.544293895109428e+55,2.3206723695421988e+58,5.157049658523278e+59,1080.0,50.00001482857834,True,False,False,False,False,False,
+02_modificado_a_sem_paineis,False,5.014946338723832,1888695,0.41632369,0.40316678,0.013156915,-0.20020128,2.0878409648894958,567.0679050483814,12601.50887506005,459.0,0.018481463167599632,True,False,False,False,False,False,
+02_modificado_b_com_paineis,True,5.014946338723832,2492219,,,,,,,,,,True,False,False,False,False,False,
+03_ajuste_oem_a_sem_paineis,False,4.864807368986548,,,,,,,,,,,False,False,False,False,False,False,
+03_ajuste_oem_b_com_paineis,True,4.864807368986548,,,,,,,,,,,False,False,False,False,False,False,

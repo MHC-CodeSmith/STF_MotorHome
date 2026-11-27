@@ -1,0 +1,15 @@
+FoamFile {version 2.0; format ascii; class dictionary; object controlDict;}
+
+application simpleFoam; startFrom startTime; startTime 0; stopAt endTime;
+endTime 4000; deltaT 1; writeControl timeStep; writeInterval 100;
+purgeWrite 2; writeFormat binary; writePrecision 8; writeCompression off;
+timeFormat general; timePrecision 6; runTimeModifiable true;
+functions { fieldExtrema {type fieldMinMax; libs ("libfieldFunctionObjects.so"); fields (U p k omega nut); mode magnitude; log yes; writeToFile true; executeControl timeStep; executeInterval 25; writeControl timeStep; writeInterval 25;}
+ forces1 {type forceCoeffs; libs ("libforces.so");
+ writeControl timeStep; writeInterval 1; log yes;
+ patches ("aurora.*"); rho rhoInf; rhoInf 1.1;
+ CofR (0 0 0); liftDir (0 0 1); dragDir (-1 0 0); pitchAxis (0 1 0);
+ magUInf 22.222222; lRef 5.998; Aref 5.014946338723832;
+ } }
+
+

@@ -1,0 +1,18 @@
+{
+  "check_mesh_log": "log.checkMesh_prepared",
+  "verified_unix": 1795794305.6093287,
+  "mesh_sha256": {
+    "boundary": "183706235c17c2d6d1d75e616ff182e61a2ed1c262c34d98aac44ac6163aa330",
+    "cellLevel": "8bb69b327747944e53e1f0a641be5df44122635f1c5e02d8114e4b3542bed41d",
+    "cellZones": "0a1ae85b868235be40517ee2a6113a9501c5415c905a5ecbbb0e0679f61442d5",
+    "faceZones": "68d5715ea9b4d426cc6d425639c036a4b8f0fd4b0e2c826b1d0cb8c22149f0ec",
+    "faces": "a1b1ef1af4db295a3230830d403c4a514d649d8cc473b39c9c0a4d34040389c5",
+    "level0Edge": "1ca478c30bca863d670f7bc4df84c155307b0ac6d90fc21036a33fe71d1e8a8a",
+    "neighbour": "f2869d462246475d1f4d9613d0b1d76869cdee47706f1e531c8f78500a493cc7",
+    "owner": "7a004bf39afe77365891dc4042f74ee32ccbd105249bd3d043a6c7503d7b6e9a",
+    "pointLevel": "33af30f0569840107c575adf45eb784de9489139e012e434c74e37bbb17b9d0b",
+    "pointZones": "bf8707b8f7790afbe530d4d8bc58ea13ccfa9214923baa41092bed1f719caf60",
+    "points": "e7abae46958cfcd611f129a173c2fdc43bb0e1c2d09cc5672c3908c88fdba643",
+    "surfaceIndex": "89b61cad48a25bec121dee8cbf2db8718d83cdf3e9ca8cc96b863b3b21836db7"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "source": "/home/hipolito/stf-aero-cache/precision_v1/03_ajuste_oem_b_com_paineis",
+  "mesh_changed": false,
+  "geometry_changed": false,
+  "physical_conditions_changed": false,
+  "pressure_relaxation": 0.2,
+  "equation_relaxation": {
+    "U": 0.3,
+    "k": 0.3,
+    "omega": 0.3
+  },
+  "gradient_default": "cellLimited Gauss linear 1",
+  "initialisation": "potentialFoam -initialiseUBCs",
+  "validated_cd": null
+}

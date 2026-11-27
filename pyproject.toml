@@ -16,7 +16,7 @@ scientific = ["numpy", "scipy", "matplotlib", "pandas", "PyYAML"]
 thermal = ["numpy>=1.24", "matplotlib>=3.6", "scipy>=1.11"]
 reports = ["reportlab>=3.6,<5"]
 cad = ["gmsh>=4.15,<5", "trimesh>=4", "shapely>=2", "matplotlib>=3.6", "numpy>=1.24"]
-cfdprep = ["pymeshfix==0.18.1"]
+cfdprep = ["pymeshfix==0.18.1", "scikit-image==0.25.2", "fast-simplification==0.2.0"]
 optimization = ["scipy>=1.11", "pandas", "numpy"]
 
 [tool.setuptools.packages.find]

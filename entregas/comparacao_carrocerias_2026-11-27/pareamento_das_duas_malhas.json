@@ -1,0 +1,89 @@
+[
+  {
+    "case": "01_original_a_sem_paineis",
+    "area_m2": 4.253907892076646,
+    "matched_geometry_and_fields_sha256": {
+      "constant/triSurface/aurora.stl": "ab2eec8617758a8c209a9e84d19b9c1e79f3951c47faa74ff9a2c866662b0b40",
+      "0/U": "53bcf7ebf202289e9cff78ff68d0bf8b9e2c02895e1c7c1187df9da82d6ca0e0",
+      "0/p": "71e9e6b4dac2b878992fe9aa1450eb8cef241fd6afe2bbc0ecd7129fdc86c3ca",
+      "0/k": "4cb462d297d77426490f8546f8066f46a9cb6dde0b6194b94f4534a362ff9931",
+      "0/omega": "ec18500773b26cba80f65e4e8c6e4cf6401f4b141f54fe4e30ac52f023e9d84a",
+      "0/nut": "288706a1ea1d6e58c87469529c6a83e21acf75f5d55f5da48eb8e1056a7c3a94",
+      "constant/transportProperties": "f13b5b1a2ce2d6c3bdc87e320bdd0f6c567acba58322baed10a9cf0597b8a428",
+      "constant/turbulenceProperties": "799f1a8d64f7f7ed3062acb01885e506ff37dadb83361882967d47de46c6880a"
+    }
+  },
+  {
+    "case": "01_original_b_com_paineis",
+    "area_m2": 4.253907892076646,
+    "matched_geometry_and_fields_sha256": {
+      "constant/triSurface/aurora.stl": "ab2eec8617758a8c209a9e84d19b9c1e79f3951c47faa74ff9a2c866662b0b40",
+      "0/U": "83022fac1a9cf00d03a7e7104792871ae0f0dee3f08e208d98944698de3e7c00",
+      "0/p": "f81ed8b9980ccd677c643cc9896d5aec8f1938faeea7a6ca51459567159edfbc",
+      "0/k": "309f486ff3027ae82a818b8bc11fc307ab13ca78352854acaae88d5b5e102ade",
+      "0/omega": "e05efc11e0fcc820fd9c3a9b8cb9fde61d60f762c14a5aea464deac2001236a9",
+      "0/nut": "97c6675f6695fb9ae782ba746e72e090c4db01daae15b17d894c932ef855fd91",
+      "constant/transportProperties": "f13b5b1a2ce2d6c3bdc87e320bdd0f6c567acba58322baed10a9cf0597b8a428",
+      "constant/turbulenceProperties": "799f1a8d64f7f7ed3062acb01885e506ff37dadb83361882967d47de46c6880a",
+      "constant/triSurface/pv.stl": "6ea67a4cb4244ec79e13908385a9a93bf6617c549b16ba10ce56d9c9868bcf89"
+    }
+  },
+  {
+    "case": "02_modificado_a_sem_paineis",
+    "area_m2": 5.014946338723832,
+    "matched_geometry_and_fields_sha256": {
+      "constant/triSurface/aurora.stl": "096f3fc21c07f151381aad339b18425b4c059e6520ec82651dc5b397fc9b8f1d",
+      "0/U": "53bcf7ebf202289e9cff78ff68d0bf8b9e2c02895e1c7c1187df9da82d6ca0e0",
+      "0/p": "71e9e6b4dac2b878992fe9aa1450eb8cef241fd6afe2bbc0ecd7129fdc86c3ca",
+      "0/k": "4cb462d297d77426490f8546f8066f46a9cb6dde0b6194b94f4534a362ff9931",
+      "0/omega": "ec18500773b26cba80f65e4e8c6e4cf6401f4b141f54fe4e30ac52f023e9d84a",
+      "0/nut": "288706a1ea1d6e58c87469529c6a83e21acf75f5d55f5da48eb8e1056a7c3a94",
+      "constant/transportProperties": "f13b5b1a2ce2d6c3bdc87e320bdd0f6c567acba58322baed10a9cf0597b8a428",
+      "constant/turbulenceProperties": "799f1a8d64f7f7ed3062acb01885e506ff37dadb83361882967d47de46c6880a"
+    }
+  },
+  {
+    "case": "02_modificado_b_com_paineis",
+    "area_m2": 5.014946338723832,
+    "matched_geometry_and_fields_sha256": {
+      "constant/triSurface/aurora.stl": "096f3fc21c07f151381aad339b18425b4c059e6520ec82651dc5b397fc9b8f1d",
+      "0/U": "83022fac1a9cf00d03a7e7104792871ae0f0dee3f08e208d98944698de3e7c00",
+      "0/p": "f81ed8b9980ccd677c643cc9896d5aec8f1938faeea7a6ca51459567159edfbc",
+      "0/k": "309f486ff3027ae82a818b8bc11fc307ab13ca78352854acaae88d5b5e102ade",
+      "0/omega": "e05efc11e0fcc820fd9c3a9b8cb9fde61d60f762c14a5aea464deac2001236a9",
+      "0/nut": "97c6675f6695fb9ae782ba746e72e090c4db01daae15b17d894c932ef855fd91",
+      "constant/transportProperties": "f13b5b1a2ce2d6c3bdc87e320bdd0f6c567acba58322baed10a9cf0597b8a428",
+      "constant/turbulenceProperties": "799f1a8d64f7f7ed3062acb01885e506ff37dadb83361882967d47de46c6880a",
+      "constant/triSurface/pv.stl": "6149087a79bd9731045c3d88b94449558ce57fddcfefd85acde6298d6baef8ae"
+    }
+  },
+  {
+    "case": "03_ajuste_oem_a_sem_paineis",
+    "area_m2": 4.864807368986548,
+    "matched_geometry_and_fields_sha256": {
+      "constant/triSurface/aurora.stl": "30f329eaa2b8a99537f8cb652a287893e477c7fb22bb9e6e1072d6951177dbff",
+      "0/U": "53bcf7ebf202289e9cff78ff68d0bf8b9e2c02895e1c7c1187df9da82d6ca0e0",
+      "0/p": "71e9e6b4dac2b878992fe9aa1450eb8cef241fd6afe2bbc0ecd7129fdc86c3ca",
+      "0/k": "4cb462d297d77426490f8546f8066f46a9cb6dde0b6194b94f4534a362ff9931",
+      "0/omega": "ec18500773b26cba80f65e4e8c6e4cf6401f4b141f54fe4e30ac52f023e9d84a",
+      "0/nut": "288706a1ea1d6e58c87469529c6a83e21acf75f5d55f5da48eb8e1056a7c3a94",
+      "constant/transportProperties": "f13b5b1a2ce2d6c3bdc87e320bdd0f6c567acba58322baed10a9cf0597b8a428",
+      "constant/turbulenceProperties": "799f1a8d64f7f7ed3062acb01885e506ff37dadb83361882967d47de46c6880a"
+    }
+  },
+  {
+    "case": "03_ajuste_oem_b_com_paineis",
+    "area_m2": 4.864807368986548,
+    "matched_geometry_and_fields_sha256": {
+      "constant/triSurface/aurora.stl": "30f329eaa2b8a99537f8cb652a287893e477c7fb22bb9e6e1072d6951177dbff",
+      "0/U": "83022fac1a9cf00d03a7e7104792871ae0f0dee3f08e208d98944698de3e7c00",
+      "0/p": "f81ed8b9980ccd677c643cc9896d5aec8f1938faeea7a6ca51459567159edfbc",
+      "0/k": "309f486ff3027ae82a818b8bc11fc307ab13ca78352854acaae88d5b5e102ade",
+      "0/omega": "e05efc11e0fcc820fd9c3a9b8cb9fde61d60f762c14a5aea464deac2001236a9",
+      "0/nut": "97c6675f6695fb9ae782ba746e72e090c4db01daae15b17d894c932ef855fd91",
+      "constant/transportProperties": "f13b5b1a2ce2d6c3bdc87e320bdd0f6c567acba58322baed10a9cf0597b8a428",
+      "constant/turbulenceProperties": "799f1a8d64f7f7ed3062acb01885e506ff37dadb83361882967d47de46c6880a",
+      "constant/triSurface/pv.stl": "6149087a79bd9731045c3d88b94449558ce57fddcfefd85acde6298d6baef8ae"
+    }
+  }
+]
